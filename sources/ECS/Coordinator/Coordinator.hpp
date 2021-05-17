@@ -8,9 +8,9 @@
 #ifndef COORDINATOR_HPP_
 #define COORDINATOR_HPP_
 
-#include "ECS/Managers/SystemManager/SystemManager.hpp"
-#include "ECS/Managers/EntityManager/EntityManager.hpp"
-#include "ECS/Managers/ComponentManager/ComponentManager.hpp"
+#include "SystemManager.hpp"
+#include "EntityManager.hpp"
+#include "ComponentManager.hpp"
 
 namespace ECS
 {
