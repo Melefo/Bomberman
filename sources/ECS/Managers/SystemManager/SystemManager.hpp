@@ -8,13 +8,23 @@
 #ifndef SYSTEMMANAGER_HPP_
 #define SYSTEMMANAGER_HPP_
 
+#include <memory>
+#include <unordered_map>
+#include <string>
+#include "ISystem.hpp"
+
 namespace ECS
 {
     class SystemManager
     {
+        private:
+            std::unordered_map<std::string, std::shared_ptr<ISystem>> _map;
         public:
-            SystemManager();
+            SystemManager() = default;
             ~SystemManager() = default;
+
+            template<typename T>
+            std::shared_ptr<T> AddSystem();
     };
 }
 

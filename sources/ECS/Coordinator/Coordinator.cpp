@@ -9,8 +9,9 @@
 
 namespace ECS
 {
-    Coordinator::Coordinator()
+    template<typename T>
+    std::shared_ptr<T> Coordinator::AddSystem()
     {
-        
+        return this->_systemManager.AddSystem<T>();
     }
 }

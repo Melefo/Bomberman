@@ -8,6 +8,7 @@
 #ifndef COORDINATOR_HPP_
 #define COORDINATOR_HPP_
 
+#include <memory>
 #include "SystemManager.hpp"
 #include "EntityManager.hpp"
 #include "ComponentManager.hpp"
@@ -21,8 +22,11 @@ namespace ECS
             EntityManager _entityManager;
             ComponentManager _componentManager;
         public:
-            Coordinator();
+            Coordinator() = default;
             ~Coordinator() = default;
+    
+            template<typename T>
+            std::shared_ptr<T> AddSystem();
     };
 }
 

@@ -5,11 +5,22 @@
 ** SystemManager
 */
 
+#include "Exceptions.hpp"
 #include "SystemManager.hpp"
 
 namespace ECS
 {
-    SystemManager::SystemManager()
+    template<typename T>
+    std::shared_ptr<T> SystemManager::AddSystem()
     {
+        std::string name(typeid(T).name);
+
+        if (this->_map.find(name) != this->_map.end())
+            throw new Exception::SystemManagerException("Cannot add more than once a system.");
+
+        std::shared_ptr<T> system = std::make_shared<T>();
+
+        this->_map.insert(name, system);
+        return system;
     }
 }
