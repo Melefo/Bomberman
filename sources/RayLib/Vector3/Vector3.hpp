@@ -20,6 +20,7 @@ namespace RayLib
             Vector3(float x, float y);
             Vector3(float x, float y, float z);
             Vector3(const Vector3 &vec);
+            Vector3(const ::Vector3 &vec);
 
             ~Vector3();
 

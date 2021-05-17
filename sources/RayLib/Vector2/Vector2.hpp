@@ -19,6 +19,8 @@ namespace RayLib
             Vector2(float x);
             Vector2(float x, float y);
             Vector2(const Vector2 &vec);
+            Vector2(const ::Vector2 &vec);
+
 
             ~Vector2();
 
