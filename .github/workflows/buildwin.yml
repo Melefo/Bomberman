@@ -3,8 +3,7 @@ name: Compilation on Windows
 on:
   push:
     branches:
-      - master
-      - encapsulation
+      - '**'
   pull_request:
     branches:
       - master
