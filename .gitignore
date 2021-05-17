@@ -1,0 +1,6 @@
+.vscode/
+build/
+winbuild/
+*.gc*
+*.o
+bomberman
