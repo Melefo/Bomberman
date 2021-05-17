@@ -9,7 +9,7 @@
 
 namespace RayLib
 {
-    Window::Window(Vector2 size=Vector2(800, 450), const std::string& title="raylib")
+    Window::Window(Vector2 size, const std::string& title)
     {
         InitWindow(size.x, size.y, title.c_str());
 
@@ -23,12 +23,12 @@ namespace RayLib
             CloseWindow();
     }
 
-    void Window::ClearBackground(const ::Color &color=BLACK)
+    void Window::ClearBackground(const ::Color &color)
     {
         ::ClearBackground(color);
     }
 
-    Vector2& Window::GetSize()
+    Vector2 Window::GetSize()
     {
         Vector2 size(GetScreenWidth(), GetScreenHeight());
 

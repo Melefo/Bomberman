@@ -8,7 +8,7 @@
 #ifndef VECTOR3_HPP_
 #define VECTOR3_HPP_
 
-#include <raylib/include/raylib.h>
+#include <raylib.h>
 
 namespace RayLib
 {

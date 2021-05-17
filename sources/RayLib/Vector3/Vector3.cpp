@@ -10,25 +10,25 @@
 namespace RayLib
 {
 
-    Vector3::Vector3(float x)
+    Vector3::Vector3(float newX)
     {
-        x = x;
+        x = newX;
         y = 0;
         z = 0;
     }
 
-    Vector3::Vector3(float x, float y)
+    Vector3::Vector3(float newX, float newY)
     {
-        x = x;
-        y = y;
+        x = newX;
+        y = newY;
         z = 0;
     }
 
-    Vector3::Vector3(float x, float y, float z)
+    Vector3::Vector3(float newX, float newY, float newZ)
     {
-        x = x;
-        y = y;
-        z = z;
+        x = newX;
+        y = newY;
+        z = newZ;
     }
 
     Vector3::Vector3(const Vector3 &vec)

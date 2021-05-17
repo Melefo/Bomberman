@@ -19,7 +19,7 @@ namespace RayLib
             ~Window();
 
             void ClearBackground(const ::Color &color=BLACK);
-            Vector2& GetSize();
+            Vector2 GetSize();
             void SetSize(const Vector2& size);
             void SetTitle(const std::string& title);
 

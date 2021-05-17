@@ -10,16 +10,16 @@
 namespace RayLib
 {
 
-    Vector2::Vector2(float x)
+    Vector2::Vector2(float newX)
     {
-        x = x;
+        x = newX;
         y = 0;
     }
 
-    Vector2::Vector2(float x, float y)
+    Vector2::Vector2(float newX, float newY)
     {
-        x = x;
-        y = y;
+        x = newX;
+        y = newY;
     }
 
     Vector2::Vector2(const Vector2 &vec)
