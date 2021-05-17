@@ -12,26 +12,20 @@ namespace RayLib
 
     Vector2::Vector2(float x)
     {
-        vector2.x = x;
-        vector2.y = 0;
+        x = x;
+        y = 0;
     }
 
     Vector2::Vector2(float x, float y)
     {
-        vector2.x = x;
-        vector2.y = y;
+        x = x;
+        y = y;
     }
 
-    Vector2::Vector2(float x, float y)
+    Vector2::Vector2(const Vector2 &vec)
     {
-        vector2.x = x;
-        vector2.y = y;
-    }
-
-    Vector2::Vector2(const ::Vector2 &vec)
-    {
-        vector2.x = vec.x;
-        vector2.y = vec.y;
+        x = vec.x;
+        y = vec.y;
     }
 
     Vector2::~Vector2()
@@ -39,10 +33,10 @@ namespace RayLib
 
     }
 
-    Vector2& Vector2::operator=(const ::Vector2 &vec)
+    Vector2& Vector2::operator=(const Vector2 &vec)
     {
-        vector2.x = vec.x;
-        vector2.y = vec.y;
+        x = vec.x;
+        y = vec.y;
         return (*this);
     }
 }

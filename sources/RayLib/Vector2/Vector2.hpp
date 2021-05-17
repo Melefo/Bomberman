@@ -18,14 +18,14 @@ namespace RayLib
             Vector2();
             Vector2(float x);
             Vector2(float x, float y);
-            Vector2(float x, float y, float z);
-            Vector2(const ::Vector2 &vec);
+            Vector2(const Vector2 &vec);
 
             ~Vector2();
 
-            Vector2 &operator=(const ::Vector2 &Vector2);
+            Vector2 &operator=(const Vector2 &Vector2);
 
-            ::Vector2 vector2;
+            float x;
+            float y;
         protected:
         private:
     };

@@ -8,13 +8,24 @@
 #ifndef WINDOW_HPP_
 #define WINDOW_HPP_
 
-class Window {
-    public:
-        Window();
-        ~Window();
+#include "Vector2.hpp"
+#include <string>
 
-    protected:
-    private:
-};
+namespace RayLib
+{
+    class Window {
+        public:
+            Window(Vector2 size={800, 450}, const std::string& title="raylib");
+            ~Window();
+
+            void ClearBackground(const ::Color &color=BLACK);
+            Vector2& GetSize();
+            void SetSize(const Vector2& size);
+            void SetTitle(const std::string& title);
+
+        protected:
+        private:
+    };
+}
 
 #endif /* !WINDOW_HPP_ */

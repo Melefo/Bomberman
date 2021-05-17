@@ -19,13 +19,15 @@ namespace RayLib
             Vector3(float x);
             Vector3(float x, float y);
             Vector3(float x, float y, float z);
-            Vector3(const ::Vector3 &vec);
+            Vector3(const Vector3 &vec);
 
             ~Vector3();
 
-            Vector3 &operator=(const ::Vector3 &vector3);
+            Vector3 &operator=(const Vector3 &vector3);
 
-            ::Vector3 vector3;
+            float x;
+            float y;
+            float z;
         protected:
         private:
     };

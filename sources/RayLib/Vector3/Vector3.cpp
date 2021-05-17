@@ -12,30 +12,30 @@ namespace RayLib
 
     Vector3::Vector3(float x)
     {
-        vector3.x = x;
-        vector3.y = 0;
-        vector3.z = 0;
+        x = x;
+        y = 0;
+        z = 0;
     }
 
     Vector3::Vector3(float x, float y)
     {
-        vector3.x = x;
-        vector3.y = y;
-        vector3.z = 0;
+        x = x;
+        y = y;
+        z = 0;
     }
 
     Vector3::Vector3(float x, float y, float z)
     {
-        vector3.x = x;
-        vector3.y = y;
-        vector3.z = z;
+        x = x;
+        y = y;
+        z = z;
     }
 
-    Vector3::Vector3(const ::Vector3 &vec)
+    Vector3::Vector3(const Vector3 &vec)
     {
-        vector3.x = vec.x;
-        vector3.y = vec.y;
-        vector3.z = vec.z;
+        x = vec.x;
+        y = vec.y;
+        z = vec.z;
     }
 
     Vector3::~Vector3()
@@ -43,11 +43,11 @@ namespace RayLib
 
     }
 
-    Vector3& Vector3::operator=(const ::Vector3 &vec)
+    Vector3& Vector3::operator=(const Vector3 &vec)
     {
-        vector3.x = vec.x;
-        vector3.y = vec.y;
-        vector3.z = vec.z;
+        x = vec.x;
+        y = vec.y;
+        z = vec.z;
         return (*this);
     }
 }
