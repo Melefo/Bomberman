@@ -3,7 +3,7 @@ name: Compilation on Linux
 on:
   push:
     branches:
-      - master
+      - '**'
   pull_request:
     branches:
       - master
