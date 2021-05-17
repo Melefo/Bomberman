@@ -1,0 +1,28 @@
+name: Compilation on Linux
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: epitechcontent/epitest-docker:latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: CMake
+        run: mkdir build && cd build && cmake ..
+      - name: Makefile
+        run: make -C build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: bomberman
+          path: build/bomberman
