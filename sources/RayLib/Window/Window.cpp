@@ -30,7 +30,7 @@ namespace RayLib
 
     Vector2 Window::GetSize()
     {
-        Vector2 size(GetScreenWidth(), GetScreenHeight());
+        Vector2 size(static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()));
 
         return (size);
     }

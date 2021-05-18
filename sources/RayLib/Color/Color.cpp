@@ -27,9 +27,9 @@ namespace RayLib
 
     Color::Color(const Vector3& hsv)
     {
-        r = hsv.x;
-        g = hsv.y;
-        b = hsv.z;
+        r = static_cast<unsigned char>(hsv.x);
+        g = static_cast<unsigned char>(hsv.y);
+        b = static_cast<unsigned char>(hsv.z);
         a = 0;
     }
 
