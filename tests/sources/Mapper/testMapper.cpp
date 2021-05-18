@@ -23,7 +23,7 @@ Test(generateMapLine, odd)
     cr_assert_eq(mapper.generateMapLine(5), "W               W");
 }
 
-Test(generateBaseMap, five_players)
+Test(generateBaseMap, six_players_and_sizes)
 {
     TestMapper mapper(6);
     int index = 0;
