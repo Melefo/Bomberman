@@ -14,16 +14,20 @@
 
 class Mapper {
     public:
-        Mapper(uint8_t playersNbr);
+        Mapper(int playersNbr, int boxPercentage);
         ~Mapper();
 
         std::vector<std::string> &getMap() const;
-    private:
+    protected:
+        std::string generateMapLine(int hPos);
+        void generateBaseMap();
+        void generateBoxes();
         void generateMap();
 
-        uint8_t _playersNbr;
-        uint8_t _height;
-        uint8_t _width;
+        int _playersNbr;
+        int _boxPercentage;
+        int _height;
+        int _width;
         std::vector<std::string> _map;
 };
 
