@@ -82,6 +82,7 @@ void Mapper::generateMap()
  * Getters
  */
 
-std::vector<std::string> &Mapper::getMap() const
+std::vector<std::string> Mapper::getMap() const
 {
+    return _map;
 }

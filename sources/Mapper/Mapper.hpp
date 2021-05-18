@@ -17,7 +17,7 @@ class Mapper {
         Mapper(int playersNbr, int boxPercentage);
         ~Mapper();
 
-        std::vector<std::string> &getMap() const;
+        std::vector<std::string> getMap() const;
     protected:
         std::string generateMapLine(int hPos);
         void generateBaseMap();
