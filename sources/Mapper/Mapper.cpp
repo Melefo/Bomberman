@@ -69,7 +69,7 @@ void Mapper::generateBaseMap()
 
 void Mapper::generateBoxes()
 {
-    srand (time(NULL));
+    srand (static_cast<unsigned int>(time(NULL)));
 
     for (std::vector<std::string>::iterator it = _map.begin()+1; it != _map.end()-1; it++) {
         for (std::size_t index = 1; index != it->length()-1; index++) {
