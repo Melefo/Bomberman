@@ -23,4 +23,15 @@ namespace ECS
         this->_components.insert(name, component);
         return component;
     }
+
+    template<typename T>
+    std::shared_ptr<T> ComponentManager::GetComponent()
+    {
+        std::string name(typeid(T).name);
+        auto it = this->_components.find(name);
+
+        if (it == this->_components.end())
+            throw new Exception::ComponentManagerException("Component not added to manager.");
+        return *it;
+    }
 }

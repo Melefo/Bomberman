@@ -5,16 +5,34 @@
 ** EntityManager
 */
 
+#include "Exceptions.hpp"
 #include "EntityManager.hpp"
 
 namespace ECS
 {
-    template<typename T>
-    std::shared_ptr<T> EntityManager::AddEntity()
-    {
-        std::shared_ptr<T> entity = std::make_shared<T>();
+    EntityManager::EntityManager() :
+    _available(), _max(1)
+    { }
 
-        this->_entities.push_back(entity);
+    Entity EntityManager::CreateEntity()
+    {
+        Entity entity;
+
+        if (this->_available.size() == 0)
+            entity = this->_max++;
+        else
+        {
+            entity = this->_available.back();
+            this->_available.pop_back();
+        }
+
         return entity;
+    }
+
+    void EntityManager::DeleteEntity(Entity entity)
+    {
+        if (entity >= this->_max)
+            throw new Exception::EntityManagerException("This entity doesn't exists");
+        this->_available.push_back(entity);
     }
 }

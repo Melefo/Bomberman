@@ -26,4 +26,13 @@ namespace ECS::Exception
     {
         return this->_value.c_str();
     }
+
+    EntityManagerException::EntityManagerException(std::string value) :
+    _value(value)
+    {}
+
+    const char *EntityManagerException::what() const noexcept
+    {
+        return this->_value.c_str();
+    }
 }

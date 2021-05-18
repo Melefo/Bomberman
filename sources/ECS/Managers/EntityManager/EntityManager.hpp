@@ -8,22 +8,24 @@
 #ifndef ENTITYMANAGER_HPP_
 #define ENTITYMANAGER_HPP_
 
-#include <vector>
-#include <memory>
-#include "IEntity.hpp"
+#include <queue>
+#include <cinttypes>
+
+#define Entity uint32_t
 
 namespace ECS
 {
     class EntityManager
     {
         private:
-            std::vector<std::shared_ptr<IEntity>> _entities;
+            std::vector<Entity> _available; 
+            Entity _max;
         public:
-            EntityManager() = default;
+            EntityManager();
             ~EntityManager() = default;
 
-            template<typename T>
-            std::shared_ptr<T> AddEntity();
+            Entity CreateEntity();
+            void DeleteEntity(Entity entity);
     };
 }
 

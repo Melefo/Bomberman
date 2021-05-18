@@ -11,6 +11,7 @@
 #include <unordered_map>
 #include <memory>
 #include <string>
+#include <vector>
 #include "IComponent.hpp"
 
 namespace ECS
@@ -25,6 +26,8 @@ namespace ECS
 
             template<typename T>
             std::shared_ptr<T> AddComponent();
+            template<typename T>
+            std::shared_ptr<T> GetComponent();
     };
 }
 
