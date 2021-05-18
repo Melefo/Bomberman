@@ -18,6 +18,7 @@ namespace RayLib
             Color();
             Color(const Vector3 &vec);
             Color(const Color &col);
+            Color(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha);
 
             ~Color();
 

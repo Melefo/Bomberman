@@ -10,6 +10,9 @@
 
 #include <raylib.h>
 
+
+//todo class template int/float ?
+
 namespace RayLib
 {
     class Vector2

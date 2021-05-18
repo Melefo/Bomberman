@@ -17,6 +17,14 @@ namespace RayLib
         a = 0;
     }
 
+    Color::Color(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha)
+    {
+        r = red;
+        g = green;
+        b = blue;
+        a = alpha;
+    }
+
     Color::Color(const Vector3& hsv)
     {
         r = hsv.x;

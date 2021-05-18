@@ -16,6 +16,20 @@ namespace RayLib
             // !throw error
     }
 
+    void Model::DrawModel(Vector3 position, float scale, Color tint)
+    {
+        ::DrawModel(model, {position.x, position.y, position.z}, scale, {tint.r, tint.g, tint.b, tint.a});
+    }
+
+    void Model::DrawModelEx(Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)
+    {
+        ::DrawModelEx(model, {position.x, position.y, position.z},
+                             {rotationAxis.x, rotationAxis.y, rotationAxis.z},
+                             rotationAngle,
+                             {scale.x, scale.y, scale.z},
+                             {tint.r, tint.g, tint.b, tint.a});
+    }
+
     Model::~Model()
     {
         if (model.meshCount > 0)

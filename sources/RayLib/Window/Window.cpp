@@ -11,7 +11,7 @@ namespace RayLib
 {
     Window::Window(Vector2 size, const std::string& title)
     {
-        InitWindow(size.x, size.y, title.c_str());
+        InitWindow(static_cast<int>(size.x), static_cast<int>(size.y), title.c_str());
 
         //if (IsWindowReady() == false)
             // !! throw error
