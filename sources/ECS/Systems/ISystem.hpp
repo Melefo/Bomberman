@@ -14,7 +14,7 @@ namespace ECS
     {
         public:
             ISystem() = default;
-            ~ISystem() = default;
+            virtual ~ISystem() = default;
     };
 }
 

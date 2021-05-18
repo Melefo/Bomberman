@@ -18,7 +18,7 @@ namespace ECS
     class SystemManager
     {
         private:
-            std::unordered_map<std::string, std::shared_ptr<ISystem>> _map;
+            std::unordered_map<std::string, std::shared_ptr<ISystem>> _systems;
         public:
             SystemManager() = default;
             ~SystemManager() = default;

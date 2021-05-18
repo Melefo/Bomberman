@@ -15,12 +15,12 @@ namespace ECS
     {
         std::string name(typeid(T).name);
 
-        if (this->_map.find(name) != this->_map.end())
+        if (this->_systems.find(name) != this->_systems.end())
             throw new Exception::SystemManagerException("Cannot add more than once a system.");
 
         std::shared_ptr<T> system = std::make_shared<T>();
 
-        this->_map.insert(name, system);
+        this->_systems.insert(name, system);
         return system;
     }
 }

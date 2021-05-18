@@ -9,7 +9,12 @@
 
 namespace ECS
 {
-    EntityManager::EntityManager()
+    template<typename T>
+    std::shared_ptr<T> EntityManager::AddEntity()
     {
+        std::shared_ptr<T> entity = std::make_shared<T>();
+
+        this->_entities.push_back(entity);
+        return entity;
     }
 }
