@@ -20,4 +20,10 @@ namespace ECS
     {
         return this->_entityManager.AddEntity<T>();
     }
+
+    template<typename T>
+    std::shared_ptr<T> Coordinator::AddComponent()
+    {
+        return this->_componentManager.AddComponent<T>();
+    }
 }
