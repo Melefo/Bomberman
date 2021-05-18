@@ -8,13 +8,12 @@
 #ifndef MAPPER_HPP_
 #define MAPPER_HPP_
 
-#include <cstdint>
 #include <string>
 #include <vector>
 
 class Mapper {
     public:
-        Mapper(int playersNbr, int boxPercentage);
+        Mapper(int playersNbr, int boxPercentage = 80);
         ~Mapper();
 
         std::vector<std::string> getMap() const;

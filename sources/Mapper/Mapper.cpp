@@ -9,8 +9,10 @@
 #include <map>
 #include <cstdlib>
 
-Mapper::Mapper(int playersNbr, int boxPercentage = 70)
-    : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr++), _boxPercentage(boxPercentage),
+#include <iostream>
+
+Mapper::Mapper(int playersNbr, int boxPercentage)
+    : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
     _height(13)
 {
     std::map<int, int> mapSizes = {
@@ -31,19 +33,19 @@ Mapper::~Mapper()
 
 std::string Mapper::generateMapLine(int hPos)
 {
-    std::string result;
+    std::string result("");
 
     result += 'W';
     if (hPos % 2 == 0) {
-        for (int index = 1; index < _width - 1; index++)
-            result += ' ';
-    } else {
         for (int index = 1; index < _width - 1; index++) {
             if (index % 2 == 0)
                 result += 'w';
             else
                 result += ' ';
         }
+    } else {
+        for (int index = 1; index < _width - 1; index++)
+            result += ' ';
     }
     result += 'W';
     return result;
@@ -53,21 +55,26 @@ void Mapper::generateBaseMap()
 {
     int index = 0;
 
-    for (std::vector<std::string>::iterator it = _map.begin(); it != _map.end(); it++, index++) {
+    for (; index < _height; index++)
+        _map[index] = std::string(_width, 'W');
+    index = 0;
+    for (auto &it : _map) {
         if (index == 0 || index == _height - 1)
-            *it = std::string(_width, 'W');
+            it = std::string(_width, 'W');
         else
-            *it = generateMapLine(index);
+            it = generateMapLine(index);
+        index++;
     }
 }
 
 void Mapper::generateBoxes()
 {
+    srand (time(NULL));
+
     for (std::vector<std::string>::iterator it = _map.begin()+1; it != _map.end()-1; it++) {
         for (std::size_t index = 1; index != it->length()-1; index++) {
-            if ((*it)[index] == ' ') {
-                (*it)[index] = rand() % _boxPercentage+1 < _boxPercentage ? 'x' : ' ';
-            }
+            if ((*it)[index] == ' ') 
+                (*it)[index] = rand() % 100+1 < _boxPercentage ? 'x' : ' ';
         }
     }
 }
