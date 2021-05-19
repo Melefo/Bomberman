@@ -22,6 +22,8 @@ namespace RayLib
 
             ~Color();
 
+            ::Color getColor(void);
+
             Color &operator=(const Color &col);
 
 

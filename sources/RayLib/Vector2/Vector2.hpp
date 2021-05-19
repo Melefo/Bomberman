@@ -11,26 +11,65 @@
 #include <raylib.h>
 
 
-//todo class template int/float ?
-
 namespace RayLib
 {
+    template <typename T>
     class Vector2
     {
         public:
-            Vector2();
-            Vector2(float x);
-            Vector2(float x, float y);
-            Vector2(const Vector2 &vec);
-            Vector2(const ::Vector2 &vec);
+
+            Vector2<T>(void)
+            {
+                x = 0;
+                y = 0;
+            }
+
+            ~Vector2<T>(void) = default;
+
+            Vector2<T>(T newX)
+            {
+                x = newX;
+            }
+
+            Vector2<T>(T newX, T newY)
+            {
+                x = newX;
+                y = newY;
+            }
+
+            Vector2<T>(const Vector2<T> &vec)
+            {
+                x = vec.x;
+                y = vec.y;
+            }
+
+            Vector2<T>(const ::Vector2 &vec)
+            {
+                x = static_cast<T>(vec.x);
+                y = static_cast<T>(vec.y);
+            }
+
+            ::Vector2 getVector2(void)
+            {
+                ::Vector2 vec = {x, y};
+
+                return (vec);
+            }
+
+            Vector2<T>& operator=(const Vector2<T> &vec)
+            {
+                x = vec.x;
+                y = vec.y;
+                return (*this);
+            }
+
+            //Vector2 &operator+(const Vector2 &Vector2);
+            //Vector2 &operator-(const Vector2 &Vector2);
+            // dot product ?
 
 
-            ~Vector2();
-
-            Vector2 &operator=(const Vector2 &Vector2);
-
-            float x;
-            float y;
+            T x;
+            T y;
         protected:
         private:
     };

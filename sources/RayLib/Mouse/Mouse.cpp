@@ -18,9 +18,11 @@ namespace RayLib
     {
     }
 
-    Vector2 Mouse::getPosition()
+    Vector2<float> Mouse::getPosition()
     {
-        return (GetMousePosition());
+        ::Vector2 mousePos = GetMousePosition();
+
+        return (Vector2<float>(mousePos));
     }
 
     bool Mouse::isButtonDown(int button)

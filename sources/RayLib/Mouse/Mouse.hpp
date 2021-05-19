@@ -18,7 +18,7 @@ namespace RayLib
             Mouse();
             ~Mouse();
 
-            static Vector2 getPosition();
+            static Vector2<float> getPosition();
             static bool isButtonDown(int button);
             static bool isButtonUp(int button);
 

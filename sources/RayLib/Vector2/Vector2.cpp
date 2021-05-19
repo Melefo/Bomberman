@@ -7,42 +7,49 @@
 
 #include "Vector2.hpp"
 
-namespace RayLib
+/*namespace RayLib
 {
 
-    Vector2::Vector2(float newX)
+    template <typename T>
+    Vector2<T>::Vector2(T newX)
     {
         x = newX;
         y = 0;
     }
 
-    Vector2::Vector2(float newX, float newY)
+    template <typename T>
+    Vector2<T>::Vector2(T newX, T newY)
     {
         x = newX;
         y = newY;
     }
 
-    Vector2::Vector2(const Vector2 &vec)
+    template <typename T>
+    Vector2<T>::Vector2(const Vector2<T> &vec)
     {
         x = vec.x;
         y = vec.y;
     }
 
-    Vector2::Vector2(const ::Vector2 &vec)
+    template <typename T>
+    Vector2<T>::Vector2(const ::Vector2 &vec)
     {
         x = vec.x;
         y = vec.y;
     }
 
-    Vector2::~Vector2()
+    template <typename T>
+    Vector2<T>::~Vector2()
     {
 
     }
 
-    Vector2& Vector2::operator=(const Vector2 &vec)
+    template <typename Float>
+    ::Vector2 Vector2<Float>::getVector2(void)
     {
-        x = vec.x;
-        y = vec.y;
-        return (*this);
+        ::Vector2 vec = {x, y};
+
+        return (vec);
     }
-}
+
+}*/

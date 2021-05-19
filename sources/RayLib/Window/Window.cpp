@@ -9,9 +9,9 @@
 
 namespace RayLib
 {
-    Window::Window(Vector2 size, const std::string& title)
+    Window::Window(Vector2<int> size, const std::string& title)
     {
-        InitWindow(static_cast<int>(size.x), static_cast<int>(size.y), title.c_str());
+        InitWindow(size.x, size.y, title.c_str());
 
         //if (IsWindowReady() == false)
             // !! throw error
@@ -28,16 +28,16 @@ namespace RayLib
         ::ClearBackground(color);
     }
 
-    Vector2 Window::GetSize()
+    Vector2<int> Window::GetSize()
     {
-        Vector2 size(static_cast<float>(GetScreenWidth()), static_cast<float>(GetScreenHeight()));
+        Vector2<int> size(GetScreenWidth(), GetScreenHeight());
 
         return (size);
     }
 
-    void Window::SetSize(const Vector2& size)
+    void Window::SetSize(const Vector2<int>& size)
     {
-        SetWindowSize(static_cast<int>(size.x), static_cast<int>(size.y));
+        SetWindowSize(size.x, size.y);
     }
 
     void Window::SetTitle(const std::string& title)

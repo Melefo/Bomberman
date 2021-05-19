@@ -23,8 +23,8 @@ namespace RayLib
             Texture(const std::string& filename);
             Texture(const Image& image);
 
-            void DrawTexture(Vector2 position, Color tint);
-            void DrawTextureEx(Vector2 position, float rotation, float scale, Color tint);
+            void DrawTexture(Vector2<float> position, Color tint);
+            void DrawTextureEx(Vector2<float> position, float rotation, float scale, Color tint);
 
             ::Texture2D texture;
         protected:

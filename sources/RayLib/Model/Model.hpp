@@ -10,6 +10,8 @@
 
 #include <raylib.h>
 #include <string>
+#include "Vector3.hpp"
+#include "Color.hpp"
 
 namespace RayLib
 {

@@ -45,6 +45,13 @@ namespace RayLib
         z = vec.z;
     }
 
+    ::Vector3 Vector3::getVector3(void)
+    {
+        ::Vector3 vec3 = {x, y, z};
+
+        return (vec3);
+    }
+
     Vector3::~Vector3()
     {
 

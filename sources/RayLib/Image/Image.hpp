@@ -21,7 +21,7 @@ namespace RayLib
 
             Image(const Image &image);
             Image(const std::string &fileName);
-            Image(Vector2 size, Color color=Color(255, 255, 255, 255));
+            Image(Vector2<int> size, Color color=Color(255, 255, 255, 255));
             Image(const std::string &fileName, int *frames);
 
             ::Image image;

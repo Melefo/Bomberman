@@ -20,9 +20,9 @@ namespace RayLib
         image = ImageCopy(newImage.image);
     }
 
-    Image::Image(Vector2 size, Color color)
+    Image::Image(Vector2<int> size, Color color)
     {
-        image = GenImageColor(static_cast<int>(size.x), static_cast<int>(size.y), {color.r, color.g, color.b, color.a});
+        image = GenImageColor(size.x, size.y, {color.r, color.g, color.b, color.a});
     }
 
     Image::Image(const std::string &fileName, int *frames)

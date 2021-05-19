@@ -50,6 +50,12 @@ namespace RayLib
         return (*this);
     }
 
+    ::Color Color::getColor(void)
+    {
+        ::Color col = {r, g, b, a};
+
+        return (col);
+    }
 
     Color::~Color()
     {

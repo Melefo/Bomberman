@@ -18,16 +18,16 @@ namespace RayLib
 
     void Model::DrawModel(Vector3 position, float scale, Color tint)
     {
-        ::DrawModel(model, {position.x, position.y, position.z}, scale, {tint.r, tint.g, tint.b, tint.a});
+        ::DrawModel(model, position.getVector3(), scale, tint.getColor());
     }
 
     void Model::DrawModelEx(Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)
     {
-        ::DrawModelEx(model, {position.x, position.y, position.z},
-                             {rotationAxis.x, rotationAxis.y, rotationAxis.z},
+        ::DrawModelEx(model, position.getVector3(),
+                             rotationAxis.getVector3(),
                              rotationAngle,
-                             {scale.x, scale.y, scale.z},
-                             {tint.r, tint.g, tint.b, tint.a});
+                             scale.getVector3(),
+                             tint.getColor());
     }
 
     Model::~Model()

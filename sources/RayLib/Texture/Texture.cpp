@@ -19,14 +19,14 @@ namespace RayLib
         texture = LoadTextureFromImage(image.image);
     }
 
-    void Texture::DrawTexture(Vector2 position, Color tint)
+    void Texture::DrawTexture(Vector2<float> position, Color tint)
     {
-        ::DrawTextureV(texture, {position.x, position.y}, {tint.r, tint.g, tint.b, tint.a});
+        ::DrawTextureV(texture, position.getVector2(), tint.getColor());
     }
 
-    void Texture::DrawTextureEx(Vector2 position, float rotation, float scale, Color tint)
+    void Texture::DrawTextureEx(Vector2<float> position, float rotation, float scale, Color tint)
     {
-        ::DrawTextureEx(texture, {position.x, position.y}, rotation, scale, {tint.r, tint.g, tint.b, tint.a});
+        ::DrawTextureEx(texture, position.getVector2(), rotation, scale, tint.getColor());
     }
 
     Texture::~Texture()

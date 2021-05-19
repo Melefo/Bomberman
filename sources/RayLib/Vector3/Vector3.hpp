@@ -24,6 +24,8 @@ namespace RayLib
 
             ~Vector3();
 
+            ::Vector3 getVector3(void);
+
             Vector3 &operator=(const Vector3 &vector3);
 
             float x;
