@@ -15,7 +15,7 @@ namespace ECS
         return this->_systemManager.AddSystem<T>();
     }
 
-    Entity Coordinator::AddEntity()
+    Entity &Coordinator::AddEntity()
     {
         return this->_entityManager.CreateEntity();
     }

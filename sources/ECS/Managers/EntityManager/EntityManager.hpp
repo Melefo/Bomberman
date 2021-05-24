@@ -8,24 +8,25 @@
 #ifndef ENTITYMANAGER_HPP_
 #define ENTITYMANAGER_HPP_
 
-#include <queue>
+#include <vector>
 #include <cinttypes>
-
-#define Entity uint32_t
+#include <memory>
+#include "Entity.hpp"
 
 namespace ECS
 {
     class EntityManager
     {
         private:
-            std::vector<Entity> _available; 
-            Entity _max;
+            std::vector<uint32_t> _available;
+            uint32_t _max;
+            std::vector<std::unique_ptr<Entity>> _entities;
         public:
             EntityManager();
             ~EntityManager() = default;
 
-            Entity CreateEntity();
-            void DeleteEntity(Entity entity);
+            Entity &CreateEntity();
+            void DeleteEntity(Entity &entity);
     };
 }
 

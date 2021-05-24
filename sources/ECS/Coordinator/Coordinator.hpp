@@ -27,7 +27,7 @@ namespace ECS
     
             template<typename T>
             std::shared_ptr<T> AddSystem();
-            Entity AddEntity();
+            Entity &AddEntity();
             template<typename T>
             std::shared_ptr<T> AddComponent();
             template<typename T>

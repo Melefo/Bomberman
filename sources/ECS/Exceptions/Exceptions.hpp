@@ -39,5 +39,14 @@ namespace ECS::Exception
             EntityManagerException(std::string value);
             const char *what() const noexcept override;
     };
+
+    class EntityException : public std::exception
+    {
+        private:
+            std::string _value;
+        public:
+            EntityException(std::string value);
+            const char *what() const noexcept override;
+    };
 }
 #endif /* !EXCEPTIONS_HPP_ */

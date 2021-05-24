@@ -5,8 +5,11 @@
 ** EntityManager
 */
 
+#include <algorithm>
 #include "Exceptions.hpp"
 #include "EntityManager.hpp"
+
+#include <iostream>
 
 namespace ECS
 {
@@ -14,25 +17,29 @@ namespace ECS
     _available(), _max(1)
     { }
 
-    Entity EntityManager::CreateEntity()
+    Entity &EntityManager::CreateEntity()
     {
-        Entity entity;
-
         if (this->_available.size() == 0)
-            entity = this->_max++;
-        else
         {
-            entity = this->_available.back();
-            this->_available.pop_back();
+            this->_entities.emplace_back(std::make_unique<Entity>(this->_max++));
+            return *this->_entities.back();
         }
+        uint32_t id = this->_available.back();
 
-        return entity;
+        this->_entities.emplace_back(std::make_unique<Entity>(id));
+        this->_available.pop_back();
+        return *this->_entities.back();
     }
 
-    void EntityManager::DeleteEntity(Entity entity)
+
+    void EntityManager::DeleteEntity(Entity &entity)
     {
-        if (entity >= this->_max)
-            throw new Exception::EntityManagerException("This entity doesn't exists");
-        this->_available.push_back(entity);
+        for (auto it = this->_entities.begin(); it != this->_entities.end(); it++)
+            if ((*it)->GetId() == entity.GetId())
+            {
+                this->_available.push_back(entity.GetId());
+                this->_entities.erase(it);
+                return;
+            }
     }
 }

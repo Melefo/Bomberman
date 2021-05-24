@@ -8,11 +8,14 @@
 #ifndef ICOMPONENT_HPP_
 #define ICOMPONENT_HPP_
 
+#include <string>
+
 class IComponent
 {
     public:
         IComponent() = default;
         virtual ~IComponent() = default;
+        virtual const std::string GetName() const = 0;
 };
 
 #endif /* !ICOMPONENT_HPP_ */
