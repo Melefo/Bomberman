@@ -1,4 +1,4 @@
-name: Compilation on Linux
+name: Run unit tests
 
 on:
   push:
@@ -20,9 +20,6 @@ jobs:
       - name: CMake
         run: mkdir build && cd build && cmake ..
       - name: Makefile
-        run: make -C build bomberman
-      - name: Archive production artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: bomberman
-          path: build/bomberman
+        run: make -C build unit_tests
+      - name: Run unit tests
+        run: ./build/unit_tests
