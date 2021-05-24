@@ -21,32 +21,34 @@ namespace Prototype
         //const int screenWidth = 800;
         //const int screenHeight = 450;
 
-        RayLib::Window::InitWindow(RayLib::Vector2<int>(800, 450), "Prototype");
+        //std::unique_ptr<RayLib::Window> window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        RayLib::Window *window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
 
         RayLib::Camera3D camera = RayLib::Camera3D();
 
         Vector3 cubePosition;
 
-        RayLib::Window::SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
+
+        window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
         //--------------------------------------------------------------------------------------
 
         // Main game loop
-        while (!RayLib::Window::WindowShouldClose())    // Detect window close button or ESC key
+        while (!window->WindowShouldClose())    // Detect window close button or ESC key
         {
             // Update
 
             // Draw
             //----------------------------------------------------------------------------------
-            RayLib::Window::BeginDrawing();
+            window->BeginDrawing();
 
-            RayLib::Window::ClearBackground(WHITE);
+            window->ClearBackground(WHITE);
 
             camera.BeginMode();
 
-            RayLib::Window::DrawCube(cubePosition, RayLib::Vector3(2.0f, 2.0f, 2.0f), RED);
-            RayLib::Window::DrawCubeWires(cubePosition, RayLib::Vector3(2.0f, 2.0f, 2.0f), MAROON);
+            window->DrawCube(cubePosition, RayLib::Vector3(2.0f, 2.0f, 2.0f), RED);
+            window->DrawCubeWires(cubePosition, RayLib::Vector3(2.0f, 2.0f, 2.0f), MAROON);
 
-            RayLib::Window::DrawGrid(10, 1.0f);
+            window->DrawGrid(10, 1.0f);
 
             camera.EndMode();
 
@@ -54,13 +56,13 @@ namespace Prototype
 
             //DrawFPS(10, 10);
 
-            RayLib::Window::EndDrawing();
+            window->EndDrawing();
             //----------------------------------------------------------------------------------
         }
 
+        delete(window);
         // De-Initialization
         //--------------------------------------------------------------------------------------
-        RayLib::Window::CloseWindow();        // Close window and OpenGL context
         //--------------------------------------------------------------------------------------
 
     }

@@ -17,31 +17,31 @@ namespace RayLib
 {
     class Window {
         public:
-            Window();
             ~Window();
 
-            static void InitWindow(Vector2<int> size=Vector2<int>(800, 450), const std::string& title="raylib");
+            void ClearBackground(Color color=BLACK);
+            Vector2<int> GetSize();
+            void SetSize(const Vector2<int>& size);
+            void SetTitle(const std::string& title);
+            void SetTargetFPS(int target);
+            bool WindowShouldClose(void);
+            void BeginDrawing(void);
+            void EndDrawing(void);
+            void DrawCube(Vector3 position, Vector3 scale, Color color);
+            void DrawCubeWires(Vector3 position, Vector3 scale, Color color);
+            void DrawGrid(int slices, float spacing);
 
-            static void ClearBackground(Color color=BLACK);
-            static Vector2<int> GetSize();
-            static void SetSize(const Vector2<int>& size);
-            static void SetTitle(const std::string& title);
+            Window(Window& other) = delete;
+            void operator=(const Window& other) = delete;
 
-            static void SetTargetFPS(int target);
-            static bool WindowShouldClose(void);
-
-            static void BeginDrawing(void);
-            static void EndDrawing(void);
-
-            static void CloseWindow(void);
-
-            static void DrawCube(Vector3 position, Vector3 scale, Color color);
-            static void DrawCubeWires(Vector3 position, Vector3 scale, Color color);
-
-            static void DrawGrid(int slices, float spacing);
+            static Window *GetInstance(Vector2<int> size, const std::string& title);
 
         protected:
         private:
+            Window(Vector2<int> size=Vector2<int>(800, 450), const std::string& title="raylib");
+
+            static Window *_window;
+
     };
 }
 

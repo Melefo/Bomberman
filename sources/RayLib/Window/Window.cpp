@@ -6,25 +6,33 @@
 */
 
 #include "Window.hpp"
+#include <iostream>
 
 namespace RayLib
 {
-    Window::Window()
-    {
 
-    }
+    Window *Window::_window = nullptr;
 
-    void Window::InitWindow(Vector2<int> size, const std::string& title)
+    Window::Window(Vector2<int> size, const std::string& title)
     {
         ::InitWindow(size.x, size.y, title.c_str());
         //if (IsWindowReady() == false)
             // !! throw error
     }
 
+    Window *Window::GetInstance(Vector2<int> size, const std::string& title)
+    {
+        if (_window == nullptr) {
+            _window = new Window(size, title);
+        }
+        return (_window);
+    }
+
     Window::~Window()
     {
-        if (IsWindowReady())
+        if (IsWindowReady()) {
             CloseWindow();
+        }
     }
 
     void Window::BeginDrawing()
@@ -35,11 +43,6 @@ namespace RayLib
     void Window::EndDrawing()
     {
         ::EndDrawing();
-    }
-
-    void Window::CloseWindow()
-    {
-        ::CloseWindow();
     }
 
     void Window::DrawCube(Vector3 position, Vector3 scale, Color color)

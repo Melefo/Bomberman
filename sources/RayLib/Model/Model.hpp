@@ -25,7 +25,7 @@ namespace RayLib
 
         protected:
         private:
-            ::Model model;
+            ::Model _model;
     };
 }
 

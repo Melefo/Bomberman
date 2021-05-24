@@ -18,7 +18,7 @@ namespace RayLib
         public:
             Camera3D(Vector3 position=Vector3(0.0f, 10.0f, 10.0f),
                     Vector3 target=Vector3(0.0f, 0.0f, 0.0f),
-                    Vector3 up=Vector3(),
+                    Vector3 up=Vector3(0.0f, 1.0f, 0.0f),
                     float fovy=45.0f,
                     int projection=CAMERA_PERSPECTIVE);
 
