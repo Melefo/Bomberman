@@ -9,6 +9,7 @@
 #define ISYSTEM_HPP_
 
 #include <string>
+#include <vector>
 #include "Entity.hpp"
 
 namespace ECS
