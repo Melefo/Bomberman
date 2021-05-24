@@ -15,13 +15,15 @@ namespace RayLib
 {
     class Window {
         public:
-            Window(Vector2<int> size=Vector2<int>(800, 450), const std::string& title="raylib");
+            Window();
             ~Window();
 
-            void ClearBackground(const ::Color &color=BLACK);
-            Vector2<int> GetSize();
-            void SetSize(const Vector2<int>& size);
-            void SetTitle(const std::string& title);
+            static void InitWindow(Vector2<int> size=Vector2<int>(800, 450), const std::string& title="raylib");
+
+            static void ClearBackground(const ::Color &color=BLACK);
+            static Vector2<int> GetSize();
+            static void SetSize(const Vector2<int>& size);
+            static void SetTitle(const std::string& title);
 
         protected:
         private:

@@ -9,12 +9,17 @@
 
 namespace RayLib
 {
-    Window::Window(Vector2<int> size, const std::string& title)
+    Window::Window()
     {
-        InitWindow(size.x, size.y, title.c_str());
 
+    }
+
+    void Window::InitWindow(Vector2<int> size, const std::string& title)
+    {
+        ::InitWindow(size.x, size.y, title.c_str());
         //if (IsWindowReady() == false)
             // !! throw error
+
     }
 
     Window::~Window()
