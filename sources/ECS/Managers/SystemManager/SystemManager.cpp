@@ -27,7 +27,7 @@ namespace ECS
     {
         std::string name(typeid(T).name());
 
-        auto &it = this->_systems.find(name);
+        const auto &it = this->_systems.find(name);
         if (it != this->_systems.end())
             this->_systems.erase(it);
     }
@@ -37,7 +37,7 @@ namespace ECS
     {
         std::string name(typeid(T).name());
 
-        auto &it = this->_systems.find(name);
+        const auto &it = this->_systems.find(name);
         return it != this->_systems.end();
     }
 

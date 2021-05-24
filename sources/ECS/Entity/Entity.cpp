@@ -21,7 +21,7 @@ namespace ECS
     {
         std::string name(typeid(T).name());
 
-        auto &it = this->_components.find(name);
+        const auto &it = this->_components.find(name);
         if (it == this->_components.end())
             throw new Exception::EntityException("Entity doesn't contains this Component");
         return *it;
