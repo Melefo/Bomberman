@@ -17,6 +17,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install updated Criterion
+        run: sudo dnf remove -y libcriterion-devel &&
+          git clone --recursive https://github.com/Snaipe/Criterion &&
+          cd Criterion &&
+          sudo dnf install -y ninja-build &&
+          pip3 install meson &&
+          meson build &&
+          ninja -C build &&
+          sudo ninja -C build install
       - name: CMake
         run: mkdir build && cd build && cmake ..
       - name: Makefile
