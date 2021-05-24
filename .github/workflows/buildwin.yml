@@ -21,9 +21,9 @@ jobs:
           cd build
           cmake ..
       - name: MSVC
-        run: cmake --build build
+        run: cmake --build build --target bomberman --config release
       - name: Archive production artifact
         uses: actions/upload-artifact@v1
         with:
           name: bomberman.exe
-          path: build\Debug\bomberman.exe
+          path: build\Release\bomberman.exe
