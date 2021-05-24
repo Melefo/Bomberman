@@ -41,6 +41,14 @@ namespace RayLib
         a = col.a;
     }
 
+    Color::Color(const ::Color& col)
+    {
+        r = col.r;
+        g = col.g;
+        b = col.b;
+        a = col.a;
+    }
+
     Color& Color::operator=(const Color &col)
     {
         r = col.r;

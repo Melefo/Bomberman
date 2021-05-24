@@ -19,7 +19,6 @@ namespace RayLib
         ::InitWindow(size.x, size.y, title.c_str());
         //if (IsWindowReady() == false)
             // !! throw error
-
     }
 
     Window::~Window()
@@ -28,9 +27,49 @@ namespace RayLib
             CloseWindow();
     }
 
-    void Window::ClearBackground(const ::Color &color)
+    void Window::BeginDrawing()
     {
-        ::ClearBackground(color);
+        ::BeginDrawing();
+    }
+
+    void Window::EndDrawing()
+    {
+        ::EndDrawing();
+    }
+
+    void Window::CloseWindow()
+    {
+        ::CloseWindow();
+    }
+
+    void Window::DrawCube(Vector3 position, Vector3 scale, Color color)
+    {
+        ::DrawCube(position.getVector3(), scale.x, scale.y, scale.z, color.getColor());
+    }
+
+    void Window::DrawCubeWires(Vector3 position, Vector3 scale, Color color)
+    {
+        ::DrawCubeWires(position.getVector3(), scale.x, scale.y, scale.z, color.getColor());
+    }
+
+    void Window::DrawGrid(int slices, float spacing)
+    {
+        ::DrawGrid(slices, spacing);
+    }
+
+    void Window::ClearBackground(Color color)
+    {
+        ::ClearBackground(color.getColor());
+    }
+
+    void Window::SetTargetFPS(int target)
+    {
+        ::SetTargetFPS(target);
+    }
+
+    bool Window::WindowShouldClose(void)
+    {
+        return (::WindowShouldClose());
     }
 
     Vector2<int> Window::GetSize()
