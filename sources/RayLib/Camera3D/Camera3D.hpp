@@ -30,6 +30,8 @@ namespace RayLib
             void BeginMode(void);
             void EndMode(void);
 
+            void Update(void);
+
 
 
         protected:

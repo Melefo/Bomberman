@@ -12,6 +12,7 @@
 #include <string>
 #include "Vector3.hpp"
 #include "Color.hpp"
+#include "Texture.hpp"
 
 namespace RayLib
 {
@@ -20,8 +21,10 @@ namespace RayLib
             Model(const std::string& fileName);
             ~Model();
 
-            void DrawModel(Vector3 position, float scale, Color tint);
-            void DrawModelEx(Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint);
+            void Draw(Vector3 position, float scale, Color tint);
+            void DrawEx(Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint);
+
+            void SetMaterialTexture(int matIndex, int mapType, Texture& text);
 
         protected:
         private:

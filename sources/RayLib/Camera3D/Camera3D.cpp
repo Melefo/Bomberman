@@ -23,6 +23,11 @@ namespace RayLib
 
     }
 
+    void Camera3D::Update()
+    {
+        ::UpdateCamera(&camera);
+    }
+
     void Camera3D::BeginMode()
     {
         ::BeginMode3D(camera);
