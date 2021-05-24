@@ -17,7 +17,6 @@ namespace ECS
         public:
             IComponent() = default;
             virtual ~IComponent() = default;
-            virtual const std::string GetName() const = 0;
     };
 }
 

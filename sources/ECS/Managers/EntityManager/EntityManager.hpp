@@ -27,6 +27,7 @@ namespace ECS
 
             Entity &CreateEntity();
             void DeleteEntity(Entity &entity);
+            const std::vector<std::unique_ptr<Entity>> &GetEntities() const;
     };
 }
 

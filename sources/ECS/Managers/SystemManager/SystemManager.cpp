@@ -19,7 +19,7 @@ namespace ECS
         if (this->HasSystem<T>())
             throw new Exception::SystemManagerException("Cannot add more than once a system.");
 
-        this->_systems.emplace_back(std::make_unique<T>());
+        this->_systems.insert(name, std::make_unique<T>());
     }
 
     template<typename T>
@@ -27,12 +27,9 @@ namespace ECS
     {
         std::string name(typeid(T).name());
 
-        for (auto it = this->_systems.begin(); it != this->_systems.end(); it++)
-            if ((*it)->GetName() == name)
-            {
-                this->_systems.erase(it);
-                return;
-            }
+        auto &it = this->_systems.find(name);
+        if (it != this->_systems.end())
+            this->_systems.erase(it);
     }
 
     template<typename T>
@@ -40,11 +37,12 @@ namespace ECS
     {
         std::string name(typeid(T).name());
 
-        auto &it = std::find_if(this->_systems.begin(), this->_systems.end(), [&name](std::unique_ptr<ISystem> &system)
-        {
-            return system->GetName() == name;
-        });
-
+        auto &it = this->_systems.find(name);
         return it != this->_systems.end();
+    }
+
+    const std::unordered_map<std::string, std::unique_ptr<ISystem>> &SystemManager::GetSystems() const
+    {
+        return this->_systems;
     }
 }

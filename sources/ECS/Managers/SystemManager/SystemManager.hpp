@@ -9,7 +9,8 @@
 #define SYSTEMMANAGER_HPP_
 
 #include <memory>
-#include <vector>
+#include <string>
+#include <unordered_map>
 #include "ISystem.hpp"
 
 namespace ECS
@@ -17,7 +18,7 @@ namespace ECS
     class SystemManager
     {
         private:
-            std::vector<std::unique_ptr<ISystem>> _systems;
+            std::unordered_map<std::string, std::unique_ptr<ISystem>> _systems;
         public:
             SystemManager() = default;
             ~SystemManager() = default;
@@ -28,6 +29,7 @@ namespace ECS
             void RemoveSystem();
             template<typename T>
             bool HasSystem();
+            const std::unordered_map<std::string, std::unique_ptr<ISystem>> &GetSystems() const;
     };
 }
 

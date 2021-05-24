@@ -9,6 +9,7 @@
 #define ISYSTEM_HPP_
 
 #include <string>
+#include "Entity.hpp"
 
 namespace ECS
 {
@@ -18,7 +19,8 @@ namespace ECS
             ISystem() = default;
             virtual ~ISystem() = default;
 
-            virtual const std::string GetName() const = 0;
+            virtual void Update(double dt, Entity &entity) = 0;
+            virtual const std::vector<std::string> GetDependencies() const = 0;
     };
 }
 

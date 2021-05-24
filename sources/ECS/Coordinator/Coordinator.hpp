@@ -19,6 +19,7 @@ namespace ECS
         private:
             SystemManager _systemManager;
             EntityManager _entityManager;
+            double _dt = 0.0f;
         public:
             Coordinator() = default;
             ~Coordinator() = default;
@@ -29,6 +30,7 @@ namespace ECS
             template<typename T>
             void RemoveSystem();
             void DeleteEntity(Entity &entity);
+            void update();
     };
 }
 

@@ -9,7 +9,7 @@
 #define ENTITY_HPP_
 
 #include <cinttypes>
-#include <vector>
+#include <unordered_map>
 #include <memory>
 #include "IComponent.hpp"
 
@@ -19,7 +19,7 @@ namespace ECS
     {
         private:
             uint32_t _id;
-            std::vector<std::unique_ptr<IComponent>> _components;
+            std::unordered_map<std::string, std::unique_ptr<IComponent>> _components;
 
         public:
             Entity(uint32_t id);
@@ -30,6 +30,7 @@ namespace ECS
             void AddComponent();
             template<typename T>
             bool HasComponent() const;
+            bool HasComponent(std::string &name) const;
             uint32_t GetId() const;
     };
 }
