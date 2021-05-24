@@ -25,7 +25,8 @@ jobs:
           pip3 install meson &&
           meson build &&
           ninja -C build &&
-          sudo ninja -C build install
+          sudo ninja -C build install &&
+          sudo cp -r /usr/local/lib64/libcriterion* /usr/lib
       - name: CMake
         run: mkdir build && cd build && cmake ..
       - name: Makefile
