@@ -13,7 +13,7 @@ namespace ECS
     template<typename T>
     std::shared_ptr<T> SystemManager::AddSystem()
     {
-        std::string name(typeid(T).name);
+        std::string name(typeid(T).name());
 
         if (this->_systems.find(name) != this->_systems.end())
             throw new Exception::SystemManagerException("Cannot add more than once a system.");

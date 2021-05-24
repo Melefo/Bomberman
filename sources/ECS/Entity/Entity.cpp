@@ -19,7 +19,7 @@ namespace ECS
     template<typename T>
     std::unique_ptr<T> &Entity::GetComponent()
     {
-        std::string name(typeid(T).name);
+        std::string name(typeid(T).name());
 
         auto &it = std::find_if(this->_components.begin(), this->_components.end(), [&name](std::unique_ptr<IComponent> &compo)
         {
@@ -34,7 +34,7 @@ namespace ECS
     template<typename T>
     void Entity::AddComponent()
     {
-        std::string name(typeid(T).name);
+        std::string name(typeid(T).name());
 
         auto &it = std::find_if(this->_components.begin(), this->_components.end(), [&name](std::unique_ptr<IComponent> &compo)
         {

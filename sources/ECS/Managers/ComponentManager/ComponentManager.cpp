@@ -13,7 +13,7 @@ namespace ECS
     template<typename T>
     std::shared_ptr<T> ComponentManager::AddComponent()
     {
-        std::string name(typeid(T).name);
+        std::string name(typeid(T).name());
 
         if (this->_components.find(name) != this->_components.end())
             throw new Exception::ComponentManagerException("Cannot add more than once a component.");
@@ -27,7 +27,7 @@ namespace ECS
     template<typename T>
     std::shared_ptr<T> ComponentManager::GetComponent()
     {
-        std::string name(typeid(T).name);
+        std::string name(typeid(T).name());
         auto it = this->_components.find(name);
 
         if (it == this->_components.end())
