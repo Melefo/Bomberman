@@ -21,7 +21,6 @@ namespace ECS
             uint32_t _id;
             std::vector<std::unique_ptr<IComponent>> _components;
 
-
         public:
             Entity(uint32_t id);
             ~Entity() = default;
@@ -29,6 +28,8 @@ namespace ECS
             std::unique_ptr<T> &GetComponent();
             template<typename T>
             void AddComponent();
+            template<typename T>
+            bool HasComponent() const;
             uint32_t GetId() const;
     };
 }

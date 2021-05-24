@@ -10,12 +10,15 @@
 
 #include <string>
 
-class IComponent
+namespace ECS
 {
-    public:
-        IComponent() = default;
-        virtual ~IComponent() = default;
-        virtual const std::string GetName() const = 0;
-};
+    class IComponent
+    {
+        public:
+            IComponent() = default;
+            virtual ~IComponent() = default;
+            virtual const std::string GetName() const = 0;
+    };
+}
 
 #endif /* !ICOMPONENT_HPP_ */

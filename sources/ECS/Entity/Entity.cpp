@@ -36,14 +36,22 @@ namespace ECS
     {
         std::string name(typeid(T).name());
 
+        if (this->HasComponent<T>())
+            throw new Exception::EntityException("Entity already contains this Component");
+        this->_components.emplace_back(std::make_unique<T>());
+    }
+
+    template<typename T>
+    bool Entity::HasComponent() const
+    {
+        std::string name(typeid(T).name());
+
         auto &it = std::find_if(this->_components.begin(), this->_components.end(), [&name](std::unique_ptr<IComponent> &compo)
         {
             return compo->GetName() == name;
         });
 
-        if (it != this->_components.end())
-            throw new Exception::EntityException("Entity already contains this Component");
-        this->_components.emplace_back(std::make_unique<T>());
+        return it != this->_components.end();
     }
 
     uint32_t Entity::GetId() const

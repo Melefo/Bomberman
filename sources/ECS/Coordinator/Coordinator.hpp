@@ -11,7 +11,6 @@
 #include <memory>
 #include "SystemManager.hpp"
 #include "EntityManager.hpp"
-#include "ComponentManager.hpp"
 
 namespace ECS
 {
@@ -20,18 +19,16 @@ namespace ECS
         private:
             SystemManager _systemManager;
             EntityManager _entityManager;
-            ComponentManager _componentManager;
         public:
             Coordinator() = default;
             ~Coordinator() = default;
     
             template<typename T>
             std::shared_ptr<T> AddSystem();
-            Entity &AddEntity();
+            Entity &CreateEntity();
             template<typename T>
-            std::shared_ptr<T> AddComponent();
-            template<typename T>
-            std::shared_ptr<T> GetComponent();
+            void RemoveSystem();
+            void DeleteEntity(Entity &entity);
     };
 }
 

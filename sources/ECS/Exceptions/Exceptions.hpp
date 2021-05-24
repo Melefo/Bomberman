@@ -22,15 +22,6 @@ namespace ECS::Exception
             const char *what() const noexcept override;
     };
 
-    class ComponentManagerException : public std::exception
-    {
-        private:
-            std::string _value;
-        public:
-            ComponentManagerException(std::string value);
-            const char *what() const noexcept override;
-    };
-
     class EntityManagerException : public std::exception
     {
         private:
