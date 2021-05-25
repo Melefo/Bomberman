@@ -266,8 +266,8 @@ std::string TerrainGenerator::generateRandomMapLine(std::string previousString, 
 
 bool TerrainGenerator::tryPlacingTile(const std::vector<std::string> &tile, int mapPos)
 {
-    int tileWidth = tile[0].size();
-    int tileHeight = tile.size();
+    int tileWidth = static_cast<int>(tile[0].size());
+    int tileHeight = static_cast<int>(tile.size());
     bool mayPlaceIt = false;
     size_t offset = 0;
 
@@ -359,7 +359,7 @@ bool TerrainGenerator::isMapFull()
     int index = 0;
 
     for (auto it = _map.begin(); it != _map.end(); it++) {
-        if (index > 0 && index < _height-1 && lineGetWidth(it-_map.begin()) >= maxSize)
+        if (index > 0 && index < _height-1 && lineGetWidth(static_cast<int>(it-_map.begin())) >= maxSize)
             counter++;
         index++;
     }
