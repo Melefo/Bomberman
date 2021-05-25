@@ -17,33 +17,37 @@ namespace RayLib
     {
     }
 
-    bool Physics3D::CheckCollisionSpheres(Vector3 center1, float radius1, Vector3 center2, float radius2)
+    bool Physics3D::CheckCollision(Vector3 center1, float radius1, Vector3 center2, float radius2)
     {
-        return (::CheckCollisionSpheres(center1, radius1, center2, radius2));
+        return (::CheckCollisionSpheres(center1.getVector3(),
+                                        radius1,
+                                        center2.getVector3(),
+                                        radius2));
     }
 
-    bool Physics3D::CheckCollisionBoxes(BoundingBox box1, BoundingBox box2)
+    bool Physics3D::CheckCollision(BoundingBox box1, BoundingBox box2)
     {
-        return (::CheckCollisionBoxes(box1, box2));
+        return (::CheckCollisionBoxes(box1.GetBounds(), box2.GetBounds()));
     }
 
-    bool Physics3D::CheckCollisionBoxSphere(BoundingBox box, Vector3 center, float radius)
+    bool Physics3D::CheckCollision(BoundingBox box, Vector3 center, float radius)
     {
-        return (::CheckCollisionBoxSphere(box, center, radius));
+        return (::CheckCollisionBoxSphere(box.GetBounds(), center.getVector3(), radius));
     }
 
-    bool Physics3D::CheckCollisionRaySphere(Ray ray, Vector3 center, float radius)
+    bool Physics3D::CheckCollision(Ray ray, Vector3 center, float radius)
     {
-        return (::CheckCollisionRaySphere(ray, center, radius));
+        return (::CheckCollisionRaySphere(ray.GetRay(), center.getVector3(), radius));
     }
 
-    bool Physics3D::CheckCollisionRaySphereEx(Ray ray, Vector3 center, float radius, Vector3 *collisionPoint)
+    bool Physics3D::CheckCollision(Ray ray, BoundingBox box)
     {
-        return (::CheckCollisionRaySphereEx(ray, center, radius, collisionPoint));
+        return (::CheckCollisionRayBox(ray.GetRay(), box.GetBounds()));
     }
 
-    bool Physics3D::CheckCollisionRayBox(Ray ray, BoundingBox box)
+    RayHitInfo Physics3D::CheckCollision(Ray ray, float groundHeight)
     {
-        return (::CheckCollisionRayBox(ray, box));
+        return(::GetCollisionRayGround(ray.GetRay(), groundHeight));
     }
+
 }

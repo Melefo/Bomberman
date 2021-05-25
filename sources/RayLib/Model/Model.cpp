@@ -6,33 +6,42 @@
 */
 
 #include "Model.hpp"
+#include <iostream>
 
 namespace RayLib
 {
     Model::Model(const std::string& fileName)
     {
-        model = LoadModel(fileName.c_str());
+        _model = LoadModel(fileName.c_str());
         //if (model.meshCount == 0)
             // !throw error
     }
 
-    void Model::DrawModel(Vector3 position, float scale, Color tint)
+    void Model::Draw(Vector3 position, float scale, Color tint)
     {
-        ::DrawModel(model, position.getVector3(), scale, tint.getColor());
+        ::DrawModel(_model, position.getVector3(), scale, tint.getColor());
     }
 
-    void Model::DrawModelEx(Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)
+    void Model::DrawEx(Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)
     {
-        ::DrawModelEx(model, position.getVector3(),
+        ::DrawModelEx(_model, position.getVector3(),
                              rotationAxis.getVector3(),
                              rotationAngle,
                              scale.getVector3(),
                              tint.getColor());
     }
 
+    void Model::SetMaterialTexture(int matIndex, int mapType, Texture& text)
+    {
+        ::SetMaterialTexture(&_model.materials[matIndex], mapType, text.GetTexture());
+
+        //_model.materials[matIndex].maps[mapType].texture = text.GetTexture();                 // Set map diffuse texture
+
+    }
+
     Model::~Model()
     {
-        if (model.meshCount > 0)
-            UnloadModel(model);
+        if (_model.meshCount > 0)
+            UnloadModel(_model);
     }
 }

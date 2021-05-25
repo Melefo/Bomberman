@@ -37,13 +37,13 @@ namespace RayLib
                 y = newY;
             }
 
-            Vector2<T>(const Vector2<T> &vec)
+            Vector2<T>(const Vector2<T>& vec)
             {
                 x = vec.x;
                 y = vec.y;
             }
 
-            Vector2<T>(const ::Vector2 &vec)
+            Vector2<T>(const ::Vector2& vec)
             {
                 x = static_cast<T>(vec.x);
                 y = static_cast<T>(vec.y);
@@ -56,7 +56,7 @@ namespace RayLib
                 return (vec);
             }
 
-            Vector2<T>& operator=(const Vector2<T> &vec)
+            Vector2<T>& operator=(const Vector2<T>& vec)
             {
                 x = vec.x;
                 y = vec.y;
@@ -66,6 +66,13 @@ namespace RayLib
             //Vector2 &operator+(const Vector2 &Vector2);
             //Vector2 &operator-(const Vector2 &Vector2);
             // dot product ?
+
+            Vector2<T>& operator*(const float& factor)
+            {
+                x *= factor;
+                y *= factor;
+                return (*this);
+            }
 
 
             T x;

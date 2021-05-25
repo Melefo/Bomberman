@@ -26,9 +26,11 @@ namespace RayLib
             void DrawTexture(Vector2<float> position, Color tint);
             void DrawTextureEx(Vector2<float> position, float rotation, float scale, Color tint);
 
-            ::Texture2D texture;
+            ::Texture2D GetTexture();
+
         protected:
         private:
+            ::Texture2D _texture;
     };
 }
 
