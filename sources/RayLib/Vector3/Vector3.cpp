@@ -64,11 +64,19 @@ namespace RayLib
 
     }
 
-    Vector3& Vector3::operator=(const Vector3 &vec)
+    Vector3& Vector3::operator=(const Vector3& vec)
     {
         x = vec.x;
         y = vec.y;
         z = vec.z;
+        return (*this);
+    }
+
+    Vector3& Vector3::operator*(const float factor)
+    {
+        x *= factor;
+        y *= factor;
+        z *= factor;
         return (*this);
     }
 }
