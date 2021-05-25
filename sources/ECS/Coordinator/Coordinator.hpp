@@ -25,12 +25,18 @@ namespace ECS
             ~Coordinator() = default;
     
             template<typename T>
-            std::shared_ptr<T> AddSystem();
+            T &AddSystem()
+            {
+                return this->_systemManager.AddSystem<T>();
+            }
             Entity &CreateEntity();
             template<typename T>
-            void RemoveSystem();
+            void RemoveSystem()
+            {
+                this->_systemManager.RemoveSystem<T>();
+            }
             void DeleteEntity(Entity &entity);
-            void update();
+            void Update();
     };
 }
 

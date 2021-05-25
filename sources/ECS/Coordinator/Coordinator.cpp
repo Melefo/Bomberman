@@ -10,21 +10,9 @@
 
 namespace ECS
 {
-    template<typename T>
-    std::shared_ptr<T> Coordinator::AddSystem()
-    {
-        return this->_systemManager.AddSystem<T>();
-    }
-
     Entity &Coordinator::CreateEntity()
     {
         return this->_entityManager.CreateEntity();
-    }
-
-    template<typename T>
-    void Coordinator::RemoveSystem()
-    {
-        this->_systemManager.RemoveSystem<T>();
     }
 
     void Coordinator::DeleteEntity(Entity &entity)
@@ -32,7 +20,7 @@ namespace ECS
         this->_entityManager.DeleteEntity(entity);
     }
 
-    void Coordinator::update()
+    void Coordinator::Update()
     {
         auto start = std::chrono::high_resolution_clock::now();
 

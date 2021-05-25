@@ -9,27 +9,51 @@
 #define SYSTEMMANAGER_HPP_
 
 #include <memory>
+#include <algorithm>
 #include <string>
 #include <unordered_map>
-#include "ISystem.hpp"
+#include "ASystem.hpp"
+#include "Exceptions.hpp"
 
 namespace ECS
 {
     class SystemManager
     {
         private:
-            std::unordered_map<std::string, std::unique_ptr<ISystem>> _systems;
+            std::unordered_map<std::string, std::unique_ptr<ASystem>> _systems;
         public:
             SystemManager() = default;
             ~SystemManager() = default;
 
             template<typename T>
-            void AddSystem();
+            T &AddSystem()
+            {
+                std::string name(typeid(T).name());
+
+                if (this->HasSystem<T>())
+                    throw new Exception::SystemManagerException("Cannot add more than once a system.");
+
+                this->_systems[name] = std::make_unique<T>();
+                return dynamic_cast<T &>(*this->_systems[name]);
+            }
             template<typename T>
-            void RemoveSystem();
+            void RemoveSystem()
+            {
+                std::string name(typeid(T).name());
+
+                const auto &it = this->_systems.find(name);
+                if (it != this->_systems.end())
+                    this->_systems.erase(it);
+            }
             template<typename T>
-            bool HasSystem();
-            const std::unordered_map<std::string, std::unique_ptr<ISystem>> &GetSystems() const;
+            bool HasSystem()
+            {
+                std::string name(typeid(T).name());
+
+                const auto &it = this->_systems.find(name);
+                return it != this->_systems.end();
+            }
+            const std::unordered_map<std::string, std::unique_ptr<ASystem>> &GetSystems() const;
     };
 }
 

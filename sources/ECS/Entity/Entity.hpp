@@ -11,6 +11,8 @@
 #include <cinttypes>
 #include <unordered_map>
 #include <memory>
+#include <algorithm>
+#include "Exceptions.hpp"
 #include "IComponent.hpp"
 
 namespace ECS
@@ -25,11 +27,31 @@ namespace ECS
             Entity(uint32_t id);
             ~Entity() = default;
             template<typename T>
-            std::unique_ptr<T> &GetComponent();
+            T &GetComponent()
+            {
+                std::string name(typeid(T).name());
+
+                const auto &it = this->_components.find(name);
+                if (it == this->_components.end())
+                    throw new Exception::EntityException("Entity doesn't contains this Component");
+                return dynamic_cast<T &>(*it->second);
+            }
             template<typename T>
-            void AddComponent();
+            void AddComponent()
+            {
+                std::string name(typeid(T).name());
+
+                if (this->HasComponent<T>())
+                    throw new Exception::EntityException("Entity already contains this Component");
+                this->_components[name] = std::make_unique<T>();
+            }
             template<typename T>
-            bool HasComponent() const;
+            bool HasComponent() const
+            {
+                std::string name(typeid(T).name());
+
+                return this->_components.find(name) != this->_components.end();
+            }
             bool HasComponent(std::string &name) const;
             uint32_t GetId() const;
     };
