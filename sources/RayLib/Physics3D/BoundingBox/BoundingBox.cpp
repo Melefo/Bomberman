@@ -40,7 +40,10 @@ namespace RayLib
 
     ::BoundingBox BoundingBox::GetBounds(void)
     {
-        return ((::BoundingBox){_minVertex.getVector3(), _maxVertex.getVector3()});
+        ::BoundingBox bounds = {_minVertex.getVector3(),
+                                _maxVertex.getVector3()};
+
+        return (bounds);
     }
 
     Vector3 BoundingBox::GetCenter(void)
