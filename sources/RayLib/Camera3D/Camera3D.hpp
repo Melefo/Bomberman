@@ -9,7 +9,9 @@
 #define CAMERA3D_HPP_
 
 #include <raylib.h>
+#include "Vector2.hpp"
 #include "Vector3.hpp"
+#include "Ray.hpp"
 
 namespace RayLib
 {
@@ -32,11 +34,13 @@ namespace RayLib
 
             void Update(void);
 
+            Ray GetMouseRay(Vector2<float> mousePos);
+
 
 
         protected:
         private:
-            ::Camera3D camera;
+            ::Camera3D _camera;
     };
 }
 

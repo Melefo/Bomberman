@@ -10,6 +10,7 @@
 
 #include <raylib.h>
 #include "Vector2.hpp"
+#include "Ray.hpp"
 
 namespace RayLib
 {
@@ -18,9 +19,13 @@ namespace RayLib
             Mouse();
             ~Mouse();
 
-            static Vector2<float> getPosition();
-            static bool isButtonDown(int button);
-            static bool isButtonUp(int button);
+            static Vector2<float> GetPosition();
+            static bool IsButtonDown(int button);
+            static bool IsButtonPressed(int button);
+
+            static bool IsButtonUp(int button);
+            static bool IsButtonReleased(int button);
+
 
         protected:
         private:

@@ -14,6 +14,12 @@
 #include "Model.hpp"
 #include "Texture.hpp"
 #include "Input.hpp"
+#include "BoundingBox.hpp"
+#include "Ray.hpp"
+#include "Physics3D.hpp"
+#include "Mouse.hpp"
+#include "RayHitInfo.hpp"
+#include <cmath>
 
 namespace Prototype
 {
@@ -83,13 +89,84 @@ namespace Prototype
         }
         delete(window);
     }
+
+    void DragDrop()
+    {
+        //std::unique_ptr<RayLib::Window> window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        RayLib::Window *window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        RayLib::Camera3D camera = RayLib::Camera3D();
+        RayLib::Vector3 position;
+        RayLib::Vector3 scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
+
+        bool selected = false;
+        RayLib::Ray ray;                    // Picking line ray
+
+        window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
+        camera.SetCameraMode(CAMERA_FREE);
+
+
+        RayLib::BoundingBox bounds = RayLib::BoundingBox(RayLib::Vector3(), RayLib::Vector3());
+        bounds.InitFromCube(position, scale);
+
+        while (!window->WindowShouldClose())    // Detect window close button or ESC key
+        {
+            // update
+            camera.Update();
+            ray = camera.GetMouseRay(RayLib::Mouse::GetPosition());
+
+            if (RayLib::Mouse::IsButtonPressed(MOUSE_BUTTON_LEFT)) {
+                if (!selected)
+                {
+                    // Check collision between ray and box
+                    selected = RayLib::Physics3D::CheckCollision(ray, bounds);
+                }
+            }
+            if (RayLib::Mouse::IsButtonPressed(MOUSE_BUTTON_RIGHT))
+                selected = false;
+
+            // if selected, move with mouse flat on plane (y = 0)
+            if (selected) {
+                RayLib::RayHitInfo hitInfo = RayLib::Physics3D::CheckCollision(ray, 0.0f);
+
+                if (hitInfo.hit) {
+                    // snap position
+                    position = hitInfo.position;
+                    position = RayLib::Vector3(round(position.x), position.y, round(position.z));
+                }
+            }
+            bounds.InitFromCube(position, scale);
+
+            // draw
+            window->BeginDrawing();
+            window->ClearBackground(RAYWHITE);
+            camera.BeginMode();
+
+            if (selected) {
+                window->DrawCube(position, scale, RED);
+
+                window->DrawCubeWires(position, scale + RayLib::Vector3(0.2f, 0.2f, 0.2f), GREEN);
+            } else {
+                window->DrawCube(position, scale, GRAY);
+            }
+
+            window->DrawGrid(10, 1.0f);
+            camera.EndMode();
+            window->EndDrawing();
+        }
+        delete(window);
+    }
 }
 
 int main(void)
 {
     //Prototype::prototypeLoop();
-    Prototype::inputMove();
-    //Prototype::ObjDragAndDrop();
+    //Prototype::inputMove();
+    Prototype::DragDrop();
+
+    // !next step:
+        // press D_KEY to duplicate obj
+        // press E_KEY to delete OBJ
+        // use example below to drag and drop models/textures
 
     // cf cet exemple pour drag & drop un model/texture et le charger à la volée
     //https://www.raylib.com/examples/web/models/loader.html?name=models_loading
