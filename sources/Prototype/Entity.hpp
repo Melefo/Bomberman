@@ -18,7 +18,7 @@ namespace Prototype
     class Entity {
         public:
             Entity(const std::string& modelPath, RayLib::Vector3 position=RayLib::Vector3());
-            ~Entity();
+            ~Entity() = default;
 
             RayLib::Model& getModel();
             RayLib::Vector3& getPosition();

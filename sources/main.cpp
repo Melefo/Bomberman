@@ -128,9 +128,9 @@ namespace Prototype
             if (selected) {
                 RayLib::RayHitInfo hitInfo = RayLib::Physics3D::CheckCollision(ray, 0.0f);
 
-                if (hitInfo.hit) {
+                if (hitInfo.HasHit()) {
                     // snap position
-                    position = hitInfo.position;
+                    position = hitInfo.GetPosition();
                     position = RayLib::Vector3(round(position.x), position.y, round(position.z));
                 }
             }

@@ -11,10 +11,10 @@ namespace RayLib
 {
     RayHitInfo::RayHitInfo()
     {
-        hit = false;
-        distance = 0.0f;
-        position = Vector3();
-        normal = Vector3();
+        _hit = false;
+        _distance = 0.0f;
+        _position = Vector3();
+        _normal = Vector3();
     }
 
     RayHitInfo::~RayHitInfo()
@@ -24,44 +24,64 @@ namespace RayLib
 
     RayHitInfo::RayHitInfo(const RayHitInfo& other)
     {
-        hit = other.hit;
-        distance = other.distance;
-        position = other.position;
-        normal = other.normal;
+        _hit = other._hit;
+        _distance = other._distance;
+        _position = other._position;
+        _normal = other._normal;
     }
 
     RayHitInfo::RayHitInfo(const ::RayHitInfo& other)
     {
-        hit = other.hit;
-        distance = other.distance;
-        position = other.position;
-        normal = other.normal;
+        _hit = other.hit;
+        _distance = other.distance;
+        _position = other.position;
+        _normal = other.normal;
     }
 
     RayHitInfo& RayHitInfo::operator=(const RayHitInfo& other)
     {
-        hit = other.hit;
-        distance = other.distance;
-        position = other.position;
-        normal = other.normal;
+        _hit = other._hit;
+        _distance = other._distance;
+        _position = other._position;
+        _normal = other._normal;
         return (*this);
     }
 
     RayHitInfo& RayHitInfo::operator=(const ::RayHitInfo& other)
     {
-        hit = other.hit;
-        distance = other.distance;
-        position = other.position;
-        normal = other.normal;
+        _hit = other.hit;
+        _distance = other.distance;
+        _position = other.position;
+        _normal = other.normal;
         return (*this);
     }
 
     ::RayHitInfo RayHitInfo::GetHitInfo(void)
     {
-        ::RayHitInfo info = {hit,
-                             distance,
-                             position.getVector3(),
-                             normal.getVector3()};
+        ::RayHitInfo info = {_hit,
+                             _distance,
+                             _position.getVector3(),
+                             _normal.getVector3()};
         return (info);
+    }
+
+    bool RayHitInfo::HasHit(void)
+    {
+        return (_hit);
+    }
+
+    float RayHitInfo::GetDistance(void)
+    {
+        return (_distance);
+    }
+
+    Vector3& RayHitInfo::GetPosition(void)
+    {
+        return (_position);
+    }
+
+    Vector3& RayHitInfo::GetNormal(void)
+    {
+        return (_normal);
     }
 }

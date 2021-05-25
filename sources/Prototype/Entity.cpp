@@ -9,13 +9,7 @@
 
 namespace Prototype
 {
-    Entity::Entity(const std::string& modelPath, RayLib::Vector3 pos)
-    {
-        model = std::make_unique<RayLib::Model>(modelPath);
-        position = pos;
-    }
-
-    Entity::~Entity()
+    Entity::Entity(const std::string& modelPath, RayLib::Vector3 pos) : model(std::make_unique<RayLib::Model>(modelPath)), position(pos)
     {
 
     }

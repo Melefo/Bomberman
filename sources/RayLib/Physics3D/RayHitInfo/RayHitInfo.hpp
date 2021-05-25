@@ -25,15 +25,18 @@ namespace RayLib
 
             ::RayHitInfo GetHitInfo(void);
 
-
-            // privé ou public ?
-            bool hit;               // Did the ray hit something?
-            float distance;         // Distance to nearest hit
-            Vector3 position;       // Position of nearest hit
-            Vector3 normal;         // Surface normal of hit
+            bool HasHit(void);
+            float GetDistance(void);
+            Vector3& GetPosition(void);
+            Vector3& GetNormal(void);
 
         protected:
         private:
+            // privé ou public ?
+            bool _hit;               // Did the ray hit something?
+            float _distance;         // Distance to nearest hit
+            Vector3 _position;       // Position of nearest hit
+            Vector3 _normal;         // Surface normal of hit
     };
 }
 
