@@ -5,8 +5,8 @@
 ** testTerrainGenerator
 */
 
-#ifndef TESTMAPPER_HPP_
-#define TESTMAPPER_HPP_
+#ifndef TESTTERRAINGENERATOR_HPP_
+#define TESTTERRAINGENERATOR_HPP_
 
 #include "TerrainGenerator.hpp"
 
@@ -38,7 +38,10 @@ class TestTerrainGenerator : public TerrainGenerator {
         bool tryTetrPositions(const std::vector<std::string> &chosenTile) {
             return TerrainGenerator::tryTetrPositions(chosenTile);
         };
+        bool blocksPath(int y, int x) {
+            return TerrainGenerator::blocksPath(y,  x);
+        };
         void modifyMap(std::string line, int pos) {_map[pos] = line;};
 };
 
-#endif /* !TESTMAPPER_HPP_ */
+#endif /* !TESTTERRAINGENERATOR_HPP_ */

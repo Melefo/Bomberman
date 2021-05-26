@@ -148,6 +148,21 @@ Test(trimMap, basic)
         {"O               O"},
         {"OOOOOOOOOOOOOOOOO"},
     };
+    std::vector<std::string> secondDesiredOutput = {
+        {"OOOOOOOOO"},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"O        "},
+        {"OOOOOOOOO"},
+    };
 
     terrainGenerator.clearMap();
     terrainGenerator.modifyMap(terrainGenerator.getMap()[4]+std::string("test"), 4);
@@ -159,7 +174,7 @@ Test(trimMap, basic)
     }
     terrainGenerator.trimMap();
     for (size_t i = 0; i < terrainGenerator.getMap().size(); i++)
-        cr_assert_eq(terrainGenerator.getMap()[i], desiredOutput[i]);
+        cr_assert_eq(terrainGenerator.getMap()[i], secondDesiredOutput[i]);
 }
 
 Test(addTetrOnMap, basic)
@@ -350,4 +365,19 @@ Test(tryTetrPositions, basic)
     cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
     cr_expect_eq(terrainGenerator.tryTetrPositions(tile[1]), true);
     cr_assert_neq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(blocksPath, basic)
+{
+    TestTerrainGenerator terrainGenerator(6);
+
+    terrainGenerator.generateBaseMap();
+    cr_assert_eq(terrainGenerator.blocksPath(3, 3), true);
+    cr_assert_eq(terrainGenerator.blocksPath(3, 2), true);
+    cr_assert_eq(terrainGenerator.blocksPath(1, 1), true);
+    terrainGenerator.clearMap();
+    terrainGenerator.modifyMap("O o             O", 2);
+    terrainGenerator.modifyMap("O   o           O", 4);
+    cr_assert_eq(terrainGenerator.blocksPath(3, 3), false);
+    cr_assert_eq(terrainGenerator.blocksPath(3, 6), false);
 }
