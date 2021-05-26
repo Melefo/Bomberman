@@ -14,11 +14,11 @@
 #include "Texture.hpp"
 #include "Vector3.hpp"
 
-class OjectComponent : public ECS::IComponent
+class ObjectComponent : public ECS::IComponent
 {
     public:
-        OjectComponent();
-        ~OjectComponent() override = default;
+        ObjectComponent();
+        ~ObjectComponent() override = default;
 
         RayLib::Model model;
         RayLib::Texture texture;

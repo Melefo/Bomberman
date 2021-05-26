@@ -5,9 +5,9 @@
 ** OjectComponent
 */
 
-#include "OjectComponent.hpp"
+#include "ObjectComponent.hpp"
 
-OjectComponent::OjectComponent() :
+ObjectComponent::ObjectComponent() :
 model("../assets/Cat_V2/cat.obj"), texture("../assets/Cat_V2/banana.png")
 {
     position = RayLib::Vector3(rand() % 20, rand() % 20, rand() % 20);
