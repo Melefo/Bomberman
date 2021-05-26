@@ -34,6 +34,6 @@ jobs:
       - name: Makefile
         run: make -C build ray_unit_tests ecs_unit_tests bomberman_unit_tests
       - name: Run unit tests
-        run: ./build/bomberman/bomberan_unit_tests &&
+        run: ./build/Bomberman/bomberman_unit_tests &&
           ./build/ECS/ecs_unit_tests &&
           ./build/RayLib/ray_unit_tests

@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: bomberman.exe
-          path: build\Release\bomberman.exe
+          path: build\Bomberman\Release\bomberman.exe
