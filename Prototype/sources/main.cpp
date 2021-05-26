@@ -166,9 +166,6 @@ int main(void)
     // Prototype::inputMove();
     //Prototype::DragDrop();
 
-
-
-
     ECS::Coordinator coordinator;
 //std::unique_ptr<RayLib::Window> window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
         std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
