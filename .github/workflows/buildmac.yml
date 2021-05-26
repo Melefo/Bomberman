@@ -1,4 +1,4 @@
-name: Compilation on Linux
+name: Compilation on MacOS
 
 on:
   push:
@@ -11,9 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container:
-      image: epitechcontent/epitest-docker:latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
