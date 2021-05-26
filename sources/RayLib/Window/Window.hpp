@@ -12,6 +12,7 @@
 #include "Vector3.hpp"
 #include "Color.hpp"
 #include <string>
+#include <memory>
 
 namespace RayLib
 {
@@ -31,16 +32,16 @@ namespace RayLib
             void DrawCubeWires(Vector3 position, Vector3 scale, Color color);
             void DrawGrid(int slices, float spacing);
 
-            Window(Window& other) = delete;
-            void operator=(const Window& other) = delete;
+            //Window(Window& other) = delete;
+            //void operator=(const Window& other) = delete;
 
-            static Window *GetInstance(Vector2<int> size, const std::string& title);
+            static std::unique_ptr<Window>& GetInstance(Vector2<int> size, const std::string& title);
 
+            Window(Vector2<int> size=Vector2<int>(800, 450), const std::string& title="raylib");
         protected:
         private:
-            Window(Vector2<int> size=Vector2<int>(800, 450), const std::string& title="raylib");
 
-            static Window *_window;
+            static std::unique_ptr<Window> _window;
 
     };
 }

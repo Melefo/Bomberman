@@ -11,7 +11,7 @@
 namespace RayLib
 {
 
-    Window *Window::_window = nullptr;
+    std::unique_ptr<Window> Window::_window = nullptr;
 
     Window::Window(Vector2<int> size, const std::string& title)
     {
@@ -20,10 +20,10 @@ namespace RayLib
             // !! throw error
     }
 
-    Window *Window::GetInstance(Vector2<int> size, const std::string& title)
+    std::unique_ptr<Window>& Window::GetInstance(Vector2<int> size, const std::string& title)
     {
         if (_window == nullptr) {
-            _window = new Window(size, title);
+            _window = std::make_unique<Window>(size, title);
         }
         return (_window);
     }

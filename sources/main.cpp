@@ -25,8 +25,8 @@ namespace Prototype
 {
     void prototypeLoop()
     {
-        //std::unique_ptr<RayLib::Window> window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
-        RayLib::Window *window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        //RayLib::Window *window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
         RayLib::Camera3D camera = RayLib::Camera3D();
         RayLib::Vector3 cubePosition;
 
@@ -47,13 +47,13 @@ namespace Prototype
             camera.EndMode();
             window->EndDrawing();
         }
-        delete(window);
     }
 
     void inputMove()
     {
         //std::unique_ptr<RayLib::Window> window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
-        RayLib::Window *window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+
         RayLib::Camera3D camera = RayLib::Camera3D();
         RayLib::Vector3 position;
         RayLib::Input input;
@@ -87,13 +87,12 @@ namespace Prototype
             camera.EndMode();
             window->EndDrawing();
         }
-        delete(window);
     }
 
     void DragDrop()
     {
-        //std::unique_ptr<RayLib::Window> window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
-        RayLib::Window *window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        //RayLib::Window *window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
         RayLib::Camera3D camera = RayLib::Camera3D();
         RayLib::Vector3 position;
         RayLib::Vector3 scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
@@ -153,7 +152,7 @@ namespace Prototype
             camera.EndMode();
             window->EndDrawing();
         }
-        delete(window);
+        //delete(window);
     }
 }
 
