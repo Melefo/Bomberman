@@ -91,4 +91,10 @@ namespace RayLib
     {
         SetWindowTitle(title.c_str());
     }
+
+    float Window::GetFrameTime(void)
+    {
+        return (::GetFrameTime());
+    }
+
 }

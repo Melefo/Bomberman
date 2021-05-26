@@ -31,6 +31,8 @@ namespace RayLib
             void DrawCube(Vector3 position, Vector3 scale, Color color);
             void DrawCubeWires(Vector3 position, Vector3 scale, Color color);
             void DrawGrid(int slices, float spacing);
+            void DrawGrid(int slices, float spacing);
+            float GetFrameTime(void);
 
             //Window(Window& other) = delete;
             //void operator=(const Window& other) = delete;

@@ -166,15 +166,23 @@ int main(void)
     // Prototype::inputMove();
     //Prototype::DragDrop();
 
+
+
+
     ECS::Coordinator coordinator;
-
-    ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<OjectComponent>();
-    coordinator.AddSystem<MoveSystem>();
-
-
 //std::unique_ptr<RayLib::Window> window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
         std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+
+        ECS::Entity &entity = coordinator.CreateEntity();
+        entity.AddComponent<OjectComponent>();
+
+        for (int i = 0; i < 100; i++) {
+            ECS::Entity &entity1 = coordinator.CreateEntity();
+            entity1.AddComponent<OjectComponent>();
+        }
+
+
+        coordinator.AddSystem<MoveSystem>();
 
         RayLib::Camera3D camera = RayLib::Camera3D();
 
