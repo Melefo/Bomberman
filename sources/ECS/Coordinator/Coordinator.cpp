@@ -8,6 +8,8 @@
 #include <chrono>
 #include "Coordinator.hpp"
 
+#include <iostream>
+
 namespace ECS
 {
     Entity &Coordinator::CreateEntity()
@@ -30,10 +32,16 @@ namespace ECS
 
             for (auto &entity : this->_entityManager.GetEntities())
             {
+                bool update = true;
                 for (auto &dependency : dependencies)
-                    if (!entity->HasComponent(dependency))
+                {
+                    if (entity->HasComponent(dependency))
                         continue;
-                pair.second->Update(this->_dt, *entity);
+                    update = false;
+                    break;
+                }
+                if (update)
+                    pair.second->Update(this->_dt, *entity);
             }
         }
 

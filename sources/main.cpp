@@ -20,6 +20,10 @@
 #include "Mouse.hpp"
 #include "RayHitInfo.hpp"
 #include <cmath>
+#include "Coordinator.hpp"
+#include "Entity.hpp"
+#include "OjectComponent.hpp"
+#include "MoveSystem.hpp"
 
 namespace Prototype
 {
@@ -159,9 +163,40 @@ namespace Prototype
 int main(void)
 {
     //Prototype::prototypeLoop();
-    //Prototype::inputMove();
-    Prototype::DragDrop();
+    // Prototype::inputMove();
+    //Prototype::DragDrop();
 
+    ECS::Coordinator coordinator;
+
+    ECS::Entity &entity = coordinator.CreateEntity();
+    entity.AddComponent<OjectComponent>();
+    coordinator.AddSystem<MoveSystem>();
+
+
+//std::unique_ptr<RayLib::Window> window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+
+        RayLib::Camera3D camera = RayLib::Camera3D();
+
+        window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
+        camera.SetCameraMode(CAMERA_FREE);
+
+        while (!window->WindowShouldClose())    // Detect window close button or ESC key
+        {
+            // update
+            camera.Update();
+
+            // draw
+            window->BeginDrawing();
+            window->ClearBackground(RAYWHITE);
+            camera.BeginMode();
+
+            coordinator.Update();
+
+            window->DrawGrid(20, 10.0f);
+            camera.EndMode();
+            window->EndDrawing();
+        }
     // !next step:
         // press D_KEY to duplicate obj
         // press E_KEY to delete OBJ
