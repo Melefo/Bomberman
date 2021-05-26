@@ -33,7 +33,7 @@ namespace ECS
 
                 const auto &it = this->_components.find(name);
                 if (it == this->_components.end())
-                    throw new Exception::EntityException("Entity doesn't contains this Component");
+                    throw Exception::EntityException("Entity doesn't contains this Component");
                 return dynamic_cast<T &>(*it->second);
             }
             template<typename T>
@@ -42,7 +42,7 @@ namespace ECS
                 std::string name(typeid(T).name());
 
                 if (this->HasComponent<T>())
-                    throw new Exception::EntityException("Entity already contains this Component");
+                    throw Exception::EntityException("Entity already contains this Component");
                 this->_components[name] = std::make_unique<T>();
             }
             template<typename T>
