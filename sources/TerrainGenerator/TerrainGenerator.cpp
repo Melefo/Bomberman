@@ -119,11 +119,11 @@ void TerrainGenerator::generateRandomMap()
         index++;
     }
     while (!isMapFull()) {
-        if (addTetrOnMap(tiles)) {
-            trimMap();
-        } else
+        if (!addTetrOnMap(tiles))
             break;
     }
+    //fillHoles();
+    trimMap();
     cloneReverseMap();
 }
 
@@ -144,23 +144,31 @@ void TerrainGenerator::clearMap()
     }
 }
 
-void TerrainGenerator::addTileOnMap(vector2_t tilePosition)
+void TerrainGenerator::addTileOnMap(int y, int x)
 {
-    _map[tilePosition.y][tilePosition.x] = mapTexture::INWALL;
+    _map[y][x] = mapTexture::INWALL;
 }
 
 /**
  * Private
  */
 
-void TerrainGenerator::removeVoid()
-{
-    for (auto &it : _map)
-        std::replace(it.begin(), it.end(), '*', ' ');
-}
-
 void TerrainGenerator::placePlayers()
 {
+    _map[1][1] = 'P';
+    _map[_height-2][_width-2] = 'P';
+    if (_playersNbr > 2) {
+        _map[1][_width-2] = 'P';
+        _map[_height-2][1] = 'P';
+    }
+    if (_playersNbr > 4) {
+        _map[1][_width/2] = 'P';
+        _map[_height-2][_width/2] = 'P';
+    }
+    if (_playersNbr > 6) {
+        _map[_height/2][1] = 'P';
+        _map[_height/2][_width-2] = 'P';
+    }
 }
 
 void TerrainGenerator::generateBoxes()
@@ -173,28 +181,6 @@ void TerrainGenerator::generateBoxes()
     }
 }
 
-void TerrainGenerator::cloneReverseMap()
-{
-    int index = 0;
-    std::string tempString;
-    bool reverseMap = rand() % 2 == 0 ? true : false;
-    std::vector<std::string> tempMap;
-    if (reverseMap)
-        tempMap = _map;
-
-    for (auto &it : _map) {
-        if (index != 0 && index < _height-1) {
-            if (reverseMap)
-                tempString = std::string(tempMap[_height-1-index].rbegin()-1, tempMap[_height-1-index].rend());
-            else
-                tempString = std::string(it.rbegin()-1, it.rend());
-            tempString.erase(0, 2);
-            it += tempString;
-        }
-        index++;
-    }
-}
-
 void TerrainGenerator::generateMap()
 {
     srand (static_cast<unsigned int>(time(NULL)));
@@ -203,8 +189,8 @@ void TerrainGenerator::generateMap()
         generateBaseMap();
     else
         generateRandomMap();
-    //placePlayers();
-    //generateBoxes();
+    generateBoxes();
+    placePlayers();
 }
 
 /**
@@ -235,33 +221,63 @@ std::string TerrainGenerator::generateMapLine(int hPos)
  * Private - Random Map
  */
 
-std::string TerrainGenerator::generateRandomMapLine(std::string previousString, int hPos)
+void TerrainGenerator::cloneReverseMap()
 {
-    std::string result("");
-    int maxSize = _width/2;
-    int index = 1;
-    char inWall = static_cast<char>(mapTexture::INWALL);
+    int index = 0;
+    std::string tempString;
+    bool reverseMap = rand() % 2 == 0 ? true : false;
+    std::vector<std::string> tempMap;
 
-    result += mapTexture::OWALL;
-    if (hPos == 1 || hPos == _height - 1) {
-        index = 3;
-        result += "  ";
-    }
-    for (; index <= maxSize; index++) {
-        if (hPos == 1 || hPos == _height - 2) {
-            result += rand() % 5 == 0 ? inWall : ' ';
+    if (reverseMap)
+        tempMap = _map;
+    for (auto &it : _map) {
+        if (index != 0 && index < _height-1) {
+            if (reverseMap)
+                tempString = std::string(tempMap[_height-1-index].rbegin()-1, tempMap[_height-1-index].rend()-1);
+            else
+                tempString = std::string(it.rbegin()-1, it.rend()-1);
+            tempString.erase(0, 2);
+            tempString += mapTexture::OWALL;
+            it += tempString;
         } else {
-            if (index == 1) {
-                result += rand() % 3 == 0 ? inWall : ' ';
-            } else {
-                if (previousString[index-1] == ' ' && previousString[index] == ' ' && result[index-1] == ' ')
-                    result += inWall;
-                else
-                    result += rand() % 3 == 0 ? inWall : ' ';
-            }
+            it += std::string(_width/2, mapTexture::OWALL);
+        }
+        index++;
+    }
+}
+
+bool TerrainGenerator::blocksPath(int y, int x)
+{
+    if ((_map[y-1][x-1] != ' '
+    && _map[y-1][x] == ' '
+    && _map[y-1][x+1] != ' ')
+    || (_map[y][x-1] != ' '
+    && _map[y][x] == ' '
+    && _map[y][x+1] != ' ')
+    || (_map[y+1][x-1] != ' '
+    && _map[y+1][x] == ' '
+    && _map[y+1][x+1] != ' ')
+    || (_map[y-1][x-1] != ' '
+    && _map[y][x-1] == ' '
+    && _map[y+1][x-1] != ' ')
+    || (_map[y-1][x] != ' '
+    && _map[y][x] == ' '
+    && _map[y+1][x] != ' ')
+    || (_map[y-1][x+1] != ' '
+    && _map[y][x+1] == ' '
+    && _map[y+1][x+1] != ' '))
+        return true;
+    return false;
+}
+
+void TerrainGenerator::fillHoles()
+{
+    for (int y = 0; y < _height-1; y++) {
+        for (int x = 0; x < _width-1; x++) {
+            if (_map[y][x] == ' ' && !blocksPath(y, x))
+                _map[y][x] = mapTexture::INWALL;
         }
     }
-    return result;
 }
 
 bool TerrainGenerator::tryPlacingTile(const std::vector<std::string> &tile, int mapPos)
@@ -276,7 +292,7 @@ bool TerrainGenerator::tryPlacingTile(const std::vector<std::string> &tile, int 
         for (int y = 0; y < tileHeight && mayPlaceIt; y++) {
             for (int x = 0; x < tileWidth && mayPlaceIt; x++) {
                 if (tile[y][x] != 'x') {
-                    if (_map[mapPos+y][offset+x] != ' ')// && _map[mapPos+y][ret+x] != 'o')
+                    if (_map[mapPos+y][offset+x] != ' ')
                         mayPlaceIt = false;
                 }
             }
@@ -371,6 +387,6 @@ bool TerrainGenerator::isMapFull()
 void TerrainGenerator::trimMap()
 {
     for (auto &it : _map)
-        if (it.size() > static_cast<size_t>(_width))
-            it = it.substr(0, _width);
+        if (it.size() > static_cast<size_t>(_width/2+1))
+            it = it.substr(0, _width/2+1);
 }
