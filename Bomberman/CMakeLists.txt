@@ -36,7 +36,7 @@ ENDMACRO()
 HEADER_DIRECTORIES(INC)
 
 TARGET_LINK_LIBRARIES(bomberman encapsu ecs)
-TARGET_LINK_LIBRARIES(bomberman_unit_tests criterion -lgcov)
+TARGET_LINK_LIBRARIES(bomberman_unit_tests criterion -lgcov encapsu ecs)
 TARGET_COMPILE_OPTIONS(bomberman_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
 target_include_directories(bomberman PUBLIC ${INC})
