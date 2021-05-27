@@ -24,10 +24,10 @@ namespace ECS
             Coordinator() = default;
             ~Coordinator() = default;
     
-            template<typename T>
-            T &AddSystem()
+            template<typename T, typename... TArgs>
+            T &AddSystem(TArgs&&... args)
             {
-                return this->_systemManager.AddSystem<T>();
+                return this->_systemManager.AddSystem<T>(std::forward<TArgs>(args)...);
             }
             Entity &CreateEntity();
             template<typename T>

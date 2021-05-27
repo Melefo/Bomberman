@@ -36,14 +36,23 @@ namespace ECS
                     throw Exception::EntityException("Entity doesn't contains this Component");
                 return dynamic_cast<T &>(*it->second);
             }
-            template<typename T>
-            void AddComponent()
+            template<typename T, typename... TArgs>
+            void AddComponent(TArgs&&... args)
             {
                 std::string name(typeid(T).name());
 
                 if (this->HasComponent<T>())
                     throw Exception::EntityException("Entity already contains this Component");
-                this->_components[name] = std::make_unique<T>();
+                this->_components[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
+            }
+            template<typename T>
+            void RemoveComponent()
+            {
+                std::string name(typeid(T).name());
+
+                const auto &it = this->_components.find(name);
+                if (it != this->_components.end())
+                    this->_components.erase(it);
             }
             template<typename T>
             bool HasComponent() const
