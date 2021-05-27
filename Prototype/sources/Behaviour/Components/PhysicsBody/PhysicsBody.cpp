@@ -7,7 +7,10 @@
 
 #include "PhysicsBody.hpp"
 
-PhysicsBody::PhysicsBody(RayLib::Vector3 startVelocity)
+namespace Prototype
 {
-    velocity = startVelocity;
+    PhysicsBody::PhysicsBody(RayLib::Vector3 startVelocity)
+    {
+        velocity = startVelocity;
+    }
 }

@@ -9,18 +9,21 @@
 #include "Transform.hpp"
 #include "Renderer.hpp"
 
-RenderSystem::RenderSystem()
+namespace Prototype
 {
-    AddDependency<Transform>();
-    AddDependency<Renderer>();
-}
+    RenderSystem::RenderSystem()
+    {
+        AddDependency<Transform>();
+        AddDependency<Renderer>();
+    }
 
-void RenderSystem::Update(double dt, ECS::Entity &entity)
-{
-    Renderer& renderer = entity.GetComponent<Renderer>();
-    Transform& transform = entity.GetComponent<Transform>();
+    void RenderSystem::Update(double dt, ECS::Entity &entity)
+    {
+        Renderer& renderer = entity.GetComponent<Renderer>();
+        Transform& transform = entity.GetComponent<Transform>();
+        RayLib::Model& model = renderer.GetModel();
 
-    RayLib::Model& model = renderer.GetModel();
-
-    model.Draw(transform.position, transform.scale.x, WHITE);
+        (void) dt;
+        model.Draw(transform.position, transform.scale.x, WHITE);
+    }
 }

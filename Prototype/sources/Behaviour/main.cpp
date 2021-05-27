@@ -25,6 +25,8 @@
 #include "Transform.hpp"
 #include "PhysicsBody.hpp"
 #include "PhysicsSystem.hpp"
+#include "Renderer.hpp"
+#include "RenderSystem.hpp"
 
 int main(void)
 {
@@ -32,10 +34,14 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
 
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Transform>();
-    entity.AddComponent<PhysicsBody>();
+    entity.AddComponent<Prototype::Transform>();
+    entity.AddComponent<Prototype::PhysicsBody>();
+    entity.AddComponent<Prototype::Renderer>();
 
-    coordinator.AddSystem<PhysicsSystem>();
+    coordinator.AddSystem<Prototype::PhysicsSystem>();
+    coordinator.AddSystem<Prototype::RenderSystem>();
+
+    entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.05f, 0.05f, 0.05f);
 
     RayLib::Camera3D camera = RayLib::Camera3D();
 

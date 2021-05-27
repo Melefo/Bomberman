@@ -12,14 +12,17 @@
 #include "IComponent.hpp"
 #include "Vector3.hpp"
 
-class PhysicsBody : public ECS::IComponent {
-    public:
-        PhysicsBody(RayLib::Vector3 velocity);
-        ~PhysicsBody() override = default;
+namespace Prototype
+{
+    class PhysicsBody : public ECS::IComponent {
+        public:
+            PhysicsBody(RayLib::Vector3 velocity=RayLib::Vector3());
+            ~PhysicsBody() override = default;
 
-        RayLib::Vector3 velocity;
-    protected:
-    private:
-};
+            RayLib::Vector3 velocity;
+        protected:
+        private:
+    };
+}
 
 #endif /* !PHYSICSBODY_HPP_ */

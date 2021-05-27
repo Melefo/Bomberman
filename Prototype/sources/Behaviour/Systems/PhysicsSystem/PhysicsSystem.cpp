@@ -9,16 +9,19 @@
 #include "PhysicsBody.hpp"
 #include "Transform.hpp"
 
-PhysicsSystem::PhysicsSystem()
+namespace Prototype
 {
-    AddDependency<PhysicsBody>();
-    AddDependency<Transform>();
-}
+    PhysicsSystem::PhysicsSystem()
+    {
+        AddDependency<PhysicsBody>();
+        AddDependency<Transform>();
+    }
 
-void PhysicsSystem::Update(double dt, ECS::Entity &entity)
-{
-    PhysicsBody &physicsBody = entity.GetComponent<PhysicsBody>();
-    Transform &transform = entity.GetComponent<Transform>();
+    void PhysicsSystem::Update(double dt, ECS::Entity &entity)
+    {
+        PhysicsBody &physicsBody = entity.GetComponent<PhysicsBody>();
+        Transform &transform = entity.GetComponent<Transform>();
 
-    transform.position += physicsBody.velocity * dt;
+        transform.position += physicsBody.velocity * dt;
+    }
 }

@@ -7,15 +7,17 @@
 
 #include "Renderer.hpp"
 
-Renderer::Renderer(const std::string& modelPath, const std::string& texturePath) :
-_model(modelPath), _texture(texturePath)
+namespace Prototype
 {
-    _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
+    Renderer::Renderer(const std::string& modelPath, const std::string& texturePath) :
+    _model(modelPath), _texture(texturePath)
+    {
+        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
+    }
+
+
+    RayLib::Model& Renderer::GetModel()
+    {
+        return (_model);
+    }
 }
-
-
-RayLib::Model& Renderer::GetModel()
-{
-    return (_model);
-}
-

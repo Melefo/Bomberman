@@ -12,22 +12,25 @@
 #include "IComponent.hpp"
 #include "Vector3.hpp"
 
-class Transform : public ECS::IComponent {
-    public:
-        Transform(RayLib::Vector3 position=RayLib::Vector3(),
-                    RayLib::Vector3 rotation=RayLib::Vector3(),
-                    RayLib::Vector3 scale=RayLib::Vector3());
-        ~Transform() override = default;
+namespace Prototype
+{
+    class Transform : public ECS::IComponent {
+        public:
+            Transform(RayLib::Vector3 position=RayLib::Vector3(),
+                        RayLib::Vector3 rotation=RayLib::Vector3(),
+                        RayLib::Vector3 scale=RayLib::Vector3(1.0f, 1.0f, 1.0f));
+            ~Transform() override = default;
 
-        RayLib::Vector3 position;
-        RayLib::Vector3 rotation;
-        RayLib::Vector3 scale;
+            RayLib::Vector3 position;
+            RayLib::Vector3 rotation;
+            RayLib::Vector3 scale;
 
-        // translate
-        // lookat ?
+            // translate
+            // lookat ?
 
-    protected:
-    private:
-};
+        protected:
+        private:
+    };
+}
 
 #endif /* !TRANSFORM_HPP_ */

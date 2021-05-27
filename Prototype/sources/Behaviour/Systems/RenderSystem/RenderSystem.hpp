@@ -11,15 +11,18 @@
 #include "ASystem.hpp"
 #include "Entity.hpp"
 
-class RenderSystem : public ECS::ASystem {
-    public:
-        RenderSystem();
-        ~RenderSystem() override = default;
+namespace Prototype
+{
+    class RenderSystem : public ECS::ASystem {
+        public:
+            RenderSystem();
+            ~RenderSystem() override = default;
 
-        void Update(double dt, ECS::Entity &entity) override;
+            void Update(double dt, ECS::Entity &entity) override;
 
-    protected:
-    private:
-};
+        protected:
+        private:
+    };
+}
 
 #endif /* !RENDERSYSTEM_HPP_ */

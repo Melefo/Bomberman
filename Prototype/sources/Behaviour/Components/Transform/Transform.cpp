@@ -7,11 +7,13 @@
 
 #include "Transform.hpp"
 
-Transform::Transform(RayLib::Vector3 startPos, RayLib::Vector3 startRot, RayLib::Vector3 startScale)
+namespace Prototype
 {
-    position = startPos;
-    rotation = startRot;
-    scale = startScale;
+    Transform::Transform(RayLib::Vector3 startPos, RayLib::Vector3 startRot, RayLib::Vector3 startScale)
+    {
+        position = startPos;
+        rotation = startRot;
+        scale = startScale;
+    }
 }
-
 

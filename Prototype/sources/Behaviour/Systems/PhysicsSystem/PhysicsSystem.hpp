@@ -11,15 +11,18 @@
 #include "ASystem.hpp"
 #include "Entity.hpp"
 
-class PhysicsSystem : public ECS::ASystem {
-    public:
-        PhysicsSystem();
-        ~PhysicsSystem() override = default;
+namespace Prototype
+{
+    class PhysicsSystem : public ECS::ASystem {
+        public:
+            PhysicsSystem();
+            ~PhysicsSystem() override = default;
 
-        void Update(double dt, ECS::Entity &entity) override;
+            void Update(double dt, ECS::Entity &entity) override;
 
-    protected:
-    private:
-};
+        protected:
+        private:
+    };
+}
 
 #endif /* !PHYSICSSYSTEM_HPP_ */
