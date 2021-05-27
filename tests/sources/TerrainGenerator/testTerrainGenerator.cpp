@@ -6,6 +6,7 @@
 */
 
 #include "testTerrainGenerator.hpp"
+#include "OSRedirector.hpp"
 #include <criterion/criterion.h>
 #include <iostream>
 
@@ -211,7 +212,7 @@ Test(addTetrOnMap, basic)
     };
 
     terrainGenerator.clearMap();
-    terrainGenerator.addTetrOnMap(tile);
+    cr_assert_eq(terrainGenerator.addTetrOnMap(tile), true);
     cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
 }
 
@@ -380,4 +381,288 @@ Test(blocksPath, basic)
     terrainGenerator.modifyMap("O   o           O", 4);
     cr_assert_eq(terrainGenerator.blocksPath(3, 3), false);
     cr_assert_eq(terrainGenerator.blocksPath(3, 6), false);
+}
+
+Test(displayMap, basic)
+{
+    TestTerrainGenerator terrainGenerator(6);
+    std::string desiredOutput =
+        std::string("OOOOOOOOOOOOOOOOO\n")+
+        std::string("O               O\n")+
+        std::string("O o o o o o o o O\n")+
+        std::string("O               O\n")+
+        std::string("O o o o o o o o O\n")+
+        std::string("O               O\n")+
+        std::string("O o o o o o o o O\n")+
+        std::string("O               O\n")+
+        std::string("O o o o o o o o O\n")+
+        std::string("O               O\n")+
+        std::string("O o o o o o o o O\n")+
+        std::string("O               O\n")+
+        std::string("OOOOOOOOOOOOOOOOO\n");
+    std::string content;
+
+    terrainGenerator.generateBaseMap();
+    terrainGenerator.removeBoxes();
+    OSRedirector os(std::cout);
+    terrainGenerator.displayMap();
+    content = os.getContent();
+    cr_assert_eq(content, desiredOutput, "actual = %s\nshould = %s\n", content.c_str(), desiredOutput.c_str());
+}
+
+Test(addTileOnMap, basic)
+{
+    TestTerrainGenerator terrainGenerator(6);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOOOOOO"},
+        {"O               O"},
+        {"O  o            O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"OOOOOOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    terrainGenerator.addTileOnMap(2, 3);
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(placePlayers, two_players)
+{
+    TestTerrainGenerator terrainGenerator(2);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOO"},
+        {"OP          O"},
+        {"O           O"},
+        {"O           O"},
+        {"O           O"},
+        {"O           O"},
+        {"O           O"},
+        {"O           O"},
+        {"O           O"},
+        {"O           O"},
+        {"O           O"},
+        {"O          PO"},
+        {"OOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    terrainGenerator.placePlayers();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(placePlayers, three_players)
+{
+    TestTerrainGenerator terrainGenerator(3);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOOOO"},
+        {"OP           PO"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"OP           PO"},
+        {"OOOOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    terrainGenerator.placePlayers();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(placePlayers, four_players)
+{
+    TestTerrainGenerator terrainGenerator(4);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOOOO"},
+        {"OP           PO"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"OP           PO"},
+        {"OOOOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    terrainGenerator.placePlayers();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(placePlayers, six_players)
+{
+    TestTerrainGenerator terrainGenerator(6);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOOOOOO"},
+        {"OP      P      PO"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"O               O"},
+        {"OP      P      PO"},
+        {"OOOOOOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    terrainGenerator.placePlayers();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(placePlayers, eight_players)
+{
+    TestTerrainGenerator terrainGenerator(8);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOOOOOOOO"},
+        {"OP       P       PO"},
+        {"O                 O"},
+        {"O                 O"},
+        {"O                 O"},
+        {"O                 O"},
+        {"OP               PO"},
+        {"O                 O"},
+        {"O                 O"},
+        {"O                 O"},
+        {"O                 O"},
+        {"OP       P       PO"},
+        {"OOOOOOOOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    terrainGenerator.placePlayers();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(placePlayers, more_players)
+{
+    TestTerrainGenerator terrainGenerator(22);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOOOOOOOO"},
+        {"OP       P       PO"},
+        {"O                 O"},
+        {"O                 O"},
+        {"O                 O"},
+        {"O                 O"},
+        {"OP               PO"},
+        {"O                 O"},
+        {"O                 O"},
+        {"O                 O"},
+        {"O                 O"},
+        {"OP       P       PO"},
+        {"OOOOOOOOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    terrainGenerator.placePlayers();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(blocksPath, advanced)
+{
+    TestTerrainGenerator terrainGenerator(4);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOOOO"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O             O"},
+        {"O     o o     O"},
+        {"O             O"},
+        {"O     o o     O"},
+        {"O             O"},
+        {"OOOOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    cr_assert_eq(terrainGenerator.blocksPath(5, 6), false);
+    terrainGenerator.modifyMap("O     o o     O", 8);
+    terrainGenerator.modifyMap("O     o o     O", 10);
+    cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
+    terrainGenerator.modifyMap("O     ooo     O", 7);
+    cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
+    terrainGenerator.modifyMap("O     ooo     O", 8);
+    cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
+    terrainGenerator.modifyMap("O     ooo     O", 9);
+    cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
+    terrainGenerator.modifyMap("O     oo      O", 9);
+    cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
+}
+
+Test(lineGetWidth, basic)
+{
+    TestTerrainGenerator terrainGenerator(4);
+
+    terrainGenerator.clearMap();
+    terrainGenerator.modifyMap("O       o     O", 1);
+    cr_assert_eq(terrainGenerator.lineGetWidth(1), 9);
+    terrainGenerator.modifyMap("Oo            O", 2);
+    cr_assert_eq(terrainGenerator.lineGetWidth(2), 2);
+    terrainGenerator.modifyMap("O            oO", 3);
+    cr_assert_eq(terrainGenerator.lineGetWidth(3), 14);
+    cr_assert_eq(terrainGenerator.lineGetWidth(4), 1);
+}
+
+Test(fillHoles, basic)
+{
+    TestTerrainGenerator terrainGenerator(4);
+    std::vector<std::string> desiredOutput = {
+        {"OOOOOOOOOOOOOOO"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"Ooooooooooooo O"},
+        {"O             O"},
+        {"OOOOOOOOOOOOOOO"},
+    };
+
+    terrainGenerator.clearMap();
+    terrainGenerator.fillHoles();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}
+
+Test(isMapFull, basic)
+{
+    TestTerrainGenerator terrainGenerator(4);
+
+    terrainGenerator.clearMap();
+    terrainGenerator.modifyMap("Ooooooooooooo O", 1);
+    terrainGenerator.modifyMap("Ooooooooooooo O", 2);
+    terrainGenerator.modifyMap("Ooooooooooooo O", 3);
+    terrainGenerator.modifyMap("Ooooooooooooo O", 4);
+    terrainGenerator.modifyMap("Ooooooooooooo O", 5);
+    cr_assert_eq(terrainGenerator.isMapFull(), false);
+    terrainGenerator.modifyMap("Ooooooooooooo O", 6);
+    cr_assert_eq(terrainGenerator.isMapFull(), true);
+    terrainGenerator.modifyMap("Oooooo        O", 3);
+    cr_assert_eq(terrainGenerator.isMapFull(), false);
 }
