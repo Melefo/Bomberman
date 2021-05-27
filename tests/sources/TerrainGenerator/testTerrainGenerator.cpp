@@ -7,7 +7,6 @@
 
 #include "testTerrainGenerator.hpp"
 #include "OSRedirector.hpp"
-#include <criterion/criterion.h>
 #include <iostream>
 
 Test(generateMapLine, pair)
