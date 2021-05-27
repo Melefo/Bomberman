@@ -7,7 +7,7 @@
 
 #include <criterion/criterion.h>
 #include "AddSystem/AddSystem.hpp"
-#include "StorageComponent/StorageComponent.hpp"
+#include "StorageComponent.hpp"
 #include "Coordinator.hpp"
 
 Test(coordinator, coordinator)

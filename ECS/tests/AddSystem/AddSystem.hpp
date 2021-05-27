@@ -12,7 +12,7 @@
 #include <vector>
 #include "Entity.hpp"
 #include "ASystem.hpp"
-#include "../StorageComponent/StorageComponent.hpp"
+#include "StorageComponent.hpp"
 
 class AddSystem : public ECS::ASystem
 {

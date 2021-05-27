@@ -8,8 +8,8 @@
 #include <criterion/criterion.h>
 #include "SystemManager.hpp"
 #include "EntityManager.hpp"
-#include "AddSystem/AddSystem.hpp"
-#include "StorageComponent/StorageComponent.hpp"
+#include "AddSystem.hpp"
+#include "StorageComponent.hpp"
 
 Test(AddSystem, test)
 {
