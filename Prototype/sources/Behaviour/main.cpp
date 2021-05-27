@@ -27,6 +27,8 @@
 #include "PhysicsSystem.hpp"
 #include "Renderer.hpp"
 #include "RenderSystem.hpp"
+#include "BehaviourSystem.hpp"
+#include "PlayerMovement.hpp"
 
 int main(void)
 {
@@ -37,9 +39,12 @@ int main(void)
     entity.AddComponent<Prototype::Transform>();
     entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>();
+    // ! n'est pas lancé à cause de hasComponent qui utilise le name de la classe parente
+    entity.AddComponent<Prototype::PlayerMovement>(entity, 50.0f);
 
     coordinator.AddSystem<Prototype::PhysicsSystem>();
     coordinator.AddSystem<Prototype::RenderSystem>();
+    coordinator.AddSystem<Prototype::BehaviourSystem>();
 
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.05f, 0.05f, 0.05f);
 
