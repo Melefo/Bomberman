@@ -12,6 +12,7 @@
 #include <unordered_map>
 #include <memory>
 #include <algorithm>
+#include <vector>
 #include "Exceptions.hpp"
 #include "IComponent.hpp"
 
@@ -62,6 +63,7 @@ namespace ECS
                 return this->_components.find(name) != this->_components.end();
             }
             bool HasComponent(std::string &name) const;
+            bool HasComponents(std::vector<std::string> &names) const;
             uint32_t GetId() const;
     };
 }

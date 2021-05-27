@@ -19,6 +19,14 @@ namespace ECS
         return this->_components.find(name) != this->_components.end();
     }
 
+    bool Entity::HasComponents(std::vector<std::string> &names) const
+    {
+        for (auto &name : names)
+            if (!this->HasComponent(name))
+                return false;
+        return true;
+    }
+
     uint32_t Entity::GetId() const
     {
         return this->_id;
