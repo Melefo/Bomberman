@@ -21,7 +21,9 @@ class TestTerrainGenerator : public TerrainGenerator {
         void generateBaseMap() {TerrainGenerator::generateBaseMap();};
         void removeBoxes() {
             for (auto &it : _map)
-                std::replace(it.begin(), it.end(), 'x', ' ');
+                for (auto &c : it)
+                    if (c == 'x')
+                        c = ' ';
         };
         bool addTetrOnMap(const std::vector<std::vector<std::string>> &tiles) {return TerrainGenerator::addTetrOnMap(tiles);};
         bool tryPlacingTile(const std::vector<std::string> &tile, int mapPos) {return TerrainGenerator::tryPlacingTile(tile, mapPos);};
