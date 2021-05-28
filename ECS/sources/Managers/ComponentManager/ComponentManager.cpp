@@ -14,8 +14,10 @@ namespace ECS
     {
     }
 
-    bool ComponentManager::HasComponent(std::string &name) const
+    bool ComponentManager::HasComponent(std::string& name) const
     {
+        if (this->_bases.find(name) != this->_bases.end())
+            return (true);
         return this->_components.find(name) != this->_components.end();
     }
 

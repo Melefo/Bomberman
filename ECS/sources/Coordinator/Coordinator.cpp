@@ -28,6 +28,8 @@ namespace ECS
 
         for (auto &pair : this->_systemManager.GetSystems())
         {
+            if (!pair.second->GetStatus())
+                continue;
             auto dependencies = pair.second->GetDependencies();
 
             for (auto &entity : this->_entityManager.GetEntities())

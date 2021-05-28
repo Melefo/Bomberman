@@ -33,7 +33,7 @@ namespace ECS
                 return this->_componentManager.GetComponent<T>();
             }
             template<typename T>
-            std::vector<std::reference_wrapper<T>> &OfType()
+            std::vector<std::reference_wrapper<T>> OfType()
             {
                 return this->_componentManager.OfType<T>();
             }
@@ -41,6 +41,11 @@ namespace ECS
             void AddComponent(TArgs&&... args)
             {
                 this->_componentManager.AddComponent<T>(std::forward<TArgs>(args)...);
+            }
+            template<typename Base, typename T, typename... TArgs>
+            void AddComponent(TArgs&&... args)
+            {
+                this->_componentManager.AddComponent<Base, T>(std::forward<TArgs>(args)...);
             }
             template<typename T>
             void RemoveComponent()
