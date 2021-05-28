@@ -30,6 +30,11 @@ namespace RayLib
         ::DrawTextureEx(_texture, position.getVector2(), rotation, scale, tint.getColor());
     }
 
+    void Texture::DrawBillboard(RayLib::Camera3D camera, RayLib::Vector3 center, float size, Color tint)
+    {
+        ::DrawBillboard(camera.GetCamera(), _texture, center.getVector3(), size, tint.getColor());
+    }
+
     ::Texture2D Texture::GetTexture()
     {
         return (_texture);

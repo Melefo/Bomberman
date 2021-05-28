@@ -8,6 +8,7 @@
 #include "UISystem.hpp"
 #include "IUIObject.hpp"
 #include "Transform.hpp"
+#include <iostream>
 
 namespace Prototype
 {

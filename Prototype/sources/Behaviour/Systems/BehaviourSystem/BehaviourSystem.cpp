@@ -20,10 +20,8 @@ namespace Prototype
     {
         std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
-        std::cout << "Behaviour system updating" << std::endl;
 
         for (IBehaviour& behaviour : behaviours) {
-            std::cout << "Behaviour component updating" << std::endl;
             behaviour.Update(dt);
         }
     }

@@ -94,6 +94,13 @@ namespace RayLib
         return (newVec);
     }
 
+    Vector3 Vector3::operator*(const float factor)
+    {
+        Vector3 newVec = Vector3(x * factor, y * factor, z * factor);
+
+        return (newVec);
+    }
+
     Vector3& Vector3::operator*=(const float factor)
     {
         x *= factor;

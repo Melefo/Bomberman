@@ -73,7 +73,7 @@ namespace ECS
                 const auto &it = this->_bases.find(baseName);
 
                 if (it == this->_bases.end())
-                    this->_bases[baseName] = std::vector<IComponent&>();
+                    this->_bases[baseName] = std::vector<std::reference_wrapper<IComponent>>();
                 this->_bases[baseName].push_back(*this->_components[name]);
             }
             template<typename T>
@@ -85,11 +85,13 @@ namespace ECS
 
                 if (it == this->_components.end())
                     return;
-                for (auto &base : this->_bases)
+                for (auto &base = this->_bases.begin(); base != this->_bases.end(); base++)
                 {
-                    const auto &found = std::find(this->_bases.begin(), this->_bases.end(), *it->second);
-                    if (found != this->_bases.end())
-                        this->_bases.erase(found);
+                    const auto &found = std::find(base->second.begin(), base->second.end(), *it->second);
+                    if (found != base->second.end())
+                        base->second.erase(found);
+                    if (base->second.size() == 0)
+                        this->_bases.erase(base);
                 }
                 this->_components.erase(it);
             }

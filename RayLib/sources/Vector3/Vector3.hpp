@@ -32,6 +32,8 @@ namespace RayLib
 
             Vector3 operator+(const Vector3& vec);
             Vector3 operator*(const Vector3& vec);
+            Vector3 operator*(const float factor);
+
 
             float x;
             float y;

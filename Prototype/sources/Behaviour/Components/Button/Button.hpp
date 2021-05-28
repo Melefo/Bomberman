@@ -18,7 +18,7 @@ namespace Prototype
 {
     class Button : public IUIObject {
         public:
-            Button(const std::string& texturePath="../assets/models/cube/def_text.png");
+            Button(RayLib::Camera3D& camera, const std::string& texturePath="../assets/models/cube/def_text.png");
             ~Button() override = default;
 
             void Draw(RayLib::Vector2<float> position, float scale=1.0f) override;
@@ -28,6 +28,7 @@ namespace Prototype
         protected:
         private:
             //! ou billboard
+            RayLib::Camera3D& _camera;
             RayLib::Texture _texture;
             std::vector<std::function<void()>> _callbacks;
     };

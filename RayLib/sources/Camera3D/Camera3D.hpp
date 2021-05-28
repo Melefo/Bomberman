@@ -36,6 +36,8 @@ namespace RayLib
 
             Ray GetMouseRay(Vector2<float> mousePos);
 
+            ::Camera3D GetCamera();
+
 
 
         protected:

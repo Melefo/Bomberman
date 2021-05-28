@@ -8,6 +8,7 @@
 #include "PhysicsSystem.hpp"
 #include "PhysicsBody.hpp"
 #include "Transform.hpp"
+#include <iostream>
 
 namespace Prototype
 {

@@ -13,6 +13,7 @@
 #include "Image.hpp"
 #include "Color.hpp"
 #include "Vector2.hpp"
+#include "Camera3D.hpp"
 
 namespace RayLib
 {
@@ -27,7 +28,7 @@ namespace RayLib
             void DrawTextureEx(Vector2<float> position, float rotation, float scale, Color tint);
 
             // draw billboard ?
-            // for scale:
+            void DrawBillboard(RayLib::Camera3D camera, RayLib::Vector3 center=RayLib::Vector3(), float size=1.0f, Color tint=WHITE);
 
             ::Texture2D GetTexture();
 

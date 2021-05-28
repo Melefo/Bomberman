@@ -42,6 +42,11 @@ namespace ECS
             {
                 this->_componentManager.AddComponent<T>(std::forward<TArgs>(args)...);
             }
+            template<typename Base, typename T, typename... TArgs>
+            void AddComponent(TArgs&&... args)
+            {
+                this->_componentManager.AddComponent<Base, T>(std::forward<TArgs>(args)...);
+            }
             template<typename T>
             void RemoveComponent()
             {
