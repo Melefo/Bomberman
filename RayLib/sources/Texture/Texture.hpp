@@ -14,6 +14,7 @@
 #include "Color.hpp"
 #include "Vector2.hpp"
 #include "Camera3D.hpp"
+#include "Rectangle.hpp"
 
 namespace RayLib
 {
@@ -26,9 +27,12 @@ namespace RayLib
 
             void DrawTexture(Vector2<float> position, Color tint);
             void DrawTextureEx(Vector2<float> position, float rotation, float scale, Color tint);
+            void DrawTextureRec(RayLib::Rectangle source, RayLib::Vector2<float> position=RayLib::Vector2<float>(), RayLib::Color col=WHITE);
 
             // draw billboard ?
             void DrawBillboard(RayLib::Camera3D camera, RayLib::Vector3 center=RayLib::Vector3(), float size=1.0f, Color tint=WHITE);
+
+
 
             ::Texture2D GetTexture();
 

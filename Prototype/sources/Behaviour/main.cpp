@@ -41,7 +41,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>();
     // ! n'est pas lancé à cause de hasComponent qui utilise le name de la classe parente
-    entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 50.0f);
+    entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 250.0f);
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.05f, 0.05f, 0.05f);
 
     return (entity);
@@ -52,7 +52,7 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     // button
     ECS::Entity &entity = coordinator.CreateEntity();
     entity.AddComponent<Prototype::IUIObject, Prototype::Button>(camera);
-    entity.AddComponent<Prototype::Transform>();
+    entity.AddComponent<Prototype::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
     return (entity);
 }
@@ -61,7 +61,7 @@ int main(void)
 {
     ECS::Coordinator coordinator;
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
-    RayLib::Camera3D camera = RayLib::Camera3D();
+    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
 
     ECS::Entity& cat = InitCat(coordinator);
     ECS::Entity& button = InitButton(coordinator, camera);
@@ -70,7 +70,6 @@ int main(void)
     coordinator.AddSystem<Prototype::RenderSystem>();
     coordinator.AddSystem<Prototype::BehaviourSystem>();
     coordinator.AddSystem<Prototype::UISystem>();
-
 
     window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     camera.SetCameraMode(CAMERA_FREE);

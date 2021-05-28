@@ -13,6 +13,7 @@
 #include <vector>
 #include "Texture.hpp"
 #include "IUIObject.hpp"
+#include "Rectangle.hpp"
 
 namespace Prototype
 {
@@ -30,6 +31,7 @@ namespace Prototype
             //! ou billboard
             RayLib::Camera3D& _camera;
             RayLib::Texture _texture;
+            RayLib::Rectangle _rect;
             std::vector<std::function<void()>> _callbacks;
     };
 }
