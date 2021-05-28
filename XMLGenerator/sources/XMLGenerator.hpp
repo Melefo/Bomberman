@@ -8,12 +8,22 @@
 #ifndef XMLGENERATOR_HPP_
 #define XMLGENERATOR_HPP_
 
+#include <fstream>
+#include <memory>
+#include <vector>
+#include <string>
+
 class XMLGenerator {
     public:
-        XMLGenerator();
+        XMLGenerator(const std::vector<std::string> &content);
         ~XMLGenerator();
 
     protected:
+        void write(const std::string content);
+        void createMap();
+
+        std::unique_ptr<std::ofstream> _stream;
+        const std::vector<std::string> &_map;
     private:
 };
 

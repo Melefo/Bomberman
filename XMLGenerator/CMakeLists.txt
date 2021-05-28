@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.17)
 PROJECT(xmlgen)
 SET(CMAKE_CXX_STANDARD 20)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/")
 
 file(GLOB_RECURSE SRC sources/**/*.cpp)
 file(GLOB_RECURSE TEST tests/**/*.cpp tests/*.cpp)
@@ -12,7 +12,8 @@ else()
   add_compile_options(-Wall -Wextra -Wshadow)
 endif()
 
-add_executable(xmlgen
+add_library(xmlgen
+    STATIC
     ${SRC}
 )
 
