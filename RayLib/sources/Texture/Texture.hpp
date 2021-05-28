@@ -26,6 +26,9 @@ namespace RayLib
             void DrawTexture(Vector2<float> position, Color tint);
             void DrawTextureEx(Vector2<float> position, float rotation, float scale, Color tint);
 
+            // draw billboard ?
+            // for scale:
+
             ::Texture2D GetTexture();
 
         protected:

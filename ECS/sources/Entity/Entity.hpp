@@ -12,7 +12,9 @@
 #include <unordered_map>
 #include <memory>
 #include <algorithm>
+#include <vector>
 #include "Exceptions.hpp"
+#include "ComponentManager.hpp"
 #include "IComponent.hpp"
 
 namespace ECS
@@ -21,38 +23,32 @@ namespace ECS
     {
         private:
             uint32_t _id;
-            std::unordered_map<std::string, std::unique_ptr<IComponent>> _components;
-
+            ComponentManager _componentManager;
         public:
             Entity(uint32_t id);
             ~Entity() = default;
             template<typename T>
             T &GetComponent()
             {
-                std::string name(typeid(T).name());
-
-                const auto &it = this->_components.find(name);
-                if (it == this->_components.end())
-                    throw Exception::EntityException("Entity doesn't contains this Component");
-                return dynamic_cast<T &>(*it->second);
+                return this->_componentManager.GetComponent<T>();
             }
             template<typename T, typename... TArgs>
             void AddComponent(TArgs&&... args)
             {
-                std::string name(typeid(T).name());
-
-                if (this->HasComponent<T>())
-                    throw Exception::EntityException("Entity already contains this Component");
-                this->_components[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
+                this->_componentManager.AddComponent<T>(std::forward<TArgs>(args)...);
+            }
+            template<typename T>
+            void RemoveComponent()
+            {
+                this->_componentManager.RemoveComponent<T>();
             }
             template<typename T>
             bool HasComponent() const
             {
-                std::string name(typeid(T).name());
-
-                return this->_components.find(name) != this->_components.end();
+                return this->_componentManager.HasComponent<T>();
             }
             bool HasComponent(std::string &name) const;
+            bool HasComponents(std::vector<std::string> &names) const;
             uint32_t GetId() const;
     };
 }

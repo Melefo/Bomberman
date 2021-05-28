@@ -6,19 +6,19 @@
 */
 
 #include "BehaviourSystem.hpp"
-#include "Behaviour.hpp"
+#include "IBehaviour.hpp"
 #include <iostream>
 
 namespace Prototype
 {
     BehaviourSystem::BehaviourSystem()
     {
-        AddDependency<Behaviour>();
+        AddDependency<IBehaviour>();
     }
 
     void BehaviourSystem::Update(double dt, ECS::Entity& entity)
     {
-        Behaviour& behaviour = entity.GetComponent<Behaviour>();
+        IBehaviour& behaviour = entity.GetComponent<IBehaviour>();
 
         std::cout << "Behaviour system updating" << std::endl;
         behaviour.Update(dt);

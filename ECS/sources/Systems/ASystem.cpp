@@ -9,7 +9,7 @@
 
 namespace ECS
 {
-    const std::vector<std::string> ASystem::GetDependencies() const
+    const std::vector<std::string> &ASystem::GetDependencies() const
     {
         return this->_dependencies;
     }
