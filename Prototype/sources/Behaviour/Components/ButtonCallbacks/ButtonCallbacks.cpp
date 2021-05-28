@@ -18,6 +18,7 @@ namespace Prototype
 
     void ButtonCallbacks::Update(float dt)
     {
+        (void) dt;
         if (_button.IsMouseOver() && RayLib::Mouse::IsButtonPressed(MOUSE_BUTTON_LEFT)) {
             _button.OnClick();
         }

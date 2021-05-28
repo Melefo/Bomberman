@@ -20,6 +20,7 @@ namespace Prototype
 
     void UISystem::Update(double dt, ECS::Entity& entity)
     {
+        (void) dt;
         std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
         Transform& transform = entity.GetComponent<Transform>();
 
