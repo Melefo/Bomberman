@@ -18,6 +18,7 @@ namespace ECS
     {
         private:
             std::vector<std::string> _dependencies;
+            bool _enabled;
         protected:
             template<typename T>
             void AddDependency()
@@ -25,11 +26,16 @@ namespace ECS
                 this->_dependencies.push_back(std::string(typeid(T).name()));
             }
         public:
-            ASystem() = default;
+            ASystem();
+            ASystem(bool enabled = true);
             virtual ~ASystem() = default;
 
             virtual void Update(double, Entity &);
+            virtual void OnDisable();
+            virtual void OnEnable();
             const std::vector<std::string> &GetDependencies() const;
+            bool GetStatus() const;
+            void ToggleStatus();
     };
 }
 
