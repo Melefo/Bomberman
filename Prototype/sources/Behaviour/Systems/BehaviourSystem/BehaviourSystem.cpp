@@ -18,10 +18,14 @@ namespace Prototype
 
     void BehaviourSystem::Update(double dt, ECS::Entity& entity)
     {
-        IBehaviour& behaviour = entity.GetComponent<IBehaviour>();
+        std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
         std::cout << "Behaviour system updating" << std::endl;
-        behaviour.Update(dt);
+
+        for (IBehaviour& behaviour : behaviours) {
+            std::cout << "Behaviour component updating" << std::endl;
+            behaviour.Update(dt);
+        }
     }
 
 }

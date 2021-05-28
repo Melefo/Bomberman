@@ -61,6 +61,9 @@ int main(void)
     ECS::Coordinator coordinator;
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
 
+    ECS::Entity& cat = InitCat(coordinator);
+    ECS::Entity& button = InitButton(coordinator);
+
     coordinator.AddSystem<Prototype::PhysicsSystem>();
     coordinator.AddSystem<Prototype::RenderSystem>();
     coordinator.AddSystem<Prototype::BehaviourSystem>();

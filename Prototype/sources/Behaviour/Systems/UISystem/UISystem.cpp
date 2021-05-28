@@ -19,12 +19,15 @@ namespace Prototype
 
     void UISystem::Update(double dt, ECS::Entity& entity)
     {
-        IUIObject& uiObject = entity.GetComponent<IUIObject>();
+        std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
         Transform& transform = entity.GetComponent<Transform>();
 
         RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
-        // ! ajouter dans vector3 un .magnitude pour récup un float
-        uiObject.Draw(position, transform.scale.x);
+        for (IUIObject& uiObject : uiObjects) {
+            // ! ajouter dans vector3 un .magnitude pour récup un float
+            uiObject.Draw(position, transform.scale.x);
+        }
+
     }
 }
 

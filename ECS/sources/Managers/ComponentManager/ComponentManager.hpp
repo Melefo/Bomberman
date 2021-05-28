@@ -41,7 +41,7 @@ namespace ECS
             std::vector<std::reference_wrapper<T>> OfType()
             {
                 std::string name(typeid(T).name());
-                std::vector<T&> list();
+                std::vector<std::reference_wrapper<T>> list;
                 const auto &it = this->_bases.find(name);
 
                 if (it == this->_bases.end())

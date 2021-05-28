@@ -33,7 +33,7 @@ namespace ECS
                 return this->_componentManager.GetComponent<T>();
             }
             template<typename T>
-            std::vector<std::reference_wrapper<T>> &OfType()
+            std::vector<std::reference_wrapper<T>> OfType()
             {
                 return this->_componentManager.OfType<T>();
             }

@@ -16,7 +16,7 @@ namespace Prototype
     class IBehaviour : public ECS::IComponent {
         public:
             IBehaviour() = default;
-            ~IBehaviour() override = default;
+            virtual ~IBehaviour() = default;
 
             virtual void Update(float dt) = 0;
 
