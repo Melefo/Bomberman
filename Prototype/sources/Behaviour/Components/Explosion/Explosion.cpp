@@ -9,7 +9,7 @@
 
 namespace Prototype
 {
-    Explosion::Explosion(RayLib::Vector3 startRadius, Raylib::ExplosionType startType, unsigned int startPower)
+    Explosion::Explosion(RayLib::Vector3 startRadius, Explosion::ExplosionType startType, unsigned int startPower)
     {
         radius = startRadius;
         type = startType;

@@ -16,20 +16,20 @@ namespace Prototype
 {
     class Explosion : public ECS::IComponent {
         public:
-            class enum ExplosionType
+            enum class ExplosionType
             {
-                CIRCLE;
-                CROSS;
-                VERTICAL;
-                HORIZONTAL;
+                CIRCLE,
+                CROSS,
+                VERTICAL,
+                HORIZONTAL,
             };
             Explosion(RayLib::Vector3 radius=RayLib::Vector3(),
-                      Raylib::ExplosionType type,
-                      unsigned int power);
+                      Explosion::ExplosionType type=Explosion::ExplosionType::CROSS,
+                      unsigned int power=1);
             ~Explosion() override = default;
 
             RayLib::Vector3 radius;
-            Raylib::ExplosionType type;
+            Explosion::ExplosionType type;
             unsigned int power;
         protected:
         private:
