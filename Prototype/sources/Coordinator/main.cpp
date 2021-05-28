@@ -52,7 +52,7 @@ int main(void)
         window->ClearBackground(RAYWHITE);
         camera.BeginMode();
 
-        coordinator.Update();
+        coordinator.Run();
 
         window->DrawGrid(20, 10.0f);
         camera.EndMode();

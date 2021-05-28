@@ -8,6 +8,7 @@
 #ifndef COORDINATOR_HPP_
 #define COORDINATOR_HPP_
 
+#include <chrono>
 #include <memory>
 #include "SystemManager.hpp"
 #include "EntityManager.hpp"
@@ -19,9 +20,17 @@ namespace ECS
         private:
             SystemManager _systemManager;
             EntityManager _entityManager;
-            double _dt = 0.0f;
+
+            double _fixedDeltaTime;
+            double _duration;
+            std::chrono::high_resolution_clock::time_point _lastRun;
+            bool _firstRun;
+
+            void Update(double dt);
+            void FixedUpdate();
+            void LateUpdate(double dt);
         public:
-            Coordinator() = default;
+            Coordinator(double fixedDeltaTime = 0.02);
             ~Coordinator() = default;
     
             template<typename T, typename... TArgs>
@@ -36,7 +45,8 @@ namespace ECS
                 this->_systemManager.RemoveSystem<T>();
             }
             void DeleteEntity(Entity &entity);
-            void Update();
+            void Run();
+            double getFixedDeltaTime() const;
     };
 }
 

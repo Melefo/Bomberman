@@ -27,6 +27,14 @@ namespace ECS
     void ASystem::Update(double, Entity &)
     {
     }
+    
+    void ASystem::FixedUpdate(Entity &)
+    {
+    }
+    
+    void ASystem::LateUpdate(double, Entity &)
+    {
+    }
 
     void ASystem::OnDisable()
     {

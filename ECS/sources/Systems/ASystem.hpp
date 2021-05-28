@@ -27,10 +27,12 @@ namespace ECS
             }
         public:
             ASystem();
-            ASystem(bool enabled = true);
+            ASystem(bool enabled);
             virtual ~ASystem() = default;
 
             virtual void Update(double, Entity &);
+            virtual void FixedUpdate(Entity &);
+            virtual void LateUpdate(double, Entity &);
             virtual void OnDisable();
             virtual void OnEnable();
             const std::vector<std::string> &GetDependencies() const;
