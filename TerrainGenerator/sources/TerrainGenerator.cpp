@@ -29,10 +29,6 @@ TerrainGenerator::TerrainGenerator(int playersNbr, int boxPercentage)
     generateMap();
 }
 
-TerrainGenerator::~TerrainGenerator()
-{
-}
-
 /**
  * Getters
  */
@@ -72,7 +68,7 @@ void TerrainGenerator::generateBaseMap()
 void TerrainGenerator::generateRandomMap()
 {
     int index = 0;
-    std::vector<std::vector<std::string>> tiles = {
+    static std::vector<std::vector<std::string>> tiles = {
         {
             {"***xx"},
             {"*o*xx"},

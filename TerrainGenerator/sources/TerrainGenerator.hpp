@@ -17,7 +17,7 @@ class TerrainGenerator {
          * @enum Textures displayed on map
          * 
          */
-        enum mapTexture {
+        enum class mapTexture {
             OWALL = 'O', // Outer wall character
             INWALL = 'o' // Inner wall character
         };
@@ -32,7 +32,7 @@ class TerrainGenerator {
          * @brief Destroy the Terrain Generator object
          * 
          */
-        ~TerrainGenerator();
+        ~TerrainGenerator() = default;
 
         /**
          * @brief Get the Map object
