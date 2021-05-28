@@ -8,14 +8,14 @@
 #ifndef PLAYERMOVEMENT_HPP_
 #define PLAYERMOVEMENT_HPP_
 
-#include "Behaviour.hpp"
+#include "IBehaviour.hpp"
 #include "Input.hpp"
 #include "PhysicsBody.hpp"
 #include "Entity.hpp"
 
 namespace Prototype
 {
-    class PlayerMovement : public Behaviour {
+    class PlayerMovement : public IBehaviour {
         public:
             PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed);
             ~PlayerMovement() override = default;

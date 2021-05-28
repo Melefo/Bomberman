@@ -31,12 +31,15 @@ add_executable(coordinatorPrototype
 include_directories("sources/Behaviour/Components/PhysicsBody")
 include_directories("sources/Behaviour/Components/Transform")
 include_directories("sources/Behaviour/Components/Renderer")
-include_directories("sources/Behaviour/Components/Behaviour")
+include_directories("sources/Behaviour/Components/IBehaviour")
 include_directories("sources/Behaviour/Components/PlayerMovement")
+include_directories("sources/Behaviour/Components/Button")
+include_directories("sources/Behaviour/Components/IUIObject")
 
 include_directories("sources/Behaviour/Systems/PhysicsSystem")
 include_directories("sources/Behaviour/Systems/RenderSystem")
 include_directories("sources/Behaviour/Systems/BehaviourSystem")
+include_directories("sources/Behaviour/Systems/UISystem")
 
 add_executable(behaviourPrototype
   ${BEHAVIOUR_SRC}
