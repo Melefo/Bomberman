@@ -32,6 +32,7 @@
 #include "Button.hpp"
 #include "UISystem.hpp"
 #include "IBehaviour.hpp"
+#include "ButtonCallbacks.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -53,6 +54,7 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     ECS::Entity &entity = coordinator.CreateEntity();
     entity.AddComponent<Prototype::IUIObject, Prototype::Button>(camera);
     entity.AddComponent<Prototype::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Prototype::IBehaviour, Prototype::ButtonCallbacks>(entity);
 
     return (entity);
 }

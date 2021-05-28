@@ -50,4 +50,8 @@ namespace RayLib
         return(::GetCollisionRayGround(ray.GetRay(), groundHeight));
     }
 
+    bool Physics3D::CheckCollision(Vector2<float> point, Rectangle rec)
+    {
+        return (::CheckCollisionPointRec(point.getVector2(), rec.GetRectangle()));
+    }
 }

@@ -35,6 +35,7 @@ include_directories("sources/Behaviour/Components/IBehaviour")
 include_directories("sources/Behaviour/Components/PlayerMovement")
 include_directories("sources/Behaviour/Components/Button")
 include_directories("sources/Behaviour/Components/IUIObject")
+include_directories("sources/Behaviour/Components/ButtonCallbacks")
 
 include_directories("sources/Behaviour/Systems/PhysicsSystem")
 include_directories("sources/Behaviour/Systems/RenderSystem")

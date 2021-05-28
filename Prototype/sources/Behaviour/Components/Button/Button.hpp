@@ -14,6 +14,8 @@
 #include "Texture.hpp"
 #include "IUIObject.hpp"
 #include "Rectangle.hpp"
+#include "Mouse.hpp"
+#include "BoundingBox.hpp"
 
 namespace Prototype
 {
@@ -23,15 +25,20 @@ namespace Prototype
             ~Button() override = default;
 
             void Draw(RayLib::Vector2<float> position, float scale=1.0f) override;
-            // todo isMouseOver
-            // todo addCallback
-            // todo onClick (call callbacks)
+
+            bool IsMouseOver(void);
+            void AddCallback(std::function<void()> callBack);
+            void OnClick(void);
+
+            // todo getrect
+
         protected:
         private:
             //! ou billboard
             RayLib::Camera3D& _camera;
             RayLib::Texture _texture;
             RayLib::Rectangle _rect;
+            RayLib::BoundingBox _bounds;
             std::vector<std::function<void()>> _callbacks;
     };
 }

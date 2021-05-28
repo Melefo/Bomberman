@@ -13,6 +13,8 @@
 #include "Vector3.hpp"
 #include "BoundingBox.hpp"
 #include "RayHitInfo.hpp"
+#include "Rectangle.hpp"
+#include "Vector2.hpp"
 
 namespace RayLib
 {
@@ -25,8 +27,11 @@ namespace RayLib
             static bool CheckCollision(BoundingBox box1, BoundingBox box2);                                      // Detect collision between two bounding boxes
             static bool CheckCollision(BoundingBox box, Vector3 center, float radius);                       // Detect collision between box and sphere
             static bool CheckCollision(Ray ray, Vector3 center, float radius);                               // Detect collision between ray and sphere
-            static bool CheckCollision(Ray ray, BoundingBox box);                                               // Detect collision between ray and box
+            static bool CheckCollision(Ray ray, BoundingBox box);                                            // Detect collision between ray and box
+            static bool CheckCollision(Vector2<float> point, Rectangle rec);                                               // Detect collision between ray and box
+
             static RayHitInfo CheckCollision(Ray ray, float groundHeight);
+
 
         protected:
         private:
