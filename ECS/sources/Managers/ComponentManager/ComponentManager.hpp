@@ -21,7 +21,7 @@ namespace ECS
     class ComponentManager
     {
         private:
-            std::unordered_map<std::string, std::vector<std::reference_wrapper<IComponent>>> _bases;
+            std::unordered_map<std::string, std::vector<std::string>> _bases;
             std::unordered_map<std::string, std::unique_ptr<IComponent>> _components;
         public:
             ComponentManager();
@@ -40,14 +40,14 @@ namespace ECS
             template<typename T>
             std::vector<std::reference_wrapper<T>> OfType()
             {
-                std::string name(typeid(T).name());
+                std::string baseName(typeid(T).name());
                 std::vector<std::reference_wrapper<T>> list;
-                const auto &it = this->_bases.find(name);
+                const auto &it = this->_bases.find(baseName);
 
                 if (it == this->_bases.end())
                     return list;
-                for (IComponent& component : it->second)
-                    list.push_back(dynamic_cast<T&>(component));
+                for (std::string& name : it->second)
+                    list.push_back(dynamic_cast<T&>(*this->_components[name]));
                 return list;
             }
             template<typename T, typename... TArgs>
@@ -70,11 +70,10 @@ namespace ECS
                 this->_components[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
 
                 std::string baseName(typeid(Base).name());
-                const auto &it = this->_bases.find(baseName);
 
-                if (it == this->_bases.end())
-                    this->_bases[baseName] = std::vector<std::reference_wrapper<IComponent>>();
-                this->_bases[baseName].push_back(*this->_components[name]);
+                if (this->_bases.find(baseName) == this->_bases.end())
+                    this->_bases[baseName] = std::vector<std::string>();
+                this->_bases[baseName].push_back(name);
             }
             template<typename T>
             void RemoveComponent()
@@ -85,13 +84,13 @@ namespace ECS
 
                 if (it == this->_components.end())
                     return;
-                for (auto &base = this->_bases.begin(); base != this->_bases.end(); base++)
+                for (auto &base : this->_bases)
                 {
-                    const auto &found = std::find(base->second.begin(), base->second.end(), *it->second);
-                    if (found != base->second.end())
-                        base->second.erase(found);
-                    if (base->second.size() == 0)
-                        this->_bases.erase(base);
+                    const auto &found = std::find(base.second.begin(), base.second.end(), it->first);
+                    if (found != base.second.end())
+                        base.second.erase(found);
+                    if (base.second.size() == 0)
+                        this->_bases.erase(base.first);
                 }
                 this->_components.erase(it);
             }
