@@ -87,7 +87,7 @@ namespace ECS
                     return;
                 for (auto base = this->_bases.begin(); base != this->_bases.end(); base++)
                 {
-                    const auto &found = std::find(base->second.begin(), base->second.end(), *it->second);
+                    const auto found = std::find(base->second.begin(), base->second.end(), *it->second);
                     if (found != base->second.end())
                         base->second.erase(found);
                     if (base->second.size() == 0)
