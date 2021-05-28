@@ -9,7 +9,7 @@
 
 namespace Prototype
 {
-    Camera::Camera(Raylib::Camera3D startCamera)
+    Camera::Camera(RayLib::Camera3D startCamera)
     {
         camera = startCamera;
     }

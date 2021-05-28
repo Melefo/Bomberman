@@ -16,10 +16,10 @@ namespace Prototype
 {
     class Camera : public ECS::IComponent {
         public:
-            Camera(Raylib::Camera3D camera=Raylib::Camera3D());
+            Camera(RayLib::Camera3D camera=RayLib::Camera3D());
             ~Camera() override = default;
 
-            Raylib::Camera3D camera;
+            RayLib::Camera3D camera;
         protected:
         private:
     };

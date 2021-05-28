@@ -17,14 +17,14 @@ namespace Prototype
     class Text : public ECS::IComponent {
         public:
             Text(std::string str="", 
-                 Raylib::Font font=Raylib::Font(), 
-                 Raylib::Color color=Raylib::Color(), 
+                 RayLib::Font font=RayLib::Font(), 
+                 RayLib::Color color=RayLib::Color(), 
                  unsigned int size = 10);
             ~Text() override = default;
 
             std::string string;
-            Raylib::Font font;
-            Raylib::Color color;
+            RayLib::Font font;
+            RayLib::Color color;
             unsigned int size;
         protected:
         private:

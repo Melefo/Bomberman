@@ -9,7 +9,7 @@
 
 namespace Prototype
 {
-    Text::Text(std::string startStr, Raylib::Font startFont, Raylib::Color startColor, unsigned int startSize)
+    Text::Text(std::string startStr, RayLib::Font startFont, RayLib::Color startColor, unsigned int startSize)
     {
         string = startStr;
         font = startFont;
