@@ -38,14 +38,17 @@ namespace ECS
                 return dynamic_cast<T &>(*it->second);
             }
             template<typename T>
-            std::vector<std::reference_wrapper<T>> &OfType()
+            std::vector<std::reference_wrapper<T>> OfType()
             {
                 std::string name(typeid(T).name());
+                std::vector<T&> list();
                 const auto &it = this->_bases.find(name);
 
                 if (it == this->_bases.end())
-                    return std::vector<T&>();
-                return dynamic_cast<std::vector<std::reference_wrapper<T>> &>(it->second);
+                    return list;
+                for (IComponent& component : it->second)
+                    list.push_back(dynamic_cast<T&>(component));
+                return list;
             }
             template<typename T, typename... TArgs>
             void AddComponent(TArgs&&... args)
