@@ -25,15 +25,15 @@ namespace ECS
             SystemManager() = default;
             ~SystemManager() = default;
 
-            template<typename T>
-            T &AddSystem()
+            template<typename T, typename... TArgs>
+            T &AddSystem(TArgs&&... args)
             {
                 std::string name(typeid(T).name());
 
                 if (this->HasSystem<T>())
                     throw Exception::SystemManagerException("Cannot add more than once a system.");
 
-                this->_systems[name] = std::make_unique<T>();
+                this->_systems[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
                 return dynamic_cast<T &>(*this->_systems[name]);
             }
             template<typename T>

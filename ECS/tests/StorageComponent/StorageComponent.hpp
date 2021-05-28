@@ -13,9 +13,10 @@
 class StorageComponent : public ECS::IComponent
 {
     public:
-        StorageComponent() = default;
+        StorageComponent() = delete;
+        StorageComponent(int start) : value(start) {}
         ~StorageComponent() override = default;
-        int value = 0;
+        int value;
 };
 
 #endif /* !STORAGECOMPONENT_HPP_ */

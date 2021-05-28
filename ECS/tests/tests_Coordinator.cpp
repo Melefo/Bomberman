@@ -16,12 +16,12 @@ Test(coordinator, coordinator)
     coordinator.AddSystem<AddSystem>();
 
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<StorageComponent>();
+    entity.AddComponent<StorageComponent>(3);
 
-    cr_assert_eq(entity.GetComponent<StorageComponent>().value, 0);
+    cr_assert_eq(entity.GetComponent<StorageComponent>().value, 3);
     coordinator.Update();
     coordinator.Update();
     coordinator.Update();
     coordinator.Update();
-    cr_assert_eq(entity.GetComponent<StorageComponent>().value, 4);
+    cr_assert_eq(entity.GetComponent<StorageComponent>().value, 7);
 }

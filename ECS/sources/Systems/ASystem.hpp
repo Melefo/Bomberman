@@ -29,7 +29,7 @@ namespace ECS
             virtual ~ASystem() = default;
 
             virtual void Update(double, Entity &);
-            const std::vector<std::string> GetDependencies() const;
+            const std::vector<std::string> &GetDependencies() const;
     };
 }
 

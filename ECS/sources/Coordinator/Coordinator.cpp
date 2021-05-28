@@ -32,16 +32,9 @@ namespace ECS
 
             for (auto &entity : this->_entityManager.GetEntities())
             {
-                bool update = true;
-                for (auto &dependency : dependencies)
-                {
-                    if (entity->HasComponent(dependency))
-                        continue;
-                    update = false;
-                    break;
-                }
-                if (update)
-                    pair.second->Update(this->_dt, *entity);
+                if (!entity->HasComponents(dependencies))
+                    continue;
+                pair.second->Update(this->_dt, *entity);
             }
         }
 
