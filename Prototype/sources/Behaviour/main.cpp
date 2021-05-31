@@ -41,7 +41,6 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Prototype::Transform>();
     entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>();
-    // ! n'est pas lancé à cause de hasComponent qui utilise le name de la classe parente
     entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 250.0f);
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.05f, 0.05f, 0.05f);
 

@@ -9,6 +9,7 @@
 #define RAYCOLLISION_HPP_
 
 #include "Vector3.hpp"
+#include "raylib.h"
 
 namespace RayLib
 {
