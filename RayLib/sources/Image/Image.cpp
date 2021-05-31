@@ -12,26 +12,31 @@ namespace RayLib
 
     Image::Image(const std::string &fileName)
     {
-        image = LoadImage(fileName.c_str());
+        _image = LoadImage(fileName.c_str());
     }
 
     Image::Image(const Image& newImage)
     {
-        image = ImageCopy(newImage.image);
+        _image = ImageCopy(newImage._image);
     }
 
     Image::Image(Vector2<int> size, Color color)
     {
-        image = GenImageColor(size.x, size.y, {color.r, color.g, color.b, color.a});
+        _image = GenImageColor(size.x, size.y, {color.r, color.g, color.b, color.a});
     }
 
     Image::Image(const std::string &fileName, int *frames)
     {
-        image = LoadImageAnim(fileName.c_str(), frames);
+        _image = LoadImageAnim(fileName.c_str(), frames);
     }
 
     Image::~Image()
     {
-        UnloadImage(image);
+        UnloadImage(_image);
+    }
+
+    ::Image Image::GetImage()
+    {
+        return (_image);
     }
 }

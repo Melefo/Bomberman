@@ -21,7 +21,7 @@ namespace RayLib
             ~Texture();
 
             Texture(const std::string& filename);
-            Texture(const Image& image);
+            Texture(Image image);
 
             void DrawTexture(Vector2<float> position, Color tint);
             void DrawTextureEx(Vector2<float> position, float rotation, float scale, Color tint);

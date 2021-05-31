@@ -24,10 +24,11 @@ namespace RayLib
             Image(Vector2<int> size, Color color=Color(255, 255, 255, 255));
             Image(const std::string &fileName, int *frames);
 
-            ::Image image;
+            ::Image GetImage();
 
         protected:
         private:
+            ::Image _image;
     };
 }
 
