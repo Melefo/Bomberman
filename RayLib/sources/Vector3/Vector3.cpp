@@ -87,6 +87,14 @@ namespace RayLib
         return (newVec);
     }
 
+    Vector3 Vector3::operator-(const Vector3& vec)
+    {
+        Vector3 newVec = Vector3(x - vec.x, y - vec.y, z - vec.z);
+
+        return (newVec);
+    }
+
+
     Vector3 Vector3::operator*(const Vector3& vec)
     {
         Vector3 newVec = Vector3(x * vec.x, y * vec.y, z * vec.z);

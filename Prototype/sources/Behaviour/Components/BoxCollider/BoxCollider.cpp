@@ -7,6 +7,8 @@
 
 #include "BoxCollider.hpp"
 #include "Exceptions.hpp"
+#include "Window.hpp"
+#include "Transform.hpp"
 
 namespace Prototype
 {
@@ -17,6 +19,8 @@ namespace Prototype
 
     bool BoxCollider::IsColliding()
     {
+        UpdateBounds();
+
         for (auto it = _otherEntities.begin(); it != _otherEntities.end(); it++) {
             if (it->get()->GetId() == _myEntity.GetId())
                 continue;
@@ -31,18 +35,24 @@ namespace Prototype
         return (false);
     }
 
-    bool BoxCollider::CheckCollision(Vector3 center, float radius)
+    bool BoxCollider::CheckCollision(RayLib::Vector3 center, float radius)
     {
+        UpdateBounds();
+
         return (RayLib::Physics3D::CheckCollision(_bounds, center, radius));
     }
 
     bool BoxCollider::CheckCollision(RayLib::BoundingBox& box)
     {
+        UpdateBounds();
+
         return (RayLib::Physics3D::CheckCollision(_bounds, box));
     }
 
     ECS::Entity& BoxCollider::GetCollision()
     {
+        UpdateBounds();
+
         for (auto it = _otherEntities.begin(); it != _otherEntities.end(); it++) {
             if (it->get()->GetId() == _myEntity.GetId())
                 continue;
@@ -57,5 +67,27 @@ namespace Prototype
         throw ECS::Exception::EntityException("Not colliding with anything");
     }
 
+    void BoxCollider::DrawLines()
+    {
+        UpdateBounds();
+        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+
+        RayLib::Vector3 scale = RayLib::Vector3(_bounds.GetBounds().max) - RayLib::Vector3(_bounds.GetBounds().min);
+        /*_minVertex = Vector3(cubePos.x - cubeScale.x / 2.0f,
+                             cubePos.y - cubeScale.y / 2.0f,
+                             cubePos.z - cubeScale.z / 2.0f);
+        _maxVertex = Vector3(cubePos.x + cubeScale.x / 2.0f,
+                             cubePos.y + cubeScale.y / 2.0f,
+                             cubePos.z + cubeScale.z / 2.0f);*/
+
+        window->DrawCubeWires(_bounds.GetCenter(), scale, GREEN);
+    }
+
+    void BoxCollider::UpdateBounds()
+    {
+        Transform& transform = _myEntity.GetComponent<Transform>();
+
+        _bounds.InitFromCube(transform.position, transform.scale);
+    }
 }
 

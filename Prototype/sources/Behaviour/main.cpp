@@ -32,6 +32,7 @@
 #include "UISystem.hpp"
 #include "IBehaviour.hpp"
 #include "ButtonCallbacks.hpp"
+#include "BoxCollider.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -40,6 +41,10 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Prototype::Transform>();
     entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>();
+
+    RayLib::BoundingBox bounds = RayLib::BoundingBox(RayLib::Vector3(), RayLib::Vector3());
+    entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, bounds);
+
     entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 500.0f);
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
 
@@ -57,6 +62,24 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     return (entity);
 }
 
+ECS::Entity& InitBox(ECS::Coordinator& coordinator)
+{
+    // box, soon to be destructible
+    ECS::Entity &entity = coordinator.CreateEntity();
+    entity.AddComponent<Prototype::Transform>();
+    entity.AddComponent<Prototype::PhysicsBody>();
+    entity.AddComponent<Prototype::Renderer>();
+
+    RayLib::BoundingBox bounds = RayLib::BoundingBox(RayLib::Vector3(), RayLib::Vector3());
+    entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, bounds);
+
+    entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
+
+    entity.GetComponent<Prototype::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
+
+    return (entity);
+}
+
 int main(void)
 {
     ECS::Coordinator coordinator;
@@ -65,6 +88,7 @@ int main(void)
 
     /*ECS::Entity& cat = */InitCat(coordinator);
     /*ECS::Entity& button = */InitButton(coordinator, camera);
+    InitBox(coordinator);
 
     coordinator.AddSystem<Prototype::PhysicsSystem>();
     coordinator.AddSystem<Prototype::RenderSystem>();

@@ -12,6 +12,7 @@
 #include "Input.hpp"
 #include "PhysicsBody.hpp"
 #include "Entity.hpp"
+#include "Collider.hpp"
 
 namespace Prototype
 {

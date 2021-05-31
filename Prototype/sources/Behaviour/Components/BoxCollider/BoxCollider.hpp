@@ -23,8 +23,11 @@ namespace Prototype
             ~BoxCollider() = default;
 
             bool IsColliding() override;
-            bool CheckCollision(Vector3 center, float radius) override;
+            bool CheckCollision(RayLib::Vector3 center, float radius) override;
             bool CheckCollision(RayLib::BoundingBox& box) override;
+
+            void DrawLines() override;
+            void UpdateBounds();
 
             ECS::Entity& GetCollision() override;
 
