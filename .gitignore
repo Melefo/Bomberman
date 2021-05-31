@@ -3,4 +3,3 @@ build/
 winbuild/
 *.gc*
 *.o
-bomberman
