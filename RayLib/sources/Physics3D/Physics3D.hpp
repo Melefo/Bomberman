@@ -30,6 +30,8 @@ namespace RayLib
             static RayCollision CheckCollision(Ray ray, BoundingBox box);                                               // Detect collision between ray and box
             static RayCollision CheckCollision(Ray ray, float groundHeight);
 
+            static bool CheckCollision(Vector2<float> point, Rectangle rec);
+
 
         protected:
         private:

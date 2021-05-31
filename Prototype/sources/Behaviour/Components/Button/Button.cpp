@@ -45,7 +45,7 @@ namespace Prototype
         RayLib::Rectangle bounds = {winSize.x / 2.0f, winSize.y / 2.0f, _rect.width, _rect.height};
 
         //return (RayLib::Physics3D::CheckCollision(mousePos, bounds));
-        return (RayLib::Physics3D::CheckCollision(mouseRay, _bounds));
+        return (RayLib::Physics3D::CheckCollision(mouseRay, _bounds).HasHit());
     }
 
     void Button::AddCallback(std::function<void()> callBack)

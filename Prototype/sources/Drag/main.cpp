@@ -50,7 +50,7 @@ namespace Prototype
                 if (!selected)
                 {
                     // Check collision between ray and box
-                    selected = RayLib::Physics3D::CheckCollision(ray, bounds);
+                    selected = RayLib::Physics3D::CheckCollision(ray, bounds).HasHit();
                 }
             }
             if (RayLib::Mouse::IsButtonPressed(MOUSE_BUTTON_RIGHT))

@@ -18,7 +18,6 @@
 #include "Ray.hpp"
 #include "Physics3D.hpp"
 #include "Mouse.hpp"
-#include "RayHitInfo.hpp"
 #include <cmath>
 #include "Coordinator.hpp"
 #include "Entity.hpp"
