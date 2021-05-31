@@ -41,4 +41,10 @@ namespace ECS
         auto stop = std::chrono::high_resolution_clock::now();
 		this->_dt = std::chrono::duration<double, std::chrono::seconds::period>(stop - start).count();
     }
+
+    const std::vector<std::unique_ptr<Entity>>& Coordinator::GetEntities() const
+    {
+        return (_entityManager.GetEntities());
+    }
+
 }

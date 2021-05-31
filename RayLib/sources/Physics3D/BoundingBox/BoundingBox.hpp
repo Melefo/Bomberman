@@ -16,7 +16,7 @@ namespace RayLib
         public:
             BoundingBox(Vector3 minVert, Vector3 maxVert);
             BoundingBox(const BoundingBox& other);
-            ~BoundingBox();
+            ~BoundingBox() = default;
 
             void InitFromCube(Vector3 cubePos, Vector3 cubeScale);
 
