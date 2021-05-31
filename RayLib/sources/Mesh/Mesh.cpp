@@ -19,6 +19,11 @@ namespace RayLib
         _mesh = ::GenMeshCubicmap(img.GetImage(), scale.getVector3());
     }
 
+    ::Mesh Mesh::GetMesh()
+    {
+        return (_mesh);
+    }
+
     Mesh::~Mesh()
     {
         UnloadMesh(_mesh);

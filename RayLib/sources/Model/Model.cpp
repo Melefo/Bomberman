@@ -17,6 +17,11 @@ namespace RayLib
             // !throw error
     }
 
+    Model::Model(Mesh mesh)
+    {
+        _model = ::LoadModelFromMesh(mesh.GetMesh());
+    }
+
     void Model::Draw(Vector3 position, float scale, Color tint)
     {
         ::DrawModel(_model, position.getVector3(), scale, tint.getColor());
