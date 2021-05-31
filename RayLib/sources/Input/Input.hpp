@@ -14,7 +14,7 @@ namespace RayLib
 {
     class Input {
         public:
-            Input(Vector2<int> horizontalKeys=Vector2<int>(KEY_A, KEY_D),
+            Input(Vector2<int> horizontalKeys=Vector2<int>(KEY_D, KEY_A),
                      Vector2<int> verticalKeys=Vector2<int>(KEY_S, KEY_W));
             ~Input();
 

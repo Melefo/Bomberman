@@ -15,9 +15,9 @@ namespace RayLib
         _texture = LoadTexture(filename.c_str());
     }
 
-    Texture::Texture(const Image& image)
+    Texture::Texture(Image image)
     {
-        _texture = LoadTextureFromImage(image.image);
+        _texture = LoadTextureFromImage(image.GetImage());
     }
 
     void Texture::DrawTexture(Vector2<float> position, Color tint)

@@ -25,6 +25,6 @@ namespace Prototype
         RayLib::Model& model = renderer.GetModel();
 
         (void) dt;
-        model.Draw(transform.position, transform.scale.x, WHITE);
+        model.DrawEx(transform.position, transform.rotation, 0.0f, transform.scale, WHITE);
     }
 }

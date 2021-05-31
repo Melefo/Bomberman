@@ -41,7 +41,8 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>();
     entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 250.0f);
-    entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.05f, 0.05f, 0.05f);
+    entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
+    entity.GetComponent<Prototype::Transform>().rotation = RayLib::Vector3(0.0f, 90.0f, 0.0f);
 
     return (entity);
 }

@@ -17,7 +17,7 @@ namespace Prototype
     class Renderer : public ECS::IComponent {
         public:
             // default cube
-            Renderer(const std::string& modelPath="",
+            Renderer(const std::string& modelPath="../assets/Cat_V2/cat.obj",
                     const std::string& texturePath="../assets/models/cube/def_text.png");
             ~Renderer() override = default;
 
