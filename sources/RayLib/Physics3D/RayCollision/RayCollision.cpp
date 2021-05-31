@@ -2,85 +2,85 @@
 ** EPITECH PROJECT, 2021
 ** B-YEP-400-NAN-4-1-indiestudio-victor.trencic
 ** File description:
-** RayHitInfo
+** RayCollision
 */
 
-#include "RayHitInfo.hpp"
+#include "RayCollision.hpp"
 
 namespace RayLib
 {
-    RayHitInfo::RayHitInfo()
+    RayCollision::RayCollision()
     {
         _hit = false;
         _distance = 0.0f;
-        _position = Vector3();
+        _point = Vector3();
         _normal = Vector3();
     }
 
-    RayHitInfo::~RayHitInfo()
+    RayCollision::~RayCollision()
     {
 
     }
 
-    RayHitInfo::RayHitInfo(const RayHitInfo& other)
+    RayCollision::RayCollision(const RayCollision& other)
     {
         _hit = other._hit;
         _distance = other._distance;
-        _position = other._position;
+        _point = other._point;
         _normal = other._normal;
     }
 
-    RayHitInfo::RayHitInfo(const ::RayHitInfo& other)
+    RayCollision::RayCollision(const ::RayCollision& other)
     {
         _hit = other.hit;
         _distance = other.distance;
-        _position = other.position;
+        _point = other.point;
         _normal = other.normal;
     }
 
-    RayHitInfo& RayHitInfo::operator=(const RayHitInfo& other)
+    RayCollision& RayCollision::operator=(const RayCollision& other)
     {
         _hit = other._hit;
         _distance = other._distance;
-        _position = other._position;
+        _point = other._point;
         _normal = other._normal;
         return (*this);
     }
 
-    RayHitInfo& RayHitInfo::operator=(const ::RayHitInfo& other)
+    RayCollision& RayCollision::operator=(const ::RayCollision& other)
     {
         _hit = other.hit;
         _distance = other.distance;
-        _position = other.position;
+        _point = other.point;
         _normal = other.normal;
         return (*this);
     }
 
-    ::RayHitInfo RayHitInfo::GetHitInfo(void)
+    ::RayCollision RayCollision::GetHitInfo(void)
     {
-        ::RayHitInfo info = {_hit,
+        ::RayCollision info = {_hit,
                              _distance,
-                             _position.getVector3(),
+                             _point.getVector3(),
                              _normal.getVector3()};
         return (info);
     }
 
-    bool RayHitInfo::HasHit(void)
+    bool RayCollision::HasHit(void)
     {
         return (_hit);
     }
 
-    float RayHitInfo::GetDistance(void)
+    float RayCollision::GetDistance(void)
     {
         return (_distance);
     }
 
-    Vector3& RayHitInfo::GetPosition(void)
+    Vector3& RayCollision::GetPosition(void)
     {
-        return (_position);
+        return (_point);
     }
 
-    Vector3& RayHitInfo::GetNormal(void)
+    Vector3& RayCollision::GetNormal(void)
     {
         return (_normal);
     }

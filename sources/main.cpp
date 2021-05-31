@@ -18,7 +18,7 @@
 #include "Ray.hpp"
 #include "Physics3D.hpp"
 #include "Mouse.hpp"
-#include "RayHitInfo.hpp"
+#include "RayCollision.hpp"
 #include <cmath>
 
 namespace Prototype
@@ -125,7 +125,7 @@ namespace Prototype
 
             // if selected, move with mouse flat on plane (y = 0)
             if (selected) {
-                RayLib::RayHitInfo hitInfo = RayLib::Physics3D::CheckCollision(ray, 0.0f);
+                RayLib::RayCollision hitInfo = RayLib::Physics3D::CheckCollision(ray, 0.0f);
 
                 if (hitInfo.HasHit()) {
                     // snap position
