@@ -9,14 +9,14 @@
 
 namespace ECS
 {
-    Coordinator::Coordinator(double fixedDeltaTime) :
-    _systemManager(), _entityManager(), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true)
+    Coordinator::Coordinator(std::string defaultScene, double fixedDeltaTime) :
+    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true)
     {
     }
 
     Entity &Coordinator::CreateEntity()
     {
-        return this->_entityManager.CreateEntity();
+        return this->_scenes[this->_currentScene].CreateEntity();
     }
 
     void Coordinator::Update(double dt)
@@ -27,7 +27,7 @@ namespace ECS
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto &entity : this->_entityManager.GetEntities())
+            for (auto &entity : this->_scenes[this->_currentScene].GetEntities())
             {
                 if (!entity->HasComponents(dependencies))
                     continue;
@@ -44,7 +44,7 @@ namespace ECS
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto &entity : this->_entityManager.GetEntities())
+            for (auto &entity : this->_scenes[this->_currentScene].GetEntities())
             {
                 if (!entity->HasComponents(dependencies))
                     continue;
@@ -61,7 +61,7 @@ namespace ECS
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto &entity : this->_entityManager.GetEntities())
+            for (auto &entity : this->_scenes[this->_currentScene].GetEntities())
             {
                 if (!entity->HasComponents(dependencies))
                     continue;

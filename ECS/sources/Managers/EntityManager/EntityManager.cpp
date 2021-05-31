@@ -15,7 +15,7 @@
 namespace ECS
 {
     EntityManager::EntityManager() :
-    _available(), _max(1)
+    _available(), _max(1), _entities()
     { }
 
     Entity &EntityManager::CreateEntity()

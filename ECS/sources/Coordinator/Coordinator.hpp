@@ -10,6 +10,8 @@
 
 #include <chrono>
 #include <memory>
+#include <string>
+#include <map>
 #include "SystemManager.hpp"
 #include "EntityManager.hpp"
 
@@ -19,7 +21,8 @@ namespace ECS
     {
         private:
             SystemManager _systemManager;
-            EntityManager _entityManager;
+            std::map<std::string, EntityManager> _scenes;
+            std::string _currentScene;
 
             double _fixedDeltaTime;
             double _duration;
@@ -30,7 +33,7 @@ namespace ECS
             void FixedUpdate();
             void LateUpdate(double dt);
         public:
-            Coordinator(double fixedDeltaTime = 0.02);
+            Coordinator(std::string defaultScene = "MainMenu", double fixedDeltaTime = 0.02);
             ~Coordinator() = default;
     
             template<typename T, typename... TArgs>
