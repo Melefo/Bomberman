@@ -15,7 +15,7 @@
 
 class XMLGenerator {
     public:
-        XMLGenerator(const std::vector<std::string> &content);
+        XMLGenerator(const std::vector<std::string> &content, const std::string &filepath = "map.xml");
         ~XMLGenerator();
 
     protected:

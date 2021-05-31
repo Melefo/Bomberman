@@ -7,9 +7,9 @@
 
 #include "XMLGenerator.hpp"
 
-XMLGenerator::XMLGenerator(const std::vector<std::string> &content) : _stream(new std::ofstream), _map(content)
+XMLGenerator::XMLGenerator(const std::vector<std::string> &content, const std::string &filepath) : _stream(new std::ofstream), _map(content)
 {
-    _stream->open("map.xml");
+    _stream->open(filepath);
     this->write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
     this->write("<Map>\n");
     createMap();
