@@ -15,6 +15,7 @@
 #include <vector>
 #include "Exceptions.hpp"
 #include "ComponentManager.hpp"
+#include "EntityManager.hpp"
 #include "IComponent.hpp"
 
 namespace ECS
@@ -24,8 +25,9 @@ namespace ECS
         private:
             uint32_t _id;
             ComponentManager _componentManager;
+            EntityManager &_entityManager;
         public:
-            Entity(uint32_t id);
+            Entity(uint32_t id, EntityManager &entityManager);
             ~Entity() = default;
             template<typename T>
             T &GetComponent()
@@ -60,6 +62,7 @@ namespace ECS
             bool HasComponent(std::string &name) const;
             bool HasComponents(std::vector<std::string> &names) const;
             uint32_t GetId() const;
+            void Dispose();
     };
 }
 

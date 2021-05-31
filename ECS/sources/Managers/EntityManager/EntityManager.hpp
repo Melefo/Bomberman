@@ -11,10 +11,11 @@
 #include <vector>
 #include <cinttypes>
 #include <memory>
-#include "Entity.hpp"
 
 namespace ECS
 {
+    class Entity;
+
     class EntityManager
     {
         private:

@@ -19,11 +19,6 @@ namespace ECS
         return this->_entityManager.CreateEntity();
     }
 
-    void Coordinator::DeleteEntity(Entity &entity)
-    {
-        this->_entityManager.DeleteEntity(entity);
-    }
-
     void Coordinator::Update(double dt)
     {
         for (auto &pair : this->_systemManager.GetSystems())

@@ -44,7 +44,6 @@ namespace ECS
             {
                 this->_systemManager.RemoveSystem<T>();
             }
-            void DeleteEntity(Entity &entity);
             void Run();
             double getFixedDeltaTime() const;
     };

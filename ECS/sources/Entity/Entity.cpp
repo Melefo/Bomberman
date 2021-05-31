@@ -9,8 +9,8 @@
 
 namespace ECS
 {
-    Entity::Entity(uint32_t id) :
-    _id(id), _componentManager()
+    Entity::Entity(uint32_t id, EntityManager &entityManager) :
+    _id(id), _componentManager(), _entityManager(entityManager)
     {
     }
 
@@ -27,5 +27,10 @@ namespace ECS
     uint32_t Entity::GetId() const
     {
         return this->_id;
+    }
+
+    void Entity::Dispose()
+    {
+        this->_entityManager.DeleteEntity(*this);
     }
 }

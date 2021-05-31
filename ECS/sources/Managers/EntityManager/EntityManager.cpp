@@ -7,6 +7,7 @@
 
 #include <algorithm>
 #include "Exceptions.hpp"
+#include "Entity.hpp"
 #include "EntityManager.hpp"
 
 #include <iostream>
@@ -21,12 +22,12 @@ namespace ECS
     {
         if (this->_available.size() == 0)
         {
-            this->_entities.emplace_back(std::make_unique<Entity>(this->_max++));
+            this->_entities.emplace_back(std::make_unique<Entity>(this->_max++, *this));
             return *this->_entities.back();
         }
         uint32_t id = this->_available.back();
 
-        this->_entities.emplace_back(std::make_unique<Entity>(id));
+        this->_entities.emplace_back(std::make_unique<Entity>(id, *this));
         this->_available.pop_back();
         return *this->_entities.back();
     }
