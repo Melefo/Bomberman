@@ -6,10 +6,10 @@
 */
 
 #include "TerrainGenerator.hpp"
+#include "XMLGenerator.hpp"
 #include <map>
 #include <cstdlib>
 #include <algorithm>
-
 #include <iostream>
 
 TerrainGenerator::TerrainGenerator(int playersNbr, int boxPercentage)
@@ -54,11 +54,11 @@ void TerrainGenerator::generateBaseMap()
 
     clearMap();
     for (; index < _height; index++)
-        _map[index] = std::string(_width, mapTexture::OWALL);
+        _map[index] = std::string(_width, static_cast<char>(mapTexture::OWALL));
     index = 0;
     for (auto &it : _map) {
         if (index == 0 || index == _height - 1)
-            it = std::string(_width, mapTexture::OWALL);
+            it = std::string(_width, static_cast<char>(mapTexture::OWALL));
         else
             it = generateMapLine(index);
         index++;
@@ -107,11 +107,11 @@ void TerrainGenerator::generateRandomMap()
     for (auto &it : _map) {
         it.clear();
         if (index == 0 || index == _height-1)
-            it = std::string(_width, mapTexture::OWALL);
+            it = std::string(_width, static_cast<char>(mapTexture::OWALL));
         else {
-            it = mapTexture::OWALL;
+            it = static_cast<char>(mapTexture::OWALL);
             it += std::string(_width-2, ' ');
-            it += mapTexture::OWALL;
+            it += static_cast<char>(mapTexture::OWALL);
         }
         index++;
     }
@@ -131,11 +131,11 @@ void TerrainGenerator::clearMap()
     for (auto &it : _map) {
         it.clear();
         if (index == 0 || index == _height-1) {
-            it = std::string(_width, mapTexture::OWALL);
+            it = std::string(_width, static_cast<char>(mapTexture::OWALL));
         } else {
-            it += mapTexture::OWALL;
+            it += static_cast<char>(mapTexture::OWALL);
             it += std::string(_width-2, ' ');
-            it += mapTexture::OWALL;
+            it += static_cast<char>(mapTexture::OWALL);
         }
         index++;
     }
@@ -143,7 +143,12 @@ void TerrainGenerator::clearMap()
 
 void TerrainGenerator::addTileOnMap(int y, int x)
 {
-    _map[y][x] = mapTexture::INWALL;
+    _map[y][x] = static_cast<char>(mapTexture::INWALL);
+}
+
+void TerrainGenerator::generateXMLFile()
+{
+    XMLGenerator xmlFile(_map);
 }
 
 /**
@@ -198,11 +203,11 @@ std::string TerrainGenerator::generateMapLine(int hPos)
 {
     std::string result("");
 
-    result += mapTexture::OWALL;
+    result += static_cast<char>(mapTexture::OWALL);
     if (hPos % 2 == 0) {
         for (int index = 1; index < _width - 1; index++) {
             if (index % 2 == 0)
-                result += mapTexture::INWALL;
+                result += static_cast<char>(mapTexture::INWALL);
             else
                 result += ' ';
         }
@@ -210,7 +215,7 @@ std::string TerrainGenerator::generateMapLine(int hPos)
         for (int index = 1; index < _width - 1; index++)
             result += ' ';
     }
-    result += mapTexture::OWALL;
+    result += static_cast<char>(mapTexture::OWALL);
     return result;
 }
 
@@ -234,10 +239,10 @@ void TerrainGenerator::cloneReverseMap()
             else
                 tempString = std::string(it.rbegin()-1, it.rend()-1);
             tempString.erase(0, 2);
-            tempString += mapTexture::OWALL;
+            tempString += static_cast<char>(mapTexture::OWALL);
             it += tempString;
         } else {
-            it += std::string(_width/2, mapTexture::OWALL);
+            it += std::string(_width/2, static_cast<char>(mapTexture::OWALL));
         }
         index++;
     }
@@ -272,7 +277,7 @@ void TerrainGenerator::fillHoles()
     for (int y = 0; y < _height-1; y++) {
         for (int x = 0; x < _width-1; x++) {
             if (_map[y][x] == ' ' && !blocksPath(y, x))
-                _map[y][x] = mapTexture::INWALL;
+                _map[y][x] = static_cast<char>(mapTexture::INWALL);
         }
     }
 }

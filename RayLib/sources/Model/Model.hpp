@@ -13,12 +13,14 @@
 #include "Vector3.hpp"
 #include "Color.hpp"
 #include "Texture.hpp"
+#include "Mesh.hpp"
 
 namespace RayLib
 {
     class Model {
         public:
             Model(const std::string& fileName);
+            Model(Mesh mesh);
             ~Model();
 
             void Draw(Vector3 position, float scale, Color tint);

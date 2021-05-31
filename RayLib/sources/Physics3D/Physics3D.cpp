@@ -35,19 +35,19 @@ namespace RayLib
         return (::CheckCollisionBoxSphere(box.GetBounds(), center.getVector3(), radius));
     }
 
-    bool Physics3D::CheckCollision(Ray ray, Vector3 center, float radius)
+    RayCollision Physics3D::CheckCollision(Ray ray, Vector3 center, float radius)
     {
-        return (::CheckCollisionRaySphere(ray.GetRay(), center.getVector3(), radius));
+        return (::GetRayCollisionSphere(ray.GetRay(), center.getVector3(), radius));
     }
 
-    bool Physics3D::CheckCollision(Ray ray, BoundingBox box)
+    RayCollision Physics3D::CheckCollision(Ray ray, BoundingBox box)
     {
-        return (::CheckCollisionRayBox(ray.GetRay(), box.GetBounds()));
+        return (::GetRayCollisionBox(ray.GetRay(), box.GetBounds()));
     }
 
-    RayHitInfo Physics3D::CheckCollision(Ray ray, float groundHeight)
+    RayCollision Physics3D::CheckCollision(Ray ray, float groundHeight)
     {
-        return(::GetCollisionRayGround(ray.GetRay(), groundHeight));
+        return(::GetRayCollisionGround(ray.GetRay(), groundHeight));
     }
 
 }
