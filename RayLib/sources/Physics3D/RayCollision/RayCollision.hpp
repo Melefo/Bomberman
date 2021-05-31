@@ -2,28 +2,28 @@
 ** EPITECH PROJECT, 2021
 ** B-YEP-400-NAN-4-1-indiestudio-victor.trencic
 ** File description:
-** RayHitInfo
+** RayCollision
 */
 
-#ifndef RAYHITINFO_HPP_
-#define RAYHITINFO_HPP_
+#ifndef RAYCOLLISION_HPP_
+#define RAYCOLLISION_HPP_
 
 #include "Vector3.hpp"
 
 namespace RayLib
 {
-    class RayHitInfo {
+    class RayCollision {
         public:
-            RayHitInfo();
-            ~RayHitInfo();
+            RayCollision();
+            ~RayCollision();
 
-            RayHitInfo(const RayHitInfo& other);
-            RayHitInfo(const ::RayHitInfo& other);
+            RayCollision(const RayCollision& other);
+            RayCollision(const ::RayCollision& other);
 
-            RayHitInfo& operator=(const RayHitInfo& other);
-            RayHitInfo& operator=(const ::RayHitInfo& other);
+            RayCollision& operator=(const RayCollision& other);
+            RayCollision& operator=(const ::RayCollision& other);
 
-            ::RayHitInfo GetHitInfo(void);
+            ::RayCollision GetHitInfo(void);
 
             bool HasHit(void);
             float GetDistance(void);
@@ -35,9 +35,9 @@ namespace RayLib
             // privé ou public ?
             bool _hit;               // Did the ray hit something?
             float _distance;         // Distance to nearest hit
-            Vector3 _position;       // Position of nearest hit
+            Vector3 _point;       // Position of nearest hit
             Vector3 _normal;         // Surface normal of hit
     };
 }
 
-#endif /* !RAYHITINFO_HPP_ */
+#endif /* !RAYCOLLISION_HPP_ */
