@@ -59,7 +59,7 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     // button
     ECS::Entity &entity = coordinator.CreateEntity();
     entity.AddComponent<Prototype::IUIObject, Prototype::Button>(camera);
-    entity.AddComponent<Prototype::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Prototype::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(100.0f, 50.0f, 1.0f));
     entity.AddComponent<Prototype::IBehaviour, Prototype::ButtonCallbacks>(entity);
 
     return (entity);
@@ -94,7 +94,7 @@ int main(void)
     coordinator.AddSystem<Prototype::PhysicsSystem>();
     coordinator.AddSystem<Prototype::RenderSystem>();
     coordinator.AddSystem<Prototype::BehaviourSystem>();
-    coordinator.AddSystem<Prototype::UISystem>();
+    coordinator.AddSystem<Prototype::UISystem>(camera);
 
     window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     camera.SetCameraMode(CAMERA_FREE);

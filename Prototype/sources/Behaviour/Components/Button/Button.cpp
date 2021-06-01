@@ -18,16 +18,21 @@ namespace Prototype
     {
     }
 
-    void Button::Draw(RayLib::Vector2<float> position, float scale)
+    void Button::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale)
     {
         RayLib::Vector3 vec3Pos = RayLib::Vector3(position.x, position.y, 0.0f);
 
-        _rect.width *= scale;
-        _rect.height *= scale;
-        _bounds.InitFromCube(RayLib::Vector3(position.x, position.y), RayLib::Vector3(scale, scale, 0.1f));
+        _rect.x = position.x;
+        _rect.y = position.y;
+        _rect.width = scale.x;
+        _rect.height = scale.y;
+        _bounds.InitFromCube(RayLib::Vector3(position.x, position.y), RayLib::Vector3(scale.x, scale.y, 0.1f));
 
-        //_texture.DrawTextureRec(_rect, position, WHITE);
-        _texture.DrawBillboard(_camera, vec3Pos, scale, WHITE);
+        //_texture.DrawTexture( position, GREEN);
+        _texture.DrawTextureRec(_rect, position, GREEN);
+        //_texture.DrawTextureEx(position, 0.0f, 0.1f, GREEN);
+
+        //_texture.DrawBillboard(_camera, vec3Pos, scale, WHITE);
     }
 
     bool Button::IsMouseOver(void)
@@ -39,13 +44,8 @@ namespace Prototype
 
         RayLib::Ray mouseRay = _camera.GetMouseRay(mousePos);
 
-        //CheckCollision(Ray ray, BoundingBox box);                                            // Detect collision between ray and box
-
-
-        RayLib::Rectangle bounds = {winSize.x / 2.0f, winSize.y / 2.0f, _rect.width, _rect.height};
-
-        //return (RayLib::Physics3D::CheckCollision(mousePos, bounds));
-        return (RayLib::Physics3D::CheckCollision(mouseRay, _bounds).HasHit());
+        return (RayLib::Physics3D::CheckCollision(mousePos, _rect));
+        //return (RayLib::Physics3D::CheckCollision(mouseRay, _bounds).HasHit());
     }
 
     void Button::AddCallback(std::function<void()> callBack)
