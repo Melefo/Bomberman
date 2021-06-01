@@ -25,6 +25,7 @@ namespace Prototype
             ~Collider() = default;
 
             virtual bool IsColliding();
+            virtual bool IsCollidingAtPosition(RayLib::Vector3 center) = 0;
             virtual bool CheckCollision(RayLib::Vector3 center, float radius) = 0;
             virtual bool CheckCollision(RayLib::BoundingBox& box) = 0;
 

@@ -8,6 +8,7 @@
 #include "PlayerMovement.hpp"
 #include <iostream>
 #include "Exceptions.hpp"
+#include "Transform.hpp"
 
 namespace Prototype
 {
@@ -19,23 +20,27 @@ namespace Prototype
 
     void PlayerMovement::Update(float dt)
     {
-        (void) dt;
-        bool colliding = false;
+        int colliding = 0;
+        Transform& transform = _entity.GetComponent<Transform>();
 
-        try {
-            Collider& collider = _entity.GetComponent<Collider>();
-            colliding = collider.IsColliding();
-            collider.DrawLines();
-            std::cout << "Has a collider" << std::endl;
-        } catch(const ECS::Exception::EntityException& e) {
-            std::cout << "Erreur get collider: " <<  e.what() << std::endl;
+        RayLib::Vector3 targetPosition = transform.position + (RayLib::Vector3(_input.GetHorizontalAxis(),
+                                                                              0.0f,
+                                                                              _input.GetVerticalAxis()) * _speed * dt);
+
+        std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
+
+        for (auto it = colliders.begin(); it != colliders.end(); it++) {
+            colliding += it->get().IsCollidingAtPosition(targetPosition) ? 1 : 0;
+            it->get().DrawLines();
         }
 
-        if (!colliding) {
+        if (colliding == 0) {
             // idéalement ce serait += mais comme on a pas de drag, on ne ferait qu'accélérer
             _myPhysicsBody.velocity = RayLib::Vector3(_input.GetHorizontalAxis(),
                                                     0.0f,
                                                     _input.GetVerticalAxis()) * _speed;
+        } else {
+            _myPhysicsBody.velocity = RayLib::Vector3();
         }
     }
 }

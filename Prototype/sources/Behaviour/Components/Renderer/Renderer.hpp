@@ -16,9 +16,11 @@ namespace Prototype
 {
     class Renderer : public ECS::IComponent {
         public:
+            Renderer(const std::string& modelPath,
+                    const std::string& texturePath);
             // default cube
-            Renderer(const std::string& modelPath="../assets/Cat_V2/cat.obj",
-                    const std::string& texturePath="../assets/models/cube/def_text.png");
+            Renderer(const std::string& texturePath="../assets/models/cube/def_text.png");
+
             ~Renderer() override = default;
 
             RayLib::Model& GetModel(void);

@@ -40,10 +40,9 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     ECS::Entity &entity = coordinator.CreateEntity();
     entity.AddComponent<Prototype::Transform>();
     entity.AddComponent<Prototype::PhysicsBody>();
-    entity.AddComponent<Prototype::Renderer>();
+    entity.AddComponent<Prototype::Renderer>("../assets/Cat_V2/cat.obj", "../assets/models/cube/def_text.png");
 
-    RayLib::BoundingBox bounds = RayLib::BoundingBox(RayLib::Vector3(), RayLib::Vector3());
-    entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, bounds);
+    entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
     entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 500.0f);
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
@@ -69,13 +68,10 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator)
     entity.AddComponent<Prototype::Transform>();
     entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>();
-
-    RayLib::BoundingBox bounds = RayLib::BoundingBox(RayLib::Vector3(), RayLib::Vector3());
-    entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, bounds);
-
-    entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
-
+    entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
     entity.GetComponent<Prototype::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
+
+    entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
     return (entity);
 }
@@ -88,7 +84,7 @@ int main(void)
 
     /*ECS::Entity& cat = */InitCat(coordinator);
     /*ECS::Entity& button = */InitButton(coordinator, camera);
-    InitBox(coordinator);
+    ECS::Entity& box = InitBox(coordinator);
 
     coordinator.AddSystem<Prototype::PhysicsSystem>();
     coordinator.AddSystem<Prototype::RenderSystem>();
@@ -107,6 +103,8 @@ int main(void)
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);
         camera.BeginMode();
+
+        box.OfType<Prototype::Collider>()[0].get().DrawLines();
 
         coordinator.Update();
 

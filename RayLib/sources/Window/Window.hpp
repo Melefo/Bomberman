@@ -13,6 +13,7 @@
 #include "Color.hpp"
 #include <string>
 #include <memory>
+#include "BoundingBox.hpp"
 
 namespace RayLib
 {
@@ -30,6 +31,8 @@ namespace RayLib
             void EndDrawing(void);
             void DrawCube(Vector3 position, Vector3 scale, Color color);
             void DrawCubeWires(Vector3 position, Vector3 scale, Color color);
+            void DrawBoundingBox(BoundingBox box, Color color);
+
             void DrawGrid(int slices, float spacing);
             float GetFrameTime(void);
 

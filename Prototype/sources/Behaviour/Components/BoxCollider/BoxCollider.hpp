@@ -19,12 +19,14 @@ namespace Prototype
 {
     class BoxCollider : public Collider {
         public:
-            BoxCollider(ECS::Entity& attatchedEntity, ECS::Coordinator& coordinator, RayLib::BoundingBox bounds);
+            BoxCollider(ECS::Entity& attatchedEntity, ECS::Coordinator& coordinator,
+                        RayLib::Vector3 scale=RayLib::Vector3(1.0f, 1.0f, 1.0f));
             ~BoxCollider() = default;
 
             bool IsColliding() override;
             bool CheckCollision(RayLib::Vector3 center, float radius) override;
             bool CheckCollision(RayLib::BoundingBox& box) override;
+            bool IsCollidingAtPosition(RayLib::Vector3 center) override;
 
             void DrawLines() override;
             void UpdateBounds();
@@ -33,6 +35,7 @@ namespace Prototype
 
         protected:
         private:
+            RayLib::Vector3 _scale;
             RayLib::BoundingBox _bounds;
     };
 }

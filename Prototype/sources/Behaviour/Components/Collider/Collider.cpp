@@ -6,6 +6,7 @@
 */
 
 #include "Collider.hpp"
+#include <iostream>
 
 namespace Prototype
 {

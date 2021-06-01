@@ -9,31 +9,55 @@
 #include "Exceptions.hpp"
 #include "Window.hpp"
 #include "Transform.hpp"
+#include <iostream>
 
 namespace Prototype
 {
-    BoxCollider::BoxCollider(ECS::Entity& attatchedEntity, ECS::Coordinator& coordinator, RayLib::BoundingBox bounds)
-    : Collider(attatchedEntity, coordinator), _bounds(bounds)
+    BoxCollider::BoxCollider(ECS::Entity& attatchedEntity, ECS::Coordinator& coordinator, RayLib::Vector3 scale)
+    : Collider(attatchedEntity, coordinator), _bounds(RayLib::Vector3(), scale)
     {
+        Transform& transform = attatchedEntity.GetComponent<Transform>();
+        _bounds.InitFromCube(transform.position, scale);
+        _scale = scale;
     }
 
     bool BoxCollider::IsColliding()
     {
         UpdateBounds();
 
-        for (auto it = _otherEntities.begin(); it != _otherEntities.end(); it++) {
-            if (it->get()->GetId() == _myEntity.GetId())
+        for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
+            if (entityIt->get()->GetId() == _myEntity.GetId())
                 continue;
-            try {
-                Collider& otherCollider = it->get()->GetComponent<Collider>();
-                if (otherCollider.CheckCollision(_bounds))
-                    return (true);
-            } catch(const ECS::Exception::EntityException& e) {
+            std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
+            for (auto it = colliders.begin(); it != colliders.end(); it++) {
+                if (it->get().CheckCollision(_bounds))
+                    return (true);
             }
         }
         return (false);
     }
+
+    bool BoxCollider::IsCollidingAtPosition(RayLib::Vector3 center)
+    {
+        RayLib::Vector3 scale = RayLib::Vector3(_bounds.GetBounds().max) - RayLib::Vector3(_bounds.GetBounds().min);
+        RayLib::BoundingBox tmpBox = RayLib::BoundingBox(RayLib::Vector3(), RayLib::Vector3());
+
+        tmpBox.InitFromCube(center, scale);
+
+        for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
+            if (entityIt->get()->GetId() == _myEntity.GetId())
+                continue;
+            std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
+
+            for (auto it = colliders.begin(); it != colliders.end(); it++) {
+                if (it->get().CheckCollision(tmpBox))
+                    return (true);
+            }
+        }
+        return (false);
+    }
+
 
     bool BoxCollider::CheckCollision(RayLib::Vector3 center, float radius)
     {
@@ -53,15 +77,14 @@ namespace Prototype
     {
         UpdateBounds();
 
-        for (auto it = _otherEntities.begin(); it != _otherEntities.end(); it++) {
-            if (it->get()->GetId() == _myEntity.GetId())
+        for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
+            if (entityIt->get()->GetId() == _myEntity.GetId())
                 continue;
-            try {
-                Collider& otherCollider = it->get()->GetComponent<Collider>();
-                if (otherCollider.CheckCollision(_bounds))
-                    return (*(it->get()));
-            } catch(const ECS::Exception::EntityException& e) {
+            std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
+            for (auto it = colliders.begin(); it != colliders.end(); it++) {
+                if (it->get().CheckCollision(_bounds))
+                    return (*(entityIt->get()));
             }
         }
         throw ECS::Exception::EntityException("Not colliding with anything");
@@ -80,14 +103,15 @@ namespace Prototype
                              cubePos.y + cubeScale.y / 2.0f,
                              cubePos.z + cubeScale.z / 2.0f);*/
 
-        window->DrawCubeWires(_bounds.GetCenter(), scale, GREEN);
+        window->DrawBoundingBox(_bounds, GREEN);
     }
 
     void BoxCollider::UpdateBounds()
     {
         Transform& transform = _myEntity.GetComponent<Transform>();
 
-        _bounds.InitFromCube(transform.position, transform.scale);
+        // use transform scale proportionnally ?
+        _bounds.InitFromCube(transform.position, _scale);
     }
 }
 

@@ -26,7 +26,8 @@ namespace RayLib
 
     Mesh::~Mesh()
     {
-        UnloadMesh(_mesh);
+        // ? si le mesh fait partie d'un model -> double free...
+        //UnloadMesh(_mesh);
     }
 }
 
