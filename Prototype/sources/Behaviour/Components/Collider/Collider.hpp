@@ -16,6 +16,8 @@
 #include "Entity.hpp"
 #include "Coordinator.hpp"
 #include "BoundingBox.hpp"
+#include "RayCollision.hpp"
+#include "Ray.hpp"
 
 namespace Prototype
 {
@@ -28,6 +30,10 @@ namespace Prototype
             virtual bool IsCollidingAtPosition(RayLib::Vector3 center) = 0;
             virtual bool CheckCollision(RayLib::Vector3 center, float radius) = 0;
             virtual bool CheckCollision(RayLib::BoundingBox& box) = 0;
+
+            virtual bool CheckCollision(RayLib::Ray& ray) = 0;
+
+            //virtual Raylib::RayCollision CheckCollision(RayLib::Ray& ray) = 0;
 
             virtual void DrawLines() = 0;
 

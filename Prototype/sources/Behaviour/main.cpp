@@ -33,6 +33,7 @@
 #include "IBehaviour.hpp"
 #include "ButtonCallbacks.hpp"
 #include "BoxCollider.hpp"
+#include "Draggable.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -61,7 +62,7 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     return (entity);
 }
 
-ECS::Entity& InitBox(ECS::Coordinator& coordinator)
+ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     // box, soon to be destructible
     ECS::Entity &entity = coordinator.CreateEntity();
@@ -73,6 +74,7 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator)
 
     entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
+    entity.AddComponent<Prototype::IBehaviour, Prototype::Draggable>(entity, camera);
     return (entity);
 }
 
@@ -84,7 +86,7 @@ int main(void)
 
     /*ECS::Entity& cat = */InitCat(coordinator);
     /*ECS::Entity& button = */InitButton(coordinator, camera);
-    ECS::Entity& box = InitBox(coordinator);
+    ECS::Entity& box = InitBox(coordinator, camera);
 
     coordinator.AddSystem<Prototype::PhysicsSystem>();
     coordinator.AddSystem<Prototype::RenderSystem>();

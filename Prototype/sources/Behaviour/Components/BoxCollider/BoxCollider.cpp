@@ -73,6 +73,14 @@ namespace Prototype
         return (RayLib::Physics3D::CheckCollision(_bounds, box));
     }
 
+    bool BoxCollider::CheckCollision(RayLib::Ray& ray)
+    {
+        UpdateBounds();
+
+        return (RayLib::Physics3D::CheckCollision(ray, _bounds).HasHit());
+    }
+
+
     ECS::Entity& BoxCollider::GetCollision()
     {
         UpdateBounds();

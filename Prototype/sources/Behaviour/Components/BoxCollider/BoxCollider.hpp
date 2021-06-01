@@ -26,6 +26,8 @@ namespace Prototype
             bool IsColliding() override;
             bool CheckCollision(RayLib::Vector3 center, float radius) override;
             bool CheckCollision(RayLib::BoundingBox& box) override;
+            bool CheckCollision(RayLib::Ray& ray) override;
+
             bool IsCollidingAtPosition(RayLib::Vector3 center) override;
 
             void DrawLines() override;
