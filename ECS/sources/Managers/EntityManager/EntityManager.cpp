@@ -18,7 +18,7 @@ namespace ECS
     _available(), _max(1), _entities()
     { }
 
-    Entity &EntityManager::CreateEntity()
+    Entity& EntityManager::CreateEntity()
     {
         if (this->_available.size() == 0)
         {
@@ -33,7 +33,7 @@ namespace ECS
     }
 
 
-    void EntityManager::DeleteEntity(Entity &entity)
+    void EntityManager::DeleteEntity(Entity& entity)
     {
         for (auto it = this->_entities.begin(); it != this->_entities.end(); it++)
             if ((*it)->GetId() == entity.GetId())
@@ -44,7 +44,7 @@ namespace ECS
             }
     }
 
-    const std::vector<std::unique_ptr<Entity>> &EntityManager::GetEntities() const
+    const std::vector<std::unique_ptr<Entity>>& EntityManager::GetEntities() const
     {
         return this->_entities;
     }

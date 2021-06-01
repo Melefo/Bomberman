@@ -18,17 +18,54 @@
 
 namespace ECS
 {
+    /**
+     * @brief Class used to manipulate Components
+     * 
+     */
     class ComponentManager
     {
         private:
+            /**
+             * @brief Map associating a base component with its derived
+             * 
+             */
             std::unordered_map<std::string, std::vector<std::string>> _bases;
+            /**
+             * @brief List of currently created Components
+             * 
+             */
             std::unordered_map<std::string, std::unique_ptr<IComponent>> _components;
         public:
+            /**
+             * @brief Construct a new Component Manager object
+             * 
+             */
             ComponentManager();
+            /**
+             * @brief Destroy the Component Manager object
+             * 
+             */
             ~ComponentManager() = default;
+            /**
+             * @brief Copy a new Component Manager object
+             * 
+             */
+            ComponentManager(const ComponentManager&) = default;
+            /**
+             * @brief Assign a new ComponentManager Object
+             * 
+             * @return ComponentManager& Assigned Entity
+             */
+            ComponentManager& operator=(const ComponentManager&) = default;
 
+            /**
+             * @brief Get the Component object
+             * 
+             * @tparam T Type of the Component
+             * @return T& Reference to the Component
+             */
             template<typename T>
-            T &GetComponent()
+            T& GetComponent()
             {
                 std::string name(typeid(T).name());
 
@@ -37,6 +74,12 @@ namespace ECS
                     throw Exception::EntityException("Entity doesn't contains this Component");
                 return dynamic_cast<T &>(*it->second);
             }
+            /**
+             * @brief Get every Component derivating from T
+             * 
+             * @tparam T base class of the Components
+             * @return std::vector<std::reference_wrapper<T>> List of references to Components
+             */
             template<typename T>
             std::vector<std::reference_wrapper<T>> OfType()
             {
@@ -50,6 +93,13 @@ namespace ECS
                     list.push_back(dynamic_cast<T&>(*this->_components[name]));
                 return list;
             }
+            /**
+             * @brief Add a new Component to the current Entity
+             * 
+             * @tparam T Type of the Component
+             * @tparam TArgs Types of the constructor arguments of the Component
+             * @param args Constructor arguments of the Component
+             */
             template<typename T, typename... TArgs>
             void AddComponent(TArgs&&... args)
             {
@@ -59,6 +109,14 @@ namespace ECS
                     throw Exception::EntityException("Entity already contains this Component");
                 this->_components[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
             }
+            /**
+             * @brief Add a new derived Component to the current Entity
+             * 
+             * @tparam Base Base class of the Component
+             * @tparam T Derived class of the Component
+             * @tparam TArgs Types of the constructor arguments of the Component
+             * @param args Constructor arguments of the Component
+             */
             template<typename Base, typename T, typename... TArgs>
             void AddComponent(TArgs&&... args)
             {
@@ -75,6 +133,11 @@ namespace ECS
                     this->_bases[baseName] = std::vector<std::string>();
                 this->_bases[baseName].push_back(name);
             }
+            /**
+             * @brief Remove a Component from the Entity
+             * 
+             * @tparam T Type of the Component
+             */
             template<typename T>
             void RemoveComponent()
             {
@@ -94,6 +157,13 @@ namespace ECS
                 }
                 this->_components.erase(it);
             }
+            /**
+             * @brief Check if the Entity contains a given Component
+             * 
+             * @tparam T type of the Component
+             * @return true The Entity contains the component
+             * @return false The Entity doesn't contains the component
+             */
             template<typename T>
             bool HasComponent() const
             {
@@ -112,7 +182,21 @@ namespace ECS
                 }
                 return false;
             }
+            /**
+             * @brief Check if the Entity contains a given Component based on its name
+             * 
+             * @param name Name of the component
+             * @return true The Entity contains the component
+             * @return false The Entity doesn't Contains the component
+             */
             bool HasComponent(std::string &name) const;
+            /**
+             * @brief Check if the Entity contains a list of given Component based on teirs names
+             * 
+             * @param names List of Component names
+             * @return true The entity contains every Components
+             * @return false The entity is missing at least Component
+             */
             bool HasComponents(std::vector<std::string> &names) const;
     };
 }

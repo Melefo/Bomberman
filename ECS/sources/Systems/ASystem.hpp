@@ -14,29 +14,110 @@
 
 namespace ECS
 {
+    /**
+     * @brief Base Abstract class to create a new System
+     * 
+     */
     class ASystem
     {
         private:
+            /**
+             * @brief List of Components on which the System is dependent
+             * 
+             */
             std::vector<std::string> _dependencies;
+            /**
+             * @brief Toggle if the system must be updated or not
+             * 
+             */
             bool _enabled;
         protected:
+            /**
+             * @brief Add a component to list of dependencies
+             * 
+             * @tparam T Type of the component
+             */
             template<typename T>
             void AddDependency()
             {
                 this->_dependencies.push_back(std::string(typeid(T).name()));
             }
         public:
+            /**
+             * @brief Construct a new ASystem object
+             * 
+             */
             ASystem();
+            /**
+             * @brief Construct a new ASystem object
+             * 
+             * @param enabled Default value if the System is enabled or not
+             */
             ASystem(bool enabled);
+            /**
+             * @brief Destroy the ASystem object
+             * 
+             */
             virtual ~ASystem() = default;
+            /**
+             * @brief Copy a new ASystem object
+             * 
+             */
+            ASystem(const ASystem&) = default;
+            /**
+             * @brief Assign a new ASystem Object
+             * 
+             * @return ASystem& Assigned ASystem
+             */
+            ASystem& operator=(const ASystem&) = default;
 
-            virtual void Update(double, Entity &);
-            virtual void FixedUpdate(Entity &);
-            virtual void LateUpdate(double, Entity &);
+            /**
+             * @brief Update an Entity and its components
+             * 
+             * @param dt DeltaTime since the last Update
+             * @param entity Entity to update
+             */
+            virtual void Update(double dt, Entity& entity);
+            /**
+             * @brief Update an Entity and its components at a fixed time
+             * 
+             * @param entity Entity to update
+             */
+            virtual void FixedUpdate(Entity& entity);
+            /**
+             * @brief Update an Entity and its components after the others
+             * 
+             * @param dt DeltaTime since the last Update
+             * @param entity Entity to update
+             */
+            virtual void LateUpdate(double dt, Entity& entity);
+            /**
+             * @brief Event launched when the system is disabled
+             * 
+             */
             virtual void OnDisable();
+            /**
+             * @brief Event launched when the system is enabled
+             * 
+             */
             virtual void OnEnable();
-            const std::vector<std::string> &GetDependencies() const;
+            /**
+             * @brief Get the Dependencies object
+             * 
+             * @return const std::vector<std::string>& List of components dependencies of the system
+             */
+            const std::vector<std::string>& GetDependencies() const;
+            /**
+             * @brief Get the Status object
+             * 
+             * @return true The sysetm is enabled
+             * @return false The system is disabled
+             */
             bool GetStatus() const;
+            /**
+             * @brief Enable/Disable the system
+             * 
+             */
             void ToggleStatus();
     };
 }

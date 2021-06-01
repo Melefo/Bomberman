@@ -14,7 +14,7 @@ namespace ECS
     {
     }
 
-    Entity &Coordinator::CreateEntity()
+    Entity& Coordinator::CreateEntity()
     {
         return this->_scenes[this->_currentScene].CreateEntity();
     }
@@ -27,7 +27,7 @@ namespace ECS
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto &entity : this->_scenes[this->_currentScene].GetEntities())
+            for (auto& entity : this->_scenes[this->_currentScene].GetEntities())
             {
                 if (!entity->HasComponents(dependencies))
                     continue;
@@ -38,13 +38,13 @@ namespace ECS
 
     void Coordinator::FixedUpdate()
     {
-        for (auto &pair : this->_systemManager.GetSystems())
+        for (auto& pair : this->_systemManager.GetSystems())
         {
             if (!pair.second->GetStatus())
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto &entity : this->_scenes[this->_currentScene].GetEntities())
+            for (auto& entity : this->_scenes[this->_currentScene].GetEntities())
             {
                 if (!entity->HasComponents(dependencies))
                     continue;
@@ -55,13 +55,13 @@ namespace ECS
 
     void Coordinator::LateUpdate(double dt)
     {
-        for (auto &pair : this->_systemManager.GetSystems())
+        for (auto& pair : this->_systemManager.GetSystems())
         {
             if (!pair.second->GetStatus())
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto &entity : this->_scenes[this->_currentScene].GetEntities())
+            for (auto& entity : this->_scenes[this->_currentScene].GetEntities())
             {
                 if (!entity->HasComponents(dependencies))
                     continue;

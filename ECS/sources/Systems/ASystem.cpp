@@ -19,20 +19,20 @@ namespace ECS
     {
     }
 
-    const std::vector<std::string> &ASystem::GetDependencies() const
+    const std::vector<std::string>& ASystem::GetDependencies() const
     {
         return this->_dependencies;
     }
 
-    void ASystem::Update(double, Entity &)
+    void ASystem::Update(double, Entity&)
     {
     }
     
-    void ASystem::FixedUpdate(Entity &)
+    void ASystem::FixedUpdate(Entity&)
     {
     }
     
-    void ASystem::LateUpdate(double, Entity &)
+    void ASystem::LateUpdate(double, Entity&)
     {
     }
 

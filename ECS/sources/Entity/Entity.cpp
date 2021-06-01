@@ -14,12 +14,12 @@ namespace ECS
     {
     }
 
-    bool Entity::HasComponent(std::string &name) const
+    bool Entity::HasComponent(std::string& name) const
     {
         return this->_componentManager.HasComponent(name);
     }
 
-    bool Entity::HasComponents(std::vector<std::string> &names) const
+    bool Entity::HasComponents(std::vector<std::string>& names) const
     {
         return this->_componentManager.HasComponents(names);
     }
