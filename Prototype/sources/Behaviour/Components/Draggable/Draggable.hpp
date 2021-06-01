@@ -24,7 +24,7 @@ namespace Prototype
     class Draggable : public IBehaviour {
         public:
             Draggable(ECS::Entity& attatchedEntity, RayLib::Camera3D& camera);
-            ~Draggable() = default;
+            ~Draggable() override = default;
 
             void Update(float dt) override;
 

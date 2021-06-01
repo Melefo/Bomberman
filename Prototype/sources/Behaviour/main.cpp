@@ -34,6 +34,7 @@
 #include "ButtonCallbacks.hpp"
 #include "BoxCollider.hpp"
 #include "Draggable.hpp"
+#include "DropBomb.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -47,6 +48,8 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 
     entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 500.0f);
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
+
+    entity.AddComponent<Prototype::IBehaviour, Prototype::DropBomb>(entity, coordinator);
 
     return (entity);
 }
@@ -67,7 +70,7 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     // box, soon to be destructible
     ECS::Entity &entity = coordinator.CreateEntity();
     entity.AddComponent<Prototype::Transform>();
-    entity.AddComponent<Prototype::PhysicsBody>();
+    //entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>();
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
     entity.GetComponent<Prototype::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);

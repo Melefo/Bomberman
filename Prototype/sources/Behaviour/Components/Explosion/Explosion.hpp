@@ -11,10 +11,12 @@
 #include <cinttypes>
 #include "IComponent.hpp"
 #include "Vector3.hpp"
+#include "IBehaviour.hpp"
+#include "Window.hpp"
 
 namespace Prototype
 {
-    class Explosion : public ECS::IComponent {
+    class Explosion : public IBehaviour {
         public:
             enum class ExplosionType
             {
@@ -25,14 +27,21 @@ namespace Prototype
             };
             Explosion(RayLib::Vector3 radius=RayLib::Vector3(),
                       Explosion::ExplosionType type=Explosion::ExplosionType::CROSS,
-                      unsigned int power=1);
+                      unsigned int power=1,
+                      float timer=3.0f);
+
             ~Explosion() override = default;
+
+            void Update(float dt) override;
 
             RayLib::Vector3 radius;
             Explosion::ExplosionType type;
             unsigned int power;
         protected:
         private:
+            float _explosionTimer;
+            std::unique_ptr<RayLib::Window>& _window;
+
     };
 }
 

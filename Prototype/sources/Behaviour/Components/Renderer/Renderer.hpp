@@ -18,8 +18,9 @@ namespace Prototype
         public:
             Renderer(const std::string& modelPath,
                     const std::string& texturePath);
+            Renderer(const std::string& modelPath);
             // default cube
-            Renderer(const std::string& texturePath="../assets/models/cube/def_text.png");
+            Renderer();
 
             ~Renderer() override = default;
 

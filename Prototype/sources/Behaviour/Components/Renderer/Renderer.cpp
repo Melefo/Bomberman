@@ -9,8 +9,15 @@
 
 namespace Prototype
 {
-    Renderer::Renderer(const std::string& texturePath) :
-    _model(RayLib::Mesh(RayLib::Vector3(1.0f, 1.0f, 1.0f))), _texture(texturePath)
+
+    Renderer::Renderer(const std::string& modelPath) :
+    _model(modelPath), _texture()
+    {
+        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
+    }
+
+    Renderer::Renderer() :
+    _model(RayLib::Mesh(RayLib::Vector3(1.0f, 1.0f, 1.0f))), _texture("../assets/models/cube/def_text.png")
     {
         _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
     }

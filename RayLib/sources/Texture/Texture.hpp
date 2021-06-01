@@ -22,7 +22,7 @@ namespace RayLib
         public:
             ~Texture();
 
-            Texture(const std::string& filename);
+            Texture(const std::string& filename="../assets/models/cube/def_text.png");
             Texture(Image image);
 
             void DrawTexture(Vector2<float> position, Color tint);
