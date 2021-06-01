@@ -15,27 +15,75 @@
 
 namespace RayLib
 {
+    /**
+     * @brief Camera3D
+     * Encapsulation of the raylib structure Camera3D
+     */
     class Camera3D
     {
         public:
+
+            /**
+             * @brief Construct a new Camera 3D object
+             * 
+             * @param position the camera's position in world space (default: x:0.0 y: 10.0 z:10.0)
+             * @param target the camera will face these coordinates
+             * @param up the camera's upwards vector in local space
+             * @param fovy the camera's field of view in degrees
+             * @param projection camera mode
+             */
             Camera3D(Vector3 position=Vector3(0.0f, 10.0f, 10.0f),
                     Vector3 target=Vector3(0.0f, 0.0f, 0.0f),
                     Vector3 up=Vector3(0.0f, 1.0f, 0.0f),
                     float fovy=45.0f,
                     int projection=CAMERA_PERSPECTIVE);
 
+            /**
+             * @brief Destroy the Camera 3 D object
+             * 
+             */
             ~Camera3D();
 
             // todo getters and setters
 
+            /**
+             * @brief Set the Camera Mode
+             * 
+             * @param mode 
+             */
             void SetCameraMode(int mode);
+
+            /**
+             * @brief Begin 3D mode
+             * 
+             */
             void BeginMode(void);
+
+            /**
+             * @brief End 3D mode
+             * 
+             */
             void EndMode(void);
 
+            /**
+             * @brief Update the camera based on mode
+             * 
+             */
             void Update(void);
 
+            /**
+             * @brief Get the a ray pointing from camera to mouseposition
+             * 
+             * @param mousePos 
+             * @return Ray 
+             */
             Ray GetMouseRay(Vector2<float> mousePos);
 
+            /**
+             * @brief Get the camera structure
+             * 
+             * @return ::Camera3D 
+             */
             ::Camera3D GetCamera();
 
 

@@ -13,27 +13,92 @@
 
 namespace RayLib
 {
+    /**
+     * @brief RayCollision encapsulation
+     * 
+     */
     class RayCollision {
         public:
+            /**
+             * @brief Construct a new Ray Collision object
+             * Initializes values to zero and hit to false
+             */
             RayCollision();
-            ~RayCollision();
 
+            /**
+             * @brief Destroy the Ray Collision object
+             * 
+             */
+            ~RayCollision() = default;
+
+            /**
+             * @brief Construct a new Ray Collision object
+             * 
+             * @param other 
+             */
             RayCollision(const RayCollision& other);
+
+            /**
+             * @brief Construct a new Ray Collision object
+             * 
+             * @param other 
+             */
             RayCollision(const ::RayCollision& other);
 
+            /**
+             * @brief 
+             * 
+             * @param other 
+             * @return RayCollision& 
+             */
             RayCollision& operator=(const RayCollision& other);
+
+            /**
+             * @brief 
+             * 
+             * @param other 
+             * @return RayCollision& 
+             */
             RayCollision& operator=(const ::RayCollision& other);
 
+            /**
+             * @brief Get the Hit Info as a raylib structure
+             * 
+             * @return ::RayCollision 
+             */
             ::RayCollision GetHitInfo(void);
 
+            /**
+             * @brief returns hit value of structure
+             * 
+             * @return true 
+             * @return false 
+             */
             bool HasHit(void);
+
+            /**
+             * @brief Get the Distance to collision object
+             * 
+             * @return float 
+             */
             float GetDistance(void);
+
+            /**
+             * @brief Get the position of collision
+             * 
+             * @return Vector3& 
+             */
             Vector3& GetPosition(void);
+
+            /**
+             * @brief Get the surface normal
+             * 
+             * @return Vector3& 
+             */
             Vector3& GetNormal(void);
 
         protected:
         private:
-            // privé ou public ?
             bool _hit;               // Did the ray hit something?
             float _distance;         // Distance to nearest hit
             Vector3 _point;       // Position of nearest hit

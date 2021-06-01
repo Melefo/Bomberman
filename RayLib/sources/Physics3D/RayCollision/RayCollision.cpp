@@ -17,11 +17,6 @@ namespace RayLib
         _normal = Vector3();
     }
 
-    RayCollision::~RayCollision()
-    {
-
-    }
-
     RayCollision::RayCollision(const RayCollision& other)
     {
         _hit = other._hit;

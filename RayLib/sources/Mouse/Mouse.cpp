@@ -10,14 +10,6 @@
 namespace RayLib
 {
 
-    Mouse::Mouse()
-    {
-    }
-
-    Mouse::~Mouse()
-    {
-    }
-
     Vector2<float> Mouse::GetPosition()
     {
         ::Vector2 mousePos = GetMousePosition();
