@@ -17,7 +17,7 @@ Test(AddSystem, test)
     ECS::EntityManager entmanager;
 
     ECS::Entity &entity = entmanager.CreateEntity();
-    entity.AddComponent<StorageComponent>();
+    entity.AddComponent<StorageComponent>(0);
     AddSystem &system = sysmanager.AddSystem<AddSystem>();
 
     cr_assert_eq(entity.GetComponent<StorageComponent>().value, 0);

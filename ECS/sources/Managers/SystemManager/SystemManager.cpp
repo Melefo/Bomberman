@@ -9,7 +9,7 @@
 
 namespace ECS
 {
-    const std::unordered_map<std::string, std::unique_ptr<ASystem>> &SystemManager::GetSystems() const
+    const std::unordered_map<std::string, std::unique_ptr<ASystem>>& SystemManager::GetSystems() const
     {
         return this->_systems;
     }

@@ -12,48 +12,162 @@
 #include <unordered_map>
 #include <memory>
 #include <algorithm>
+#include <vector>
 #include "Exceptions.hpp"
+#include "ComponentManager.hpp"
+#include "EntityManager.hpp"
 #include "IComponent.hpp"
 
 namespace ECS
 {
+    /**
+     * @brief Scene object containing components and an ID
+     * 
+     */
     class Entity
     {
         private:
+            /**
+             * @brief ID of the Entity
+             * 
+             */
             uint32_t _id;
-            std::unordered_map<std::string, std::unique_ptr<IComponent>> _components;
-
+            /**
+             * @brief Manage components inside the Entity
+             * 
+             */
+            ComponentManager _componentManager;
+            /**
+             * @brief Reference to the Scene in which it has been created
+             * 
+             */
+            EntityManager& _entityManager;
         public:
-            Entity(uint32_t id);
+            /**
+             * @brief Construct a new Entity object
+             * 
+             */
+            Entity() = delete;
+            /**
+             * @brief Construct a new Entity object
+             * 
+             * @param id ID for the new Entity
+             * @param entityManager Reference to the scene
+             */
+            Entity(uint32_t id, EntityManager& entityManager);
+            /**
+             * @brief Destroy the Entity object
+             * 
+             */
             ~Entity() = default;
-            template<typename T>
-            T &GetComponent()
-            {
-                std::string name(typeid(T).name());
+            /**
+             * @brief Copy a new Entity object
+             * 
+             */
+            Entity(const Entity&) = default;
+            /**
+             * @brief Assign a new Entity Object
+             * 
+             * @return Entity& assigned Entity
+             */
+            Entity& operator=(const Entity&) = default;
 
-                const auto &it = this->_components.find(name);
-                if (it == this->_components.end())
-                    throw Exception::EntityException("Entity doesn't contains this Component");
-                return dynamic_cast<T &>(*it->second);
-            }
+            /**
+             * @brief Get the Component object
+             * 
+             * @tparam T Type of the Component
+             * @return T& reference to the Component
+             */
             template<typename T>
-            void AddComponent()
+            T& GetComponent()
             {
-                std::string name(typeid(T).name());
-
-                if (this->HasComponent<T>())
-                    throw Exception::EntityException("Entity already contains this Component");
-                this->_components[name] = std::make_unique<T>();
+                return this->_componentManager.GetComponent<T>();
             }
+            /**
+             * @brief Get every Component derivating from T
+             * 
+             * @tparam T base class of the Components
+             * @return std::vector<std::reference_wrapper<T>> List of references to Components
+             */
+            template<typename T>
+            std::vector<std::reference_wrapper<T>> OfType()
+            {
+                return this->_componentManager.OfType<T>();
+            }
+            /**
+             * @brief Add a new Component to the current Entity
+             * 
+             * @tparam T Type of the Component
+             * @tparam TArgs Types of the constructor arguments of the Component
+             * @param args Constructor arguments of the Component
+             */
+            template<typename T, typename... TArgs>
+            void AddComponent(TArgs&&... args)
+            {
+                this->_componentManager.AddComponent<T>(std::forward<TArgs>(args)...);
+            }
+            /**
+             * @brief Add a new derived Component to the current Entity
+             * 
+             * @tparam Base Base class of the Component
+             * @tparam T Derived class of the Component
+             * @tparam TArgs Types of the constructor arguments of the Component
+             * @param args Constructor arguments of the Component
+             */
+            template<typename Base, typename T, typename... TArgs>
+            void AddComponent(TArgs&&... args)
+            {
+                this->_componentManager.AddComponent<Base, T>(std::forward<TArgs>(args)...);
+            }
+            /**
+             * @brief Remove a Component from the Entity
+             * 
+             * @tparam T Type of the Component
+             */
+            template<typename T>
+            void RemoveComponent()
+            {
+                this->_componentManager.RemoveComponent<T>();
+            }
+            /**
+             * @brief Check if the Entity contains a given Component
+             * 
+             * @tparam T type of the Component
+             * @return true The Entity contains the component
+             * @return false The Entity doesn't contains the component
+             */
             template<typename T>
             bool HasComponent() const
             {
-                std::string name(typeid(T).name());
-
-                return this->_components.find(name) != this->_components.end();
+                return this->_componentManager.HasComponent<T>();
             }
+            /**
+             * @brief Check if the Entity contains a given Component based on its name
+             * 
+             * @param name Name of the component
+             * @return true The Entity contains the component
+             * @return false The Entity doesn't Contains the component
+             */
             bool HasComponent(std::string &name) const;
+            /**
+             * @brief Check if the Entity contains a list of given Component based on teirs names
+             * 
+             * @param names List of Component names
+             * @return true The entity contains every Components
+             * @return false The entity is missing at least Component
+             */
+            bool HasComponents(std::vector<std::string> &names) const;
+            /**
+             * @brief Get the Id object
+             * 
+             * @return uint32_t Current ID of the Entity
+             */
             uint32_t GetId() const;
+            /**
+             * @brief Remove the Component from the scene and so destroy itself
+             * 
+             */
+            void Dispose();
     };
 }
 

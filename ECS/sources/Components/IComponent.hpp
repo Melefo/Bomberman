@@ -8,15 +8,36 @@
 #ifndef ICOMPONENT_HPP_
 #define ICOMPONENT_HPP_
 
-#include <string>
-
 namespace ECS
 {
+    /**
+     * @brief Base Interface class to create a new component
+     * 
+     */
     class IComponent
     {
         public:
+            /**
+             * @brief Construct a new IComponent object
+             * 
+             */
             IComponent() = default;
+            /**
+             * @brief Destroy the IComponent object
+             * 
+             */
             virtual ~IComponent() = default;
+            /**
+             * @brief Copy a new IComponent object
+             * 
+             */
+            IComponent(const IComponent&) = default;
+            /**
+             * @brief Assign a new IComponent object
+             * 
+             * @return IComponent& assigned component
+             */
+            IComponent& operator=(const IComponent&) = default;
     };
 }
 
