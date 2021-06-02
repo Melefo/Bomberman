@@ -55,6 +55,12 @@ namespace RayLib
         ::DrawCubeWires(position.getVector3(), scale.x, scale.y, scale.z, color.getColor());
     }
 
+    void Window::DrawSphereWires(Vector3 centerPos, float radius, int rings, int slices, Color color)
+    {
+        ::DrawSphereWires(centerPos.getVector3(), radius, rings, slices, color.getColor());
+    }
+
+
     void Window::DrawBoundingBox(BoundingBox box, Color color)
     {
         ::DrawBoundingBox(box.GetBounds(), color.getColor());

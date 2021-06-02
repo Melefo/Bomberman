@@ -13,6 +13,10 @@
 #include "Vector3.hpp"
 #include "IBehaviour.hpp"
 #include "Window.hpp"
+#include "CollisionSystem.hpp"
+#include "Transform.hpp"
+#include "Destructible.hpp"
+#include "Exceptions.hpp"
 
 namespace Prototype
 {
@@ -25,7 +29,7 @@ namespace Prototype
                 VERTICAL,
                 HORIZONTAL,
             };
-            Explosion(ECS::Entity& entity, RayLib::Vector3 radius=RayLib::Vector3(),
+            Explosion(ECS::Entity& entity, float radius=1.0f,
                       Explosion::ExplosionType type=Explosion::ExplosionType::CROSS,
                       unsigned int power=1,
                       float timer=3.0f);
@@ -35,14 +39,15 @@ namespace Prototype
             void Update(float dt) override;
             void FixedUpdate(ECS::Entity& entity) override;
 
-            RayLib::Vector3 radius;
             Explosion::ExplosionType type;
             unsigned int power;
         protected:
         private:
+            float _radius;
             float _explosionTimer;
             std::unique_ptr<RayLib::Window>& _window;
             ECS::Entity& _myEntity;
+            Transform& _transform;
     };
 }
 

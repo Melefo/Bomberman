@@ -18,6 +18,7 @@
 #include "Transform.hpp"
 #include "Renderer.hpp"
 #include "Window.hpp"
+#include "Destructible.hpp"
 
 namespace Prototype
 {
@@ -31,7 +32,7 @@ namespace Prototype
             // instantiate bomb
             void InstantiateBomb(RayLib::Vector3 position,
                                  Explosion::ExplosionType explosionType=Explosion::ExplosionType::CIRCLE,
-                                 RayLib::Vector3 radius=RayLib::Vector3(1.0f, 1.0f, 1.0f));
+                                 float radius=1.0f);
 
             void Update(float dt) override;
             void FixedUpdate(ECS::Entity& entity) override;

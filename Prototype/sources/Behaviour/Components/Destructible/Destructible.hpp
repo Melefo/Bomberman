@@ -19,7 +19,7 @@ namespace Prototype
      * @brief Component allowing for entities to be destructible
      * 
      */
-    class Destructible : ECS::IComponent {
+    class Destructible : public ECS::IComponent {
         public:
             /**
              * @brief Construct a new Destructible component
@@ -51,8 +51,8 @@ namespace Prototype
 
         protected:
         private:
-            int _resistance;
             ECS::Entity& _myEntity;
+            int _resistance;
     };
 }
 
