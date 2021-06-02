@@ -59,11 +59,6 @@ namespace RayLib
         return (vec3);
     }
 
-    Vector3::~Vector3()
-    {
-
-    }
-
     Vector3& Vector3::operator=(const Vector3& vec)
     {
         x = vec.x;

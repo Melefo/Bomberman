@@ -47,7 +47,6 @@ namespace RayLib
 
     Texture::~Texture()
     {
-        std::cout << "Unloading texture" << std::endl;
         UnloadTexture(_texture);
     }
 }

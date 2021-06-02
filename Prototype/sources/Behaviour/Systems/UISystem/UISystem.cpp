@@ -25,6 +25,7 @@ namespace Prototype
         Transform& transform = entity.GetComponent<Transform>();
 
         RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
+
         _camera.EndMode();
         for (IUIObject& uiObject : uiObjects) {
             // ! ajouter dans vector3 un .magnitude pour récup un float
