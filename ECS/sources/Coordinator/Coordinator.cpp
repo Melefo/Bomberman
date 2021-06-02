@@ -29,6 +29,8 @@ namespace ECS
 
             for (auto& entity : this->_scenes[this->_currentScene].GetEntities())
             {
+                if (entity == nullptr)
+                    continue;
                 if (!entity->HasComponents(dependencies))
                     continue;
                 pair.second->Update(dt, *entity);
