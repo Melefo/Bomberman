@@ -88,19 +88,18 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 
 int main(void)
 {
-    ECS::Coordinator coordinator;
+    std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
 
-    /*ECS::Entity& cat = */InitCat(coordinator);
-    /*ECS::Entity& button = */InitButton(coordinator, camera);
-    ECS::Entity& box = InitBox(coordinator, camera);
+    /*ECS::Entity& cat = */InitCat(*coordinator.get());
+    /*ECS::Entity& button = */InitButton(*coordinator.get(), camera);
+    ECS::Entity& box = InitBox(*coordinator.get(), camera);
 
-    coordinator.AddSystem<Prototype::PhysicsSystem>();
-    coordinator.AddSystem<Prototype::RenderSystem>();
-    coordinator.AddSystem<Prototype::BehaviourSystem>();
-    coordinator.AddSystem<Prototype::UISystem>(camera);
-    coordinator.AddSystem<Prototype::CollisionSystem>(coordinator);
+    coordinator->AddSystem<Prototype::PhysicsSystem>();
+    coordinator->AddSystem<Prototype::RenderSystem>();
+    coordinator->AddSystem<Prototype::BehaviourSystem>();
+    coordinator->AddSystem<Prototype::UISystem>(camera);
 
     window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     camera.SetCameraMode(CAMERA_FREE);
@@ -115,7 +114,7 @@ int main(void)
         window->ClearBackground(RAYWHITE);
         camera.BeginMode();
 
-        coordinator.Run();
+        coordinator->Run();
 
 
         window->DrawGrid(20, 10.0f);

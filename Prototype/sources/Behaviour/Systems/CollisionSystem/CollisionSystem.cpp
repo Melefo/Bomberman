@@ -10,22 +10,8 @@
 
 namespace Prototype
 {
-    std::unique_ptr<std::reference_wrapper<CollisionSystem>> CollisionSystem::_colSystem = nullptr;
-
-    CollisionSystem::CollisionSystem(ECS::Coordinator& coordinator) : _coordinator(coordinator)
+    std::vector<std::reference_wrapper<ECS::Entity>> CollisionSystem::OverlapSphere(ECS::Coordinator& coordinator, RayLib::Vector3 center, float radius)
     {
-        AddDependency<Collider>();
-        SetSystem(*this);
-    }
-
-    void CollisionSystem::SetSystem(CollisionSystem& colsystem)
-    {
-        _colSystem = std::make_unique<std::reference_wrapper<CollisionSystem>>(colsystem);
-    }
-
-    std::vector<std::reference_wrapper<ECS::Entity>> CollisionSystem::OverlapSphere(RayLib::Vector3 center, float radius)
-    {
-        ECS::Coordinator& coordinator = CollisionSystem::_colSystem->get().GetCoordinator();
         const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator.GetEntities();
         std::vector<std::reference_wrapper<ECS::Entity>> collisions;
 
@@ -39,10 +25,4 @@ namespace Prototype
         }
         return (collisions);
     }
-
-    ECS::Coordinator& CollisionSystem::GetCoordinator()
-    {
-        return (_coordinator);
-    }
-
 }
