@@ -19,7 +19,11 @@ class TerrainGenerator {
          */
         enum class mapTexture {
             OWALL = 'X', // Outer wall character
-            INWALL = 'o' // Inner wall character
+            INWALL = 'o', // Inner wall character
+            WEAKBOX = '1', // Weak box character
+            MEDIUMBOX = '2', // Medium box character
+            STRONGBOX = '3', // Strong box character
+            PLAYER = 'P' // Player character
         };
         /**
          * @brief Construct a new Terrain Generator object

@@ -157,19 +157,19 @@ void TerrainGenerator::generateXMLFile()
 
 void TerrainGenerator::placePlayers()
 {
-    _map[1][1] = 'P';
-    _map[_height-2][_width-2] = 'P';
+    _map[1][1] = static_cast<char>(mapTexture::PLAYER);
+    _map[_height-2][_width-2] = static_cast<char>(mapTexture::PLAYER);
     if (_playersNbr > 2) {
-        _map[1][_width-2] = 'P';
-        _map[_height-2][1] = 'P';
+        _map[1][_width-2] = static_cast<char>(mapTexture::PLAYER);
+        _map[_height-2][1] = static_cast<char>(mapTexture::PLAYER);
     }
     if (_playersNbr > 4) {
-        _map[1][_width/2] = 'P';
-        _map[_height-2][_width/2] = 'P';
+        _map[1][_width/2] = static_cast<char>(mapTexture::PLAYER);
+        _map[_height-2][_width/2] = static_cast<char>(mapTexture::PLAYER);
     }
     if (_playersNbr > 6) {
-        _map[_height/2][1] = 'P';
-        _map[_height/2][_width-2] = 'P';
+        _map[_height/2][1] = static_cast<char>(mapTexture::PLAYER);
+        _map[_height/2][_width-2] = static_cast<char>(mapTexture::PLAYER);
     }
 }
 
@@ -179,10 +179,10 @@ char TerrainGenerator::generateBoxLevel()
     int threePercentage = 20;
 
     if (rand() % 100 + 1 < threePercentage)
-        return '3';
+        return static_cast<char>(mapTexture::STRONGBOX);
     else if (rand() % 100 + 1 < twoPercentage)
-        return '2';
-    return '1';
+        return static_cast<char>(mapTexture::MEDIUMBOX);
+    return static_cast<char>(mapTexture::WEAKBOX);
 }
 
 void TerrainGenerator::generateBoxes()
