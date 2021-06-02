@@ -102,4 +102,10 @@ namespace RayLib
         return (::GetFrameTime());
     }
 
+    void Window::SetWindowState(unsigned int flags)
+    {
+        ::SetWindowState(flags);
+    }
+
+
 }

@@ -13,6 +13,7 @@
 #include "PhysicsBody.hpp"
 #include "Entity.hpp"
 #include "Collider.hpp"
+#include "Transform.hpp"
 
 namespace Prototype
 {
@@ -22,13 +23,18 @@ namespace Prototype
             ~PlayerMovement() override = default;
 
             void Update(float dt) override;
+            void FixedUpdate(ECS::Entity& entity) override;
 
         protected:
         private:
             RayLib::Input _input;
             ECS::Entity& _entity;
             PhysicsBody& _myPhysicsBody;
+            Transform& _myTransform;
+            bool _colliding;
             float _speed;
+            RayLib::Vector3 _direction;
+
     };
 }
 

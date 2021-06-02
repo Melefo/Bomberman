@@ -24,7 +24,7 @@ namespace Prototype
             Button(RayLib::Camera3D& camera, const std::string& texturePath="../assets/models/cube/def_text.png");
             ~Button() override = default;
 
-            void Draw(RayLib::Vector2<float> position, float scale=1.0f) override;
+            void Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
 
             bool IsMouseOver(void);
             void AddCallback(std::function<void()> callBack);
@@ -34,7 +34,6 @@ namespace Prototype
 
         protected:
         private:
-            //! ou billboard
             RayLib::Camera3D& _camera;
             RayLib::Texture _texture;
             RayLib::Rectangle _rect;

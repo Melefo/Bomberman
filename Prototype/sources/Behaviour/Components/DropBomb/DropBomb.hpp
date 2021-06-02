@@ -34,6 +34,7 @@ namespace Prototype
                                  RayLib::Vector3 radius=RayLib::Vector3(1.0f, 1.0f, 1.0f));
 
             void Update(float dt) override;
+            void FixedUpdate(ECS::Entity& entity) override;
 
         protected:
         private:

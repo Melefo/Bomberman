@@ -29,11 +29,16 @@ namespace Prototype
             _timeToDrop -= windowFrameTime;
         }
         if (_input.IsKeyDown(_bombKey) && _timeToDrop <= 0.0f) {
-            //InstantiateBomb(_transform.position);
+            InstantiateBomb(_transform.position);
             std::cout << "Instantiate bomb" << std::endl;
 
             _timeToDrop = _dropDelay;
         }
+    }
+
+    void DropBomb::FixedUpdate(ECS::Entity& entity)
+    {
+        (void) entity;
     }
 
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, RayLib::Vector3 radius)
@@ -42,8 +47,8 @@ namespace Prototype
 
         entity.AddComponent<Transform>(position, RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
         entity.AddComponent<Renderer>("../assets/bomb/bomb2.fbx", "../assets/bomb/bomb2_text.png");
-        entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
-        entity.AddComponent<IBehaviour, Explosion>(radius, explosionType);
+        //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
+        entity.AddComponent<IBehaviour, Explosion>(entity, radius, explosionType);
     }
 
 }

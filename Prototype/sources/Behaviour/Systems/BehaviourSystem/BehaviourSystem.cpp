@@ -20,9 +20,17 @@ namespace Prototype
     {
         std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
-
         for (IBehaviour& behaviour : behaviours) {
             behaviour.Update(dt);
+        }
+    }
+
+    void BehaviourSystem::FixedUpdate(ECS::Entity &entity)
+    {
+        std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
+
+        for (IBehaviour& behaviour : behaviours) {
+            behaviour.FixedUpdate(entity);
         }
     }
 

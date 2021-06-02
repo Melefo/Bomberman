@@ -10,8 +10,8 @@
 
 namespace Prototype
 {
-    Explosion::Explosion(RayLib::Vector3 startRadius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
-    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
+    Explosion::Explosion(ECS::Entity& entity, RayLib::Vector3 startRadius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
+    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity)
     {
         radius = startRadius;
         type = startType;
@@ -26,8 +26,12 @@ namespace Prototype
 
         if (_explosionTimer <= 0.0f) {
             std::cout << "BOOM" << std::endl;
-            // destroy self
+            _myEntity.Dispose();
         }
     }
 
+    void Explosion::FixedUpdate(ECS::Entity& entity)
+    {
+        (void) entity;
+    }
 }

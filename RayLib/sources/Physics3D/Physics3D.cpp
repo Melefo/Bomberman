@@ -9,13 +9,6 @@
 
 namespace RayLib
 {
-    Physics3D::Physics3D()
-    {
-    }
-
-    Physics3D::~Physics3D()
-    {
-    }
 
     bool Physics3D::CheckCollision(Vector3 center1, float radius1, Vector3 center2, float radius2)
     {

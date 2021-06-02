@@ -41,11 +41,13 @@ include_directories("sources/Behaviour/Components/BoxCollider")
 include_directories("sources/Behaviour/Components/Draggable")
 include_directories("sources/Behaviour/Components/Explosion")
 include_directories("sources/Behaviour/Components/DropBomb")
+include_directories("sources/Behaviour/Components/Destructible")
 
 include_directories("sources/Behaviour/Systems/PhysicsSystem")
 include_directories("sources/Behaviour/Systems/RenderSystem")
 include_directories("sources/Behaviour/Systems/BehaviourSystem")
 include_directories("sources/Behaviour/Systems/UISystem")
+include_directories("sources/Behaviour/Systems/CollisionSystem")
 
 add_executable(behaviourPrototype
   ${BEHAVIOUR_SRC}
