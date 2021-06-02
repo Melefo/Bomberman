@@ -33,6 +33,8 @@ namespace Prototype
             Transform& _myTransform;
             bool _colliding;
             float _speed;
+            RayLib::Vector3 _direction;
+
     };
 }
 

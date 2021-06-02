@@ -109,8 +109,6 @@ int main(void)
         window->ClearBackground(RAYWHITE);
         camera.BeginMode();
 
-        box.OfType<Prototype::Collider>()[0].get().DrawLines();
-
         coordinator.Run();
 
         window->DrawGrid(20, 10.0f);

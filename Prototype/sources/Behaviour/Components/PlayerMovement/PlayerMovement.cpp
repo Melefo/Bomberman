@@ -20,27 +20,33 @@ namespace Prototype
 
     void PlayerMovement::Update(float dt)
     {
-        if (!_colliding) {
-            // idéalement ce serait += mais comme on a pas de drag, on ne ferait qu'accélérer
-            _myPhysicsBody.velocity = RayLib::Vector3(_input.GetHorizontalAxis(),
-                                                    0.0f,
-                                                    _input.GetVerticalAxis()) * _speed;
-        } else {
-            _myPhysicsBody.velocity = RayLib::Vector3();
+        std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
+
+        (void) dt;
+        for (auto it = colliders.begin(); it != colliders.end(); it++) {
+            it->get().DrawLines();
         }
+       _direction = RayLib::Vector3(_input.GetHorizontalAxis(), 0.0f, _input.GetVerticalAxis());
     }
 
     void PlayerMovement::FixedUpdate(ECS::Entity& entity)
     {
-        PhysicsBody& physicsBody = _entity.GetComponent<PhysicsBody>();
-        RayLib::Vector3 targetPosition = _myTransform.position + physicsBody.velocity;
+        RayLib::Vector3 targetPosition = _myTransform.position + _direction * _speed;
         std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
 
+        (void) entity;
         _colliding = false;
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
             if (!_colliding)
                 _colliding = it->get().IsCollidingAtPosition(targetPosition);
             it->get().DrawLines();
+        }
+
+         if (!_colliding) {
+            // idéalement ce serait += mais comme on a pas de drag, on ne ferait qu'accélérer
+            _myPhysicsBody.velocity = _direction * _speed;
+        } else {
+            _myPhysicsBody.velocity = RayLib::Vector3();
         }
     }
 }
