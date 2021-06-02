@@ -9,17 +9,17 @@
 
 namespace ECS
 {
-    Entity::Entity(uint32_t id) :
-    _id(id), _componentManager()
+    Entity::Entity(uint32_t id, EntityManager &entityManager) :
+    _id(id), _componentManager(), _entityManager(entityManager)
     {
     }
 
-    bool Entity::HasComponent(std::string &name) const
+    bool Entity::HasComponent(std::string& name) const
     {
         return this->_componentManager.HasComponent(name);
     }
 
-    bool Entity::HasComponents(std::vector<std::string> &names) const
+    bool Entity::HasComponents(std::vector<std::string>& names) const
     {
         return this->_componentManager.HasComponents(names);
     }
@@ -27,5 +27,10 @@ namespace ECS
     uint32_t Entity::GetId() const
     {
         return this->_id;
+    }
+
+    void Entity::Dispose()
+    {
+        this->_entityManager.DeleteEntity(*this);
     }
 }

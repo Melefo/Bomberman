@@ -19,9 +19,9 @@ Test(coordinator, coordinator)
     entity.AddComponent<StorageComponent>(3);
 
     cr_assert_eq(entity.GetComponent<StorageComponent>().value, 3);
-    coordinator.Update();
-    coordinator.Update();
-    coordinator.Update();
-    coordinator.Update();
+    coordinator.Run();
+    coordinator.Run();
+    coordinator.Run();
+    coordinator.Run();
     cr_assert_eq(entity.GetComponent<StorageComponent>().value, 7);
 }

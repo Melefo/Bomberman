@@ -11,8 +11,16 @@
 #include <exception>
 #include <string>
 
+/**
+ * @brief List of exceptions used inside the ECS
+ * 
+ */
 namespace ECS::Exception
 {
+    /**
+     * @brief Exception thrown if the SystemManager have an expected behavior
+     * 
+     */
     class SystemManagerException : public std::exception
     {
         private:
@@ -22,6 +30,10 @@ namespace ECS::Exception
             const char *what() const noexcept override;
     };
 
+    /**
+     * @brief Exception thrown if the EntityManager have an expected behavior
+     * 
+     */
     class EntityManagerException : public std::exception
     {
         private:
@@ -31,6 +43,10 @@ namespace ECS::Exception
             const char *what() const noexcept override;
     };
 
+    /**
+     * @brief Exception thrown if an Entity have an expected behavior
+     * 
+     */
     class EntityException : public std::exception
     {
         private:

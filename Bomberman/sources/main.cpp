@@ -37,16 +37,8 @@ int main(void)
 {
     ECS::Coordinator coordinator;
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Bomberman");
-    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
 
-    // ECS::Entity& cat = InitCat(coordinator);
-    // ECS::Entity& button = InitButton(coordinator, camera);
-    // ECS::Entity& box = InitBox(coordinator, camera);
-
-    coordinator.AddSystem<Component::PhysicsSystem>();
-    coordinator.AddSystem<Component::RenderSystem>();
-    coordinator.AddSystem<Component::BehaviourSystem>();
-    coordinator.AddSystem<Component::UISystem>();
+    RayLib::Camera3D camera = RayLib::Camera3D();
 
     window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     camera.SetCameraMode(CAMERA_FREE);
@@ -61,8 +53,9 @@ int main(void)
         window->ClearBackground(RAYWHITE);
         camera.BeginMode();
 
-        coordinator.Update();
+        coordinator.Run();
 
+        window->DrawGrid(20, 10.0f);
         camera.EndMode();
         window->EndDrawing();
     }

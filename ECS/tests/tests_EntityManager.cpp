@@ -8,6 +8,7 @@
 #include <criterion/criterion.h>
 #include <memory>
 #include "EntityManager.hpp"
+#include "Entity.hpp"
 
 Test(createEntity, created)
 {
@@ -27,7 +28,7 @@ Test(deleteEntity, deleted)
     cr_assert_eq(entity.GetId(), 1);
     cr_assert_eq(entity2.GetId(), 2);
     
-    manager.DeleteEntity(entity);
+    entity.Dispose();
 
     ECS::Entity &entity3 = manager.CreateEntity();
     cr_assert_eq(entity3.GetId(), 1);

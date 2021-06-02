@@ -111,7 +111,7 @@ int main(void)
 
         box.OfType<Prototype::Collider>()[0].get().DrawLines();
 
-        coordinator.Update();
+        coordinator.Run();
 
         window->DrawGrid(20, 10.0f);
         camera.EndMode();

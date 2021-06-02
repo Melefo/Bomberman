@@ -21,9 +21,9 @@ namespace ECS
         return this->_components.find(name) != this->_components.end();
     }
 
-    bool ComponentManager::HasComponents(std::vector<std::string> &names) const
+    bool ComponentManager::HasComponents(std::vector<std::string>& names) const
     {
-        for (auto &name : names)
+        for (auto& name : names)
             if (!this->HasComponent(name))
                 return false;
         return true;
