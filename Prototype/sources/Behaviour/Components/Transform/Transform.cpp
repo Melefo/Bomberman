@@ -9,11 +9,9 @@
 
 namespace Prototype
 {
-    Transform::Transform(RayLib::Vector3 startPos, RayLib::Vector3 startRot, RayLib::Vector3 startScale)
+    Transform::Transform(RayLib::Vector3 startPos, RayLib::Vector3 startRot, RayLib::Vector3 startScale):
+    position(startPos), rotation(startRot), scale(startScale)
     {
-        position = startPos;
-        rotation = startRot;
-        scale = startScale;
     }
 }
 

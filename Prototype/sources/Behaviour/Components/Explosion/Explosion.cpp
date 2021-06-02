@@ -29,21 +29,13 @@ namespace Prototype
 
         if (_explosionTimer <= 0.0f) {
             std::cout << "BOOM" << std::endl;
-
-
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(_transform.position, _radius);
 
             for (auto it = entities.begin(); it != entities.end(); it++) {
-                // check agains self id
-                // ! it->get().HasComponent<Destructible>();
-                try {
+                if (it->get().HasComponent<Destructible>()) {
                     Destructible& destructible = it->get().GetComponent<Destructible>();
-
                     destructible.TakeDamage(power);
-                } catch(const ECS::Exception::EntityException& e) {
-
                 }
-                std::cout << "Entity ID in overlap sphere: " << it->get().GetId() << std::endl;
             }
             _myEntity.Dispose();
         }

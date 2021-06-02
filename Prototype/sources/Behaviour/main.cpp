@@ -50,6 +50,8 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 
     entity.AddComponent<Prototype::IBehaviour, Prototype::DropBomb>(entity, coordinator);
 
+    //entity.AddComponent<Prototype::Destructible>(entity, 1);
+
     return (entity);
 }
 
@@ -79,7 +81,7 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     entity.AddComponent<Prototype::IBehaviour, Prototype::Draggable>(entity, camera);
 
     // ! pourquoi monsieur!
-    //entity.AddComponent<Prototype::Destructible>(entity);
+    entity.AddComponent<Prototype::Destructible>(entity, 1);
 
     return (entity);
 }

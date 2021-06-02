@@ -29,7 +29,7 @@ namespace Prototype
         }
 
         if (_input.IsKeyDown(_bombKey) && _timeToDrop <= 0.0f) {
-            InstantiateBomb(_transform.position, Explosion::ExplosionType::CIRCLE, 50.0f);
+            InstantiateBomb(_transform.position, Explosion::ExplosionType::CIRCLE, 15.0f);
             std::cout << "Instantiate bomb" << std::endl;
 
             _timeToDrop = _dropDelay;

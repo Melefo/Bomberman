@@ -9,9 +9,8 @@
 
 namespace Prototype
 {
-    Destructible::Destructible(ECS::Entity& entity, int resistance) : _myEntity(entity)
+    Destructible::Destructible(ECS::Entity& entity, int resistance) : _myEntity(entity), _resistance(resistance)
     {
-        _resistance = resistance;
     }
 
     int Destructible::GetResistance()
