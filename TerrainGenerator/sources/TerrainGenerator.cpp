@@ -173,12 +173,24 @@ void TerrainGenerator::placePlayers()
     }
 }
 
+char TerrainGenerator::generateBoxLevel()
+{
+    int twoPercentage = 50;
+    int threePercentage = 20;
+
+    if (rand() % 100 + 1 < threePercentage)
+        return '3';
+    else if (rand() % 100 + 1 < twoPercentage)
+        return '2';
+    return '1';
+}
+
 void TerrainGenerator::generateBoxes()
 {
     for (std::vector<std::string>::iterator it = _map.begin()+1; it != _map.end()-1; it++) {
         for (std::size_t index = 1; index != it->length()-1; index++) {
             if ((*it)[index] == ' ') 
-                (*it)[index] = rand() % 100+1 < _boxPercentage ? 'x' : ' ';
+                (*it)[index] = rand() % 100+1 < _boxPercentage ? generateBoxLevel() : ' ';
         }
     }
 }

@@ -18,7 +18,7 @@ class TerrainGenerator {
          * 
          */
         enum class mapTexture {
-            OWALL = 'O', // Outer wall character
+            OWALL = 'X', // Outer wall character
             INWALL = 'o' // Inner wall character
         };
         /**
@@ -81,6 +81,12 @@ class TerrainGenerator {
          * @return std::string The generated line
          */
         std::string generateMapLine(int hPos);
+        /**
+         * @brief Generate a random level for a box
+         * 
+         * @return char Box level '1', '2' or '3'
+         */
+        char generateBoxLevel();
         /**
          * @brief Randomly generate boxes for Random and Basic maps
          * 
