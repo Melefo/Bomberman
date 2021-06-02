@@ -129,6 +129,13 @@ namespace RayLib
             //void operator=(const Window& other) = delete;
 
             /**
+             * @brief Set window configuration state using flags
+             * 
+             * @param flags 
+             */
+            void SetWindowState(unsigned int flags);
+
+            /**
              * @brief Function that returns the singleton
              * 
              * @param size 

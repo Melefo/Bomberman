@@ -143,7 +143,7 @@ namespace ECS
              * @return double current time in seconds between each call of FixedUpdate
              */
             double getFixedDeltaTime() const;
-    const std::vector<std::unique_ptr<Entity>>& GetEntities() const;
+            const std::vector<std::unique_ptr<Entity>>& GetEntities() const;
 
     };
 }
