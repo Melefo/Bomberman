@@ -40,7 +40,7 @@ namespace Prototype
             virtual ECS::Entity& GetCollision() = 0;
 
         protected:
-            const std::vector<std::unique_ptr<ECS::Entity>>& _otherEntities;
+            const std::list<std::unique_ptr<ECS::Entity>>& _otherEntities;
             ECS::Entity& _myEntity;
         private:
 

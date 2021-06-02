@@ -10,10 +10,10 @@
 
 namespace Prototype
 {
-    Explosion::Explosion(ECS::Entity& entity, RayLib::Vector3 startRadius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
-    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity)
+    Explosion::Explosion(ECS::Entity& entity, float radius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
+    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity), _transform(_myEntity.GetComponent<Transform>())
     {
-        radius = startRadius;
+        _radius = radius;
         type = startType;
         power = startPower;
         _explosionTimer = timer;
@@ -24,8 +24,27 @@ namespace Prototype
         (void) dt;
         _explosionTimer -= _window->GetFrameTime();
 
+        // ! draw wire sphere on the window to see/debug radius!
+        _window->DrawSphereWires(_transform.position, _radius);
+
         if (_explosionTimer <= 0.0f) {
             std::cout << "BOOM" << std::endl;
+
+
+            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(_transform.position, _radius);
+
+            for (auto it = entities.begin(); it != entities.end(); it++) {
+                // check agains self id
+                // ! it->get().HasComponent<Destructible>();
+                try {
+                    Destructible& destructible = it->get().GetComponent<Destructible>();
+
+                    destructible.TakeDamage(power);
+                } catch(const ECS::Exception::EntityException& e) {
+
+                }
+                std::cout << "Entity ID in overlap sphere: " << it->get().GetId() << std::endl;
+            }
             _myEntity.Dispose();
         }
     }

@@ -103,6 +103,15 @@ namespace RayLib
             void DrawCubeWires(Vector3 position, Vector3 scale, Color color);
 
             /**
+             * @brief Draw sphere wires
+             * 
+             * @param position 
+             * @param scale 
+             * @param color 
+             */
+            void DrawSphereWires(Vector3 centerPos, float radius, int rings=20, int slices=20, Color color=RED);
+
+            /**
              * @brief Draw bounding box
              * 
              * @param box 

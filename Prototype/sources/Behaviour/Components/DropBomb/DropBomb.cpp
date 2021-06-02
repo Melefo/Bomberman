@@ -20,20 +20,21 @@ namespace Prototype
         //_window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     }
 
-    void DropBomb::Update(float dt)
+    void DropBomb::Update(float)
     {
-        (void) dt;
         float windowFrameTime = _window->GetFrameTime();
 
         if (_timeToDrop > 0.0f) {
             _timeToDrop -= windowFrameTime;
         }
+
         if (_input.IsKeyDown(_bombKey) && _timeToDrop <= 0.0f) {
-            InstantiateBomb(_transform.position);
+            InstantiateBomb(_transform.position, Explosion::ExplosionType::CIRCLE, 50.0f);
             std::cout << "Instantiate bomb" << std::endl;
 
             _timeToDrop = _dropDelay;
         }
+
     }
 
     void DropBomb::FixedUpdate(ECS::Entity& entity)
@@ -41,12 +42,13 @@ namespace Prototype
         (void) entity;
     }
 
-    void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, RayLib::Vector3 radius)
+    void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, float radius)
     {
         ECS::Entity& entity = _coordinator.CreateEntity();
 
         entity.AddComponent<Transform>(position, RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
         entity.AddComponent<Renderer>("../assets/bomb/bomb2.fbx", "../assets/bomb/bomb2_text.png");
+        //! si on spawn une bombe sur le joueur, on est bloqués
         //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
         entity.AddComponent<IBehaviour, Explosion>(entity, radius, explosionType);
     }

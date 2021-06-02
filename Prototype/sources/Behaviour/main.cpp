@@ -35,6 +35,7 @@
 #include "BoxCollider.hpp"
 #include "Draggable.hpp"
 #include "DropBomb.hpp"
+#include "Destructible.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -43,9 +44,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Prototype::Transform>();
     entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>("../assets/Cat_V2/cat.obj", "../assets/models/cube/def_text.png");
-
     entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
-
     entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 0.5f);
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
 
@@ -68,7 +67,7 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     // box, soon to be destructible
-    ECS::Entity &entity = coordinator.CreateEntity();
+    ECS::Entity& entity = coordinator.CreateEntity();
     entity.AddComponent<Prototype::Transform>();
     //entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Prototype::Renderer>();
@@ -78,6 +77,10 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
     entity.AddComponent<Prototype::IBehaviour, Prototype::Draggable>(entity, camera);
+
+    // ! pourquoi monsieur!
+    //entity.AddComponent<Prototype::Destructible>(entity);
+
     return (entity);
 }
 
@@ -95,6 +98,7 @@ int main(void)
     coordinator.AddSystem<Prototype::RenderSystem>();
     coordinator.AddSystem<Prototype::BehaviourSystem>();
     coordinator.AddSystem<Prototype::UISystem>(camera);
+    coordinator.AddSystem<Prototype::CollisionSystem>(coordinator);
 
     window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     camera.SetCameraMode(CAMERA_FREE);
@@ -110,6 +114,7 @@ int main(void)
         camera.BeginMode();
 
         coordinator.Run();
+
 
         window->DrawGrid(20, 10.0f);
         camera.EndMode();
