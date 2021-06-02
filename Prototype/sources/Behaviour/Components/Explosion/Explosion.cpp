@@ -27,7 +27,12 @@ namespace Prototype
         if (_explosionTimer <= 0.0f) {
             std::cout << "BOOM" << std::endl;
             // destroy self
+            // .dispose
         }
     }
 
+    void Explosion::FixedUpdate(ECS::Entity& entity)
+    {
+        (void) entity;
+    }
 }

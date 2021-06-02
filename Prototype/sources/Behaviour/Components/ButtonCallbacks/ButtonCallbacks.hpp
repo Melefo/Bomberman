@@ -22,6 +22,7 @@ namespace Prototype
             ~ButtonCallbacks() override = default;
 
             void Update(float dt) override;
+            void FixedUpdate(ECS::Entity& entity) override;
             void SayHello(void);
 
         protected:

@@ -24,6 +24,12 @@ namespace Prototype
         }
     }
 
+    void ButtonCallbacks::FixedUpdate(ECS::Entity& entity)
+    {
+        (void) entity;
+    }
+
+
     void ButtonCallbacks::SayHello()
     {
         std::cout << "Hello!" << std::endl;

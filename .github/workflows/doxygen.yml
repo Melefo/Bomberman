@@ -1,0 +1,27 @@
+name: Build Doxygen documentation
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Doxygen
+        run: sudo apt install -y doxygen graphviz
+      - name: Build Documentation
+        run: rm -rf docs/ &&
+          doxygen Doxyfile
+      - name: Push Documentation
+        run: cd docs &&
+          git config --global user.email "42809472+Melefo@users.noreply.github.com" &&
+          git config --global user.name "Melefo" &&
+          git init &&
+          git add -A &&
+          git commit -m "Doxygen Action" &&
+          git remote add origin https://melefo:${{ secrets.GITHUB_TOKEN }}@github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic.git &&
+          git checkout -b doxygen &&
+          git push --force origin doxygen

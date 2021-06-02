@@ -33,6 +33,7 @@ namespace Prototype
             ~Explosion() override = default;
 
             void Update(float dt) override;
+            void FixedUpdate(ECS::Entity& entity) override;
 
             RayLib::Vector3 radius;
             Explosion::ExplosionType type;

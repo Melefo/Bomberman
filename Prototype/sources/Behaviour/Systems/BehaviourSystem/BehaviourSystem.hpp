@@ -19,6 +19,7 @@ namespace Prototype
             ~BehaviourSystem() override = default;
 
             void Update(double dt, ECS::Entity &entity) override;
+            void FixedUpdate(ECS::Entity &entity) override;
 
         protected:
         private:

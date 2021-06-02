@@ -36,6 +36,11 @@ namespace Prototype
         }
     }
 
+    void DropBomb::FixedUpdate(ECS::Entity& entity)
+    {
+        (void) entity;
+    }
+
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, RayLib::Vector3 radius)
     {
         ECS::Entity& entity = _coordinator.CreateEntity();

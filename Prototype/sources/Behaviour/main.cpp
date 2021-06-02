@@ -46,7 +46,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 
     entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
-    entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 500.0f);
+    entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 0.5f);
     entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
 
     entity.AddComponent<Prototype::IBehaviour, Prototype::DropBomb>(entity, coordinator);
@@ -111,7 +111,7 @@ int main(void)
 
         box.OfType<Prototype::Collider>()[0].get().DrawLines();
 
-        coordinator.Update();
+        coordinator.Run();
 
         window->DrawGrid(20, 10.0f);
         camera.EndMode();
