@@ -60,7 +60,8 @@ namespace RayLib
              * @brief Vector of modelAnimations, converted from C array
              * 
              */
-            std::vector<::ModelAnimation> _modelAnimations;
+            //std::vector<::ModelAnimation> _modelAnimations;
+            ::ModelAnimation *_modelAnimations;
             /**
              * @brief Total animations
              * 

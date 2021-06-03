@@ -8,6 +8,7 @@
 #include "RenderSystem.hpp"
 #include "Transform.hpp"
 #include <iostream>
+#include <cmath>
 
 namespace Component
 {
@@ -17,13 +18,33 @@ namespace Component
         AddDependency<Renderer>();
     }
 
-    void RenderSystem::Update(double dt, ECS::Entity& entity)
+    void RenderSystem::Update(double, ECS::Entity& entity)
     {
         Renderer& renderer = entity.GetComponent<Renderer>();
         Transform& transform = entity.GetComponent<Transform>();
         RayLib::Model& model = renderer.GetModel();
 
-        (void) dt;
-        model.DrawEx(transform.position, transform.rotation, 0.0f, transform.scale, WHITE);
+        float rotation = 0.0f;
+        RayLib::Vector3 worldUp = RayLib::Vector3();
+
+        if (abs(transform.rotation.x) > abs(transform.rotation.y) && abs(transform.rotation.x) > abs(transform.rotation.z)) {
+            worldUp.x = 1.0f;
+            rotation = transform.rotation.x;
+        }
+        if (abs(transform.rotation.y) > abs(transform.rotation.x) && abs(transform.rotation.y) > abs(transform.rotation.z)) {
+            worldUp.y = 1.0f;
+            rotation = transform.rotation.y;
+        }
+        if (abs(transform.rotation.z) > abs(transform.rotation.x) && abs(transform.rotation.z) > abs(transform.rotation.y)) {
+            worldUp.z = 1.0f;
+            rotation = transform.rotation.z;
+        }
+
+        model.DrawEx(transform.position, worldUp, rotation, transform.scale, WHITE);
+
+        if (entity.HasComponent<Animator>()) {
+            Animator& animator = entity.GetComponent<Animator>();
+            animator.PlayCurrentState(model);
+        }
     }
 }
