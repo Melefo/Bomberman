@@ -31,7 +31,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
 
-    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity, coordinator);
+    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
 
     //entity.AddComponent<Prototype::Destructible>(entity, 1);
 

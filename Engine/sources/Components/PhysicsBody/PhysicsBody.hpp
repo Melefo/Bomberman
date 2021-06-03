@@ -14,11 +14,41 @@
 
 namespace Component
 {
+    /**
+     * @brief Physicsbody class (CF Unity's rigidbody)
+     * 
+     */
     class PhysicsBody : public ECS::IComponent {
         public:
+            /**
+             * @brief Construct a new Physics Body object
+             * 
+             * @param velocity 
+             */
             PhysicsBody(RayLib::Vector3 velocity=RayLib::Vector3());
+            /**
+             * @brief Destroy the Physics Body object
+             * 
+             */
             ~PhysicsBody() override = default;
+            /**
+             * @brief Construct a new Physics Body object
+             * 
+             * @param other 
+             */
+            PhysicsBody(const PhysicsBody& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return PhysicsBody& 
+             */
+            PhysicsBody& operator=(const PhysicsBody& other) = default;
 
+            /**
+             * @brief Ultimately used to change the entity's position
+             * 
+             */
             RayLib::Vector3 velocity;
         protected:
         private:

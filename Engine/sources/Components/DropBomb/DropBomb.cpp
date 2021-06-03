@@ -10,8 +10,8 @@
 
 namespace Component
 {
-    DropBomb::DropBomb(ECS::Entity& attatchedEntity, ECS::Coordinator& coordinator, int bombKey, float dropDelay)
-    : _input(), _entity(attatchedEntity), _coordinator(coordinator), _transform(_entity.GetComponent<Transform>()),
+    DropBomb::DropBomb(ECS::Entity& attatchedEntity, int bombKey, float dropDelay)
+    : _input(), _entity(attatchedEntity), _coordinator(ECS::Coordinator::GetInstance()), _transform(_entity.GetComponent<Transform>()),
       _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
     {
         _bombKey = bombKey;
@@ -44,7 +44,7 @@ namespace Component
 
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, float radius)
     {
-        ECS::Entity& entity = _coordinator.CreateEntity();
+        ECS::Entity& entity = _coordinator->CreateEntity();
 
         entity.AddComponent<Transform>(position, RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
         entity.AddComponent<Renderer>("../assets/bomb/bomb2.fbx", "../assets/bomb/bomb2_text.png");

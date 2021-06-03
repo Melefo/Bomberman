@@ -20,6 +20,7 @@ namespace RayLib
     Model::Model(Mesh mesh)
     {
         _model = ::LoadModelFromMesh(mesh.GetMesh());
+        mesh.SetLoaded(false);
     }
 
     void Model::Draw(Vector3 position, float scale, Color tint)

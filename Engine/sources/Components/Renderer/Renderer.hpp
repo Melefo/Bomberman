@@ -14,16 +14,55 @@
 
 namespace Component
 {
+    /**
+     * @brief Renderer system
+     * 
+     */
     class Renderer : public ECS::IComponent {
         public:
+            /**
+             * @brief Construct a new Renderer object
+             * 
+             * @param modelPath 
+             * @param texturePath 
+             */
             Renderer(const std::string& modelPath,
                     const std::string& texturePath);
+            /**
+             * @brief Construct a new Renderer object
+             * 
+             * @param modelPath 
+             */
             Renderer(const std::string& modelPath);
-            // default cube
+            /**
+             * @brief Construct a new Renderer object (cube mesh)
+             * 
+             */
             Renderer();
-
+            /**
+             * @brief Destroy the Renderer object
+             * 
+             */
             ~Renderer() override = default;
+            /**
+             * @brief Construct a new Renderer object
+             * 
+             * @param other 
+             */
+            Renderer(const Renderer& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return Renderer 
+             */
+            Renderer& operator=(const Renderer& other) = default;
 
+            /**
+             * @brief Get the Model as a raylib structure 
+             * 
+             * @return RayLib::Model& 
+             */
             RayLib::Model& GetModel(void);
 
         protected:

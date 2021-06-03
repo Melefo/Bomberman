@@ -48,9 +48,17 @@ namespace RayLib
              */
             ::Mesh GetMesh(void);
 
+            /**
+             * @brief Set the Loaded boolean
+             * If the mesh is part of a model, it should not be unloaded a second time
+             * @param loaded 
+             */
+            void SetLoaded(bool loaded);
+
         protected:
         private:
             ::Mesh _mesh;
+            bool _loaded;
     };
 }
 
