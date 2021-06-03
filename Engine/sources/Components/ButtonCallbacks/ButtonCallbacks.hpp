@@ -21,7 +21,7 @@ namespace Component
             ButtonCallbacks(ECS::Entity& attatchedEntity);
             ~ButtonCallbacks() override = default;
 
-            void Update(float dt) override;
+            void Update(double dt) override;
             void FixedUpdate(ECS::Entity& entity) override;
             void SayHello(void);
 

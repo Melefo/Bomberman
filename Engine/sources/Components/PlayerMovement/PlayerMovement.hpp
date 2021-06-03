@@ -22,7 +22,7 @@ namespace Component
             PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed);
             ~PlayerMovement() override = default;
 
-            void Update(float dt) override;
+            void Update(double dt) override;
             void FixedUpdate(ECS::Entity& entity) override;
 
         protected:

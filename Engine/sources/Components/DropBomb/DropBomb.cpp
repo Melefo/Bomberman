@@ -20,7 +20,7 @@ namespace Component
         //_window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     }
 
-    void DropBomb::Update(float)
+    void DropBomb::Update(double)
     {
         float windowFrameTime = _window->GetFrameTime();
 

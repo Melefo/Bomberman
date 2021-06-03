@@ -36,7 +36,7 @@ namespace Component
 
             ~Explosion() override = default;
 
-            void Update(float dt) override;
+            void Update(double dt) override;
             void FixedUpdate(ECS::Entity& entity) override;
 
             Explosion::ExplosionType type;

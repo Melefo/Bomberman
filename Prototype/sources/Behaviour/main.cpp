@@ -94,7 +94,7 @@ int main(void)
 
     /*ECS::Entity& cat = */InitCat(*coordinator.get());
     /*ECS::Entity& button = */InitButton(*coordinator.get(), camera);
-    ECS::Entity& box = InitBox(*coordinator.get(), camera);
+    /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::RenderSystem>();

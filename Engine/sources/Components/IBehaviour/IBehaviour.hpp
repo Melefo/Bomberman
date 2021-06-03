@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** B-YEP-400-NAN-4-1-indiestudio-victor.trencic
+** B-YEP-400-NAN-4-1indiestudio-victor.trencic
 ** File description:
 ** IBehaviour
 */
@@ -18,7 +18,7 @@ namespace Component
             IBehaviour() = default;
             virtual ~IBehaviour() = default;
 
-            virtual void Update(float dt) = 0;
+            virtual void Update(double dt) = 0;
             virtual void FixedUpdate(ECS::Entity& entity) = 0;
 
         protected:

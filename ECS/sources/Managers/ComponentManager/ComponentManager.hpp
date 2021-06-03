@@ -176,7 +176,7 @@ namespace ECS
                         dynamic_cast<T &>(component);
                         return true;
                     }
-                    catch (std::bad_cast &exp)
+                    catch (const std::bad_cast& exp)
                     {
                     }
                 }

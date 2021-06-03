@@ -16,10 +16,9 @@ namespace Component
         _selected = false;
     }
 
-    void Draggable::Update(float dt)
+    void Draggable::Update(double)
     {
         RayLib::Ray ray;
-        (void) dt;
 
         ray = _camera.GetMouseRay(RayLib::Mouse::GetPosition());
 

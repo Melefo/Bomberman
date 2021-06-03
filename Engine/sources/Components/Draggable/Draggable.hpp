@@ -26,7 +26,7 @@ namespace Component
             Draggable(ECS::Entity& attatchedEntity, RayLib::Camera3D& camera);
             ~Draggable() override = default;
 
-            void Update(float dt) override;
+            void Update(double dt) override;
             void FixedUpdate(ECS::Entity& entity) override;
 
         protected:

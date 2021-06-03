@@ -19,11 +19,10 @@ namespace Component
         _colliding = false;
     }
 
-    void PlayerMovement::Update(float dt)
+    void PlayerMovement::Update(double)
     {
         std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
 
-        (void) dt;
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
             it->get().DrawLines();
         }

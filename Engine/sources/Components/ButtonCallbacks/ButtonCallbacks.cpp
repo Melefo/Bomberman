@@ -16,9 +16,8 @@ namespace Component
         _button.AddCallback(std::bind(&ButtonCallbacks::SayHello, this));
     }
 
-    void ButtonCallbacks::Update(float dt)
+    void ButtonCallbacks::Update(double)
     {
-        (void) dt;
         if (_button.IsMouseOver() && RayLib::Mouse::IsButtonPressed(MOUSE_BUTTON_LEFT)) {
             _button.OnClick();
         }

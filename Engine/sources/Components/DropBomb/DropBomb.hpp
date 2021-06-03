@@ -34,7 +34,7 @@ namespace Component
                                  Explosion::ExplosionType explosionType=Explosion::ExplosionType::CIRCLE,
                                  float radius=1.0f);
 
-            void Update(float dt) override;
+            void Update(double dt) override;
             void FixedUpdate(ECS::Entity& entity) override;
 
         protected:

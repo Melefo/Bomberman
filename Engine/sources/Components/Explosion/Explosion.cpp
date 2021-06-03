@@ -20,9 +20,8 @@ namespace Component
         _explosionTimer = timer;
     }
 
-    void Explosion::Update(float dt)
+    void Explosion::Update(double)
     {
-        (void) dt;
         _explosionTimer -= _window->GetFrameTime();
 
         // ! draw wire sphere on the window to see/debug radius!

@@ -13,7 +13,7 @@
 namespace Component
 {
     Button::Button(RayLib::Camera3D& camera, const std::string& texturePath)
-    : IUIObject(), _camera(camera), _texture(texturePath), _rect(0.0f, 0.0f, _texture.GetTexture().width, _texture.GetTexture().height),
+    : IUIObject(), _camera(camera), _texture(texturePath), _rect(0.0f, 0.0f, static_cast<int>(_texture.GetTexture().width), static_cast<int>(_texture.GetTexture().height)),
     _bounds(0.0f, 0.0f)
     {
     }
@@ -38,7 +38,7 @@ namespace Component
     bool Button::IsMouseOver(void)
     {
         RayLib::Vector2<float> mousePos = RayLib::Mouse::GetPosition();
-        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0.0f, "");
+        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
         RayLib::Vector2<float> winSize = RayLib::Vector2<float>(static_cast<float>(window->GetSize().x),
                                                                 static_cast<float>(window->GetSize().y));
 

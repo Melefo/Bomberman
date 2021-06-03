@@ -23,7 +23,7 @@ namespace Component
         PhysicsBody &physicsBody = entity.GetComponent<PhysicsBody>();
         Transform &transform = entity.GetComponent<Transform>();
 
-        float fixedDeltaTime = 0.02f;
+        // !float fixedDeltaTime = 0.02f;
 
         transform.position += physicsBody.velocity;
     }
