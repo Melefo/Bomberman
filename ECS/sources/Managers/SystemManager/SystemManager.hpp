@@ -44,13 +44,13 @@ namespace ECS
              * @brief Copy a new System Manager object
              * 
              */
-            SystemManager(const SystemManager&) = default;
+            SystemManager(const SystemManager&) = delete;
             /**
              * @brief Assign a new SystemManager Object
              * 
              * @return SystemManager& Assigned SystemManager
              */
-            SystemManager& operator=(const SystemManager&) = default;
+            SystemManager& operator=(const SystemManager&) = delete;
 
             /**
              * @brief Add a system to update entities

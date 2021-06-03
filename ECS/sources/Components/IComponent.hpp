@@ -31,13 +31,13 @@ namespace ECS
              * @brief Copy a new IComponent object
              * 
              */
-            IComponent(const IComponent&) = default;
+            IComponent(const IComponent&) = delete;
             /**
              * @brief Assign a new IComponent object
              * 
              * @return IComponent& assigned component
              */
-            IComponent& operator=(const IComponent&) = default;
+            IComponent& operator=(const IComponent&) = delete;
     };
 }
 

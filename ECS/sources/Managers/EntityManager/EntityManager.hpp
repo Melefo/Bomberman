@@ -54,13 +54,13 @@ namespace ECS
              * @brief Copy a new Entity Manager object
              * 
              */
-            EntityManager(const EntityManager&) = default;
+            EntityManager(const EntityManager&) = delete;
             /**
              * @brief Assign a new EntityManager Object
              * 
              * @return EntityManager& assigned EntityManager
              */
-            EntityManager& operator=(const EntityManager&) = default;
+            EntityManager& operator=(const EntityManager&) = delete;
 
             /**
              * @brief Create a Entity object

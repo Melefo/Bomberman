@@ -50,13 +50,13 @@ namespace ECS
              * @brief Copy a new Component Manager object
              * 
              */
-            ComponentManager(const ComponentManager&) = default;
+            ComponentManager(const ComponentManager&) = delete;
             /**
              * @brief Assign a new ComponentManager Object
              * 
              * @return ComponentManager& Assigned Entity
              */
-            ComponentManager& operator=(const ComponentManager&) = default;
+            ComponentManager& operator=(const ComponentManager&) = delete;
 
             /**
              * @brief Get the Component object
@@ -167,20 +167,9 @@ namespace ECS
             template<typename T>
             bool HasComponent() const
             {
-                for (auto &pair : this->_components)
-                {
-                    IComponent &component = *pair.second;
+                std::string name(typeid(T).name());
 
-                    try
-                    {
-                        dynamic_cast<T &>(component);
-                        return true;
-                    }
-                    catch (const std::bad_cast& )
-                    {
-                    }
-                }
-                return false;
+                return this->_components.find(name) != this->_components.end();
             }
             /**
              * @brief Check if the Entity contains a given Component based on its name

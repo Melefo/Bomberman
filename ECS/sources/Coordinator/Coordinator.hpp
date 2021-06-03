@@ -101,13 +101,13 @@ namespace ECS
              * @brief Copy a new Coordinator object
              * 
              */
-            Coordinator(const Coordinator&) = default;
+            Coordinator(const Coordinator&) = delete;
             /**
              * @brief Assign a new Coordinator object
              * 
              * @return Coordinator& assigned Coordinator
              */
-            Coordinator& operator=(const Coordinator&) = default;
+            Coordinator& operator=(const Coordinator&) = delete;
 
             /**
              * @brief Add a system to update entities
