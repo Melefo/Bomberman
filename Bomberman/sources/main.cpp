@@ -5,33 +5,9 @@
 ** main
 */
 
-#include <iostream>
-#include "Window.hpp"
-#include "Entity.hpp"
-#include "Camera3D.hpp"
-#include "Vector2.hpp"
-#include "Vector3.hpp"
-#include "Model.hpp"
-#include "Texture.hpp"
-#include "Input.hpp"
-#include "BoundingBox.hpp"
-#include "Ray.hpp"
-#include "Physics3D.hpp"
-#include "Mouse.hpp"
-#include <cmath>
 #include "Coordinator.hpp"
-#include "Entity.hpp"
-#include "Transform.hpp"
-#include "PhysicsBody.hpp"
-#include "PhysicsSystem.hpp"
-#include "Renderer.hpp"
-#include "RenderSystem.hpp"
-#include "BehaviourSystem.hpp"
-#include "PlayerMovement.hpp"
-#include "UISystem.hpp"
-#include "IBehaviour.hpp"
-#include "BoxCollider.hpp"
-#include "Draggable.hpp"
+#include "Window.hpp"
+#include "Camera.hpp"
 
 int main(void)
 {

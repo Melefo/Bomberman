@@ -6,36 +6,19 @@
 */
 
 #include <iostream>
-#include "Window.hpp"
-#include "Entity.hpp"
-#include "Camera3D.hpp"
-#include "Vector2.hpp"
-#include "Vector3.hpp"
-#include "Model.hpp"
-#include "Texture.hpp"
-#include "Input.hpp"
-#include "BoundingBox.hpp"
-#include "Ray.hpp"
-#include "Physics3D.hpp"
-#include "Mouse.hpp"
-#include <cmath>
 #include "Coordinator.hpp"
-#include "Entity.hpp"
 #include "Transform.hpp"
-#include "PhysicsBody.hpp"
 #include "PhysicsSystem.hpp"
-#include "Renderer.hpp"
 #include "RenderSystem.hpp"
 #include "BehaviourSystem.hpp"
-#include "PlayerMovement.hpp"
-#include "Button.hpp"
 #include "UISystem.hpp"
-#include "IBehaviour.hpp"
-#include "ButtonCallbacks.hpp"
+#include "CollisionSystem.hpp"
 #include "BoxCollider.hpp"
-#include "Draggable.hpp"
+#include "PlayerMovement.hpp"
 #include "DropBomb.hpp"
-#include "Destructible.hpp"
+#include "Button.hpp"
+#include "ButtonCallbacks.hpp"
+#include "Draggable.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -57,7 +40,6 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 
 ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
-    // button
     ECS::Entity &entity = coordinator.CreateEntity();
     entity.AddComponent<Component::IUIObject, Component::Button>(camera);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(100.0f, 50.0f, 1.0f));
@@ -68,7 +50,6 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 
 ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
-    // box, soon to be destructible
     ECS::Entity& entity = coordinator.CreateEntity();
     entity.AddComponent<Component::Transform>();
     //entity.AddComponent<Prototype::PhysicsBody>();
@@ -80,7 +61,6 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 
     entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, camera);
 
-    // ! pourquoi monsieur!
     entity.AddComponent<Component::Destructible>(entity, 1);
 
     return (entity);
@@ -101,15 +81,13 @@ int main(void)
     coordinator->AddSystem<Component::BehaviourSystem>();
     coordinator->AddSystem<Component::UISystem>(camera);
 
-    window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
+    window->SetTargetFPS(60);
     camera.SetCameraMode(CAMERA_FREE);
 
-    while (!window->WindowShouldClose())    // Detect window close button or ESC key
+    while (!window->WindowShouldClose())
     {
-        // update
         camera.Update();
 
-        // draw
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);
         camera.BeginMode();

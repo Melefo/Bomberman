@@ -10,6 +10,7 @@
 
 #include "ASystem.hpp"
 #include "Entity.hpp"
+#include "PhysicsBody.hpp"
 
 namespace Component
 {

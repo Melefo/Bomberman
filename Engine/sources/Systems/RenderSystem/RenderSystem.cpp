@@ -7,7 +7,6 @@
 
 #include "RenderSystem.hpp"
 #include "Transform.hpp"
-#include "Renderer.hpp"
 #include <iostream>
 
 namespace Component

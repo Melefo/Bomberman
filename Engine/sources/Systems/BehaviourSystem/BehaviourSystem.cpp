@@ -6,7 +6,6 @@
 */
 
 #include "BehaviourSystem.hpp"
-#include "IBehaviour.hpp"
 #include <iostream>
 
 namespace Component

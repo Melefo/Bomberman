@@ -10,6 +10,7 @@
 
 #include "ASystem.hpp"
 #include "Entity.hpp"
+#include "Renderer.hpp"
 
 namespace Component
 {
