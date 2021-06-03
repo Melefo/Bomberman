@@ -72,6 +72,13 @@ namespace RayLib
              */
             void SetMaterialTexture(int matIndex, int mapType, Texture& text);
 
+            /**
+             * @brief Get the Model object as a raylib structure
+             * 
+             * @return ::Model 
+             */
+            ::Model GetModel();
+
         protected:
         private:
             ::Model _model;

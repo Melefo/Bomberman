@@ -45,6 +45,12 @@ namespace RayLib
 
     }
 
+    ::Model Model::GetModel()
+    {
+        return (_model);
+    }
+
+
     Model::~Model()
     {
         if (_model.meshCount > 0)
