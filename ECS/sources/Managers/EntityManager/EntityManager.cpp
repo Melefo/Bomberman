@@ -42,11 +42,6 @@ namespace ECS
             }
     }
 
-    //const std::vector<std::unique_ptr<Entity>>& EntityManager::GetEntities() const
-    //{
-    //    return this->_entities;
-    //}
-
     const std::list<std::unique_ptr<Entity>>& EntityManager::GetEntities() const
     {
         return this->_entities;

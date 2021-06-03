@@ -15,7 +15,7 @@
 namespace Component
 {
     /**
-     * @brief Renderer system
+     * @brief Renderer component
      * 
      */
     class Renderer : public ECS::IComponent {
