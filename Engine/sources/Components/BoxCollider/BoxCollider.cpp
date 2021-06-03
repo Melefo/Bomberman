@@ -13,8 +13,8 @@
 
 namespace Component
 {
-    BoxCollider::BoxCollider(ECS::Entity& attatchedEntity, ECS::Coordinator& coordinator, RayLib::Vector3 scale)
-    : Collider(attatchedEntity, coordinator), _bounds(RayLib::Vector3(), scale)
+    BoxCollider::BoxCollider(ECS::Entity& attatchedEntity, RayLib::Vector3 scale)
+    : Collider(attatchedEntity), _bounds(RayLib::Vector3(), scale)
     {
         Transform& transform = attatchedEntity.GetComponent<Transform>();
         _bounds.InitFromCube(transform.position, scale);

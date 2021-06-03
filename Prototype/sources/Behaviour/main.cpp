@@ -27,7 +27,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("../assets/Cat_V2/cat.obj", "../assets/models/cube/def_text.png");
-    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
 
@@ -57,7 +57,7 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
-    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
     entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, camera);
 

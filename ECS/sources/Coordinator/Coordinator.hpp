@@ -24,6 +24,10 @@ namespace ECS
     class Coordinator
     {
         private:
+            /**
+             * @brief Coordinator singleton
+             * 
+             */
             static std::unique_ptr<Coordinator> _coordinator;
 
             /**
@@ -144,12 +148,22 @@ namespace ECS
              * 
              * @return double current time in seconds between each call of FixedUpdate
              */
-
+            double getFixedDeltaTime() const;
+            /**
+             * @brief Get a unique_ptr to the coordinator Singleton
+             * 
+             * @param defaultScene 
+             * @param fixedDeltaTime 
+             * @return std::unique_ptr<Coordinator>& 
+             */
             static std::unique_ptr<Coordinator>& GetInstance(std::string defaultScene = "MainMenu", double fixedDeltaTime = 0.02);
 
 
-
-            double getFixedDeltaTime() const;
+            /**
+             * @brief Get a list of the entities in the current scene
+             * 
+             * @return const std::list<std::unique_ptr<Entity>>& 
+             */
             const std::list<std::unique_ptr<Entity>>& GetEntities() const;
 
     };

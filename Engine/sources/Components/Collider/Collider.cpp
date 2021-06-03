@@ -10,8 +10,8 @@
 
 namespace Component
 {
-    Collider::Collider(ECS::Entity& attatchedEntity, ECS::Coordinator& coordinator)
-     : _otherEntities(coordinator.GetEntities()), _myEntity(attatchedEntity)
+    Collider::Collider(ECS::Entity& attatchedEntity)
+     : _otherEntities(ECS::Coordinator::GetInstance("", 0.02f)->GetEntities()), _myEntity(attatchedEntity)
     {
     }
 

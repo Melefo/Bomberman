@@ -23,7 +23,7 @@ namespace Component
 {
     class Collider : public ECS::IComponent {
         public:
-            Collider(ECS::Entity& attatchedEntity, ECS::Coordinator& coordinator);
+            Collider(ECS::Entity& attatchedEntity);
             ~Collider() = default;
 
             virtual bool IsColliding();
