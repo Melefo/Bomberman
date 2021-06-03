@@ -18,11 +18,13 @@ namespace Component
         AddDependency<Transform>();
     }
 
-    void PhysicsSystem::Update(double dt, ECS::Entity &entity)
+    void PhysicsSystem::FixedUpdate(ECS::Entity &entity)
     {
         PhysicsBody &physicsBody = entity.GetComponent<PhysicsBody>();
         Transform &transform = entity.GetComponent<Transform>();
 
-        transform.position += physicsBody.velocity * dt;
+        float fixedDeltaTime = 0.02f;
+
+        transform.position += physicsBody.velocity;
     }
 }

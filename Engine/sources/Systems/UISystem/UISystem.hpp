@@ -10,18 +10,21 @@
 
 #include "ASystem.hpp"
 #include "Entity.hpp"
+#include "Camera3D.hpp"
 
 namespace Component
 {
     class UISystem : public ECS::ASystem {
         public:
-            UISystem();
+            UISystem(RayLib::Camera3D& camera);
             ~UISystem() override = default;
 
             void Update(double dt, ECS::Entity &entity) override;
 
         protected:
         private:
+            RayLib::Camera3D& _camera;
+
     };
 }
 

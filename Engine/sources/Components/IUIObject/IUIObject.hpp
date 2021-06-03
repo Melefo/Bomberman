@@ -18,7 +18,7 @@ namespace Component
             IUIObject() = default;
             ~IUIObject() override = default;
 
-            virtual void Draw(RayLib::Vector2<float> position, float scale=1.0f) = 0;
+            virtual void Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) = 0;
 
         protected:
         private:

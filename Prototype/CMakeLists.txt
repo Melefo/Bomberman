@@ -28,34 +28,28 @@ add_executable(coordinatorPrototype
   sources/Coordinator/ObjectComponent.hpp
 )
 
-include_directories("sources/Behaviour/Components/PhysicsBody")
-include_directories("sources/Behaviour/Components/Transform")
-include_directories("sources/Behaviour/Components/Renderer")
-include_directories("sources/Behaviour/Components/IBehaviour")
-include_directories("sources/Behaviour/Components/PlayerMovement")
-include_directories("sources/Behaviour/Components/Button")
-include_directories("sources/Behaviour/Components/IUIObject")
-include_directories("sources/Behaviour/Components/ButtonCallbacks")
-include_directories("sources/Behaviour/Components/Collider")
-include_directories("sources/Behaviour/Components/BoxCollider")
-include_directories("sources/Behaviour/Components/Draggable")
-include_directories("sources/Behaviour/Components/Explosion")
-include_directories("sources/Behaviour/Components/DropBomb")
-include_directories("sources/Behaviour/Components/Destructible")
+MACRO(HEADER_DIRECTORIES return_list)
+    FILE(GLOB_RECURSE new_list sources/**/*.hpp)
+    SET(dir_list "")
+    FOREACH(file_path ${new_list})
+        GET_FILENAME_COMPONENT(dir_path ${file_path} PATH)
+        SET(dir_list ${dir_list} ${dir_path})
+    ENDFOREACH()
+    LIST(REMOVE_DUPLICATES dir_list)
+    SET(${return_list} ${dir_list})
+ENDMACRO()
 
-include_directories("sources/Behaviour/Systems/PhysicsSystem")
-include_directories("sources/Behaviour/Systems/RenderSystem")
-include_directories("sources/Behaviour/Systems/BehaviourSystem")
-include_directories("sources/Behaviour/Systems/UISystem")
-include_directories("sources/Behaviour/Systems/CollisionSystem")
+HEADER_DIRECTORIES(INC)
 
 add_executable(behaviourPrototype
   ${BEHAVIOUR_SRC}
   sources/Behaviour/main.cpp
 )
 
+target_include_directories(behaviourPrototype PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
+
 TARGET_LINK_LIBRARIES(loopPrototype encapsu)
 TARGET_LINK_LIBRARIES(inputPrototype encapsu)
 TARGET_LINK_LIBRARIES(dragPrototype encapsu)
 TARGET_LINK_LIBRARIES(coordinatorPrototype encapsu ecs)
-TARGET_LINK_LIBRARIES(behaviourPrototype encapsu ecs)
+TARGET_LINK_LIBRARIES(behaviourPrototype encapsu ecs engine)

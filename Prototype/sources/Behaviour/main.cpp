@@ -41,14 +41,14 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
     // cat
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Prototype::Transform>();
-    entity.AddComponent<Prototype::PhysicsBody>();
-    entity.AddComponent<Prototype::Renderer>("../assets/Cat_V2/cat.obj", "../assets/models/cube/def_text.png");
-    entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
-    entity.AddComponent<Prototype::IBehaviour, Prototype::PlayerMovement>(entity, 0.5f);
-    entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
+    entity.AddComponent<Component::Transform>();
+    entity.AddComponent<Component::PhysicsBody>();
+    entity.AddComponent<Component::Renderer>("../assets/Cat_V2/cat.obj", "../assets/models/cube/def_text.png");
+    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
+    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
 
-    entity.AddComponent<Prototype::IBehaviour, Prototype::DropBomb>(entity, coordinator);
+    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity, coordinator);
 
     //entity.AddComponent<Prototype::Destructible>(entity, 1);
 
@@ -59,9 +59,9 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     // button
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Prototype::IUIObject, Prototype::Button>(camera);
-    entity.AddComponent<Prototype::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(100.0f, 50.0f, 1.0f));
-    entity.AddComponent<Prototype::IBehaviour, Prototype::ButtonCallbacks>(entity);
+    entity.AddComponent<Component::IUIObject, Component::Button>(camera);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(100.0f, 50.0f, 1.0f));
+    entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 
     return (entity);
 }
@@ -70,18 +70,18 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     // box, soon to be destructible
     ECS::Entity& entity = coordinator.CreateEntity();
-    entity.AddComponent<Prototype::Transform>();
+    entity.AddComponent<Component::Transform>();
     //entity.AddComponent<Prototype::PhysicsBody>();
-    entity.AddComponent<Prototype::Renderer>();
-    entity.GetComponent<Prototype::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
-    entity.GetComponent<Prototype::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
+    entity.AddComponent<Component::Renderer>();
+    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
+    entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
-    entity.AddComponent<Prototype::Collider, Prototype::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, coordinator, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
-    entity.AddComponent<Prototype::IBehaviour, Prototype::Draggable>(entity, camera);
+    entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, camera);
 
     // ! pourquoi monsieur!
-    entity.AddComponent<Prototype::Destructible>(entity, 1);
+    entity.AddComponent<Component::Destructible>(entity, 1);
 
     return (entity);
 }
@@ -96,10 +96,10 @@ int main(void)
     /*ECS::Entity& button = */InitButton(*coordinator.get(), camera);
     ECS::Entity& box = InitBox(*coordinator.get(), camera);
 
-    coordinator->AddSystem<Prototype::PhysicsSystem>();
-    coordinator->AddSystem<Prototype::RenderSystem>();
-    coordinator->AddSystem<Prototype::BehaviourSystem>();
-    coordinator->AddSystem<Prototype::UISystem>(camera);
+    coordinator->AddSystem<Component::PhysicsSystem>();
+    coordinator->AddSystem<Component::RenderSystem>();
+    coordinator->AddSystem<Component::BehaviourSystem>();
+    coordinator->AddSystem<Component::UISystem>(camera);
 
     window->SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     camera.SetCameraMode(CAMERA_FREE);

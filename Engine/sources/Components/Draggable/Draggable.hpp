@@ -27,6 +27,7 @@ namespace Component
             ~Draggable() override = default;
 
             void Update(float dt) override;
+            void FixedUpdate(ECS::Entity& entity) override;
 
         protected:
         private:

@@ -12,7 +12,7 @@
 
 namespace Component
 {
-    UISystem::UISystem()
+    UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera)
     {
         AddDependency<IUIObject>();
         AddDependency<Transform>();
@@ -25,11 +25,13 @@ namespace Component
         Transform& transform = entity.GetComponent<Transform>();
 
         RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
+
+        _camera.EndMode();
         for (IUIObject& uiObject : uiObjects) {
             // ! ajouter dans vector3 un .magnitude pour récup un float
-            uiObject.Draw(position, transform.scale.x);
+            uiObject.Draw(position, RayLib::Vector2<float>(transform.scale.x, transform.scale.y));
         }
-
+        _camera.BeginMode();
     }
 }
 

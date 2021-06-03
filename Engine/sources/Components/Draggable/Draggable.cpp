@@ -48,7 +48,12 @@ namespace Component
                 _transform.position = RayLib::Vector3(round(position.x), position.y, round(position.z));
             }
         }
-
     }
+
+    void Draggable::FixedUpdate(ECS::Entity& entity)
+    {
+        (void) entity;
+    }
+
 }
 
