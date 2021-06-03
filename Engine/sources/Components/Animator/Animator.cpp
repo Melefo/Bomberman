@@ -21,9 +21,16 @@ namespace Component
             _currentState = state;
         }
     }
+
     void Animator::PlayCurrentState(RayLib::Model& model)
     {
         _stateMachine.find(_currentState)->second.Play(model);
     }
+
+    void Animator::AddAnimation(const std::string& filePath, std::string stateName)
+    {
+        _stateMachine.insert(std::pair<std::string, RayLib::ModelAnimation>(stateName, RayLib::ModelAnimation(filePath)));
+    }
+
 }
 

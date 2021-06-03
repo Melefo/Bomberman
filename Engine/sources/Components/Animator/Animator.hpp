@@ -50,6 +50,14 @@ namespace Component
              */
             void SetState(const std::string& state);
 
+            /**
+             * @brief Add animation to statemachine
+             * 
+             * @param filePath 
+             * @param stateName 
+             */
+            void AddAnimation(const std::string& filePath, std::string stateName);
+
             void PlayCurrentState(RayLib::Model& model);
         protected:
         private:
