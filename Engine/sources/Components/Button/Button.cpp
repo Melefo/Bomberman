@@ -12,9 +12,8 @@
 
 namespace Component
 {
-    Button::Button(RayLib::Camera3D& camera, const std::string& texturePath)
-    : IUIObject(), _camera(camera), _texture(texturePath), _rect(0.0f, 0.0f, static_cast<float>(_texture.GetTexture().width), static_cast<float>(_texture.GetTexture().height)),
-    _bounds(0.0f, 0.0f)
+    Button::Button(const std::string& texturePath)
+    : IUIObject(),_texture(texturePath), _rect(0.0f, 0.0f, static_cast<float>(_texture.GetTexture().width), static_cast<float>(_texture.GetTexture().height))
     {
     }
 
@@ -26,13 +25,11 @@ namespace Component
         _rect.y = position.y;
         _rect.width = scale.x;
         _rect.height = scale.y;
-        _bounds.InitFromCube(RayLib::Vector3(position.x, position.y), RayLib::Vector3(scale.x, scale.y, 0.1f));
 
         //_texture.DrawTexture( position, GREEN);
         _texture.DrawTextureRec(_rect, position, GREEN);
         //_texture.DrawTextureEx(position, 0.0f, 0.1f, GREEN);
 
-        //_texture.DrawBillboard(_camera, vec3Pos, scale, WHITE);
     }
 
     bool Button::IsMouseOver(void)
@@ -41,8 +38,6 @@ namespace Component
         std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
         RayLib::Vector2<float> winSize = RayLib::Vector2<float>(static_cast<float>(window->GetSize().x),
                                                                 static_cast<float>(window->GetSize().y));
-
-        RayLib::Ray mouseRay = _camera.GetMouseRay(mousePos);
 
         return (RayLib::Physics3D::CheckCollision(mousePos, _rect));
         //return (RayLib::Physics3D::CheckCollision(mouseRay, _bounds).HasHit());

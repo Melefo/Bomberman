@@ -38,10 +38,10 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     return (entity);
 }
 
-ECS::Entity& InitButton(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
+ECS::Entity& InitButton(ECS::Coordinator& coordinator)
 {
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Component::IUIObject, Component::Button>(camera);
+    entity.AddComponent<Component::IUIObject, Component::Button>();
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(100.0f, 50.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 
@@ -73,7 +73,7 @@ int main(void)
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
 
     /*ECS::Entity& cat = */InitCat(*coordinator.get());
-    /*ECS::Entity& button = */InitButton(*coordinator.get(), camera);
+    /*ECS::Entity& button = */InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
 
     coordinator->AddSystem<Component::PhysicsSystem>();

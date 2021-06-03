@@ -19,25 +19,82 @@
 
 namespace Component
 {
+    /**
+     * @brief Button class
+     * 
+     */
     class Button : public IUIObject {
         public:
-            Button(RayLib::Camera3D& camera, const std::string& texturePath="../assets/models/cube/def_text.png");
+            /**
+             * @brief Construct a new Button object
+             * 
+             * @param texturePath 
+             */
+            Button(const std::string& texturePath="../assets/models/cube/def_text.png");
+            /**
+             * @brief Destroy the Button object
+             * 
+             */
             ~Button() override = default;
+            /**
+             * @brief Construct a new Button object
+             * 
+             * @param other 
+             */
+            Button(const Button& other) = default;
+            /**
+             * @brief 
+             * 
+             * @param other 
+             * @return Button& 
+             */
+            Button& operator=(const Button& other) = default;
 
+            /**
+             * @brief Draw the texture at given position and scale
+             * 
+             * @param position 
+             * @param scale 
+             */
             void Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
 
+            /**
+             * @brief Returns true if the mouse is in button bounds
+             * 
+             * @return true 
+             * @return false 
+             */
             bool IsMouseOver(void);
+            /**
+             * @brief Add a function with the form void() to the list of callbacks
+             * 
+             * @param callBack 
+             */
             void AddCallback(std::function<void()> callBack);
+            /**
+             * @brief Execute all the _callbacks
+             * 
+             */
             void OnClick(void);
 
             // todo getrect
 
         protected:
         private:
-            RayLib::Camera3D& _camera;
+            /**
+             * @brief Texture to show (default grey/white)
+             * 
+             */
             RayLib::Texture _texture;
+            /**
+             * @brief rectangle containing size and position
+             * 
+             */
             RayLib::Rectangle _rect;
-            RayLib::BoundingBox _bounds;
+            /**
+             * @brief Functions to call onclick
+             * 
+             */
             std::vector<std::function<void()>> _callbacks;
     };
 }
