@@ -19,6 +19,7 @@
 #include "Button.hpp"
 #include "ButtonCallbacks.hpp"
 #include "Draggable.hpp"
+#include "Input.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -28,7 +29,9 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("../assets/Cat_V2/cat.obj", "../assets/models/cube/def_text.png");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+
     entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
+
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
 
     entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
@@ -73,6 +76,7 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 int main(void)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
 
