@@ -28,6 +28,10 @@ namespace Component
         (void) entity;
     }
 
+    void ButtonCallbacks::StaticCallback(void)
+    {
+        std::cout << "Hello from static callback!" << std::endl;
+    }
 
     void ButtonCallbacks::SayHello()
     {

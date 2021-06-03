@@ -25,6 +25,8 @@ namespace Component
             void FixedUpdate(ECS::Entity& entity) override;
             void SayHello(void);
 
+            static void StaticCallback(void);
+
         protected:
         private:
             ECS::Entity& _entity;
