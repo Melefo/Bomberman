@@ -23,9 +23,8 @@ namespace Component
         }
     }
 
-    void ButtonCallbacks::FixedUpdate(ECS::Entity& entity)
+    void ButtonCallbacks::FixedUpdate(ECS::Entity&)
     {
-        (void) entity;
     }
 
     void ButtonCallbacks::StaticCallback(void)

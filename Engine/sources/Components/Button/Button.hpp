@@ -67,7 +67,10 @@ namespace Component
             bool IsMouseOver(void);
             /**
              * @brief Add a function with the form void() to the list of callbacks
-             * 
+             * Use std::bind to send a function (static or other)
+             * If it is a non-static member function, pass this as the second argument
+             * _button.AddCallback(std::bind(&ButtonCallbacks::SayHello, this));
+             *  button.AddCallback(std::bind(&Component::ButtonCallbacks::StaticCallback));
              * @param callBack 
              */
             void AddCallback(std::function<void()> callBack);

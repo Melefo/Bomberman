@@ -28,12 +28,24 @@ namespace Component
              * @param resistance amount of damage sustained before destruction
              */
             Destructible(ECS::Entity& entity, int resistance=1);
-
             /**
              * @brief Destroy the Destructible component
              * 
              */
             ~Destructible() override = default;
+            /**
+             * @brief Construct a new Destructible object
+             * 
+             * @param other 
+             */
+            Destructible(const Destructible& other) = default;
+            /**
+             * @brief Assigment operator
+             * 
+             * @param other 
+             * @return Destructible& 
+             */
+            Destructible& operator=(const Destructible& other) = default;
 
             /**
              * @brief Get the Resistance

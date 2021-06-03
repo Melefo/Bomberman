@@ -14,11 +14,41 @@
 
 namespace Component
 {
+    /**
+     * @brief Camera component
+     * 
+     */
     class Camera : public ECS::IComponent {
         public:
+            /**
+             * @brief Construct a new Camera object
+             * 
+             * @param camera 
+             */
             Camera(RayLib::Camera3D camera=RayLib::Camera3D());
+            /**
+             * @brief Destroy the Camera object
+             * 
+             */
             ~Camera() override = default;
+            /**
+             * @brief Construct a new Camera object
+             * 
+             * @param other 
+             */
+            Camera(const Camera& other) = default;
+            /**
+             * @brief 
+             * 
+             * @param other 
+             * @return Camera& 
+             */
+            Camera& operator=(const Camera& other) = default;
 
+            /**
+             * @brief Camera
+             * 
+             */
             RayLib::Camera3D camera;
         protected:
         private:

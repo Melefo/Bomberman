@@ -16,20 +16,66 @@
 
 namespace Component
 {
+    /**
+     * @brief Button wrapper class
+     * 
+     */
     class ButtonCallbacks : public IBehaviour {
         public:
+            /**
+             * @brief Construct a new Button Callbacks object
+             * 
+             * @param attatchedEntity get the attatched button from the entity
+             */
             ButtonCallbacks(ECS::Entity& attatchedEntity);
+            /**
+             * @brief Destroy the Button Callbacks object
+             * 
+             */
             ~ButtonCallbacks() override = default;
+            /**
+             * @brief Construct a new Button Callbacks object
+             * 
+             * @param other 
+             */
+            ButtonCallbacks(const ButtonCallbacks& other) = default;
+            /**
+             * @brief 
+             * 
+             * @param other 
+             * @return ButtonCallbacks& 
+             */
+            ButtonCallbacks& operator=(const ButtonCallbacks& other) = default;
 
+            /**
+             * @brief Update function, used to check if the mouse is over/clicking the button
+             * 
+             * @param dt 
+             */
             void Update(double dt) override;
+            /**
+             * @brief FixedUpdate
+             * 
+             * @param entity 
+             */
             void FixedUpdate(ECS::Entity& entity) override;
-            void SayHello(void);
 
+            // ! delete me
+            void SayHello(void);
+            // ! delete me
             static void StaticCallback(void);
 
         protected:
         private:
+            /**
+             * @brief Reference to the entity
+             * 
+             */
             ECS::Entity& _entity;
+            /**
+             * @brief Reference to button component
+             * 
+             */
             Button& _button;
     };
 }
