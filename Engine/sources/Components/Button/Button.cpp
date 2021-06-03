@@ -13,7 +13,7 @@
 namespace Component
 {
     Button::Button(RayLib::Camera3D& camera, const std::string& texturePath)
-    : IUIObject(), _camera(camera), _texture(texturePath), _rect(0.0f, 0.0f, static_cast<int>(_texture.GetTexture().width), static_cast<int>(_texture.GetTexture().height)),
+    : IUIObject(), _camera(camera), _texture(texturePath), _rect(0.0f, 0.0f, static_cast<float>(_texture.GetTexture().width), static_cast<float>(_texture.GetTexture().height)),
     _bounds(0.0f, 0.0f)
     {
     }
