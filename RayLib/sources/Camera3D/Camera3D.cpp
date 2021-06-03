@@ -49,5 +49,11 @@ namespace RayLib
 
         return (ray);
     }
+
+    ::Camera3D Camera3D::GetCamera()
+    {
+        return (_camera);
+    }
+
 }
 

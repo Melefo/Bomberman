@@ -9,7 +9,6 @@
 #include "Exceptions.hpp"
 #include "Entity.hpp"
 #include "EntityManager.hpp"
-
 #include <iostream>
 
 namespace ECS
@@ -32,7 +31,6 @@ namespace ECS
         return *this->_entities.back();
     }
 
-
     void EntityManager::DeleteEntity(Entity& entity)
     {
         for (auto it = this->_entities.begin(); it != this->_entities.end(); it++)
@@ -44,7 +42,7 @@ namespace ECS
             }
     }
 
-    const std::vector<std::unique_ptr<Entity>>& EntityManager::GetEntities() const
+    const std::list<std::unique_ptr<Entity>>& EntityManager::GetEntities() const
     {
         return this->_entities;
     }

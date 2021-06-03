@@ -59,11 +59,6 @@ namespace RayLib
         return (vec3);
     }
 
-    Vector3::~Vector3()
-    {
-
-    }
-
     Vector3& Vector3::operator=(const Vector3& vec)
     {
         x = vec.x;
@@ -87,9 +82,24 @@ namespace RayLib
         return (newVec);
     }
 
+    Vector3 Vector3::operator-(const Vector3& vec)
+    {
+        Vector3 newVec = Vector3(x - vec.x, y - vec.y, z - vec.z);
+
+        return (newVec);
+    }
+
+
     Vector3 Vector3::operator*(const Vector3& vec)
     {
         Vector3 newVec = Vector3(x * vec.x, y * vec.y, z * vec.z);
+
+        return (newVec);
+    }
+
+    Vector3 Vector3::operator*(const float factor)
+    {
+        Vector3 newVec = Vector3(x * factor, y * factor, z * factor);
 
         return (newVec);
     }

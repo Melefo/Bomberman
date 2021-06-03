@@ -15,13 +15,46 @@
 
 namespace RayLib
 {
+    /**
+     * @brief Image encapsulation
+     * 
+     */
     class Image {
         public:
+            /**
+             * @brief Destroy the Image object
+             * 
+             */
             ~Image();
 
+            /**
+             * @brief Construct a new Image object
+             * 
+             * @param image 
+             */
             Image(const Image &image);
+
+            /**
+             * @brief Construct a new Image object
+             * 
+             * @param fileName 
+             */
             Image(const std::string &fileName);
-            Image(Vector2<int> size, Color color=Color(255, 255, 255, 255));
+
+            /**
+             * @brief Construct a new Image object
+             * 
+             * @param size 
+             * @param color 
+             */
+            Image(Vector2<int> size, Color color=WHITE);
+
+            /**
+             * @brief Construct a new Image object
+             * 
+             * @param fileName 
+             * @param frames 
+             */
             Image(const std::string &fileName, int *frames);
 
             ::Image GetImage();

@@ -21,10 +21,6 @@ namespace RayLib
         _direction = direction;
     }
 
-    Ray::~Ray()
-    {
-    }
-
     Ray::Ray(const Ray& other)
     {
         _position = other._position;

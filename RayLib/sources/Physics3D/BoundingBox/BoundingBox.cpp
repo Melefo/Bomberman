@@ -51,10 +51,5 @@ namespace RayLib
         //! jsais pas calculer ça, ni c'est vrmt necessaire
         return (Vector3());
     }
-
-
-    BoundingBox::~BoundingBox()
-    {
-    }
 }
 

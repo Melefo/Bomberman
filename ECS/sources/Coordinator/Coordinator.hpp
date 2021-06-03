@@ -25,6 +25,12 @@ namespace ECS
     {
         private:
             /**
+             * @brief Coordinator singleton
+             * 
+             */
+            static std::unique_ptr<Coordinator> _coordinator;
+
+            /**
              * @brief Where all systems are stores
              * 
              */
@@ -95,13 +101,13 @@ namespace ECS
              * @brief Copy a new Coordinator object
              * 
              */
-            Coordinator(const Coordinator&) = default;
+            Coordinator(const Coordinator&) = delete;
             /**
              * @brief Assign a new Coordinator object
              * 
              * @return Coordinator& assigned Coordinator
              */
-            Coordinator& operator=(const Coordinator&) = default;
+            Coordinator& operator=(const Coordinator&) = delete;
 
             /**
              * @brief Add a system to update entities
@@ -143,6 +149,23 @@ namespace ECS
              * @return double current time in seconds between each call of FixedUpdate
              */
             double getFixedDeltaTime() const;
+            /**
+             * @brief Get a unique_ptr to the coordinator Singleton
+             * 
+             * @param defaultScene 
+             * @param fixedDeltaTime 
+             * @return std::unique_ptr<Coordinator>& 
+             */
+            static std::unique_ptr<Coordinator>& GetInstance(std::string defaultScene = "MainMenu", double fixedDeltaTime = 0.02);
+
+
+            /**
+             * @brief Get a list of the entities in the current scene
+             * 
+             * @return const std::list<std::unique_ptr<Entity>>& 
+             */
+            const std::list<std::unique_ptr<Entity>>& GetEntities() const;
+
     };
 }
 

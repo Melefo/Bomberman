@@ -50,13 +50,13 @@ namespace ECS
              * @brief Copy a new Component Manager object
              * 
              */
-            ComponentManager(const ComponentManager&) = default;
+            ComponentManager(const ComponentManager&) = delete;
             /**
              * @brief Assign a new ComponentManager Object
              * 
              * @return ComponentManager& Assigned Entity
              */
-            ComponentManager& operator=(const ComponentManager&) = default;
+            ComponentManager& operator=(const ComponentManager&) = delete;
 
             /**
              * @brief Get the Component object
@@ -147,13 +147,13 @@ namespace ECS
 
                 if (it == this->_components.end())
                     return;
-                for (auto &base : this->_bases)
+                for (auto base = this->_bases.begin(); base != this->_bases.end(); base++)
                 {
-                    const auto &found = std::find(base.second.begin(), base.second.end(), it->first);
-                    if (found != base.second.end())
-                        base.second.erase(found);
-                    if (base.second.size() == 0)
-                        this->_bases.erase(base.first);
+                    const auto &found = std::find(base->second.begin(), base->second.end(), it->first);
+                    if (found != base->second.end())
+                        base->second.erase(found);
+                    if (base->second.size() == 0)
+                        this->_bases.erase(base->first);
                 }
                 this->_components.erase(it);
             }
@@ -167,20 +167,9 @@ namespace ECS
             template<typename T>
             bool HasComponent() const
             {
-                for (auto &pair : this->_components)
-                {
-                    IComponent &component = *pair.second;
+                std::string name(typeid(T).name());
 
-                    try
-                    {
-                        dynamic_cast<T &>(component);
-                        return true;
-                    }
-                    catch (std::bad_cast &exp)
-                    {
-                    }
-                }
-                return false;
+                return this->_components.find(name) != this->_components.end();
             }
             /**
              * @brief Check if the Entity contains a given Component based on its name

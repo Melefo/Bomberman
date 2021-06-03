@@ -9,9 +9,21 @@
 
 namespace ECS
 {
+    std::unique_ptr<Coordinator> Coordinator::_coordinator = nullptr;
+
+
     Coordinator::Coordinator(std::string defaultScene, double fixedDeltaTime) :
     _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true)
     {
+
+    }
+
+    std::unique_ptr<Coordinator>& Coordinator::GetInstance(std::string defaultScene, double fixedDeltaTime)
+    {
+        if (_coordinator == nullptr) {
+            _coordinator = std::make_unique<Coordinator>(defaultScene, fixedDeltaTime);
+        }
+        return (_coordinator);
     }
 
     Entity& Coordinator::CreateEntity()
@@ -27,11 +39,14 @@ namespace ECS
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto& entity : this->_scenes[this->_currentScene].GetEntities())
-            {
-                if (!entity->HasComponents(dependencies))
-                    continue;
-                pair.second->Update(dt, *entity);
+            auto& entities = this->_scenes[this->_currentScene].GetEntities();
+            for (auto it = entities.begin(); it != entities.end();) {
+
+                auto entity = it->get();
+                it++;
+                if (entity->HasComponents(dependencies)) {
+                    pair.second->Update(dt, *entity);
+                }
             }
         }
     }
@@ -44,11 +59,14 @@ namespace ECS
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto& entity : this->_scenes[this->_currentScene].GetEntities())
-            {
-                if (!entity->HasComponents(dependencies))
-                    continue;
-                pair.second->FixedUpdate(*entity);
+            auto& entities = this->_scenes[this->_currentScene].GetEntities();
+            for (auto it = entities.begin(); it != entities.end();) {
+
+                auto entity = it->get();
+                it++;
+                if (entity->HasComponents(dependencies)) {
+                    pair.second->FixedUpdate(*entity);
+                }
             }
         }
     }
@@ -61,11 +79,14 @@ namespace ECS
                 continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto& entity : this->_scenes[this->_currentScene].GetEntities())
-            {
-                if (!entity->HasComponents(dependencies))
-                    continue;
-                pair.second->LateUpdate(dt, *entity);
+            auto& entities = this->_scenes[this->_currentScene].GetEntities();
+            for (auto it = entities.begin(); it != entities.end();) {
+
+                auto entity = it->get();
+                it++;
+                if (entity->HasComponents(dependencies)) {
+                    pair.second->LateUpdate(dt, *entity);
+                }
             }
         }
     }
@@ -95,4 +116,10 @@ namespace ECS
     {
         return this->_fixedDeltaTime;
     }
+
+    const std::list<std::unique_ptr<Entity>>& Coordinator::GetEntities() const
+    {
+        return this->_scenes.at(this->_currentScene).GetEntities();
+    }
+
 }

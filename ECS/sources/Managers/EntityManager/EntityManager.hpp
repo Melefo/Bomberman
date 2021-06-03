@@ -11,6 +11,7 @@
 #include <vector>
 #include <cinttypes>
 #include <memory>
+#include <list>
 
 namespace ECS
 {
@@ -37,7 +38,7 @@ namespace ECS
              * @brief List of currently created Entities
              * 
              */
-            std::vector<std::unique_ptr<Entity>> _entities;
+            std::list<std::unique_ptr<Entity>> _entities;
         public:
             /**
              * @brief Construct a new Entity Manager object
@@ -53,13 +54,13 @@ namespace ECS
              * @brief Copy a new Entity Manager object
              * 
              */
-            EntityManager(const EntityManager&) = default;
+            EntityManager(const EntityManager&) = delete;
             /**
              * @brief Assign a new EntityManager Object
              * 
              * @return EntityManager& assigned EntityManager
              */
-            EntityManager& operator=(const EntityManager&) = default;
+            EntityManager& operator=(const EntityManager&) = delete;
 
             /**
              * @brief Create a Entity object
@@ -78,7 +79,8 @@ namespace ECS
              * 
              * @return const std::vector<std::unique_ptr<Entity>>& list of the entities created
              */
-            const std::vector<std::unique_ptr<Entity>>& GetEntities() const;
+            //const std::vector<std::unique_ptr<Entity>>& GetEntities() const;
+            const std::list<std::unique_ptr<Entity>>& GetEntities() const;
     };
 }
 
