@@ -16,22 +16,15 @@
 
 namespace Prototype
 {
-    class CollisionSystem : public ECS::ASystem {
+    class CollisionSystem {
         public:
-            CollisionSystem(ECS::Coordinator& coordinator);
-            ~CollisionSystem() override = default;
+            CollisionSystem() = default;
+            ~CollisionSystem() = default;
 
-            static void SetSystem(CollisionSystem& colSystem);
-            static std::vector<std::reference_wrapper<ECS::Entity>> OverlapSphere(RayLib::Vector3 center, float radius);
-
-            //dynamic_cast<T&>
-
-            ECS::Coordinator& GetCoordinator();
+            static std::vector<std::reference_wrapper<ECS::Entity>> OverlapSphere(ECS::Coordinator& coordinator, RayLib::Vector3 center, float radius);
 
         protected:
         private:
-            ECS::Coordinator& _coordinator;
-            static std::unique_ptr<std::reference_wrapper<CollisionSystem>> _colSystem;
 
     };
 }

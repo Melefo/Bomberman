@@ -11,7 +11,8 @@
 namespace Prototype
 {
     Explosion::Explosion(ECS::Entity& entity, float radius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
-    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity), _transform(_myEntity.GetComponent<Transform>())
+    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity), _transform(_myEntity.GetComponent<Transform>()),
+    _coordinator(ECS::Coordinator::GetInstance())
     {
         _radius = radius;
         type = startType;
@@ -29,7 +30,7 @@ namespace Prototype
 
         if (_explosionTimer <= 0.0f) {
             std::cout << "BOOM" << std::endl;
-            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(_transform.position, _radius);
+            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*_coordinator.get(), _transform.position, _radius);
 
             for (auto it = entities.begin(); it != entities.end(); it++) {
                 if (it->get().HasComponent<Destructible>()) {

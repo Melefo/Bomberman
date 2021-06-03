@@ -48,6 +48,8 @@ namespace Prototype
             std::unique_ptr<RayLib::Window>& _window;
             ECS::Entity& _myEntity;
             Transform& _transform;
+            std::unique_ptr<ECS::Coordinator>& _coordinator;
+
     };
 }
 
