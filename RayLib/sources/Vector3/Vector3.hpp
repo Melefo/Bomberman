@@ -9,6 +9,7 @@
 #define VECTOR3_HPP_
 
 #include <raylib.h>
+#include <cmath>
 
 namespace RayLib
 {
@@ -135,6 +136,17 @@ namespace RayLib
              * @return float 
              */
             float Distance(const Vector3 other);
+
+            /**
+             * @brief Smoothly modify values to match target
+             * 
+             * @param target 
+             * @param smoothTime 
+             * @param deltaTime 
+             */
+            void SmoothDamp(Vector3 target, float smoothTime, float deltaTime);
+
+            void Lerp(Vector3 target, float t);
 
             float x;
             float y;

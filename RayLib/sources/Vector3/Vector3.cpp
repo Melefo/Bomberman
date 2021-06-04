@@ -112,10 +112,29 @@ namespace RayLib
         return (*this);
     }
 
-    // todo:
+    // todo smoothdamp
+    // cf https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Vector3.cs
+    void Vector3::SmoothDamp(Vector3, float, float)
+    {
+
+    }
+
+    void Vector3::Lerp(Vector3 target, float t)
+    {
+        if (t < 0)
+            t = 0;
+        if (t > 1)
+            t = 1;
+        x = x + (target.x - x) * t;
+        y = y + (target.y - y) * t;
+        z = z + (target.z - z) * t;
+    }
+
     float Vector3::Distance(const Vector3 other)
     {
-        return (0.0f);
+        float distance = sqrt(pow(x - other.x, 2) + pow(y - other.y, 2) + pow(z - other.z, 2));
+
+        return (distance);
     }
 
 }

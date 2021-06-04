@@ -11,6 +11,9 @@
 #include "IComponent.hpp"
 #include "Vector3.hpp"
 #include "Camera3D.hpp"
+#include "Entity.hpp"
+#include "Transform.hpp"
+#include "IBehaviour.hpp"
 
 namespace Component
 {
@@ -18,14 +21,15 @@ namespace Component
      * @brief Camera component
      * 
      */
-    class Camera : public ECS::IComponent {
+    class Camera : public Component::IBehaviour {
         public:
             /**
              * @brief Construct a new Camera object
              * 
              * @param camera 
              */
-            Camera(RayLib::Camera3D camera=RayLib::Camera3D());
+            Camera(ECS::Entity& attatched, RayLib::Camera3D& camera, Transform& target);
+            // todo take target lookat
             /**
              * @brief Destroy the Camera object
              * 
@@ -45,13 +49,24 @@ namespace Component
              */
             Camera& operator=(const Camera& other) = default;
 
+            void Update(double dt, ECS::Entity& entity) override;
+            void FixedUpdate(ECS::Entity& entity) override;
+            void LateUpdate(double dt, ECS::Entity& entity) override;
+
             /**
              * @brief Camera
              * 
              */
-            RayLib::Camera3D camera;
+            RayLib::Camera3D& camera;
+
+            // !set lerp position (take pos and speed)
+
         protected:
         private:
+            ECS::Entity& _entity;
+            Component::Transform& _transform;
+            Component::Transform& _targetLookat;
+
     };
 }
 

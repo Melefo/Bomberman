@@ -18,7 +18,7 @@ namespace Component
     {
     }
 
-    void PlayerMovement::Update(double)
+    void PlayerMovement::Update(double, ECS::Entity&)
     {
         std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
 
@@ -50,5 +50,10 @@ namespace Component
         } else {
             _myPhysicsBody.velocity = RayLib::Vector3();
         }
+    }
+
+    void PlayerMovement::LateUpdate(double, ECS::Entity&)
+    {
+
     }
 }
