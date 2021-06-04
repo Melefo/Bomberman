@@ -13,10 +13,9 @@
 namespace Component
 {
     PlayerMovement::PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed, RayLib::Input input) :
-    _input(input), _entity(attatchedEntity), _myPhysicsBody(_entity.GetComponent<PhysicsBody>()), _myTransform(_entity.GetComponent<Transform>())
+    _input(input), _entity(attatchedEntity), _myPhysicsBody(_entity.GetComponent<PhysicsBody>()), _myTransform(_entity.GetComponent<Transform>()),
+    _colliding(false), _speed(moveSpeed)
     {
-        _speed = moveSpeed;
-        _colliding = false;
     }
 
     void PlayerMovement::Update(double)

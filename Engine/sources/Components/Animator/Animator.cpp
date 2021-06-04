@@ -9,10 +9,9 @@
 
 namespace Component
 {
-    Animator::Animator(const std::string& filePath, std::string stateName)
+    Animator::Animator(const std::string& filePath, std::string stateName) : _currentState(stateName)
     {
         _stateMachine.insert(std::pair<std::string, RayLib::ModelAnimation>(stateName, RayLib::ModelAnimation(filePath)));
-        _currentState = stateName;
     }
 
     void Animator::SetState(const std::string& state)

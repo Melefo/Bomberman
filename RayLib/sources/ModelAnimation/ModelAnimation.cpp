@@ -12,15 +12,15 @@ namespace RayLib
     ModelAnimation::ModelAnimation(const std::string& fileName) : _animsCount(0), _frame(0)
     {
 
-        //::ModelAnimation *anims = ::LoadModelAnimations(fileName.c_str(), &_animsCount);
-        _modelAnimations = ::LoadModelAnimations(fileName.c_str(), &_animsCount);
+        ::ModelAnimation *anims = ::LoadModelAnimations(fileName.c_str(), &_animsCount);
 
-        if (_modelAnimations == NULL) {
+        if (anims == NULL) {
             // throw
         }
-        //for (int i = 0; i < _animsCount; i++) {
-        //    _modelAnimations.push_back(anims[i]);
-        //}
+        for (int i = 0; i < _animsCount; i++) {
+            _modelAnimations.push_back(anims[i]);
+        }
+        //RL_FREE(anims);
     }
 
     ModelAnimation::~ModelAnimation()
@@ -29,7 +29,6 @@ namespace RayLib
         for (int i = 0; i < _animsCount; i++) {
             //::UnloadModelAnimation(_modelAnimations[i]);
         }
-        //RL_FREE(_modelAnimations);
     }
 
     void ModelAnimation::Play(Model& model, int animationIndex)

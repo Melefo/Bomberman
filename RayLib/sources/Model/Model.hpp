@@ -77,7 +77,7 @@ namespace RayLib
              * 
              * @return ::Model 
              */
-            ::Model GetModel();
+            const ::Model GetModel();
 
         protected:
         private:

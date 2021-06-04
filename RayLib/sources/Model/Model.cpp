@@ -45,7 +45,7 @@ namespace RayLib
 
     }
 
-    ::Model Model::GetModel()
+    const ::Model Model::GetModel()
     {
         return (_model);
     }
