@@ -56,10 +56,17 @@ class XMLGenerator {
          * @param content The content to add
          */
         void write(const std::string &content);
+        /**
+         * @brief Add tagged value
+         * 
+         * @param name Tag name
+         * @param value Value to write
+         */
+        void addValue(const std::string &name, int value);
     protected:
         /**
          * @brief Find the position of the given tag in the class vector
-         * Returns 0 if not found
+         * Returns -1 if not found
          * 
          * @param tagName The tag to search
          * @return int The tag position in the class vector
@@ -75,7 +82,7 @@ class XMLGenerator {
          * @brief The added tags to the file
          * 
          */
-        std::vector<const std::string&> _tags;
+        std::vector<std::string> _tags;
 };
 
 #endif /* !XMLGENERATOR_HPP_ */

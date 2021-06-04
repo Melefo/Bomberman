@@ -24,27 +24,32 @@ XMLGenerator::~XMLGenerator()
 
 void XMLGenerator::addTag(const std::string &tagName)
 {
-    std::string tabs(_tags.size()-1, '\t');
+    size_t tagsSize = _tags.size() > 0 ? _tags.size() : 0;
+    std::string tabs(tagsSize, '\t');
 
     _tags.push_back(tagName);
-    this->write(tabs+"<"+tagName+">");
+    this->write(tabs+"<"+tagName+">\n");
 }
 
 void XMLGenerator::closeAndReopen(const std::string &tagName)
 {
-    std::string tabs(_tags.size()-1, '\t');
+    size_t tagsSize = _tags.size() > 0 ? _tags.size()-1 : 0;
+    std::string tabs(tagsSize, '\t');
+    size_t position = 0;
 
-    if (findTag(tagName) >= 0) {
-        this->write(tabs+"</"+tagName+">");
-        this->write(tabs+"<"+tagName+">");
+    if ((position = findTag(tagName) >= 0)) {
+        for (; _tags.size()-1 > position; closeLastTag());
+        this->write(tabs+"</"+tagName+">\n");
+        this->write(tabs+"<"+tagName+">\n");
     }
 }
 
 void XMLGenerator::closeLastTag()
 {
-    std::string tabs(_tags.size()-1, '\t');
+    size_t tagsSize = _tags.size() > 0 ? _tags.size()-1 : 0;
+    std::string tabs(tagsSize, '\t');
 
-    this->write(tabs+"</"+_tags.back()+">");
+    this->write(tabs+"</"+_tags.back()+">\n");
     _tags.pop_back();
 }
 
@@ -55,23 +60,31 @@ void XMLGenerator::closeFile() {
         _stream->close();
 }
 
-/**
- * Protected
- */
-
 void XMLGenerator::write(const std::string &content)
 {
     _stream->write(content.c_str(), content.size());
 }
 
+void XMLGenerator::addValue(const std::string &name, int value)
+{
+    size_t tagsSize = _tags.size() > 0 ? _tags.size() : 0;
+    std::string tabs(tagsSize, '\t');
+
+    this->write(tabs+"<"+name+">"+std::to_string(value)+"</"+name+">\n");
+}
+
+/**
+ * Protected
+ */
+
 int XMLGenerator::findTag(const std::string &tagName)
 {
-    int pos = 0;
+    int pos = -1;
 
     for (const auto &it : _tags) {
-        if ((*it) == tagName)
-            return pos;
+        if (it == tagName)
+            return pos+1;
         pos++;
     }
-    return pos;
+    return -1;
 }
