@@ -7,30 +7,71 @@
 
 #include "XMLGenerator.hpp"
 
-XMLGenerator::XMLGenerator(const std::vector<std::string> &content, const std::string &filepath) : _stream(new std::ofstream), _map(content)
+XMLGenerator::XMLGenerator(const std::string &filepath) : _stream(new std::ofstream), _tags()
 {
     _stream->open(filepath);
     this->write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-    this->write("<Map>\n");
-    createMap();
-    this->write("</Map>\n");
-    _stream->close();
 }
 
 XMLGenerator::~XMLGenerator()
 {
+    closeFile();
 }
 
-void XMLGenerator::write(const std::string content)
+/**
+ * Public
+ */
+
+void XMLGenerator::addTag(const std::string &tagName)
+{
+    std::string tabs(_tags.size()-1, '\t');
+
+    _tags.push_back(tagName);
+    this->write(tabs+"<"+tagName+">");
+}
+
+void XMLGenerator::closeAndReopen(const std::string &tagName)
+{
+    std::string tabs(_tags.size()-1, '\t');
+
+    if (findTag(tagName) >= 0) {
+        this->write(tabs+"</"+tagName+">");
+        this->write(tabs+"<"+tagName+">");
+    }
+}
+
+void XMLGenerator::closeLastTag()
+{
+    std::string tabs(_tags.size()-1, '\t');
+
+    this->write(tabs+"</"+_tags.back()+">");
+    _tags.pop_back();
+}
+
+void XMLGenerator::closeFile() {
+    while (_tags.size() > 0)
+        closeLastTag();
+    if (_stream->is_open())
+        _stream->close();
+}
+
+/**
+ * Protected
+ */
+
+void XMLGenerator::write(const std::string &content)
 {
     _stream->write(content.c_str(), content.size());
 }
 
-void XMLGenerator::createMap()
+int XMLGenerator::findTag(const std::string &tagName)
 {
-    this->write(std::string("<OPERATOR TYPE=\"IN\"/>\n<OPERAND>\n\t<LIST>\n"));
-    for (const auto &it : _map) {
-        this->write(std::string("\t\t<LITERAL VALUE=\""+it+"\"/>\n"));
+    int pos = 0;
+
+    for (const auto &it : _tags) {
+        if ((*it) == tagName)
+            return pos;
+        pos++;
     }
-    this->write("\t<LIST>\n</OPERAND>\n");
+    return pos;
 }
