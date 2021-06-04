@@ -5,6 +5,8 @@
 ** XMLGenerator
 */
 
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
 #include "XMLGenerator.hpp"
 
 XMLGenerator::XMLGenerator(const std::vector<std::string> &content, const std::string &filepath) : _stream(new std::ofstream), _map(content)
