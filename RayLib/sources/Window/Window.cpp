@@ -86,6 +86,11 @@ namespace RayLib
         return (::WindowShouldClose());
     }
 
+    void Window::CloseWindow()
+    {
+        ::CloseWindow();
+    }
+
     Vector2<int> Window::GetSize()
     {
         Vector2<int> size(GetScreenWidth(), GetScreenHeight());
