@@ -128,6 +128,13 @@ namespace RayLib
              */
             Vector3 operator*(const float factor);
 
+            /**
+             * @brief Return the distance to other vector
+             * 
+             * @param other 
+             * @return float 
+             */
+            float Distance(const Vector3 other);
 
             float x;
             float y;

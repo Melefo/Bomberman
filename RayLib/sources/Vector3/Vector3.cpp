@@ -111,4 +111,11 @@ namespace RayLib
         z *= factor;
         return (*this);
     }
+
+    // todo:
+    float Vector3::Distance(const Vector3 other)
+    {
+        return (0.0f);
+    }
+
 }

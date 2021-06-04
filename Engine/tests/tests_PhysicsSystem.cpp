@@ -27,6 +27,5 @@ Test(PhysicsSystem, velocity)
     physicsSystem.FixedUpdate(entity);
 
     // position + velocity
-    std::cout << "Pos X " << transform.position.x << std::endl;
     cr_assert_eq(transform.position.x, 6.0f);
 }
