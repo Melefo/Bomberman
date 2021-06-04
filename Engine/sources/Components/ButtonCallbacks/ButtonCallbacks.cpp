@@ -40,8 +40,8 @@ namespace Component
 
     void ButtonCallbacks::QuitWindow()
     {
-        //RayLib::Window &window = RayLib::Window::GetInstance();
-        //window.close
+        std::unique_ptr<RayLib::Window> &window = RayLib::Window::GetInstance(RayLib::Vector2<int>(0, 0), "bon courage");
+        window->CloseWindow();
         std::cout << "quited" << std::endl;
     }
 

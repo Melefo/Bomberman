@@ -51,7 +51,6 @@ ECS::Entity& EntityFactory::createWall()
 
 ECS::Entity& EntityFactory::createBox(const int level, const bool draggable)
 {
-    //RayLib::Image image(Vector2(BOX_SIZE, BOX_SIZE), BLUE); // TEMPORARY
     RayLib::Texture texture("assets/Blue.jpg");// TEMPORARY
 
     ECS::Entity &entity = _coordinator.CreateEntity();

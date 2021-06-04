@@ -45,6 +45,8 @@ int main(void)
         camera.BeginMode();
 
         coordinator.Run();
+        if (window->WindowShouldClose())
+            break;
 
         window->DrawGrid(20, 10.0f);
         camera.EndMode();
