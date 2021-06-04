@@ -405,3 +405,21 @@ void TerrainGenerator::trimMap()
         if (it.size() > static_cast<size_t>(_width/2+1))
             it = it.substr(0, _width/2+1);
 }
+
+void TerrainGenerator::makeSpaceForPlayers()
+{
+    for (size_t y = 1; y < _map.size()-1; y++) {
+        for (size_t x = 1; x < _map[y].size(); x++) {
+            if (_map[y][x] == 'P') {
+                if (_map[y-1][x] != static_cast<char>(mapTexture::OWALL))
+                    _map[y-1][x] = ' ';
+                if (_map[y+1][x] != static_cast<char>(mapTexture::OWALL))
+                    _map[y+1][x] = ' ';
+                if (_map[y][x-1] != static_cast<char>(mapTexture::OWALL))
+                    _map[y][x-1] = ' ';
+                if (_map[y][x+1] != static_cast<char>(mapTexture::OWALL))
+                    _map[y][x+1] = ' ';
+            }
+        }
+    }
+}

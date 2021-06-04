@@ -188,6 +188,11 @@ class TerrainGenerator {
          * 
          */
         void trimMap();
+        /**
+         * @brief Add holes between player places to place safe bombs
+         * 
+         */
+        void makeSpaceForPlayers();
 
         /**
          * @brief Number of players rounded to next pair
