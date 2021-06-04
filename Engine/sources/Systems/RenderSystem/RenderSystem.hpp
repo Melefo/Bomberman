@@ -11,6 +11,7 @@
 #include "ASystem.hpp"
 #include "Entity.hpp"
 #include "Renderer.hpp"
+#include "Animator.hpp"
 
 namespace Component
 {

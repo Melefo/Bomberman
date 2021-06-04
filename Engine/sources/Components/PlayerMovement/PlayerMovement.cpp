@@ -12,11 +12,10 @@
 
 namespace Component
 {
-    PlayerMovement::PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed) :
-    _input(), _entity(attatchedEntity), _myPhysicsBody(_entity.GetComponent<PhysicsBody>()), _myTransform(_entity.GetComponent<Transform>())
+    PlayerMovement::PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed, RayLib::Input input) :
+    _input(input), _entity(attatchedEntity), _myPhysicsBody(_entity.GetComponent<PhysicsBody>()), _myTransform(_entity.GetComponent<Transform>()),
+    _colliding(false), _speed(moveSpeed)
     {
-        _speed = moveSpeed;
-        _colliding = false;
     }
 
     void PlayerMovement::Update(double)
@@ -27,6 +26,9 @@ namespace Component
             it->get().DrawLines();
         }
        _direction = RayLib::Vector3(_input.GetHorizontalAxis(), 0.0f, _input.GetVerticalAxis());
+
+        //std::cout << "Controller last key pressed: " << _input.GetKeyPressed() << std::endl;
+
     }
 
     void PlayerMovement::FixedUpdate(ECS::Entity& entity)

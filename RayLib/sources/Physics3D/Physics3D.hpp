@@ -94,6 +94,7 @@ namespace RayLib
              * @param groundHeight 
              * @return RayCollision 
              */
+            //! now takes 4 vetors to make a ground plane
             static RayCollision CheckCollision(Ray ray, float groundHeight);
 
             /**

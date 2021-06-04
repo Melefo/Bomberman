@@ -29,7 +29,7 @@ namespace Component
              * @param attatchedEntity 
              * @param moveSpeed 
              */
-            PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed);
+            PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed, RayLib::Input input=RayLib::Input());
             /**
              * @brief Destroy the Player Movement object
              * 
