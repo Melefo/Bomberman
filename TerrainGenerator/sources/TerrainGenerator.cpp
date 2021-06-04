@@ -146,11 +146,6 @@ void TerrainGenerator::addTileOnMap(int y, int x)
     _map[y][x] = static_cast<char>(mapTexture::INWALL);
 }
 
-void TerrainGenerator::generateXMLFile()
-{
-    XMLGenerator xmlFile(_map);
-}
-
 /**
  * Private
  */
