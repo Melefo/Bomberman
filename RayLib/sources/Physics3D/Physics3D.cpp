@@ -38,7 +38,7 @@ namespace RayLib
         return (::GetRayCollisionBox(ray.GetRay(), box.GetBounds()));
     }
 
-    RayCollision Physics3D::CheckCollision(Ray ray, float groundHeight)
+    RayCollision Physics3D::CheckCollision(Ray ray, float)
     {
         Vector3 botLeftCoords = Vector3(-100.0f, 0.0f, -100.0f);
         Vector3 botRightCoords = Vector3(100.0f, 0.0f, -100.0f);
