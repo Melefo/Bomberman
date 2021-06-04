@@ -63,13 +63,13 @@ namespace ECS
              * @brief Copy a new ASystem object
              * 
              */
-            ASystem(const ASystem&) = default;
+            ASystem(const ASystem&) = delete;
             /**
              * @brief Assign a new ASystem Object
              * 
              * @return ASystem& Assigned ASystem
              */
-            ASystem& operator=(const ASystem&) = default;
+            ASystem& operator=(const ASystem&) = delete;
 
             /**
              * @brief Update an Entity and its components

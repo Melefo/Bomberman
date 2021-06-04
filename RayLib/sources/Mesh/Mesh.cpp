@@ -15,7 +15,6 @@ namespace RayLib
 
     Mesh::Mesh(Image img, Vector3 scale) : _mesh(::GenMeshCubicmap(img.GetImage(), scale.getVector3())), _loaded(true)
     {
-        _mesh = ::GenMeshCubicmap(img.GetImage(), scale.getVector3());
     }
 
     ::Mesh Mesh::GetMesh()

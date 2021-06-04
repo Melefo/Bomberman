@@ -64,13 +64,13 @@ namespace ECS
              * @brief Copy a new Entity object
              * 
              */
-            Entity(const Entity&) = default;
+            Entity(const Entity&) = delete;
             /**
              * @brief Assign a new Entity Object
              * 
              * @return Entity& assigned Entity
              */
-            Entity& operator=(const Entity&) = default;
+            Entity& operator=(const Entity&) = delete;
 
             /**
              * @brief Get the Component object
