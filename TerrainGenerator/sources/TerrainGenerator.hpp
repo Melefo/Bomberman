@@ -76,6 +76,13 @@ class TerrainGenerator {
          * 
          */
         void generateXMLFile();
+        /**
+         * @brief Set the Players Number object
+         * Resets the map according to players number
+         * 
+         * @param newSize The new player numbers
+         */
+        void setPlayersNumber(int newSize);
     protected:
         /**
          * @brief Generate a line based on the actual position

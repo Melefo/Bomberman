@@ -16,6 +16,7 @@ TerrainGenerator::TerrainGenerator(int playersNbr, int boxPercentage)
     : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
     _height(13)
 {
+    _playersNbr = _playersNbr < 2 ? 2 : _playersNbr;
     _playersNbr = _playersNbr > 8 ? 8 : _playersNbr;
     std::map<int, int> mapSizes = {
         {2, 13},
@@ -149,6 +150,16 @@ void TerrainGenerator::addTileOnMap(int y, int x)
 void TerrainGenerator::generateXMLFile()
 {
     XMLGenerator xmlFile(_map);
+}
+
+void TerrainGenerator::setPlayersNumber(int newSize) {
+    if (newSize < 1)
+        _playersNbr = 2;
+    else if (newSize > 8)
+        _playersNbr = 8;
+    else if (newSize % 2 != 0)
+        _playersNbr = newSize + 1;
+    generateMap();
 }
 
 /**
