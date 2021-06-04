@@ -5,6 +5,7 @@
 ** ButtonCallbacks
 */
 
+#include "Window.hpp"
 #include "ButtonCallbacks.hpp"
 
 namespace Component
@@ -13,7 +14,7 @@ namespace Component
     _entity(attatchedEntity), _button(_entity.GetComponent<Button>())
     {
         // add our callback
-        _button.AddCallback(std::bind(&ButtonCallbacks::SayHello, this));
+        //_button.AddCallback(std::bind(&ButtonCallbacks::QuitWindow, this));
     }
 
     void ButtonCallbacks::Update(double)
@@ -35,5 +36,17 @@ namespace Component
     void ButtonCallbacks::SayHello()
     {
         std::cout << "Hello!" << std::endl;
+    }
+
+    void ButtonCallbacks::QuitWindow()
+    {
+        //RayLib::Window &window = RayLib::Window::GetInstance();
+        //window.close
+        std::cout << "quited" << std::endl;
+    }
+
+    void ButtonCallbacks::CreateBox()
+    {
+        std::cout << "createBox" << std::endl;
     }
 }

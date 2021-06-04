@@ -19,6 +19,7 @@
 #include "Button.hpp"
 #include "ButtonCallbacks.hpp"
 #include "Draggable.hpp"
+#include "Scenes.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -90,6 +91,8 @@ int main(void)
 
     while (!window->WindowShouldClose())
     {
+        /*if (coordinator->GetEntities().size() == 0)
+            Scenes::scenesCtor[coordinator->getCurrentScene()](*(coordinator.get()), camera);*/
         camera.Update();
 
         window->BeginDrawing();
