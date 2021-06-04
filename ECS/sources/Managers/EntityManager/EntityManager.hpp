@@ -11,23 +11,76 @@
 #include <vector>
 #include <cinttypes>
 #include <memory>
-#include "Entity.hpp"
+#include <list>
 
 namespace ECS
 {
+    class Entity;
+
+    /**
+     * @brief Class used to manipulate Entities (a.k.a A Scene)
+     * 
+     */
     class EntityManager
     {
         private:
+            /**
+             * @brief List of ID detroyed and available to new Entities
+             * 
+             */
             std::vector<uint32_t> _available;
+            /**
+             * @brief Last ID given to an Entity
+             * 
+             */
             uint32_t _max;
-            std::vector<std::unique_ptr<Entity>> _entities;
+            /**
+             * @brief List of currently created Entities
+             * 
+             */
+            std::list<std::unique_ptr<Entity>> _entities;
         public:
+            /**
+             * @brief Construct a new Entity Manager object
+             * 
+             */
             EntityManager();
+            /**
+             * @brief Destroy the Entity Manager object
+             * 
+             */
             ~EntityManager() = default;
+            /**
+             * @brief Copy a new Entity Manager object
+             * 
+             */
+            EntityManager(const EntityManager&) = delete;
+            /**
+             * @brief Assign a new EntityManager Object
+             * 
+             * @return EntityManager& assigned EntityManager
+             */
+            EntityManager& operator=(const EntityManager&) = delete;
 
-            Entity &CreateEntity();
-            void DeleteEntity(Entity &entity);
-            const std::vector<std::unique_ptr<Entity>> &GetEntities() const;
+            /**
+             * @brief Create a Entity object
+             * 
+             * @return Entity& newly created entity
+             */
+            Entity& CreateEntity();
+            /**
+             * @brief Delete an Entity from the scene
+             * 
+             * @param entity Entity to destroy
+             */
+            void DeleteEntity(Entity& entity);
+            /**
+             * @brief Get the Entities object
+             * 
+             * @return const std::vector<std::unique_ptr<Entity>>& list of the entities created
+             */
+            //const std::vector<std::unique_ptr<Entity>>& GetEntities() const;
+            const std::list<std::unique_ptr<Entity>>& GetEntities() const;
     };
 }
 

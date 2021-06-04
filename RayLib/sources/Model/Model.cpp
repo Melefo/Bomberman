@@ -20,6 +20,7 @@ namespace RayLib
     Model::Model(Mesh mesh)
     {
         _model = ::LoadModelFromMesh(mesh.GetMesh());
+        mesh.SetLoaded(false);
     }
 
     void Model::Draw(Vector3 position, float scale, Color tint)
@@ -43,6 +44,12 @@ namespace RayLib
         //_model.materials[matIndex].maps[mapType].texture = text.GetTexture();                 // Set map diffuse texture
 
     }
+
+    const ::Model Model::GetModel()
+    {
+        return (_model);
+    }
+
 
     Model::~Model()
     {

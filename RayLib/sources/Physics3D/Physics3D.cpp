@@ -9,13 +9,6 @@
 
 namespace RayLib
 {
-    Physics3D::Physics3D()
-    {
-    }
-
-    Physics3D::~Physics3D()
-    {
-    }
 
     bool Physics3D::CheckCollision(Vector3 center1, float radius1, Vector3 center2, float radius2)
     {
@@ -45,9 +38,20 @@ namespace RayLib
         return (::GetRayCollisionBox(ray.GetRay(), box.GetBounds()));
     }
 
-    RayCollision Physics3D::CheckCollision(Ray ray, float groundHeight)
+    RayCollision Physics3D::CheckCollision(Ray ray, float)
     {
-        return(::GetRayCollisionGround(ray.GetRay(), groundHeight));
+        Vector3 botLeftCoords = Vector3(-100.0f, 0.0f, -100.0f);
+        Vector3 botRightCoords = Vector3(100.0f, 0.0f, -100.0f);
+        Vector3 topRightCoords = Vector3(100.0f, 0.0f, 100.0f);
+        Vector3 topLeftCoords = Vector3(-100.0f, 0.0f, 100.0f);
+
+        return(::GetRayCollisionQuad(ray.GetRay(), botLeftCoords.getVector3(), botRightCoords.getVector3(), topRightCoords.getVector3(), topLeftCoords.getVector3()));
+        // old
+        //return(::GetRayCollisionGround(ray.GetRay(), groundHeight));
     }
 
+    bool Physics3D::CheckCollision(Vector2<float> point, Rectangle rec)
+    {
+        return (::CheckCollisionPointRec(point.getVector2(), rec.GetRectangle()));
+    }
 }

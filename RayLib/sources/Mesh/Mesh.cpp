@@ -9,14 +9,12 @@
 
 namespace RayLib
 {
-    Mesh::Mesh(Vector3 scale)
+    Mesh::Mesh(Vector3 scale) : _mesh(::GenMeshCube(scale.x, scale.y, scale.z)), _loaded(true)
     {
-        _mesh = ::GenMeshCube(scale.x, scale.y, scale.z);
     }
 
-    Mesh::Mesh(Image img, Vector3 scale)
+    Mesh::Mesh(Image img, Vector3 scale) : _mesh(::GenMeshCubicmap(img.GetImage(), scale.getVector3())), _loaded(true)
     {
-        _mesh = ::GenMeshCubicmap(img.GetImage(), scale.getVector3());
     }
 
     ::Mesh Mesh::GetMesh()
@@ -24,9 +22,16 @@ namespace RayLib
         return (_mesh);
     }
 
+    void Mesh::SetLoaded(bool loaded)
+    {
+        _loaded = loaded;
+    }
+
     Mesh::~Mesh()
     {
-        UnloadMesh(_mesh);
+        if (_loaded)
+            ::UnloadMesh(_mesh);
+        // ? si le mesh fait partie d'un model -> double free...
     }
 }
 

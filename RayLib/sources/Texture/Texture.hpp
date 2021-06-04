@@ -13,19 +13,79 @@
 #include "Image.hpp"
 #include "Color.hpp"
 #include "Vector2.hpp"
+#include "Camera3D.hpp"
+#include "Rectangle.hpp"
 
 namespace RayLib
 {
+    /**
+     * @brief Texture encapsulation
+     * 
+     */
     class Texture {
         public:
+            /**
+             * @brief Destroy the Texture object
+             *
+             */
             ~Texture();
 
-            Texture(const std::string& filename);
+            /**
+             * @brief Construct a new Texture object from a file
+             *
+             * @param filename
+             */
+            Texture(const std::string& filename="../assets/models/cube/def_text.png");
+
+            /**
+             * @brief Construct a new Texture from an existing image
+             *
+             * @param image
+             */
             Texture(Image image);
 
+            /**
+             * @brief Draw texture on screen
+             *
+             * @param position
+             * @param tint
+             */
             void DrawTexture(Vector2<float> position, Color tint);
+
+            /**
+             * @brief Draw texture on screen
+             *
+             * @param position
+             * @param rotation
+             * @param scale
+             * @param tint
+             */
             void DrawTextureEx(Vector2<float> position, float rotation, float scale, Color tint);
 
+            /**
+             * @brief Draw texture on screen using rectangle's dimensions
+             * 
+             * @param source 
+             * @param position 
+             * @param col 
+             */
+            void DrawTextureRec(RayLib::Rectangle source, RayLib::Vector2<float> position=RayLib::Vector2<float>(), RayLib::Color col=WHITE);
+
+            /**
+             * @brief Draw billboard
+             * cf: https://www.raylib.com/examples/web/models/loader.html?name=models_billboard
+             * @param camera
+             * @param center
+             * @param size
+             * @param tint
+             */
+            void DrawBillboard(RayLib::Camera3D camera, RayLib::Vector3 center=RayLib::Vector3(), float size=1.0f, Color tint=WHITE);
+
+            /**
+             * @brief Get the Texture as a raylib structure
+             * 
+             * @return ::Texture2D 
+             */
             ::Texture2D GetTexture();
 
         protected:

@@ -5,47 +5,121 @@
 ** Coordinator
 */
 
-#include <chrono>
 #include "Coordinator.hpp"
-
-#include <iostream>
 
 namespace ECS
 {
-    Entity &Coordinator::CreateEntity()
+    std::unique_ptr<Coordinator> Coordinator::_coordinator = nullptr;
+
+
+    Coordinator::Coordinator(std::string defaultScene, double fixedDeltaTime) :
+    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true)
     {
-        return this->_entityManager.CreateEntity();
+
     }
 
-    void Coordinator::DeleteEntity(Entity &entity)
+    std::unique_ptr<Coordinator>& Coordinator::GetInstance(std::string defaultScene, double fixedDeltaTime)
     {
-        this->_entityManager.DeleteEntity(entity);
+        if (_coordinator == nullptr) {
+            _coordinator = std::make_unique<Coordinator>(defaultScene, fixedDeltaTime);
+        }
+        return (_coordinator);
     }
 
-    void Coordinator::Update()
+    Entity& Coordinator::CreateEntity()
     {
-        auto start = std::chrono::high_resolution_clock::now();
+        return this->_scenes[this->_currentScene].CreateEntity();
+    }
 
+    void Coordinator::Update(double dt)
+    {
         for (auto &pair : this->_systemManager.GetSystems())
         {
+            if (!pair.second->GetStatus())
+                continue;
             auto dependencies = pair.second->GetDependencies();
 
-            for (auto &entity : this->_entityManager.GetEntities())
-            {
-                bool update = true;
-                for (auto &dependency : dependencies)
-                {
-                    if (entity->HasComponent(dependency))
-                        continue;
-                    update = false;
-                    break;
+            auto& entities = this->_scenes[this->_currentScene].GetEntities();
+            for (auto it = entities.begin(); it != entities.end();) {
+
+                auto entity = it->get();
+                it++;
+                if (entity->HasComponents(dependencies)) {
+                    pair.second->Update(dt, *entity);
                 }
-                if (update)
-                    pair.second->Update(this->_dt, *entity);
             }
         }
-
-        auto stop = std::chrono::high_resolution_clock::now();
-		this->_dt = std::chrono::duration<double, std::chrono::seconds::period>(stop - start).count();
     }
+
+    void Coordinator::FixedUpdate()
+    {
+        for (auto& pair : this->_systemManager.GetSystems())
+        {
+            if (!pair.second->GetStatus())
+                continue;
+            auto dependencies = pair.second->GetDependencies();
+
+            auto& entities = this->_scenes[this->_currentScene].GetEntities();
+            for (auto it = entities.begin(); it != entities.end();) {
+
+                auto entity = it->get();
+                it++;
+                if (entity->HasComponents(dependencies)) {
+                    pair.second->FixedUpdate(*entity);
+                }
+            }
+        }
+    }
+
+    void Coordinator::LateUpdate(double dt)
+    {
+        for (auto& pair : this->_systemManager.GetSystems())
+        {
+            if (!pair.second->GetStatus())
+                continue;
+            auto dependencies = pair.second->GetDependencies();
+
+            auto& entities = this->_scenes[this->_currentScene].GetEntities();
+            for (auto it = entities.begin(); it != entities.end();) {
+
+                auto entity = it->get();
+                it++;
+                if (entity->HasComponents(dependencies)) {
+                    pair.second->LateUpdate(dt, *entity);
+                }
+            }
+        }
+    }
+
+    void Coordinator::Run()
+    {
+        double dt = 0;
+        auto now = std::chrono::high_resolution_clock::now();
+
+        if (this->_firstRun)
+            this->_firstRun = false;
+        else
+            dt = std::chrono::duration<double, std::chrono::seconds::period>(now - this->_lastRun).count();
+        this->_duration += dt;
+
+        if (this->_duration > this->_fixedDeltaTime) {
+            this->_duration -= this->_fixedDeltaTime;
+            this->FixedUpdate();
+        }
+        this->Update(dt);
+        this->LateUpdate(dt);
+
+        this->_lastRun = now;
+    }
+
+    double Coordinator::getFixedDeltaTime() const
+    {
+        return this->_fixedDeltaTime;
+    }
+
+    const std::list<std::unique_ptr<Entity>>& Coordinator::GetEntities() const
+    {
+        return this->_scenes.at(this->_currentScene).GetEntities();
+    }
+
 }

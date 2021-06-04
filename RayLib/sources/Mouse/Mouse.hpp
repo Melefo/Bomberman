@@ -14,18 +14,70 @@
 
 namespace RayLib
 {
+    /**
+     * @brief static Mouse encapsulation
+     * 
+     */
     class Mouse {
         public:
-            Mouse();
-            ~Mouse();
+            /**
+             * @brief Construct a new Mouse object
+             * 
+             */
+            Mouse() = default;
 
+            /**
+             * @brief Destroy the Mouse object
+             * 
+             */
+            ~Mouse() = default;
+
+            /**
+             * @brief Get the mouse's position
+             * 
+             * @return Vector2<float> 
+             */
             static Vector2<float> GetPosition();
+
+            /**
+             * @brief 
+             * returns true if mouse button is down during frame
+             * left mouse button: MOUSE_BUTTON_LEFT
+             * right mouse button: MOUSE_BUTTON_RIGHT
+             * @param button 
+             * @return true 
+             * @return false 
+             */
             static bool IsButtonDown(int button);
+
+            /**
+             * @brief 
+             * returns true if mouse button was pressed during frame
+             * left mouse button: MOUSE_BUTTON_LEFT
+             * right mouse button: MOUSE_BUTTON_RIGHT
+             * @param button 
+             * @return true 
+             * @return false 
+             */
             static bool IsButtonPressed(int button);
 
+            /**
+             * @brief 
+             * returns true if mouse button is up during frame
+             * @param button 
+             * @return true 
+             * @return false 
+             */
             static bool IsButtonUp(int button);
-            static bool IsButtonReleased(int button);
 
+            /**
+             * @brief 
+             * returns true if mouse button was released during frame
+             * @param button 
+             * @return true 
+             * @return false 
+             */
+            static bool IsButtonReleased(int button);
 
         protected:
         private:

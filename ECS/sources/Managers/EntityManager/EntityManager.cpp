@@ -7,32 +7,31 @@
 
 #include <algorithm>
 #include "Exceptions.hpp"
+#include "Entity.hpp"
 #include "EntityManager.hpp"
-
 #include <iostream>
 
 namespace ECS
 {
     EntityManager::EntityManager() :
-    _available(), _max(1)
+    _available(), _max(1), _entities()
     { }
 
-    Entity &EntityManager::CreateEntity()
+    Entity& EntityManager::CreateEntity()
     {
         if (this->_available.size() == 0)
         {
-            this->_entities.emplace_back(std::make_unique<Entity>(this->_max++));
+            this->_entities.emplace_back(std::make_unique<Entity>(this->_max++, *this));
             return *this->_entities.back();
         }
         uint32_t id = this->_available.back();
 
-        this->_entities.emplace_back(std::make_unique<Entity>(id));
+        this->_entities.emplace_back(std::make_unique<Entity>(id, *this));
         this->_available.pop_back();
         return *this->_entities.back();
     }
 
-
-    void EntityManager::DeleteEntity(Entity &entity)
+    void EntityManager::DeleteEntity(Entity& entity)
     {
         for (auto it = this->_entities.begin(); it != this->_entities.end(); it++)
             if ((*it)->GetId() == entity.GetId())
@@ -43,7 +42,7 @@ namespace ECS
             }
     }
 
-    const std::vector<std::unique_ptr<Entity>> &EntityManager::GetEntities() const
+    const std::list<std::unique_ptr<Entity>>& EntityManager::GetEntities() const
     {
         return this->_entities;
     }

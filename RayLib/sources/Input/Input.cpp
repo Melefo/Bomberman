@@ -9,10 +9,8 @@
 
 namespace RayLib
 {
-    Input::Input(Vector2<int> horizontalKeys, Vector2<int> verticalKeys)
+    Input::Input(Vector2<int> horizontalKeys, Vector2<int> verticalKeys) : _horizontalAxis(horizontalKeys), _verticalAxis(verticalKeys)
     {
-        _horizontalAxis = horizontalKeys;
-        _verticalAxis = verticalKeys;
     }
 
     float Input::GetHorizontalAxis(void)
