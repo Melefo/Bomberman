@@ -30,16 +30,16 @@ namespace Scenes {
                 if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
                 || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
                     ECS::Entity& wall = entityFactory.createWall();
-                    wall.GetComponent<Component::Transform>().position = RayLib::Vector3(x * BOX_SIZE, 1, y * BOX_SIZE);
+                    wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
                 } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
                     ECS::Entity& box = entityFactory.createBox(1, isEditor ? true : false);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(x * BOX_SIZE, 1, y * BOX_SIZE);
+                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
                 } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
                     ECS::Entity& box = entityFactory.createBox(2, isEditor ? true : false);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(x * BOX_SIZE, 1, y * BOX_SIZE);
+                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
                 } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
                     ECS::Entity& box = entityFactory.createBox(3, isEditor ? true : false);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(x * BOX_SIZE, 1, y * BOX_SIZE);
+                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
                 }
             }
         }
