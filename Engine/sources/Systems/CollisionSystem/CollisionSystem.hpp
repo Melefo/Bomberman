@@ -62,8 +62,8 @@ namespace Component
              * @param box 
              * @return std::vector<std::reference_wrapper<ECS::Entity>> 
              */
-            static std::vector<std::reference_wrapper<ECS::Entity>> CollisionSystem::OverlapBox(ECS::Coordinator& coordinator, RayLib::BoundingBox box);
-            //static std::vector<std::reference_wrapper<ECS::Entity>> CollisionSystem::RayCast(ECS::Coordinator& coordinator, RayLib::Vector3 center, float distance, RayLib::Vector3 direction);
+            static std::vector<std::reference_wrapper<ECS::Entity>> OverlapBox(ECS::Coordinator& coordinator, RayLib::BoundingBox box);
+            //static std::vector<std::reference_wrapper<ECS::Entity>> RayCast(ECS::Coordinator& coordinator, RayLib::Vector3 center, float distance, RayLib::Vector3 direction);
 
         protected:
         private:
