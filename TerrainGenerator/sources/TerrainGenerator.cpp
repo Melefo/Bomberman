@@ -65,7 +65,7 @@ void TerrainGenerator::generateBaseMap()
     }
 }
 
-void TerrainGenerator::generateRandomMap()
+void TerrainGenerator::generateRandomMap(unsigned int seed)
 {
     int index = 0;
     static std::vector<std::vector<std::string>> tiles = {
@@ -104,6 +104,7 @@ void TerrainGenerator::generateRandomMap()
         }
     };
 
+    srand(seed);
     for (auto &it : _map) {
         it.clear();
         if (index == 0 || index == _height-1)
@@ -197,12 +198,12 @@ void TerrainGenerator::generateBoxes()
 
 void TerrainGenerator::generateMap()
 {
-    srand (static_cast<unsigned int>(time(NULL)));
+    srand(static_cast<unsigned int>(time(NULL)));
 
     if (rand() % 3 == 0)
         generateBaseMap();
     else
-        generateRandomMap();
+        generateRandomMap(0);
     generateBoxes();
     placePlayers();
 }
