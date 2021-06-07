@@ -20,6 +20,7 @@
 #include "ButtonCallbacks.hpp"
 #include "Draggable.hpp"
 #include "Input.hpp"
+#include "Camera.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -66,10 +67,19 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
-
     entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, camera);
-
     entity.AddComponent<Component::Destructible>(entity, 1);
+
+    return (entity);
+}
+
+ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
+{
+    ECS::Entity& entity = coordinator.CreateEntity();
+
+    entity.AddComponent<Component::Transform>(0.0f, 20.0f, -50.0f);
+    RayLib::Vector3 target = RayLib::Vector3(0.0f, 10.0f, 0.0f);
+    entity.AddComponent<Component::Camera>(entity, camera, target);
 
     return (entity);
 }
@@ -78,12 +88,13 @@ int main(void)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
 
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
 
     /*ECS::Entity& cat = */InitCat(*coordinator.get());
     /*ECS::Entity& button = */InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
+    InitCamera(*coordinator.get(), camera);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::RenderSystem>();

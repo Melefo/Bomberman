@@ -9,8 +9,8 @@
 
 namespace Component
 {
-    Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, Transform& target)
-    : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _targetLookat(target)
+    Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, RayLib::Vector3& target, float lerpTime)
+    : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _targetLookAt(target), _lerpTime(lerpTime)
     {
     }
 
@@ -29,9 +29,21 @@ namespace Component
         const RayLib::Vector3 pos = camera.GetPosition();
         RayLib::Vector3 lerpPos = pos;
 
-        lerpPos.Lerp(_transform.position, 0.25f);
+        lerpPos.Lerp(_transform.position, _lerpTime);
         camera.SetPosition(lerpPos);
-        camera.SetTarget(_targetLookat.position);
+        camera.SetTarget(_targetLookAt);
         camera.Update();
     }
+
+    void Camera::LerpToPos(RayLib::Vector3 position, float lerp)
+    {
+        _transform.position = position;
+        _lerpTime = lerp;
+    }
+
+    void Camera::SetTarget(RayLib::Vector3& target)
+    {
+        _targetLookAt = target;
+    }
+
 }

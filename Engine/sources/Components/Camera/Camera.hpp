@@ -28,7 +28,7 @@ namespace Component
              * 
              * @param camera 
              */
-            Camera(ECS::Entity& attatched, RayLib::Camera3D& camera, Transform& target);
+            Camera(ECS::Entity& attatched, RayLib::Camera3D& camera, RayLib::Vector3& targetLookat, float lerpTime = 0.1f);
             // todo take target lookat
             /**
              * @brief Destroy the Camera object
@@ -59,13 +59,27 @@ namespace Component
              */
             RayLib::Camera3D& camera;
 
-            // !set lerp position (take pos and speed)
+            /**
+             * @brief Set target position and lerpspeed
+             * 
+             * @param position 
+             * @param lerp 
+             */
+            void LerpToPos(RayLib::Vector3 position, float lerp=0.1f);
+
+            /**
+             * @brief Set the camera target
+             * 
+             * @param target 
+             */
+            void SetTarget(RayLib::Vector3& target);
 
         protected:
         private:
             ECS::Entity& _entity;
             Component::Transform& _transform;
-            Component::Transform& _targetLookat;
+            RayLib::Vector3& _targetLookAt;
+            float _lerpTime;
 
     };
 }
