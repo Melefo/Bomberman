@@ -104,7 +104,8 @@ void TerrainGenerator::generateRandomMap(unsigned int seed)
         }
     };
 
-    srand(seed);
+    if (seed != 0)
+        srand(seed);
     for (auto &it : _map) {
         it.clear();
         if (index == 0 || index == _height-1)
