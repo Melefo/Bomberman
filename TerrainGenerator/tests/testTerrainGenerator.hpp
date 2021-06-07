@@ -36,6 +36,7 @@ class TestTerrainGenerator : public TerrainGenerator {
         bool isMapFull() {return TerrainGenerator::isMapFull();};
         void modifyMap(std::string line, int pos) {_map[pos] = line;};
         int getPlayersNbr() {return _playersNbr;};
+        void makeSpaceForPlayers() {TerrainGenerator::makeSpaceForPlayers();};
 };
 
 #endif /* !TESTTERRAINGENERATOR_HPP_ */

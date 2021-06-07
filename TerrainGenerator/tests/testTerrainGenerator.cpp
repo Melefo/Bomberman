@@ -743,3 +743,48 @@ Test(setPlayersNumber, too_resize_players)
     cr_assert_eq(terrainGenerator.getPlayersNbr(), 6);
     cr_assert_neq(terrainGenerator.getMap(), desiredOutput);
 }
+
+Test(generateRandomMap, seed_test)
+{
+    TestTerrainGenerator terrainGenerator(4);
+    std::vector<std::string> firstOutput;
+
+    terrainGenerator.generateRandomMap(8);
+    firstOutput = terrainGenerator.getMap();
+    terrainGenerator.generateRandomMap(8);
+    cr_assert_eq(terrainGenerator.getMap(), firstOutput);
+}
+
+Test(makeSpaceForPlayers, basic)
+{
+    TestTerrainGenerator terrainGenerator(4);
+    std::vector<std::string> desiredOutput = {
+        {"XXXXXXXXXXXXXXX"},
+        {"XP 111111111 PX"},
+        {"X 11111111111 X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X 11111111111 X"},
+        {"XP 111111111 PX"},
+        {"XXXXXXXXXXXXXXX"}
+    };
+
+    terrainGenerator.modifyMap("XP11111111111PX", 1);
+    terrainGenerator.modifyMap("X1111111111111X", 2);
+    terrainGenerator.modifyMap("X1111111111111X", 3);
+    terrainGenerator.modifyMap("X1111111111111X", 4);
+    terrainGenerator.modifyMap("X1111111111111X", 5);
+    terrainGenerator.modifyMap("X1111111111111X", 6);
+    terrainGenerator.modifyMap("X1111111111111X", 7);
+    terrainGenerator.modifyMap("X1111111111111X", 8);
+    terrainGenerator.modifyMap("X1111111111111X", 9);
+    terrainGenerator.modifyMap("X1111111111111X", 10);
+    terrainGenerator.modifyMap("XP11111111111PX", 11);
+    terrainGenerator.makeSpaceForPlayers();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
+}

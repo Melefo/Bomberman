@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <iostream>
 
-TerrainGenerator::TerrainGenerator(int playersNbr, int boxPercentage)
+TerrainGenerator::TerrainGenerator(int playersNbr, const mapType mapType, int boxPercentage)
     : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
     _height(13)
 {
@@ -27,6 +27,7 @@ TerrainGenerator::TerrainGenerator(int playersNbr, int boxPercentage)
 
     _width = mapSizes[_playersNbr];
     _map = std::vector<std::string>(_height);
+    _mapType = mapType;
     generateMap();
 }
 
@@ -66,7 +67,7 @@ void TerrainGenerator::generateBaseMap()
     }
 }
 
-void TerrainGenerator::generateRandomMap()
+void TerrainGenerator::generateRandomMap(unsigned int seed)
 {
     int index = 0;
     static std::vector<std::vector<std::string>> tiles = {
@@ -105,6 +106,8 @@ void TerrainGenerator::generateRandomMap()
         }
     };
 
+    if (seed != 0)
+        srand(seed);
     for (auto &it : _map) {
         it.clear();
         if (index == 0 || index == _height-1)
@@ -208,12 +211,18 @@ void TerrainGenerator::generateBoxes()
 
 void TerrainGenerator::generateMap()
 {
-    srand (static_cast<unsigned int>(time(NULL)));
+    srand(static_cast<unsigned int>(time(NULL)));
 
-    if (rand() % 3 == 0)
+    if (_mapType == mapType::Basic)
         generateBaseMap();
-    else
-        generateRandomMap();
+    else if (_mapType == mapType::Random)
+        generateRandomMap(0);
+    else {
+        if (rand() % 3 == 0)
+            generateBaseMap();
+        else
+            generateRandomMap(0);
+    }
     generateBoxes();
     placePlayers();
 }
@@ -414,4 +423,22 @@ void TerrainGenerator::trimMap()
     for (auto &it : _map)
         if (it.size() > static_cast<size_t>(_width/2+1))
             it = it.substr(0, _width/2+1);
+}
+
+void TerrainGenerator::makeSpaceForPlayers()
+{
+    for (size_t y = 1; y < _map.size()-1; y++) {
+        for (size_t x = 1; x < _map[y].size(); x++) {
+            if (_map[y][x] == 'P') {
+                if (_map[y-1][x] != static_cast<char>(mapTexture::OWALL))
+                    _map[y-1][x] = ' ';
+                if (_map[y+1][x] != static_cast<char>(mapTexture::OWALL))
+                    _map[y+1][x] = ' ';
+                if (_map[y][x-1] != static_cast<char>(mapTexture::OWALL))
+                    _map[y][x-1] = ' ';
+                if (_map[y][x+1] != static_cast<char>(mapTexture::OWALL))
+                    _map[y][x+1] = ' ';
+            }
+        }
+    }
 }

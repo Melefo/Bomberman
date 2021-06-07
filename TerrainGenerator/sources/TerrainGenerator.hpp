@@ -26,12 +26,21 @@ class TerrainGenerator {
             PLAYER = 'P' // Player character
         };
         /**
+         * @enum Map types
+         * 
+         */
+        enum class mapType {
+            Default, // Generate a basic or random map with the respective ratio 1/3:2/3
+            Basic, // Generate a basic map
+            Random // Generate a random map
+        };
+        /**
          * @brief Construct a new Terrain Generator object
          * 
          * @param playersNbr Number of players (From 1 to 8)
          * @param boxPercentage Percentage of box spawning (80 by default)
          */
-        TerrainGenerator(int playersNbr, int boxPercentage = 80);
+        TerrainGenerator(int playersNbr, const mapType mapType = mapType::Default, int boxPercentage = 80);
         /**
          * @brief Destroy the Terrain Generator object
          * 
@@ -57,8 +66,9 @@ class TerrainGenerator {
         /**
          * @brief Generate procedurally generated map
          * 
+         * @param seed The seed randomizer
          */
-        void generateRandomMap();
+        void generateRandomMap(unsigned int seed);
         /**
          * @brief Clear the map objects and only keep outer walls
          * 
@@ -194,6 +204,11 @@ class TerrainGenerator {
          * 
          */
         void trimMap();
+        /**
+         * @brief Add holes between player places to place safe bombs
+         * 
+         */
+        void makeSpaceForPlayers();
 
         /**
          * @brief Number of players rounded to next pair
@@ -215,6 +230,11 @@ class TerrainGenerator {
          * 
          */
         int _width;
+        /**
+         * @brief Current map type
+         * 
+         */
+        mapType _mapType;
         /**
          * @brief The map
          * 
