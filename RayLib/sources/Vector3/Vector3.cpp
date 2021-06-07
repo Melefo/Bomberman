@@ -132,9 +132,9 @@ namespace RayLib
 
     float Vector3::Distance(const Vector3 other)
     {
-        float distance = sqrt(pow(static_cast<double>(x - other.x), 2.0) +
+        float distance = static_cast<float>(sqrt(pow(static_cast<double>(x - other.x), 2.0) +
                               pow(static_cast<double>(y - other.y), 2.0) +
-                              pow(static_cast<double>(z - other.z), 2.0));
+                              pow(static_cast<double>(z - other.z), 2.0)));
 
         return (distance);
     }
