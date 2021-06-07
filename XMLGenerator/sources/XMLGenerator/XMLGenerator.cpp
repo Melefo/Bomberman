@@ -9,7 +9,7 @@
 
 XMLGenerator::XMLGenerator(const std::string &filepath) : _stream(new std::ofstream), _tags()
 {
-    _stream->open(filepath);
+    _stream->open(filepath, std::ofstream::trunc | std::ofstream::out);
     this->write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 }
 
@@ -44,6 +44,15 @@ void XMLGenerator::closeAndReopen(const std::string &tagName)
     }
 }
 
+void XMLGenerator::CloseTag(const std::string& tag)
+{
+    size_t tagsSize = _tags.size() > 0 ? _tags.size()-1 : 0;
+    std::string tabs(tagsSize, '\t');
+
+    this->write(tabs+"</"+tag+">\n");
+    _tags.erase(std::remove(_tags.begin(), _tags.end(), tag));
+}
+
 void XMLGenerator::closeLastTag()
 {
     size_t tagsSize = _tags.size() > 0 ? _tags.size()-1 : 0;
@@ -66,6 +75,14 @@ void XMLGenerator::write(const std::string &content)
 }
 
 void XMLGenerator::addValue(const std::string &name, int value)
+{
+    size_t tagsSize = _tags.size() > 0 ? _tags.size() : 0;
+    std::string tabs(tagsSize, '\t');
+
+    this->write(tabs+"<"+name+">"+std::to_string(value)+"</"+name+">\n");
+}
+
+void XMLGenerator::addValue(const std::string &name, float value)
 {
     size_t tagsSize = _tags.size() > 0 ? _tags.size() : 0;
     std::string tabs(tagsSize, '\t');

@@ -12,6 +12,7 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 class XMLGenerator {
     public:
@@ -72,6 +73,23 @@ class XMLGenerator {
          * @return int The tag position in the class vector
          */
         int findTag(const std::string &tagName);
+
+        /**
+         * @brief Close tag defined by argument
+         * 
+         * @param tag 
+         */
+        void CloseTag(const std::string& tag);
+
+        // todo template ?
+        /**
+         * @brief Add a float value
+         * 
+         * @param name 
+         * @param value 
+         */
+        void addValue(const std::string &name, float value);
+
 
         /**
          * @brief The file's ofstream
