@@ -30,6 +30,7 @@ namespace Component
              * @param moveSpeed 
              */
             PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed, RayLib::Input input=RayLib::Input());
+
             /**
              * @brief Destroy the Player Movement object
              * 
@@ -69,6 +70,10 @@ namespace Component
              * @param entity 
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
+
+            void SlipperyCollisions();
+
+            bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position);
 
         protected:
         private:

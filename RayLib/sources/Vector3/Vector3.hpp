@@ -156,4 +156,7 @@ namespace RayLib
     };
 }
 
+bool operator==(const RayLib::Vector3& left, const RayLib::Vector3& right);
+
+
 #endif /* !VECTOR3_HPP_ */

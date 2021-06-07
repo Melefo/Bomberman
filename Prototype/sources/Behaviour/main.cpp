@@ -21,6 +21,7 @@
 #include "Draggable.hpp"
 #include "Input.hpp"
 #include "Camera.hpp"
+#include "SphereCollider.hpp"
 
 ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
@@ -30,7 +31,8 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("../assets/BoxMan/guy.iqm", "../assets/BoxMan/guytex.png");
     entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
-    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    //entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 7.5f);
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
 
