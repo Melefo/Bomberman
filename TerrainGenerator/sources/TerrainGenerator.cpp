@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <iostream>
 
-TerrainGenerator::TerrainGenerator(int playersNbr, const mapType mapType, int boxPercentage)
+TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int boxPercentage)
     : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
     _height(13)
 {
@@ -185,6 +185,7 @@ void TerrainGenerator::placePlayers()
         _map[_height/2][1] = static_cast<char>(mapTexture::PLAYER);
         _map[_height/2][_width-2] = static_cast<char>(mapTexture::PLAYER);
     }
+    makeSpaceForPlayers();
 }
 
 char TerrainGenerator::generateBoxLevel()
@@ -213,9 +214,9 @@ void TerrainGenerator::generateMap()
 {
     srand(static_cast<unsigned int>(time(NULL)));
 
-    if (_mapType == mapType::Basic)
+    if (_mapType == MapType::Basic)
         generateBaseMap();
-    else if (_mapType == mapType::Random)
+    else if (_mapType == MapType::Random)
         generateRandomMap(0);
     else {
         if (rand() % 3 == 0)

@@ -29,7 +29,7 @@ class TerrainGenerator {
          * @enum Map types
          * 
          */
-        enum class mapType {
+        enum class MapType {
             Default, // Generate a basic or random map with the respective ratio 1/3:2/3
             Basic, // Generate a basic map
             Random // Generate a random map
@@ -40,7 +40,7 @@ class TerrainGenerator {
          * @param playersNbr Number of players (From 1 to 8)
          * @param boxPercentage Percentage of box spawning (80 by default)
          */
-        TerrainGenerator(int playersNbr, const mapType mapType = mapType::Default, int boxPercentage = 80);
+        TerrainGenerator(int playersNbr, const MapType mapType = MapType::Default, int boxPercentage = 80);
         /**
          * @brief Destroy the Terrain Generator object
          * 
@@ -234,7 +234,7 @@ class TerrainGenerator {
          * @brief Current map type
          * 
          */
-        mapType _mapType;
+        MapType _mapType;
         /**
          * @brief The map
          * 
