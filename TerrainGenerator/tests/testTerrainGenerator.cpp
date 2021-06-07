@@ -13,14 +13,14 @@ Test(generateMapLine, pair)
 {
     TestTerrainGenerator terrainGenerator(6);
 
-    cr_assert_eq(terrainGenerator.generateMapLine(4), "O o o o o o o o O");
+    cr_assert_eq(terrainGenerator.generateMapLine(4), "X o o o o o o o X");
 }
 
 Test(generateMapLine, odd)
 {
     TestTerrainGenerator terrainGenerator(6);
 
-    cr_assert_eq(terrainGenerator.generateMapLine(5), "O               O");
+    cr_assert_eq(terrainGenerator.generateMapLine(5), "X               X");
 }
 
 Test(generateBaseMap, six_players_and_sizes)
@@ -28,19 +28,19 @@ Test(generateBaseMap, six_players_and_sizes)
     TestTerrainGenerator terrainGenerator(6);
     int index = 0;
     std::vector<std::string> testMap = {
-        "OOOOOOOOOOOOOOOOO",
-        "O               O",
-        "O o o o o o o o O",
-        "O               O",
-        "O o o o o o o o O",
-        "O               O",
-        "O o o o o o o o O",
-        "O               O",
-        "O o o o o o o o O",
-        "O               O",
-        "O o o o o o o o O",
-        "O               O",
-        "OOOOOOOOOOOOOOOOO",
+        "XXXXXXXXXXXXXXXXX",
+        "X               X",
+        "X o o o o o o o X",
+        "X               X",
+        "X o o o o o o o X",
+        "X               X",
+        "X o o o o o o o X",
+        "X               X",
+        "X o o o o o o o X",
+        "X               X",
+        "X o o o o o o o X",
+        "X               X",
+        "XXXXXXXXXXXXXXXXX",
     };
 
     terrainGenerator.generateBaseMap();
@@ -110,19 +110,19 @@ Test(clearMap, basic)
 {
     TestTerrainGenerator terrainGenerator(6);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -134,34 +134,34 @@ Test(trimMap, basic)
 {
     TestTerrainGenerator terrainGenerator(6);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
     std::vector<std::string> secondDesiredOutput = {
-        {"OOOOOOOOO"},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"O        "},
-        {"OOOOOOOOO"},
+        {"XXXXXXXXX"},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"X        "},
+        {"XXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -195,19 +195,19 @@ Test(addTetrOnMap, basic)
         }
     };
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"O               O"},
-        {"O  o            O"},
-        {"O ooo           O"},
-        {"O  o            O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"X               X"},
+        {"X  o            X"},
+        {"X ooo           X"},
+        {"X  o            X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -228,19 +228,19 @@ Test(tryPlacingTile, basic)
         "***xx"
     };
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"O               O"},
-        {"O               O"},
-        {"O o             O"},
-        {"O o             O"},
-        {"O ooo           O"},
-        {"O o             O"},
-        {"O o             O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"X               X"},
+        {"X               X"},
+        {"X o             X"},
+        {"X o             X"},
+        {"X ooo           X"},
+        {"X o             X"},
+        {"X o             X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -267,19 +267,19 @@ Test(tryPlacingTile, one_on_top_another)
         }
     };
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"O               O"},
-        {"O               O"},
-        {"O o ooo         O"},
-        {"O o   o         O"},
-        {"O ooo ooo       O"},
-        {"O o             O"},
-        {"O o             O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"X               X"},
+        {"X               X"},
+        {"X o ooo         X"},
+        {"X o   o         X"},
+        {"X ooo ooo       X"},
+        {"X o             X"},
+        {"X o             X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -307,19 +307,19 @@ Test(tryPlacingTile, one_stepping_another)
         }
     };
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"O               O"},
-        {"O   ooo         O"},
-        {"O o   o         O"},
-        {"O o   ooo       O"},
-        {"O ooo           O"},
-        {"O o             O"},
-        {"O o             O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"X               X"},
+        {"X   ooo         X"},
+        {"X o   o         X"},
+        {"X o   ooo       X"},
+        {"X ooo           X"},
+        {"X o             X"},
+        {"X o             X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -343,19 +343,19 @@ Test(tryTetrPositions, basic)
         }
     };
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"O               O"},
-        {"O   ooo ooo     O"},
-        {"O o   o         O"},
-        {"O o   ooo       O"},
-        {"O ooo           O"},
-        {"O o    ooo      O"},
-        {"O o  o   o      O"},
-        {"O   ooo  ooo    O"},
-        {"O    o          O"},
-        {"O      ooo      O"},
-        {"O               O"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"X               X"},
+        {"X   ooo ooo     X"},
+        {"X o   o         X"},
+        {"X o   ooo       X"},
+        {"X ooo           X"},
+        {"X o    ooo      X"},
+        {"X o  o   o      X"},
+        {"X   ooo  ooo    X"},
+        {"X    o          X"},
+        {"X      ooo      X"},
+        {"X               X"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -376,8 +376,8 @@ Test(blocksPath, basic)
     cr_assert_eq(terrainGenerator.blocksPath(3, 2), true);
     cr_assert_eq(terrainGenerator.blocksPath(1, 1), true);
     terrainGenerator.clearMap();
-    terrainGenerator.modifyMap("O o             O", 2);
-    terrainGenerator.modifyMap("O   o           O", 4);
+    terrainGenerator.modifyMap("X o             X", 2);
+    terrainGenerator.modifyMap("X   o           X", 4);
     cr_assert_eq(terrainGenerator.blocksPath(3, 3), false);
     cr_assert_eq(terrainGenerator.blocksPath(3, 6), false);
 }
@@ -386,19 +386,19 @@ Test(displayMap, basic)
 {
     TestTerrainGenerator terrainGenerator(6);
     std::string desiredOutput =
-        std::string("OOOOOOOOOOOOOOOOO\n")+
-        std::string("O               O\n")+
-        std::string("O o o o o o o o O\n")+
-        std::string("O               O\n")+
-        std::string("O o o o o o o o O\n")+
-        std::string("O               O\n")+
-        std::string("O o o o o o o o O\n")+
-        std::string("O               O\n")+
-        std::string("O o o o o o o o O\n")+
-        std::string("O               O\n")+
-        std::string("O o o o o o o o O\n")+
-        std::string("O               O\n")+
-        std::string("OOOOOOOOOOOOOOOOO\n");
+        std::string("XXXXXXXXXXXXXXXXX\n")+
+        std::string("X               X\n")+
+        std::string("X o o o o o o o X\n")+
+        std::string("X               X\n")+
+        std::string("X o o o o o o o X\n")+
+        std::string("X               X\n")+
+        std::string("X o o o o o o o X\n")+
+        std::string("X               X\n")+
+        std::string("X o o o o o o o X\n")+
+        std::string("X               X\n")+
+        std::string("X o o o o o o o X\n")+
+        std::string("X               X\n")+
+        std::string("XXXXXXXXXXXXXXXXX\n");
     std::string content;
 
     terrainGenerator.generateBaseMap();
@@ -413,19 +413,19 @@ Test(addTileOnMap, basic)
 {
     TestTerrainGenerator terrainGenerator(6);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"O               O"},
-        {"O  o            O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"X               X"},
+        {"X  o            X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -437,19 +437,19 @@ Test(placePlayers, two_players)
 {
     TestTerrainGenerator terrainGenerator(2);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOO"},
-        {"OP          O"},
-        {"O           O"},
-        {"O           O"},
-        {"O           O"},
-        {"O           O"},
-        {"O           O"},
-        {"O           O"},
-        {"O           O"},
-        {"O           O"},
-        {"O           O"},
-        {"O          PO"},
-        {"OOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXX"},
+        {"XP          X"},
+        {"X           X"},
+        {"X           X"},
+        {"X           X"},
+        {"X           X"},
+        {"X           X"},
+        {"X           X"},
+        {"X           X"},
+        {"X           X"},
+        {"X           X"},
+        {"X          PX"},
+        {"XXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -461,19 +461,19 @@ Test(placePlayers, three_players)
 {
     TestTerrainGenerator terrainGenerator(3);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOO"},
-        {"OP           PO"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"OP           PO"},
-        {"OOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXX"},
+        {"XP           PX"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"XP           PX"},
+        {"XXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -485,19 +485,19 @@ Test(placePlayers, four_players)
 {
     TestTerrainGenerator terrainGenerator(4);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOO"},
-        {"OP           PO"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"OP           PO"},
-        {"OOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXX"},
+        {"XP           PX"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"XP           PX"},
+        {"XXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -509,19 +509,19 @@ Test(placePlayers, six_players)
 {
     TestTerrainGenerator terrainGenerator(6);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOO"},
-        {"OP      P      PO"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"O               O"},
-        {"OP      P      PO"},
-        {"OOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXX"},
+        {"XP      P      PX"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"X               X"},
+        {"XP      P      PX"},
+        {"XXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -533,19 +533,19 @@ Test(placePlayers, eight_players)
 {
     TestTerrainGenerator terrainGenerator(8);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOOOO"},
-        {"OP       P       PO"},
-        {"O                 O"},
-        {"O                 O"},
-        {"O                 O"},
-        {"O                 O"},
-        {"OP               PO"},
-        {"O                 O"},
-        {"O                 O"},
-        {"O                 O"},
-        {"O                 O"},
-        {"OP       P       PO"},
-        {"OOOOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXXXX"},
+        {"XP       P       PX"},
+        {"X                 X"},
+        {"X                 X"},
+        {"X                 X"},
+        {"X                 X"},
+        {"XP               PX"},
+        {"X                 X"},
+        {"X                 X"},
+        {"X                 X"},
+        {"X                 X"},
+        {"XP       P       PX"},
+        {"XXXXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -557,19 +557,19 @@ Test(placePlayers, more_players)
 {
     TestTerrainGenerator terrainGenerator(22);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOOOOOO"},
-        {"OP       P       PO"},
-        {"O                 O"},
-        {"O                 O"},
-        {"O                 O"},
-        {"O                 O"},
-        {"OP               PO"},
-        {"O                 O"},
-        {"O                 O"},
-        {"O                 O"},
-        {"O                 O"},
-        {"OP       P       PO"},
-        {"OOOOOOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXXXXXX"},
+        {"XP       P       PX"},
+        {"X                 X"},
+        {"X                 X"},
+        {"X                 X"},
+        {"X                 X"},
+        {"XP               PX"},
+        {"X                 X"},
+        {"X                 X"},
+        {"X                 X"},
+        {"X                 X"},
+        {"XP       P       PX"},
+        {"XXXXXXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -581,33 +581,33 @@ Test(blocksPath, advanced)
 {
     TestTerrainGenerator terrainGenerator(4);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOO"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O             O"},
-        {"O     o o     O"},
-        {"O             O"},
-        {"O     o o     O"},
-        {"O             O"},
-        {"OOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXX"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X             X"},
+        {"X     o o     X"},
+        {"X             X"},
+        {"X     o o     X"},
+        {"X             X"},
+        {"XXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
     cr_assert_eq(terrainGenerator.blocksPath(5, 6), false);
-    terrainGenerator.modifyMap("O     o o     O", 8);
-    terrainGenerator.modifyMap("O     o o     O", 10);
+    terrainGenerator.modifyMap("X     o o     X", 8);
+    terrainGenerator.modifyMap("X     o o     X", 10);
     cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
-    terrainGenerator.modifyMap("O     ooo     O", 7);
+    terrainGenerator.modifyMap("X     ooo     X", 7);
     cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
-    terrainGenerator.modifyMap("O     ooo     O", 8);
+    terrainGenerator.modifyMap("X     ooo     X", 8);
     cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
-    terrainGenerator.modifyMap("O     ooo     O", 9);
+    terrainGenerator.modifyMap("X     ooo     X", 9);
     cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
-    terrainGenerator.modifyMap("O     oo      O", 9);
+    terrainGenerator.modifyMap("X     oo      X", 9);
     cr_assert_eq(terrainGenerator.blocksPath(9, 7), true);
 }
 
@@ -616,11 +616,11 @@ Test(lineGetWidth, basic)
     TestTerrainGenerator terrainGenerator(4);
 
     terrainGenerator.clearMap();
-    terrainGenerator.modifyMap("O       o     O", 1);
+    terrainGenerator.modifyMap("X       o     X", 1);
     cr_assert_eq(terrainGenerator.lineGetWidth(1), 9);
-    terrainGenerator.modifyMap("Oo            O", 2);
+    terrainGenerator.modifyMap("Xo            X", 2);
     cr_assert_eq(terrainGenerator.lineGetWidth(2), 2);
-    terrainGenerator.modifyMap("O            oO", 3);
+    terrainGenerator.modifyMap("X            oX", 3);
     cr_assert_eq(terrainGenerator.lineGetWidth(3), 14);
     cr_assert_eq(terrainGenerator.lineGetWidth(4), 1);
 }
@@ -629,19 +629,19 @@ Test(fillHoles, basic)
 {
     TestTerrainGenerator terrainGenerator(4);
     std::vector<std::string> desiredOutput = {
-        {"OOOOOOOOOOOOOOO"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"Ooooooooooooo O"},
-        {"O             O"},
-        {"OOOOOOOOOOOOOOO"},
+        {"XXXXXXXXXXXXXXX"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"Xoooooooooooo X"},
+        {"X             X"},
+        {"XXXXXXXXXXXXXXX"},
     };
 
     terrainGenerator.clearMap();
@@ -654,14 +654,59 @@ Test(isMapFull, basic)
     TestTerrainGenerator terrainGenerator(4);
 
     terrainGenerator.clearMap();
-    terrainGenerator.modifyMap("Ooooooooooooo O", 1);
-    terrainGenerator.modifyMap("Ooooooooooooo O", 2);
-    terrainGenerator.modifyMap("Ooooooooooooo O", 3);
-    terrainGenerator.modifyMap("Ooooooooooooo O", 4);
-    terrainGenerator.modifyMap("Ooooooooooooo O", 5);
+    terrainGenerator.modifyMap("Xoooooooooooo X", 1);
+    terrainGenerator.modifyMap("Xoooooooooooo X", 2);
+    terrainGenerator.modifyMap("Xoooooooooooo X", 3);
+    terrainGenerator.modifyMap("Xoooooooooooo X", 4);
+    terrainGenerator.modifyMap("Xoooooooooooo X", 5);
     cr_assert_eq(terrainGenerator.isMapFull(), false);
-    terrainGenerator.modifyMap("Ooooooooooooo O", 6);
+    terrainGenerator.modifyMap("Xoooooooooooo X", 6);
     cr_assert_eq(terrainGenerator.isMapFull(), true);
-    terrainGenerator.modifyMap("Oooooo        O", 3);
+    terrainGenerator.modifyMap("Xooooo        X", 3);
     cr_assert_eq(terrainGenerator.isMapFull(), false);
+}
+
+Test(generateRandomMap, seed_test)
+{
+    TestTerrainGenerator terrainGenerator(4);
+    std::vector<std::string> firstOutput;
+
+    terrainGenerator.generateRandomMap(8);
+    firstOutput = terrainGenerator.getMap();
+    terrainGenerator.generateRandomMap(8);
+    cr_assert_eq(terrainGenerator.getMap(), firstOutput);
+}
+
+Test(makeSpaceForPlayers, basic)
+{
+    TestTerrainGenerator terrainGenerator(4);
+    std::vector<std::string> desiredOutput = {
+        {"XXXXXXXXXXXXXXX"},
+        {"XP 111111111 PX"},
+        {"X 11111111111 X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X1111111111111X"},
+        {"X 11111111111 X"},
+        {"XP 111111111 PX"},
+        {"XXXXXXXXXXXXXXX"}
+    };
+
+    terrainGenerator.modifyMap("XP11111111111PX", 1);
+    terrainGenerator.modifyMap("X1111111111111X", 2);
+    terrainGenerator.modifyMap("X1111111111111X", 3);
+    terrainGenerator.modifyMap("X1111111111111X", 4);
+    terrainGenerator.modifyMap("X1111111111111X", 5);
+    terrainGenerator.modifyMap("X1111111111111X", 6);
+    terrainGenerator.modifyMap("X1111111111111X", 7);
+    terrainGenerator.modifyMap("X1111111111111X", 8);
+    terrainGenerator.modifyMap("X1111111111111X", 9);
+    terrainGenerator.modifyMap("X1111111111111X", 10);
+    terrainGenerator.modifyMap("XP11111111111PX", 11);
+    terrainGenerator.makeSpaceForPlayers();
+    cr_assert_eq(terrainGenerator.getMap(), desiredOutput);
 }
