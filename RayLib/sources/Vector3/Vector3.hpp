@@ -10,6 +10,8 @@
 
 #include <raylib.h>
 #include <cmath>
+#include <ostream>
+#include <sstream>
 
 namespace RayLib
 {
@@ -155,6 +157,7 @@ namespace RayLib
             void Lerp(Vector3 target, float t);
 
             bool operator==(const RayLib::Vector3& other);
+            std::ostream& operator<<(std::ostream& stream);
 
             float x;
             float y;

@@ -28,9 +28,16 @@ namespace Component
         _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
     }
 
-
     RayLib::Model& Renderer::GetModel()
     {
         return (_model);
     }
+
+    std::ostream& Renderer::operator<<(std::ostream& stream)
+    {
+        // save model path
+        // save texture path
+        return (stream);
+    }
+
 }

@@ -74,6 +74,7 @@ namespace Component
             void SlipperyCollisions();
 
             bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position);
+            std::ostream& operator<<(std::ostream& stream) override;
 
         protected:
         private:

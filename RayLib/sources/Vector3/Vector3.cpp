@@ -142,6 +142,15 @@ namespace RayLib
                               pow(static_cast<double>(z - other.z), 2.0)));
 
         return (distance);
+    std::ostream& Vector3::operator<<(std::ostream& stream)
+    {
+        stream << "<vector3>" << std::endl;
+        stream << "\t<x>" << x << "<x/>" << std::endl;
+        stream << "\t<y>" << y << "<y/>" << std::endl;
+        stream << "\t<z>" << x << "<z/>" << std::endl;
+        stream << "</vector3>" << std::endl;
+
+        return (stream);
     }
 
 }

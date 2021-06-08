@@ -73,6 +73,9 @@ namespace Component
              * @param target 
              */
             void SetTarget(RayLib::Vector3& target);
+            RayLib::Camera3D camera;
+
+            std::ostream& operator<<(std::ostream& stream) override;
 
         protected:
         private:

@@ -41,4 +41,10 @@ namespace Component
     {
         std::cout << "Hello!" << std::endl;
     }
+
+    std::ostream& ButtonCallbacks::operator<<(std::ostream& stream)
+    {
+        // throw exception cannot be serialized ?
+        return (stream);
+    }
 }

@@ -16,4 +16,12 @@ namespace Component
         color = startColor;
         size = startSize;
     }
+
+    std::ostream& Text::operator<<(std::ostream& stream)
+    {
+        // save str
+        // save color
+        // save size
+        return (stream);
+    }
 }

@@ -8,6 +8,8 @@
 #ifndef ICOMPONENT_HPP_
 #define ICOMPONENT_HPP_
 
+#include <ostream>
+
 namespace ECS
 {
     /**
@@ -38,6 +40,8 @@ namespace ECS
              * @return IComponent& assigned component
              */
             IComponent& operator=(const IComponent&) = delete;
+
+            virtual std::ostream& operator<<(std::ostream& stream) = 0;
     };
 }
 

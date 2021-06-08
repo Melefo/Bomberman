@@ -46,4 +46,10 @@ namespace Component
         _targetLookAt = target;
     }
 
+    std::ostream& Camera::operator<<(std::ostream& stream)
+    {
+        // save camera parameters
+        // target transform
+        return (stream);
+    }
 }

@@ -168,6 +168,13 @@ namespace ECS
              * 
              */
             void Dispose();
+
+            /**
+             * @brief Get Component by name, if exists
+             * 
+             */
+            IComponent& GetComponentByName(const std::string& name);
+
     };
 }
 

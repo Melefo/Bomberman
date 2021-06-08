@@ -113,6 +113,8 @@ namespace Component
              */
             ECS::Entity& GetCollision() override;
 
+            std::ostream& operator<<(std::ostream& stream) override;
+
         protected:
         private:
             /**

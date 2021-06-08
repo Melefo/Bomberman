@@ -33,4 +33,10 @@ namespace ECS
     {
         this->_entityManager.DeleteEntity(*this);
     }
+
+    IComponent& Entity::GetComponentByName(const std::string& name)
+    {
+        return (this->_componentManager.GetComponentByName(name));
+    }
+
 }

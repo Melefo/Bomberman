@@ -58,7 +58,14 @@ namespace Component
              */
             void AddAnimation(const std::string& filePath, std::string stateName);
 
+            /**
+             * @brief Play animation at current state of statemachine
+             * 
+             * @param model 
+             */
             void PlayCurrentState(RayLib::Model& model);
+
+            std::ostream& operator<<(std::ostream& stream) override;
         protected:
         private:
             std::map<std::string, RayLib::ModelAnimation> _stateMachine;
