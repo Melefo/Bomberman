@@ -17,7 +17,7 @@ namespace Component
         //_button.AddCallback(std::bind(&ButtonCallbacks::QuitWindow, this));
     }
 
-    void ButtonCallbacks::Update(double)
+    void ButtonCallbacks::Update(double, ECS::Entity&)
     {
         if (_button.IsMouseOver() && RayLib::Mouse::IsButtonPressed(MOUSE_BUTTON_LEFT)) {
             _button.OnClick();
@@ -26,6 +26,11 @@ namespace Component
 
     void ButtonCallbacks::FixedUpdate(ECS::Entity&)
     {
+    }
+
+    void ButtonCallbacks::LateUpdate(double, ECS::Entity&)
+    {
+
     }
 
     void ButtonCallbacks::StaticCallback(void)
