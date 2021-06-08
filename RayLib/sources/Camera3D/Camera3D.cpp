@@ -18,11 +18,6 @@ namespace RayLib
         _camera.projection = projection;          // Camera mode type
     }
 
-    Camera3D::~Camera3D()
-    {
-
-    }
-
     void Camera3D::Update()
     {
         ::UpdateCamera(&_camera);
@@ -54,6 +49,22 @@ namespace RayLib
     {
         return (_camera);
     }
+
+    void Camera3D::SetPosition(RayLib::Vector3 position)
+    {
+        _camera.position = position.getVector3();
+    }
+
+    void Camera3D::SetTarget(RayLib::Vector3 targetPosition)
+    {
+        _camera.target = targetPosition.getVector3();
+    }
+
+    const Vector3 Camera3D::GetPosition()
+    {
+        return (_camera.position);
+    }
+
 
 }
 
