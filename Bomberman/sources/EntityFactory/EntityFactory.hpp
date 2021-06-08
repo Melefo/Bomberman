@@ -32,7 +32,7 @@ class EntityFactory {
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createButton();
+        ECS::Entity& createButton(const std::string& texturePath="../assets/models/cube/def_text.png");
         /**
          * @brief Create a Wall object
          * 
