@@ -38,6 +38,6 @@ HEADER_DIRECTORIES(INC)
 target_include_directories(engine PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
 target_include_directories(engine_unit_tests PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
 
-TARGET_LINK_LIBRARIES(engine encapsu ecs ${Boost_LIBRARIES})
+TARGET_LINK_LIBRARIES(engine encapsu ecs xmlGen ${Boost_LIBRARIES})
 TARGET_LINK_LIBRARIES(engine_unit_tests encapsu ecs ${Boost_LIBRARIES} criterion -lgcov)
 TARGET_COMPILE_OPTIONS(engine_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)

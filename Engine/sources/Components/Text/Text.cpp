@@ -17,11 +17,4 @@ namespace Component
         size = startSize;
     }
 
-    std::ostream& Text::operator<<(std::ostream& stream)
-    {
-        // save str
-        // save color
-        // save size
-        return (stream);
-    }
 }

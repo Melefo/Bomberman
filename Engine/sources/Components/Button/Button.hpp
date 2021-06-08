@@ -82,8 +82,6 @@ namespace Component
 
             // todo getrect
 
-            std::ostream& operator<<(std::ostream& stream) override;
-
         protected:
         private:
             /**

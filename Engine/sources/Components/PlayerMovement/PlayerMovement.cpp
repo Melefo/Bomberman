@@ -99,10 +99,4 @@ namespace Component
 
     }
 
-    std::ostream& PlayerMovement::operator<<(std::ostream& stream)
-    {
-        // save movement keys
-        // speed
-        return (stream);
-    }
 }

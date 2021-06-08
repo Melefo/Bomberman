@@ -122,11 +122,5 @@ namespace Component
         _bounds.InitFromCube(transform.position, _scale);
     }
 
-    std::ostream& BoxCollider::operator<<(std::ostream& stream)
-    {
-        // save vertexes
-        return (stream);
-    }
-
 }
 

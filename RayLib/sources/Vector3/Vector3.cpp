@@ -142,15 +142,26 @@ namespace RayLib
                               pow(static_cast<double>(z - other.z), 2.0)));
 
         return (distance);
-    std::ostream& Vector3::operator<<(std::ostream& stream)
+    }
+    void Vector3::LoadFromXML(std::istream &is)
     {
-        stream << "<vector3>" << std::endl;
-        stream << "\t<x>" << x << "<x/>" << std::endl;
-        stream << "\t<y>" << y << "<y/>" << std::endl;
-        stream << "\t<z>" << x << "<z/>" << std::endl;
-        stream << "</vector3>" << std::endl;
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
 
-        return (stream);
+        boost::property_tree::ptree vec3 = tree.get_child("Vector3");
+
+        x = vec3.get<float>("x");
+        y = vec3.get<float>("y");
+        z = vec3.get<float>("z");
+    }
+
+    void Vector3::SerializeToXML(std::ostream &os) const
+    {
+        os << "<Vector3>" << std::endl;
+        os << "\t<x>" << x << "</x>" << std::endl;
+        os << "\t<y>" << y << "</y>" << std::endl;
+        os << "\t<z>" << z << "</z>" << std::endl;
+        os << "</Vector3>" << std::endl;
     }
 
 }

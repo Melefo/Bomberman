@@ -61,8 +61,6 @@ namespace Component
              */
             void TakeDamage(int damage);
 
-            std::ostream& operator<<(std::ostream& stream) override;
-
         protected:
         private:
             ECS::Entity& _myEntity;

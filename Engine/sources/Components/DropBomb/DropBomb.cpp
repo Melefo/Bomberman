@@ -58,12 +58,4 @@ namespace Component
         entity.AddComponent<IBehaviour, Explosion>(entity, radius, explosionType);
     }
 
-    std::ostream& DropBomb::operator<<(std::ostream& stream)
-    {
-        // save dropkey
-        // save dropdelay
-        return (stream);
-    }
-
-
 }

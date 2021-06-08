@@ -28,10 +28,4 @@ namespace Component
         }
     }
 
-    std::ostream& Destructible::operator<<(std::ostream& stream)
-    {
-        // save resistance
-        return (stream);
-    }
-
 }

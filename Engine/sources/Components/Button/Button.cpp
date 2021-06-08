@@ -54,13 +54,5 @@ namespace Component
             callback();
         }
     }
-
-    std::ostream& Button::operator<<(std::ostream& stream)
-    {
-        // save texture
-        // save rect
-        // save function pointers ?
-        return (stream);
-    }
 }
 

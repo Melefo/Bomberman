@@ -30,13 +30,5 @@ namespace Component
     {
         _stateMachine.insert(std::pair<std::string, RayLib::ModelAnimation>(stateName, RayLib::ModelAnimation(filePath)));
     }
-
-    std::ostream& Animator::operator<<(std::ostream& stream)
-    {
-        // save all animation paths and states
-        return (stream);
-    }
-
-
 }
 

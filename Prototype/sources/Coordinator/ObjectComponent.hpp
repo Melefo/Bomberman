@@ -25,8 +25,6 @@ class ObjectComponent : public ECS::IComponent
         RayLib::Vector3 position;
         float size;
 
-        std::ostream& operator<<(std::ostream& stream) override;
-
     protected:
     private:
 };

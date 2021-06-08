@@ -33,11 +33,4 @@ namespace Component
         return (_model);
     }
 
-    std::ostream& Renderer::operator<<(std::ostream& stream)
-    {
-        // save model path
-        // save texture path
-        return (stream);
-    }
-
 }

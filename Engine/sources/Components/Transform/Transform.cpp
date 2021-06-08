@@ -13,18 +13,5 @@ namespace Component
     position(startPos), rotation(startRot), scale(startScale)
     {
     }
-
-    std::ostream& Transform::operator<<(std::ostream& stream)
-    {
-        stream << "<Transform>" << std::endl;
-        stream << "\t<position>" << std::endl;
-        stream << "\t\t";
-        //stream << position << std::endl;
-        stream << "\t</position>" << std::endl;
-        stream << "</Transform>" << std::endl;
-
-        return (stream);
-    }
-
 }
 

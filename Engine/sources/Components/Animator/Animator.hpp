@@ -65,7 +65,6 @@ namespace Component
              */
             void PlayCurrentState(RayLib::Model& model);
 
-            std::ostream& operator<<(std::ostream& stream) override;
         protected:
         private:
             std::map<std::string, RayLib::ModelAnimation> _stateMachine;

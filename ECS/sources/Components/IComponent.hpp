@@ -40,8 +40,6 @@ namespace ECS
              * @return IComponent& assigned component
              */
             IComponent& operator=(const IComponent&) = delete;
-
-            virtual std::ostream& operator<<(std::ostream& stream) = 0;
     };
 }
 

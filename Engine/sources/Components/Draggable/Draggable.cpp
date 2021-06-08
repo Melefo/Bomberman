@@ -57,11 +57,5 @@ namespace Component
     {
         
     }
-
-    std::ostream& Draggable::operator<<(std::ostream& stream)
-    {
-        // non-serializable
-        return (stream);
-    }
 }
 

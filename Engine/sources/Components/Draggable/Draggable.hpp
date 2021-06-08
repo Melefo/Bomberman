@@ -73,7 +73,6 @@ namespace Component
              * @param entity 
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
-            std::ostream& operator<<(std::ostream& stream) override;
 
         protected:
         private:

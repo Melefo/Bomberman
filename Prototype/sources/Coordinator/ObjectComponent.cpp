@@ -14,8 +14,3 @@ model("../assets/Cat_V2/cat.obj"), texture("../assets/Cat_V2/banana.png")
     size = 0.01f;
     model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
 }
-
-std::ostream& ObjectComponent::operator<<(std::ostream& stream)
-{
-    return (stream);
-}

@@ -13,10 +13,4 @@ namespace Component
     {
         velocity = startVelocity;
     }
-
-    std::ostream& PhysicsBody::operator<<(std::ostream& stream)
-    {
-        // save velocity
-        return (stream);
-    }
 }

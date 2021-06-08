@@ -38,7 +38,7 @@ HEADER_DIRECTORIES(INC)
 target_include_directories(xmlGen PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
 target_include_directories(xmlGen_unit_tests PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
 
-TARGET_LINK_LIBRARIES(xmlGen encapsu ecs engine)
-TARGET_LINK_LIBRARIES(xmlGen_unit_tests encapsu ecs engine criterion -lgcov)
+TARGET_LINK_LIBRARIES(xmlGen)
+TARGET_LINK_LIBRARIES(xmlGen_unit_tests criterion -lgcov)
 TARGET_COMPILE_OPTIONS(xmlGen_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
