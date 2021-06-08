@@ -8,6 +8,7 @@
 #include <criterion/criterion.h>
 #include "Vector3.hpp"
 #include "IXMLSerializable.hpp"
+#include "Transform.hpp"
 
 Test(serializeVec3, vec3)
 {
@@ -22,4 +23,25 @@ Test(serializeVec3, vec3)
     iss.str(oss.str());
     iss >> dest;
     cr_assert(src == dest);
+}
+
+Test(serializeTransform, transform)
+{
+    Component::Transform src(RayLib::Vector3(1.0f, 0.0f, 0.0f),
+                             RayLib::Vector3(0.0f, 1.0f, 0.0f),
+                             RayLib::Vector3(0.0f, 0.0f, 1.0f));
+    Component::Transform dest;
+
+    IXMLSerializable& serializableObj = src;
+    std::ostringstream oss;
+    std::istringstream iss;
+
+    oss << serializableObj;
+    iss.str(oss.str());
+    iss >> dest;
+
+    cr_assert(src.position == dest.position);
+    cr_assert(src.scale == dest.scale);
+    cr_assert(src.rotation == dest.rotation);
+
 }
