@@ -24,6 +24,7 @@
 #include "SphereCollider.hpp"
 
 #include "TerrainGenerator.hpp"
+
 #define BOX_SIZE 10
 
 
@@ -31,7 +32,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
     // cat
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(30,0, 30));
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(30, 0, 30));
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("../assets/BoxMan/guy.iqm", "../assets/BoxMan/guytex.png");
     entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
@@ -79,13 +80,12 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     return (entity);
 }
 
-ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
+ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, Component::Transform& target)
 {
     ECS::Entity& entity = coordinator.CreateEntity();
 
-    entity.AddComponent<Component::Transform>(0.0f, 500.0f, 0.0f);
-    RayLib::Vector3 target = RayLib::Vector3(0.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera, target);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, 0.0f));
+    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera, target.position);
 
     return (entity);
 }
@@ -146,16 +146,18 @@ int main(void)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
 
-    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
+    //! camera pos and target determined by component
+    //! attention le 3e arg: world up est important
+    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 0.0f, 0.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 0.0f, 1.0f));
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     TerrainGenerator map(2);
 
-    /*ECS::Entity& cat = */InitCat(*coordinator.get());
+    ECS::Entity& cat = InitCat(*coordinator.get());
     /*ECS::Entity& button = *///InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
         InitMap(*coordinator.get(), camera, map.getMap(), 0);            // ajoute la default map en fond
 
-    InitCamera(*coordinator.get(), camera);
+    InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
 
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::RenderSystem>();
@@ -163,13 +165,13 @@ int main(void)
     coordinator->AddSystem<Component::UISystem>(camera);
 
     window->SetTargetFPS(60);
-    camera.SetCameraMode(CAMERA_FREE);
+    //camera.SetCameraMode(CAMERA_FREE);
 
     while (!window->WindowShouldClose())
     {
         /*if (coordinator->GetEntities().size() == 0)
             Scenes::scenesCtor[coordinator->getCurrentScene()](*(coordinator.get()), camera);*/
-        camera.Update();
+        //camera.Update();
 
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);

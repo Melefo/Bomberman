@@ -77,7 +77,7 @@ namespace Component
         protected:
         private:
             ECS::Entity& _entity;
-            Component::Transform& _transform;
+            Transform& _transform;
             RayLib::Vector3& _targetLookAt;
             float _lerpTime;
 
