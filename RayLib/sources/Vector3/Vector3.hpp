@@ -9,6 +9,8 @@
 #define VECTOR3_HPP_
 
 #include <raylib.h>
+#include <ostream>
+#include <sstream>
 
 namespace RayLib
 {
@@ -128,6 +130,7 @@ namespace RayLib
              */
             Vector3 operator*(const float factor);
 
+            std::ostream& operator<<(std::ostream& stream);
 
             float x;
             float y;

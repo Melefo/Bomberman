@@ -26,6 +26,9 @@ namespace Component
             RayLib::Font font;
             RayLib::Color color;
             unsigned int size;
+
+            std::ostream& operator<<(std::ostream& stream) override;
+
         protected:
         private:
     };

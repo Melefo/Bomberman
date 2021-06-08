@@ -11,7 +11,7 @@
 
 Test(serializeEntity, transform)
 {
-    std::string filepath = "Entities.xml";
+    std::string filepath = "./Entities.xml";
     EntitySerializer entitySerializer(filepath);
     std::string output;
     std::string desiredOutput =
@@ -39,13 +39,13 @@ Test(serializeEntity, transform)
     auto& coordinator = ECS::Coordinator::GetInstance();
     ECS::Entity& entity = coordinator->CreateEntity();
 
-    entitySerializer.SaveEntities();
-
-    entitySerializer.closeFile();
-
     entity.AddComponent<Component::Transform>(RayLib::Vector3(10.0f, 0.0f, 0.0f),
                                    RayLib::Vector3(0.0f, 10.0f, 0.0f),
                                    RayLib::Vector3(0.0f, 0.0f, 10.0f));
+
+    entitySerializer.SaveEntities();
+
+    entitySerializer.closeFile();
 
     std::ifstream stream(filepath);
 

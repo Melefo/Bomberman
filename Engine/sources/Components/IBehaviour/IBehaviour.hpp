@@ -55,7 +55,6 @@ namespace Component
              * @param entity 
              */
             virtual void FixedUpdate(ECS::Entity& entity) = 0;
-
         protected:
         private:
 

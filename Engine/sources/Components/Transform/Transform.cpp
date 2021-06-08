@@ -13,5 +13,14 @@ namespace Component
     position(startPos), rotation(startRot), scale(startScale)
     {
     }
+
+    std::ostream& Transform::operator<<(std::ostream& stream)
+    {
+        // save position
+        // save rotation
+        // save scale
+        return (stream);
+    }
+
 }
 

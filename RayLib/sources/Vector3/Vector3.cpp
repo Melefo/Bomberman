@@ -111,4 +111,12 @@ namespace RayLib
         z *= factor;
         return (*this);
     }
+
+    std::ostream& Vector3::operator<<(std::ostream& stream)
+    {
+        stream << x;
+
+        return (stream);
+    }
+
 }

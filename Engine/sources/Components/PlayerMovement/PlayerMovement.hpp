@@ -62,6 +62,8 @@ namespace Component
              */
             void FixedUpdate(ECS::Entity& entity) override;
 
+            std::ostream& operator<<(std::ostream& stream) override;
+
         protected:
         private:
             /**

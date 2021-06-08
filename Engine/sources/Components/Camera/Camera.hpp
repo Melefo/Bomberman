@@ -50,6 +50,9 @@ namespace Component
              * 
              */
             RayLib::Camera3D camera;
+
+            std::ostream& operator<<(std::ostream& stream) override;
+
         protected:
         private:
     };

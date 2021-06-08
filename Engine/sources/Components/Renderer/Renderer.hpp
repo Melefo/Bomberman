@@ -65,6 +65,8 @@ namespace Component
              */
             RayLib::Model& GetModel(void);
 
+            std::ostream& operator<<(std::ostream& stream) override;
+
         protected:
         private:
             RayLib::Model _model;

@@ -50,6 +50,9 @@ namespace Component
              * 
              */
             RayLib::Vector3 velocity;
+
+            std::ostream& operator<<(std::ostream& stream) override;
+
         protected:
         private:
     };

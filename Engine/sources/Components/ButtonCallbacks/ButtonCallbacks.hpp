@@ -65,6 +65,8 @@ namespace Component
             // ! delete me
             static void StaticCallback(void);
 
+            std::ostream& operator<<(std::ostream& stream) override;
+
         protected:
         private:
             /**

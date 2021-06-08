@@ -51,4 +51,11 @@ namespace Component
             _myPhysicsBody.velocity = RayLib::Vector3();
         }
     }
+
+    std::ostream& PlayerMovement::operator<<(std::ostream& stream)
+    {
+        // save movement keys
+        // speed
+        return (stream);
+    }
 }

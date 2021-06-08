@@ -27,4 +27,11 @@ namespace Component
             _myEntity.Dispose();
         }
     }
+
+    std::ostream& Destructible::operator<<(std::ostream& stream)
+    {
+        // save resistance
+        return (stream);
+    }
+
 }

@@ -6,10 +6,13 @@
 */
 
 #include "XMLGenerator.hpp"
+#include <iostream>
 
-XMLGenerator::XMLGenerator(const std::string &filepath) : _stream(new std::ofstream), _tags()
+XMLGenerator::XMLGenerator(const std::string& filepath) :
+_stream(std::make_unique<std::ofstream>(filepath, std::ofstream::trunc | std::ofstream::out)), _tags()
 {
-    _stream->open(filepath, std::ofstream::trunc | std::ofstream::out);
+    //_stream->open(filepath, std::ofstream::trunc | std::ofstream::out);
+
     this->write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 }
 

@@ -27,6 +27,7 @@ namespace Component
 
             // translate
             // lookat ?
+            std::ostream& operator<<(std::ostream& stream) override;
 
         protected:
         private:

@@ -27,7 +27,7 @@ namespace Component
         _rect.height = scale.y;
 
         //_texture.DrawTexture( position, GREEN);
-        _texture.DrawTextureRec(_rect, position, GREEN);
+        _texture.DrawTextureRec(_rect, position, WHITE);
         //_texture.DrawTextureEx(position, 0.0f, 0.1f, GREEN);
 
     }
@@ -53,6 +53,14 @@ namespace Component
         for (auto callback : _callbacks) {
             callback();
         }
+    }
+
+    std::ostream& Button::operator<<(std::ostream& stream)
+    {
+        // save texture
+        // save rect
+        // save function pointers ?
+        return (stream);
     }
 }
 

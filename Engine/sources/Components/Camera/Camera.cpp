@@ -13,4 +13,11 @@ namespace Component
     {
         camera = startCamera;
     }
+
+    std::ostream& Camera::operator<<(std::ostream& stream)
+    {
+        // save camera parameters
+        // target transform
+        return (stream);
+    }
 }

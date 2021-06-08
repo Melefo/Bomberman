@@ -106,6 +106,8 @@ namespace Component
              */
             virtual ECS::Entity& GetCollision() = 0;
 
+            virtual std::ostream& operator<<(std::ostream& stream) = 0;
+
         protected:
             /**
              * @brief List of the other entities retrieved from the coordinator

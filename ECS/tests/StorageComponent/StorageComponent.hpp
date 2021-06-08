@@ -17,6 +17,9 @@ class StorageComponent : public ECS::IComponent
         StorageComponent(int start) : value(start) {}
         ~StorageComponent() override = default;
         int value;
+
+        std::ostream& operator<<(std::ostream& stream) override {return (stream);};
+
 };
 
 #endif /* !STORAGECOMPONENT_HPP_ */

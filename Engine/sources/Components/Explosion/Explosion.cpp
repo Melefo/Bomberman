@@ -45,4 +45,13 @@ namespace Component
     {
         (void) entity;
     }
+
+    std::ostream& Explosion::operator<<(std::ostream& stream)
+    {
+        // save radius
+        // explosion type
+        // power
+        return (stream);
+    }
+
 }
