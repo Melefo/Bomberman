@@ -23,13 +23,12 @@ namespace Component
 
         _rect.x = position.x;
         _rect.y = position.y;
-        _rect.width = scale.x;
-        _rect.height = scale.y;
+        _rect.width = _texture.GetTexture().width;
+        _rect.height = _texture.GetTexture().height;
 
         //_texture.DrawTexture( position, GREEN);
-        _texture.DrawTextureRec(_rect, position, GREEN);
-        //_texture.DrawTextureEx(position, 0.0f, 0.1f, GREEN);
-
+        //_texture.DrawTextureRec(_rect, position, WHITE);
+        _texture.DrawTextureEx(position, 0.0f, scale.x, WHITE);
     }
 
     bool Button::IsMouseOver(void)
