@@ -18,13 +18,13 @@
 int main(void)
 {
     ECS::Coordinator coordinator;
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Bomberman");
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Bomberman");
 
     RayLib::Camera3D camera = RayLib::Camera3D();
 
     window->SetTargetFPS(60);
     camera.SetCameraMode(CAMERA_FREE);
-    TerrainGenerator map(2);
+    TerrainGenerator map(8);
 
     coordinator.AddSystem<Component::PhysicsSystem>();
     coordinator.AddSystem<Component::RenderSystem>();

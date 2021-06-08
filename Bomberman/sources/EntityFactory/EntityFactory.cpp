@@ -27,12 +27,12 @@ EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& ca
 {
 }
 
-ECS::Entity& EntityFactory::createButton()
+ECS::Entity& EntityFactory::createButton(const std::string& texturePath)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
-    entity.AddComponent<Component::IUIObject, Component::Button>();
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(100.0f, 50.0f, 1.0f));
+    entity.AddComponent<Component::IUIObject, Component::Button>(texturePath);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 
     return (entity);
@@ -61,7 +61,7 @@ ECS::Entity& EntityFactory::createBox(const int level, const bool draggable)
     entity.AddComponent<Component::Renderer>();
     entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
-    entity.AddComponent<Component::Destructible>(entity, 1);
+    entity.AddComponent<Component::Destructible>(entity, level);
     if (draggable)
         entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, _camera);
 
@@ -69,7 +69,7 @@ ECS::Entity& EntityFactory::createBox(const int level, const bool draggable)
 }
 
 ECS::Entity& EntityFactory::createPlayer(const std::string &playerColor)
-{
+{(void)playerColor;
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::PhysicsBody>();
