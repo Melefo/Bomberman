@@ -15,49 +15,51 @@
 
 class IXMLSerializable
 {
-    public:
-        /**
+public:
+    /**
              * @brief Construct a new IXMLSerializable object
              * 
              */
-        IXMLSerializable() = default;
-        /**
+    IXMLSerializable() = default;
+    /**
              * @brief Destroy the IXMLSerializable object
              * 
              */
-        virtual ~IXMLSerializable() = default;
-        /**
+    virtual ~IXMLSerializable() = default;
+    /**
              * @brief Construct a new IXMLSerializable
              * 
              * @param other 
              */
-        IXMLSerializable(const IXMLSerializable &other) = delete;
-        /**
+    IXMLSerializable(const IXMLSerializable &other) = delete;
+    /**
              * @brief 
              * 
              * @param other 
              * @return IXMLSerializable& 
              */
-        IXMLSerializable &operator=(const IXMLSerializable &other) = delete;
+    IXMLSerializable &operator=(const IXMLSerializable &other) = delete;
 
-        virtual void LoadFromXML(std::istream &is) = 0;
-        virtual void SerializeToXML(std::ostream &os) const = 0;
+    //virtual void LoadFromXML(std::istream &is) = 0;
+    //virtual void SerializeToXML(std::ostream &os) const = 0;
 
+    virtual std::ostream &operator<<(std::ostream &os) const = 0;
+    virtual std::istream &operator>>(std::istream &is) = 0;
 
-    protected:
-    private:
+protected:
+private:
 };
 
-inline std::ostream& operator<<(std::ostream &os, const IXMLSerializable& xml)
+inline std::ostream &operator<<(std::ostream &os, IXMLSerializable &xml)
 {
-    xml.SerializeToXML(os);
-    return os;
+    //xml.SerializeToXML(os);
+    return xml.operator<<(os);
 }
 
-inline std::istream& operator>>(std::istream &is, IXMLSerializable& xml)
+inline std::istream &operator>>(std::istream &is, IXMLSerializable &xml)
 {
-    xml.LoadFromXML(is);
-    return is;
+    //xml.LoadFromXML(is);
+    return xml.operator>>(is);
 }
 
 #endif /* !IXMLSERIALIZABLE_HPP_ */

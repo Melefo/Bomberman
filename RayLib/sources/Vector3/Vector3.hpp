@@ -19,7 +19,7 @@ namespace RayLib
      * @brief Vector3 encapsulation
      * 
      */
-    class Vector3 : public IXMLSerializable
+    struct Vector3 : public ::Vector3, public IXMLSerializable
     {
         public:
             /**
@@ -158,12 +158,11 @@ namespace RayLib
 
             bool operator==(const RayLib::Vector3& other);
 
-            void LoadFromXML(std::istream &is) override;
-            void SerializeToXML(std::ostream &os) const override;
+            //void LoadFromXML(std::istream &is) override;
+            //void SerializeToXML(std::ostream &os) const override;
+            std::ostream &operator<<(std::ostream &os) const override;
+            std::istream &operator>>(std::istream &is) override;
 
-            float x;
-            float y;
-            float z;
         protected:
         private:
     };

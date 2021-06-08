@@ -143,7 +143,8 @@ namespace RayLib
 
         return (distance);
     }
-    void Vector3::LoadFromXML(std::istream &is)
+
+    std::istream &Vector3::operator>>(std::istream &is)
     {
         boost::property_tree::ptree tree;
         boost::property_tree::xml_parser::read_xml(is, tree);
@@ -153,15 +154,17 @@ namespace RayLib
         x = vec3.get<float>("x");
         y = vec3.get<float>("y");
         z = vec3.get<float>("z");
+        return (is);
     }
 
-    void Vector3::SerializeToXML(std::ostream &os) const
+    std::ostream &Vector3::operator<<(std::ostream &os) const
     {
-        os << "<Vector3>" << std::endl;
-        os << "\t<x>" << x << "</x>" << std::endl;
-        os << "\t<y>" << y << "</y>" << std::endl;
-        os << "\t<z>" << z << "</z>" << std::endl;
-        os << "</Vector3>" << std::endl;
+        os << "<Vector3>";
+        os << "<x>" << x << "</x>";
+        os << "<y>" << y << "</y>";
+        os << "<z>" << z << "</z>";
+        os << "</Vector3>";
+        return (os);
     }
 
 }
