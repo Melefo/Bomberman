@@ -30,7 +30,7 @@ int main(void)
     coordinator.AddSystem<Component::RenderSystem>();
     coordinator.AddSystem<Component::BehaviourSystem>();
     coordinator.AddSystem<Component::UISystem>(camera);
- 
+
     while (!window->WindowShouldClose())    // Detect window close button or ESC key
     {
         if (coordinator.GetEntities().size() == 0) {

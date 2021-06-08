@@ -17,7 +17,8 @@
 #include "DropBomb.hpp"
 #include "EntityFactory.hpp"
 #include "Scenes.hpp"
-
+#include "Animator.hpp"
+#include "SphereCollider.hpp"
 #include "Texture.hpp"
 #include "Image.hpp"
 
@@ -60,7 +61,7 @@ ECS::Entity& EntityFactory::createBox(const int level, const bool draggable)
     entity.AddComponent<Component::Renderer>();
     entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
-    entity.AddComponent<Component::Destructible>(entity, level);
+    entity.AddComponent<Component::Destructible>(entity, 1);
     if (draggable)
         entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, _camera);
 
@@ -72,12 +73,15 @@ ECS::Entity& EntityFactory::createPlayer(const std::string &playerColor)
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::PhysicsBody>();
-    entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
-    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
+    entity.AddComponent<Component::Renderer>("../assets/BoxMan/guy.iqm", "../assets/BoxMan/guytex.png");
+    entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
+    // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(1), 7.5f);
     entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
-    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(0.025f, 0.025f, 0.025f);
+    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
     entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
-    entity.AddComponent<Component::Destructible>(entity, 1);
+    //entity.AddComponent<Component::Destructible>(entity, 1);
 
     return (entity);
 }

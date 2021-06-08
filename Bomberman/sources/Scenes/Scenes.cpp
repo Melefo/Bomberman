@@ -49,9 +49,10 @@ namespace Scenes {
     {
         EntityFactory entityFactory(coordinator, camera);
 
-        ECS::Entity &entityQuit = entityFactory.createButton();
-        entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
-        entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
+        // ECS::Entity &entityQuit = entityFactory.createButton();
+        // entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+        // entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
+        ECS::Entity &entityPlayer = entityFactory.createPlayer("blue");
 
         InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
     }

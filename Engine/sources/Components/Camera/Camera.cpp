@@ -27,9 +27,9 @@ namespace Component
     void Camera::LateUpdate(double, ECS::Entity&)
     {
         const RayLib::Vector3 pos = camera.GetPosition();
-        RayLib::Vector3 lerpPos = pos;
+        RayLib::Vector3 lerpPos = _transform.position;
 
-        lerpPos.Lerp(_transform.position, _lerpTime);
+        //lerpPos.Lerp(_transform.position, _lerpTime);
         camera.SetPosition(lerpPos);
         camera.SetTarget(_targetLookAt);
         camera.Update();
