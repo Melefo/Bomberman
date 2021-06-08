@@ -31,10 +31,8 @@ namespace Component
 
     }
 
-    void PlayerMovement::FixedUpdate(ECS::Entity& entity)
+    void PlayerMovement::FixedUpdate(ECS::Entity&)
     {
-        (void) entity;
-
         SlipperyCollisions();
 
         if (!_colliding) {

@@ -112,9 +112,9 @@ namespace RayLib
         return (*this);
     }
 
-    bool operator==(const RayLib::Vector3& left, const RayLib::Vector3& right)
+    bool Vector3::operator==(const RayLib::Vector3& other)
     {
-        return (left.x == right.x && left.y == right.y && left.z == right.z);
+        return (x == other.x && y == other.y && z == other.z);
     }
 
     // todo smoothdamp

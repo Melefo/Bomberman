@@ -146,7 +146,15 @@ namespace RayLib
              */
             void SmoothDamp(Vector3 target, float smoothTime, float deltaTime);
 
+            /**
+             * @brief Linearly interpolate vector3 to target by t
+             * 
+             * @param target 
+             * @param t 
+             */
             void Lerp(Vector3 target, float t);
+
+            bool operator==(const RayLib::Vector3& other);
 
             float x;
             float y;
@@ -156,7 +164,6 @@ namespace RayLib
     };
 }
 
-bool operator==(const RayLib::Vector3& left, const RayLib::Vector3& right);
 
 
 #endif /* !VECTOR3_HPP_ */
