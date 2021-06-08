@@ -16,7 +16,7 @@ namespace Component
         _selected = false;
     }
 
-    void Draggable::Update(double)
+    void Draggable::Update(double, ECS::Entity&)
     {
         RayLib::Ray ray;
 
@@ -48,9 +48,14 @@ namespace Component
         }
     }
 
-    void Draggable::FixedUpdate(ECS::Entity& entity)
+    void Draggable::FixedUpdate(ECS::Entity&)
     {
-        (void) entity;
+
+    }
+
+    void Draggable::LateUpdate(double, ECS::Entity&)
+    {
+        
     }
 
     std::ostream& Draggable::operator<<(std::ostream& stream)

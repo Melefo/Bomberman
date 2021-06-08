@@ -9,6 +9,7 @@
 #define VECTOR3_HPP_
 
 #include <raylib.h>
+#include <cmath>
 #include <ostream>
 #include <sstream>
 
@@ -130,6 +131,32 @@ namespace RayLib
              */
             Vector3 operator*(const float factor);
 
+            /**
+             * @brief Return the distance to other vector
+             * 
+             * @param other 
+             * @return float 
+             */
+            float Distance(const Vector3 other);
+
+            /**
+             * @brief Smoothly modify values to match target
+             * 
+             * @param target 
+             * @param smoothTime 
+             * @param deltaTime 
+             */
+            void SmoothDamp(Vector3 target, float smoothTime, float deltaTime);
+
+            /**
+             * @brief Linearly interpolate vector3 to target by t
+             * 
+             * @param target 
+             * @param t 
+             */
+            void Lerp(Vector3 target, float t);
+
+            bool operator==(const RayLib::Vector3& other);
             std::ostream& operator<<(std::ostream& stream);
 
             float x;
@@ -139,5 +166,7 @@ namespace RayLib
         private:
     };
 }
+
+
 
 #endif /* !VECTOR3_HPP_ */

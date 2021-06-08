@@ -48,13 +48,22 @@ namespace Component
              * 
              * @param dt Time since last call to update
              */
-            virtual void Update(double dt) = 0;
+            virtual void Update(double dt, ECS::Entity& entity) = 0;
             /**
              * @brief Called every fixed seconds (CF coordinator)
              * 
              * @param entity 
              */
             virtual void FixedUpdate(ECS::Entity& entity) = 0;
+
+            /**
+             * @brief Late update
+             * 
+             * @param dt 
+             * @param entity 
+             */
+            virtual void LateUpdate(double dt, ECS::Entity& entity) = 0;
+
         protected:
         private:
 

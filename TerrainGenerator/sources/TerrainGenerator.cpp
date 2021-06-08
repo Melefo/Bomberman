@@ -65,7 +65,7 @@ void TerrainGenerator::generateBaseMap()
     }
 }
 
-void TerrainGenerator::generateRandomMap()
+void TerrainGenerator::generateRandomMap(unsigned int seed)
 {
     int index = 0;
     static std::vector<std::vector<std::string>> tiles = {
@@ -104,6 +104,8 @@ void TerrainGenerator::generateRandomMap()
         }
     };
 
+    if (seed != 0)
+        srand(seed);
     for (auto &it : _map) {
         it.clear();
         if (index == 0 || index == _height-1)
@@ -192,12 +194,12 @@ void TerrainGenerator::generateBoxes()
 
 void TerrainGenerator::generateMap()
 {
-    srand (static_cast<unsigned int>(time(NULL)));
+    srand(static_cast<unsigned int>(time(NULL)));
 
     if (rand() % 3 == 0)
         generateBaseMap();
     else
-        generateRandomMap();
+        generateRandomMap(0);
     generateBoxes();
     placePlayers();
 }
@@ -398,4 +400,22 @@ void TerrainGenerator::trimMap()
     for (auto &it : _map)
         if (it.size() > static_cast<size_t>(_width/2+1))
             it = it.substr(0, _width/2+1);
+}
+
+void TerrainGenerator::makeSpaceForPlayers()
+{
+    for (size_t y = 1; y < _map.size()-1; y++) {
+        for (size_t x = 1; x < _map[y].size(); x++) {
+            if (_map[y][x] == 'P') {
+                if (_map[y-1][x] != static_cast<char>(mapTexture::OWALL))
+                    _map[y-1][x] = ' ';
+                if (_map[y+1][x] != static_cast<char>(mapTexture::OWALL))
+                    _map[y+1][x] = ' ';
+                if (_map[y][x-1] != static_cast<char>(mapTexture::OWALL))
+                    _map[y][x-1] = ' ';
+                if (_map[y][x+1] != static_cast<char>(mapTexture::OWALL))
+                    _map[y][x+1] = ' ';
+            }
+        }
+    }
 }

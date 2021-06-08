@@ -57,8 +57,9 @@ class TerrainGenerator {
         /**
          * @brief Generate procedurally generated map
          * 
+         * @param seed The seed randomizer
          */
-        void generateRandomMap();
+        void generateRandomMap(unsigned int seed);
         /**
          * @brief Clear the map objects and only keep outer walls
          * 
@@ -182,6 +183,11 @@ class TerrainGenerator {
          * 
          */
         void trimMap();
+        /**
+         * @brief Add holes between player places to place safe bombs
+         * 
+         */
+        void makeSpaceForPlayers();
 
         /**
          * @brief Number of players rounded to next pair
