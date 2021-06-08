@@ -20,7 +20,7 @@ namespace Component
         //_window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     }
 
-    void DropBomb::Update(double)
+    void DropBomb::Update(double, ECS::Entity&)
     {
         float windowFrameTime = _window->GetFrameTime();
 
@@ -37,9 +37,14 @@ namespace Component
 
     }
 
-    void DropBomb::FixedUpdate(ECS::Entity& entity)
+    void DropBomb::FixedUpdate(ECS::Entity&)
     {
-        (void) entity;
+
+    }
+
+    void DropBomb::LateUpdate(double, ECS::Entity&)
+    {
+
     }
 
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, float radius)
@@ -48,6 +53,7 @@ namespace Component
 
         entity.AddComponent<Transform>(position, RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
         entity.AddComponent<Renderer>("../assets/bomb/bomb2.fbx", "../assets/bomb/bomb2_text.png");
+        std::cout << "Helo" << std::endl;
         //! si on spawn une bombe sur le joueur, on est bloqués
         //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
         entity.AddComponent<IBehaviour, Explosion>(entity, radius, explosionType);

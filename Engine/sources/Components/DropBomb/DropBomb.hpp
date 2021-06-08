@@ -73,13 +73,22 @@ namespace Component
              * 
              * @param dt 
              */
-            void Update(double dt) override;
+            void Update(double dt, ECS::Entity& entity) override;
             /**
              * @brief FixedUpdate
              * 
              * @param entity 
              */
             void FixedUpdate(ECS::Entity& entity) override;
+
+            /**
+             * @brief Late Update
+             * 
+             * @param dt 
+             * @param entity 
+             */
+            void LateUpdate(double dt, ECS::Entity& entity) override;
+
 
         protected:
         private:

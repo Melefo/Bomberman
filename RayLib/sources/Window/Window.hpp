@@ -73,6 +73,13 @@ namespace RayLib
             bool WindowShouldClose(void);
 
             /**
+             * @brief Close the window
+             * 
+             * @return vois
+             */
+            void CloseWindow(void);
+
+            /**
              * @brief Initialize canvas for drawing
              * 
              */

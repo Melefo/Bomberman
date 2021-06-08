@@ -20,7 +20,7 @@ namespace Component
         std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
         for (IBehaviour& behaviour : behaviours) {
-            behaviour.Update(dt);
+            behaviour.Update(dt, entity);
         }
     }
 
