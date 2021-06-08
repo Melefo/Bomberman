@@ -114,7 +114,11 @@ namespace RayLib
 
     std::ostream& Vector3::operator<<(std::ostream& stream)
     {
-        stream << x;
+        stream << "<vector3>" << std::endl;
+        stream << "\t<x>" << x << "<x/>" << std::endl;
+        stream << "\t<y>" << y << "<y/>" << std::endl;
+        stream << "\t<z>" << x << "<z/>" << std::endl;
+        stream << "</vector3>" << std::endl;
 
         return (stream);
     }

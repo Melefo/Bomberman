@@ -16,9 +16,13 @@ namespace Component
 
     std::ostream& Transform::operator<<(std::ostream& stream)
     {
-        // save position
-        // save rotation
-        // save scale
+        stream << "<Transform>" << std::endl;
+        stream << "\t<position>" << std::endl;
+        stream << "\t\t";
+        //stream << position << std::endl;
+        stream << "\t</position>" << std::endl;
+        stream << "</Transform>" << std::endl;
+
         return (stream);
     }
 
