@@ -38,7 +38,10 @@ namespace Component
             std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
 
             // ! comment trier entity/script ?
-            Serialization::EntityLoader::LoadEntity(iss);
+                // ! ouvrir, find node script/Entity
+            //Serialization::EntityLoader::LoadEntity(iss);
+            Serialization::EntityLoader::LoadEntities(iss);
+
             _window->ClearDroppedFiles();
         }
     }
@@ -65,16 +68,19 @@ namespace Component
         std::ostringstream oss;
 
         for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get()->GetTag() == "Wall" || it->get()->GetTag() == "Block")
+            if (it->get()->GetTag() != "Wall" && it->get()->GetTag() != "Box")
                 continue;
             std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> components = it->get()->GetComponents();
+            oss << "<Entity>";
             for (auto cmp = components.begin(); cmp != components.end(); cmp++) {
                 IXMLSerializable& obj = *cmp->get();
                 oss << obj;
             }
+            oss << "</Entity>";
         }
-
+        file << "<Entities>";
         file << oss.str();
+        file << "</Entities>";
         file.close();
     }
 }

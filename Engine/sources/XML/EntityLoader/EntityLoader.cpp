@@ -28,15 +28,34 @@ namespace Serialization
         // ! check the ptree contains entity
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         ECS::Entity& entity = coordinator->CreateEntity();
-        boost::property_tree::ptree entityNode = ptree.get_child("Entity");
+        //boost::property_tree::ptree entityNode = ptree.get_child("Entity");
 
         for (auto it = _loadAbleComponents.begin(); it != _loadAbleComponents.end(); it++) {
-            if (entityNode.find(it->first) != entityNode.not_found()) {
-                it->second(entity, entityNode);
+            if (ptree.find(it->first) != ptree.not_found()) {
+                it->second(entity, ptree);
             }
         }
         return (entity);
     }
+
+    void EntityLoader::LoadEntities(std::istream& iss)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(iss, tree);
+
+        LoadEntities(tree);
+    }
+
+    void EntityLoader::LoadEntities(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree entitiesNode = ptree.get_child("Entities");
+
+        for (auto& it : entitiesNode) {
+            boost::property_tree::ptree entityNode = it.second;
+            LoadEntity(entityNode);
+        }
+    }
+
 
     void EntityLoader::LoadTransform(ECS::Entity& entity, boost::property_tree::ptree &ptree)
     {

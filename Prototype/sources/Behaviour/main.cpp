@@ -54,8 +54,8 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 ECS::Entity& InitButton(ECS::Coordinator& coordinator)
 {
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Component::IUIObject, Component::Button>();
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
+    entity.AddComponent<Component::IUIObject, Component::Button>("../assets/buttons/mapEditorButton.png");
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(500.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 
     Component::Button& button = entity.GetComponent<Component::Button>();
@@ -113,8 +113,8 @@ ECS::Entity& createBox(ECS::Coordinator &_coordinator, int level, const bool dra
     entity.AddComponent<Component::Transform>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::Renderer>();
-    entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
+    entity.AddComponent<Component::Renderer>("", "assets/Blue.jpg");
+    //entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Destructible>(entity, 1);
     if (draggable)
@@ -156,14 +156,17 @@ int main(void)
     TerrainGenerator map(2);
 
     ECS::Entity& cat = InitCat(*coordinator.get());
-    ECS::Entity& button = InitButton(*coordinator.get());
+    //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
-        InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
+        //InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
     //! game manager for drag and drop
     ECS::Entity& gameManager = coordinator->CreateEntity();
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
     //!
+
+    // ! experimental
+    //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
     InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
 
