@@ -20,6 +20,7 @@ namespace Component
     {
         RayLib::Ray ray;
 
+        // ! move to window so we don't depend on camera ?
         ray = _camera.GetMouseRay(RayLib::Mouse::GetPosition());
 
         if (RayLib::Mouse::IsButtonPressed(MOUSE_BUTTON_LEFT)) {

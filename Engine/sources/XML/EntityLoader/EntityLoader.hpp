@@ -14,6 +14,7 @@
 #include "Transform.hpp"
 #include "Renderer.hpp"
 #include "BoxCollider.hpp"
+#include "Destructible.hpp"
 
 namespace Serialization
 {
@@ -39,6 +40,7 @@ namespace Serialization
             static void LoadTransform(ECS::Entity& entity, boost::property_tree::ptree &ptree);
             static void LoadRenderer(ECS::Entity& entity, boost::property_tree::ptree &ptree);
             static void LoadBoxCollider(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+            static void LoadDestructible(ECS::Entity& entity, boost::property_tree::ptree &ptree);
 
         protected:
         private:

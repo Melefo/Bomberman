@@ -16,8 +16,10 @@ namespace Component
     BoxCollider::BoxCollider(ECS::Entity& attatchedEntity, RayLib::Vector3 scale)
     : Collider(attatchedEntity), _bounds(RayLib::Vector3(), scale)
     {
-        Transform& transform = attatchedEntity.GetComponent<Transform>();
-        _bounds.InitFromCube(transform.position, scale);
+        if (attatchedEntity.HasComponent<Transform>()) {
+            Transform& transform = attatchedEntity.GetComponent<Transform>();
+            _bounds.InitFromCube(transform.position, scale);
+        }
         _scale = scale;
     }
 
@@ -115,10 +117,12 @@ namespace Component
 
     void BoxCollider::UpdateBounds()
     {
-        Transform& transform = _myEntity.GetComponent<Transform>();
+        if (_myEntity.HasComponent<Transform>()) {
+            Transform& transform = _myEntity.GetComponent<Transform>();
 
-        // use transform scale proportionnally ?
-        _bounds.InitFromCube(transform.position, _scale);
+            // use transform scale proportionnally ?
+            _bounds.InitFromCube(transform.position, _scale);
+        }
     }
 
     std::ostream &BoxCollider::operator<<(std::ostream &os)
@@ -141,11 +145,11 @@ namespace Component
     boost::property_tree::ptree& BoxCollider::operator<<(boost::property_tree::ptree &ptree)
     {
         boost::property_tree::ptree transformTree = ptree.get_child("BoxCollider");
-        boost::property_tree::ptree& scaleTree = transformTree.get_child("scale");
+        boost::property_tree::ptree& scaleTree = transformTree.get_child("_scale");
 
         _scale << scaleTree;
-        Transform& transform = _myEntity.GetComponent<Transform>();
-        _bounds.InitFromCube(transform.position, _scale);
+        //Transform& transform = _myEntity.GetComponent<Transform>();
+        //_bounds.InitFromCube(transform.position, _scale);
         return (ptree);
     }
 

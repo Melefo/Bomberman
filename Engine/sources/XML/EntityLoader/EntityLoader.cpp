@@ -13,7 +13,8 @@ namespace Serialization
     std::map<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)> EntityLoader::_loadAbleComponents = {
         std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Transform", &EntityLoader::LoadTransform),
         std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Renderer", &EntityLoader::LoadRenderer),
-        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("BoxCollider", &EntityLoader::LoadBoxCollider)
+        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("BoxCollider", &EntityLoader::LoadBoxCollider),
+        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Destructible", &EntityLoader::LoadDestructible)
     };
 
     ECS::Entity& EntityLoader::LoadEntity(std::istream& iss)
@@ -69,16 +70,22 @@ namespace Serialization
         entity.GetComponent<Component::Renderer>() << ptree;
     }
 
-    void EntityLoader::LoadBoxCollider(ECS::Entity&, boost::property_tree::ptree &)
+    void EntityLoader::LoadBoxCollider(ECS::Entity& entity, boost::property_tree::ptree& ptree)
     {
         //! ne fonctionne uniquement si Transform précede BoxCollider
-        //! à cause du unordered map, c'est aléatoire, donc des fois le box collider ne trouve pas son transform, et crash
-        /*entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, 1.0f);
+        //! à cause du unordered map, c'est aléatoire, donc le box collider ne trouve pas son transform, et crash
+        entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, 1.0f);
         std::vector<std::reference_wrapper<Component::Collider>> cols = entity.OfType<Component::Collider>();
 
         for (auto col = cols.begin(); col != cols.end(); col++) {
             col->get() << ptree;
-        }*/
+        }
+    }
+
+    void EntityLoader::LoadDestructible(ECS::Entity& entity, boost::property_tree::ptree &ptree)
+    {
+        entity.AddComponent<Component::Destructible>(entity);
+        entity.GetComponent<Component::Destructible>() << ptree;
     }
 
 }

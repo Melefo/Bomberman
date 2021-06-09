@@ -124,26 +124,26 @@ ECS::Entity& createBox(ECS::Coordinator &_coordinator, int level, const bool dra
 }
 
 void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
-    {
-        for (size_t y = 0; y < map.size(); y++) {
-            for (size_t x = 0; x < map[y].size(); x++) {
-                if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
-                || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
-                    ECS::Entity& wall = createWall(coordinator);
-                    wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
-                    ECS::Entity& box = createBox(coordinator, 1, isEditor ? true : false, camera);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
-                    ECS::Entity& box = createBox(coordinator,2, isEditor ? true : false, camera);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
-                    ECS::Entity& box = createBox(coordinator, 3, isEditor ? true : false,camera);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                }
+{
+    for (size_t y = 0; y < map.size(); y++) {
+        for (size_t x = 0; x < map[y].size(); x++) {
+            if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
+            || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
+                ECS::Entity& wall = createWall(coordinator);
+                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
+                ECS::Entity& box = createBox(coordinator, 1, isEditor ? true : false, camera);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
+                ECS::Entity& box = createBox(coordinator,2, isEditor ? true : false, camera);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
+                ECS::Entity& box = createBox(coordinator, 3, isEditor ? true : false,camera);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
             }
         }
     }
+}
 
 int main(void)
 {
@@ -158,7 +158,7 @@ int main(void)
     ECS::Entity& cat = InitCat(*coordinator.get());
     //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
-        //InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
+    //InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
     //! game manager for drag and drop
     ECS::Entity& gameManager = coordinator->CreateEntity();
