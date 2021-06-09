@@ -32,11 +32,7 @@ namespace ECS
              * 
              */
             uint32_t _id;
-            /**
-             * @brief Entity's tag
-             * Equal to "Untagged" by default
-             */
-            std::string _tag;
+
             /**
              * @brief Manage components inside the Entity
              * 
@@ -47,6 +43,11 @@ namespace ECS
              * 
              */
             EntityManager& _entityManager;
+            /**
+             * @brief Entity's tag
+             * Equal to "Untagged" by default
+             */
+            std::string _tag;
         public:
             /**
              * @brief Construct a new Entity object

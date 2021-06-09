@@ -10,6 +10,7 @@
 #include "IXMLSerializable.hpp"
 #include "Transform.hpp"
 #include <iostream>
+#include "Texture.hpp"
 
 Test(serializeVec3, vec3)
 {
@@ -45,4 +46,21 @@ Test(serializeTransform, transform)
     cr_assert(src.position == dest.position);
     cr_assert(src.scale == dest.scale);
     cr_assert(src.rotation == dest.rotation);
+}
+
+Test(serializeTexture, texture)
+{
+    RayLib::Texture src("file.png");
+    RayLib::Texture dest("");
+
+    IXMLSerializable& serializableObj = src;
+    std::ostringstream oss;
+    std::istringstream iss;
+
+    oss << serializableObj;
+    std::cout << oss.str() << std::endl;
+    iss.str(oss.str());
+    iss >> dest;
+
+    cr_assert(src.GetFileName() == dest.GetFileName());
 }

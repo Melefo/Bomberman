@@ -152,7 +152,7 @@ void TerrainGenerator::addTileOnMap(int y, int x)
 
 void TerrainGenerator::generateXMLFile()
 {
-    XMLGenerator xmlFile(_map);
+    //XMLGenerator xmlFile(_map);
 }
 
 void TerrainGenerator::setPlayersNumber(int newSize) {

@@ -40,5 +40,18 @@ namespace Component
         return (is);
     }
 
+    boost::property_tree::ptree& Transform::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree transformTree = ptree.get_child("Transform");
+        boost::property_tree::ptree& positionTree = transformTree.get_child("position");
+        boost::property_tree::ptree& rotationTree = transformTree.get_child("rotation");
+        boost::property_tree::ptree& scaleTree = transformTree.get_child("scale");
+
+        position << positionTree;
+        rotation << rotationTree;
+        scale << scaleTree;
+        return (ptree);
+    }
+
 }
 
