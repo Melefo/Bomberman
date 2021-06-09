@@ -33,6 +33,11 @@ namespace ECS
              */
             uint32_t _id;
             /**
+             * @brief Entity's tag
+             * Equal to "Untagged" by default
+             */
+            std::string _tag;
+            /**
              * @brief Manage components inside the Entity
              * 
              */
@@ -54,7 +59,7 @@ namespace ECS
              * @param id ID for the new Entity
              * @param entityManager Reference to the scene
              */
-            Entity(uint32_t id, EntityManager& entityManager);
+            Entity(uint32_t id, EntityManager& entityManager, const std::string& tag="Untagged");
             /**
              * @brief Destroy the Entity object
              * 

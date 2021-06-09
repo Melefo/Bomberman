@@ -9,8 +9,8 @@
 
 namespace ECS
 {
-    Entity::Entity(uint32_t id, EntityManager &entityManager) :
-    _id(id), _componentManager(), _entityManager(entityManager)
+    Entity::Entity(uint32_t id, EntityManager &entityManager, const std::string& tag) :
+    _id(id), _componentManager(), _entityManager(entityManager), _tag(tag)
     {
     }
 
