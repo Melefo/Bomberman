@@ -28,4 +28,13 @@ namespace ECS
                 return false;
         return true;
     }
+
+    IComponent& ComponentManager::GetComponentByName(const std::string& name)
+    {
+        const auto &it = this->_components.find(name);
+
+        if (it == this->_components.end())
+            throw Exception::EntityException("Entity doesn't contain this Component");
+        return (*it->second);
+    }
 }

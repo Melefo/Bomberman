@@ -26,6 +26,7 @@ namespace Component
             RayLib::Font font;
             RayLib::Color color;
             unsigned int size;
+
         protected:
         private:
     };

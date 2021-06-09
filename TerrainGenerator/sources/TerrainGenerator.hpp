@@ -72,11 +72,6 @@ class TerrainGenerator {
          * @param x Width position
          */
         void addTileOnMap(int y, int x);
-        /**
-         * @brief Generate the _map object into an "map.xml" file
-         * 
-         */
-        void generateXMLFile();
     protected:
         /**
          * @brief Generate a line based on the actual position

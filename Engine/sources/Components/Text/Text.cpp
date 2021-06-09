@@ -16,4 +16,5 @@ namespace Component
         color = startColor;
         size = startSize;
     }
+
 }

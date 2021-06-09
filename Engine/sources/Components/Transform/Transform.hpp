@@ -14,7 +14,7 @@
 
 namespace Component
 {
-    class Transform : public ECS::IComponent {
+    class Transform : public ECS::IComponent, public IXMLSerializable {
         public:
             Transform(RayLib::Vector3 position=RayLib::Vector3(),
                         RayLib::Vector3 rotation=RayLib::Vector3(),
@@ -27,6 +27,8 @@ namespace Component
 
             // translate
             // lookat ?
+            std::ostream &operator<<(std::ostream &os) override;
+            std::istream &operator>>(std::istream &is) override;
 
         protected:
         private:

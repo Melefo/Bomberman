@@ -26,7 +26,6 @@ namespace Component
             if (!_selected)
             {
                 // Check collision between ray and box
-                // !_selected = loop over colliders and collide with ray
                 for (auto it = _colliders.begin(); it != _colliders.end(); it++) {
                     _selected = it->get().CheckCollision(ray);
                     if (_selected)
@@ -58,6 +57,5 @@ namespace Component
     {
         
     }
-
 }
 

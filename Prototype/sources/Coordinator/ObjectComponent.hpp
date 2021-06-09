@@ -24,6 +24,7 @@ class ObjectComponent : public ECS::IComponent
         RayLib::Texture texture;
         RayLib::Vector3 position;
         float size;
+
     protected:
     private:
 };

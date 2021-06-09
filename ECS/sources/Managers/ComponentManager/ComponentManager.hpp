@@ -187,6 +187,13 @@ namespace ECS
              * @return false The entity is missing at least Component
              */
             bool HasComponents(std::vector<std::string> &names) const;
+
+            /**
+             * @brief If exists, return component with name
+             * 
+             */
+            IComponent& GetComponentByName(const std::string& name);
+
     };
 }
 

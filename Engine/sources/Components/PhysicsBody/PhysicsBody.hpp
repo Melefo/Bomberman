@@ -50,6 +50,7 @@ namespace Component
              * 
              */
             RayLib::Vector3 velocity;
+
         protected:
         private:
     };

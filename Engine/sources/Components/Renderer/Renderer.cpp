@@ -28,9 +28,9 @@ namespace Component
         _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
     }
 
-
     RayLib::Model& Renderer::GetModel()
     {
         return (_model);
     }
+
 }

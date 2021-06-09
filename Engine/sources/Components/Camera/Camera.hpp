@@ -53,11 +53,6 @@ namespace Component
             void FixedUpdate(ECS::Entity& entity) override;
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
-            /**
-             * @brief Camera
-             * 
-             */
-            RayLib::Camera3D& camera;
 
             /**
              * @brief Set target position and lerpspeed
@@ -73,6 +68,12 @@ namespace Component
              * @param target 
              */
             void SetTarget(RayLib::Vector3& target);
+
+            /**
+             * @brief Camera
+             * 
+             */
+            RayLib::Camera3D& camera;
 
         protected:
         private:
