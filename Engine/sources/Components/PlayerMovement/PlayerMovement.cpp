@@ -64,13 +64,17 @@ namespace Component
         // check z solo
         newDirections.push_back(RayLib::Vector3(0.0f, 0.0f, _direction.z));
 
-        if (abs(_direction.z) < 0.1f && abs(_direction.x) > 0.1f) {
-            newDirections.push_back(RayLib::Vector3(_direction.x, 0.0f, -_direction.x));
-            newDirections.push_back(RayLib::Vector3(_direction.x, 0.0f, _direction.x));
-        }
-        if (abs(_direction.x) < 0.1f && abs(_direction.z) > 0.1) {
-            newDirections.push_back(RayLib::Vector3(_direction.z, 0.0f, _direction.z));
-            newDirections.push_back(RayLib::Vector3(-_direction.z, 0.0f, _direction.z));
+        float iterations = 10.0;
+        for (float i = 0; i < iterations; i++) {
+            if (abs(_direction.z) < 0.1f && abs(_direction.x) > 0.1f) {
+                newDirections.push_back(RayLib::Vector3(_direction.x, 0.0f, -_direction.x * i));
+                newDirections.push_back(RayLib::Vector3(_direction.x, 0.0f, _direction.x * i));
+            }
+            if (abs(_direction.x) < 0.1f && abs(_direction.z) > 0.1) {
+                newDirections.push_back(RayLib::Vector3(_direction.z * i, 0.0f, _direction.z));
+                newDirections.push_back(RayLib::Vector3(-_direction.z * i, 0.0f, _direction.z));
+            }
+
         }
 
         for (auto it = newDirections.begin(); it != newDirections.end(); it++) {
