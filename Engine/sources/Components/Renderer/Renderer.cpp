@@ -33,4 +33,35 @@ namespace Component
         return (_model);
     }
 
+    std::ostream& Renderer::operator<<(std::ostream& os)
+    {
+        os << "<Renderer>";
+        os << _model;
+        os << _texture;
+        os << "</Renderer>";
+        return (os);
+    }
+
+    std::istream& Renderer::operator>>(std::istream& is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        boost::property_tree::ptree rendererTree = tree.get_child("Renderer");
+
+        _model << rendererTree;
+        _texture << rendererTree;
+
+        return (is);
+    }
+
+    boost::property_tree::ptree& Renderer::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree rendererTree = ptree.get_child("Renderer");
+
+        _model << rendererTree;
+        _texture << rendererTree;
+        return (ptree);
+    }
+
 }

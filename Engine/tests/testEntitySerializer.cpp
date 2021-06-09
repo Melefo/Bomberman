@@ -11,6 +11,8 @@
 #include "Transform.hpp"
 #include <iostream>
 #include "Texture.hpp"
+#include "Model.hpp"
+#include "Renderer.hpp"
 
 Test(serializeVec3, vec3)
 {
@@ -39,7 +41,6 @@ Test(serializeTransform, transform)
     std::istringstream iss;
 
     oss << serializableObj;
-    std::cout << oss.str() << std::endl;
     iss.str(oss.str());
     iss >> dest;
 
@@ -58,9 +59,47 @@ Test(serializeTexture, texture)
     std::istringstream iss;
 
     oss << serializableObj;
-    std::cout << oss.str() << std::endl;
     iss.str(oss.str());
     iss >> dest;
 
     cr_assert(src.GetFileName() == dest.GetFileName());
 }
+
+// ! cannot be pushed because openGL not supported by workflows
+/*Test(serializeModel, model)
+{
+    InitWindow(1, 1, "test serialize model");
+
+    RayLib::Model src("../assets/BoxMan/guy.iqm");
+    RayLib::Model dest("");
+
+    IXMLSerializable& serializableObj = src;
+    std::ostringstream oss;
+    std::istringstream iss;
+
+    oss << serializableObj;
+    iss.str(oss.str());
+    iss >> dest;
+
+    cr_assert(src.GetFileName() == dest.GetFileName());
+    CloseWindow();
+}
+
+Test(serializeRenderer, renderer)
+{
+    InitWindow(1, 1, "test serialize renderer");
+
+    Component::Renderer src("../assets/BoxMan/guy.iqm", "");
+    Component::Renderer dest("", "");
+
+    IXMLSerializable& serializableObj = src;
+    std::ostringstream oss;
+    std::istringstream iss;
+
+    oss << serializableObj;
+    iss.str(oss.str());
+    iss >> dest;
+
+    cr_assert(src.GetModel().GetFileName() == dest.GetModel().GetFileName());
+    CloseWindow();
+}*/

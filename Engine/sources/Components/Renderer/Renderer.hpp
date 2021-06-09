@@ -18,7 +18,7 @@ namespace Component
      * @brief Renderer component
      * 
      */
-    class Renderer : public ECS::IComponent {
+    class Renderer : public ECS::IComponent, public IXMLSerializable {
         public:
             /**
              * @brief Construct a new Renderer object
@@ -64,6 +64,11 @@ namespace Component
              * @return RayLib::Model& 
              */
             RayLib::Model& GetModel(void);
+
+            std::ostream& operator<<(std::ostream& os) override;
+            std::istream& operator>>(std::istream& is) override;
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree);
 
         protected:
         private:

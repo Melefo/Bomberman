@@ -1,0 +1,33 @@
+<Entity>
+    <Transform>
+        <position>
+            <Vector3>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </Vector3>
+        </position>
+        <rotation>
+            <Vector3>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </Vector3>
+        </rotation>
+        <scale>
+            <Vector3>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+            </Vector3>
+        </scale>
+    </Transform>
+    <Renderer>
+        <Model>
+            <fileName></fileName>
+        </Model>
+        <Texture>
+            <fileName></fileName>
+        </Texture>
+    </Renderer>
+</Entity>

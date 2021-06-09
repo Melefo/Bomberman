@@ -22,6 +22,7 @@
 #include "Input.hpp"
 #include "Camera.hpp"
 #include "SphereCollider.hpp"
+#include "GameConfigurator.hpp"
 
 #include "TerrainGenerator.hpp"
 
@@ -156,6 +157,11 @@ int main(void)
     /*ECS::Entity& button = *///InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
         InitMap(*coordinator.get(), camera, map.getMap(), 0);            // ajoute la default map en fond
+
+    //! game manager for drag and drop
+    ECS::Entity& gameManager = coordinator->CreateEntity();
+    gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
+    //!
 
     InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
 
