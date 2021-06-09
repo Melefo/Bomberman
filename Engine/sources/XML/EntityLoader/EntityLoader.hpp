@@ -32,8 +32,13 @@ namespace Serialization
             static ECS::Entity& LoadEntity(std::istream& is);
             static ECS::Entity& LoadEntity(boost::property_tree::ptree &ptree);
 
+            static void LoadTransform(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+            static void LoadRenderer(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+
         protected:
         private:
+            static std::map<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)> _loadAbleComponents;
+
     };
 }
 
