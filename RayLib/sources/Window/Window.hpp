@@ -170,6 +170,8 @@ namespace RayLib
 
             bool IsFileDropped(void);
             std::vector<std::string> GetDroppedFiles(int *count);
+            void ClearDroppedFiles(void);
+
         protected:
         private:
 

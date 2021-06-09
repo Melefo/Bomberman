@@ -10,20 +10,38 @@
 namespace Component
 {
 
+    GameConfigurator::GameConfigurator() : _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(), ""))
+    {
+
+    }
+
+
     void GameConfigurator::Update(double, ECS::Entity&)
     {
         int count = 0;
-        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(), "");
+        // dans le constructeur
 
         // if drag n drop
-        if (window->IsFileDropped())
+        if (_window->IsFileDropped())
         {
-            std::vector<std::string> droppedFiles = window->GetDroppedFiles(&count);
+            std::vector<std::string> droppedFiles = _window->GetDroppedFiles(&count);
             // open file
-            std::cout << droppedFiles[0] << std::endl;
+            std::ifstream myfile(droppedFiles[0]);
 
-            Serialization::EntityLoader::LoadEntity(droppedFiles[0]);
+            std::stringstream buffer;
+            buffer << myfile.rdbuf();
+
+            std::istringstream iss;
+            iss.str(buffer.str());
+            myfile.close();
+
+            //std::cout << iss.str() << std::endl;
+            std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
+
+            Serialization::EntityLoader::LoadEntity(iss);
+            _window->ClearDroppedFiles();
         }
+
     }
 
     void GameConfigurator::FixedUpdate(ECS::Entity&)

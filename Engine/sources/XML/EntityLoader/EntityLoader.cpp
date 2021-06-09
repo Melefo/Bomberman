@@ -9,7 +9,7 @@
 
 namespace Serialization
 {
-    static ECS::Entity& LoadEntity(std::istringstream iss)
+    ECS::Entity& EntityLoader::LoadEntity(std::istream& iss)
     {
         // get the coordinator
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
@@ -32,30 +32,7 @@ namespace Serialization
         return (entity);
     }
 
-    static ECS::Entity& LoadEntity(std::string path)
-    {
-        // get the coordinator
-        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-        // create an entity
-        ECS::Entity& entity = coordinator->CreateEntity();
-
-        boost::property_tree::ptree tree;
-        boost::property_tree::xml_parser::read_xml(path, tree);
-
-        // get the ptree <Entity>
-        boost::property_tree::ptree entityNode = tree.get_child("Entity");
-
-        // ! une meilleure solution ? Laisser boost nous donner l'erreur ?
-        // ! foreach : child node -> create IComponent et on l'ajoute ?
-        entity.AddComponent<Component::Transform>();
-        entity.GetComponent<Component::Transform>() << entityNode;
-
-        entity.AddComponent<Component::Renderer>();
-        entity.GetComponent<Component::Renderer>() << entityNode;
-        return (entity);
-    }
-
-    static ECS::Entity& LoadEntity(boost::property_tree::ptree &ptree)
+    ECS::Entity& EntityLoader::LoadEntity(boost::property_tree::ptree &ptree)
     {
         // get the coordinator
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();

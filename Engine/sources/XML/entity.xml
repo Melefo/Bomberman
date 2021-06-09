@@ -16,18 +16,18 @@
         </rotation>
         <scale>
             <Vector3>
-                <x>0.0</x>
-                <y>0.0</y>
-                <z>0.0</z>
+                <x>10.0</x>
+                <y>10.0</y>
+                <z>10.0</z>
             </Vector3>
         </scale>
     </Transform>
     <Renderer>
         <Model>
-            <fileName></fileName>
+            <fileName>../assets/BoxMan/guy.iqm</fileName>
         </Model>
         <Texture>
-            <fileName></fileName>
+            <fileName>../assets/BoxMan/guytex.png</fileName>
         </Texture>
     </Renderer>
 </Entity>

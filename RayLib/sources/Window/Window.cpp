@@ -133,4 +133,10 @@ namespace RayLib
         }
         return (filesVec);
     }
+
+    void Window::ClearDroppedFiles(void)
+    {
+        ::ClearDroppedFiles();
+    }
+
 }

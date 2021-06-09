@@ -51,6 +51,7 @@ namespace Component
 
         _model << rendererTree;
         _texture << rendererTree;
+        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
 
         return (is);
     }
@@ -61,6 +62,8 @@ namespace Component
 
         _model << rendererTree;
         _texture << rendererTree;
+        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
+
         return (ptree);
     }
 

@@ -29,8 +29,7 @@ namespace Serialization
              */
             ~EntityLoader() = default;
 
-            static ECS::Entity& LoadEntity(std::istringstream is);
-            static ECS::Entity& LoadEntity(std::string path);
+            static ECS::Entity& LoadEntity(std::istream& is);
             static ECS::Entity& LoadEntity(boost::property_tree::ptree &ptree);
 
         protected:

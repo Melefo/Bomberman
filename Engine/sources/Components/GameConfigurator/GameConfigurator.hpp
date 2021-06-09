@@ -16,7 +16,7 @@ namespace Component
 {
     class GameConfigurator : public IBehaviour {
         public:
-            GameConfigurator() = default;
+            GameConfigurator();
             ~GameConfigurator() override = default;
 
             /**
@@ -42,6 +42,7 @@ namespace Component
 
         protected:
         private:
+            std::unique_ptr<RayLib::Window>& _window;
     };
 }
 
