@@ -53,7 +53,7 @@ class Asset {
          * @brief Construct a new Asset object
          * 
          */
-        Asset(const Asset&) = delete;
+        Asset(Asset&);
 
         /**
          * @brief Assign a new Asset object
@@ -95,7 +95,7 @@ class Asset {
          * 
          * @return const ModelAnimation& 
          */
-        std::map<std::string, ModelAnimation> &getAnimations();
+        std::map<std::string, RayLib::ModelAnimation> &getAnimations();
 };
 
 #endif /* !ASSET_HPP_ */

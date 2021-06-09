@@ -20,7 +20,7 @@ int main(void)
 {
     ECS::Coordinator coordinator;
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Bomberman");
-    AssetManager::AssetManager AM;
+    AssetManager AM;
 
     RayLib::Camera3D camera = RayLib::Camera3D();
 

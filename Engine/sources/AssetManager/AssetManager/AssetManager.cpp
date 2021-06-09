@@ -9,7 +9,7 @@
 #include "AssetManager.hpp"
 
 AssetManager::AssetManager() :
-    _loadStatus({0.0, false, ""}), _mutex(), _assets()
+    _mutex(), _assets(), _loadStatus({0.0, false, ""})
 {
     
 }
@@ -36,18 +36,15 @@ void AssetManager::loadAssets(std::vector<std::string> &objects)
             if (asset->getName() == object) {
                 isAlreadyLoaded = true;
                 break;
-                            
             }
-                    
         }
         if (isAlreadyLoaded == false) {
-            _assets.push_back(std::make_unique<Asset>(Asset(object)));
-                    
+            Asset newAsset(object);
+            _assets.push_back(std::make_unique<Asset>(newAsset));
         }
         _mutex.lock();
         _loadStatus.percentage = (_assets.size() * 100) / objects.size();
         _mutex.unlock();
-            
     }
     _mutex.lock();
     _loadStatus = {100.0, true, "Loading done!"};

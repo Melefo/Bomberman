@@ -94,7 +94,7 @@ public:
      * @param name
      * @return std::vector<Asset>
      */
-    std::vector<Asset> AssetManager::findFilesOfName(const std::string &name);
+    std::vector<Asset> findFilesOfName(const std::string &name);
 
     /**
      * @brief 

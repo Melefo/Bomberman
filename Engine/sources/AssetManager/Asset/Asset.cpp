@@ -8,8 +8,8 @@
 #include <filesystem>
 #include "Asset.hpp"
 
-Asset::Asset(std::string name) :
-    _name(name)
+Asset::Asset(std::string name)
+    : _name(name)
 {
     std::string file;
 
@@ -25,6 +25,13 @@ Asset::Asset(std::string name) :
             }
         }
     }
+}
+
+Asset::Asset(Asset &other)
+    : _model(other.getModel().release()), _texture(other.getTexture().release()), _name(other.getName())
+{
+    for (auto &animation : other.getAnimations())
+        this->_animations.emplace(animation.first, animation.second);
 }
 
 Asset::~Asset()
@@ -48,9 +55,9 @@ std::string Asset::getFileNameWithoutExt(const std::string &filePath)
     size_t extDot;
 
     if (lastFolder == std::string::npos)
-        filePath.find_last_of(".");
+        extDot = filePath.find_last_of(".");
     else
-        filePath.substr(lastFolder, std::string::npos).find_last_of(".");
+        extDot = filePath.substr(lastFolder, std::string::npos).find_last_of(".");
     if (extDot == std::string::npos && lastFolder == std::string::npos)
         return filePath;
     else if (extDot == std::string::npos)
@@ -58,6 +65,11 @@ std::string Asset::getFileNameWithoutExt(const std::string &filePath)
     else if (lastFolder == std::string::npos)
         return filePath.substr(0, extDot);
     return filePath.substr(lastFolder, extDot - lastFolder);
+}
+
+const std::string &Asset::getName() const
+{
+    return (_name);
 }
 
 std::unique_ptr<RayLib::Texture> &Asset::getTexture()
@@ -70,7 +82,7 @@ std::unique_ptr<RayLib::Model> &Asset::getModel()
     return (_model);
 }
 
-std::map<std::string, ModelAnimation> &Asset::getAnimations()
+std::map<std::string, RayLib::ModelAnimation> &Asset::getAnimations()
 {
     return (_animations);
 }
