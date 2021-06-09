@@ -91,7 +91,7 @@ namespace RayLib
             std::ostream& operator<<(std::ostream& os) override;
             std::istream& operator>>(std::istream& is) override;
 
-            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree);
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
             const std::string& GetFileName() const;
 

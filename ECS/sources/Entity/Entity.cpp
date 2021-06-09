@@ -39,4 +39,13 @@ namespace ECS
         return (this->_componentManager.GetComponentByName(name));
     }
 
+    void Entity::SetTag(const std::string& tag)
+    {
+        _tag = tag;
+    }
+
+    const std::string& Entity::GetTag(void) const
+    {
+        return (_tag);
+    }
 }

@@ -63,10 +63,7 @@ namespace RayLib
         boost::property_tree::ptree tree;
         boost::property_tree::xml_parser::read_xml(is, tree);
 
-        boost::property_tree::ptree tex = tree.get_child("Texture");
-
-        _fileName = tex.get<std::string>("fileName");
-        _texture = LoadTexture(_fileName.c_str());
+        this->operator<<(tree);
         return (is);
     }
 

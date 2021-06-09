@@ -15,36 +15,38 @@
 
 class IXMLSerializable
 {
-public:
-    /**
-             * @brief Construct a new IXMLSerializable object
-             * 
-             */
-    IXMLSerializable() = default;
-    /**
-             * @brief Destroy the IXMLSerializable object
-             * 
-             */
-    virtual ~IXMLSerializable() = default;
-    /**
-             * @brief Construct a new IXMLSerializable
-             * 
-             * @param other 
-             */
-    IXMLSerializable(const IXMLSerializable &other) = delete;
-    /**
-             * @brief 
-             * 
-             * @param other 
-             * @return IXMLSerializable& 
-             */
-    IXMLSerializable &operator=(const IXMLSerializable &other) = delete;
+    public:
+        /**
+                 * @brief Construct a new IXMLSerializable object
+                 * 
+                 */
+        IXMLSerializable() = default;
+        /**
+                 * @brief Destroy the IXMLSerializable object
+                 * 
+                 */
+        virtual ~IXMLSerializable() = default;
+        /**
+                 * @brief Construct a new IXMLSerializable
+                 * 
+                 * @param other 
+                 */
+        IXMLSerializable(const IXMLSerializable &other) = delete;
+        /**
+                 * @brief 
+                 * 
+                 * @param other 
+                 * @return IXMLSerializable& 
+                 */
+        IXMLSerializable &operator=(const IXMLSerializable &other) = delete;
 
-    virtual std::ostream &operator<<(std::ostream &os) = 0;
-    virtual std::istream &operator>>(std::istream &is) = 0;
+        virtual std::ostream &operator<<(std::ostream &os) = 0;
+        virtual std::istream &operator>>(std::istream &is) = 0;
+        virtual boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) = 0;
 
-protected:
-private:
+
+    protected:
+    private:
 };
 
 inline std::ostream &operator<<(std::ostream &os, IXMLSerializable &xml)

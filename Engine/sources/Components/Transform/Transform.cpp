@@ -29,14 +29,7 @@ namespace Component
         boost::property_tree::ptree tree;
         boost::property_tree::xml_parser::read_xml(is, tree);
 
-        boost::property_tree::ptree transformTree = tree.get_child("Transform");
-        boost::property_tree::ptree& positionTree = transformTree.get_child("position");
-        boost::property_tree::ptree& rotationTree = transformTree.get_child("rotation");
-        boost::property_tree::ptree& scaleTree = transformTree.get_child("scale");
-
-        position << positionTree;
-        rotation << rotationTree;
-        scale << scaleTree;
+        this->operator<<(tree);
         return (is);
     }
 

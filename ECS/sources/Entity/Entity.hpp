@@ -181,6 +181,10 @@ namespace ECS
              */
             IComponent& GetComponentByName(const std::string& name);
 
+            void SetTag(const std::string& tag);
+            const std::string& GetTag(void) const;
+
+
     };
 }
 

@@ -94,6 +94,7 @@ ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera,
 ECS::Entity& createWall(ECS::Coordinator &_coordinator)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("Wall");
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::Renderer>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
@@ -108,6 +109,7 @@ ECS::Entity& createBox(ECS::Coordinator &_coordinator, int level, const bool dra
     RayLib::Texture texture("assets/Blue.jpg");// TEMPORARY
 
     ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
@@ -156,7 +158,7 @@ int main(void)
     ECS::Entity& cat = InitCat(*coordinator.get());
     /*ECS::Entity& button = *///InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
-        InitMap(*coordinator.get(), camera, map.getMap(), 0);            // ajoute la default map en fond
+        InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
     //! game manager for drag and drop
     ECS::Entity& gameManager = coordinator->CreateEntity();

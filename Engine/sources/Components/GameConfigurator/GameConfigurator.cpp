@@ -38,6 +38,7 @@ namespace Component
             //std::cout << iss.str() << std::endl;
             std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
 
+            // ! comment trier entity/script ?
             Serialization::EntityLoader::LoadEntity(iss);
             _window->ClearDroppedFiles();
         }

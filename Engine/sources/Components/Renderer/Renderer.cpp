@@ -47,12 +47,7 @@ namespace Component
         boost::property_tree::ptree tree;
         boost::property_tree::xml_parser::read_xml(is, tree);
 
-        boost::property_tree::ptree rendererTree = tree.get_child("Renderer");
-
-        _model << rendererTree;
-        _texture << rendererTree;
-        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
-
+        this->operator<<(tree);
         return (is);
     }
 
