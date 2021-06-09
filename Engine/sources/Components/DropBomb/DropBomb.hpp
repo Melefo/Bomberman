@@ -89,7 +89,6 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
-
         protected:
         private:
             /**

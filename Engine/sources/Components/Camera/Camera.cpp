@@ -59,5 +59,4 @@ namespace Component
     {
         _targetLookAt = target;
     }
-
 }

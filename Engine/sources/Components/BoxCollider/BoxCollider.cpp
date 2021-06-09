@@ -121,5 +121,6 @@ namespace Component
         // use transform scale proportionnally ?
         _bounds.InitFromCube(transform.position, _scale);
     }
+
 }
 

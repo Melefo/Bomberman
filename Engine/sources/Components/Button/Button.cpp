@@ -27,8 +27,9 @@ namespace Component
         _rect.height = static_cast<float>(_texture.GetTexture().height);
 
         //_texture.DrawTexture( position, GREEN);
-        //_texture.DrawTextureRec(_rect, position, WHITE);
+
         _texture.DrawTextureEx(position, 0.0f, scale.x, WHITE);
+
     }
 
     bool Button::IsMouseOver(void)

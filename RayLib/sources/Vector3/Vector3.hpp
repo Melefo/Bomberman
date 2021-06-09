@@ -9,7 +9,9 @@
 #define VECTOR3_HPP_
 
 #include <raylib.h>
+#include "IXMLSerializable.hpp"
 #include <cmath>
+#include <sstream>
 
 namespace RayLib
 {
@@ -17,7 +19,7 @@ namespace RayLib
      * @brief Vector3 encapsulation
      * 
      */
-    class Vector3
+    struct Vector3 : public ::Vector3, public IXMLSerializable
     {
         public:
             /**
@@ -156,14 +158,16 @@ namespace RayLib
 
             bool operator==(const RayLib::Vector3& other);
 
-            float x;
-            float y;
-            float z;
+            std::ostream& operator<<(std::ostream& os) override;
+            std::istream& operator>>(std::istream& is) override;
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree);
+
+
         protected:
         private:
     };
+
 }
-
-
 
 #endif /* !VECTOR3_HPP_ */

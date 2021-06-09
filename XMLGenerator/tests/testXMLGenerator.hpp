@@ -12,14 +12,9 @@
 
 class TestXMLGenerator : public XMLGenerator {
     public:
-        TestXMLGenerator(const std::vector<std::string> &content, const std::string &filepath) : XMLGenerator(content, filepath), _filepath(filepath) {};
+        TestXMLGenerator(const std::string &filepath) : XMLGenerator(filepath), _filepath(filepath) {};
         ~TestXMLGenerator() = default;
 
-        void write(const std::string content) {
-            _stream->open(_filepath, std::ios::app);
-            XMLGenerator::write(content);
-            _stream->close();
-        };
     protected:
         std::string _filepath;
 };

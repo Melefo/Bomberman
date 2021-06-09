@@ -9,8 +9,8 @@
 
 namespace ECS
 {
-    Entity::Entity(uint32_t id, EntityManager &entityManager) :
-    _id(id), _componentManager(), _entityManager(entityManager)
+    Entity::Entity(uint32_t id, EntityManager &entityManager, const std::string& tag) :
+    _id(id), _componentManager(), _entityManager(entityManager), _tag(tag)
     {
     }
 
@@ -33,4 +33,10 @@ namespace ECS
     {
         this->_entityManager.DeleteEntity(*this);
     }
+
+    IComponent& Entity::GetComponentByName(const std::string& name)
+    {
+        return (this->_componentManager.GetComponentByName(name));
+    }
+
 }

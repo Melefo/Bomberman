@@ -30,6 +30,5 @@ namespace Component
     {
         _stateMachine.insert(std::pair<std::string, RayLib::ModelAnimation>(stateName, RayLib::ModelAnimation(filePath)));
     }
-
 }
 
