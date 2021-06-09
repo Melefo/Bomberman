@@ -9,6 +9,7 @@
 #include "Vector3.hpp"
 #include "IXMLSerializable.hpp"
 #include "Transform.hpp"
+#include <iostream>
 
 Test(serializeVec3, vec3)
 {
@@ -37,11 +38,11 @@ Test(serializeTransform, transform)
     std::istringstream iss;
 
     oss << serializableObj;
+    std::cout << oss.str() << std::endl;
     iss.str(oss.str());
     iss >> dest;
 
     cr_assert(src.position == dest.position);
     cr_assert(src.scale == dest.scale);
     cr_assert(src.rotation == dest.rotation);
-
 }

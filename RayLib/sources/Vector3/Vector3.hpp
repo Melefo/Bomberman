@@ -158,39 +158,16 @@ namespace RayLib
 
             bool operator==(const RayLib::Vector3& other);
 
-            //void LoadFromXML(std::istream &is) override;
-            //void SerializeToXML(std::ostream &os) const override;
-            std::ostream &operator<<(std::ostream &os) const override;
-            std::istream &operator>>(std::istream &is) override;
+            std::ostream& operator<<(std::ostream& os) override;
+            std::istream& operator>>(std::istream& is) override;
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree);
+
 
         protected:
         private:
     };
 
 }
-/*
-inline std::ostream& operator<<(std::ostream &os, const RayLib::Vector3& xml)
-{
-    os << "<Vector3>" << std::endl;
-    os << "\t<x>" << xml.x << "</x>" << std::endl;
-    os << "\t<y>" << xml.y << "</y>" << std::endl;
-    os << "\t<z>" << xml.z << "</z>" << std::endl;
-    os << "</Vector3>" << std::endl;
-    return os;
-}
-
-inline std::istream& operator>>(std::istream &is, RayLib::Vector3& xml)
-{
-    boost::property_tree::ptree tree;
-    boost::property_tree::xml_parser::read_xml(is, tree);
-
-    boost::property_tree::ptree vec3 = tree.get_child("Vector3");
-
-    xml.x = vec3.get<float>("x");
-    xml.y = vec3.get<float>("y");
-    xml.z = vec3.get<float>("z");
-    return is;
-}
-*/
 
 #endif /* !VECTOR3_HPP_ */

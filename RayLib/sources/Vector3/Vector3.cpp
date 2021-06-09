@@ -144,7 +144,7 @@ namespace RayLib
         return (distance);
     }
 
-    std::istream &Vector3::operator>>(std::istream &is)
+    std::istream& Vector3::operator>>(std::istream& is)
     {
         boost::property_tree::ptree tree;
         boost::property_tree::xml_parser::read_xml(is, tree);
@@ -157,7 +157,7 @@ namespace RayLib
         return (is);
     }
 
-    std::ostream &Vector3::operator<<(std::ostream &os) const
+    std::ostream& Vector3::operator<<(std::ostream& os)
     {
         os << "<Vector3>";
         os << "<x>" << x << "</x>";
@@ -167,4 +167,13 @@ namespace RayLib
         return (os);
     }
 
+    boost::property_tree::ptree& Vector3::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree vec3 = ptree.get_child("Vector3");
+
+        x = vec3.get<float>("x");
+        y = vec3.get<float>("y");
+        z = vec3.get<float>("z");
+        return (ptree);
+    }
 }

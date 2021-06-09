@@ -27,8 +27,8 @@ namespace Component
 
             // translate
             // lookat ?
-            std::ostream &operator<<(std::ostream &os) const override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
+            std::ostream &operator<<(std::ostream &os) override;
+            std::istream &operator>>(std::istream &is) override;
 
         protected:
         private:
