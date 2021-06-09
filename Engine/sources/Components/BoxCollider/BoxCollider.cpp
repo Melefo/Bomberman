@@ -58,7 +58,6 @@ namespace Component
         return (false);
     }
 
-
     bool BoxCollider::CheckCollision(RayLib::Vector3 center, float radius)
     {
         UpdateBounds();
@@ -120,6 +119,34 @@ namespace Component
 
         // use transform scale proportionnally ?
         _bounds.InitFromCube(transform.position, _scale);
+    }
+
+    std::ostream &BoxCollider::operator<<(std::ostream &os)
+    {
+        os << "<BoxCollider>";
+        os << "<_scale>" << _scale << "</_scale>";
+        os << "</BoxCollider>";
+        return (os);
+    }
+
+    std::istream &BoxCollider::operator>>(std::istream &is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
+    }
+
+    boost::property_tree::ptree& BoxCollider::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree transformTree = ptree.get_child("BoxCollider");
+        boost::property_tree::ptree& scaleTree = transformTree.get_child("scale");
+
+        _scale << scaleTree;
+        Transform& transform = _myEntity.GetComponent<Transform>();
+        _bounds.InitFromCube(transform.position, _scale);
+        return (ptree);
     }
 
 }

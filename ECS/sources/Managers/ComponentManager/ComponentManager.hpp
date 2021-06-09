@@ -15,6 +15,7 @@
 #include <algorithm>
 #include "Exceptions.hpp"
 #include "IComponent.hpp"
+#include <map>
 
 namespace ECS
 {
@@ -35,6 +36,8 @@ namespace ECS
              * 
              */
             std::unordered_map<std::string, std::unique_ptr<IComponent>> _components;
+            //std::map<std::string, std::unique_ptr<IComponent>> _components;
+
         public:
             /**
              * @brief Construct a new Component Manager object

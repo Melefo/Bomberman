@@ -12,7 +12,8 @@ namespace Serialization
     // ! std::function is a mess
     std::map<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)> EntityLoader::_loadAbleComponents = {
         std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Transform", &EntityLoader::LoadTransform),
-        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Renderer", &EntityLoader::LoadRenderer)
+        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Renderer", &EntityLoader::LoadRenderer),
+        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("BoxCollider", &EntityLoader::LoadBoxCollider)
     };
 
     ECS::Entity& EntityLoader::LoadEntity(std::istream& iss)
@@ -56,7 +57,6 @@ namespace Serialization
         }
     }
 
-
     void EntityLoader::LoadTransform(ECS::Entity& entity, boost::property_tree::ptree &ptree)
     {
         entity.AddComponent<Component::Transform>();
@@ -67,6 +67,18 @@ namespace Serialization
     {
         entity.AddComponent<Component::Renderer>();
         entity.GetComponent<Component::Renderer>() << ptree;
+    }
+
+    void EntityLoader::LoadBoxCollider(ECS::Entity&, boost::property_tree::ptree &)
+    {
+        //! ne fonctionne uniquement si Transform précede BoxCollider
+        //! à cause du unordered map, c'est aléatoire, donc des fois le box collider ne trouve pas son transform, et crash
+        /*entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, 1.0f);
+        std::vector<std::reference_wrapper<Component::Collider>> cols = entity.OfType<Component::Collider>();
+
+        for (auto col = cols.begin(); col != cols.end(); col++) {
+            col->get() << ptree;
+        }*/
     }
 
 }
