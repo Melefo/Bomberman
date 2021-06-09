@@ -14,7 +14,7 @@
 
 namespace Component
 {
-    class Transform : public ECS::IComponent, public IXMLSerializable {
+    class Transform : public ECS::IComponent {
         public:
             Transform(RayLib::Vector3 position=RayLib::Vector3(),
                         RayLib::Vector3 rotation=RayLib::Vector3(),

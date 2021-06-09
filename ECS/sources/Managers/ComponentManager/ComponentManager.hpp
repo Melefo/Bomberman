@@ -93,6 +93,14 @@ namespace ECS
                     list.push_back(dynamic_cast<T&>(*this->_components[name]));
                 return list;
             }
+
+            /**
+             * @brief Get the Components
+             * 
+             * @return std::vector<std::unique_ptr<IComponent>&> 
+             */
+            std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> GetComponents();
+
             /**
              * @brief Add a new Component to the current Entity
              * 

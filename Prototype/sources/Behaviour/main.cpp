@@ -156,7 +156,7 @@ int main(void)
     TerrainGenerator map(2);
 
     ECS::Entity& cat = InitCat(*coordinator.get());
-    /*ECS::Entity& button = *///InitButton(*coordinator.get());
+    ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
         InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 

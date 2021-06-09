@@ -15,7 +15,6 @@ namespace Component
 
     }
 
-
     void GameConfigurator::Update(double, ECS::Entity&)
     {
         int count = 0;
@@ -42,7 +41,6 @@ namespace Component
             Serialization::EntityLoader::LoadEntity(iss);
             _window->ClearDroppedFiles();
         }
-
     }
 
     void GameConfigurator::FixedUpdate(ECS::Entity&)
@@ -53,5 +51,30 @@ namespace Component
     void GameConfigurator::LateUpdate(double, ECS::Entity&)
     {
 
+    }
+
+    void GameConfigurator::SaveMap(void)
+    {
+        // open a file called map.xml
+        std::ofstream file("./map.xml", std::ofstream::trunc | std::ofstream::out);
+
+        // get coordinator
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        // get entities
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator->GetEntities();
+        std::ostringstream oss;
+
+        for (auto it = entities.begin(); it != entities.end(); it++) {
+            if (it->get()->GetTag() == "Wall" || it->get()->GetTag() == "Block")
+                continue;
+            std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> components = it->get()->GetComponents();
+            for (auto cmp = components.begin(); cmp != components.end(); cmp++) {
+                IXMLSerializable& obj = *cmp->get();
+                oss << obj;
+            }
+        }
+
+        file << oss.str();
+        file.close();
     }
 }

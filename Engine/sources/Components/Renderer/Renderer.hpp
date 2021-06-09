@@ -18,7 +18,7 @@ namespace Component
      * @brief Renderer component
      * 
      */
-    class Renderer : public ECS::IComponent, public IXMLSerializable {
+    class Renderer : public ECS::IComponent {
         public:
             /**
              * @brief Construct a new Renderer object

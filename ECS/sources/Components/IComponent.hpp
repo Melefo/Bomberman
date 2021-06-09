@@ -9,6 +9,7 @@
 #define ICOMPONENT_HPP_
 
 #include <ostream>
+#include "IXMLSerializable.hpp"
 
 namespace ECS
 {
@@ -16,7 +17,7 @@ namespace ECS
      * @brief Base Interface class to create a new component
      * 
      */
-    class IComponent
+    class IComponent : public IXMLSerializable
     {
         public:
             /**

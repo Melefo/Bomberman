@@ -100,6 +100,14 @@ namespace ECS
             {
                 return this->_componentManager.OfType<T>();
             }
+
+            /**
+             * @brief Get the Components object
+             * 
+             * @return std::vector<std::unique_ptr<IComponent>&> 
+             */
+            std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> GetComponents();
+
             /**
              * @brief Add a new Component to the current Entity
              * 

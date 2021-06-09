@@ -47,8 +47,10 @@ ENDMACRO()
 HEADER_DIRECTORIES(INC)
 TESTS_HEADER_DIRECTORIES(TEST_INC)
 
-TARGET_LINK_LIBRARIES(ecs_unit_tests criterion -lgcov)
-TARGET_COMPILE_OPTIONS(ecs_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
 target_include_directories(ecs PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
 target_include_directories(ecs_unit_tests PUBLIC ${raylib_SOURCE_DIR}/src ${INC} ${TEST_INC})
+
+TARGET_LINK_LIBRARIES(ecs xmlGen)
+TARGET_LINK_LIBRARIES(ecs_unit_tests xmlGen criterion -lgcov)
+TARGET_COMPILE_OPTIONS(ecs_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
