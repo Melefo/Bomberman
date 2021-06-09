@@ -21,6 +21,7 @@ namespace Component
 
             void Update(double dt, ECS::Entity &entity) override;
             void FixedUpdate(ECS::Entity &entity) override;
+            void LateUpdate(double dt, ECS::Entity &entity) override;
 
         protected:
         private:

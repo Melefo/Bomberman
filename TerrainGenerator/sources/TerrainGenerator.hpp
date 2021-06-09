@@ -26,12 +26,21 @@ class TerrainGenerator {
             PLAYER = 'P' // Player character
         };
         /**
+         * @enum Map types
+         * 
+         */
+        enum class MapType {
+            Default, // Generate a basic or random map with the respective ratio 1/3:2/3
+            Basic, // Generate a basic map
+            Random // Generate a random map
+        };
+        /**
          * @brief Construct a new Terrain Generator object
          * 
          * @param playersNbr Number of players (From 1 to 8)
          * @param boxPercentage Percentage of box spawning (80 by default)
          */
-        TerrainGenerator(int playersNbr, int boxPercentage = 80);
+        TerrainGenerator(int playersNbr, const MapType mapType = MapType::Default, int boxPercentage = 80);
         /**
          * @brief Destroy the Terrain Generator object
          * 
@@ -72,6 +81,19 @@ class TerrainGenerator {
          * @param x Width position
          */
         void addTileOnMap(int y, int x);
+        /**
+         * @brief Generate the _map object into an "map.xml" file
+         * 
+         */
+        void generateXMLFile();
+        /**
+         * @brief Set the Players Number object
+         * Resets the map according to players number
+         * 
+         * @param newSize The new player numbers
+         */
+        void setPlayersNumber(int newSize);
+
     protected:
         /**
          * @brief Generate a line based on the actual position
@@ -209,6 +231,11 @@ class TerrainGenerator {
          * 
          */
         int _width;
+        /**
+         * @brief Current map type
+         * 
+         */
+        MapType _mapType;
         /**
          * @brief The map
          * 

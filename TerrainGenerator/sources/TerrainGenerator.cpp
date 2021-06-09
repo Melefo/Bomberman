@@ -12,10 +12,11 @@
 #include <algorithm>
 #include <iostream>
 
-TerrainGenerator::TerrainGenerator(int playersNbr, int boxPercentage)
+TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int boxPercentage)
     : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
     _height(13)
 {
+    _playersNbr = _playersNbr < 2 ? 2 : _playersNbr;
     _playersNbr = _playersNbr > 8 ? 8 : _playersNbr;
     std::map<int, int> mapSizes = {
         {2, 13},
@@ -26,6 +27,7 @@ TerrainGenerator::TerrainGenerator(int playersNbr, int boxPercentage)
 
     _width = mapSizes[_playersNbr];
     _map = std::vector<std::string>(_height);
+    _mapType = mapType;
     generateMap();
 }
 
@@ -148,6 +150,21 @@ void TerrainGenerator::addTileOnMap(int y, int x)
     _map[y][x] = static_cast<char>(mapTexture::INWALL);
 }
 
+void TerrainGenerator::generateXMLFile()
+{
+    XMLGenerator xmlFile(_map);
+}
+
+void TerrainGenerator::setPlayersNumber(int newSize) {
+    if (newSize < 1)
+        _playersNbr = 2;
+    else if (newSize > 8)
+        _playersNbr = 8;
+    else if (newSize % 2 != 0)
+        _playersNbr = newSize + 1;
+    generateMap();
+}
+
 /**
  * Private
  */
@@ -168,6 +185,7 @@ void TerrainGenerator::placePlayers()
         _map[_height/2][1] = static_cast<char>(mapTexture::PLAYER);
         _map[_height/2][_width-2] = static_cast<char>(mapTexture::PLAYER);
     }
+    makeSpaceForPlayers();
 }
 
 char TerrainGenerator::generateBoxLevel()
@@ -196,10 +214,16 @@ void TerrainGenerator::generateMap()
 {
     srand(static_cast<unsigned int>(time(NULL)));
 
-    if (rand() % 3 == 0)
+    if (_mapType == MapType::Basic)
         generateBaseMap();
-    else
+    else if (_mapType == MapType::Random)
         generateRandomMap(0);
+    else {
+        if (rand() % 3 == 0)
+            generateBaseMap();
+        else
+            generateRandomMap(0);
+    }
     generateBoxes();
     placePlayers();
 }

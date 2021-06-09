@@ -74,6 +74,10 @@ namespace Component
             // ! delete me
             static void StaticCallback(void);
 
+            static void QuitWindow(void);
+
+            static void CreateBox(void);
+
         protected:
         private:
             /**

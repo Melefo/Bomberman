@@ -117,9 +117,14 @@ namespace ECS
         return this->_fixedDeltaTime;
     }
 
-    const std::list<std::unique_ptr<Entity>>& Coordinator::GetEntities() const
+    const std::list<std::unique_ptr<Entity>>& Coordinator::GetEntities()
     {
-        return this->_scenes.at(this->_currentScene).GetEntities();
+        return this->_scenes[this->_currentScene].GetEntities();
+    }
+
+    const std::string &Coordinator::getCurrentScene(void)
+    {
+        return (_currentScene);
     }
 
 }
