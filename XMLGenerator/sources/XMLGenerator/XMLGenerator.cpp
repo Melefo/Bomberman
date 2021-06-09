@@ -38,9 +38,9 @@ void XMLGenerator::closeAndReopen(const std::string &tagName)
 {
     size_t tagsSize = _tags.size() > 0 ? _tags.size()-1 : 0;
     std::string tabs(tagsSize, '\t');
-    size_t position = 0;
+    size_t position = findTag(tagName);
 
-    if ((position = findTag(tagName) >= 0)) {
+    if (position >= 0) {
         for (; _tags.size()-1 > position; closeLastTag());
         this->write(tabs+"</"+tagName+">\n");
         this->write(tabs+"<"+tagName+">\n");
