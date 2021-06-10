@@ -22,6 +22,7 @@
 #include "Input.hpp"
 #include "Camera.hpp"
 #include "SphereCollider.hpp"
+#include "GameConfigurator.hpp"
 
 #include "TerrainGenerator.hpp"
 
@@ -53,8 +54,8 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 ECS::Entity& InitButton(ECS::Coordinator& coordinator)
 {
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Component::IUIObject, Component::Button>();
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
+    entity.AddComponent<Component::IUIObject, Component::Button>("../assets/buttons/mapEditorButton.png");
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(500.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 
     Component::Button& button = entity.GetComponent<Component::Button>();
@@ -93,6 +94,7 @@ ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera,
 ECS::Entity& createWall(ECS::Coordinator &_coordinator)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("Wall");
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::Renderer>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
@@ -107,11 +109,12 @@ ECS::Entity& createBox(ECS::Coordinator &_coordinator, int level, const bool dra
     RayLib::Texture texture("assets/Blue.jpg");// TEMPORARY
 
     ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::Renderer>();
-    entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
+    entity.AddComponent<Component::Renderer>("", "assets/Blue.jpg");
+    //entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Destructible>(entity, 1);
     if (draggable)
@@ -121,26 +124,26 @@ ECS::Entity& createBox(ECS::Coordinator &_coordinator, int level, const bool dra
 }
 
 void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
-    {
-        for (size_t y = 0; y < map.size(); y++) {
-            for (size_t x = 0; x < map[y].size(); x++) {
-                if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
-                || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
-                    ECS::Entity& wall = createWall(coordinator);
-                    wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
-                    ECS::Entity& box = createBox(coordinator, 1, isEditor ? true : false, camera);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
-                    ECS::Entity& box = createBox(coordinator,2, isEditor ? true : false, camera);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
-                    ECS::Entity& box = createBox(coordinator, 3, isEditor ? true : false,camera);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                }
+{
+    for (size_t y = 0; y < map.size(); y++) {
+        for (size_t x = 0; x < map[y].size(); x++) {
+            if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
+            || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
+                ECS::Entity& wall = createWall(coordinator);
+                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
+                ECS::Entity& box = createBox(coordinator, 1, isEditor ? true : false, camera);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
+                ECS::Entity& box = createBox(coordinator,2, isEditor ? true : false, camera);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
+                ECS::Entity& box = createBox(coordinator, 3, isEditor ? true : false,camera);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
             }
         }
     }
+}
 
 int main(void)
 {
@@ -153,9 +156,17 @@ int main(void)
     TerrainGenerator map(2);
 
     ECS::Entity& cat = InitCat(*coordinator.get());
-    /*ECS::Entity& button = *///InitButton(*coordinator.get());
+    //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
-        InitMap(*coordinator.get(), camera, map.getMap(), 0);            // ajoute la default map en fond
+    //InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
+
+    //! game manager for drag and drop
+    ECS::Entity& gameManager = coordinator->CreateEntity();
+    gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
+    //!
+
+    // ! experimental
+    //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
     InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
 

@@ -21,7 +21,7 @@ namespace RayLib
      * @brief Model encapsulation
      * 
      */
-    class Model {
+    class Model : public IXMLSerializable {
         public:
             /**
              * @brief Construct a new Model object based on given file
@@ -79,9 +79,17 @@ namespace RayLib
              */
             const ::Model GetModel();
 
+            const std::string& GetFileName() const;
+
+            std::ostream& operator<<(std::ostream& os) override;
+            std::istream& operator>>(std::istream& is) override;
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
+
         protected:
         private:
             ::Model _model;
+            std::string _fileName;
     };
 }
 

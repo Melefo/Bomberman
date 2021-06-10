@@ -42,9 +42,6 @@ class EntitySerializer : public XMLGenerator {
         // todo
         void SaveEntities();
         void SaveEntity(ECS::Entity& entity);
-        void SerializeTransform(Component::Transform&);
-
-
 
     protected:
     private:

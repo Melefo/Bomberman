@@ -22,7 +22,7 @@ namespace RayLib
      * @brief Texture encapsulation
      * 
      */
-    class Texture {
+    class Texture : public IXMLSerializable {
         public:
             /**
              * @brief Destroy the Texture object
@@ -88,9 +88,17 @@ namespace RayLib
              */
             ::Texture2D GetTexture();
 
+            std::ostream& operator<<(std::ostream& os) override;
+            std::istream& operator>>(std::istream& is) override;
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
+
+            const std::string& GetFileName() const;
+
         protected:
         private:
             ::Texture2D _texture;
+            std::string _fileName;
     };
 }
 

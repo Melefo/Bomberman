@@ -37,4 +37,14 @@ namespace ECS
             throw Exception::EntityException("Entity doesn't contain this Component");
         return (*it->second);
     }
+
+    std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> ComponentManager::GetComponents()
+    {
+        std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> comps;
+
+        for (auto it = _components.begin(); it != _components.end(); it++)
+            comps.push_back(it->second);
+        return (comps);
+    }
+
 }
