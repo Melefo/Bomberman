@@ -10,14 +10,14 @@
 
 namespace RayLib
 {
-    Texture::Texture(const std::string& filename)
+    Texture::Texture(const std::string& filename) : _texture(LoadTexture(filename.c_str())), _fileName(filename)
     {
-        _texture = LoadTexture(filename.c_str());
+
     }
 
-    Texture::Texture(Image image)
+    Texture::Texture(Image image) : _texture(LoadTextureFromImage(image.GetImage())), _fileName("")
     {
-        _texture = LoadTextureFromImage(image.GetImage());
+
     }
 
     void Texture::DrawTexture(Vector2<float> position, Color tint)
@@ -48,5 +48,36 @@ namespace RayLib
     Texture::~Texture()
     {
         UnloadTexture(_texture);
+    }
+
+    std::ostream& Texture::operator<<(std::ostream& os)
+    {
+        os << "<Texture>";
+        os << "<fileName>" << _fileName << "</fileName>";
+        os << "</Texture>";
+        return (os);
+    }
+
+    std::istream& Texture::operator>>(std::istream& is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
+    }
+
+    boost::property_tree::ptree& Texture::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree tex = ptree.get_child("Texture");
+
+        _fileName = tex.get<std::string>("fileName");
+        _texture = LoadTexture(_fileName.c_str());
+        return (ptree);
+    }
+
+    const std::string& Texture::GetFileName() const
+    {
+        return (_fileName);
     }
 }

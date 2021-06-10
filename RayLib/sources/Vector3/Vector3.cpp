@@ -149,11 +149,7 @@ namespace RayLib
         boost::property_tree::ptree tree;
         boost::property_tree::xml_parser::read_xml(is, tree);
 
-        boost::property_tree::ptree vec3 = tree.get_child("Vector3");
-
-        x = vec3.get<float>("x");
-        y = vec3.get<float>("y");
-        z = vec3.get<float>("z");
+        this->operator<<(tree);
         return (is);
     }
 

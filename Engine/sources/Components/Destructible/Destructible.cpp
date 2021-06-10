@@ -28,4 +28,29 @@ namespace Component
         }
     }
 
+    std::ostream &Destructible::operator<<(std::ostream &os)
+    {
+        os << "<Destructible>";
+        os << "<_resistance>" << _resistance << "</_resistance>";
+        os << "</Destructible>";
+        return (os);
+    }
+
+    std::istream &Destructible::operator>>(std::istream &is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
+    }
+
+    boost::property_tree::ptree& Destructible::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree node = ptree.get_child("Destructible");
+
+        _resistance = node.get<float>("_resistance");
+        return (ptree);
+    }
+
 }

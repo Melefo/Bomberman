@@ -75,6 +75,11 @@ namespace Component
 
             bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position);
 
+            std::ostream &operator<<(std::ostream &os) override {return os;};
+            std::istream &operator>>(std::istream &is) override {return is;};
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+
+
         protected:
         private:
             /**

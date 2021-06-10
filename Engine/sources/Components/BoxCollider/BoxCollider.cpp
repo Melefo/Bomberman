@@ -16,8 +16,10 @@ namespace Component
     BoxCollider::BoxCollider(ECS::Entity& attatchedEntity, RayLib::Vector3 scale)
     : Collider(attatchedEntity), _bounds(RayLib::Vector3(), scale)
     {
-        Transform& transform = attatchedEntity.GetComponent<Transform>();
-        _bounds.InitFromCube(transform.position, scale);
+        if (attatchedEntity.HasComponent<Transform>()) {
+            Transform& transform = attatchedEntity.GetComponent<Transform>();
+            _bounds.InitFromCube(transform.position, scale);
+        }
         _scale = scale;
     }
 
@@ -57,7 +59,6 @@ namespace Component
         }
         return (false);
     }
-
 
     bool BoxCollider::CheckCollision(RayLib::Vector3 center, float radius)
     {
@@ -116,10 +117,40 @@ namespace Component
 
     void BoxCollider::UpdateBounds()
     {
-        Transform& transform = _myEntity.GetComponent<Transform>();
+        if (_myEntity.HasComponent<Transform>()) {
+            Transform& transform = _myEntity.GetComponent<Transform>();
 
-        // use transform scale proportionnally ?
-        _bounds.InitFromCube(transform.position, _scale);
+            // use transform scale proportionnally ?
+            _bounds.InitFromCube(transform.position, _scale);
+        }
+    }
+
+    std::ostream &BoxCollider::operator<<(std::ostream &os)
+    {
+        os << "<BoxCollider>";
+        os << "<_scale>" << _scale << "</_scale>";
+        os << "</BoxCollider>";
+        return (os);
+    }
+
+    std::istream &BoxCollider::operator>>(std::istream &is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
+    }
+
+    boost::property_tree::ptree& BoxCollider::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree transformTree = ptree.get_child("BoxCollider");
+        boost::property_tree::ptree& scaleTree = transformTree.get_child("_scale");
+
+        _scale << scaleTree;
+        //Transform& transform = _myEntity.GetComponent<Transform>();
+        //_bounds.InitFromCube(transform.position, _scale);
+        return (ptree);
     }
 
 }
