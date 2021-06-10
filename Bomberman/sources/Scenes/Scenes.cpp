@@ -19,6 +19,7 @@
 #include "Ray.hpp"
 #include "TerrainGenerator.hpp"
 #include "Scenes.hpp"
+#include "Window.hpp"
 
 
 std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> Scenes::scenesCtor =
@@ -55,7 +56,20 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
 {
     EntityFactory entityFactory(coordinator, camera);
 
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0.0f, "");
+
     ECS::Entity &entityQuit = entityFactory.createButton("../assets/buttons/quitGameButton.png");
+    entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
+                                                                               window->GetSize().y / 2.0f + 50.0f, 0.0f);
+
+    ECS::Entity &entityPlay = entityFactory.createButton("../assets/buttons/newGameButton.png");
+    entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
+                                                                               window->GetSize().y / 2.0f - 150.0f, 0.0f);
+
+    ECS::Entity &entitySettings = entityFactory.createButton("../assets/buttons/optionsButton.png");
+    entitySettings.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
+                                                                               window->GetSize().y / 2.0f - 50.0f, 0.0f);
+
     //entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
     /*ECS::Entity &entityPlayer = */entityFactory.createPlayer("blue");

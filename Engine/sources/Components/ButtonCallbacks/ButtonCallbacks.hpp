@@ -13,6 +13,7 @@
 #include "IBehaviour.hpp"
 #include "Button.hpp"
 #include <iostream>
+#include "Coordinator.hpp"
 
 namespace Component
 {

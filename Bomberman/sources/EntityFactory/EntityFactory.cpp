@@ -70,9 +70,10 @@ ECS::Entity& EntityFactory::createBox(const int level, const bool draggable)
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createPlayer(const std::string &playerColor)
-{(void)playerColor;
+ECS::Entity& EntityFactory::createPlayer(const std::string &)
+{
     ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("Player");
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::PhysicsBody>();
     // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");

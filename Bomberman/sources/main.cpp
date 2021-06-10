@@ -34,6 +34,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 {
     // cat
     ECS::Entity &entity = coordinator.CreateEntity();
+    entity.SetTag("Player");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(30, 0, 30));
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("../assets/BoxMan/guy.iqm", "../assets/BoxMan/guytex.png");
@@ -83,12 +84,12 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     return (entity);
 }
 
-ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, Component::Transform& target)
+ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, Component::Transform& )
 {
     ECS::Entity& entity = coordinator.CreateEntity();
 
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, 0.0f));
-    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera, target.position);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, -50.0f));
+    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
 
     return (entity);
 }
@@ -103,14 +104,16 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     TerrainGenerator map(2);
 
+    Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
+
     ECS::Entity& cat = InitCat(*coordinator.get());
+
     //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
 
     //! uncomment to generate a map
     //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
-    Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
 
     //! game manager for drag and drop
     ECS::Entity& gameManager = coordinator->CreateEntity();
@@ -122,14 +125,14 @@ int main(void)
     InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
 
     coordinator->AddSystem<Component::PhysicsSystem>();
+    coordinator->AddSystem<Component::UISystem>(camera);
     coordinator->AddSystem<Component::RenderSystem>();
     coordinator->AddSystem<Component::BehaviourSystem>();
-    coordinator->AddSystem<Component::UISystem>(camera);
 
     window->SetTargetFPS(60);
     //camera.SetCameraMode(CAMERA_FREE);
 
-    while (!window->WindowShouldClose())
+    while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         /*if (coordinator->GetEntities().size() == 0)
             Scenes::scenesCtor[coordinator->getCurrentScene()](*(coordinator.get()), camera);*/
@@ -141,7 +144,7 @@ int main(void)
 
         coordinator->Run();
 
-        window->DrawGrid(20, 10.0f);
+        //window->DrawGrid(20, 10.0f);
         camera.EndMode();
         window->EndDrawing();
     }

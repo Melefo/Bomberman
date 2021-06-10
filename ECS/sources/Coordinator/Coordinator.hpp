@@ -166,6 +166,8 @@ namespace ECS
             const std::list<std::unique_ptr<Entity>>& GetEntities();
 
             const std::string &getCurrentScene(void);
+
+            bool CloseWindow;
     };
 }
 
