@@ -24,25 +24,20 @@
 #include "Ray.hpp"
 #include "TerrainGenerator.hpp"
 
-namespace Scenes {
-    void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor);
-    void InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
-    void InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
-    void InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
-    void InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
-    void InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
+class Scenes {
+    public:
+        static void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor);
+        static void InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
+        static void InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
+        static void InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
+        static void InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
+        static void InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
 
-    typedef void (*initSceneFunction)(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
+        static void switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &newScene);
 
-    static std::map<std::string, initSceneFunction> scenesCtor = {std::make_pair<std::string, initSceneFunction>("MainMenu", &InitMainMenu),
-                                                                  std::make_pair<std::string, initSceneFunction>("EditorMenu", &InitEditorMenu),
-                                                                  std::make_pair<std::string, initSceneFunction>("Editor", &InitEditor),
-                                                                  std::make_pair<std::string, initSceneFunction>("Game", &InitGame),
-                                                                  std::make_pair<std::string, initSceneFunction>("LoadingScreen", &InitLoadingScreen)
-                                                                 };
-    
-    void switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &newScene);
-}
+        static std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> scenesCtor;
+    private:
+};
 
 #define BOX_SIZE 10
 

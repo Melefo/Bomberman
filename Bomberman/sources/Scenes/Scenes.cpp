@@ -23,37 +23,42 @@
 #include "Texture.hpp"
 #include <string>
 
-namespace Scenes {
+std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> Scenes::scenesCtor =
+    {std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("MainMenu", &InitMainMenu),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("EditorMenu", &InitEditorMenu),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("Editor", &InitEditor),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("Game", &InitGame),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("LoadingScreen", &InitLoadingScreen),
+    };
 
-    void switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &nextScene)
-    {
-        std::string str("LoadingScreen");
+void Scenes::switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &nextScene)
+{
+    std::string str("LoadingScreen");
 
-        coordinator.setCurrentScene(str);
-        am.setNextScene(nextScene);
-        am.loadAssets(coordinator.getScene(nextScene).GetEntities());
-    }
+    coordinator.setCurrentScene(str);
+    am.setNextScene(nextScene);
+    am.loadAssets(coordinator.getScene(nextScene).GetEntities());
+}
 
-    void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
-    {
-        EntityFactory entityFactory(coordinator, camera);
+void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
+{
+    EntityFactory entityFactory(coordinator, camera);
 
-        for (size_t y = 0; y < map.size(); y++) {
-            for (size_t x = 0; x < map[y].size(); x++) {
-                if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
-                || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
-                    ECS::Entity& wall = entityFactory.createWall();
-                    wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
-                    ECS::Entity& box = entityFactory.createBox(1, isEditor ? true : false);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
-                    ECS::Entity& box = entityFactory.createBox(2, isEditor ? true : false);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
-                    ECS::Entity& box = entityFactory.createBox(3, isEditor ? true : false);
-                    box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-                }
+    for (size_t y = 0; y < map.size(); y++) {
+        for (size_t x = 0; x < map[y].size(); x++) {
+            if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
+            || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
+                ECS::Entity& wall = entityFactory.createWall();
+                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
+                ECS::Entity& box = entityFactory.createBox(1, isEditor ? true : false);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
+                ECS::Entity& box = entityFactory.createBox(2, isEditor ? true : false);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
+                ECS::Entity& box = entityFactory.createBox(3, isEditor ? true : false);
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
             }
         }
     }

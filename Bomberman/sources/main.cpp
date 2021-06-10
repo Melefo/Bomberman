@@ -122,6 +122,8 @@ int main(void)
     //! uncomment to save generated map
     //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
+    //Scenes::InitLoadingScreen(*coordinator.get(), camera, map.getMap());
+
     InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
 
     coordinator->AddSystem<Component::PhysicsSystem>();
@@ -132,12 +134,12 @@ int main(void)
     window->SetTargetFPS(60);
     camera.SetCameraMode(CAMERA_FREE);
 
-    std::string tmp("LoadingScreen");
-    coordinator->setCurrentScene(tmp);
+    //std::string tmp("LoadingScreen");
+    //coordinator->setCurrentScene(tmp);
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0) {
-            Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator, camera, map.getMap());
+            Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera, map.getMap());
         }
         camera.Update();
 
