@@ -28,6 +28,8 @@ int main(void)
     camera.SetCameraMode(CAMERA_FREE);
     TerrainGenerator map(8);
 
+    AM.loadAssets(coordinator.GetEntities());
+
     coordinator.AddSystem<Component::PhysicsSystem>();
     coordinator.AddSystem<Component::RenderSystem>();
     coordinator.AddSystem<Component::BehaviourSystem>();

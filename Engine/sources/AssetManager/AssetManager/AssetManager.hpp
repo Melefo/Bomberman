@@ -71,7 +71,7 @@ public:
      * 
      * @param objects 
      */
-    void loadAssets(std::vector<std::string> &objects);
+    void loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects);
 
     /**
      * @brief Remove all unnecessary assets 

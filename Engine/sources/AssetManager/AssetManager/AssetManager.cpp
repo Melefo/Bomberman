@@ -6,7 +6,9 @@
 */
 
 #include <filesystem>
+#include <list>
 #include "AssetManager.hpp"
+#include "Entity.hpp"
 
 AssetManager::AssetManager() :
     _mutex(), _assets(), _loadStatus({0.0, false, ""})
@@ -19,7 +21,7 @@ AssetManager::~AssetManager()
     
 }
 
-void AssetManager::loadAssets(std::vector<std::string> &objects)
+void AssetManager::loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
 {
     bool isAlreadyLoaded = false;
 
@@ -29,11 +31,11 @@ void AssetManager::loadAssets(std::vector<std::string> &objects)
     removeAllUnnecessaryAssets(objects);
     for (auto &object : objects) {
         _mutex.lock();
-        _loadStatus.currLoading = "Loading the " + object + "\'s asset...";
+        _loadStatus.currLoading = "Loading the " + object->GetTag + "\'s asset...";
         _mutex.unlock();
         isAlreadyLoaded = false;
         for (auto &asset : _assets) {
-            if (asset->getName() == object) {
+            if (asset->getName() == object->GetTag()) {
                 isAlreadyLoaded = true;
                 break;
             }
@@ -49,7 +51,6 @@ void AssetManager::loadAssets(std::vector<std::string> &objects)
     _mutex.lock();
     _loadStatus = {100.0, true, "Loading done!"};
     _mutex.unlock();
-    
 }
 
 Asset &AssetManager::getAssetFromName(std::string &name) const
@@ -57,31 +58,25 @@ Asset &AssetManager::getAssetFromName(std::string &name) const
     for (auto &asset : _assets) {
         if (asset->getName() == name)
             return (*asset);
-            
     }
     throw("");//TODO
-    
 }
 
-void AssetManager::removeAllUnnecessaryAssets(std::vector<std::string> &objects)
+void AssetManager::removeAllUnnecessaryAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
 {
     bool isNeeded = false;
 
     for (auto &asset : _assets) {
         isNeeded = false;
         for (auto &object : objects) {
-            if (asset.get()->getName() == object) {
+            if (asset->getName() == object->GetTag()) {
                 isNeeded = true;
                 break;
-                            
             }
-                    
         }
         if (isNeeded == false)
             deleteAssetFromName(asset->getName());
-            
     }
-    
 }
 
 void AssetManager::deleteAssetFromName(const std::string &name)
@@ -90,21 +85,16 @@ void AssetManager::deleteAssetFromName(const std::string &name)
         if (asset->getName() == name) {
             //_assets.erase(std::remove(asset));
             return;
-                    
         }
-            
     }
-    
 }
 
 const std::vector<std::unique_ptr<Asset>> &AssetManager::getAssets() const
 {
     return (_assets);
-    
 }
 
 const AssetManager::LoadStatus &AssetManager::getLoadStatus() const
 {
     return (_loadStatus);
-    
 }
