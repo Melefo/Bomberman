@@ -13,7 +13,7 @@
 #include "Renderer.hpp"
 #include "Draggable.hpp"
 #include "Destructible.hpp"
-#include "PlayerMovement.hpp"
+#include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "EntityFactory.hpp"
 #include "Scenes.hpp"

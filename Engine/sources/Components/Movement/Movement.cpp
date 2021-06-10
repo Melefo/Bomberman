@@ -2,26 +2,26 @@
 ** EPITECH PROJECT, 2021
 ** B-YEP-400-NAN-4-1-indiestudio-victor.trencic
 ** File description:
-** PlayerMovement
+** Movement
 */
 
-#include "PlayerMovement.hpp"
+#include "Movement.hpp"
 #include <iostream>
 #include "Exceptions.hpp"
 #include "Transform.hpp"
 
 namespace Component
 {
-    PlayerMovement::PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed) :
+    Movement::Movement(ECS::Entity& attatchedEntity, float moveSpeed) :
     _entity(attatchedEntity), _colliding(false), _speed(moveSpeed)
     {
     }
 
-    void PlayerMovement::Update(double, ECS::Entity&)
+    void Movement::Update(double, ECS::Entity&)
     {
     }
 
-    void PlayerMovement::FixedUpdate(ECS::Entity&)
+    void Movement::FixedUpdate(ECS::Entity&)
     {
         SlipperyCollisions();
 
@@ -37,7 +37,7 @@ namespace Component
         }
     }
 
-    void PlayerMovement::SlipperyCollisions()
+    void Movement::SlipperyCollisions()
     {
         RayLib::Vector3 targetPosition = RayLib::Vector3();
         RayLib::Vector3 currentPos = RayLib::Vector3();
@@ -90,7 +90,7 @@ namespace Component
         }
     }
 
-    bool PlayerMovement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position)
+    bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position)
     {
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
             if (it->get().IsCollidingAtPosition(position))
@@ -100,7 +100,7 @@ namespace Component
     }
 
 
-    void PlayerMovement::LateUpdate(double, ECS::Entity&)
+    void Movement::LateUpdate(double, ECS::Entity&)
     {
 
     }

@@ -11,6 +11,7 @@
 #include "ASystem.hpp"
 #include "Entity.hpp"
 #include "IBehaviour.hpp"
+#include "AController.hpp"
 
 namespace Component
 {

@@ -10,12 +10,13 @@
 
 #include "IBehaviour.hpp"
 #include "Input.hpp"
-#include "PlayerMovement.hpp"
+#include "Movement.hpp"
 #include "DropBomb.hpp"
+#include "AController.hpp"
 
 namespace Component
 {
-    class PlayerInputs : public IBehaviour {
+    class PlayerInputs : public AController {
         public:
             PlayerInputs(ECS::Entity& attatchedEntity, RayLib::Input input=RayLib::Input(), int dropBombKey=KEY_X, float speed=0.5f, float dropDelay=2.5f);
             ~PlayerInputs() override = default;
@@ -63,9 +64,6 @@ namespace Component
              * 
              */
             ECS::Entity& _entity;
-
-            Component::PlayerMovement _playerMovement;
-            Component::DropBomb _dropBomb;
     };
 }
 

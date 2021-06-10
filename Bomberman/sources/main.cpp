@@ -14,7 +14,7 @@
 #include "UISystem.hpp"
 #include "CollisionSystem.hpp"
 #include "BoxCollider.hpp"
-#include "PlayerMovement.hpp"
+#include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "Button.hpp"
 #include "ButtonCallbacks.hpp"
@@ -43,7 +43,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     //entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
-    //entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
+    //entity.AddComponent<Component::IBehaviour, Component::Movement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
     //                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
@@ -108,7 +108,7 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     TerrainGenerator map(2);
 
-    Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
+    //Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
 
     ECS::Entity& cat = InitCat(*coordinator.get());
 

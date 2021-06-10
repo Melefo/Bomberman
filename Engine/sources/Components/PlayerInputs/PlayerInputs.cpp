@@ -10,10 +10,10 @@
 namespace Component
 {
     PlayerInputs::PlayerInputs(ECS::Entity& entity, RayLib::Input input, int dropBombKey, float speed, float dropDelay)
-    : _input(input), _window(RayLib::Window::GetInstance(0.0f, "")), _bombKey(dropBombKey), _entity(entity),
-    _playerMovement(entity, speed), _dropBomb(dropDelay)
+    : AController(entity, speed, dropDelay), _input(input), _window(RayLib::Window::GetInstance(0.0f, "")), _bombKey(dropBombKey), _entity(entity)
     {
     }
+
 
     void PlayerInputs::Update(double dt, ECS::Entity& entity)
     {
@@ -40,13 +40,13 @@ namespace Component
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
             it->get().DrawLines();
         }
-        _playerMovement.direction = RayLib::Vector3(_input.GetHorizontalAxis(), 0.0f, _input.GetVerticalAxis());
+        _movement.direction = RayLib::Vector3(_input.GetHorizontalAxis(), 0.0f, _input.GetVerticalAxis());
 
     }
 
     void PlayerInputs::FixedUpdate(ECS::Entity& entity)
     {
-        _playerMovement.FixedUpdate(entity);
+        _movement.FixedUpdate(entity);
     }
 
     void PlayerInputs::LateUpdate(double, ECS::Entity&)
