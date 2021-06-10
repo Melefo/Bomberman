@@ -60,7 +60,7 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
     /*ECS::Entity &entityPlayer = */entityFactory.createPlayer("blue");
 
-    InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
+    //InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
 }
 
 void Scenes::InitEditorMenu(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)
