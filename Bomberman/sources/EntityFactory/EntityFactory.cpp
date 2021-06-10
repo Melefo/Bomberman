@@ -21,6 +21,8 @@
 #include "SphereCollider.hpp"
 #include "Texture.hpp"
 #include "Image.hpp"
+#include "Text.hpp"
+#include "Font.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -34,6 +36,18 @@ ECS::Entity& EntityFactory::createButton(const std::string& texturePath)
     entity.AddComponent<Component::IUIObject, Component::Button>(texturePath);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
+
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createText(const std::string& content)
+{
+    ECS::Entity &entity = _coordinator.CreateEntity();
+
+    //entity.AddComponent<Component::IUIObject, Component::Text>();
+    entity.AddComponent<Component::Text>(content);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
+    entity.GetComponent<Component::Text>().font = RayLib::Font("assets/magic_dream.ttf");
 
     return (entity);
 }
@@ -53,15 +67,12 @@ ECS::Entity& EntityFactory::createWall()
 
 ECS::Entity& EntityFactory::createBox(const int level, const bool draggable)
 {
-    RayLib::Texture texture("assets/Blue.jpg");// TEMPORARY
-
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
     entity.AddComponent<Component::Renderer>("", "assets/Blue.jpg");
-    //entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Destructible>(entity, 1);
     if (draggable)

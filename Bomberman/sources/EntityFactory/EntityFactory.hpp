@@ -27,18 +27,21 @@ class EntityFactory {
         void createEntity(TArgs&&... args) {
             std::make_unique<T>(std::forward<TArgs>(args)...);
         };
+        
         /**
          * @brief Create a Button object
          * 
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createButton(const std::string& texturePath="../assets/models/cube/def_text.png");
+        
         /**
          * @brief Create a Wall object
          * 
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createWall();
+        
         /**
          * @brief Create a Box object
          * 
@@ -50,6 +53,7 @@ class EntityFactory {
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createBox(const int level, const bool draggable);
+        
         /**
          * @brief Create a Player object
          * 
@@ -57,6 +61,13 @@ class EntityFactory {
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createPlayer(const std::string &playerColor);
+
+         /**
+         * @brief Create a Text object
+         * 
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createText(const std::string& content="Enter text here");
 
     protected:
     private:

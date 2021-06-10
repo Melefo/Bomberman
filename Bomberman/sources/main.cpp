@@ -119,7 +119,7 @@ int main(void)
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
 
     //AM.loadAssets(coorAssetManager AM;m<Component::RenderSystem>();
-    // ! uncomment to save generated map
+    //! uncomment to save generated map
     //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
     InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
@@ -130,27 +130,24 @@ int main(void)
     coordinator->AddSystem<Component::BehaviourSystem>();
 
     window->SetTargetFPS(60);
-    //camera.SetCameraMode(CAMERA_FREE);
+    camera.SetCameraMode(CAMERA_FREE);
 
+    std::string tmp("LoadingScreen");
+    coordinator->setCurrentScene(tmp);
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0) {
             Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator, camera, map.getMap());
-
         }
-        // update
         camera.Update();
-        /*if (coordinator->GetEntities().size() == 0)
-            Scenes::scenesCtor[coordinator->getCurrentScene()](*(coordinator.get()), camera);*/
-        //camera.Update();
 
         window->BeginDrawing();
-        window->ClearBackground(RAYWHITE);
         camera.BeginMode();
+        window->ClearBackground(RAYWHITE);
 
         coordinator->Run();
 
-        //window->DrawGrid(20, 10.0f);
+        window->DrawGrid(20, 10.0f);
         camera.EndMode();
         window->EndDrawing();
     }

@@ -43,7 +43,9 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
         }
         if (isAlreadyLoaded == false) {
             Asset newAsset(object);
+            _mutex.lock();
             _assets.push_back(std::make_unique<Asset>(newAsset));
+            _mutex.unlock();
         }
         _mutex.lock();
         _loadStatus.percentage = (_assets.size() * 100) / objects.size();
@@ -100,10 +102,13 @@ void AssetManager::removeAllUnnecessaryAssets(std::vector<std::string> &objects)
 
 void AssetManager::deleteAssetFromName(const std::string &name)
 {
-    for (auto &asset : _assets) {
-        if (asset->getName() == name) {
-            //_assets.erase(std::remove(asset));
-            return;
+    std::vector<std::unique_ptr<Asset>>::iterator it = _assets.begin();
+
+    for (; it != _assets.end(); it++) {
+        if ((*it)->getName() == name) {
+            _mutex.lock();
+            _assets.erase(it);              //Si ça marche pas c'est ici
+            _mutex.unlock();
         }
     }
 }

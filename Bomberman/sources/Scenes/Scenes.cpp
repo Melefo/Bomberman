@@ -20,6 +20,7 @@
 #include "TerrainGenerator.hpp"
 #include "Scenes.hpp"
 #include "Window.hpp"
+#include "Texture.hpp"
 #include <string>
 
 namespace Scenes {
@@ -83,6 +84,26 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     //InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
 }
 
+void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& defaultMap)
+{
+    EntityFactory entityFactory(coordinator, camera);
+
+    ECS::Entity &loadingBarBg = entityFactory.createBox(1, false);
+    loadingBarBg.GetComponent<Component::Transform>().position = RayLib::Vector3(0, 0, 0);
+    loadingBarBg.GetComponent<Component::Transform>().scale = RayLib::Vector3(15, 1, 2);
+    
+    ECS::Entity &loadingBar = entityFactory.createBox(1, false);
+    loadingBar.GetComponent<Component::Transform>().position = RayLib::Vector3(-3.5, 0.1, 0.5);
+    loadingBar.GetComponent<Component::Transform>().scale = RayLib::Vector3(4, 1, 1);
+    loadingBar.RemoveComponent<Component::Renderer>();
+    loadingBar.AddComponent<Component::Renderer>("", "assets/blue.png");
+
+    /*ECS::Entity &text = entityFactory.createText();
+    text.GetComponent<Component::Transform>().position = RayLib::Vector3(200 + 2, 300 + 2);
+    text.GetComponent<Component::Transform>().scale = RayLib::Vector3(20, 6);*/
+    (void)defaultMap;
+}
+
 void Scenes::InitEditorMenu(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)
 {
 }
@@ -106,4 +127,3 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, c
     (void)entityPlayer;
     (void)map;
 }
-
