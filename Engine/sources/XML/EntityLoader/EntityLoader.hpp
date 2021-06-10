@@ -31,15 +31,60 @@ namespace Serialization
              */
             ~EntityLoader() = default;
 
+            /**
+             * @brief Load an entity from istream
+             * 
+             * @param is 
+             * @return ECS::Entity& 
+             */
             static ECS::Entity& LoadEntity(std::istream& is);
+            /**
+             * @brief Load an entity from property tree
+             * 
+             * @param ptree 
+             * @return ECS::Entity& 
+             */
             static ECS::Entity& LoadEntity(boost::property_tree::ptree &ptree);
-
+            /**
+             * @brief Load multiple entities from istream
+             * 
+             * @param is 
+             */
             static void LoadEntities(std::istream& is);
+            /**
+             * @brief Load multiple entities from property tree
+             * 
+             * @param ptree 
+             */
             static void LoadEntities(boost::property_tree::ptree &ptree);
 
+            /**
+             * @brief Add a transform component and populate it
+             * 
+             * @param entity 
+             * @param ptree 
+             */
             static void LoadTransform(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+            /**
+             * @brief Add a renderer component and fill its info
+             * 
+             * @param entity 
+             * @param ptree 
+             */
             static void LoadRenderer(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+            /**
+             * @brief Add a box collider and fill info
+             * 
+             * @param entity 
+             * @param ptree 
+             */
             static void LoadBoxCollider(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+            /**
+             * @brief Add destructible component and fill info
+             * 
+             * @param entity 
+             * @param ptree 
+             */
             static void LoadDestructible(ECS::Entity& entity, boost::property_tree::ptree &ptree);
 
         protected:
