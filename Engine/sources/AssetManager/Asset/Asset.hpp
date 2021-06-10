@@ -81,14 +81,14 @@ class Asset {
          * 
          * @return std::unique_ptr<RayLib::Model>& 
          */
-        std::unique_ptr<RayLib::Model> &getModel();
+        const std::unique_ptr<RayLib::Model> &getModel() const;
 
         /**
          * @brief Get the Texture object
          * 
          * @return std::unique_ptr<RayLib::Texture>& 
          */
-        std::unique_ptr<RayLib::Texture> &getTexture();
+        const std::unique_ptr<RayLib::Texture> &getTexture() const;
 
         /**
          * @brief Get the Animations object

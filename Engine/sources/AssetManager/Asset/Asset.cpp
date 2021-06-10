@@ -72,12 +72,12 @@ const std::string &Asset::getName() const
     return (_name);
 }
 
-std::unique_ptr<RayLib::Texture> &Asset::getTexture()
+const std::unique_ptr<RayLib::Texture> &Asset::getTexture() const
 {
     return (_texture);
 }
 
-std::unique_ptr<RayLib::Model> &Asset::getModel()
+const std::unique_ptr<RayLib::Model> &Asset::getModel() const
 {
     return (_model);
 }
