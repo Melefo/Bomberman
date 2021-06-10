@@ -6,7 +6,6 @@
 */
 
 #include "TerrainGenerator.hpp"
-#include "XMLGenerator.hpp"
 #include <map>
 #include <cstdlib>
 #include <algorithm>
