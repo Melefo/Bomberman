@@ -13,7 +13,7 @@ namespace ECS
 
 
     Coordinator::Coordinator(std::string defaultScene, double fixedDeltaTime) :
-    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true)
+    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true), CloseWindow(false)
     {
 
     }

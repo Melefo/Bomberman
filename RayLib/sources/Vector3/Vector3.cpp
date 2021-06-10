@@ -144,6 +144,13 @@ namespace RayLib
         return (distance);
     }
 
+    Vector3 Vector3::operator/(const float factor)
+    {
+        Vector3 newVec = Vector3(x / factor, y / factor, z / factor);
+
+        return (newVec);
+    }
+
     std::istream& Vector3::operator>>(std::istream& is)
     {
         boost::property_tree::ptree tree;

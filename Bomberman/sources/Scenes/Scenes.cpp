@@ -19,6 +19,7 @@
 #include "Ray.hpp"
 #include "TerrainGenerator.hpp"
 #include "Scenes.hpp"
+#include "Window.hpp"
 #include <string>
 
 namespace Scenes {
@@ -55,43 +56,54 @@ namespace Scenes {
             }
         }
     }
-
-    void InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& defaultMap)
-    {
-        EntityFactory entityFactory(coordinator, camera);
-
-        ECS::Entity &entityQuit = entityFactory.createButton("../assets/buttons/quitGameButton.png");
-        //entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
-        entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
-        /*ECS::Entity &entityPlayer = */entityFactory.createPlayer("blue");
-
-        InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
-    }
-
-    void InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& defaultMap)
-    {
-        (void)coordinator;
-        (void)camera;
-        (void)defaultMap;
-    }
-
-    void InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& selMap)
-    {
-        EntityFactory entityFactory(coordinator, camera);
-
-        ECS::Entity &entityAddBox = entityFactory.createButton();
-        entityAddBox.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
-        entityAddBox.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::CreateBox));
-        (void)selMap;
-    }
-
-    void InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map)
-    {
-        EntityFactory entityFactory(coordinator, camera);
-        //InitMap(coordinator, camera, map, 0);
-
-        ECS::Entity &entityPlayer = entityFactory.createPlayer("blue");
-        (void)entityPlayer;
-        (void)map;
-    }
 }
+
+void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& defaultMap)
+{
+    EntityFactory entityFactory(coordinator, camera);
+
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0.0f, "");
+
+    ECS::Entity &entityQuit = entityFactory.createButton("../assets/buttons/quitGameButton.png");
+    entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
+                                                                               window->GetSize().y / 2.0f + 50.0f, 0.0f);
+
+    ECS::Entity &entityPlay = entityFactory.createButton("../assets/buttons/newGameButton.png");
+    entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
+                                                                               window->GetSize().y / 2.0f - 150.0f, 0.0f);
+
+    ECS::Entity &entitySettings = entityFactory.createButton("../assets/buttons/optionsButton.png");
+    entitySettings.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
+                                                                               window->GetSize().y / 2.0f - 50.0f, 0.0f);
+
+    //entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+    entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
+    /*ECS::Entity &entityPlayer = */entityFactory.createPlayer("blue");
+
+    //InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
+}
+
+void Scenes::InitEditorMenu(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)
+{
+}
+
+void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& selMap)
+{
+    EntityFactory entityFactory(coordinator, camera);
+
+    ECS::Entity &entityAddBox = entityFactory.createButton();
+    entityAddBox.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+    entityAddBox.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::CreateBox));
+    (void)selMap;
+}
+
+void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map)
+{
+    EntityFactory entityFactory(coordinator, camera);
+    //InitMap(coordinator, camera, map, 0);
+
+    ECS::Entity &entityPlayer = entityFactory.createPlayer("blue");
+    (void)entityPlayer;
+    (void)map;
+}
+

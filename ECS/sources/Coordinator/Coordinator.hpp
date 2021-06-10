@@ -186,6 +186,12 @@ namespace ECS
              * @return ECS::EntityManager& 
              */
             const ECS::EntityManager &getScene(std::string &sceneName) const;
+
+            /**
+             * @brief Close Window
+             * 
+             */
+            bool CloseWindow;
     };
 }
 

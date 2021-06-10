@@ -45,8 +45,7 @@ namespace Component
 
     void ButtonCallbacks::QuitWindow()
     {
-        std::unique_ptr<RayLib::Window> &window = RayLib::Window::GetInstance(RayLib::Vector2<int>(0, 0), "bon courage");
-        window->CloseWindow();
+        ECS::Coordinator::GetInstance()->CloseWindow = true;
         std::cout << "quited" << std::endl;
     }
 

@@ -14,6 +14,7 @@
 #include "Entity.hpp"
 #include "Transform.hpp"
 #include "IBehaviour.hpp"
+#include "Coordinator.hpp"
 
 namespace Component
 {
@@ -28,7 +29,7 @@ namespace Component
              * 
              * @param camera 
              */
-            Camera(ECS::Entity& attatched, RayLib::Camera3D& camera, RayLib::Vector3& targetLookat, float lerpTime = 0.1f);
+            Camera(ECS::Entity& attatched, RayLib::Camera3D& camera, float lerpTime = 0.1f);
             // todo take target lookat
             /**
              * @brief Destroy the Camera object
@@ -63,13 +64,6 @@ namespace Component
             void LerpToPos(RayLib::Vector3 position, float lerp=0.1f);
 
             /**
-             * @brief Set the camera target
-             * 
-             * @param target 
-             */
-            void SetTarget(RayLib::Vector3& target);
-
-            /**
              * @brief Camera
              * 
              */
@@ -79,12 +73,15 @@ namespace Component
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
+            RayLib::Vector3 GetAveragePosition();
+
         protected:
         private:
             ECS::Entity& _entity;
             Transform& _transform;
-            RayLib::Vector3& _targetLookAt;
+            std::vector<std::reference_wrapper<RayLib::Vector3>> _playerPositions;
             float _lerpTime;
+            float _minHeight;
 
     };
 }
