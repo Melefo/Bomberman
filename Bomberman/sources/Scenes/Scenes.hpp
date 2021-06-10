@@ -8,6 +8,8 @@
 #ifndef SCENES_HPP_
 #define SCENES_HPP_
 
+#include "AssetManager.hpp"
+#include "Coordinator.hpp"
 #include "Camera3D.hpp"
 #include "Entity.hpp"
 #include "Coordinator.hpp"
@@ -36,6 +38,8 @@ namespace Scenes {
                                                               std::make_pair<std::string, initSceneFunction>("Editor", &InitEditor),
                                                               std::make_pair<std::string, initSceneFunction>("Game", &InitGame)
                                                              };
+    
+    void switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &newScene);
 }
 
 #define BOX_SIZE 10

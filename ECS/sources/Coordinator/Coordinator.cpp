@@ -127,4 +127,17 @@ namespace ECS
         return (_currentScene);
     }
 
+    void Coordinator::setCurrentScene(std::string &sceneName)
+    {
+        this->_currentScene = sceneName;
+    }
+
+    const ECS::EntityManager &Coordinator::getScene(std::string &sceneName) const
+    {
+        for (auto &it : this->_scenes) {
+            if (it.first == sceneName)
+                return it.second;
+        }
+        throw("");
+    }
 }

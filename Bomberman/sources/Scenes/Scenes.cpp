@@ -19,8 +19,19 @@
 #include "Ray.hpp"
 #include "TerrainGenerator.hpp"
 #include "Scenes.hpp"
+#include <string>
 
 namespace Scenes {
+
+    void switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &nextScene)
+    {
+        std::string str("LoadingScreen");
+
+        coordinator.setCurrentScene(str);
+        am.setNextScene(nextScene);
+        am.loadAssets(coordinator.getScene(nextScene).GetEntities());
+    }
+
     void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
     {
         EntityFactory entityFactory(coordinator, camera);

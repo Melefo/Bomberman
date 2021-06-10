@@ -16,12 +16,10 @@
 AssetManager::AssetManager() :
     _mutex(), _assets(), _loadStatus({0.0, false, ""})
 {
-    
 }
 
 AssetManager::~AssetManager()
 {
-    
 }
 
 void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
@@ -56,7 +54,7 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
     _mutex.unlock();
 }
 
-void AssetManager::loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
+void AssetManager::loadAssets(const std::list<std::unique_ptr<ECS::Entity>> &objects)
 {
     std::thread thread(&AssetManager::loadAssetsThreadFunc, this, getNamesOfObjects(objects));
 
@@ -69,10 +67,10 @@ Asset &AssetManager::getAssetFromName(std::string &name) const
         if (asset->getName() == name)
             return (*asset);
     }
-    throw("");//TODO
+    throw("Asset" + name + "not found");
 }
 
-std::vector<std::string> AssetManager::getNamesOfObjects(std::list<std::unique_ptr<ECS::Entity>> &objects)
+std::vector<std::string> AssetManager::getNamesOfObjects(const std::list<std::unique_ptr<ECS::Entity>> &objects)
 {
     std::vector<std::string> names;
 
@@ -118,4 +116,14 @@ const std::vector<std::unique_ptr<Asset>> &AssetManager::getAssets() const
 const AssetManager::LoadStatus &AssetManager::getLoadStatus() const
 {
     return (_loadStatus);
+}
+
+const std::string AssetManager::getNextScene() const
+{
+    return this->_nextScene;
+}
+
+void AssetManager::setNextScene(std::string &nextScene)
+{
+    this->_nextScene = nextScene;
 }

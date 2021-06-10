@@ -13,16 +13,26 @@
 #include <mutex>
 #include <memory>
 #include "Asset.hpp"
+#include "Entity.hpp"
 
 class AssetManager {
 private:
-            struct LoadStatus
-            {
-                float percentage;
-                bool isReady;
-                std::string currLoading;
-                        
-            };
+    /**
+     * @brief struct LoadStatus
+     * 
+     */
+    struct LoadStatus
+    {
+        float percentage;
+        bool isReady;
+        std::string currLoading;
+    };
+
+    /**
+     * @brief _nextScene
+     * 
+     */
+    std::string _nextScene;
 
     /**
      * @brief _mutex
@@ -54,7 +64,7 @@ private:
      * 
      * @param objects 
      */
-    std::vector<std::string> getNamesOfObjects(std::list<std::unique_ptr<ECS::Entity>> &objects);
+    std::vector<std::string> getNamesOfObjects(const std::list<std::unique_ptr<ECS::Entity>> &objects);
 
 public:
     /**
@@ -85,7 +95,7 @@ public:
      * 
      * @param objects 
      */
-    void loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects);
+    void loadAssets(const std::list<std::unique_ptr<ECS::Entity>> &objects);
 
     /**
      * @brief Remove all unnecessary assets 
@@ -130,7 +140,20 @@ public:
      * @return const LoadStatus&
      */
     const LoadStatus &getLoadStatus() const;
-    
+
+    /**
+     * @brief Get the Next Scene object
+     * 
+     * @return const std::string 
+     */
+    const std::string getNextScene() const;
+
+    /**
+     * @brief Set the Next Scene object
+     * 
+     * @param nextScene 
+     */
+    void setNextScene(std::string &nextScene);
 };
 
 #endif /* !ASSETMANAGER_HPP_ */
