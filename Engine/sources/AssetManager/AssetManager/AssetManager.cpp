@@ -59,6 +59,8 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
 void AssetManager::loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
 {
     std::thread thread(&AssetManager::loadAssetsThreadFunc, this, getNamesOfObjects(objects));
+
+    thread.detach();
 }
 
 Asset &AssetManager::getAssetFromName(std::string &name) const
