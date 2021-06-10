@@ -26,7 +26,7 @@ namespace Component
      * @brief Behaviour for players or AI allowing to drop a bomb upon pressing a key
      * 
      */
-    class DropBomb : public IBehaviour {
+    class DropBomb : public ECS::IComponent {
         public:
             /**
              * @brief Construct a new Drop Bomb object
@@ -36,7 +36,7 @@ namespace Component
              * @param dropBombKey Key to press
              * @param dropDelay Cooldown for bomb-dropping
              */
-            DropBomb(ECS::Entity& attatchedEntity, int dropBombKey=KEY_X, float dropDelay=2.5f);
+            DropBomb(float dropDelay=2.5f);
             /**
              * @brief Destroy the Drop Bomb object
              * 
@@ -68,69 +68,30 @@ namespace Component
                                  Explosion::ExplosionType explosionType=Explosion::ExplosionType::CIRCLE,
                                  float radius=1.0f);
 
-            /**
-             * @brief Updates timers and check if dropbomb key is pressed
-             * 
-             * @param dt 
-             */
-            void Update(double dt, ECS::Entity& entity) override;
-            /**
-             * @brief FixedUpdate
-             * 
-             * @param entity 
-             */
-            void FixedUpdate(ECS::Entity& entity) override;
-
-            /**
-             * @brief Late Update
-             * 
-             * @param dt 
-             * @param entity 
-             */
-            void LateUpdate(double dt, ECS::Entity& entity) override;
-
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
 
+            /**
+             * @brief Bomb cooldown
+             * 
+             */
+            float dropDelay;
+            /**
+             * @brief Cooldown timer
+             * 
+             */
+            float timeToDrop;
         protected:
         private:
-            /**
-             * @brief Input class to check the keypress
-             * 
-             */
-            RayLib::Input _input;
-            /**
-             * @brief Reference t oentity
-             * 
-             */
-            ECS::Entity& _entity;
+
             /**
              * @brief Singleton coordinator reference (instantiation)
              * 
              */
             std::unique_ptr<ECS::Coordinator>& _coordinator;
-            /**
-             * @brief Transform component, to instantiate bomb at position
-             * 
-             */
-            Transform& _transform;
-            /**
-             * @brief Bomb drop input key
-             * 
-             */
-            int _bombKey;
-            /**
-             * @brief Bomb cooldown
-             * 
-             */
-            float _dropDelay;
-            /**
-             * @brief Cooldown timer
-             * 
-             */
-            float _timeToDrop;
+
             /**
              * @brief Reference to window singleton to get frametime
              * 

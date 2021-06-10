@@ -29,7 +29,7 @@ namespace Component
              * @param attatchedEntity 
              * @param moveSpeed 
              */
-            PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed, RayLib::Input input=RayLib::Input());
+            PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed = 0.5f);
 
             /**
              * @brief Destroy the Player Movement object
@@ -80,28 +80,19 @@ namespace Component
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
 
-        protected:
-        private:
             /**
-             * @brief Input instance to get movement keys
+             * @brief Direction used to direct velocity
              * 
              */
-            RayLib::Input _input;
+            RayLib::Vector3 direction;
+        protected:
+        private:
             /**
              * @brief Ref to entity for transform/physics
              * 
              */
             ECS::Entity& _entity;
-            /**
-             * @brief Reference to physicsbody
-             * 
-             */
-            PhysicsBody& _myPhysicsBody;
-            /**
-             * @brief Reference to transform
-             * 
-             */
-            Transform& _myTransform;
+
             /**
              * @brief Is the entity colliding or not (i.e. can it move)
              * 
@@ -112,11 +103,6 @@ namespace Component
              * 
              */
             float _speed;
-            /**
-             * @brief Direction used to direct velocity
-             * 
-             */
-            RayLib::Vector3 _direction;
 
     };
 }

@@ -24,6 +24,7 @@
 #include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
+#include "PlayerInputs.hpp"
 
 #include "TerrainGenerator.hpp"
 
@@ -42,12 +43,15 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     //entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
-    entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
-                                                                                                      RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
+    //entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
+    //                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
+
+    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
+                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
 
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
 
-    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
+    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
 
     //entity.AddComponent<Prototype::Destructible>(entity, 1);
 

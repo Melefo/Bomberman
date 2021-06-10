@@ -21,6 +21,7 @@
 #include "SphereCollider.hpp"
 #include "Texture.hpp"
 #include "Image.hpp"
+#include "PlayerInputs.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -81,9 +82,11 @@ ECS::Entity& EntityFactory::createPlayer(const std::string &)
     entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
     // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
-    entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
+
+    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity);
+
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
+    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
     //entity.AddComponent<Component::Destructible>(entity, 1);
 
     return (entity);

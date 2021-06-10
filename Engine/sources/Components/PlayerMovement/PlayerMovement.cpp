@@ -12,42 +12,45 @@
 
 namespace Component
 {
-    PlayerMovement::PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed, RayLib::Input input) :
-    _input(input), _entity(attatchedEntity), _myPhysicsBody(_entity.GetComponent<PhysicsBody>()), _myTransform(_entity.GetComponent<Transform>()),
-    _colliding(false), _speed(moveSpeed)
+    PlayerMovement::PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed) :
+    _entity(attatchedEntity), _colliding(false), _speed(moveSpeed)
     {
     }
 
     void PlayerMovement::Update(double, ECS::Entity&)
     {
-        std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
-
-        for (auto it = colliders.begin(); it != colliders.end(); it++) {
-            it->get().DrawLines();
-        }
-       _direction = RayLib::Vector3(_input.GetHorizontalAxis(), 0.0f, _input.GetVerticalAxis());
-
-        //std::cout << "Controller last key pressed: " << _input.GetKeyPressed() << std::endl;
-
     }
 
     void PlayerMovement::FixedUpdate(ECS::Entity&)
     {
         SlipperyCollisions();
 
-        if (!_colliding) {
-            // idéalement ce serait += mais comme on a pas de drag, on ne ferait qu'accélérer
-            _myPhysicsBody.velocity = _direction * _speed;
-        } else {
-            _myPhysicsBody.velocity = RayLib::Vector3();
+        if  (_entity.HasComponent<PhysicsBody>()) {
+            PhysicsBody& physicsBody = _entity.GetComponent<PhysicsBody>();
+
+            if (!_colliding) {
+                // ! cache ?
+                physicsBody.velocity = direction * _speed;
+            } else {
+                physicsBody.velocity = RayLib::Vector3();
+            }
         }
     }
 
     void PlayerMovement::SlipperyCollisions()
     {
-        RayLib::Vector3 targetPosition = _myTransform.position + _direction * _speed;
+        RayLib::Vector3 targetPosition = RayLib::Vector3();
+        RayLib::Vector3 currentPos = RayLib::Vector3();
+        if (_entity.HasComponent<Transform>()) {
+            Transform& transform = _entity.GetComponent<Transform>();
+            targetPosition = transform.position + direction * _speed;
+            currentPos = transform.position;
+        } else {
+            return;
+        }
+
         std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
-        RayLib::Vector3 modifiedDir = _direction;
+        RayLib::Vector3 modifiedDir = direction;
 
         _colliding = false;
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
@@ -60,29 +63,28 @@ namespace Component
 
         std::vector<RayLib::Vector3> newDirections;
         // check x solo
-        newDirections.push_back(RayLib::Vector3(_direction.x, 0.0f, 0.0f));
+        newDirections.push_back(RayLib::Vector3(direction.x, 0.0f, 0.0f));
         // check z solo
-        newDirections.push_back(RayLib::Vector3(0.0f, 0.0f, _direction.z));
+        newDirections.push_back(RayLib::Vector3(0.0f, 0.0f, direction.z));
 
         float iterations = 10.0;
         for (float i = 0; i < iterations; i++) {
-            if (abs(_direction.z) < 0.1f && abs(_direction.x) > 0.1f) {
-                newDirections.push_back(RayLib::Vector3(_direction.x, 0.0f, -_direction.x * i));
-                newDirections.push_back(RayLib::Vector3(_direction.x, 0.0f, _direction.x * i));
+            if (abs(direction.z) < 0.1f && abs(direction.x) > 0.1f) {
+                newDirections.push_back(RayLib::Vector3(direction.x, 0.0f, -direction.x * i));
+                newDirections.push_back(RayLib::Vector3(direction.x, 0.0f, direction.x * i));
             }
-            if (abs(_direction.x) < 0.1f && abs(_direction.z) > 0.1) {
-                newDirections.push_back(RayLib::Vector3(_direction.z * i, 0.0f, _direction.z));
-                newDirections.push_back(RayLib::Vector3(-_direction.z * i, 0.0f, _direction.z));
+            if (abs(direction.x) < 0.1f && abs(direction.z) > 0.1) {
+                newDirections.push_back(RayLib::Vector3(direction.z * i, 0.0f, direction.z));
+                newDirections.push_back(RayLib::Vector3(-direction.z * i, 0.0f, direction.z));
             }
-
         }
 
         for (auto it = newDirections.begin(); it != newDirections.end(); it++) {
             if (it->x == 0.0f && it->z == 0.0f)
                 continue;
-            if (!CheckCollidersPos(colliders, _myTransform.position + *it * _speed)) {
+            if (!CheckCollidersPos(colliders, currentPos + *it * _speed)) {
                 _colliding = false;
-                _direction = *it;
+                direction = *it;
                 return;
             }
         }

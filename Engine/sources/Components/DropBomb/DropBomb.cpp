@@ -10,41 +10,12 @@
 
 namespace Component
 {
-    DropBomb::DropBomb(ECS::Entity& attatchedEntity, int bombKey, float dropDelay)
-    : _input(), _entity(attatchedEntity), _coordinator(ECS::Coordinator::GetInstance()), _transform(_entity.GetComponent<Transform>()),
-      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
+    DropBomb::DropBomb(float delay)
+    : _coordinator(ECS::Coordinator::GetInstance()),
+     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
     {
-        _bombKey = bombKey;
-        _dropDelay = dropDelay;
-        _timeToDrop = 0.0f;
-        //_window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
-    }
-
-    void DropBomb::Update(double, ECS::Entity&)
-    {
-        float windowFrameTime = _window->GetFrameTime();
-
-        if (_timeToDrop > 0.0f) {
-            _timeToDrop -= windowFrameTime;
-        }
-
-        if (_input.IsKeyDown(_bombKey) && _timeToDrop <= 0.0f) {
-            InstantiateBomb(_transform.position, Explosion::ExplosionType::CIRCLE, 15.0f);
-            std::cout << "Instantiate bomb" << std::endl;
-
-            _timeToDrop = _dropDelay;
-        }
-
-    }
-
-    void DropBomb::FixedUpdate(ECS::Entity&)
-    {
-
-    }
-
-    void DropBomb::LateUpdate(double, ECS::Entity&)
-    {
-
+        dropDelay = dropDelay;
+        timeToDrop = 0.0f;
     }
 
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, float radius)
