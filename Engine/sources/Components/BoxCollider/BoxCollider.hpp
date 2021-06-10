@@ -113,6 +113,10 @@ namespace Component
              */
             ECS::Entity& GetCollision() override;
 
+            std::ostream &operator<<(std::ostream &os) override;
+            std::istream &operator>>(std::istream &is) override;
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
+
         protected:
         private:
             /**

@@ -93,6 +93,7 @@ class TerrainGenerator {
          * @param newSize The new player numbers
          */
         void setPlayersNumber(int newSize);
+
     protected:
         /**
          * @brief Generate a line based on the actual position

@@ -28,9 +28,38 @@ namespace Component
         _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
     }
 
-
     RayLib::Model& Renderer::GetModel()
     {
         return (_model);
     }
+
+    std::ostream& Renderer::operator<<(std::ostream& os)
+    {
+        os << "<Renderer>";
+        os << _model;
+        os << _texture;
+        os << "</Renderer>";
+        return (os);
+    }
+
+    std::istream& Renderer::operator>>(std::istream& is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
+    }
+
+    boost::property_tree::ptree& Renderer::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree rendererTree = ptree.get_child("Renderer");
+
+        _model << rendererTree;
+        _texture << rendererTree;
+        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
+
+        return (ptree);
+    }
+
 }

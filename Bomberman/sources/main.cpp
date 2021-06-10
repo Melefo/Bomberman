@@ -26,7 +26,7 @@ int main(void)
 
     window->SetTargetFPS(60);
     camera.SetCameraMode(CAMERA_FREE);
-    TerrainGenerator map(2);
+    TerrainGenerator map(8);
 
     coordinator.AddSystem<Component::PhysicsSystem>();
     coordinator.AddSystem<Component::RenderSystem>();

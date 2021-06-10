@@ -53,11 +53,6 @@ namespace Component
             void FixedUpdate(ECS::Entity& entity) override;
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
-            /**
-             * @brief Camera
-             * 
-             */
-            RayLib::Camera3D& camera;
 
             /**
              * @brief Set target position and lerpspeed
@@ -74,10 +69,20 @@ namespace Component
              */
             void SetTarget(RayLib::Vector3& target);
 
+            /**
+             * @brief Camera
+             * 
+             */
+            RayLib::Camera3D& camera;
+
+            std::ostream &operator<<(std::ostream &os) override {return os;};
+            std::istream &operator>>(std::istream &is) override {return is;};
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+
         protected:
         private:
             ECS::Entity& _entity;
-            Component::Transform& _transform;
+            Transform& _transform;
             RayLib::Vector3& _targetLookAt;
             float _lerpTime;
 

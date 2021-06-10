@@ -118,5 +118,25 @@ namespace RayLib
         ::SetWindowState(flags);
     }
 
+    bool Window::IsFileDropped(void)
+    {
+        return (::IsFileDropped());
+    }
+
+    std::vector<std::string> Window::GetDroppedFiles(int *count)
+    {
+        char **files = ::GetDroppedFiles(count);
+        std::vector<std::string> filesVec;
+
+        for (int i = 0; i < *count; i++) {
+            filesVec.push_back(files[i]);
+        }
+        return (filesVec);
+    }
+
+    void Window::ClearDroppedFiles(void)
+    {
+        ::ClearDroppedFiles();
+    }
 
 }

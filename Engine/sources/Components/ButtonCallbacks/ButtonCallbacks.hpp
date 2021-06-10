@@ -78,6 +78,10 @@ namespace Component
 
             static void CreateBox(void);
 
+            std::ostream &operator<<(std::ostream &os) override {return os;};
+            std::istream &operator>>(std::istream &is) override {return is;};
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+
         protected:
         private:
             /**
