@@ -158,6 +158,8 @@ int main(void)
     ECS::Entity& cat = InitCat(*coordinator.get());
     //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
+
+    //! uncomment to generate a map
     //InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
     //! game manager for drag and drop
@@ -165,7 +167,7 @@ int main(void)
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
     //!
 
-    // ! experimental
+    // ! uncomment to save generated map
     //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
     InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
