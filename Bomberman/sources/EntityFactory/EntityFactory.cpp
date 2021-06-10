@@ -41,6 +41,7 @@ ECS::Entity& EntityFactory::createButton(const std::string& texturePath)
 ECS::Entity& EntityFactory::createWall()
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("Wall");
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::Renderer>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
@@ -55,13 +56,14 @@ ECS::Entity& EntityFactory::createBox(const int level, const bool draggable)
     RayLib::Texture texture("assets/Blue.jpg");// TEMPORARY
 
     ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::Renderer>();
-    entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
+    entity.AddComponent<Component::Renderer>("", "assets/Blue.jpg");
+    //entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
-    entity.AddComponent<Component::Destructible>(entity, level);
+    entity.AddComponent<Component::Destructible>(entity, 1);
     if (draggable)
         entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, _camera);
 

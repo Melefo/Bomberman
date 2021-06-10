@@ -9,12 +9,11 @@
 
 namespace Serialization
 {
-    // ! std::function is a mess
-    std::map<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)> /* void (*)(ECS::Entity&, boost::property_tree::ptree&)*/> EntityLoader::_loadAbleComponents = {
-        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Transform", &EntityLoader::LoadTransform),
-        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Renderer", &EntityLoader::LoadRenderer),
-        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("BoxCollider", &EntityLoader::LoadBoxCollider),
-        std::pair<std::string, void (*)(ECS::Entity&, boost::property_tree::ptree&)>("Destructible", &EntityLoader::LoadDestructible)
+    std::map<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>> EntityLoader::_loadAbleComponents = {
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Transform", &EntityLoader::LoadTransform),
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Renderer", &EntityLoader::LoadRenderer),
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("BoxCollider", &EntityLoader::LoadBoxCollider),
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Destructible", &EntityLoader::LoadDestructible)
     };
 
     ECS::Entity& EntityLoader::LoadEntity(std::istream& iss)

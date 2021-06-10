@@ -23,6 +23,7 @@
 #include "Camera.hpp"
 #include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
+#include "Scenes.hpp"
 
 #include "TerrainGenerator.hpp"
 
@@ -91,6 +92,7 @@ ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera,
     return (entity);
 }
 
+/*
 ECS::Entity& createWall(ECS::Coordinator &_coordinator)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
@@ -139,11 +141,11 @@ void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std:
                 box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
             } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
                 ECS::Entity& box = createBox(coordinator, 3, isEditor ? true : false,camera);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
-            }
+                box.GetComponent<Component::Transform>    entity.SetTag("Wall");
+
         }
     }
-}
+}*/
 
 int main(void)
 {
@@ -160,12 +162,11 @@ int main(void)
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
 
     //! uncomment to generate a map
-    //InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
+    Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
     //! game manager for drag and drop
     ECS::Entity& gameManager = coordinator->CreateEntity();
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
-    //!
 
     // ! uncomment to save generated map
     //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();

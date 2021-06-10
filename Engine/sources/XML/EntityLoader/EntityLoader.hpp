@@ -89,7 +89,7 @@ namespace Serialization
 
         protected:
         private:
-            static std::map<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)> /* void (*)(ECS::Entity&, boost::property_tree::ptree&)*/> _loadAbleComponents;
+            static std::map<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>> _loadAbleComponents;
 
     };
 }
