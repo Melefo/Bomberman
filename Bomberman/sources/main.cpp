@@ -28,7 +28,7 @@ int main(void)
     camera.SetCameraMode(CAMERA_FREE);
     TerrainGenerator map(8);
 
-    AM.loadAssets(coordinator.GetEntities());
+    //AM.loadAssets(coordinator.GetEntities());
 
     coordinator.AddSystem<Component::PhysicsSystem>();
     coordinator.AddSystem<Component::RenderSystem>();
@@ -39,6 +39,7 @@ int main(void)
     {
         if (coordinator.GetEntities().size() == 0) {
             Scenes::scenesCtor[coordinator.getCurrentScene()](coordinator, camera, map.getMap());
+
         }
         // update
         camera.Update();

@@ -42,6 +42,20 @@ private:
      */
     LoadStatus _loadStatus;
 
+    /**
+     * @brief Load assets of the 
+     * 
+     * @param objects 
+     */
+    void loadAssetsThreadFunc(std::vector<std::string> objects);
+
+    /**
+     * @brief Returns the names of the objects in the entity list
+     * 
+     * @param objects 
+     */
+    std::vector<std::string> getNamesOfObjects(std::list<std::unique_ptr<ECS::Entity>> &objects);
+
 public:
     /**
      * @brief Construct a new Asset Manager object

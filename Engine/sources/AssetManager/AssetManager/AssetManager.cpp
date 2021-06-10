@@ -7,6 +7,9 @@
 
 #include <filesystem>
 #include <list>
+#include <thread>
+#include <algorithm>
+#include "Entity.hpp"
 #include "AssetManager.hpp"
 #include "Entity.hpp"
 
@@ -21,7 +24,7 @@ AssetManager::~AssetManager()
     
 }
 
-void AssetManager::loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
+void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
 {
     bool isAlreadyLoaded = false;
 
@@ -31,11 +34,11 @@ void AssetManager::loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
     removeAllUnnecessaryAssets(objects);
     for (auto &object : objects) {
         _mutex.lock();
-        _loadStatus.currLoading = "Loading the " + object->GetTag + "\'s asset...";
+        _loadStatus.currLoading = "Loading the " + object + "\'s asset...";
         _mutex.unlock();
         isAlreadyLoaded = false;
         for (auto &asset : _assets) {
-            if (asset->getName() == object->GetTag()) {
+            if (asset->getName() == object) {
                 isAlreadyLoaded = true;
                 break;
             }
@@ -53,6 +56,11 @@ void AssetManager::loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
     _mutex.unlock();
 }
 
+void AssetManager::loadAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
+{
+    std::thread thread(&AssetManager::loadAssetsThreadFunc, this, getNamesOfObjects(objects));
+}
+
 Asset &AssetManager::getAssetFromName(std::string &name) const
 {
     for (auto &asset : _assets) {
@@ -62,14 +70,25 @@ Asset &AssetManager::getAssetFromName(std::string &name) const
     throw("");//TODO
 }
 
-void AssetManager::removeAllUnnecessaryAssets(std::list<std::unique_ptr<ECS::Entity>> &objects)
+std::vector<std::string> AssetManager::getNamesOfObjects(std::list<std::unique_ptr<ECS::Entity>> &objects)
+{
+    std::vector<std::string> names;
+
+    for (auto &object : objects) {
+        if (std::find (names.begin(), names.end(), object->GetTag()) == names.end())
+            names.push_back(object->GetTag());
+    }
+    return (names);
+}
+
+void AssetManager::removeAllUnnecessaryAssets(std::vector<std::string> &objects)
 {
     bool isNeeded = false;
 
     for (auto &asset : _assets) {
         isNeeded = false;
         for (auto &object : objects) {
-            if (asset->getName() == object->GetTag()) {
+            if (asset->getName() == object) {
                 isNeeded = true;
                 break;
             }
