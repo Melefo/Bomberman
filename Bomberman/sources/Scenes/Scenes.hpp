@@ -22,9 +22,6 @@
 #include "Ray.hpp"
 #include "TerrainGenerator.hpp"
 
-// todo std function
-typedef void (*initSceneFunction)(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
-
 class Scenes {
     public:
         static void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor);
