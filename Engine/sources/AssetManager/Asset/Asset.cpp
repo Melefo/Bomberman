@@ -6,6 +6,7 @@
 */
 
 #include <filesystem>
+#include "Exceptions.hpp"
 #include "Asset.hpp"
 
 Asset::Asset(std::string name)
@@ -13,22 +14,26 @@ Asset::Asset(std::string name)
 {
     std::string file;
 
-    for (auto &element : std::filesystem::recursive_directory_iterator("./assets/")) {
+    for (auto &element : std::filesystem::recursive_directory_iterator("../assets/")) {
         file = element.path();
-        if (file.find(name)) {
+        if (element.symlink_status().type() == std::filesystem::file_type::directory)
+            continue;
+        if (file.find(name) != std::string::npos) {
             if (file.find("model") != std::string::npos) {
                 _model = std::make_unique<RayLib::Model>(file);
             } else if (file.find("anim") != std::string::npos) {
-                _animations.emplace(getFileNameWithoutExt(file), file);
+                _animations.emplace(getAnimationName(file), file);
             } else if (file.find("texture") != std::string::npos) {
                 _texture = std::make_unique<RayLib::Texture>(file);
             }
         }
     }
+    if (_animations.size() == 0 && _model == nullptr && _texture == nullptr)
+        throw ECS::Exception::AssetException("Cannot find any asset for \"" + name + "\".");
 }
 
 Asset::Asset(Asset &other)
-    : _model(other.getModel().release()), _texture(other.getTexture().release()), _name(other.getName())
+    : _animations(), _model(std::make_unique<RayLib::Model>(other.getModel().GetFileName())), _texture(std::make_unique<RayLib::Texture>(other.getTexture().GetFileName())), _name(other.getName())
 {
     for (auto &animation : other.getAnimations())
         this->_animations.emplace(animation.first, animation.second);
@@ -38,33 +43,39 @@ Asset::~Asset()
 {
 }
 
-Asset& Asset::operator=(Asset& asset)
+Asset& Asset::operator=(Asset& other)
 {
-    this->_name = asset.getName();
-    this->_model.reset(asset.getModel().release());
-    this->_texture.reset(asset.getTexture().release());
+    this->_name = other.getName();
+    this->_model = std::make_unique<RayLib::Model>(other.getModel().GetFileName());
+    this->_texture = std::make_unique<RayLib::Texture>(other.getTexture().GetFileName());
     this->_animations.clear();
-    for (auto &animation : asset.getAnimations())
+    for (auto &animation : other.getAnimations())
         this->_animations.emplace(animation.first, animation.second);
     return (*this);
+}
+
+std::string Asset::getAnimationName(const std::string &filePath)
+{
+    std::string name = getFileNameWithoutExt(filePath);
+    std::size_t separatorIdx = name.find_last_of("_");
+
+    if (separatorIdx == std::string::npos)
+        return ("unknown");
+    return (name.substr(separatorIdx + 1, std::string::npos));
 }
 
 std::string Asset::getFileNameWithoutExt(const std::string &filePath)
 {
     size_t lastFolder = filePath.find_last_of("/");
-    size_t extDot;
+    size_t extDot = filePath.find_last_of(".");
 
-    if (lastFolder == std::string::npos)
-        extDot = filePath.find_last_of(".");
-    else
-        extDot = filePath.substr(lastFolder, std::string::npos).find_last_of(".");
     if (extDot == std::string::npos && lastFolder == std::string::npos)
         return filePath;
     else if (extDot == std::string::npos)
-        return filePath.substr(lastFolder, std::string::npos);
+        return filePath.substr(lastFolder + 1, std::string::npos);
     else if (lastFolder == std::string::npos)
-        return filePath.substr(0, extDot);
-    return filePath.substr(lastFolder, extDot - lastFolder);
+        return filePath.substr(0, extDot - 1);
+    return filePath.substr(lastFolder + 1, extDot - lastFolder - 1);
 }
 
 const std::string &Asset::getName() const
@@ -72,14 +83,14 @@ const std::string &Asset::getName() const
     return (_name);
 }
 
-const std::unique_ptr<RayLib::Texture> &Asset::getTexture() const
+const RayLib::Texture &Asset::getTexture() const
 {
-    return (_texture);
+    return (*_texture);
 }
 
-const std::unique_ptr<RayLib::Model> &Asset::getModel() const
+RayLib::Model &Asset::getModel()
 {
-    return (_model);
+    return (*_model);
 }
 
 std::map<std::string, RayLib::ModelAnimation> &Asset::getAnimations()
