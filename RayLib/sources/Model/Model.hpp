@@ -14,6 +14,7 @@
 #include "Color.hpp"
 #include "Texture.hpp"
 #include "Mesh.hpp"
+#include "Material.hpp"
 
 namespace RayLib
 {
@@ -71,6 +72,8 @@ namespace RayLib
              * @param text 
              */
             void SetMaterialTexture(int matIndex, int mapType, Texture& text);
+
+            void SetMaterialShader(int matIndex, Shader& shader);
 
             /**
              * @brief Get the Model object as a raylib structure

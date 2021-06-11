@@ -45,6 +45,11 @@ namespace RayLib
 
     }
 
+    void Model::SetMaterialShader(int matIndex, Shader& shader)
+    {
+        _model.materials[matIndex].shader = shader.GetShader();
+    }
+
     const ::Model Model::GetModel()
     {
         return (_model);
