@@ -10,8 +10,8 @@
 namespace RayLib
 {
     Shader::Shader(const std::string& vertexShaderPath, const std::string& fragmentShaderPath)
+        :   _shader(::LoadShader(vertexShaderPath.c_str(), fragmentShaderPath.c_str()))
     {
-        _shader = ::LoadShader(vertexShaderPath.c_str(), fragmentShaderPath.c_str());
     }
 
     Shader::Shader(Shader& shader)
