@@ -16,10 +16,44 @@ namespace Component
 {
     class AController : public IBehaviour {
         public:
+            /**
+             * @brief Construct a new AController object
+             * 
+             * @param attatchedEntity 
+             * @param speed 
+             * @param dropDelay 
+             */
             AController(ECS::Entity& attatchedEntity, float speed=0.5f, float dropDelay=2.5f);
+            /**
+             * @brief Destroy the AController object
+             * 
+             */
             ~AController() = default;
+            /**
+             * @brief Construct a new AController object
+             * 
+             * @param other 
+             */
+            AController(const AController& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return AController& 
+             */
+            AController& operator=(const AController& other) = default;
 
+            /**
+             * @brief Get the Movement object
+             * 
+             * @return Component::Movement& 
+             */
             Component::Movement& GetMovement();
+            /**
+             * @brief Get the Drop Bomb object
+             * 
+             * @return Component::DropBomb& 
+             */
             Component::DropBomb& GetDropBomb();
 
             virtual void Update(double dt, ECS::Entity& entity) = 0;
@@ -27,7 +61,15 @@ namespace Component
             virtual void LateUpdate(double dt, ECS::Entity& entity) = 0;
 
         protected:
+            /**
+             * @brief movement behaviour
+             * 
+             */
             Component::Movement _movement;
+            /**
+             * @brief Dropbomb component
+             * 
+             */
             Component::DropBomb _dropBomb;
         private:
     };

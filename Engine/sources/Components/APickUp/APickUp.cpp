@@ -28,11 +28,11 @@ namespace Component
             Transform& transform = entity.GetComponent<Transform>();
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(_coordinator, transform.position, _pickupRadius);
 
-            
-
-            if (entities.size() > 0) {
-                OnPickup(entities[0]);
+            for (auto it = entities.begin(); it != entities.end(); it++) {
+                if (it->get().GetTag() == "Player" /* OR TAG == AI*/)
+                    OnPickup(it->get());
             }
+
         }
     }
 }
