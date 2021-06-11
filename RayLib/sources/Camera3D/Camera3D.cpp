@@ -65,6 +65,10 @@ namespace RayLib
         return (_camera.position);
     }
 
+    const Vector3 Camera3D::GetTarget()
+    {
+        return (_camera.target);
+    }
 
 }
 
