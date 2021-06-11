@@ -15,15 +15,13 @@ namespace RayLib
     }
 
     Shader::Shader(Shader& shader)
+        :   _shader({shader.GetShader().id, shader.GetShader().locs})
     {
-        _shader.id = shader.GetShader().id;
-        _shader.locs = shader.GetShader().locs;
     }
 
     Shader::Shader(::Shader& shader)
+        :   _shader({shader.id, shader.locs})
     {
-        _shader.id = shader.id;
-        _shader.locs = shader.locs;
     }
 
     Shader::~Shader()
