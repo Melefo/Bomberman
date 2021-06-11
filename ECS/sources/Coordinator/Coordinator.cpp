@@ -126,5 +126,4 @@ namespace ECS
     {
         return (_currentScene);
     }
-
 }

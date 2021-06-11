@@ -75,6 +75,7 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator)
 ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     ECS::Entity& entity = coordinator.CreateEntity();
+    entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     //entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Component::Renderer>();

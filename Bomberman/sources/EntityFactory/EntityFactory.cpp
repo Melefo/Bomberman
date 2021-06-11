@@ -23,6 +23,7 @@
 #include "Image.hpp"
 #include "PlayerInputs.hpp"
 #include "SpeedBoost.hpp"
+#include "Explosion.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -109,5 +110,17 @@ ECS::Entity& EntityFactory::createPickUp(void)
     //entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 2.0f);
 
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::ExplosionType type)
+{
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE));
+    entity.AddComponent<Component::Renderer>("../assets/bomb/bomb2.fbx", "../assets/bomb/bomb2_text.png");
+    //! si on spawn une bombe sur le joueur, on est bloqués
+    //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
+    entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, radius, type);
     return (entity);
 }

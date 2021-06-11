@@ -10,6 +10,7 @@
 
 #include "Coordinator.hpp"
 #include "Camera3D.hpp"
+#include "Explosion.hpp"
 
 class EntityFactory {
     public:
@@ -64,6 +65,8 @@ class EntityFactory {
          * @return ECS::Entity& 
          */
         ECS::Entity& createPickUp(void);
+
+        ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
 
     protected:
     private:

@@ -8,6 +8,7 @@
 #include "Camera.hpp"
 #include <iostream>
 #include "Window.hpp"
+#include "Exceptions.hpp"
 
 namespace Component
 {
@@ -77,5 +78,19 @@ namespace Component
         result = sum / static_cast<float>(_playerPositions.size());
         return (result);
     }
+
+    Camera& Camera::GetMainCamera()
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator->GetEntities();
+
+        for (auto entity = entities.begin(); entity != entities.end(); entity++) {
+            if (entity->get()->HasComponent<Camera>()) {
+                return (entity->get()->GetComponent<Camera>());
+            }
+        }
+        throw ECS::Exception::ComponentException("There is no camera in the scene");
+    }
+
 
 }

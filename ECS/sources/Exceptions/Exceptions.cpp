@@ -35,4 +35,13 @@ namespace ECS::Exception
     {
         return this->_value.c_str();
     }
+
+    ComponentException::ComponentException(std::string value) :
+    _value(value)
+    {}
+
+    const char *ComponentException::what() const noexcept
+    {
+        return this->_value.c_str();
+    }
 }

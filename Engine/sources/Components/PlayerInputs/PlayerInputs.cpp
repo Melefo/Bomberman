@@ -28,7 +28,7 @@ namespace Component
             // ! keep this transform in cache ?
             if (_entity.HasComponent<Transform>()) {
                 Transform& transform = _entity.GetComponent<Transform>();
-                _dropBomb.InstantiateBomb(transform.position, Explosion::ExplosionType::CIRCLE, 15.0f);
+                _dropBomb.InstantiateBomb(transform.position, Explosion::ExplosionType::CIRCLE, 2.0f);
                 std::cout << "Instantiate bomb" << std::endl;
 
                 _dropBomb.timeToDrop = _dropBomb.dropDelay;
