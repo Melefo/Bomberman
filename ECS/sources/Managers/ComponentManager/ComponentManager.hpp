@@ -132,6 +132,7 @@ namespace ECS
             void AddComponent(TArgs&&... args)
             {
                 static_assert(std::is_base_of<Base, T>::value, "Class doesn't inherit from Base");
+
                 std::string name(typeid(T).name());
 
                 if (this->HasComponent<T>())

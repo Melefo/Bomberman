@@ -13,7 +13,7 @@
 #include "Renderer.hpp"
 #include "Draggable.hpp"
 #include "Destructible.hpp"
-#include "PlayerMovement.hpp"
+#include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "EntityFactory.hpp"
 #include "Scenes.hpp"
@@ -21,6 +21,9 @@
 #include "SphereCollider.hpp"
 #include "Texture.hpp"
 #include "Image.hpp"
+#include "PlayerInputs.hpp"
+#include "SpeedBoost.hpp"
+#include "Explosion.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -81,10 +84,43 @@ ECS::Entity& EntityFactory::createPlayer(const std::string &)
     entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
     // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
-    entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
+
+    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity);
+
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
+    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
     //entity.AddComponent<Component::Destructible>(entity, 1);
 
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createPickUp(void)
+{
+    // todo faire un vector de std::function, créer un index random et appeler la fonction correspondante
+    ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("PickUp");
+    entity.AddComponent<Component::Transform>();
+    // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
+    entity.AddComponent<Component::Renderer>("", "../assets/BoxMan/guytex.png");
+
+    entity.AddComponent<Component::IBehaviour, Component::SpeedBoost>(entity, 5.0f);
+
+    // todo add flashy pickup animation
+    //entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
+    //entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 2.0f);
+
+    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::ExplosionType type)
+{
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE));
+    entity.AddComponent<Component::Renderer>("../assets/bomb/bomb2.fbx", "../assets/bomb/bomb2_text.png");
+    //! si on spawn une bombe sur le joueur, on est bloqués
+    //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
+    entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, radius, type);
     return (entity);
 }

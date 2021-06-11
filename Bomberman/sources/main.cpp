@@ -14,7 +14,7 @@
 #include "UISystem.hpp"
 #include "CollisionSystem.hpp"
 #include "BoxCollider.hpp"
-#include "PlayerMovement.hpp"
+#include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "Button.hpp"
 #include "ButtonCallbacks.hpp"
@@ -24,6 +24,7 @@
 #include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
+#include "PlayerInputs.hpp"
 
 #include "TerrainGenerator.hpp"
 
@@ -42,12 +43,15 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     //entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
-    entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
-                                                                                                      RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
+    //entity.AddComponent<Component::IBehaviour, Component::Movement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
+    //                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
+
+    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
+                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
 
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
 
-    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
+    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
 
     //entity.AddComponent<Prototype::Destructible>(entity, 1);
 
@@ -71,6 +75,7 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator)
 ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     ECS::Entity& entity = coordinator.CreateEntity();
+    entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     //entity.AddComponent<Prototype::PhysicsBody>();
     entity.AddComponent<Component::Renderer>();
@@ -104,12 +109,20 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     TerrainGenerator map(2);
 
-    Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
+    //Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
 
     ECS::Entity& cat = InitCat(*coordinator.get());
 
     //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
+
+    EntityFactory entityFactory(*coordinator.get(), camera);
+
+    ECS::Entity& pickup = entityFactory.createPickUp();
+
+    pickup.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 20.0f);
+
+    entityFactory.createPlayer("");
 
     //! uncomment to generate a map
     //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
@@ -136,7 +149,7 @@ int main(void)
     {
         /*if (coordinator->GetEntities().size() == 0)
             Scenes::scenesCtor[coordinator->getCurrentScene()](*(coordinator.get()), camera);*/
-        //camera.Update();
+        camera.Update();
 
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);

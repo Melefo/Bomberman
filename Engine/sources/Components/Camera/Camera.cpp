@@ -8,6 +8,7 @@
 #include "Camera.hpp"
 #include <iostream>
 #include "Window.hpp"
+#include "Exceptions.hpp"
 
 namespace Component
 {
@@ -30,6 +31,13 @@ namespace Component
 
     void Camera::Update(double, ECS::Entity&)
     {
+        /*const RayLib::Vector3 pos = camera.GetPosition();
+        RayLib::Vector3 positionsAverage = GetAveragePosition();
+
+        camera.SetPosition(positionsAverage + _transform.position);
+        camera.SetTarget(positionsAverage);
+
+        camera.Update();*/
 
     }
 
@@ -43,14 +51,28 @@ namespace Component
         const RayLib::Vector3 pos = camera.GetPosition();
         RayLib::Vector3 positionsAverage = GetAveragePosition();
 
-        //camera.SetPosition(_targetLookAt + _transform.position);
-        //camera.SetTarget(_targetLookAt);
+
+        // lerp targets
+        const RayLib::Vector3 currentTarget = camera.GetTarget();
+        RayLib::Vector3 lerp = currentTarget;
+        // ! fout un peu la gerbe, mais règle le probleme de saccade
+        // ! plus on réduit, moins ça va vite, donc plus c'est stable (mais plus gerbatif)
+        lerp.Lerp(positionsAverage, 0.025f);
+        camera.SetTarget(lerp);
+
+        // uncomment for a cool effect on startup
+        //RayLib::Vector3 lerp = pos;
+        //lerp.Lerp(positionsAverage + _transform.position, 0.01f);
+        //camera.SetPosition(lerp);
+
+        //camera.SetTarget(positionsAverage);
 
         camera.SetPosition(positionsAverage + _transform.position);
-        camera.SetTarget(positionsAverage);
 
 
-        camera.Update();
+        /*
+        camera.Update();*/
+
     }
 
     void Camera::LerpToPos(RayLib::Vector3 position, float lerp)
@@ -77,5 +99,19 @@ namespace Component
         result = sum / static_cast<float>(_playerPositions.size());
         return (result);
     }
+
+    Camera& Camera::GetMainCamera()
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator->GetEntities();
+
+        for (auto entity = entities.begin(); entity != entities.end(); entity++) {
+            if (entity->get()->HasComponent<Camera>()) {
+                return (entity->get()->GetComponent<Camera>());
+            }
+        }
+        throw ECS::Exception::ComponentException("There is no camera in the scene");
+    }
+
 
 }

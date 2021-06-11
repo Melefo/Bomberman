@@ -23,10 +23,10 @@
 
 
 std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> Scenes::scenesCtor =
-    {std::pair<std::string, initSceneFunction>("MainMenu", &InitMainMenu),
-    std::pair<std::string, initSceneFunction>("EditorMenu", &InitEditorMenu),
-    std::pair<std::string, initSceneFunction>("Editor", &InitEditor),
-    std::pair<std::string, initSceneFunction>("Game", &InitGame)};
+    {std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("MainMenu", &InitMainMenu),
+    std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("EditorMenu", &InitEditorMenu),
+    std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("Editor", &InitEditor),
+    std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("Game", &InitGame)};
 
 void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
 {

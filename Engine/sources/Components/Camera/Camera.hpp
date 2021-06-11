@@ -75,6 +75,8 @@ namespace Component
 
             RayLib::Vector3 GetAveragePosition();
 
+            static Camera& GetMainCamera();
+
         protected:
         private:
             ECS::Entity& _entity;
