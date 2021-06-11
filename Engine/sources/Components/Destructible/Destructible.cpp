@@ -49,7 +49,7 @@ namespace Component
     {
         boost::property_tree::ptree node = ptree.get_child("Destructible");
 
-        _resistance = node.get<float>("_resistance");
+        _resistance = node.get<int>("_resistance");
         return (ptree);
     }
 
