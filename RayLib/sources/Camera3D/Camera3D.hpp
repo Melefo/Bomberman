@@ -101,6 +101,13 @@ namespace RayLib
             const Vector3 GetPosition();
 
             /**
+             * @brief Get the Target
+             * 
+             * @return const Vector3
+             */
+            const Vector3 GetTarget();
+
+            /**
              * @brief Set the Target of camera
              * 
              * @param targetPosition 
