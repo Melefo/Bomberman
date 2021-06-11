@@ -43,7 +43,7 @@ namespace Component
         if (entity.HasComponent<Transform>()) {
             Transform& transform = entity.GetComponent<Transform>();
             // ! if coordinator.debug
-            RayLib::Window::GetInstance(0.0f, "")->DrawSphereWires(transform.position, _pickupRadius);
+            RayLib::Window::GetInstance(0, "")->DrawSphereWires(transform.position, _pickupRadius);
         }
     }
 

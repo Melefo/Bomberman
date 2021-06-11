@@ -66,6 +66,13 @@ class EntityFactory {
          */
         ECS::Entity& createPickUp(void);
 
+        /**
+         * @brief Create a Bomb object
+         * 
+         * @param radius (how many squares should the explosion span)
+         * @param type 
+         * @return ECS::Entity& 
+         */
         ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
 
     protected:

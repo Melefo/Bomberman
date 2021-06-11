@@ -56,8 +56,25 @@ namespace Component
              */
             Component::DropBomb& GetDropBomb();
 
+            /**
+             * @brief Called every frame
+             * To be overridden by a playercontroller or AI controller
+             * @param dt 
+             * @param entity 
+             */
             virtual void Update(double dt, ECS::Entity& entity) = 0;
+            /**
+             * @brief Called every ~0.02 seconds
+             * To be overridden by a playercontroller or AI controller
+             * @param entity 
+             */
             virtual void FixedUpdate(ECS::Entity& entity) = 0;
+            /**
+             * @brief Called after update
+             * To be overridden by a playercontroller or AI controller
+             * @param dt 
+             * @param entity 
+             */
             virtual void LateUpdate(double dt, ECS::Entity& entity) = 0;
 
         protected:

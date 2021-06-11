@@ -31,6 +31,13 @@ namespace Component
 
     void Camera::Update(double, ECS::Entity&)
     {
+        /*const RayLib::Vector3 pos = camera.GetPosition();
+        RayLib::Vector3 positionsAverage = GetAveragePosition();
+
+        camera.SetPosition(positionsAverage + _transform.position);
+        camera.SetTarget(positionsAverage);
+
+        camera.Update();*/
 
     }
 
@@ -44,14 +51,28 @@ namespace Component
         const RayLib::Vector3 pos = camera.GetPosition();
         RayLib::Vector3 positionsAverage = GetAveragePosition();
 
-        //camera.SetPosition(_targetLookAt + _transform.position);
-        //camera.SetTarget(_targetLookAt);
+
+        // lerp targets
+        const RayLib::Vector3 currentTarget = camera.GetTarget();
+        RayLib::Vector3 lerp = currentTarget;
+        // ! fout un peu la gerbe, mais règle le probleme de saccade
+        // ! plus on réduit, moins ça va vite, donc plus c'est stable (mais plus gerbatif)
+        lerp.Lerp(positionsAverage, 0.025f);
+        camera.SetTarget(lerp);
+
+        // uncomment for a cool effect on startup
+        //RayLib::Vector3 lerp = pos;
+        //lerp.Lerp(positionsAverage + _transform.position, 0.01f);
+        //camera.SetPosition(lerp);
+
+        //camera.SetTarget(positionsAverage);
 
         camera.SetPosition(positionsAverage + _transform.position);
-        camera.SetTarget(positionsAverage);
 
 
-        camera.Update();
+        /*
+        camera.Update();*/
+
     }
 
     void Camera::LerpToPos(RayLib::Vector3 position, float lerp)

@@ -13,11 +13,9 @@
 namespace Component
 {
     DropBomb::DropBomb(float delay)
-    : _coordinator(ECS::Coordinator::GetInstance()),
+    : dropDelay(delay), timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
     {
-        dropDelay = delay;
-        timeToDrop = 0.0f;
     }
 
     ECS::Entity& DropBomb::CreateBomb(ECS::Coordinator& coordinator, float radius, Explosion::ExplosionType type)

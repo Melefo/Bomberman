@@ -149,7 +149,7 @@ int main(void)
     {
         /*if (coordinator->GetEntities().size() == 0)
             Scenes::scenesCtor[coordinator->getCurrentScene()](*(coordinator.get()), camera);*/
-        //camera.Update();
+        camera.Update();
 
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);

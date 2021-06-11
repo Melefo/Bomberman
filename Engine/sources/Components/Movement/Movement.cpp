@@ -18,7 +18,7 @@ namespace Component
 
     void Movement::Update(double, ECS::Entity&)
     {
-        float frameTime = RayLib::Window::GetInstance(0.0f, "")->GetFrameTime();
+        float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
 
         if (_bonusTime > 0.0f) {
             _bonusTime -= frameTime;

@@ -10,7 +10,7 @@
 namespace Component
 {
     PlayerInputs::PlayerInputs(ECS::Entity& entity, RayLib::Input input, int dropBombKey, float speed, float dropDelay)
-    : AController(entity, speed, dropDelay), _input(input), _window(RayLib::Window::GetInstance(0.0f, "")), _bombKey(dropBombKey), _entity(entity)
+    : AController(entity, speed, dropDelay), _input(input), _window(RayLib::Window::GetInstance(0, "")), _bombKey(dropBombKey), _entity(entity)
     {
     }
 
