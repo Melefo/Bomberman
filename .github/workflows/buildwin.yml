@@ -17,12 +17,10 @@ jobs:
 
       - name: Install Boost
         run: |
-          $url = "https://github.com/actions/boost-versions/releases/download/1.72.0-20200608.4/boost-1.72.0-win32-msvc14.2-x86_64.tar.gz"
+          $url = "https://sourceforge.net/projects/boost/files/boost-binaries/1.75.0/boost_1_75_0-msvc-14.2-64.exe"
           (New-Object System.Net.WebClient).DownloadFile($url, "$env:TEMP\boost.tar.gz")
-          7z.exe x "$env:TEMP\boost.tar.gz" -o"$env:TEMP\boostArchive" -y | Out-Null
-          7z.exe x "$env:TEMP\boostArchive" -o"$env:TEMP\boost" -y | Out-Null
-          Push-Location -Path "$env:TEMP\boost"
-          Invoke-Expression .\setup.ps1
+          Start-Process -Wait -FilePath "$env:TEMP\boost.exe" "/SILENT","/SP-","/SUPPRESSMSGBOXES","/DIR=C:\\hostedtoolcache\\windows\\Boost"
+          $env:GITHUB_PATH += ";C:\\hostedtoolcache\\windows\\Boost"
       - name: Cmake
         run: |
           mkdir build
