@@ -9,6 +9,15 @@
 
 namespace ECS::Exception
 {
+    AssetException::AssetException(std::string value) :
+    _value(value)
+    {}
+
+    const char *AssetException::what() const noexcept
+    {
+        return this->_value.c_str();
+    }
+
     AssetManagerException::AssetManagerException(std::string value) :
     _value(value)
     {}

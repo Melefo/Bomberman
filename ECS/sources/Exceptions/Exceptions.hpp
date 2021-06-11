@@ -21,6 +21,19 @@ namespace ECS::Exception
      * @brief Exception thrown if the AssetManager have an expected behavior
      * 
      */
+    class AssetException : public std::exception
+    {
+        private:
+            std::string _value;
+        public:
+            AssetException(std::string value);
+            const char *what() const noexcept override;
+    };
+
+    /**
+     * @brief Exception thrown if the AssetManager have an expected behavior
+     * 
+     */
     class AssetManagerException : public std::exception
     {
         private:
