@@ -3,6 +3,8 @@ PROJECT(engine)
 SET(CMAKE_CXX_STANDARD 20)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/")
 
+find_package(Boost REQUIRED)
+
 file(GLOB_RECURSE SRC sources/**/*.cpp)
 file(GLOB_RECURSE TEST tests/**/*.cpp tests/*.cpp)
 
