@@ -67,7 +67,14 @@ class Asset {
          * 
          * @return const std::string& 
          */
-        std::string getFileNameWithoutExt(const std::string &filePath);
+        static std::string getFileNameWithoutExt(const std::string &filePath);
+
+        /**
+         * @brief Get the Name object
+         * 
+         * @return const std::string& 
+         */
+        std::string getAnimationName(const std::string &filePath);
 
         /**
          * @brief Get the Name object
@@ -81,14 +88,14 @@ class Asset {
          * 
          * @return std::unique_ptr<RayLib::Model>& 
          */
-        const std::unique_ptr<RayLib::Model> &getModel() const;
+        RayLib::Model &getModel();
 
         /**
          * @brief Get the Texture object
          * 
          * @return std::unique_ptr<RayLib::Texture>& 
          */
-        const std::unique_ptr<RayLib::Texture> &getTexture() const;
+        const RayLib::Texture &getTexture() const;
 
         /**
          * @brief Get the Animations object
