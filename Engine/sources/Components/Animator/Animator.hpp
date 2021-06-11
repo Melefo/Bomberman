@@ -65,6 +65,8 @@ namespace Component
              */
             void PlayCurrentState(RayLib::Model& model);
 
+            const std::string &getName() const;
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
@@ -74,6 +76,8 @@ namespace Component
         private:
             std::map<std::string, RayLib::ModelAnimation> _stateMachine;
             std::string _currentState;
+            
+            std::string _name;
     };
 }
 
