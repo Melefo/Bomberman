@@ -26,14 +26,16 @@ namespace Component
              * @param modelPath 
              * @param texturePath 
              */
-            Renderer(const std::string& modelPath,
-                    const std::string& texturePath);
+            Renderer(const std::string& assetName,
+                     const std::string& modelPath,
+                     const std::string& texturePath);
             /**
              * @brief Construct a new Renderer object
              * 
              * @param modelPath 
              */
-            Renderer(const std::string& modelPath);
+            Renderer(const std::string& assetName,
+                     const std::string& modelPath);
             /**
              * @brief Construct a new Renderer object (cube mesh)
              * 
@@ -65,6 +67,8 @@ namespace Component
              */
             RayLib::Model& GetModel(void);
 
+            const std::string &getName() const;
+
             std::ostream& operator<<(std::ostream& os) override;
             std::istream& operator>>(std::istream& is) override;
 
@@ -74,6 +78,8 @@ namespace Component
         private:
             RayLib::Model _model;
             RayLib::Texture _texture;
+
+            std::string _name;
     };
 }
 
