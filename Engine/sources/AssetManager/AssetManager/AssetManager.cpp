@@ -12,6 +12,7 @@
 #include "Entity.hpp"
 #include "AssetManager.hpp"
 #include "Entity.hpp"
+#include "Exceptions.hpp"
 
 AssetManager::AssetManager() :
     _mutex(), _assets(), _loadStatus({0.0, false, ""})
@@ -69,7 +70,7 @@ Asset &AssetManager::getAssetFromName(std::string &name) const
         if (asset->getName() == name)
             return (*asset);
     }
-    throw("Asset" + name + "not found");
+    throw ECS::Exception::AssetManagerException("Cannot find an Asset with the name " + name + ".");
 }
 
 std::vector<std::string> AssetManager::getNamesOfObjects(const std::list<std::unique_ptr<ECS::Entity>> &objects)
