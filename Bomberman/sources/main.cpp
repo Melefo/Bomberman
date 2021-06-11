@@ -14,7 +14,7 @@
 #include "UISystem.hpp"
 #include "CollisionSystem.hpp"
 #include "BoxCollider.hpp"
-#include "PlayerMovement.hpp"
+#include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "Button.hpp"
 #include "ButtonCallbacks.hpp"
@@ -25,6 +25,8 @@
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
 #include "AssetManager.hpp"
+#include "PlayerInputs.hpp"
+
 #include "TerrainGenerator.hpp"
 
 #define BOX_SIZE 10
@@ -36,17 +38,20 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.SetTag("Player");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(30, 0, 30));
     entity.AddComponent<Component::PhysicsBody>();
-    entity.AddComponent<Component::Renderer>("Player", "../assets/BoxMan/Player_model.iqm", "../assets/BoxMan/Player_texture.png");
-    entity.AddComponent<Component::Animator>("../assets/BoxMan/Player_anim_idle.iqm", "Idle");
+    entity.AddComponent<Component::Renderer>("Player");
+    entity.AddComponent<Component::Animator>("../assets/Player/Player_anim_idle.iqm", "Idle");
     //entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
-    entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
-                                                                                                      RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
+    //entity.AddComponent<Component::IBehaviour, Component::Movement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
+    //                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
+
+    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
+                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
 
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
 
-    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
+    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
 
     //entity.AddComponent<Prototype::Destructible>(entity, 1);
 
@@ -70,9 +75,10 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator)
 ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     ECS::Entity& entity = coordinator.CreateEntity();
+    entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     //entity.AddComponent<Prototype::PhysicsBody>();
-    entity.AddComponent<Component::Renderer>();
+    entity.AddComponent<Component::Renderer>("Box");
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
@@ -111,8 +117,16 @@ int main(void)
     //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = *///InitBox(*coordinator.get(), camera);
 
+    EntityFactory entityFactory(*coordinator.get(), camera);
+
+    ECS::Entity& pickup = entityFactory.createPickUp();
+
+    pickup.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 20.0f);
+
+    //entityFactory.createPlayer("");
+
     //! uncomment to generate a map
-    //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
+    Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
     //! game manager for drag and drop
     //ECS::Entity& gameManager = coordinator->CreateEntity();

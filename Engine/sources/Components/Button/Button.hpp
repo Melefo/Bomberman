@@ -30,7 +30,7 @@ namespace Component
              * 
              * @param texturePath 
              */
-            Button(const std::string& texturePath="../assets/models/cube/def_text.png");
+            Button(const std::string& texturePath="../assets/models/cube/Default_texture.png");
             /**
              * @brief Destroy the Button object
              * 

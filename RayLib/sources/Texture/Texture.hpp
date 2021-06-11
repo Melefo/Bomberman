@@ -35,7 +35,7 @@ namespace RayLib
              *
              * @param filename
              */
-            Texture(const std::string& filename="../assets/models/cube/def_text.png");
+            Texture(const std::string& filename="../assets/models/cube/Default_texture.png");
 
             /**
              * @brief Construct a new Texture from an existing image

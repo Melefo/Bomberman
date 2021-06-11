@@ -7,56 +7,77 @@
 
 #include "DropBomb.hpp"
 #include <iostream>
+#include "CollisionSystem.hpp"
+#include "Camera.hpp"
 
 namespace Component
 {
-    DropBomb::DropBomb(ECS::Entity& attatchedEntity, int bombKey, float dropDelay)
-    : _input(), _entity(attatchedEntity), _coordinator(ECS::Coordinator::GetInstance()), _transform(_entity.GetComponent<Transform>()),
-      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
+    DropBomb::DropBomb(float delay)
+    : dropDelay(delay), timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
+     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
     {
-        _bombKey = bombKey;
-        _dropDelay = dropDelay;
-        _timeToDrop = 0.0f;
-        //_window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     }
 
-    void DropBomb::Update(double, ECS::Entity&)
+    ECS::Entity& DropBomb::CreateBomb(ECS::Coordinator& coordinator, float radius, Explosion::ExplosionType type)
     {
-        float windowFrameTime = _window->GetFrameTime();
+        ECS::Entity& entity = coordinator.CreateEntity();
+        entity.SetTag("Bomb");
 
-        if (_timeToDrop > 0.0f) {
-            _timeToDrop -= windowFrameTime;
-        }
-
-        if (_input.IsKeyDown(_bombKey) && _timeToDrop <= 0.0f) {
-            InstantiateBomb(_transform.position, Explosion::ExplosionType::CIRCLE, 15.0f);
-            std::cout << "Instantiate bomb" << std::endl;
-
-            _timeToDrop = _dropDelay;
-        }
-
+        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
+        entity.AddComponent<Renderer>("Bomb");
+        //! si on spawn une bombe sur le joueur, on est bloqués
+        //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
+        entity.AddComponent<IBehaviour, Explosion>(entity, radius, type);
+        return (entity);
     }
 
-    void DropBomb::FixedUpdate(ECS::Entity&)
-    {
-
-    }
-
-    void DropBomb::LateUpdate(double, ECS::Entity&)
-    {
-
-    }
 
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, float radius)
     {
-        ECS::Entity& entity = _coordinator->CreateEntity();
+        float explosionRadius = 2.50f;
+        float boxSize = 7.50f;
 
-        entity.AddComponent<Transform>(position, RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
-        entity.AddComponent<Renderer>("../assets/bomb/bomb2.fbx", "../assets/bomb/bomb2_text.png");
-        std::cout << "Helo" << std::endl;
-        //! si on spawn une bombe sur le joueur, on est bloqués
-        //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
-        entity.AddComponent<IBehaviour, Explosion>(entity, radius, explosionType);
+        // spawn a bunch of small bombs in a cross pattern of size radius
+        // create a bunch of directions vectors
+        std::vector<RayLib::Vector3> directions = {RayLib::Vector3(1.0f, 0.0f, 0.0f),
+                                                   RayLib::Vector3(0.0f, 0.0f, 1.0f),
+                                                   RayLib::Vector3(-1.0f, 0.0f, 0.0f),
+                                                   RayLib::Vector3(0.0f, 0.0f, -1.0f)};
+
+        // loop over them + radius
+        // create entity factory and create bombs
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+
+        // create a bomb at position
+        ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
+        firstBomb.GetComponent<Transform>().position = position;
+
+        bool reachedWall = false;
+
+        for (auto dir = directions.begin(); dir != directions.end(); dir++) {
+            reachedWall = false;
+            for (float i = 0; i < radius; i++) {
+                // if you encounter a wall, stop that direction
+                std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapSphere(*coordinator.get(), position + 
+                (*dir) * i * boxSize, explosionRadius);
+
+                for (auto entity = entitiesAtPosition.begin(); entity != entitiesAtPosition.end(); entity++) {
+                    if (entity->get().GetTag() == "Wall") {
+                        std::cout << "Stopped cross" << std::endl;
+                        reachedWall = true;
+                    }
+                }
+                if (reachedWall) {
+                    break;
+                }
+
+                // create small bombs of radius boxsize
+                ECS::Entity& bomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
+
+                // spacing = boxsize so radius * boxsize
+                bomb.GetComponent<Transform>().position = position + (*dir) * i * boxSize;
+            }
+        }
     }
 
 }

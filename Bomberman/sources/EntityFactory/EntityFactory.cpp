@@ -13,7 +13,7 @@
 #include "Renderer.hpp"
 #include "Draggable.hpp"
 #include "Destructible.hpp"
-#include "PlayerMovement.hpp"
+#include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "EntityFactory.hpp"
 #include "Scenes.hpp"
@@ -23,6 +23,9 @@
 #include "Image.hpp"
 #include "Text.hpp"
 #include "Font.hpp"
+#include "PlayerInputs.hpp"
+#include "SpeedBoost.hpp"
+#include "Explosion.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -72,7 +75,7 @@ ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
     entity.AddComponent<Component::Transform>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::Renderer>("", "assets/Blue.jpg");
+    entity.AddComponent<Component::Renderer>("Box");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Destructible>(entity, 1);
     if (draggable)
@@ -88,14 +91,48 @@ ECS::Entity& EntityFactory::createPlayer(const std::string &)
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::PhysicsBody>();
     // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
-    entity.AddComponent<Component::Renderer>("../assets/BoxMan/guy.iqm", "../assets/BoxMan/guytex.png");
-    entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
+    entity.AddComponent<Component::Renderer>("Player");
+    entity.AddComponent<Component::Animator>("../assets/Player/Player_anim_idle.iqm", "Idle");
     // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
-    entity.AddComponent<Component::IBehaviour, Component::PlayerMovement>(entity, 0.5f);
+
+    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity);
+
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
+    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
     //entity.AddComponent<Component::Destructible>(entity, 1);
 
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createPickUp(void)
+{
+    // todo faire un vector de std::function, créer un index random et appeler la fonction correspondante
+    ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("SpeedPickUp");
+    entity.AddComponent<Component::Transform>();
+    // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
+    entity.AddComponent<Component::Renderer>("SpeedPickUp");
+
+    entity.AddComponent<Component::IBehaviour, Component::SpeedBoost>(entity, 5.0f);
+
+    // todo add flashy pickup animation
+    //entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
+    //entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 2.0f);
+
+    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::ExplosionType type)
+{
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    entity.SetTag("Bomb");
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE));
+    entity.AddComponent<Component::Renderer>("Bomb");
+    //! si on spawn une bombe sur le joueur, on est bloqués
+    //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
+    entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, radius, type);
     return (entity);
 }

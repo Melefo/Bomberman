@@ -101,7 +101,7 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
     loadingBar.GetComponent<Component::Transform>().position = RayLib::Vector3(-3.5, 0.1, 0.5);
     loadingBar.GetComponent<Component::Transform>().scale = RayLib::Vector3(4, 1, 1);
     loadingBar.RemoveComponent<Component::Renderer>();
-    loadingBar.AddComponent<Component::Renderer>("", "assets/blue.png");
+    loadingBar.AddComponent<Component::Renderer>();
 
     /*ECS::Entity &text = entityFactory.createText();
     text.GetComponent<Component::Transform>().position = RayLib::Vector3(200 + 2, 300 + 2);

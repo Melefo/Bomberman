@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2021
 ** B-YEP-400-NAN-4-1-indiestudio-victor.trencic
 ** File description:
-** PlayerMovement
+** Movement
 */
 
-#ifndef PLAYERMOVEMENT_HPP_
-#define PLAYERMOVEMENT_HPP_
+#ifndef Movement_HPP_
+#define Movement_HPP_
 
 #include "IBehaviour.hpp"
 #include "Input.hpp"
@@ -14,6 +14,7 @@
 #include "Entity.hpp"
 #include "Collider.hpp"
 #include "Transform.hpp"
+#include "Window.hpp"
 
 namespace Component
 {
@@ -21,7 +22,7 @@ namespace Component
      * @brief Behaviour script responsible for moving an entity
      * 
      */
-    class PlayerMovement : public IBehaviour {
+    class Movement : public IBehaviour {
         public:
             /**
              * @brief Construct a new Player Movement object
@@ -29,26 +30,26 @@ namespace Component
              * @param attatchedEntity 
              * @param moveSpeed 
              */
-            PlayerMovement(ECS::Entity& attatchedEntity, float moveSpeed, RayLib::Input input=RayLib::Input());
+            Movement(ECS::Entity& attatchedEntity, float moveSpeed = 0.5f);
 
             /**
              * @brief Destroy the Player Movement object
              * 
              */
-            ~PlayerMovement() override = default;
+            ~Movement() override = default;
             /**
              * @brief Construct a new Player Movement object
              * 
              * @param other 
              */
-            PlayerMovement(const PlayerMovement& other) = default;
+            Movement(const Movement& other) = default;
             /**
              * @brief Assignement operator
              * 
              * @param other 
-             * @return PlayerMovement& 
+             * @return Movement& 
              */
-            PlayerMovement& operator=(const PlayerMovement& other) = default;
+            Movement& operator=(const Movement& other) = default;
 
             /**
              * @brief Used to sample the input
@@ -75,33 +76,25 @@ namespace Component
 
             bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position);
 
+            void BoostSpeed(float bonusSpeed=3.0f, float time=20.0f);
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
-
-        protected:
-        private:
             /**
-             * @brief Input instance to get movement keys
+             * @brief Direction used to direct velocity
              * 
              */
-            RayLib::Input _input;
+            RayLib::Vector3 direction;
+        protected:
+        private:
             /**
              * @brief Ref to entity for transform/physics
              * 
              */
             ECS::Entity& _entity;
-            /**
-             * @brief Reference to physicsbody
-             * 
-             */
-            PhysicsBody& _myPhysicsBody;
-            /**
-             * @brief Reference to transform
-             * 
-             */
-            Transform& _myTransform;
+
             /**
              * @brief Is the entity colliding or not (i.e. can it move)
              * 
@@ -113,12 +106,17 @@ namespace Component
              */
             float _speed;
             /**
-             * @brief Direction used to direct velocity
+             * @brief starting speed
              * 
              */
-            RayLib::Vector3 _direction;
+            float _startSpeed;
+            /**
+             * @brief Time for which a boost is applied
+             * 
+             */
+            float _bonusTime;
 
     };
 }
 
-#endif /* !PLAYERMOVEMENT_HPP_ */
+#endif /* !Movement_HPP_ */

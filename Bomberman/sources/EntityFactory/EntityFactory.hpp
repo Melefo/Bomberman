@@ -10,6 +10,7 @@
 
 #include "Coordinator.hpp"
 #include "Camera3D.hpp"
+#include "Explosion.hpp"
 
 class EntityFactory {
     public:
@@ -33,7 +34,7 @@ class EntityFactory {
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createButton(const std::string& texturePath="../assets/models/cube/def_text.png");
+        ECS::Entity& createButton(const std::string& texturePath="../assets/models/cube/Default_texture.png");
         
         /**
          * @brief Create a Wall object
@@ -68,6 +69,21 @@ class EntityFactory {
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createText(const std::string& content="Enter text here");
+        /**
+         * @brief Create a random Pick Up bonus
+         * 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createPickUp(void);
+
+        /**
+         * @brief Create a Bomb object
+         * 
+         * @param radius (how many squares should the explosion span)
+         * @param type 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
 
     protected:
     private:

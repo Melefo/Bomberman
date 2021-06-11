@@ -32,12 +32,17 @@ Asset::Asset(std::string name)
         }
     }
 
-    if (_animations.size() == 0 && _model == nullptr && _texture == nullptr)
-        throw ECS::Exception::AssetException("Cannot find any asset for \"" + name + "\".");
+
+    if (!_model)
+        _model = std::make_unique<RayLib::Model>();
+    if (!_texture)
+        _texture = std::make_unique<RayLib::Texture>();
+
+    //if (_animations.size() == 0 && _model == nullptr && _texture == nullptr)
+    //    throw ECS::Exception::AssetException("Cannot find any asset for \"" + name + "\".");
 
     _model->SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, *_texture.get());
     std::cout << "Done asset name " << name << std::endl;
-
 }
 
 Asset::Asset(Asset &other)
