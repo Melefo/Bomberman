@@ -11,7 +11,6 @@
 #include <string>
 #include <raylib.h>
 #include <vector>
-#include <unordered_map>
 
 namespace RayLib
 {
@@ -22,16 +21,23 @@ namespace RayLib
     class Shader {
         public:
             Shader(const std::string& vertexShaderPath, const std::string& fragmentShaderPath);
+            Shader(Shader& shader);
+            Shader(::Shader& shader);
             ~Shader();
+
+            ::Shader& GetShader();
 
             int GetLocation(std::string location);
 
             template <typename T>
-            void SetValue(std::string location, T value, ShaderUniformDataType uniformType)
+            void SetValue(int location, T value, int uniformType)
             {
-                if (_locations.find(location) == _locations.end())
-                    _locations[location] = GetLocation(location);
-                ::SetShaderValue(_shader, _locations[location], static_cast<void *>(&value), uniformType);
+                ::SetShaderValue(_shader, location, static_cast<void *>(&value), uniformType);
+            }
+
+            void SetLoc(int locId, std::string location)
+            {
+                _shader.locs[locId] = GetLocation(location);
             }
 
             void Unload();
@@ -41,7 +47,6 @@ namespace RayLib
         protected:
         private:
             ::Shader _shader;
-            std::unordered_map<std::string, int> _locations;
     };
 };
 

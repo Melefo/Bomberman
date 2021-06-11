@@ -14,10 +14,35 @@ namespace RayLib
         _shader = ::LoadShader(vertexShaderPath.c_str(), fragmentShaderPath.c_str());
     }
 
+    Shader::Shader(Shader& shader)
+    {
+        _shader.id = shader.GetShader().id;
+        _shader.locs = shader.GetShader().locs;
+    }
+
+    Shader::Shader(::Shader& shader)
+    {
+        _shader.id = shader.id;
+        _shader.locs = shader.locs;
+    }
+
     Shader::~Shader()
     {
         ::UnloadShader(_shader);
     }
+
+    /**
+     * Getters
+     */
+
+    ::Shader& Shader::GetShader()
+    {
+        return _shader;
+    }
+
+    /**
+     * Member functions
+     */
 
     int Shader::GetLocation(std::string location)
     {
