@@ -73,6 +73,12 @@ namespace RayLib
              */
             void SetMaterialTexture(int matIndex, int mapType, Texture& text);
 
+            /**
+             * @brief Set the Material's Shader
+             * 
+             * @param matIndex default 0
+             * @param shader The Shader to assign
+             */
             void SetMaterialShader(int matIndex, Shader& shader);
 
             /**
@@ -84,6 +90,10 @@ namespace RayLib
 
         protected:
         private:
+            /**
+             * @brief The C raylib's Model structure
+             * 
+             */
             ::Model _model;
     };
 }
