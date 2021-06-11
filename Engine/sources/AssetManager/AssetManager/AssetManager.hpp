@@ -17,6 +17,12 @@
 class AssetManager {
 private:
     /**
+     * @brief Coordinator singleton
+     * 
+     */
+    static std::unique_ptr<AssetManager> _assetManager;
+
+    /**
      * @brief struct LoadStatus
      * 
      */
@@ -97,6 +103,13 @@ public:
     void loadAssets(const std::list<std::unique_ptr<ECS::Entity>> &objects);
 
     /**
+     * @brief Add the asset given
+     * 
+     * @param name 
+     */
+    void addAssetOfName(const std::string &name);
+
+    /**
      * @brief Remove all unnecessary assets 
      * 
      * @param objects 
@@ -109,7 +122,7 @@ public:
      * @param name
      * @return Asset& 
      */
-    Asset &getAssetFromName(std::string &name) const;
+    Asset &getAssetFromName(const std::string &name);
 
     /**
      * @brief Find the files corresponding to the name given
@@ -153,6 +166,25 @@ public:
      * @param nextScene 
      */
     void setNextScene(std::string &nextScene);
+
+    /**
+     * @brief Lock the mutex
+     * 
+     */
+    void lock();
+
+    /**
+     * @brief Unlock the mutex
+     * 
+     */
+    void unlock();
+
+    /**
+    * @brief Get a unique_ptr to the assetManager Singleton
+    * 
+    * @return std::unique_ptr<AssetManager>& 
+    */
+    static std::unique_ptr<AssetManager>& GetInstance();
 };
 
 #endif /* !ASSETMANAGER_HPP_ */

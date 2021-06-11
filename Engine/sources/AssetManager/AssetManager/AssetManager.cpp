@@ -43,10 +43,15 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
             }
         }
         if (isAlreadyLoaded == false) {
-            Asset newAsset(object);
-            _mutex.lock();
-            _assets.push_back(std::make_unique<Asset>(newAsset));
-            _mutex.unlock();
+            try {
+                Asset newAsset(object);
+
+                _mutex.lock();
+                _assets.push_back(std::make_unique<Asset>(newAsset));
+                _mutex.unlock();
+            } catch (const ECS::Exception::AssetException &error) {
+                std::cerr << error.what() << std::endl;
+            }
         }
         _mutex.lock();
         _loadStatus.percentage = (_assets.size() * 100) / objects.size();
@@ -64,8 +69,26 @@ void AssetManager::loadAssets(const std::list<std::unique_ptr<ECS::Entity>> &obj
     thread.detach();
 }
 
-Asset &AssetManager::getAssetFromName(std::string &name) const
+void AssetManager::addAssetOfName(const std::string &name)
 {
+    for (auto &asset : _assets) {
+        if (asset->getName() == name)
+            return;
+    }
+    try {
+        _assets.push_back(std::make_unique<Asset>(name));
+    } catch (const ECS::Exception::AssetException &error) {
+        std::cerr << error.what() << std::endl;
+    }
+}
+
+Asset &AssetManager::getAssetFromName(const std::string &name)
+{
+    for (auto &asset : _assets) {
+        if (asset->getName() == name)
+            return (*asset);
+    }
+    addAssetOfName(name);
     for (auto &asset : _assets) {
         if (asset->getName() == name)
             return (*asset);
@@ -114,6 +137,15 @@ void AssetManager::deleteAssetFromName(const std::string &name)
     }
 }
 
+std::unique_ptr<AssetManager> AssetManager::_assetManager = nullptr;
+
+std::unique_ptr<AssetManager>& AssetManager::GetInstance()
+{
+    if (_assetManager == nullptr)
+        _assetManager = std::make_unique<AssetManager>();
+    return (_assetManager);
+}
+
 const std::vector<std::unique_ptr<Asset>> &AssetManager::getAssets() const
 {
     return (_assets);
@@ -132,4 +164,14 @@ const std::string AssetManager::getNextScene() const
 void AssetManager::setNextScene(std::string &nextScene)
 {
     this->_nextScene = nextScene;
+}
+
+void AssetManager::lock()
+{
+    _mutex.lock();
+}
+
+void AssetManager::unlock()
+{
+    _mutex.unlock();
 }
