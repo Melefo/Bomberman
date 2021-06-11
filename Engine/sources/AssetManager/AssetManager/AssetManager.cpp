@@ -13,6 +13,7 @@
 #include "AssetManager.hpp"
 #include "Entity.hpp"
 #include "Exceptions.hpp"
+#include "Renderer.hpp"
 
 AssetManager::AssetManager() :
     _mutex(), _assets(), _loadStatus({0.0, false, ""})
@@ -27,14 +28,14 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
 {
     bool isAlreadyLoaded = false;
 
-    _mutex.lock();
+    //_mutex.lock();
     _loadStatus = {0.0, false, "Unloading unnecessary assets..."};
-    _mutex.unlock();
+    //_mutex.unlock();
     removeAllUnnecessaryAssets(objects);
     for (auto &object : objects) {
-        _mutex.lock();
+        //_mutex.lock();
         _loadStatus.currLoading = "Loading the " + object + "\'s asset...";
-        _mutex.unlock();
+        //_mutex.unlock();
         isAlreadyLoaded = false;
         for (auto &asset : _assets) {
             if (asset->getName() == object) {
@@ -44,29 +45,30 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
         }
         if (isAlreadyLoaded == false) {
             try {
-                Asset newAsset(object);
+                //Asset newAsset(object);
 
-                _mutex.lock();
-                _assets.push_back(std::make_unique<Asset>(newAsset));
-                _mutex.unlock();
+                //_mutex.lock();
+                _assets.push_back(std::make_unique<Asset>(object));
+                //_mutex.unlock();
             } catch (const ECS::Exception::AssetException &error) {
                 std::cerr << error.what() << std::endl;
             }
         }
-        _mutex.lock();
+        //_mutex.lock();
         _loadStatus.percentage = (_assets.size() * 100) / objects.size();
-        _mutex.unlock();
+        //_mutex.unlock();
     }
-    _mutex.lock();
+    //_mutex.lock();
     _loadStatus = {100.0, true, "Loading done!"};
-    _mutex.unlock();
+    //_mutex.unlock();
 }
 
 void AssetManager::loadAssets(const std::list<std::unique_ptr<ECS::Entity>> &objects)
 {
-    std::thread thread(&AssetManager::loadAssetsThreadFunc, this, getNamesOfObjects(objects));
-
-    thread.detach();
+    //std::thread thread(&AssetManager::loadAssetsThreadFunc, this, getNamesOfObjects(objects));
+//
+    //thread.detach();
+    loadAssetsThreadFunc(getNamesOfObjects(objects));
 }
 
 void AssetManager::addAssetOfName(const std::string &name)
@@ -101,8 +103,10 @@ std::vector<std::string> AssetManager::getNamesOfObjects(const std::list<std::un
     std::vector<std::string> names;
 
     for (auto &object : objects) {
-        if (std::find (names.begin(), names.end(), object->GetTag()) == names.end())
-            names.push_back(object->GetTag());
+        if (object.get()->HasComponent<Component::Renderer>()) {
+            if (std::find (names.begin(), names.end(), object->GetTag()) == names.end())
+                names.push_back(object->GetTag());
+        }
     }
     return (names);
 }

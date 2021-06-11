@@ -14,22 +14,30 @@ Asset::Asset(std::string name)
 {
     std::string file;
 
+    std::cout << "Creating asset name " << name << std::endl;
+
     for (auto &element : std::filesystem::recursive_directory_iterator("../assets/")) {
         file = element.path();
         if (element.symlink_status().type() == std::filesystem::file_type::directory)
             continue;
         if (file.find(name) != std::string::npos) {
-            if (file.find("model") != std::string::npos) {
+            if (file.find("model") != std::string::npos && !_model) {
                 _model = std::make_unique<RayLib::Model>(file);
-            } else if (file.find("anim") != std::string::npos) {
+            } else if (file.find("anim") != std::string::npos && _animations.size() == 0) {
                 _animations.emplace(getAnimationName(file), file);
-            } else if (file.find("texture") != std::string::npos) {
+            } else if (file.find("texture") != std::string::npos && !_texture) {
                 _texture = std::make_unique<RayLib::Texture>(file);
+                //_texture = std::make_unique<RayLib::Texture>();
             }
         }
     }
+
     if (_animations.size() == 0 && _model == nullptr && _texture == nullptr)
         throw ECS::Exception::AssetException("Cannot find any asset for \"" + name + "\".");
+
+    _model->SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, *_texture.get());
+    std::cout << "Done asset name " << name << std::endl;
+
 }
 
 Asset::Asset(Asset &other)
@@ -85,12 +93,12 @@ const std::string &Asset::getName() const
 
 const RayLib::Texture &Asset::getTexture() const
 {
-    return (*_texture);
+    return (*_texture.get());
 }
 
 RayLib::Model &Asset::getModel()
 {
-    return (*_model);
+    return (*_model.get());
 }
 
 std::map<std::string, RayLib::ModelAnimation> &Asset::getAnimations()

@@ -45,9 +45,10 @@ namespace Component
 
         model.DrawEx(transform.position, worldUp, rotation, transform.scale, WHITE);
 
-        if (entity.HasComponent<Animator>()) {
+        // !tmp disable for asset manager
+        /*if (entity.HasComponent<Animator>()) {
             Animator& animator = entity.GetComponent<Animator>();
             animator.PlayCurrentState(model);
-        }
+        }*/
     }
 }
