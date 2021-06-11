@@ -14,6 +14,7 @@
 #include "Entity.hpp"
 #include "Collider.hpp"
 #include "Transform.hpp"
+#include "Window.hpp"
 
 namespace Component
 {
@@ -75,10 +76,11 @@ namespace Component
 
             bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position);
 
+            void BoostSpeed(float bonusSpeed=3.0f, float time=20.0f);
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
-
 
             /**
              * @brief Direction used to direct velocity
@@ -103,6 +105,16 @@ namespace Component
              * 
              */
             float _speed;
+            /**
+             * @brief starting speed
+             * 
+             */
+            float _startSpeed;
+            /**
+             * @brief Time for which a boost is applied
+             * 
+             */
+            float _bonusTime;
 
     };
 }

@@ -8,19 +8,29 @@
 #include "Movement.hpp"
 #include <iostream>
 #include "Exceptions.hpp"
-#include "Transform.hpp"
 
 namespace Component
 {
     Movement::Movement(ECS::Entity& attatchedEntity, float moveSpeed) :
-    _entity(attatchedEntity), _colliding(false), _speed(moveSpeed)
+    _entity(attatchedEntity), _colliding(false), _speed(moveSpeed), _startSpeed(moveSpeed), _bonusTime(0.0f)
     {
     }
 
     void Movement::Update(double, ECS::Entity&)
     {
+        float frameTime = RayLib::Window::GetInstance(0.0f, "")->GetFrameTime();
+
+        if (_bonusTime > 0.0f) {
+            _bonusTime -= frameTime;
+            if (_bonusTime <= 0.0f) {
+                _bonusTime = 0.0f;
+                _speed = _startSpeed;
+            }
+        }
+
     }
 
+    // todo move this to update to fix stuttering, but then fix the speed
     void Movement::FixedUpdate(ECS::Entity&)
     {
         SlipperyCollisions();
@@ -88,6 +98,12 @@ namespace Component
                 return;
             }
         }
+    }
+
+    void Movement::BoostSpeed(float bonusSpeed, float time)
+    {
+        _bonusTime = time;
+        _speed += bonusSpeed;
     }
 
     bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position)

@@ -115,6 +115,14 @@ int main(void)
     //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
 
+    EntityFactory entityFactory(*coordinator.get(), camera);
+
+    ECS::Entity& pickup = entityFactory.createPickUp();
+
+    pickup.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 20.0f);
+
+    entityFactory.createPlayer("");
+
     //! uncomment to generate a map
     //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 

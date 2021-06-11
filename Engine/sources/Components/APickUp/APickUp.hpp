@@ -10,12 +10,15 @@
 
 #include "IBehaviour.hpp"
 #include "Collider.hpp"
+#include "CollisionSystem.hpp"
+#include "Transform.hpp"
+#include "Window.hpp"
 
 namespace Component
 {
     class APickUp : public IBehaviour {
         public:
-            APickUp(ECS::Entity& entity);
+            APickUp(ECS::Entity& entity, float pickupRadius=2.0f);
             ~APickUp() = default;
 
 
@@ -38,6 +41,8 @@ namespace Component
 
         protected:
             ECS::Entity& _entity;
+            float _pickupRadius;
+            ECS::Coordinator& _coordinator;
         private:
     };
 }

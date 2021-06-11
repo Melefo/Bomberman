@@ -42,6 +42,7 @@ namespace Component
         }
         _movement.direction = RayLib::Vector3(_input.GetHorizontalAxis(), 0.0f, _input.GetVerticalAxis());
 
+        _movement.Update(dt, entity);
     }
 
     void PlayerInputs::FixedUpdate(ECS::Entity& entity)

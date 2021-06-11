@@ -58,6 +58,13 @@ class EntityFactory {
          */
         ECS::Entity& createPlayer(const std::string &playerColor);
 
+        /**
+         * @brief Create a random Pick Up bonus
+         * 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createPickUp(void);
+
     protected:
     private:
         ECS::Coordinator& _coordinator;

@@ -16,7 +16,7 @@ namespace Component
 {
     class SpeedBoost : public APickUp {
         public:
-            SpeedBoost(ECS::Entity& entity);
+            SpeedBoost(ECS::Entity& entity, float pickUpRadius=2.0f);
             ~SpeedBoost() override = default;
 
             void OnPickup(ECS::Entity& collision) override;

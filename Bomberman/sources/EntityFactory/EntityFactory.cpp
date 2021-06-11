@@ -22,6 +22,7 @@
 #include "Texture.hpp"
 #include "Image.hpp"
 #include "PlayerInputs.hpp"
+#include "SpeedBoost.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -89,5 +90,24 @@ ECS::Entity& EntityFactory::createPlayer(const std::string &)
     //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
     //entity.AddComponent<Component::Destructible>(entity, 1);
 
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createPickUp(void)
+{
+    // todo faire un vector de std::function, créer un index random et appeler la fonction correspondante
+    ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("PickUp");
+    entity.AddComponent<Component::Transform>();
+    // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
+    entity.AddComponent<Component::Renderer>("", "../assets/BoxMan/guytex.png");
+
+    entity.AddComponent<Component::IBehaviour, Component::SpeedBoost>(entity, 5.0f);
+
+    // todo add flashy pickup animation
+    //entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
+    //entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 2.0f);
+
+    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
     return (entity);
 }
