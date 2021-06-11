@@ -14,7 +14,6 @@
 #include "Color.hpp"
 #include "Texture.hpp"
 #include "Mesh.hpp"
-#include "Material.hpp"
 
 namespace RayLib
 {
