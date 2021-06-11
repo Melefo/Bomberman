@@ -24,7 +24,7 @@
 #include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
-
+#include "AssetManager.hpp"
 #include "TerrainGenerator.hpp"
 
 #define BOX_SIZE 10
@@ -36,8 +36,8 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.SetTag("Player");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(30, 0, 30));
     entity.AddComponent<Component::PhysicsBody>();
-    entity.AddComponent<Component::Renderer>("../assets/BoxMan/guy.iqm", "../assets/BoxMan/guytex.png");
-    entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
+    entity.AddComponent<Component::Renderer>("Player", "../assets/BoxMan/Player_model.iqm", "../assets/BoxMan/Player_texture.png");
+    entity.AddComponent<Component::Animator>("../assets/BoxMan/Player_anim.iqm", "Idle");
     //entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
@@ -96,6 +96,7 @@ ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera,
 int main(void)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+    std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
 
     //! camera pos and target determined by component
     //! attention le 3e arg: world up est important
@@ -103,16 +104,15 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     TerrainGenerator map(2);
 
-    Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
+    //Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
 
     ECS::Entity& cat = InitCat(*coordinator.get());
 
     //ECS::Entity& button = InitButton(*coordinator.get());
-    /*ECS::Entity& box = */InitBox(*coordinator.get(), camera);
+    /*ECS::Entity& box = *///InitBox(*coordinator.get(), camera);
 
     //! uncomment to generate a map
     //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
-
 
     //! game manager for drag and drop
     ECS::Entity& gameManager = coordinator->CreateEntity();
@@ -134,12 +134,12 @@ int main(void)
     window->SetTargetFPS(60);
     camera.SetCameraMode(CAMERA_FREE);
 
-    //std::string tmp("LoadingScreen");
-    //coordinator->setCurrentScene(tmp);
+    assetManagerRef->loadAssets(coordinator->GetEntities());
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0) {
             Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera, map.getMap());
+            assetManagerRef->loadAssets(coordinator->GetEntities());
         }
         camera.Update();
 
@@ -147,7 +147,13 @@ int main(void)
         camera.BeginMode();
         window->ClearBackground(RAYWHITE);
 
-        coordinator->Run();
+        assetManagerRef->lock();
+        bool isLoaded = assetManagerRef->getLoadStatus().isReady;
+        assetManagerRef->unlock();
+        if (isLoaded)
+            coordinator->Run();
+        //else
+        //    Display the loading screen scene
 
         window->DrawGrid(20, 10.0f);
         camera.EndMode();
