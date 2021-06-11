@@ -54,7 +54,7 @@ ECS::Entity& EntityFactory::createWall()
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createBox(const int level, const bool draggable)
+ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
 {
     RayLib::Texture texture("assets/Blue.jpg");// TEMPORARY
 

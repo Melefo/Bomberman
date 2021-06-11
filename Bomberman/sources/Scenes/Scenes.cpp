@@ -52,11 +52,11 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
     }
 }
 
-void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& defaultMap)
+void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>&)
 {
     EntityFactory entityFactory(coordinator, camera);
 
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0.0f, "");
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
     ECS::Entity &entityQuit = entityFactory.createButton("../assets/buttons/quitGameButton.png");
     entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
