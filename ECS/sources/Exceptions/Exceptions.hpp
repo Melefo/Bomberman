@@ -17,6 +17,8 @@
  */
 namespace ECS::Exception
 {
+    
+    
     /**
      * @brief Exception thrown if the SystemManager have an expected behavior
      * 

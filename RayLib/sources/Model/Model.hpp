@@ -39,6 +39,12 @@ namespace RayLib
             Model(Mesh mesh);
 
             /**
+             * @brief Construct a new Model object
+             * Create a cube mesh and create from there
+             */
+            Model();
+
+            /**
              * @brief Destroy the Model object
              * 
              */

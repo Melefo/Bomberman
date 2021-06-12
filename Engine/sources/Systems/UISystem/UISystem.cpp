@@ -13,13 +13,16 @@ namespace Component
 {
     UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera)
     {
+        // ! obsolète ?
         AddDependency<IUIObject>();
+
+        AddDependency<Renderer>();
         AddDependency<Transform>();
     }
 
-    void UISystem::Update(double dt, ECS::Entity& entity)
+    void UISystem::Update(double, ECS::Entity& entity)
     {
-        (void) dt;
+        /*
         std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
         Transform& transform = entity.GetComponent<Transform>();
 
@@ -30,7 +33,21 @@ namespace Component
             // ! ajouter dans vector3 un .magnitude pour récup un float
             uiObject.Draw(position, RayLib::Vector2<float>(transform.scale.x, transform.scale.y));
         }
+        _camera.BeginMode();*/
+
+        std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
+        Transform& transform = entity.GetComponent<Transform>();
+        Renderer& renderer = entity.GetComponent<Renderer>();
+
+        //RayLib::Texture& texture = assetManagerRef->getAssetFromName(renderer.getName()).getTexture();
+        std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
+        RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
+        RayLib::Vector2<float> scale = RayLib::Vector2<float>(transform.scale.x, transform.scale.y);
+
+        _camera.EndMode();
+        for (IUIObject& uiObject : uiObjects) {
+            uiObject.Draw(position, assetManagerRef->getAssetFromName(renderer.getName()), scale);
+        }
         _camera.BeginMode();
     }
 }
-

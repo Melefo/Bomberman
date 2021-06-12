@@ -11,6 +11,7 @@
 #include "Coordinator.hpp"
 #include "Camera3D.hpp"
 #include "Explosion.hpp"
+#include "Camera.hpp"
 
 class EntityFactory {
     public:
@@ -28,18 +29,21 @@ class EntityFactory {
         void createEntity(TArgs&&... args) {
             std::make_unique<T>(std::forward<TArgs>(args)...);
         };
+        
         /**
          * @brief Create a Button object
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createButton(const std::string& texturePath="../assets/models/cube/def_text.png");
+        ECS::Entity& createButton(const std::string& texturePath="../assets/Default_texture.png");
+        
         /**
          * @brief Create a Wall object
          * 
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createWall();
+        
         /**
          * @brief Create a Box object
          * 
@@ -51,6 +55,7 @@ class EntityFactory {
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createBox(const int level, const bool draggable);
+        
         /**
          * @brief Create a Player object
          * 
@@ -59,6 +64,12 @@ class EntityFactory {
          */
         ECS::Entity& createPlayer(const std::string &playerColor);
 
+         /**
+         * @brief Create a Text object
+         * 
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createText(const std::string& content="Enter text here");
         /**
          * @brief Create a random Pick Up bonus
          * 
@@ -74,6 +85,8 @@ class EntityFactory {
          * @return ECS::Entity& 
          */
         ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
+
+        ECS::Entity& createCamera(void);
 
     protected:
     private:

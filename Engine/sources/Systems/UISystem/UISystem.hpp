@@ -12,6 +12,8 @@
 #include "Entity.hpp"
 #include "Camera3D.hpp"
 #include "IUIObject.hpp"
+#include "Renderer.hpp"
+#include "AssetManager.hpp"
 
 namespace Component
 {

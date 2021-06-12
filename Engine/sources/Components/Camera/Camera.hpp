@@ -30,7 +30,6 @@ namespace Component
              * @param camera 
              */
             Camera(ECS::Entity& attatched, RayLib::Camera3D& camera, float lerpTime = 0.1f);
-            // todo take target lookat
             /**
              * @brief Destroy the Camera object
              * 

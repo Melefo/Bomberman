@@ -6,29 +6,35 @@
 */
 
 #include "Animator.hpp"
+#include "AssetManager.hpp"
 
 namespace Component
 {
-    Animator::Animator(const std::string& filePath, std::string stateName) : _currentState(stateName)
+    Animator::Animator(const std::string& assetName, std::string stateName) : _currentState(stateName), _name(assetName)
     {
-        _stateMachine.insert(std::pair<std::string, RayLib::ModelAnimation>(stateName, RayLib::ModelAnimation(filePath)));
     }
 
     void Animator::SetState(const std::string& state)
     {
-        if (_stateMachine.find(state) != _stateMachine.end()) {
-            _currentState = state;
-        }
+        _currentState = state;
     }
 
     void Animator::PlayCurrentState(RayLib::Model& model)
     {
-        _stateMachine.find(_currentState)->second.Play(model);
+        //! cache this
+        std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
+        Asset &asset = assetManagerRef->getAssetFromName(_name);
+        std::map<std::string, RayLib::ModelAnimation> &animations = asset.getAnimations();
+
+        if (animations.find(_currentState) == animations.end()) {
+            throw ECS::Exception::ComponentException("No state found of name: " + _currentState);
+        }
+
+        animations.find(_currentState)->second.Play(model);
     }
 
-    void Animator::AddAnimation(const std::string& filePath, std::string stateName)
+    const std::string &Animator::getName() const
     {
-        _stateMachine.insert(std::pair<std::string, RayLib::ModelAnimation>(stateName, RayLib::ModelAnimation(filePath)));
+        return (_name);
     }
 }
-

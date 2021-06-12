@@ -117,6 +117,11 @@ namespace RayLib
         return (x == other.x && y == other.y && z == other.z);
     }
 
+    bool Vector3::operator!=(const RayLib::Vector3& other)
+    {
+        return (!(*this == other));
+    }
+
     // todo smoothdamp
     // cf https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Vector3.cs
     void Vector3::SmoothDamp(Vector3, float, float)

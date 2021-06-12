@@ -157,6 +157,8 @@ namespace RayLib
             void Lerp(Vector3 target, float t);
 
             bool operator==(const RayLib::Vector3& other);
+            bool operator!=(const RayLib::Vector3& other);
+
             Vector3 operator/(const float factor);
 
             std::ostream& operator<<(std::ostream& os) override;

@@ -24,7 +24,6 @@
 #include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
-
 #include "TerrainGenerator.hpp"
 
 #define BOX_SIZE 10
@@ -87,7 +86,7 @@ ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera,
     ECS::Entity& entity = coordinator.CreateEntity();
 
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, 0.0f));
-    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera, target.position);
+    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
 
     return (entity);
 }

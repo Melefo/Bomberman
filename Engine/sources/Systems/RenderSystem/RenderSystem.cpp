@@ -7,8 +7,10 @@
 
 #include "RenderSystem.hpp"
 #include "Transform.hpp"
+#include "AssetManager.hpp"
 #include <iostream>
 #include <cmath>
+#include "IUIObject.hpp"
 
 namespace Component
 {
@@ -20,9 +22,15 @@ namespace Component
 
     void RenderSystem::Update(double, ECS::Entity& entity)
     {
-        Renderer& renderer = entity.GetComponent<Renderer>();
+        std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
         Transform& transform = entity.GetComponent<Transform>();
-        RayLib::Model& model = renderer.GetModel();
+        Renderer& renderer = entity.GetComponent<Renderer>();
+
+        //! on ne render pas ici les UI, pour le moment...
+        if (entity.OfType<IUIObject>().size() > 0)
+            return;
+
+        RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName()).getModel();
 
         float rotation = 0.0f;
         RayLib::Vector3 worldUp = RayLib::Vector3();

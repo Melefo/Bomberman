@@ -165,8 +165,32 @@ namespace ECS
              */
             const std::list<std::unique_ptr<Entity>>& GetEntities();
 
+            /**
+             * @brief Get the Current Scene object
+             * 
+             * @return const std::string& 
+             */
             const std::string &getCurrentScene(void);
 
+            /**
+             * @brief Set the Current Scene object
+             * 
+             * @param sceneName 
+             */
+            void setCurrentScene(std::string &sceneName);
+
+            /**
+             * @brief Get a Scene object from a name
+             * 
+             * @param sceneName 
+             * @return ECS::EntityManager& 
+             */
+            const ECS::EntityManager &getScene(std::string &sceneName) const;
+
+            /**
+             * @brief Close Window
+             * 
+             */
             bool CloseWindow;
     };
 }

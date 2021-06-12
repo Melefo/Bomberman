@@ -17,7 +17,7 @@ namespace RayLib
      * @brief RayLib Color encapsulation
      *
      */
-    class Color {
+    class Color : public ::Color {
         public:
             /**
              * @brief Construct a new Color object
@@ -60,7 +60,7 @@ namespace RayLib
              * @brief Destroy the Color object
              * 
              */
-            ~Color();
+            ~Color() = default;
 
             /**
              * @brief Get the color as a raylib Color structure
@@ -77,10 +77,13 @@ namespace RayLib
              */
             Color &operator=(const Color &col);
 
-            unsigned char r;
-            unsigned char g;
-            unsigned char b;
-            unsigned char a;
+            /**
+             * @brief Linearly interpolate vector3 to target by t
+             * 
+             * @param target 
+             * @param t 
+             */
+            void Lerp(Color target, float t);
 
         protected:
         private:

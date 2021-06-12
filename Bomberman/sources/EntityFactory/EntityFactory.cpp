@@ -21,6 +21,8 @@
 #include "SphereCollider.hpp"
 #include "Texture.hpp"
 #include "Image.hpp"
+#include "Text.hpp"
+#include "Font.hpp"
 #include "PlayerInputs.hpp"
 #include "SpeedBoost.hpp"
 #include "Explosion.hpp"
@@ -30,13 +32,26 @@ EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& ca
 {
 }
 
-ECS::Entity& EntityFactory::createButton(const std::string& texturePath)
+ECS::Entity& EntityFactory::createButton(const std::string& assetName)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
-    entity.AddComponent<Component::IUIObject, Component::Button>(texturePath);
+    entity.AddComponent<Component::IUIObject, Component::Button>();
+    entity.AddComponent<Component::Renderer>(assetName);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
+
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createText(const std::string& content)
+{
+    ECS::Entity &entity = _coordinator.CreateEntity();
+
+    //entity.AddComponent<Component::IUIObject, Component::Text>();
+    entity.AddComponent<Component::Text>(content);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
+    entity.GetComponent<Component::Text>().font = RayLib::Font("assets/magic_dream.ttf");
 
     return (entity);
 }
@@ -56,15 +71,12 @@ ECS::Entity& EntityFactory::createWall()
 
 ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
 {
-    RayLib::Texture texture("assets/Blue.jpg");// TEMPORARY
-
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::Renderer>("", "assets/Blue.jpg");
-    //entity.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture); // TEMPORARY
+    entity.AddComponent<Component::Renderer>("Box");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Destructible>(entity, 1);
     if (draggable)
@@ -80,8 +92,8 @@ ECS::Entity& EntityFactory::createPlayer(const std::string &)
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::PhysicsBody>();
     // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
-    entity.AddComponent<Component::Renderer>("../assets/BoxMan/guy.iqm", "../assets/BoxMan/guytex.png");
-    entity.AddComponent<Component::Animator>("../assets/BoxMan/guyanim.iqm", "Idle");
+    entity.AddComponent<Component::Renderer>("Player");
+    entity.AddComponent<Component::Animator>("Player", "Idle");
     // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
@@ -98,10 +110,10 @@ ECS::Entity& EntityFactory::createPickUp(void)
 {
     // todo faire un vector de std::function, créer un index random et appeler la fonction correspondante
     ECS::Entity &entity = _coordinator.CreateEntity();
-    entity.SetTag("PickUp");
+    entity.SetTag("SpeedPickUp");
     entity.AddComponent<Component::Transform>();
     // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
-    entity.AddComponent<Component::Renderer>("", "../assets/BoxMan/guytex.png");
+    entity.AddComponent<Component::Renderer>("SpeedPickUp");
 
     entity.AddComponent<Component::IBehaviour, Component::SpeedBoost>(entity, 5.0f);
 
@@ -117,10 +129,20 @@ ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::Explo
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
+    entity.SetTag("Bomb");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE));
-    entity.AddComponent<Component::Renderer>("../assets/bomb/bomb2.fbx", "../assets/bomb/bomb2_text.png");
+    entity.AddComponent<Component::Renderer>("Bomb");
     //! si on spawn une bombe sur le joueur, on est bloqués
     //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
     entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, radius, type);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createCamera(void)
+{
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, -50.0f));
+    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, _camera);
     return (entity);
 }

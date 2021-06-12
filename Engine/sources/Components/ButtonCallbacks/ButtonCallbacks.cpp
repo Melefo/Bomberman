@@ -33,20 +33,9 @@ namespace Component
 
     }
 
-    void ButtonCallbacks::StaticCallback(void)
-    {
-        std::cout << "Hello from static callback!" << std::endl;
-    }
-
-    void ButtonCallbacks::SayHello()
-    {
-        std::cout << "Hello!" << std::endl;
-    }
-
     void ButtonCallbacks::QuitWindow()
     {
         ECS::Coordinator::GetInstance()->CloseWindow = true;
-        std::cout << "quited" << std::endl;
     }
 
     void ButtonCallbacks::CreateBox()
@@ -54,4 +43,16 @@ namespace Component
         std::cout << "createBox" << std::endl;
     }
 
+    void ButtonCallbacks::StartGame()
+    {
+        // ?
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        //std::unique_ptr<AssetManager>& assetManager = AssetManager::GetInstance();
+
+        // scene name = "Game"
+        std::string sceneName = "Game";
+        coordinator->setCurrentScene(sceneName);
+        //assetManager->setNextScene(sceneName);
+        //assetManager->loadAssets(coordinator->getScene(sceneName).GetEntities());
+    }
 }
