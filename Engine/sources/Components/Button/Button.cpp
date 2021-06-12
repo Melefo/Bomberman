@@ -29,9 +29,6 @@ namespace Component
 
         // ? multiplier scale par _rect scale ?
 
-        // todo if is mouse over, change color (grey, dark grey)
-        // ! use lerp to be extra cool
-
         if (IsMouseOver()) {
             if (RayLib::Mouse::IsButtonDown(MOUSE_BUTTON_LEFT))
                 _tint.Lerp(DARKGRAY, 0.25f);

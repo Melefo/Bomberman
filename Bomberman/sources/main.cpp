@@ -69,8 +69,6 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator)
 
     Component::Button& button = entity.GetComponent<Component::Button>();
 
-    button.AddCallback(std::bind(&Component::ButtonCallbacks::StaticCallback));
-
     return (entity);
 }
 
@@ -112,18 +110,18 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     TerrainGenerator map(2);
 
-    Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
+    //Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
 
     //ECS::Entity& cat = InitCat(*coordinator.get());
 
     //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = *///InitBox(*coordinator.get(), camera);
 
-    EntityFactory entityFactory(*coordinator.get(), camera);
+    //EntityFactory entityFactory(*coordinator.get(), camera);
 
-    ECS::Entity& pickup = entityFactory.createPickUp();
-
-    pickup.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 20.0f);
+    // !uncomment to get a speed pickup
+    //ECS::Entity& pickup = entityFactory.createPickUp();
+    //pickup.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 20.0f);
 
     //entityFactory.createPlayer("");
 
@@ -140,7 +138,7 @@ int main(void)
 
     //Scenes::InitLoadingScreen(*coordinator.get(), camera, map.getMap());
 
-    InitCamera(*coordinator.get(), camera);
+    //InitCamera(*coordinator.get(), camera);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::UISystem>(camera);
@@ -162,13 +160,11 @@ int main(void)
 
         camera.BeginMode();
 
-        window->DrawGrid(20, 10.0f);
-
-        assetManagerRef->lock();
-        bool isLoaded = assetManagerRef->getLoadStatus().isReady;
-        assetManagerRef->unlock();
-        if (isLoaded)
-            coordinator->Run();
+        //assetManagerRef->lock();
+        //bool isLoaded = assetManagerRef->getLoadStatus().isReady;
+        //assetManagerRef->unlock();
+        //if (isLoaded)
+        coordinator->Run();
         //else
         //    Display the loading screen scene
 

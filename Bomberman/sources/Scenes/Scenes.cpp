@@ -68,12 +68,18 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
 {
     EntityFactory entityFactory(coordinator, camera);
 
+    // init camera component
+    entityFactory.createCamera();
+
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
 
     ECS::Entity &entityPlay = entityFactory.createButton("NewGameBtnStd");
     entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 150.0f, 0.0f);
+    entityPlay.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::StartGame));
+
+
 
     ECS::Entity &entitySettings = entityFactory.createButton("OptionsBtnStd");
     entitySettings.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
@@ -82,11 +88,10 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     ECS::Entity &entityQuit = entityFactory.createButton("QuitGameBtnStd");
     entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f + 50.0f, 0.0f);
-    //entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
-    /*ECS::Entity &entityPlayer = */entityFactory.createPlayer("blue");
 
     //InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
+
 }
 
 void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& defaultMap)
@@ -126,9 +131,12 @@ void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera,
 void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map)
 {
     EntityFactory entityFactory(coordinator, camera);
-    //InitMap(coordinator, camera, map, 0);
 
-    ECS::Entity &entityPlayer = entityFactory.createPlayer("blue");
-    (void)entityPlayer;
-    (void)map;
+    // init camera component
+
+    //InitMap(coordinator, camera, map, 0);
+    InitMap(coordinator, camera, map, false);            // ajoute la default map en fond
+
+    /*ECS::Entity &entityPlayer = */entityFactory.createPlayer("");
+    entityFactory.createCamera();
 }

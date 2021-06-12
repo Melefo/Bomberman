@@ -15,7 +15,6 @@ namespace Component
     Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, float lerpTime)
     : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y)
     {
-
         //_playerPositions
         const std::list<std::unique_ptr<ECS::Entity>>& entities = ECS::Coordinator::GetInstance()->GetEntities();
 
@@ -31,14 +30,7 @@ namespace Component
 
     void Camera::Update(double, ECS::Entity&)
     {
-        /*const RayLib::Vector3 pos = camera.GetPosition();
-        RayLib::Vector3 positionsAverage = GetAveragePosition();
-
-        camera.SetPosition(positionsAverage + _transform.position);
-        camera.SetTarget(positionsAverage);
-
-        camera.Update();*/
-
+        //std::cout << "Camera position: " << _transform.position << std::endl;
     }
 
     void Camera::FixedUpdate(ECS::Entity&)
@@ -51,28 +43,22 @@ namespace Component
         const RayLib::Vector3 pos = camera.GetPosition();
         RayLib::Vector3 positionsAverage = GetAveragePosition();
 
+        if (positionsAverage != RayLib::Vector3()) {
+            // lerp targets
+            const RayLib::Vector3 currentTarget = camera.GetTarget();
+            RayLib::Vector3 lerp = currentTarget;
+            // ! fout un peu la gerbe, mais règle le probleme de saccade
+            // ! plus on réduit, moins ça va vite, donc plus c'est stable (mais plus gerbatif)
+            lerp.Lerp(positionsAverage, 0.05f);
+            camera.SetTarget(lerp);
 
-        // lerp targets
-        const RayLib::Vector3 currentTarget = camera.GetTarget();
-        RayLib::Vector3 lerp = currentTarget;
-        // ! fout un peu la gerbe, mais règle le probleme de saccade
-        // ! plus on réduit, moins ça va vite, donc plus c'est stable (mais plus gerbatif)
-        lerp.Lerp(positionsAverage, 0.05f);
-        camera.SetTarget(lerp);
-
-        // uncomment for a cool effect on startup, also fixes most stuttering
-        RayLib::Vector3 lerpPos = pos;
-        lerpPos.Lerp(positionsAverage + _transform.position, 0.25f);
-        camera.SetPosition(lerpPos);
-
-        //camera.SetTarget(positionsAverage);
-
-        //camera.SetPosition(positionsAverage + _transform.position);
-
-
-        /*
-        camera.Update();*/
-
+            // uncomment for a cool effect on startup, also fixes most stuttering
+            RayLib::Vector3 lerpPos = pos;
+            lerpPos.Lerp(positionsAverage + _transform.position, 0.25f);
+            camera.SetPosition(lerpPos);
+        } else {
+            camera.SetPosition(_transform.position);
+        }
     }
 
     void Camera::LerpToPos(RayLib::Vector3 position, float lerp)
@@ -96,7 +82,8 @@ namespace Component
             //}
             sum += it->get();
         }
-        result = sum / static_cast<float>(_playerPositions.size());
+        if (sum != RayLib::Vector3())
+            result = sum / static_cast<float>(_playerPositions.size());
         return (result);
     }
 

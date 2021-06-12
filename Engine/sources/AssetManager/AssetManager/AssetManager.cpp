@@ -138,9 +138,9 @@ void AssetManager::deleteAssetFromName(const std::string &name)
 
     for (; it != _assets.end(); it++) {
         if ((*it)->getName() == name) {
-            _mutex.lock();
-            _assets.erase(it);              //Si ça marche pas c'est ici
-            _mutex.unlock();
+            //_mutex.lock();
+            //_assets.erase(it);              //Si ça marche pas c'est ici
+            //_mutex.unlock();
         }
     }
 }

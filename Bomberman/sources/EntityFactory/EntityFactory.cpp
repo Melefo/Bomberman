@@ -137,3 +137,12 @@ ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::Explo
     entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, radius, type);
     return (entity);
 }
+
+ECS::Entity& EntityFactory::createCamera(void)
+{
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, -50.0f));
+    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, _camera);
+    return (entity);
+}

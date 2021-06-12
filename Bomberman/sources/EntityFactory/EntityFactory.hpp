@@ -11,6 +11,7 @@
 #include "Coordinator.hpp"
 #include "Camera3D.hpp"
 #include "Explosion.hpp"
+#include "Camera.hpp"
 
 class EntityFactory {
     public:
@@ -84,6 +85,8 @@ class EntityFactory {
          * @return ECS::Entity& 
          */
         ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
+
+        ECS::Entity& createCamera(void);
 
     protected:
     private:

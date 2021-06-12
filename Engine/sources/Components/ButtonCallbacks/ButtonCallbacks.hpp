@@ -14,6 +14,7 @@
 #include "Button.hpp"
 #include <iostream>
 #include "Coordinator.hpp"
+#include "AssetManager.hpp"
 
 namespace Component
 {
@@ -69,11 +70,7 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
-
-            // ! delete me
-            void SayHello(void);
-            // ! delete me
-            static void StaticCallback(void);
+            static void StartGame(void);
 
             static void QuitWindow(void);
 
