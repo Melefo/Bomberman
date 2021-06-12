@@ -108,7 +108,7 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
     loadingBarBg.GetComponent<Component::Transform>().scale = RayLib::Vector3(15, 1, 2);
 
     ECS::Entity &loadingBar = entityFactory.createBox(1, false);
-    loadingBar.GetComponent<Component::Transform>().position = RayLib::Vector3(-3.5, 0.1, 0.5);
+    loadingBar.GetComponent<Component::Transform>().position = RayLib::Vector3(-3.5f, 0.1f, 0.5f);
     loadingBar.GetComponent<Component::Transform>().scale = RayLib::Vector3(4, 1, 1);
     loadingBar.RemoveComponent<Component::Renderer>();
     loadingBar.AddComponent<Component::Renderer>();

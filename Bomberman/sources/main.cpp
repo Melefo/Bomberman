@@ -67,8 +67,6 @@ ECS::Entity& InitButton(ECS::Coordinator& coordinator)
     entity.AddComponent<Component::Transform>(RayLib::Vector3(500.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 
-    Component::Button& button = entity.GetComponent<Component::Button>();
-
     return (entity);
 }
 
