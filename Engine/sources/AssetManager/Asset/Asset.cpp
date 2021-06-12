@@ -6,7 +6,7 @@
 */
 
 #include <filesystem>
-#include "Exceptions.hpp"
+#include "EngineExceptions.hpp"
 #include "Asset.hpp"
 
 Asset::Asset(std::string name)

@@ -12,7 +12,7 @@
 #include "Entity.hpp"
 #include "AssetManager.hpp"
 #include "Entity.hpp"
-#include "Exceptions.hpp"
+#include "EngineExceptions.hpp"
 #include "Renderer.hpp"
 
 AssetManager::AssetManager() :
@@ -51,7 +51,7 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
                 std::cout << "Making object with name" << object << std::endl;
                 _assets.push_back(std::make_unique<Asset>(object));
                 //_mutex.unlock();
-            } catch (const ECS::Exception::AssetException &error) {
+            } catch (const Engine::Exception::AssetException &error) {
                 std::cerr << error.what() << std::endl;
             }
         }
@@ -80,7 +80,7 @@ void AssetManager::addAssetOfName(const std::string &name)
     }
     try {
         _assets.push_back(std::make_unique<Asset>(name));
-    } catch (const ECS::Exception::AssetException &error) {
+    } catch (const Engine::Exception::AssetException &error) {
         std::cerr << error.what() << std::endl;
     }
 }
@@ -96,7 +96,7 @@ Asset &AssetManager::getAssetFromName(const std::string &name)
         if (asset->getName() == name)
             return (*asset);
     }
-    throw ECS::Exception::AssetManagerException("Cannot find an Asset with the name " + name + ".");
+    throw Engine::Exception::AssetManagerException("Cannot find an Asset with the name " + name + ".");
 }
 
 std::vector<std::string> AssetManager::getNamesOfObjects(const std::list<std::unique_ptr<ECS::Entity>> &objects)
