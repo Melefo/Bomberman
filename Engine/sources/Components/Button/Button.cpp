@@ -27,12 +27,20 @@ namespace Component
         _rect.width = static_cast<float>(texture.GetTexture().width);
         _rect.height = static_cast<float>(texture.GetTexture().height);
 
-        //_texture.DrawTexture( position, GREEN);
-
         // ? multiplier scale par _rect scale ?
 
         // todo if is mouse over, change color (grey, dark grey)
-        texture.DrawTextureEx(position, 0.0f, scale.x, WHITE);
+        // ! use lerp to be extra cool
+        RayLib::Color drawColor = WHITE;
+
+        if (IsMouseOver()) {
+            if (RayLib::Mouse::IsButtonDown(MOUSE_BUTTON_LEFT))
+                drawColor = DARKGRAY;
+            else
+                drawColor = GRAY;
+        }
+
+        texture.DrawTextureEx(position, 0.0f, scale.x, drawColor);
     }
 
     bool Button::IsMouseOver(void)
