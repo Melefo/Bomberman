@@ -98,7 +98,7 @@ const std::string &Asset::getName() const
     return (_name);
 }
 
-const RayLib::Texture &Asset::getTexture() const
+RayLib::Texture &Asset::getTexture()
 {
     return (*_texture.get());
 }

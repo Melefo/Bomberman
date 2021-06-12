@@ -95,7 +95,7 @@ class Asset {
          * 
          * @return std::unique_ptr<RayLib::Texture>& 
          */
-        const RayLib::Texture &getTexture() const;
+        RayLib::Texture &getTexture();
 
         /**
          * @brief Get the Animations object

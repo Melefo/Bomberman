@@ -16,6 +16,7 @@
 #include "Rectangle.hpp"
 #include "Mouse.hpp"
 #include "BoundingBox.hpp"
+#include "Asset.hpp"
 
 namespace Component
 {
@@ -28,9 +29,8 @@ namespace Component
             /**
              * @brief Construct a new Button object
              * 
-             * @param texturePath 
              */
-            Button(const std::string& texturePath="../assets/models/cube/Default_texture.png");
+            Button();
             /**
              * @brief Destroy the Button object
              * 
@@ -56,7 +56,9 @@ namespace Component
              * @param position 
              * @param scale 
              */
-            void Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
+            void Draw(RayLib::Vector2<float> position,
+                      Asset& asset,
+                      RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
 
             /**
              * @brief Returns true if the mouse is in button bounds
@@ -88,11 +90,6 @@ namespace Component
 
         protected:
         private:
-            /**
-             * @brief Texture to show (default grey/white)
-             * 
-             */
-            RayLib::Texture _texture;
             /**
              * @brief rectangle containing size and position
              * 

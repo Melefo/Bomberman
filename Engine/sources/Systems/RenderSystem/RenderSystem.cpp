@@ -10,6 +10,7 @@
 #include "AssetManager.hpp"
 #include <iostream>
 #include <cmath>
+#include "IUIObject.hpp"
 
 namespace Component
 {
@@ -24,6 +25,10 @@ namespace Component
         std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
         Transform& transform = entity.GetComponent<Transform>();
         Renderer& renderer = entity.GetComponent<Renderer>();
+
+        //! on ne render pas ici les UI, pour le moment...
+        if (entity.OfType<IUIObject>().size() > 0)
+            return;
 
         RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName()).getModel();
 

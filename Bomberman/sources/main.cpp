@@ -61,7 +61,9 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
 ECS::Entity& InitButton(ECS::Coordinator& coordinator)
 {
     ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Component::IUIObject, Component::Button>("../assets/buttons/mapEditorButton.png");
+    entity.AddComponent<Component::IUIObject, Component::Button>();
+
+    entity.AddComponent<Component::Renderer>("MapEditorBtnStd");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(500.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 
@@ -89,7 +91,7 @@ ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     return (entity);
 }
 
-ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, Component::Transform& )
+ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     ECS::Entity& entity = coordinator.CreateEntity();
 
@@ -110,9 +112,9 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
     TerrainGenerator map(2);
 
-    //Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
+    Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
 
-    ECS::Entity& cat = InitCat(*coordinator.get());
+    //ECS::Entity& cat = InitCat(*coordinator.get());
 
     //ECS::Entity& button = InitButton(*coordinator.get());
     /*ECS::Entity& box = *///InitBox(*coordinator.get(), camera);
@@ -126,7 +128,7 @@ int main(void)
     //entityFactory.createPlayer("");
 
     //! uncomment to generate a map
-    Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
+    //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
     //! game manager for drag and drop
     //ECS::Entity& gameManager = coordinator->CreateEntity();
@@ -138,10 +140,10 @@ int main(void)
 
     //Scenes::InitLoadingScreen(*coordinator.get(), camera, map.getMap());
 
-    InitCamera(*coordinator.get(), camera, cat.GetComponent<Component::Transform>());
+    InitCamera(*coordinator.get(), camera);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
-    //coordinator->AddSystem<Component::UISystem>(camera);
+    coordinator->AddSystem<Component::UISystem>(camera);
     coordinator->AddSystem<Component::RenderSystem>();
     coordinator->AddSystem<Component::BehaviourSystem>();
 
@@ -160,6 +162,8 @@ int main(void)
 
         camera.BeginMode();
 
+        window->DrawGrid(20, 10.0f);
+
         assetManagerRef->lock();
         bool isLoaded = assetManagerRef->getLoadStatus().isReady;
         assetManagerRef->unlock();
@@ -168,7 +172,6 @@ int main(void)
         //else
         //    Display the loading screen scene
 
-        window->DrawGrid(20, 10.0f);
         camera.EndMode();
         window->EndDrawing();
     }

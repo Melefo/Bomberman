@@ -12,24 +12,27 @@
 
 namespace Component
 {
-    Button::Button(const std::string& texturePath)
-    : IUIObject(),_texture(texturePath), _rect(0.0f, 0.0f, static_cast<float>(_texture.GetTexture().width), static_cast<float>(_texture.GetTexture().height))
+    Button::Button()
+    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f)
     {
     }
 
-    void Button::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale)
+    void Button::Draw(RayLib::Vector2<float> position, Asset& asset, RayLib::Vector2<float> scale)
     {
         RayLib::Vector3 vec3Pos = RayLib::Vector3(position.x, position.y, 0.0f);
+        RayLib::Texture& texture = asset.getTexture();
 
         _rect.x = position.x;
         _rect.y = position.y;
-        _rect.width = static_cast<float>(_texture.GetTexture().width);
-        _rect.height = static_cast<float>(_texture.GetTexture().height);
+        _rect.width = static_cast<float>(texture.GetTexture().width);
+        _rect.height = static_cast<float>(texture.GetTexture().height);
 
         //_texture.DrawTexture( position, GREEN);
 
-        _texture.DrawTextureEx(position, 0.0f, scale.x, WHITE);
+        // ? multiplier scale par _rect scale ?
 
+        // todo if is mouse over, change color (grey, dark grey)
+        texture.DrawTextureEx(position, 0.0f, scale.x, WHITE);
     }
 
     bool Button::IsMouseOver(void)

@@ -70,18 +70,18 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
 
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
-    ECS::Entity &entityQuit = entityFactory.createButton("../assets/buttons/quitGameButton.png");
-    entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
-                                                                               window->GetSize().y / 2.0f + 50.0f, 0.0f);
 
-    ECS::Entity &entityPlay = entityFactory.createButton("../assets/buttons/newGameButton.png");
+    ECS::Entity &entityPlay = entityFactory.createButton("NewGameBtnStd");
     entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 150.0f, 0.0f);
 
-    ECS::Entity &entitySettings = entityFactory.createButton("../assets/buttons/optionsButton.png");
+    ECS::Entity &entitySettings = entityFactory.createButton("OptionsBtnStd");
     entitySettings.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 50.0f, 0.0f);
 
+    ECS::Entity &entityQuit = entityFactory.createButton("QuitGameBtnStd");
+    entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
+                                                                               window->GetSize().y / 2.0f + 50.0f, 0.0f);
     //entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
     /*ECS::Entity &entityPlayer = */entityFactory.createPlayer("blue");
@@ -96,7 +96,7 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
     ECS::Entity &loadingBarBg = entityFactory.createBox(1, false);
     loadingBarBg.GetComponent<Component::Transform>().position = RayLib::Vector3(0, 0, 0);
     loadingBarBg.GetComponent<Component::Transform>().scale = RayLib::Vector3(15, 1, 2);
-    
+
     ECS::Entity &loadingBar = entityFactory.createBox(1, false);
     loadingBar.GetComponent<Component::Transform>().position = RayLib::Vector3(-3.5, 0.1, 0.5);
     loadingBar.GetComponent<Component::Transform>().scale = RayLib::Vector3(4, 1, 1);
@@ -117,7 +117,7 @@ void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera,
 {
     EntityFactory entityFactory(coordinator, camera);
 
-    ECS::Entity &entityAddBox = entityFactory.createButton();
+    ECS::Entity &entityAddBox = entityFactory.createButton("MapEditorBtn");
     entityAddBox.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
     entityAddBox.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::CreateBox));
     (void)selMap;

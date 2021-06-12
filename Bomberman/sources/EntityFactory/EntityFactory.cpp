@@ -32,11 +32,12 @@ EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& ca
 {
 }
 
-ECS::Entity& EntityFactory::createButton(const std::string& texturePath)
+ECS::Entity& EntityFactory::createButton(const std::string& assetName)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
-    entity.AddComponent<Component::IUIObject, Component::Button>(texturePath);
+    entity.AddComponent<Component::IUIObject, Component::Button>();
+    entity.AddComponent<Component::Renderer>(assetName);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 

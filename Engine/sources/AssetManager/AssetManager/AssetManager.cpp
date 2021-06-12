@@ -48,6 +48,7 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
                 //Asset newAsset(object);
 
                 //_mutex.lock();
+                std::cout << "Making object with name" << object << std::endl;
                 _assets.push_back(std::make_unique<Asset>(object));
                 //_mutex.unlock();
             } catch (const ECS::Exception::AssetException &error) {
@@ -104,8 +105,11 @@ std::vector<std::string> AssetManager::getNamesOfObjects(const std::list<std::un
 
     for (auto &object : objects) {
         if (object.get()->HasComponent<Component::Renderer>()) {
-            if (std::find (names.begin(), names.end(), object->GetTag()) == names.end())
-                names.push_back(object->GetTag());
+            Component::Renderer& renderer = object->GetComponent<Component::Renderer>();
+            //if (std::find (names.begin(), names.end(), object->GetTag()) == names.end())
+            //    names.push_back(object->GetTag());
+            if (std::find (names.begin(), names.end(), renderer.getName()) == names.end())
+                names.push_back(renderer.getName());
         }
     }
     return (names);

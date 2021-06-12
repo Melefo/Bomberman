@@ -60,14 +60,14 @@ namespace Component
         lerp.Lerp(positionsAverage, 0.05f);
         camera.SetTarget(lerp);
 
-        // uncomment for a cool effect on startup
-        //RayLib::Vector3 lerp = pos;
-        //lerp.Lerp(positionsAverage + _transform.position, 0.01f);
-        //camera.SetPosition(lerp);
+        // uncomment for a cool effect on startup, also fixes most stuttering
+        RayLib::Vector3 lerpPos = pos;
+        lerpPos.Lerp(positionsAverage + _transform.position, 0.25f);
+        camera.SetPosition(lerpPos);
 
         //camera.SetTarget(positionsAverage);
 
-        camera.SetPosition(positionsAverage + _transform.position);
+        //camera.SetPosition(positionsAverage + _transform.position);
 
 
         /*
