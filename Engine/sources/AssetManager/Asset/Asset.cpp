@@ -23,11 +23,11 @@ Asset::Asset(std::string name)
         if (file.find(name) != std::string::npos) {
             if (file.find("model") != std::string::npos && !_model) {
                 _model = std::make_unique<RayLib::Model>(file);
-            } else if (file.find("anim") != std::string::npos && _animations.size() == 0) {
-                _animations.emplace(getAnimationName(file), file);
+            } else if (file.find("anim") != std::string::npos) {
+                _animations.insert(std::pair<std::string, RayLib::ModelAnimation>(getAnimationName(file), RayLib::ModelAnimation(file)));
+                //_animations.emplace(getAnimationName(file), file);
             } else if (file.find("texture") != std::string::npos && !_texture) {
                 _texture = std::make_unique<RayLib::Texture>(file);
-                //_texture = std::make_unique<RayLib::Texture>();
             }
         }
     }
@@ -67,6 +67,7 @@ Asset& Asset::operator=(Asset& other)
     return (*this);
 }
 
+// !nomenclature: assetname_anim_idle.iqm
 std::string Asset::getAnimationName(const std::string &filePath)
 {
     std::string name = getFileNameWithoutExt(filePath);
@@ -74,6 +75,7 @@ std::string Asset::getAnimationName(const std::string &filePath)
 
     if (separatorIdx == std::string::npos)
         return ("unknown");
+    std::cout << "Creating animation with state" << name.substr(separatorIdx + 1, std::string::npos) << std::endl;
     return (name.substr(separatorIdx + 1, std::string::npos));
 }
 

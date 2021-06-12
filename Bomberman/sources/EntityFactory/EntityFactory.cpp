@@ -92,7 +92,7 @@ ECS::Entity& EntityFactory::createPlayer(const std::string &)
     entity.AddComponent<Component::PhysicsBody>();
     // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
     entity.AddComponent<Component::Renderer>("Player");
-    entity.AddComponent<Component::Animator>("../assets/Player/Player_anim_idle.iqm", "Idle");
+    entity.AddComponent<Component::Animator>("Player", "Idle");
     // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 

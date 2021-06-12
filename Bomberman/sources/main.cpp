@@ -39,7 +39,7 @@ ECS::Entity& InitCat(ECS::Coordinator& coordinator)
     entity.AddComponent<Component::Transform>(RayLib::Vector3(30, 0, 30));
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("Player");
-    entity.AddComponent<Component::Animator>("../assets/Player/Player_anim_idle.iqm", "Idle");
+    entity.AddComponent<Component::Animator>("Player", "Idle");
     //entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
