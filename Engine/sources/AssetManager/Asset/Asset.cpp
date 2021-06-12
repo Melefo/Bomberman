@@ -17,7 +17,7 @@ Asset::Asset(std::string name)
     std::cout << "Creating asset name " << name << std::endl;
 
     for (auto &element : std::filesystem::recursive_directory_iterator("../assets/")) {
-        file = element.path();
+        file = element.path().c_str();
         if (element.symlink_status().type() == std::filesystem::file_type::directory)
             continue;
         if (file.find(name) != std::string::npos) {

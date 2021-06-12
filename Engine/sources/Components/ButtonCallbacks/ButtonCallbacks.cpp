@@ -47,7 +47,7 @@ namespace Component
     {
         // ?
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-        std::unique_ptr<AssetManager>& assetManager = AssetManager::GetInstance();
+        //std::unique_ptr<AssetManager>& assetManager = AssetManager::GetInstance();
 
         // scene name = "Game"
         std::string sceneName = "Game";

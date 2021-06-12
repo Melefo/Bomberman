@@ -56,7 +56,8 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
             }
         }
         //_mutex.lock();
-        _loadStatus.percentage = (_assets.size() * 100) / objects.size();
+
+        _loadStatus.percentage = static_cast<float>((_assets.size() * 100) / objects.size());
         //_mutex.unlock();
     }
     //_mutex.lock();
