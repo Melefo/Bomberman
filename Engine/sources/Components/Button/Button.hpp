@@ -100,6 +100,8 @@ namespace Component
              * 
              */
             std::vector<std::function<void()>> _callbacks;
+
+            RayLib::Color _tint;
     };
 }
 

@@ -65,8 +65,17 @@ namespace RayLib
         return (col);
     }
 
-    Color::~Color()
+    void Color::Lerp(Color target, float t)
     {
+        if (t < 0)
+            t = 0;
+        if (t > 1)
+            t = 1;
+
+        r = r + (target.r - r) * t;
+        g = g + (target.g - g) * t;
+        b = b + (target.b - b) * t;
+        a = a + (target.a - a) * t;
     }
 
 

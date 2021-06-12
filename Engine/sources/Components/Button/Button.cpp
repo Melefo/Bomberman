@@ -13,7 +13,7 @@
 namespace Component
 {
     Button::Button()
-    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f)
+    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f), _tint()
     {
     }
 
@@ -31,16 +31,16 @@ namespace Component
 
         // todo if is mouse over, change color (grey, dark grey)
         // ! use lerp to be extra cool
-        RayLib::Color drawColor = WHITE;
 
         if (IsMouseOver()) {
             if (RayLib::Mouse::IsButtonDown(MOUSE_BUTTON_LEFT))
-                drawColor = DARKGRAY;
+                _tint.Lerp(DARKGRAY, 0.25f);
             else
-                drawColor = GRAY;
+                _tint.Lerp(GRAY, 0.25f);
+        } else {
+            _tint.Lerp(WHITE, 0.25f);
         }
-
-        texture.DrawTextureEx(position, 0.0f, scale.x, drawColor);
+        texture.DrawTextureEx(position, 0.0f, scale.x, _tint);
     }
 
     bool Button::IsMouseOver(void)
