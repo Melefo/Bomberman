@@ -17,9 +17,11 @@ Asset::Asset(std::string name)
     std::cout << "Creating asset name " << name << std::endl;
 
     for (auto &element : std::filesystem::recursive_directory_iterator("../assets/")) {
-        file = element.path().c_str();
-        if (element.symlink_status().type() == std::filesystem::file_type::directory)
+        if (!element.is_regular_file())
             continue;
+        //if (element.symlink_status().type() == std::filesystem::file_type::directory)
+        //    continue;
+        file = element.path().c_str();
         if (file.find(name) != std::string::npos) {
             if (file.find("model") != std::string::npos && !_model) {
                 _model = std::make_unique<RayLib::Model>(file);
@@ -31,7 +33,6 @@ Asset::Asset(std::string name)
             }
         }
     }
-
 
     if (!_model)
         _model = std::make_unique<RayLib::Model>();
