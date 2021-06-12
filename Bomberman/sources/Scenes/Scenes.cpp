@@ -43,6 +43,9 @@ void Scenes::switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::s
 void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
 {
     EntityFactory entityFactory(coordinator, camera);
+    int players = Engine::GameConfiguration::GetPlayers();
+    int enemies = Engine::GameConfiguration::GetEnemies();
+    int currentPlayer = 1;
 
     for (size_t y = 0; y < map.size(); y++) {
         for (size_t x = 0; x < map[y].size(); x++) {
@@ -61,9 +64,11 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
                 box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
             }
 
-            if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER)) {
-                ECS::Entity& player = entityFactory.createPlayer("");
+            if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
+                Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
+                ECS::Entity& player = entityFactory.createPlayer(playerKeys);
                 player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+                currentPlayer++;
             }
         }
     }

@@ -27,10 +27,9 @@ namespace RayLib
              * @brief Construct a new Vector 2<T> object
              * Initialise parameters to zero
              */
-            Vector2<T>(void)
+            Vector2<T>(void) :
+            x(0), y(0)
             {
-                x = 0;
-                y = 0;
             }
 
             /**
@@ -44,9 +43,9 @@ namespace RayLib
              * 
              * @param newX set x parameter
              */
-            Vector2<T>(T newX)
+            Vector2<T>(T newX) :
+            x(newX), y(0)
             {
-                x = newX;
             }
 
             /**
@@ -55,10 +54,9 @@ namespace RayLib
              * @param newX set x parameter
              * @param newY set y parameter
              */
-            Vector2<T>(T newX, T newY)
+            Vector2<T>(T newX, T newY) :
+            x(newX), y(newY)
             {
-                x = newX;
-                y = newY;
             }
 
             /**
@@ -66,10 +64,10 @@ namespace RayLib
              *
              * @param vec 
              */
-            Vector2<T>(const Vector2<T>& vec)
+            Vector2<T>(const Vector2<T>& vec) :
+            x(vec.x), y(vec.y)
             {
-                x = vec.x;
-                y = vec.y;
+
             }
 
             /**
@@ -77,10 +75,9 @@ namespace RayLib
              * 
              * @param vec 
              */
-            Vector2<T>(const ::Vector2& vec)
+            Vector2<T>(const ::Vector2& vec) :
+            x(static_cast<T>(vec.x)), y(static_cast<T>(vec.y))
             {
-                x = static_cast<T>(vec.x);
-                y = static_cast<T>(vec.y);
             }
 
             /**

@@ -12,6 +12,7 @@
 #include "Camera3D.hpp"
 #include "Explosion.hpp"
 #include "Camera.hpp"
+#include "GameConfiguration.hpp"
 
 class EntityFactory {
     public:
@@ -62,7 +63,7 @@ class EntityFactory {
          * @param playerColor The color of the player (...colors?)
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createPlayer(const std::string &playerColor);
+        ECS::Entity& createPlayer(Engine::playerkeys& keys);
 
          /**
          * @brief Create a Text object

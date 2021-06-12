@@ -28,10 +28,19 @@ namespace RayLib
                      Vector2<int> verticalKeys=Vector2<int>(KEY_S, KEY_W));
 
             /**
+             * @brief Construct a new Input object
+             * 
+             * @param other 
+             */
+            Input(const Input& other);
+
+            /**
              * @brief Destroy the Input object
              * 
              */
             ~Input() = default;
+
+            Input& operator=(const Input& other);
 
             /**
              * @brief Get the Horizontal Axis object

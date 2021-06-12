@@ -23,6 +23,7 @@
 #include "EntityFactory.hpp"
 #include "Ray.hpp"
 #include "TerrainGenerator.hpp"
+#include "GameConfiguration.hpp"
 
 class Scenes {
     public:

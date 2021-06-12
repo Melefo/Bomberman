@@ -85,7 +85,7 @@ ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createPlayer(const std::string &)
+ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Player");
@@ -97,7 +97,7 @@ ECS::Entity& EntityFactory::createPlayer(const std::string &)
     // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
-    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity);
+    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, keys.movementInput, keys.actionKey);
 
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
     //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
