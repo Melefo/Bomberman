@@ -26,4 +26,13 @@ namespace Engine::Exception
     {
         return this->_value.c_str();
     }
+
+    EngineException::EngineException(std::string value) :
+    _value(value)
+    {}
+
+    const char *EngineException::what() const noexcept
+    {
+        return this->_value.c_str();
+    }
 }

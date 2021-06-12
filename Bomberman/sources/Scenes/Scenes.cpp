@@ -60,6 +60,11 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
                 ECS::Entity& box = entityFactory.createBox(3, isEditor ? true : false);
                 box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
             }
+
+            if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER)) {
+                ECS::Entity& player = entityFactory.createPlayer("");
+                player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+            }
         }
     }
 }
@@ -137,6 +142,6 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, c
     //InitMap(coordinator, camera, map, 0);
     InitMap(coordinator, camera, map, false);            // ajoute la default map en fond
 
-    /*ECS::Entity &entityPlayer = */entityFactory.createPlayer("");
+    /*ECS::Entity &entityPlayer = *///entityFactory.createPlayer("");
     entityFactory.createCamera();
 }

@@ -31,7 +31,7 @@ namespace RayLib
              * @brief Destroy the Input object
              * 
              */
-            ~Input();
+            ~Input() = default;
 
             /**
              * @brief Get the Horizontal Axis object
@@ -64,6 +64,19 @@ namespace RayLib
              */
             bool IsKeyDown(int key);
             int GetKeyPressed(void);
+
+            /**
+             * @brief Get the Horizontal Keys
+             * 
+             * @return Vector2<int> 
+             */
+            Vector2<int> GetHorizontalKeys(void);
+            /**
+             * @brief Get the Vertical Keys
+             * 
+             * @return Vector2<int> 
+             */
+            Vector2<int> GetVerticalKeys(void);
 
         protected:
         private:

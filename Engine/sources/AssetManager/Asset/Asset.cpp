@@ -21,7 +21,7 @@ Asset::Asset(std::string name)
             continue;
         //if (element.symlink_status().type() == std::filesystem::file_type::directory)
         //    continue;
-        file = element.path().c_str();
+        file = element.path().string();
         if (file.find(name) != std::string::npos) {
             if (file.find("model") != std::string::npos && !_model) {
                 _model = std::make_unique<RayLib::Model>(file);

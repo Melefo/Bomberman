@@ -43,8 +43,13 @@ namespace RayLib
     }
 
 
-    Input::~Input()
+    Vector2<int> Input::GetHorizontalKeys(void)
     {
+        return (_horizontalAxis);
+    }
 
+    Vector2<int> Input::GetVerticalKeys(void)
+    {
+        return (_verticalAxis);
     }
 }

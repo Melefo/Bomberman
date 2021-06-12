@@ -14,7 +14,7 @@
 namespace Engine::Exception
 {
     /**
-     * @brief Exception thrown if the AssetManager have an expected behavior
+     * @brief Exception thrown if the Asset have an expected behavior
      * 
      */
     class AssetException : public std::exception
@@ -37,6 +37,20 @@ namespace Engine::Exception
         public:
             AssetManagerException(std::string value);
             const char *what() const noexcept override;
-    };}
+    };
+
+    /**
+     * @brief Exception thrown if something in the engine has expected behavior
+     * 
+     */
+    class EngineException : public std::exception
+    {
+        private:
+            std::string _value;
+        public:
+            EngineException(std::string value);
+            const char *what() const noexcept override;
+    };
+}
 
 #endif /* !ENGINEEXCEPTIONS_HPP_ */

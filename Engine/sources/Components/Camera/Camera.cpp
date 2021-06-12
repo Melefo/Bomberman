@@ -72,6 +72,8 @@ namespace Component
         RayLib::Vector3 sum;
         RayLib::Vector3 result;
 
+        //! mettre à jour la liste des players si yen a qui perd
+
         for (auto it = _playerPositions.begin(); it != _playerPositions.end(); it++) {
             // if one of the players are off camera, min threshold + 1
             //if (::GetWorldToScreen(it->get(), camera.GetCamera()).x > RayLib::Window::GetInstance(0.0f, "")->GetSize().x) {

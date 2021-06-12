@@ -108,22 +108,11 @@ int main(void)
     //! attention le 3e arg: world up est important
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
-    TerrainGenerator map(2);
-
-    //Scenes::InitMainMenu(*coordinator.get(), camera, map.getMap());
-
-    //ECS::Entity& cat = InitCat(*coordinator.get());
-
-    //ECS::Entity& button = InitButton(*coordinator.get());
-    /*ECS::Entity& box = *///InitBox(*coordinator.get(), camera);
-
-    //EntityFactory entityFactory(*coordinator.get(), camera);
+    TerrainGenerator map(4);
 
     // !uncomment to get a speed pickup
     //ECS::Entity& pickup = entityFactory.createPickUp();
     //pickup.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 20.0f);
-
-    //entityFactory.createPlayer("");
 
     //! uncomment to generate a map
     //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
@@ -132,13 +121,9 @@ int main(void)
     //ECS::Entity& gameManager = coordinator->CreateEntity();
     //gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
 
-    //AM.loadAssets(coorAssetManager AM;m<Component::RenderSystem>();
     //! uncomment to save generated map
     //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
-    //Scenes::InitLoadingScreen(*coordinator.get(), camera, map.getMap());
-
-    //InitCamera(*coordinator.get(), camera);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::UISystem>(camera);
@@ -146,7 +131,6 @@ int main(void)
     coordinator->AddSystem<Component::BehaviourSystem>();
 
     window->SetTargetFPS(60);
-
     assetManagerRef->loadAssets(coordinator->GetEntities());
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
