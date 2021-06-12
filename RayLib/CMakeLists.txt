@@ -37,9 +37,9 @@ ENDMACRO()
 
 HEADER_DIRECTORIES(INC)
 
-TARGET_LINK_LIBRARIES(encapsu raylib)
+TARGET_LINK_LIBRARIES(encapsu raylib xmlGen)
 
-TARGET_LINK_LIBRARIES(ray_unit_tests raylib criterion -lgcov)
+TARGET_LINK_LIBRARIES(ray_unit_tests raylib xmlGen criterion -lgcov)
 TARGET_COMPILE_OPTIONS(ray_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
 target_include_directories(encapsu PUBLIC ${raylib_SOURCE_DIR}/src ${INC})

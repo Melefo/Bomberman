@@ -9,28 +9,38 @@
 
 namespace Component
 {
-
-    Renderer::Renderer(const std::string& modelPath) :
-    _model(modelPath), _texture()
+    Renderer::Renderer(const std::string& name) :
+     _name(name)
     {
-        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
     }
 
-    Renderer::Renderer() :
-    _model(RayLib::Mesh(RayLib::Vector3(1.0f, 1.0f, 1.0f))), _texture("../assets/models/cube/def_text.png")
+    std::ostream& Renderer::operator<<(std::ostream& os)
     {
-        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
+        os << "<Renderer>";
+        os << "<AssetName>" << _name << "</AssetName>";
+        os << "</Renderer>";
+        return (os);
     }
 
-    Renderer::Renderer(const std::string& modelPath, const std::string& texturePath) :
-    _model(modelPath), _texture(texturePath)
+    std::istream& Renderer::operator>>(std::istream& is)
     {
-        _model.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, _texture);
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
     }
 
-
-    RayLib::Model& Renderer::GetModel()
+    boost::property_tree::ptree& Renderer::operator<<(boost::property_tree::ptree &ptree)
     {
-        return (_model);
+        boost::property_tree::ptree rendererTree = ptree.get_child("Renderer");
+
+        _name = rendererTree.get_child("AssetName").get_value<std::string>("AssetName");
+        return (ptree);
+    }
+
+    const std::string &Renderer::getName() const
+    {
+        return (_name);
     }
 }

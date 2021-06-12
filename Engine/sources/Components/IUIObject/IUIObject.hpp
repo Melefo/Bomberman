@@ -10,6 +10,7 @@
 
 #include "IComponent.hpp"
 #include "Vector2.hpp"
+#include "Asset.hpp"
 
 namespace Component
 {
@@ -49,7 +50,9 @@ namespace Component
              * @param position 
              * @param scale 
              */
-            virtual void Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) = 0;
+            virtual void Draw(RayLib::Vector2<float> position,
+                              Asset& asset,
+                              RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) = 0;
 
         protected:
         private:

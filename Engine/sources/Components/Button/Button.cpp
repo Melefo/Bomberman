@@ -12,24 +12,32 @@
 
 namespace Component
 {
-    Button::Button(const std::string& texturePath)
-    : IUIObject(),_texture(texturePath), _rect(0.0f, 0.0f, static_cast<float>(_texture.GetTexture().width), static_cast<float>(_texture.GetTexture().height))
+    Button::Button()
+    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f), _tint()
     {
     }
 
-    void Button::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale)
+    void Button::Draw(RayLib::Vector2<float> position, Asset& asset, RayLib::Vector2<float> scale)
     {
         RayLib::Vector3 vec3Pos = RayLib::Vector3(position.x, position.y, 0.0f);
+        RayLib::Texture& texture = asset.getTexture();
 
         _rect.x = position.x;
         _rect.y = position.y;
-        _rect.width = scale.x;
-        _rect.height = scale.y;
+        _rect.width = static_cast<float>(texture.GetTexture().width);
+        _rect.height = static_cast<float>(texture.GetTexture().height);
 
-        //_texture.DrawTexture( position, GREEN);
-        _texture.DrawTextureRec(_rect, position, GREEN);
-        //_texture.DrawTextureEx(position, 0.0f, 0.1f, GREEN);
+        // ? multiplier scale par _rect scale ?
 
+        if (IsMouseOver()) {
+            if (RayLib::Mouse::IsButtonDown(MOUSE_BUTTON_LEFT))
+                _tint.Lerp(DARKGRAY, 0.25f);
+            else
+                _tint.Lerp(GRAY, 0.25f);
+        } else {
+            _tint.Lerp(WHITE, 0.25f);
+        }
+        texture.DrawTextureEx(position, 0.0f, scale.x, _tint);
     }
 
     bool Button::IsMouseOver(void)

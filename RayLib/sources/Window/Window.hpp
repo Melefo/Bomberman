@@ -73,6 +73,13 @@ namespace RayLib
             bool WindowShouldClose(void);
 
             /**
+             * @brief Close the window
+             * 
+             * @return vois
+             */
+            void CloseWindow(void);
+
+            /**
              * @brief Initialize canvas for drawing
              * 
              */
@@ -160,6 +167,11 @@ namespace RayLib
              * @param title 
              */
             Window(Vector2<int> size=Vector2<int>(800, 450), const std::string& title="raylib");
+
+            bool IsFileDropped(void);
+            std::vector<std::string> GetDroppedFiles(int *count);
+            void ClearDroppedFiles(void);
+
         protected:
         private:
 

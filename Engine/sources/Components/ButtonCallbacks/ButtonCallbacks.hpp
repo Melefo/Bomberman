@@ -13,6 +13,8 @@
 #include "IBehaviour.hpp"
 #include "Button.hpp"
 #include <iostream>
+#include "Coordinator.hpp"
+#include "AssetManager.hpp"
 
 namespace Component
 {
@@ -52,7 +54,7 @@ namespace Component
              * 
              * @param dt 
              */
-            void Update(double dt) override;
+            void Update(double dt, ECS::Entity& entity) override;
             /**
              * @brief FixedUpdate
              * 
@@ -60,10 +62,23 @@ namespace Component
              */
             void FixedUpdate(ECS::Entity& entity) override;
 
-            // ! delete me
-            void SayHello(void);
-            // ! delete me
-            static void StaticCallback(void);
+            /**
+             * @brief LateUpdate
+             * 
+             * @param dt 
+             * @param entity 
+             */
+            void LateUpdate(double dt, ECS::Entity& entity) override;
+
+            static void StartGame(void);
+
+            static void QuitWindow(void);
+
+            static void CreateBox(void);
+
+            std::ostream &operator<<(std::ostream &os) override {return os;};
+            std::istream &operator>>(std::istream &is) override {return is;};
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
         protected:
         private:

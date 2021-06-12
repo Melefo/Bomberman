@@ -20,7 +20,7 @@ namespace Component
         _explosionTimer = timer;
     }
 
-    void Explosion::Update(double)
+    void Explosion::Update(double, ECS::Entity&)
     {
         _explosionTimer -= _window->GetFrameTime();
 
@@ -41,8 +41,13 @@ namespace Component
         }
     }
 
-    void Explosion::FixedUpdate(ECS::Entity& entity)
+    void Explosion::FixedUpdate(ECS::Entity&)
     {
-        (void) entity;
+
+    }
+
+    void Explosion::LateUpdate(double, ECS::Entity&)
+    {
+
     }
 }

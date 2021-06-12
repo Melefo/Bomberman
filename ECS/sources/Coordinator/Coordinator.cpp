@@ -13,7 +13,7 @@ namespace ECS
 
 
     Coordinator::Coordinator(std::string defaultScene, double fixedDeltaTime) :
-    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true)
+    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true), CloseWindow(false)
     {
 
     }
@@ -117,9 +117,27 @@ namespace ECS
         return this->_fixedDeltaTime;
     }
 
-    const std::list<std::unique_ptr<Entity>>& Coordinator::GetEntities() const
+    const std::list<std::unique_ptr<Entity>>& Coordinator::GetEntities()
     {
-        return this->_scenes.at(this->_currentScene).GetEntities();
+        return this->_scenes[this->_currentScene].GetEntities();
     }
 
+    const std::string &Coordinator::getCurrentScene(void)
+    {
+        return (_currentScene);
+    }
+
+    void Coordinator::setCurrentScene(std::string &sceneName)
+    {
+        this->_currentScene = sceneName;
+    }
+
+    const ECS::EntityManager &Coordinator::getScene(std::string &sceneName) const
+    {
+        for (auto &it : this->_scenes) {
+            if (it.first == sceneName)
+                return it.second;
+        }
+        throw("");
+    }
 }

@@ -111,4 +111,77 @@ namespace RayLib
         z *= factor;
         return (*this);
     }
+
+    bool Vector3::operator==(const RayLib::Vector3& other)
+    {
+        return (x == other.x && y == other.y && z == other.z);
+    }
+
+    bool Vector3::operator!=(const RayLib::Vector3& other)
+    {
+        return (!(*this == other));
+    }
+
+    // todo smoothdamp
+    // cf https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Vector3.cs
+    void Vector3::SmoothDamp(Vector3, float, float)
+    {
+
+    }
+
+    void Vector3::Lerp(Vector3 target, float t)
+    {
+        if (t < 0)
+            t = 0;
+        if (t > 1)
+            t = 1;
+        x = x + (target.x - x) * t;
+        y = y + (target.y - y) * t;
+        z = z + (target.z - z) * t;
+    }
+
+    float Vector3::Distance(const Vector3 other)
+    {
+        float distance = static_cast<float>(sqrt(pow(static_cast<double>(x - other.x), 2.0) +
+                              pow(static_cast<double>(y - other.y), 2.0) +
+                              pow(static_cast<double>(z - other.z), 2.0)));
+
+        return (distance);
+    }
+
+    Vector3 Vector3::operator/(const float factor)
+    {
+        Vector3 newVec = Vector3(x / factor, y / factor, z / factor);
+
+        return (newVec);
+    }
+
+    std::istream& Vector3::operator>>(std::istream& is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
+    }
+
+    std::ostream& Vector3::operator<<(std::ostream& os)
+    {
+        os << "<Vector3>";
+        os << "<x>" << x << "</x>";
+        os << "<y>" << y << "</y>";
+        os << "<z>" << z << "</z>";
+        os << "</Vector3>";
+        return (os);
+    }
+
+    boost::property_tree::ptree& Vector3::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree vec3 = ptree.get_child("Vector3");
+
+        x = vec3.get<float>("x");
+        y = vec3.get<float>("y");
+        z = vec3.get<float>("z");
+        return (ptree);
+    }
 }

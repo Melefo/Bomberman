@@ -14,6 +14,7 @@
 #include "Color.hpp"
 #include "Texture.hpp"
 #include "Mesh.hpp"
+#include "Shader.hpp"
 
 namespace RayLib
 {
@@ -21,7 +22,7 @@ namespace RayLib
      * @brief Model encapsulation
      * 
      */
-    class Model {
+    class Model : public IXMLSerializable {
         public:
             /**
              * @brief Construct a new Model object based on given file
@@ -36,6 +37,12 @@ namespace RayLib
              * @param mesh 
              */
             Model(Mesh mesh);
+
+            /**
+             * @brief Construct a new Model object
+             * Create a cube mesh and create from there
+             */
+            Model();
 
             /**
              * @brief Destroy the Model object
@@ -73,15 +80,35 @@ namespace RayLib
             void SetMaterialTexture(int matIndex, int mapType, Texture& text);
 
             /**
+             * @brief Set the Material's Shader
+             * 
+             * @param matIndex default 0
+             * @param shader The Shader to assign
+             */
+            void SetMaterialShader(int matIndex, Shader& shader);
+
+            /**
              * @brief Get the Model object as a raylib structure
              * 
              * @return ::Model 
              */
             const ::Model GetModel();
 
+            const std::string& GetFileName() const;
+
+            std::ostream& operator<<(std::ostream& os) override;
+            std::istream& operator>>(std::istream& is) override;
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
+
         protected:
         private:
+            /**
+             * @brief The C raylib's Model structure
+             * 
+             */
             ::Model _model;
+            std::string _fileName;
     };
 }
 

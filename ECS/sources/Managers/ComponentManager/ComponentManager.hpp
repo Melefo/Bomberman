@@ -15,6 +15,7 @@
 #include <algorithm>
 #include "Exceptions.hpp"
 #include "IComponent.hpp"
+#include <map>
 
 namespace ECS
 {
@@ -35,6 +36,8 @@ namespace ECS
              * 
              */
             std::unordered_map<std::string, std::unique_ptr<IComponent>> _components;
+            //std::map<std::string, std::unique_ptr<IComponent>> _components;
+
         public:
             /**
              * @brief Construct a new Component Manager object
@@ -93,6 +96,14 @@ namespace ECS
                     list.push_back(dynamic_cast<T&>(*this->_components[name]));
                 return list;
             }
+
+            /**
+             * @brief Get the Components
+             * 
+             * @return std::vector<std::unique_ptr<IComponent>&> 
+             */
+            std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> GetComponents();
+
             /**
              * @brief Add a new Component to the current Entity
              * 
@@ -121,6 +132,7 @@ namespace ECS
             void AddComponent(TArgs&&... args)
             {
                 static_assert(std::is_base_of<Base, T>::value, "Class doesn't inherit from Base");
+
                 std::string name(typeid(T).name());
 
                 if (this->HasComponent<T>())
@@ -187,6 +199,13 @@ namespace ECS
              * @return false The entity is missing at least Component
              */
             bool HasComponents(std::vector<std::string> &names) const;
+
+            /**
+             * @brief If exists, return component with name
+             * 
+             */
+            IComponent& GetComponentByName(const std::string& name);
+
     };
 }
 

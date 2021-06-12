@@ -23,22 +23,9 @@ namespace Component
             /**
              * @brief Construct a new Renderer object
              * 
-             * @param modelPath 
-             * @param texturePath 
+             * @param assetName 
              */
-            Renderer(const std::string& modelPath,
-                    const std::string& texturePath);
-            /**
-             * @brief Construct a new Renderer object
-             * 
-             * @param modelPath 
-             */
-            Renderer(const std::string& modelPath);
-            /**
-             * @brief Construct a new Renderer object (cube mesh)
-             * 
-             */
-            Renderer();
+            Renderer(const std::string& assetName="Default");
             /**
              * @brief Destroy the Renderer object
              * 
@@ -58,17 +45,17 @@ namespace Component
              */
             Renderer& operator=(const Renderer& other) = default;
 
-            /**
-             * @brief Get the Model as a raylib structure 
-             * 
-             * @return RayLib::Model& 
-             */
-            RayLib::Model& GetModel(void);
+            const std::string &getName() const;
+
+            std::ostream& operator<<(std::ostream& os) override;
+            std::istream& operator>>(std::istream& is) override;
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
         protected:
         private:
-            RayLib::Model _model;
-            RayLib::Texture _texture;
+
+            std::string _name;
     };
 }
 

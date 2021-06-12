@@ -20,7 +20,7 @@ namespace Component
         std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
         for (IBehaviour& behaviour : behaviours) {
-            behaviour.Update(dt);
+            behaviour.Update(dt, entity);
         }
     }
 
@@ -30,6 +30,15 @@ namespace Component
 
         for (IBehaviour& behaviour : behaviours) {
             behaviour.FixedUpdate(entity);
+        }
+    }
+
+    void BehaviourSystem::LateUpdate(double dt, ECS::Entity& entity)
+    {
+        std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
+
+        for (IBehaviour& behaviour : behaviours) {
+            behaviour.LateUpdate(dt, entity);
         }
     }
 

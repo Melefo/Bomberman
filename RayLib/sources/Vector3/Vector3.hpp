@@ -9,6 +9,9 @@
 #define VECTOR3_HPP_
 
 #include <raylib.h>
+#include "IXMLSerializable.hpp"
+#include <cmath>
+#include <sstream>
 
 namespace RayLib
 {
@@ -16,7 +19,7 @@ namespace RayLib
      * @brief Vector3 encapsulation
      * 
      */
-    class Vector3
+    struct Vector3 : public ::Vector3, public IXMLSerializable
     {
         public:
             /**
@@ -128,13 +131,46 @@ namespace RayLib
              */
             Vector3 operator*(const float factor);
 
+            /**
+             * @brief Return the distance to other vector
+             * 
+             * @param other 
+             * @return float 
+             */
+            float Distance(const Vector3 other);
 
-            float x;
-            float y;
-            float z;
+            /**
+             * @brief Smoothly modify values to match target
+             * 
+             * @param target 
+             * @param smoothTime 
+             * @param deltaTime 
+             */
+            void SmoothDamp(Vector3 target, float smoothTime, float deltaTime);
+
+            /**
+             * @brief Linearly interpolate vector3 to target by t
+             * 
+             * @param target 
+             * @param t 
+             */
+            void Lerp(Vector3 target, float t);
+
+            bool operator==(const RayLib::Vector3& other);
+            bool operator!=(const RayLib::Vector3& other);
+
+            Vector3 operator/(const float factor);
+
+            std::ostream& operator<<(std::ostream& os) override;
+            std::istream& operator>>(std::istream& is) override;
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
+
+
         protected:
         private:
     };
+
 }
 
 #endif /* !VECTOR3_HPP_ */

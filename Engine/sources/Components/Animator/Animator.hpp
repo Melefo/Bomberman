@@ -19,11 +19,10 @@ namespace Component
         public:
             /**
              * @brief Construct a new Animator object
-             * Initialize a state with a modelanimation and a statename
-             * @param filePath 
+             * @param assetName
              * @param stateName 
              */
-            Animator(const std::string& filePath, std::string stateName);
+            Animator(const std::string& assetName, std::string stateName);
             /**
              * @brief Destroy the Animator object
              * 
@@ -51,18 +50,23 @@ namespace Component
             void SetState(const std::string& state);
 
             /**
-             * @brief Add animation to statemachine
+             * @brief Play animation at current state of statemachine
              * 
-             * @param filePath 
-             * @param stateName 
+             * @param model 
              */
-            void AddAnimation(const std::string& filePath, std::string stateName);
-
             void PlayCurrentState(RayLib::Model& model);
+
+            const std::string &getName() const;
+
+            std::ostream &operator<<(std::ostream &os) override {return os;};
+            std::istream &operator>>(std::istream &is) override {return is;};
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+
+
         protected:
         private:
-            std::map<std::string, RayLib::ModelAnimation> _stateMachine;
             std::string _currentState;
+            std::string _name;
     };
 }
 

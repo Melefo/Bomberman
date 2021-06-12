@@ -158,14 +158,40 @@ namespace ECS
              */
             static std::unique_ptr<Coordinator>& GetInstance(std::string defaultScene = "MainMenu", double fixedDeltaTime = 0.02);
 
-
             /**
              * @brief Get a list of the entities in the current scene
              * 
              * @return const std::list<std::unique_ptr<Entity>>& 
              */
-            const std::list<std::unique_ptr<Entity>>& GetEntities() const;
+            const std::list<std::unique_ptr<Entity>>& GetEntities();
 
+            /**
+             * @brief Get the Current Scene object
+             * 
+             * @return const std::string& 
+             */
+            const std::string &getCurrentScene(void);
+
+            /**
+             * @brief Set the Current Scene object
+             * 
+             * @param sceneName 
+             */
+            void setCurrentScene(std::string &sceneName);
+
+            /**
+             * @brief Get a Scene object from a name
+             * 
+             * @param sceneName 
+             * @return ECS::EntityManager& 
+             */
+            const ECS::EntityManager &getScene(std::string &sceneName) const;
+
+            /**
+             * @brief Close Window
+             * 
+             */
+            bool CloseWindow;
     };
 }
 

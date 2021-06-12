@@ -10,12 +10,19 @@
 
 namespace RayLib
 {
-    Model::Model(const std::string& fileName)
+    Model::Model(const std::string& fileName) : _model(LoadModel(fileName.c_str())), _fileName(fileName)
     {
-        _model = LoadModel(fileName.c_str());
-        //if (model.meshCount == 0)
-            // !throw error
+
     }
+
+    Model::Model()
+    {
+        Mesh mesh;
+        mesh.SetLoaded(false);
+
+        _model = ::LoadModelFromMesh(mesh.GetMesh());
+    }
+
 
     Model::Model(Mesh mesh)
     {
@@ -45,15 +52,50 @@ namespace RayLib
 
     }
 
+    void Model::SetMaterialShader(int matIndex, Shader& shader)
+    {
+        _model.materials[matIndex].shader = shader.GetShader();
+    }
+
     const ::Model Model::GetModel()
     {
         return (_model);
     }
 
-
     Model::~Model()
     {
         if (_model.meshCount > 0)
             UnloadModel(_model);
+    }
+
+    std::ostream& Model::operator<<(std::ostream& os)
+    {
+        os << "<Model>";
+        os << "<fileName>" << _fileName << "</fileName>";
+        os << "</Model>";
+        return (os);
+    }
+
+    std::istream& Model::operator>>(std::istream& is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
+    }
+
+    boost::property_tree::ptree& Model::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree tex = ptree.get_child("Model");
+
+        _fileName = tex.get<std::string>("fileName");
+        _model = LoadModel(_fileName.c_str());
+        return (ptree);
+    }
+
+    const std::string& Model::GetFileName() const
+    {
+        return (_fileName);
     }
 }

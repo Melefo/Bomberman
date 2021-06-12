@@ -42,7 +42,7 @@ namespace RayLib
              * @brief Destroy the Camera 3 D object
              * 
              */
-            ~Camera3D();
+            ~Camera3D() = default;
 
             // todo getters and setters
 
@@ -85,6 +85,34 @@ namespace RayLib
              * @return ::Camera3D 
              */
             ::Camera3D GetCamera();
+
+            /**
+             * @brief Set the Position of camera
+             * 
+             * @param position 
+             */
+            void SetPosition(RayLib::Vector3 position);
+
+            /**
+             * @brief Get the Position
+             * 
+             * @return const Vector3& 
+             */
+            const Vector3 GetPosition();
+
+            /**
+             * @brief Get the Target
+             * 
+             * @return const Vector3
+             */
+            const Vector3 GetTarget();
+
+            /**
+             * @brief Set the Target of camera
+             * 
+             * @param targetPosition 
+             */
+            void SetTarget(RayLib::Vector3 targetPosition);
 
 
 

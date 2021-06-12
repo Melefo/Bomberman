@@ -5,6 +5,7 @@
 ** ButtonCallbacks
 */
 
+#include "Window.hpp"
 #include "ButtonCallbacks.hpp"
 
 namespace Component
@@ -13,10 +14,10 @@ namespace Component
     _entity(attatchedEntity), _button(_entity.GetComponent<Button>())
     {
         // add our callback
-        _button.AddCallback(std::bind(&ButtonCallbacks::SayHello, this));
+        //_button.AddCallback(std::bind(&ButtonCallbacks::QuitWindow, this));
     }
 
-    void ButtonCallbacks::Update(double)
+    void ButtonCallbacks::Update(double, ECS::Entity&)
     {
         if (_button.IsMouseOver() && RayLib::Mouse::IsButtonPressed(MOUSE_BUTTON_LEFT)) {
             _button.OnClick();
@@ -27,13 +28,31 @@ namespace Component
     {
     }
 
-    void ButtonCallbacks::StaticCallback(void)
+    void ButtonCallbacks::LateUpdate(double, ECS::Entity&)
     {
-        std::cout << "Hello from static callback!" << std::endl;
+
     }
 
-    void ButtonCallbacks::SayHello()
+    void ButtonCallbacks::QuitWindow()
     {
-        std::cout << "Hello!" << std::endl;
+        ECS::Coordinator::GetInstance()->CloseWindow = true;
+    }
+
+    void ButtonCallbacks::CreateBox()
+    {
+        std::cout << "createBox" << std::endl;
+    }
+
+    void ButtonCallbacks::StartGame()
+    {
+        // ?
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        //std::unique_ptr<AssetManager>& assetManager = AssetManager::GetInstance();
+
+        // scene name = "Game"
+        std::string sceneName = "Game";
+        coordinator->setCurrentScene(sceneName);
+        //assetManager->setNextScene(sceneName);
+        //assetManager->loadAssets(coordinator->getScene(sceneName).GetEntities());
     }
 }

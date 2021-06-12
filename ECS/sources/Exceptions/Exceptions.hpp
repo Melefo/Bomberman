@@ -17,6 +17,8 @@
  */
 namespace ECS::Exception
 {
+    
+    
     /**
      * @brief Exception thrown if the SystemManager have an expected behavior
      * 
@@ -53,6 +55,19 @@ namespace ECS::Exception
             std::string _value;
         public:
             EntityException(std::string value);
+            const char *what() const noexcept override;
+    };
+
+    /**
+     * @brief Exception thrown if a component has unexpected behaviour
+     * 
+     */
+    class ComponentException : public std::exception
+    {
+        private:
+            std::string _value;
+        public:
+            ComponentException(std::string value);
             const char *what() const noexcept override;
     };
 }

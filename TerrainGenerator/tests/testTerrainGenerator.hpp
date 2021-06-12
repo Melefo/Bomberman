@@ -12,7 +12,7 @@
 
 class TestTerrainGenerator : public TerrainGenerator {
     public:
-        TestTerrainGenerator(int playersNbr) : TerrainGenerator(playersNbr, 70) {};
+        TestTerrainGenerator(int playersNbr, const MapType mapType=TerrainGenerator::MapType::Default) : TerrainGenerator(playersNbr, mapType) {};
         ~TestTerrainGenerator() = default;
 
         void trimMap() {TerrainGenerator::trimMap();};
@@ -22,7 +22,7 @@ class TestTerrainGenerator : public TerrainGenerator {
         void removeBoxes() {
             for (auto &it : _map)
                 for (auto &c : it)
-                    if (c == 'x')
+                    if (c == '1' || c == '2' || c == '3')
                         c = ' ';
         };
         bool addTetrOnMap(const std::vector<std::vector<std::string>> &tiles) {return TerrainGenerator::addTetrOnMap(tiles);};
@@ -35,6 +35,8 @@ class TestTerrainGenerator : public TerrainGenerator {
         void fillHoles() {TerrainGenerator::fillHoles();};
         bool isMapFull() {return TerrainGenerator::isMapFull();};
         void modifyMap(std::string line, int pos) {_map[pos] = line;};
+        int getPlayersNbr() {return _playersNbr;};
+        void makeSpaceForPlayers() {TerrainGenerator::makeSpaceForPlayers();};
 };
 
 #endif /* !TESTTERRAINGENERATOR_HPP_ */

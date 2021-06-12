@@ -16,6 +16,7 @@
 #include "Rectangle.hpp"
 #include "Mouse.hpp"
 #include "BoundingBox.hpp"
+#include "Asset.hpp"
 
 namespace Component
 {
@@ -28,9 +29,8 @@ namespace Component
             /**
              * @brief Construct a new Button object
              * 
-             * @param texturePath 
              */
-            Button(const std::string& texturePath="../assets/models/cube/def_text.png");
+            Button();
             /**
              * @brief Destroy the Button object
              * 
@@ -56,7 +56,9 @@ namespace Component
              * @param position 
              * @param scale 
              */
-            void Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
+            void Draw(RayLib::Vector2<float> position,
+                      Asset& asset,
+                      RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
 
             /**
              * @brief Returns true if the mouse is in button bounds
@@ -80,15 +82,14 @@ namespace Component
              */
             void OnClick(void);
 
+            std::ostream &operator<<(std::ostream &os) override {return os;};
+            std::istream &operator>>(std::istream &is) override {return is;};
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+
             // todo getrect
 
         protected:
         private:
-            /**
-             * @brief Texture to show (default grey/white)
-             * 
-             */
-            RayLib::Texture _texture;
             /**
              * @brief rectangle containing size and position
              * 
@@ -99,6 +100,8 @@ namespace Component
              * 
              */
             std::vector<std::function<void()>> _callbacks;
+
+            RayLib::Color _tint;
     };
 }
 

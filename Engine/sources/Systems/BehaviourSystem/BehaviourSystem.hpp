@@ -11,6 +11,7 @@
 #include "ASystem.hpp"
 #include "Entity.hpp"
 #include "IBehaviour.hpp"
+#include "AController.hpp"
 
 namespace Component
 {
@@ -21,6 +22,7 @@ namespace Component
 
             void Update(double dt, ECS::Entity &entity) override;
             void FixedUpdate(ECS::Entity &entity) override;
+            void LateUpdate(double dt, ECS::Entity &entity) override;
 
         protected:
         private:

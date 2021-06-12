@@ -58,13 +58,26 @@ namespace Component
              * 
              * @param dt 
              */
-            void Update(double dt) override;
+            void Update(double dt, ECS::Entity& entity) override;
             /**
              * @brief 
              * 
              * @param entity 
              */
             void FixedUpdate(ECS::Entity& entity) override;
+
+            /**
+             * @brief 
+             * 
+             * @param dt 
+             * @param entity 
+             */
+            void LateUpdate(double dt, ECS::Entity& entity) override;
+
+            std::ostream &operator<<(std::ostream &os) override {return os;};
+            std::istream &operator>>(std::istream &is) override {return is;};
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+
 
         protected:
         private:

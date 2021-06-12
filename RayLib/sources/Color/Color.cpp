@@ -65,8 +65,17 @@ namespace RayLib
         return (col);
     }
 
-    Color::~Color()
+    void Color::Lerp(Color target, float t)
     {
+        if (t < 0)
+            t = 0;
+        if (t > 1)
+            t = 1;
+
+        r = static_cast<unsigned char>(r + (target.r - r) * t);
+        g = static_cast<unsigned char>(g + (target.g - g) * t);
+        b = static_cast<unsigned char>(b + (target.b - b) * t);
+        a = static_cast<unsigned char>(a + (target.a - a) * t);
     }
 
 
