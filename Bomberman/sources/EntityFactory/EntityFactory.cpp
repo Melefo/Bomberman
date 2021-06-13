@@ -97,8 +97,7 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
 
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
     //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
-    //entity.AddComponent<Component::Destructible>(entity, 1);
-
+    entity.AddComponent<Component::Destructible>(entity, 1);
     return (entity);
 }
 
