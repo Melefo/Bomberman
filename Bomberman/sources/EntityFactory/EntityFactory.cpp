@@ -58,7 +58,7 @@ ECS::Entity& EntityFactory::createWall()
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Wall");
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(0.45f, 0.45f, 0.45f));
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2.5f, 2.5f, 2.5f));
     entity.AddComponent<Component::Renderer>("Wall");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
