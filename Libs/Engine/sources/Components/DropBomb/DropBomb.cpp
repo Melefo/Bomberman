@@ -23,7 +23,7 @@ namespace Component
         ECS::Entity& entity = coordinator.CreateEntity();
         entity.SetTag("Bomb");
 
-        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
+        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2, 2, 2));
         entity.AddComponent<Renderer>("Bomb");
         //! si on spawn une bombe sur le joueur, on est bloqués
         //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);

@@ -44,7 +44,7 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
 {
     EntityFactory entityFactory(coordinator, camera);
     int players = Engine::GameConfiguration::GetPlayers();
-    int enemies = Engine::GameConfiguration::GetEnemies();
+    //int enemies = Engine::GameConfiguration::GetEnemies();
     int currentPlayer = 1;
 
     for (size_t y = 0; y < map.size(); y++) {

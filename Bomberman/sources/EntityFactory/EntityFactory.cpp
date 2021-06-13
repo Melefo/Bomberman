@@ -60,10 +60,8 @@ ECS::Entity& EntityFactory::createWall()
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Wall");
-    entity.AddComponent<Component::Transform>();
-    entity.AddComponent<Component::Renderer>();
-    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
-    entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(0.45f, 0.45f, 0.45f));
+    entity.AddComponent<Component::Renderer>("Wall");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
     return (entity);
@@ -74,7 +72,7 @@ ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
-    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE);
+    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5, 5, 5);
     entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
     entity.AddComponent<Component::Renderer>("Box");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
@@ -89,11 +87,11 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Player");
-    entity.AddComponent<Component::Transform>();
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(0.25f, 0.25f, 0.25f));
     entity.AddComponent<Component::PhysicsBody>();
     // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
     entity.AddComponent<Component::Renderer>("Player");
-    entity.AddComponent<Component::Animator>("Player", "Idle");
+    //entity.AddComponent<Component::Animator>("Player", "Idle");
     // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
