@@ -77,7 +77,6 @@ namespace Component
         int extraSpace = 0;
 
         for (auto it = _playerPositions.begin(); it != _playerPositions.end(); it++) {
-            // if one of the players are off camera, min threshold + 1
             if (IsPositionOffScreen(it->get(), margin, windowSize))
                 offscreen = true;
 
