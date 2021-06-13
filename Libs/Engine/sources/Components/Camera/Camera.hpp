@@ -96,7 +96,6 @@ namespace Component
         private:
             ECS::Entity& _entity;
             Transform& _transform;
-            std::vector<std::reference_wrapper<RayLib::Vector3>> _playerPositions;
             float _lerpTime;
             float _minHeight;
 

@@ -15,17 +15,6 @@ namespace Component
     Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, float lerpTime)
     : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y)
     {
-        //_playerPositions
-        const std::list<std::unique_ptr<ECS::Entity>>& entities = ECS::Coordinator::GetInstance()->GetEntities();
-
-        for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get()->GetTag() != "Player")
-                continue;
-            if (it->get()->HasComponent<Transform>()) {
-                Transform& transform = it->get()->GetComponent<Transform>();
-                _playerPositions.push_back(transform.position);
-            }
-        }
     }
 
     void Camera::Update(double, ECS::Entity&)
@@ -76,23 +65,33 @@ namespace Component
         bool offscreen = false;
         int extraSpace = 0;
 
-        for (auto it = _playerPositions.begin(); it != _playerPositions.end(); it++) {
-            if (IsPositionOffScreen(it->get(), margin, windowSize))
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = ECS::Coordinator::GetInstance()->GetEntities();
+        int size = 0;
+
+        for (auto it = entities.begin(); it != entities.end(); it++) {
+            if (it->get()->GetTag() != "Player")
+                continue;
+            if (!it->get()->HasComponent<Transform>())
+                continue;
+            Transform& transform = it->get()->GetComponent<Transform>();
+
+            if (IsPositionOffScreen(transform.position, margin, windowSize))
                 offscreen = true;
 
-            if (IsPositionOffScreen(it->get(), margin * 2, windowSize))
+            if (IsPositionOffScreen(transform.position, margin * 2, windowSize))
                 extraSpace += 1;
 
-            sum += it->get();
+            sum += transform.position;
+            size++;
         }
 
         if (offscreen)
             _transform.position.y += 1.0f;
-        else if (extraSpace == _playerPositions.size() && _transform.position.y > _minHeight)
+        else if (extraSpace == size && _transform.position.y > _minHeight)
             _transform.position.y -= 1.0f;
 
         if (sum != RayLib::Vector3())
-            result = sum / static_cast<float>(_playerPositions.size());
+            result = sum / static_cast<float>(size);
         return (result);
     }
 
