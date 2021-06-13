@@ -14,6 +14,7 @@ namespace Engine
     int GameConfiguration::_enemies = 0;
     bool GameConfiguration::_debugMode = false;
     unsigned int GameConfiguration::_seed = 0;
+    bool GameConfiguration::_gameOver = false;
     std::map<int, playerkeys> GameConfiguration::_playerKeys = {};
 
     playerkeys::playerkeys(RayLib::Input input, int key) :
@@ -83,4 +84,15 @@ namespace Engine
     {
         _seed = seed;
     }
+
+    bool GameConfiguration::GetGameOver(void)
+    {
+        return (_gameOver);
+    }
+
+    void GameConfiguration::SetGameOver(bool gameOver)
+    {
+        _gameOver = gameOver;
+    }
+
 }

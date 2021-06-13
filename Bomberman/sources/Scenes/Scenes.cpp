@@ -22,6 +22,7 @@
 #include "Window.hpp"
 #include "Texture.hpp"
 #include <string>
+#include "GameConfigurator.hpp"
 #include "TextUI.hpp"
 
 std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> Scenes::scenesCtor =
@@ -154,4 +155,7 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, c
 
     /*ECS::Entity &entityPlayer = *///entityFactory.createPlayer("");
     entityFactory.createCamera();
+
+    ECS::Entity& gameManager = coordinator.CreateEntity();
+    gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
 }

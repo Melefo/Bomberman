@@ -52,12 +52,16 @@ namespace Engine
             static unsigned int GetSeed(void);
             static void SetSeed(unsigned int);
 
+            static bool GetGameOver(void);
+            static void SetGameOver(bool gameOver);
+
         protected:
         private:
             static int _players;
             static int _enemies;
             static unsigned int _seed;
             static bool _debugMode;
+            static bool _gameOver;
             // ? terraingenerator ?
             // ? vector de string (map) ?
 
