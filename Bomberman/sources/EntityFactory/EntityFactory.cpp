@@ -44,7 +44,7 @@ ECS::Entity& EntityFactory::createButton(const std::string& assetName)
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createText(const std::string& content, const std::string& fontPath, int size, float spacing)
+ECS::Entity& EntityFactory::createText(const std::string& content, const std::string& fontPath, float size, float spacing)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 

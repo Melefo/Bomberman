@@ -117,8 +117,8 @@ namespace RayLib
              */
             Vector2<T>& operator*(const float& factor)
             {
-                x *= factor;
-                y *= factor;
+                x = static_cast<T>(x * factor);
+                y = static_cast<T>(y * factor);
                 return (*this);
             }
 

@@ -72,7 +72,7 @@ namespace Component
 
         //! mettre à jour la liste des players si yen a qui perd
         RayLib::Vector2<int> margin = RayLib::Vector2<int>(10, 10);
-        RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0.0f, "")->GetSize();
+        RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0, "")->GetSize();
         bool offscreen = false;
         int extraSpace = 0;
 

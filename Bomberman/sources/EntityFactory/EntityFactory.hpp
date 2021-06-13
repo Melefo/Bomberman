@@ -70,7 +70,7 @@ class EntityFactory {
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createText(const std::string& content, const std::string& fontPath, int size, float spacing=0.0f);
+        ECS::Entity& createText(const std::string& content, const std::string& fontPath, float size, float spacing=0.0f);
 
         /**
          * @brief Create a random Pick Up bonus
