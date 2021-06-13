@@ -9,7 +9,7 @@
 
 namespace RayLib
 {
-    Sound::Sound(const std::string assetName) :
+    Sound::Sound(const std::string& assetName) :
     _sound(::LoadSound(assetName.c_str())), _pitch(1.0f), _volume(1.0f)
     {
     }
@@ -40,6 +40,6 @@ namespace RayLib
 
     Sound::~Sound()
     {
-        ::UnloadSound(_sound);
+        //::UnloadSound(_sound);
     }
 }

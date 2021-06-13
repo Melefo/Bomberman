@@ -13,6 +13,7 @@
 #include "Texture.hpp"
 #include "ModelAnimation.hpp"
 #include <memory>
+#include "Sound.hpp"
 
 class Asset {
     private:
@@ -29,6 +30,12 @@ class Asset {
          * 
          */
         std::unique_ptr<RayLib::Texture> _texture;
+
+        /**
+         * @brief 
+         * 
+         */
+        std::map<std::string, RayLib::Sound> _sounds;
 
         /**
          * @brief 
@@ -103,6 +110,13 @@ class Asset {
          * @return const ModelAnimation& 
          */
         std::map<std::string, RayLib::ModelAnimation> &getAnimations();
+
+        /**
+         * @brief 
+         * 
+         */
+        std::map<std::string, RayLib::Sound>& getSounds();
+
 };
 
 #endif /* !ASSET_HPP_ */

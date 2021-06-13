@@ -29,6 +29,15 @@ namespace Component
 
         if (_explosionTimer <= 0.0f) {
             std::cout << "BOOM" << std::endl;
+            // get the assetmanager
+            std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
+            // get the sounds
+            std::map<std::string, RayLib::Sound>& sounds = assetManagerRef->getAssetFromName("Bomb").getSounds();
+            // play sound explosion
+            if (sounds.find("explosion") != sounds.end()) {
+                sounds.find("explosion")->second.Play();
+            }
+
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*_coordinator.get(), _transform.position, _radius);
 
             for (auto it = entities.begin(); it != entities.end(); it++) {

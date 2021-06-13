@@ -27,9 +27,10 @@ Asset::Asset(std::string name)
                 _model = std::make_unique<RayLib::Model>(file);
             } else if (file.find("anim") != std::string::npos) {
                 _animations.insert(std::pair<std::string, RayLib::ModelAnimation>(getAnimationName(file), RayLib::ModelAnimation(file)));
-                //_animations.emplace(getAnimationName(file), file);
             } else if (file.find("texture") != std::string::npos && !_texture) {
                 _texture = std::make_unique<RayLib::Texture>(file);
+            } else if (file.find("sound") != std::string::npos) {
+                _sounds.insert(std::pair<std::string, RayLib::Sound>(getAnimationName(file), RayLib::Sound(file)));
             }
         }
     }
@@ -113,3 +114,9 @@ std::map<std::string, RayLib::ModelAnimation> &Asset::getAnimations()
 {
     return (_animations);
 }
+
+std::map<std::string, RayLib::Sound> &Asset::getSounds()
+{
+    return (_sounds);
+}
+

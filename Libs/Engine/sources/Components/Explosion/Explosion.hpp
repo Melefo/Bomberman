@@ -17,6 +17,7 @@
 #include "Transform.hpp"
 #include "Destructible.hpp"
 #include "Exceptions.hpp"
+#include "AssetManager.hpp"
 
 namespace Component
 {

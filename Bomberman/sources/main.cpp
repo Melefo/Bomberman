@@ -28,6 +28,7 @@
 #include "PlayerInputs.hpp"
 
 #include "TerrainGenerator.hpp"
+#include "AudioDevice.hpp"
 
 #define BOX_SIZE 10
 
@@ -41,6 +42,8 @@ int main(void)
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Prototype");
     TerrainGenerator map(4);
+
+    RayLib::AudioDevice::InitAudioDevice();
 
     // !uncomment to get a speed pickup
     //ECS::Entity& pickup = entityFactory.createPickUp();
@@ -96,5 +99,6 @@ int main(void)
         camera.EndMode();
         window->EndDrawing();
     }
+    RayLib::AudioDevice::CloseAudioDevice();
     return (0);
 }
