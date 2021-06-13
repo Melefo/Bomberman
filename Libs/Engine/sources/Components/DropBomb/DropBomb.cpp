@@ -96,7 +96,7 @@ namespace Component
         }
     }
 
-    int DropBomb::GetDropDelay(void)
+    float DropBomb::GetDropDelay(void)
     {
         return (_dropDelay);
     }
@@ -112,7 +112,7 @@ namespace Component
         _bonusTime = duration;
     }
 
-    void DropBomb::BoostBombCooldown(int bonusDelay, float duration)
+    void DropBomb::BoostBombCooldown(float bonusDelay, float duration)
     {
         _dropDelay = bonusDelay;
         _bonusTime = duration;

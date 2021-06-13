@@ -33,7 +33,7 @@ namespace Component
         std::cout << "Applying cooldown boost" << std::endl;
 
         //! soit nombre fixe, soit get delay - 1
-        dropBomb.BoostBombCooldown(1, 5.0f);
+        dropBomb.BoostBombCooldown(1.5f, 5.0f);
         _entity.Dispose();
     }
 

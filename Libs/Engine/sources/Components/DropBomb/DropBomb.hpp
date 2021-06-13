@@ -93,9 +93,9 @@ namespace Component
              * @param bonusTime 
              * @param duration 
              */
-            void BoostBombCooldown(int bonusTime, float duration);
+            void BoostBombCooldown(float bonusTime, float duration);
 
-            int GetDropDelay(void);
+            float GetDropDelay(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
