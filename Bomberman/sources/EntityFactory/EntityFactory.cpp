@@ -85,11 +85,11 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Player");
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(0.25f, 0.25f, 0.25f));
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(0.4f, 0.4f, 0.4f));
     entity.AddComponent<Component::PhysicsBody>();
     // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
     entity.AddComponent<Component::Renderer>("Player");
-    //entity.AddComponent<Component::Animator>("Player", "Idle");
+    entity.AddComponent<Component::Animator>("Player", "Idle");
     // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
