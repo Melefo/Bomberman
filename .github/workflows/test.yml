@@ -35,6 +35,6 @@ jobs:
         run: make -C build ray_unit_tests ecs_unit_tests bomberman_unit_tests xmlGen_unit_tests
       - name: Run unit tests
         run: ./build/Bomberman/bomberman_unit_tests &&
-          ./build/ECS/ecs_unit_tests &&
-          ./build/RayLib/ray_unit_tests &&
-          ./build/XMLGenerator/xmlGen_unit_tests
+          ./build/Libs/ECS/ecs_unit_tests &&
+          ./build/Libs/RayLib/ray_unit_tests &&
+          ./build/Libs/XMLGenerator/xmlGen_unit_tests
