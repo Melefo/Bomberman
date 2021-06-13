@@ -57,7 +57,7 @@ namespace Component
              * @return true 
              * @return false 
              */
-            bool IsColliding() override;
+            bool IsColliding(std::vector<std::string> colMask) override;
             /**
              * @brief Returns true if the box is colliding with the circle
              * 
@@ -92,7 +92,7 @@ namespace Component
              * @return true 
              * @return false 
              */
-            bool IsCollidingAtPosition(RayLib::Vector3 center) override;
+            bool IsCollidingAtPosition(RayLib::Vector3 center, std::vector<std::string> colMask) override;
 
             /**
              * @brief Use the window singleton to draw the collider's wires
@@ -111,7 +111,16 @@ namespace Component
              * 
              * @return ECS::Entity& 
              */
-            ECS::Entity& GetCollision() override;
+            ECS::Entity& GetCollision(std::vector<std::string> colMask) override;
+
+            /**
+             * @brief Get the Collision Position object
+             * 
+             * @param center 
+             * @return ECS::Entity& 
+             */
+            ECS::Entity& GetCollisionPosition(RayLib::Vector3 center, std::vector<std::string> colMask) override;
+
 
             std::ostream &operator<<(std::ostream &os) override;
             std::istream &operator>>(std::istream &is) override;

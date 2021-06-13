@@ -23,12 +23,14 @@ namespace Component
         _scale = scale;
     }
 
-    bool BoxCollider::IsColliding()
+    bool BoxCollider::IsColliding(std::vector<std::string> colMask)
     {
         UpdateBounds();
 
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
+                continue;
+            if (std::find(colMask.begin(), colMask.end(), entityIt->get()->GetTag()) == colMask.end())
                 continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
@@ -40,7 +42,7 @@ namespace Component
         return (false);
     }
 
-    bool BoxCollider::IsCollidingAtPosition(RayLib::Vector3 center)
+    bool BoxCollider::IsCollidingAtPosition(RayLib::Vector3 center, std::vector<std::string> colMask)
     {
         RayLib::Vector3 scale = RayLib::Vector3(_bounds.GetBounds().max) - RayLib::Vector3(_bounds.GetBounds().min);
         RayLib::BoundingBox tmpBox = RayLib::BoundingBox(RayLib::Vector3(), RayLib::Vector3());
@@ -49,6 +51,8 @@ namespace Component
 
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
+                continue;
+            if (std::find(colMask.begin(), colMask.end(), entityIt->get()->GetTag()) == colMask.end())
                 continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
@@ -82,17 +86,41 @@ namespace Component
     }
 
 
-    ECS::Entity& BoxCollider::GetCollision()
+    ECS::Entity& BoxCollider::GetCollision(std::vector<std::string> colMask)
     {
         UpdateBounds();
 
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
                 continue;
+            if (std::find(colMask.begin(), colMask.end(), entityIt->get()->GetTag()) == colMask.end())
+                continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
             for (auto it = colliders.begin(); it != colliders.end(); it++) {
                 if (it->get().CheckCollision(_bounds))
+                    return (*(entityIt->get()));
+            }
+        }
+        throw ECS::Exception::EntityException("Not colliding with anything");
+    }
+
+    ECS::Entity& BoxCollider::GetCollisionPosition(RayLib::Vector3 center, std::vector<std::string> colMask)
+    {
+        RayLib::Vector3 scale = RayLib::Vector3(_bounds.GetBounds().max) - RayLib::Vector3(_bounds.GetBounds().min);
+        RayLib::BoundingBox tmpBox = RayLib::BoundingBox(RayLib::Vector3(), RayLib::Vector3());
+
+        tmpBox.InitFromCube(center, scale);
+
+        for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
+            if (entityIt->get()->GetId() == _myEntity.GetId())
+                continue;
+            if (std::find(colMask.begin(), colMask.end(), entityIt->get()->GetTag()) == colMask.end())
+                continue;
+            std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
+
+            for (auto it = colliders.begin(); it != colliders.end(); it++) {
+                if (it->get().CheckCollision(tmpBox))
                     return (*(entityIt->get()));
             }
         }

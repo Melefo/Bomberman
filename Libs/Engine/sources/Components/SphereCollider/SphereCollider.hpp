@@ -53,7 +53,7 @@ namespace Component
              * @return true 
              * @return false 
              */
-            bool IsColliding() override;
+            bool IsColliding(std::vector<std::string> colMask) override;
             /**
              * @brief Returns true if colliding with sphere
              * 
@@ -86,7 +86,7 @@ namespace Component
              * @return true 
              * @return false 
              */
-            bool IsCollidingAtPosition(RayLib::Vector3 center) override;
+            bool IsCollidingAtPosition(RayLib::Vector3 center, std::vector<std::string> colMask) override;
             /**
              * @brief Debug, draw lines
              * 
@@ -102,7 +102,10 @@ namespace Component
              * 
              * @return ECS::Entity& 
              */
-            ECS::Entity& GetCollision() override;
+            ECS::Entity& GetCollision(std::vector<std::string> colMask) override;
+
+
+            ECS::Entity& GetCollisionPosition(RayLib::Vector3 center, std::vector<std::string> colMask) override;
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};

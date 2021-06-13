@@ -19,7 +19,7 @@ namespace Component
         public:
             TextUI(std::string str,
                    const std::string& font,
-                   unsigned int size = 10,
+                   float size = 10.0,
                    float spacing = 0.0f,
                    RayLib::Color color=BLACK);
             ~TextUI() override = default;
@@ -50,7 +50,7 @@ namespace Component
             std::string _string;
             RayLib::Font _font;
             RayLib::Color _color;
-            unsigned int _size;
+            float _size;
             float _spacing;
     };
 }

@@ -15,9 +15,8 @@ namespace Component
     {
     }
 
-    bool Collider::IsColliding()
+    bool Collider::IsColliding(std::vector<std::string>)
     {
         return (false);
     }
-
 }

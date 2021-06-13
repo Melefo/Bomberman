@@ -14,12 +14,14 @@ namespace Component
     {
     }
 
-    bool SphereCollider::IsColliding()
+    bool SphereCollider::IsColliding(std::vector<std::string> colMask)
     {
         UpdatePosition();
 
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
+                continue;
+            if (std::find(colMask.begin(), colMask.end(), entityIt->get()->GetTag()) == colMask.end())
                 continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
@@ -31,10 +33,12 @@ namespace Component
         return (false);
     }
 
-    bool SphereCollider::IsCollidingAtPosition(RayLib::Vector3 center)
+    bool SphereCollider::IsCollidingAtPosition(RayLib::Vector3 center, std::vector<std::string> colMask)
     {
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
+                continue;
+            if (std::find(colMask.begin(), colMask.end(), entityIt->get()->GetTag()) == colMask.end())
                 continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
@@ -68,18 +72,36 @@ namespace Component
         return (RayLib::Physics3D::CheckCollision(ray, _center, _radius).HasHit());
     }
 
-
-    ECS::Entity& SphereCollider::GetCollision()
+    ECS::Entity& SphereCollider::GetCollision(std::vector<std::string> colMask)
     {
         UpdatePosition();
 
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
                 continue;
+            if (std::find(colMask.begin(), colMask.end(), entityIt->get()->GetTag()) == colMask.end())
+                continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
             for (auto it = colliders.begin(); it != colliders.end(); it++) {
                 if (it->get().CheckCollision(_center, _radius))
+                    return (*(entityIt->get()));
+            }
+        }
+        throw ECS::Exception::EntityException("Not colliding with anything");
+    }
+
+    ECS::Entity& SphereCollider::GetCollisionPosition(RayLib::Vector3 center, std::vector<std::string> colMask)
+    {
+        for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
+            if (entityIt->get()->GetId() == _myEntity.GetId())
+                continue;
+            if (std::find(colMask.begin(), colMask.end(), entityIt->get()->GetTag()) == colMask.end())
+                continue;
+            std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
+
+            for (auto it = colliders.begin(); it != colliders.end(); it++) {
+                if (it->get().CheckCollision(center, _radius))
                     return (*(entityIt->get()));
             }
         }

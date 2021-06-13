@@ -9,12 +9,12 @@
 
 namespace Component
 {
-    TextUI::TextUI(std::string startStr, const std::string& fontPath, unsigned int startSize, float spacing, RayLib::Color startColor) :
+    TextUI::TextUI(std::string startStr, const std::string& fontPath, float startSize, float spacing, RayLib::Color startColor) :
     _string(startStr), _font(fontPath), _color(startColor), _size(startSize), _spacing(spacing)
     {
     }
 
-    void TextUI::Draw(RayLib::Vector2<float> position, Asset&, RayLib::Vector2<float> scale)
+    void TextUI::Draw(RayLib::Vector2<float> position, Asset&, RayLib::Vector2<float>)
     {
         _font.DrawText(_string, position, _size, _spacing, _color);
     }
