@@ -70,5 +70,9 @@ namespace RayLib
         return (_camera.target);
     }
 
+    Vector2<int> Camera3D::GetWorldToScreen(Vector3 position)
+    {
+        return (::GetWorldToScreen(position, _camera));
+    }
 }
 
