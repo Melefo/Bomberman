@@ -66,7 +66,7 @@ namespace Component
         std::size_t extraSpace = 0;
 
         const std::list<std::unique_ptr<ECS::Entity>>& entities = ECS::Coordinator::GetInstance()->GetEntities();
-        int size = 0;
+        std::size_t size = 0;
 
         for (auto it = entities.begin(); it != entities.end(); it++) {
             if (it->get()->GetTag() != "Player")

@@ -25,6 +25,7 @@
 #include "Font.hpp"
 #include "PlayerInputs.hpp"
 #include "SpeedBoost.hpp"
+#include "CoolDownBoost.hpp"
 #include "Explosion.hpp"
 #include "Box.hpp"
 
@@ -33,6 +34,7 @@ EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& ca
 {
     _pickupFunctions.push_back(std::bind(&EntityFactory::createSpeedPickUp, this));
     _pickupFunctions.push_back(std::bind(&EntityFactory::createRangePickUp, this));
+    _pickupFunctions.push_back(std::bind(&EntityFactory::createCooldownPickUp, this));
 }
 
 ECS::Entity& EntityFactory::createButton(const std::string& assetName)
@@ -113,6 +115,17 @@ ECS::Entity& EntityFactory::createRangePickUp(void)
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::Renderer>("RangePickUp");
     entity.AddComponent<Component::IBehaviour, Component::RangeBoost>(entity, 5.0f);
+    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createCooldownPickUp(void)
+{
+    ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("CoolDownPickUp");
+    entity.AddComponent<Component::Transform>();
+    entity.AddComponent<Component::Renderer>("CoolDownPickUp");
+    entity.AddComponent<Component::IBehaviour, Component::CoolDownBoost>(entity, 5.0f);
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
     return (entity);
 }

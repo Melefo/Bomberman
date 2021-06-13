@@ -80,9 +80,24 @@ class EntityFactory {
          */
         ECS::Entity& createPickUp(void);
 
+        /**
+         * @brief Create a Speed Pick Up object
+         * 
+         * @return ECS::Entity& 
+         */
         ECS::Entity& createSpeedPickUp(void);
+        /**
+         * @brief Create a Range Pick Up object
+         * 
+         * @return ECS::Entity& 
+         */
         ECS::Entity& createRangePickUp(void);
-        //ECS::Entity& createCooldownPickUp(void);
+        /**
+         * @brief Create a Cooldown Pick Up object
+         * 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createCooldownPickUp(void);
 
         /**
          * @brief Create a Bomb object

@@ -2,46 +2,47 @@
 ** EPITECH PROJECT, 2021
 ** B-YEP-400-NAN-4-1-indiestudio-victor.trencic
 ** File description:
-** SpeedBoost
+** CoolDownBoost
 */
 
-#ifndef SPEEDBOOST_HPP_
-#define SPEEDBOOST_HPP_
+#ifndef COOLDOWNBOOST_HPP_
+#define COOLDOWNBOOST_HPP_
 
 #include "APickUp.hpp"
 #include "AController.hpp"
-#include "PlayerInputs.hpp"
+#include "DropBomb.hpp"
 #include "GameConfiguration.hpp"
+#include "PlayerInputs.hpp"
 
 namespace Component
 {
-    class SpeedBoost : public APickUp {
+    class CoolDownBoost : public APickUp {
         public:
             /**
-             * @brief Construct a new Speed Boost object
+             * @brief Construct a new Cool Down Boost object
              * 
              * @param entity 
              * @param pickUpRadius 
              */
-            SpeedBoost(ECS::Entity& entity, float pickUpRadius=2.0f);
+            CoolDownBoost(ECS::Entity& entity, float pickUpRadius=2.0f);
             /**
-             * @brief Destroy the Speed Boost object
+             * @brief Destroy the Cool Down Boost object
              * 
              */
-            ~SpeedBoost() override = default;
+            ~CoolDownBoost() override = default;
             /**
-             * @brief Construct a new Speed Boost object
+             * @brief Construct a new Cool Down Boost object
              * 
              * @param other 
              */
-            SpeedBoost(const SpeedBoost& other) = default;
+            CoolDownBoost(const CoolDownBoost& other) = default;
             /**
              * @brief 
              * 
              * @param other 
-             * @return SpeedBoost& 
+             * @return CoolDownBoost& 
              */
-            SpeedBoost& operator=(const SpeedBoost& other) = default;
+            CoolDownBoost& operator=(const CoolDownBoost& other) = default;
 
             /**
              * @brief Pickup effect, called when someone walks on me
@@ -55,7 +56,7 @@ namespace Component
              * 
              * @param acontroller 
              */
-            void ApplyBoost(AController& acontroller);
+            void DecrementCooldown(AController& acontroller);
 
             /**
              * @brief Called after update
@@ -74,4 +75,4 @@ namespace Component
     };
 }
 
-#endif /* !SPEEDBOOST_HPP_ */
+#endif /* !COOLDOWNBOOST_HPP_ */

@@ -37,15 +37,6 @@ namespace Component
         _entity.Dispose();
     }
 
-    void SpeedBoost::Update(double, ECS::Entity& entity)
-    {
-        if (entity.HasComponent<Transform>()) {
-            Transform& transform = entity.GetComponent<Transform>();
-            if (Engine::GameConfiguration::GetDebugMode())
-                RayLib::Window::GetInstance(0, "")->DrawSphereWires(transform.position, _pickupRadius);
-        }
-    }
-
     void SpeedBoost::LateUpdate(double, ECS::Entity&)
     {
 
