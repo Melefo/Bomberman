@@ -65,8 +65,7 @@ namespace Component
              * @param radius 
              */
             void InstantiateBomb(RayLib::Vector3 position,
-                                 Explosion::ExplosionType explosionType=Explosion::ExplosionType::CIRCLE,
-                                 float radius=1.0f);
+                                 Explosion::ExplosionType explosionType=Explosion::ExplosionType::CIRCLE);
 
             /**
              * @brief 
@@ -74,11 +73,37 @@ namespace Component
              */
             ECS::Entity& CreateBomb(ECS::Coordinator& coordinator, float radius, Explosion::ExplosionType type);
 
+            /**
+             * @brief Get the cross size
+             * 
+             * @return int 
+             */
+            int GetBombNumber();
+
+            /**
+             * @brief Add bonusBombs to be dropped, for duration seconds
+             * 
+             * @param bonusBombs 
+             * @param duration 
+             */
+            void BoostBombNumber(int bonusBombs, float duration);
+            /**
+             * @brief SetBombCooldown to bonusTime, for duration seconds
+             * 
+             * @param bonusTime 
+             * @param duration 
+             */
+            void BoostBombCooldown(int bonusTime, float duration);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
+            /**
+             * @brief Called to regulate bonus time
+             * 
+             */
+            void Update();
 
             /**
              * @brief Bomb cooldown
@@ -104,6 +129,12 @@ namespace Component
              * 
              */
             std::unique_ptr<RayLib::Window>& _window;
+
+            int _bombNumber;
+            int _defaultBombNumber;
+            // ! appliqué aux deux bonus possibles...
+            float _bonusTime;
+            float _defaultDropDelay;
     };
 }
 

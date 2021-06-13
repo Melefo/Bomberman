@@ -14,7 +14,8 @@ namespace Component
 {
     DropBomb::DropBomb(float delay)
     : dropDelay(delay), timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
-     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
+     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _bombNumber(2), _defaultBombNumber(2),
+     _bonusTime(0.0f), _defaultDropDelay(delay)
     {
     }
 
@@ -31,8 +32,7 @@ namespace Component
         return (entity);
     }
 
-
-    void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, float radius)
+    void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType)
     {
         float explosionRadius = 2.50f;
         float boxSize = 7.50f;
@@ -56,7 +56,7 @@ namespace Component
 
         for (auto dir = directions.begin(); dir != directions.end(); dir++) {
             reachedWall = false;
-            for (float i = 0; i < radius; i++) {
+            for (float i = 0; i < _bombNumber; i++) {
                 // if you encounter a wall, stop that direction
                 std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapSphere(*coordinator.get(), position + 
                 (*dir) * i * boxSize, explosionRadius);
@@ -78,6 +78,11 @@ namespace Component
                 bomb.GetComponent<Transform>().position = position + (*dir) * i * boxSize;
             }
         }
+    }
+
+    void DropBomb::Update()
+    {
+        // ! here reduce the bonus time if > 0
     }
 
 }
