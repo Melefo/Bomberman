@@ -32,7 +32,6 @@ namespace Component
                 if (it->get().GetTag() == "Player" /* OR TAG == AI*/)
                     OnPickup(it->get());
             }
-
         }
     }
 }

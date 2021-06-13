@@ -74,7 +74,7 @@ namespace Component
         RayLib::Vector2<int> margin = RayLib::Vector2<int>(10, 10);
         RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0, "")->GetSize();
         bool offscreen = false;
-        int extraSpace = 0;
+        std::size_t extraSpace = 0;
 
         for (auto it = _playerPositions.begin(); it != _playerPositions.end(); it++) {
             if (IsPositionOffScreen(it->get(), margin, windowSize))

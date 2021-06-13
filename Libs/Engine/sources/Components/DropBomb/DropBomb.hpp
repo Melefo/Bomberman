@@ -95,6 +95,8 @@ namespace Component
              */
             void BoostBombCooldown(int bonusTime, float duration);
 
+            int GetDropDelay(void);
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
@@ -105,11 +107,7 @@ namespace Component
              */
             void Update();
 
-            /**
-             * @brief Bomb cooldown
-             * 
-             */
-            float dropDelay;
+
             /**
              * @brief Cooldown timer
              * 
@@ -135,6 +133,11 @@ namespace Component
             // ! appliqué aux deux bonus possibles...
             float _bonusTime;
             float _defaultDropDelay;
+            /**
+             * @brief Bomb cooldown
+             * 
+             */
+            float _dropDelay;
     };
 }
 

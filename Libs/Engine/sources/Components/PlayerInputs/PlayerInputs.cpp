@@ -31,7 +31,7 @@ namespace Component
                 _dropBomb.InstantiateBomb(transform.position, Explosion::ExplosionType::CIRCLE);
                 std::cout << "Instantiate bomb" << std::endl;
 
-                _dropBomb.timeToDrop = _dropBomb.dropDelay;
+                _dropBomb.timeToDrop = _dropBomb.GetDropDelay();
             }
         }
 

@@ -11,6 +11,7 @@
 #include "APickUp.hpp"
 #include "AController.hpp"
 #include "PlayerInputs.hpp"
+#include "GameConfiguration.hpp"
 
 namespace Component
 {

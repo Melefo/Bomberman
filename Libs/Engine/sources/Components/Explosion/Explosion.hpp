@@ -18,6 +18,7 @@
 #include "Destructible.hpp"
 #include "Exceptions.hpp"
 #include "AssetManager.hpp"
+#include "Box.hpp"
 
 namespace Component
 {

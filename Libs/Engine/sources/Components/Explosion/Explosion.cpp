@@ -40,9 +40,13 @@ namespace Component
 
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*_coordinator.get(), _transform.position, _radius);
 
+            // ! j'ai pas trouvé mieux pour que la box soit récupérée
             for (auto it = entities.begin(); it != entities.end(); it++) {
                 if (it->get().HasComponent<Destructible>()) {
                     Destructible& destructible = it->get().GetComponent<Destructible>();
+                    destructible.TakeDamage(power);
+                } else if (it->get().HasComponent<Box>()) {
+                    Box& destructible = it->get().GetComponent<Box>();
                     destructible.TakeDamage(power);
                 }
             }

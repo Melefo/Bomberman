@@ -13,6 +13,7 @@
 #include "Explosion.hpp"
 #include "Camera.hpp"
 #include "GameConfiguration.hpp"
+#include "RangeBoost.hpp"
 
 class EntityFactory {
     public:
@@ -44,7 +45,7 @@ class EntityFactory {
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createWall();
-        
+
         /**
          * @brief Create a Box object
          * 
@@ -56,7 +57,7 @@ class EntityFactory {
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createBox(const int level, const bool draggable);
-        
+
         /**
          * @brief Create a Player object
          * 
@@ -79,6 +80,10 @@ class EntityFactory {
          */
         ECS::Entity& createPickUp(void);
 
+        ECS::Entity& createSpeedPickUp(void);
+        ECS::Entity& createRangePickUp(void);
+        //ECS::Entity& createCooldownPickUp(void);
+
         /**
          * @brief Create a Bomb object
          * 
@@ -94,6 +99,7 @@ class EntityFactory {
     private:
         ECS::Coordinator& _coordinator;
         RayLib::Camera3D& _camera;
+        std::vector<std::function<ECS::Entity&(void)>> _pickupFunctions;
 };
 
 #endif /* !ENTITYFACTORY_HPP_ */

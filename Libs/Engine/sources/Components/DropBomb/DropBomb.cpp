@@ -13,9 +13,9 @@
 namespace Component
 {
     DropBomb::DropBomb(float delay)
-    : dropDelay(delay), timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
+    : timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _bombNumber(2), _defaultBombNumber(2),
-     _bonusTime(0.0f), _defaultDropDelay(delay)
+     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay)
     {
     }
 
@@ -82,7 +82,39 @@ namespace Component
 
     void DropBomb::Update()
     {
-        // ! here reduce the bonus time if > 0
+        float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
+
+        if (_bonusTime > 0.0f) {
+            _bonusTime -= frameTime;
+        } else {
+            if (_bombNumber != _defaultBombNumber) {
+                _bombNumber = _defaultBombNumber;
+            }
+            if (_dropDelay != _defaultDropDelay) {
+                _dropDelay = _defaultDropDelay;
+            }
+        }
     }
 
+    int DropBomb::GetDropDelay(void)
+    {
+        return (_dropDelay);
+    }
+
+    int DropBomb::GetBombNumber()
+    {
+        return (_bombNumber);
+    }
+
+    void DropBomb::BoostBombNumber(int bonusBombs, float duration)
+    {
+        _bombNumber = bonusBombs;
+        _bonusTime = duration;
+    }
+
+    void DropBomb::BoostBombCooldown(int bonusDelay, float duration)
+    {
+        _dropDelay = bonusDelay;
+        _bonusTime = duration;
+    }
 }
