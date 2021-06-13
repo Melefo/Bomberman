@@ -21,7 +21,7 @@
 #include "SphereCollider.hpp"
 #include "Texture.hpp"
 #include "Image.hpp"
-#include "Text.hpp"
+#include "TextUI.hpp"
 #include "Font.hpp"
 #include "PlayerInputs.hpp"
 #include "SpeedBoost.hpp"
@@ -44,15 +44,13 @@ ECS::Entity& EntityFactory::createButton(const std::string& assetName)
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createText(const std::string& content)
+ECS::Entity& EntityFactory::createText(const std::string& content, const std::string& fontPath, int size, float spacing)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
-    //entity.AddComponent<Component::IUIObject, Component::Text>();
-    entity.AddComponent<Component::Text>(content);
+    entity.AddComponent<Component::Renderer>();
+    entity.AddComponent<Component::IUIObject, Component::TextUI>(content, fontPath, size, spacing);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
-    entity.GetComponent<Component::Text>().font = RayLib::Font("assets/magic_dream.ttf");
-
     return (entity);
 }
 

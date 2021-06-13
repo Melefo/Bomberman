@@ -39,7 +39,7 @@ int main(void)
     //! camera pos and target determined by component
     //! attention le 3e arg: world up est important
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Prototype");
     TerrainGenerator map(4);
 
     // !uncomment to get a speed pickup
@@ -63,6 +63,8 @@ int main(void)
 
     RayLib::Input player2Input;
     Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_X);
+
+    Engine::GameConfiguration::SetDebugMode(true);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::UISystem>(camera);

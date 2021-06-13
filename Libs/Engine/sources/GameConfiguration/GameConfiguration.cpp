@@ -12,6 +12,8 @@ namespace Engine
 {
     int GameConfiguration::_players = 0;
     int GameConfiguration::_enemies = 0;
+    bool GameConfiguration::_debugMode = false;
+    unsigned int GameConfiguration::_seed = 0;
     std::map<int, playerkeys> GameConfiguration::_playerKeys = {};
 
     playerkeys::playerkeys(RayLib::Input input, int key) :
@@ -60,5 +62,25 @@ namespace Engine
     void GameConfiguration::SetEnemies(int total)
     {
         _enemies = total;
+    }
+
+    bool GameConfiguration::GetDebugMode(void)
+    {
+        return (_debugMode);
+    }
+
+    void GameConfiguration::SetDebugMode(bool mode)
+    {
+        _debugMode = mode;
+    }
+
+    unsigned int GameConfiguration::GetSeed(void)
+    {
+        return (_seed);
+    }
+
+    void GameConfiguration::SetSeed(unsigned int seed)
+    {
+        _seed = seed;
     }
 }

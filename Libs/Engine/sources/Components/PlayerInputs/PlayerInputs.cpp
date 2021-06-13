@@ -35,11 +35,11 @@ namespace Component
             }
         }
 
-        std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
+        //std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
 
-        for (auto it = colliders.begin(); it != colliders.end(); it++) {
-            it->get().DrawLines();
-        }
+        //for (auto it = colliders.begin(); it != colliders.end(); it++) {
+        //    it->get().DrawLines();
+        //}
         _movement.direction = RayLib::Vector3(_input.GetHorizontalAxis(), 0.0f, _input.GetVerticalAxis());
 
         _movement.Update(dt, entity);

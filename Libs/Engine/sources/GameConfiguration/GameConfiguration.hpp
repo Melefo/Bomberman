@@ -46,10 +46,20 @@ namespace Engine
             static void SetPlayers(int playersTotal);
             static void SetPlayerKeys(int player, RayLib::Input& input, int actionKey);
 
+            static bool GetDebugMode(void);
+            static void SetDebugMode(bool);
+
+            static unsigned int GetSeed(void);
+            static void SetSeed(unsigned int);
+
         protected:
         private:
             static int _players;
             static int _enemies;
+            static unsigned int _seed;
+            static bool _debugMode;
+            // ? terraingenerator ?
+            // ? vector de string (map) ?
 
             static std::map<int, playerkeys> _playerKeys;
     };

@@ -49,7 +49,12 @@ namespace RayLib
 
     void Font::DrawText(const std::string &text, Vector2<float> position, float fontSize, float spacing, Color tint)
     {
-        ::DrawTextEx(font, text.c_str(), position.getVector2(), fontSize, spacing, {tint.r, tint.g, tint.b, tint.a});
+        ::DrawTextEx(font, text.c_str(), position.getVector2(), fontSize, spacing, tint.getColor());
+    }
+
+    Vector2<float> Font::MeasureText(std::string& text, float fontSize, float spacing)
+    {
+        return (::MeasureTextEx(font, text.c_str(), fontSize, spacing));
     }
 
     Font::~Font()

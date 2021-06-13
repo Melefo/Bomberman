@@ -22,6 +22,7 @@
 #include "Window.hpp"
 #include "Texture.hpp"
 #include <string>
+#include "TextUI.hpp"
 
 std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> Scenes::scenesCtor =
     {std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("MainMenu", &InitMainMenu),
@@ -83,6 +84,10 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
 
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
+    ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
+    Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
+    entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - (text.MeasureText().x / 2.0f),
+                                                                               window->GetSize().y / 2.0f - 350.0f, 0.0f);
 
     ECS::Entity &entityPlay = entityFactory.createButton("NewGameBtnStd");
     entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,

@@ -67,6 +67,8 @@ namespace RayLib
              */
             void DrawText(const std::string &text, Vector2<float> position, float fontSize, float spacing=0, Color tint=WHITE);
 
+            Vector2<float> MeasureText(std::string& text, float fontSize, float spacing);
+
             /**
              * @brief Destroy the Font object
              * 

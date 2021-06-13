@@ -13,7 +13,7 @@
 
 TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int boxPercentage)
     : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
-    _height(13), _map(_height), _mapType(mapType)
+    _height(13), _mapType(mapType), _map(_height)
 {
     _playersNbr = _playersNbr < 2 ? 2 : _playersNbr;
     _playersNbr = _playersNbr > 8 ? 8 : _playersNbr;
