@@ -38,7 +38,7 @@ namespace Component
         _direction.z = _state.GetGlobal<float>("Zdir");
         if (_state.Call<bool>("drop_a_bomb", p_pos, _boxmap) == true && _explotimer <= 0) {
             Component::Explosion& _bombexplo = drop_bomb.InstantiateBomb(comp_pos.position, Explosion::ExplosionType::CIRCLE, 10.0f);
-            _explotimer = _bombexplo.GetExplsionTimer();
+            _explotimer = _bombexplo.GetExplosionTimer();
             //prblm l'ia a le droit de poser plusieurs bombes
         }
         if (_explotimer > 0)

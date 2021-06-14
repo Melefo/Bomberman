@@ -121,6 +121,7 @@ ECS::Entity& EntityFactory::createAI()
     entity.AddComponent<Component::Destructible>(entity, 1);
     entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
     entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, mapsgen, 0.5f);
+    return (entity);
 }
 
 ECS::Entity& EntityFactory::createRangePickUp(void)
