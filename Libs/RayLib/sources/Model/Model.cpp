@@ -98,4 +98,9 @@ namespace RayLib
     {
         return (_fileName);
     }
+
+    void Model::RotateModel(RayLib::Vector3 rotation)
+    {
+        _model.transform = MatrixRotateXYZ((rotation * DEG2RAD).getVector3());
+    }
 }

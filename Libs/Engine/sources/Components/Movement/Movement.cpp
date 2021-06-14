@@ -31,6 +31,20 @@ namespace Component
         }
 
         // !rotate based on direction
+        Transform& transform = _entity.GetComponent<Transform>();
+        RayLib::Vector3 targetRot = RayLib::Vector3(transform.rotation.x, transform.rotation.y, 0.0f);
+
+        if (abs(direction.x) > 0.0f)
+            targetRot.y = direction.x * -90.0f;
+        if (direction.z > 0.0f)
+            targetRot.y = 0.0f;
+        else if (direction.z < 0.0f)
+            targetRot.y = 180.0f;
+
+
+        transform.rotation.Lerp(targetRot, 0.5f);
+
+
         if (entity.HasComponent<Component::Animator>()) {
             Animator& animator = entity.GetComponent<Component::Animator>();
             const std::string& animState = animator.GetState();

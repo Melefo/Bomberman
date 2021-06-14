@@ -17,7 +17,6 @@
 #include "Renderer.hpp"
 #include "EntityFactory.hpp"
 #include "Ray.hpp"
-#include "TerrainGenerator.hpp"
 #include "Scenes.hpp"
 #include "Window.hpp"
 #include "Texture.hpp"
@@ -94,7 +93,6 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 150.0f, 0.0f);
     entityPlay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::StartEditorMenu));
-
 
 
     ECS::Entity &entitySettings = entityFactory.createButton("OptionsBtnStd");

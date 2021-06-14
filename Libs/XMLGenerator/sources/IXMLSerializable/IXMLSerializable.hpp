@@ -60,5 +60,4 @@ inline std::istream &operator>>(std::istream &is, IXMLSerializable &xml)
     //xml.LoadFromXML(is);
     return xml.operator>>(is);
 }
-
 #endif /* !IXMLSERIALIZABLE_HPP_ */

@@ -15,6 +15,7 @@
 #include "Texture.hpp"
 #include "Mesh.hpp"
 #include "Shader.hpp"
+#include <raymath.h>
 
 namespace RayLib
 {
@@ -95,6 +96,8 @@ namespace RayLib
             const ::Model GetModel();
 
             const std::string& GetFileName() const;
+
+            void RotateModel(RayLib::Vector3 rotation);
 
             std::ostream& operator<<(std::ostream& os) override;
             std::istream& operator>>(std::istream& is) override;

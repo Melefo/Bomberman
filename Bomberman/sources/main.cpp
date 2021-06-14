@@ -44,13 +44,6 @@ int main(void)
 
     RayLib::AudioDevice::InitAudioDevice();
 
-    // !uncomment to get a speed pickup
-    //ECS::Entity& pickup = entityFactory.createPickUp();
-    //pickup.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 20.0f);
-
-    //! uncomment to generate a map
-    //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
-
     //! game manager for drag and drop
     //ECS::Entity& gameManager = coordinator->CreateEntity();
     //gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();

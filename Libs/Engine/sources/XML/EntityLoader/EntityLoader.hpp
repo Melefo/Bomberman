@@ -15,6 +15,7 @@
 #include "Renderer.hpp"
 #include "BoxCollider.hpp"
 #include "Destructible.hpp"
+#include "Box.hpp"
 
 namespace Serialization
 {
@@ -86,6 +87,9 @@ namespace Serialization
              * @param ptree 
              */
             static void LoadDestructible(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+
+            static void LoadBox(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+
 
         protected:
         private:
