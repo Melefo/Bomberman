@@ -22,6 +22,8 @@
 #include "Window.hpp"
 #include "Texture.hpp"
 #include <string>
+#include "GameConfigurator.hpp"
+#include "TextUI.hpp"
 
 std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> Scenes::scenesCtor =
     {std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("MainMenu", &InitMainMenu),
@@ -43,6 +45,9 @@ void Scenes::switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::s
 void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
 {
     EntityFactory entityFactory(coordinator, camera);
+    int players = Engine::GameConfiguration::GetPlayers();
+    //int enemies = Engine::GameConfiguration::GetEnemies();
+    int currentPlayer = 1;
 
     for (size_t y = 0; y < map.size(); y++) {
         for (size_t x = 0; x < map[y].size(); x++) {
@@ -61,9 +66,11 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
                 box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
             }
 
-            if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER)) {
-                ECS::Entity& player = entityFactory.createPlayer("");
+            if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
+                Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
+                ECS::Entity& player = entityFactory.createPlayer(playerKeys);
                 player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+                currentPlayer++;
             }
         }
     }
@@ -78,6 +85,10 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
 
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
+    ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
+    Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
+    entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - (text.MeasureText().x / 2.0f),
+                                                                               window->GetSize().y / 2.0f - 350.0f, 0.0f);
 
     ECS::Entity &entityPlay = entityFactory.createButton("NewGameBtnStd");
     entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
@@ -144,4 +155,7 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, c
 
     /*ECS::Entity &entityPlayer = *///entityFactory.createPlayer("");
     entityFactory.createCamera();
+
+    ECS::Entity& gameManager = coordinator.CreateEntity();
+    gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
 }

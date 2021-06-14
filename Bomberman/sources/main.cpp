@@ -28,74 +28,9 @@
 #include "PlayerInputs.hpp"
 
 #include "TerrainGenerator.hpp"
+#include "AudioDevice.hpp"
 
 #define BOX_SIZE 10
-
-ECS::Entity& InitCat(ECS::Coordinator& coordinator)
-{
-    // cat
-    ECS::Entity &entity = coordinator.CreateEntity();
-    entity.SetTag("Player");
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(30, 0, 30));
-    entity.AddComponent<Component::PhysicsBody>();
-    entity.AddComponent<Component::Renderer>("Player");
-    entity.AddComponent<Component::Animator>("Player", "Idle");
-    //entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
-    entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
-
-    //entity.AddComponent<Component::IBehaviour, Component::Movement>(entity, 0.5f, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
-    //                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
-
-    entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, RayLib::Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT),
-                                                                                                  RayLib::Vector2<int>(KEY_DOWN, KEY_UP)));
-
-    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
-
-    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
-
-    //entity.AddComponent<Prototype::Destructible>(entity, 1);
-
-    return (entity);
-}
-
-ECS::Entity& InitButton(ECS::Coordinator& coordinator)
-{
-    ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Component::IUIObject, Component::Button>();
-
-    entity.AddComponent<Component::Renderer>("MapEditorBtnStd");
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(500.0f, 20.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
-    entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
-
-    return (entity);
-}
-
-ECS::Entity& InitBox(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
-{
-    ECS::Entity& entity = coordinator.CreateEntity();
-    entity.SetTag("Box");
-    entity.AddComponent<Component::Transform>();
-    //entity.AddComponent<Prototype::PhysicsBody>();
-    entity.AddComponent<Component::Renderer>("Box");
-    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
-    entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
-
-    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
-    entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, camera);
-    entity.AddComponent<Component::Destructible>(entity, 1);
-
-    return (entity);
-}
-
-ECS::Entity& InitCamera(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
-{
-    ECS::Entity& entity = coordinator.CreateEntity();
-
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, -50.0f));
-    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
-
-    return (entity);
-}
 
 int main(void)
 {
@@ -105,8 +40,10 @@ int main(void)
     //! camera pos and target determined by component
     //! attention le 3e arg: world up est important
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Prototype");
     TerrainGenerator map(4);
+
+    RayLib::AudioDevice::InitAudioDevice();
 
     // !uncomment to get a speed pickup
     //ECS::Entity& pickup = entityFactory.createPickUp();
@@ -122,6 +59,15 @@ int main(void)
     //! uncomment to save generated map
     //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
+    Engine::GameConfiguration::SetPlayers(2);
+    RayLib::Input player1Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT), RayLib::Vector2<int>(KEY_DOWN, KEY_UP));
+
+    Engine::GameConfiguration::SetPlayerKeys(1, player1Input, KEY_ENTER);
+
+    RayLib::Input player2Input;
+    Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_X);
+
+    Engine::GameConfiguration::SetDebugMode(true);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::UISystem>(camera);
@@ -153,5 +99,6 @@ int main(void)
         camera.EndMode();
         window->EndDrawing();
     }
+    RayLib::AudioDevice::CloseAudioDevice();
     return (0);
 }
