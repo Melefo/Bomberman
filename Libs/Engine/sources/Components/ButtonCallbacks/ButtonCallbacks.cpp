@@ -6,6 +6,7 @@
 */
 
 #include "Window.hpp"
+#include "GameConfiguration.hpp"
 #include "ButtonCallbacks.hpp"
 
 namespace Component
@@ -33,6 +34,30 @@ namespace Component
 
     }
 
+    void ButtonCallbacks::IncrementPlayerNbr()
+    {
+        int playerNbr = Engine::GameConfiguration::GetPlayers();
+
+        Engine::GameConfiguration::SetPlayers(playerNbr + 1);
+    }
+
+    void ButtonCallbacks::DecrementPlayerNbr()
+    {
+        int playerNbr = Engine::GameConfiguration::GetPlayers();
+
+        Engine::GameConfiguration::SetPlayers(playerNbr - 1);
+    }
+
+    //void ButtonCallbacks::IncrementPlayerNbr()
+    //{
+    //    Storage &storageRef = _entity.GetComponent<Component::Storage>();
+    //
+    //    try {
+    //        storageRef.getVar("_playersNbr") += 1;
+    //    } catch (const std::exception &) {
+    //    }
+    //}
+
     void ButtonCallbacks::QuitWindow()
     {
         ECS::Coordinator::GetInstance()->CloseWindow = true;
@@ -45,14 +70,17 @@ namespace Component
 
     void ButtonCallbacks::StartGame()
     {
-        // ?
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-        //std::unique_ptr<AssetManager>& assetManager = AssetManager::GetInstance();
-
-        // scene name = "Game"
         std::string sceneName = "Game";
+
         coordinator->setCurrentScene(sceneName);
-        //assetManager->setNextScene(sceneName);
-        //assetManager->loadAssets(coordinator->getScene(sceneName).GetEntities());
+    }
+
+    void ButtonCallbacks::StartEditorMenu()
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        std::string sceneName = "EditorMenu";
+
+        coordinator->setCurrentScene(sceneName);
     }
 }

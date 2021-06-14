@@ -40,7 +40,7 @@ int main(void)
     //! camera pos and target determined by component
     //! attention le 3e arg: world up est important
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Prototype");
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Bomberman");
     TerrainGenerator map(4);
 
     RayLib::AudioDevice::InitAudioDevice();
@@ -75,6 +75,7 @@ int main(void)
     coordinator->AddSystem<Component::BehaviourSystem>();
 
     window->SetTargetFPS(60);
+    window->SetExitKey(KEY_ESCAPE);
     assetManagerRef->loadAssets(coordinator->GetEntities());
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {

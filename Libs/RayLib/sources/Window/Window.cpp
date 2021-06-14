@@ -138,4 +138,9 @@ namespace RayLib
     {
         ::ClearDroppedFiles();
     }
+
+    void Window::SetExitKey(int key)
+    {
+        ::SetExitKey(key);
+    }
 }
