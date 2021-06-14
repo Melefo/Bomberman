@@ -6,6 +6,7 @@
 */
 
 #include "GameConfigurator.hpp"
+#include "BehaviourSystem.hpp"
 
 namespace Component
 {
@@ -49,8 +50,10 @@ namespace Component
         }
 
         if (_coordinator->getCurrentScene() == "Game") {
-            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver())
+            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver()) {
                 Engine::GameConfiguration::SetGameOver(true);
+                _coordinator->GetSystem<Component::BehaviourSystem>().ToggleStatus();
+            }
         }
     }
 
