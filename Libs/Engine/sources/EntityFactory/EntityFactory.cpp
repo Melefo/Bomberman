@@ -162,6 +162,8 @@ ECS::Entity& EntityFactory::createCamera(void)
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
+    entity.SetTag("Camera");
+
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, -50.0f));
     entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, _camera);
     return (entity);
