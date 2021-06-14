@@ -6,6 +6,7 @@
 */
 
 #include "Box.hpp"
+#include "EntityFactory.hpp"
 
 namespace Component
 {
@@ -28,15 +29,15 @@ namespace Component
 
     void Box::SpawnLoot(void)
     {
-        /*std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         // get camera
         Component::Camera& camera = Component::Camera::GetMainCamera();
 
         // create a factory
         EntityFactory factory(*coordinator.get(), camera.camera);
         // spawn a bonus
-        factory.createPickUp();*/
-
-        std::cout << "Spawn a pickup" << std::endl;
+        ECS::Entity& pickup = factory.createPickUp();
+        Transform& myTransform = _myEntity.GetComponent<Transform>();
+        pickup.GetComponent<Transform>().position = myTransform.position;
     }
 }

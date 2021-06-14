@@ -11,7 +11,8 @@
 #include "Destructible.hpp"
 #include "Coordinator.hpp"
 #include "Camera.hpp"
-//#include "EntityFactory.hpp"
+
+class EntityFactory;
 
 namespace Component
 {

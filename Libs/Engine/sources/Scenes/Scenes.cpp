@@ -17,7 +17,6 @@
 #include "Renderer.hpp"
 #include "EntityFactory.hpp"
 #include "Ray.hpp"
-#include "TerrainGenerator.hpp"
 #include "Scenes.hpp"
 #include "Window.hpp"
 #include "Texture.hpp"

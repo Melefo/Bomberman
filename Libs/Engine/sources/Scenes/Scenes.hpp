@@ -22,8 +22,8 @@
 #include "Renderer.hpp"
 #include "EntityFactory.hpp"
 #include "Ray.hpp"
-#include "TerrainGenerator.hpp"
 #include "GameConfiguration.hpp"
+#include "TerrainGenerator.hpp"
 
 class Scenes {
     public:
