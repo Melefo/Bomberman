@@ -96,7 +96,6 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     entityPlay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::StartEditorMenu));
 
 
-
     ECS::Entity &entitySettings = entityFactory.createButton("OptionsBtnStd");
     entitySettings.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 50.0f, 0.0f);
@@ -173,6 +172,7 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
 
     ECS::Entity& play = entityFactory.createButton("PlayBtnStd");
     play.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4 + 100, 0.0f);
+    play.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::StartGame));
 }
 
 void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& selMap)

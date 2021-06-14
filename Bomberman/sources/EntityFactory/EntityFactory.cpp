@@ -63,7 +63,7 @@ ECS::Entity& EntityFactory::createWall()
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("Wall");
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2.5f, 2.5f, 2.5f));
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(90, 0, 0), RayLib::Vector3(2.5f, 2.5f, 2.5f));
     entity.AddComponent<Component::Renderer>("Wall");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
@@ -100,7 +100,7 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, keys.movementInput, keys.actionKey);
 
-    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
+    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(90.0f, 0.0f, 0.0f);
     entity.AddComponent<Component::Destructible>(entity, 1);
     return (entity);
 }
