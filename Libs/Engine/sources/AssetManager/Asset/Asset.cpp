@@ -16,21 +16,27 @@ Asset::Asset(std::string name)
 
     std::cout << "Creating asset name " << name << std::endl;
 
-    for (auto &element : std::filesystem::recursive_directory_iterator("../assets/")) {
-        if (!element.is_regular_file())
-            continue;
-        //if (element.symlink_status().type() == std::filesystem::file_type::directory)
-        //    continue;
-        file = element.path().string();
-        if (file.find(name) != std::string::npos) {
-            if (file.find("model") != std::string::npos && !_model) {
-                _model = std::make_unique<RayLib::Model>(file);
-            } else if (file.find("anim") != std::string::npos) {
-                _animations.insert(std::pair<std::string, RayLib::ModelAnimation>(getAnimationName(file), RayLib::ModelAnimation(file)));
-            } else if (file.find("texture") != std::string::npos && !_texture) {
-                _texture = std::make_unique<RayLib::Texture>(file);
-            } else if (file.find("sound") != std::string::npos) {
-                _sounds.insert(std::pair<std::string, RayLib::Sound>(getAnimationName(file), RayLib::Sound(file)));
+    if (std::filesystem::exists("../assets/"))
+    {
+        for (auto& element : std::filesystem::recursive_directory_iterator("../assets/")) {
+            if (!element.is_regular_file())
+                continue;
+            //if (element.symlink_status().type() == std::filesystem::file_type::directory)
+            //    continue;
+            file = element.path().string();
+            if (file.find(name) != std::string::npos) {
+                if (file.find("model") != std::string::npos && !_model) {
+                    _model = std::make_unique<RayLib::Model>(file);
+                }
+                else if (file.find("anim") != std::string::npos) {
+                    _animations.insert(std::pair<std::string, RayLib::ModelAnimation>(getAnimationName(file), RayLib::ModelAnimation(file)));
+                }
+                else if (file.find("texture") != std::string::npos && !_texture) {
+                    _texture = std::make_unique<RayLib::Texture>(file);
+                }
+                else if (file.find("sound") != std::string::npos) {
+                    _sounds.insert(std::pair<std::string, RayLib::Sound>(getAnimationName(file), RayLib::Sound(file)));
+                }
             }
         }
     }
