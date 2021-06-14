@@ -70,14 +70,17 @@ namespace Component
 
     void ButtonCallbacks::StartGame()
     {
-        // ?
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-        //std::unique_ptr<AssetManager>& assetManager = AssetManager::GetInstance();
-
-        // scene name = "Game"
         std::string sceneName = "Game";
+
         coordinator->setCurrentScene(sceneName);
-        //assetManager->setNextScene(sceneName);
-        //assetManager->loadAssets(coordinator->getScene(sceneName).GetEntities());
+    }
+
+    void ButtonCallbacks::StartEditorMenu()
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        std::string sceneName = "EditorMenu";
+
+        coordinator->setCurrentScene(sceneName);
     }
 }
