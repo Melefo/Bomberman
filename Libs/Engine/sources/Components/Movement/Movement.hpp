@@ -15,6 +15,7 @@
 #include "Collider.hpp"
 #include "Transform.hpp"
 #include <algorithm>
+#include "Animator.hpp"
 #include "Window.hpp"
 
 namespace Component

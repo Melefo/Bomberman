@@ -6,11 +6,11 @@
 */
 
 #include "Animator.hpp"
-#include "AssetManager.hpp"
 
 namespace Component
 {
-    Animator::Animator(const std::string& assetName, std::string stateName) : _currentState(stateName), _name(assetName)
+    Animator::Animator(ECS::Entity& entity, const std::string& assetName, std::string stateName)
+    : _currentState(stateName), _name(assetName), _entity(entity), _asset(AssetManager::GetInstance()->getAssetFromName(_name, entity.GetId()))
     {
     }
 
@@ -19,12 +19,14 @@ namespace Component
         _currentState = state;
     }
 
+    const std::string& Animator::GetState(void) const
+    {
+        return (_currentState);
+    }
+
     void Animator::PlayCurrentState(RayLib::Model& model)
     {
-        //! cache this
-        std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
-        Asset &asset = assetManagerRef->getAssetFromName(_name);
-        std::map<std::string, RayLib::ModelAnimation> &animations = asset.getAnimations();
+        std::map<std::string, RayLib::ModelAnimation> &animations = _asset.getAnimations();
 
         if (animations.find(_currentState) == animations.end()) {
             // il est possible de juste pas avoir d'animations

@@ -62,14 +62,14 @@ private:
      * 
      * @param objects 
      */
-    void loadAssetsThreadFunc(std::vector<std::string> objects);
+    void loadAssetsThreadFunc(std::map<std::string, uint32_t> objects);
 
     /**
      * @brief Returns the names of the objects in the entity list
      * 
      * @param objects 
      */
-    std::vector<std::string> getNamesOfObjects(const std::list<std::unique_ptr<ECS::Entity>> &objects);
+    std::map<std::string, uint32_t> getNamesOfObjects(const std::list<std::unique_ptr<ECS::Entity>> &objects);
 
 public:
     /**
@@ -81,7 +81,7 @@ public:
      * @brief Destroy the Asset Manager object
      * 
      */
-    ~AssetManager();
+    ~AssetManager() = default;
 
     /**
      * @brief Copy a new AssetManager object
@@ -114,7 +114,7 @@ public:
      * 
      * @param objects 
      */
-    void removeAllUnnecessaryAssets(std::vector<std::string> &objects);
+    void removeAllUnnecessaryAssets(std::map<std::string, uint32_t> &objects);
 
     /**
      * @brief Get the Asset From Name object
@@ -123,6 +123,16 @@ public:
      * @return Asset& 
      */
     Asset &getAssetFromName(const std::string &name);
+
+    /**
+     * @brief Get the Asset with name and ID
+     * 
+     * @param name 
+     * @param id 
+     * @return Asset& 
+     */
+    Asset &getAssetFromName(const std::string &name, uint32_t id);
+
 
     /**
      * @brief Find the files corresponding to the name given

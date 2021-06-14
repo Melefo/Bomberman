@@ -94,16 +94,13 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
     entity.SetTag("Player");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
     entity.AddComponent<Component::PhysicsBody>();
-    // entity.AddComponent<Component::Renderer>("assets/Player/" + playerColor + "Player.obj", "assets/Player/" + playerColor + "Player.png");
     entity.AddComponent<Component::Renderer>("Player");
-    entity.AddComponent<Component::Animator>("Player", "Run");
-    // entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Component::Animator>(entity, "Player", "Idle");
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, keys.movementInput, keys.actionKey);
 
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
-    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
     entity.AddComponent<Component::Destructible>(entity, 1);
     return (entity);
 }
