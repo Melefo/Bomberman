@@ -112,7 +112,7 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
 ECS::Entity& EntityFactory::createAI()
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
-    entity.SetTag("AI");
+    entity.SetTag("Player");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("Player");

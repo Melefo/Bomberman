@@ -29,6 +29,7 @@
 #include "PhysicsBody.hpp"
 #include "Collider.hpp"
 #include "DropBomb.hpp"
+#include "State.hpp"
 #include "AIMapsGenerator.hpp"
 
 namespace Component
@@ -113,10 +114,14 @@ namespace Component
              */
             ECS::Entity &_ai_player;
             /**
-             * @brief list of all entities
+             * @brief Lua state
              * 
              */
             Lua::State _state;
+            /**
+             * @brief list of all entities
+             * 
+             */
             const std::list<std::unique_ptr<ECS::Entity>>& _entities;
             /**
              * @brief a map who contain the box informations
