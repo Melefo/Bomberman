@@ -140,7 +140,7 @@ ECS::Entity& EntityFactory::createSpeedPickUp(void)
 
 ECS::Entity& EntityFactory::createPickUp(void)
 {
-    int index = rand() % (_pickupFunctions.size() - 1);
+    int index = rand() % (_pickupFunctions.size());
     ECS::Entity &entity = _pickupFunctions[index]();
     return (entity);
 }

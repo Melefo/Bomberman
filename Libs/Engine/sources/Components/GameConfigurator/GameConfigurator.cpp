@@ -22,7 +22,7 @@ namespace Component
         int count = 0;
         // dans le constructeur
 
-        if (_coordinator->getCurrentScene() == "Editor") {
+        if (_coordinator->getCurrentScene() == "EditorMenu") {
             // if drag n drop
             if (_window->IsFileDropped())
             {

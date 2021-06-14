@@ -40,4 +40,31 @@ namespace Component
         Transform& myTransform = _myEntity.GetComponent<Transform>();
         pickup.GetComponent<Transform>().position = myTransform.position;
     }
+
+    std::ostream &Box::operator<<(std::ostream &os)
+    {
+        os << "<Box>";
+        os << "<_resistance>" << _resistance << "</_resistance>";
+        os << "<_lootChance>" << _lootChance << "</_lootChance>";
+        os << "</Box>";
+        return (os);
+    }
+
+    std::istream &Box::operator>>(std::istream &is)
+    {
+        boost::property_tree::ptree tree;
+        boost::property_tree::xml_parser::read_xml(is, tree);
+
+        this->operator<<(tree);
+        return (is);
+    }
+
+    boost::property_tree::ptree& Box::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree node = ptree.get_child("Box");
+
+        _resistance = node.get<int>("_resistance");
+        _lootChance = node.get<float>("_lootChance");
+        return (ptree);
+    }
 }
