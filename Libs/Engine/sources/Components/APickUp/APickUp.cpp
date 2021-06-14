@@ -34,6 +34,7 @@ namespace Component
             if (Engine::GameConfiguration::GetDebugMode()) {
                 RayLib::Window::GetInstance(0, "")->DrawSphereWires(transform.position, _pickupRadius);
             }
+            transform.rotation.y += 1.0f;
         }
     }
 }
