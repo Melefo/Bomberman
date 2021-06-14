@@ -66,6 +66,12 @@ class EntityFactory {
          */
         ECS::Entity& createPlayer(Engine::playerkeys& keys);
 
+        /**
+         * @brief Create a AI object
+         * 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createAI();
          /**
          * @brief Create a Text object
          * 

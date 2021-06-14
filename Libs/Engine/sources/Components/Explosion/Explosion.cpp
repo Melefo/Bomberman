@@ -63,4 +63,9 @@ namespace Component
     {
 
     }
+
+    float Explosion::GetExplosionTimer() const
+    {
+        return (_explosionTimer);
+    }
 }

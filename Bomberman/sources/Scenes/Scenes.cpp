@@ -24,6 +24,7 @@
 #include <string>
 #include "GameConfigurator.hpp"
 #include "TextUI.hpp"
+#include "AIMapsGenerator.hpp"
 
 std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> Scenes::scenesCtor =
     {std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("MainMenu", &InitMainMenu),
@@ -147,6 +148,7 @@ void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera,
 void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map)
 {
     EntityFactory entityFactory(coordinator, camera);
+    std::vector<std::string> cpymap = map;
 
     // init camera component
 
@@ -155,6 +157,7 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, c
 
     /*ECS::Entity &entityPlayer = *///entityFactory.createPlayer("");
     entityFactory.createCamera();
+    AIMapsGenerator& mapsgen = coordinator.AddSystem<AIMapsGenerator>(cpymap);
 
     ECS::Entity& gameManager = coordinator.CreateEntity();
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();

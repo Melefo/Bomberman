@@ -28,6 +28,7 @@
 #include "CoolDownBoost.hpp"
 #include "Explosion.hpp"
 #include "Box.hpp"
+#include "AIAlgo.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -106,6 +107,20 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
     //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
     entity.AddComponent<Component::Destructible>(entity, 1);
     return (entity);
+}
+
+ECS::Entity& EntityFactory::createAI()
+{
+    ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("AI");
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
+    entity.AddComponent<Component::PhysicsBody>();
+    entity.AddComponent<Component::Renderer>("Player");
+    entity.AddComponent<Component::Animator>("Player", "Run");
+    entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
+    entity.AddComponent<Component::Destructible>(entity, 1);
+    entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
+    entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, mapsgen, 0.5f);
 }
 
 ECS::Entity& EntityFactory::createRangePickUp(void)
