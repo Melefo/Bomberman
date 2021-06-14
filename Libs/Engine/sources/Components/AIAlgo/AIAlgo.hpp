@@ -92,6 +92,9 @@ namespace Component
              * @return boost::property_tree::ptree& 
              */
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
+
+            void GeneratePathToSymbol(RayLib::Vector3 position, int find);
+
         protected:
         private:
             /**
@@ -134,7 +137,19 @@ namespace Component
             RayLib::Vector3 _direction;
             std::unique_ptr<RayLib::Window>& _window;
             float _explotimer;
+
+            std::vector<RayLib::Vector3> _directionPath;
+
+            AIState _currentState;
     };
 }
+
+enum AIState
+{
+    IDLE,
+    CHASE,
+    HIDE,
+    ATTACK
+};
 
 #endif /* !AIALGO_HPP_ */

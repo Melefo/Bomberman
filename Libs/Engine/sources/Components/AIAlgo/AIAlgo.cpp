@@ -12,7 +12,7 @@ namespace Component
     AIAlgo::AIAlgo(ECS::Entity &player, AIMapsGenerator& aimapgen, float moveSpeed, float dropDelay) : AController(player, moveSpeed, dropDelay), _ai_player(player), _state(),
     _entities(ECS::Coordinator::GetInstance()->GetEntities()), _boxmap(aimapgen.GetBoxMap()), _playersmap(aimapgen.GetPlayersMap()),
     _bombpowmap(aimapgen.GetBombPowMap()), _bombtimermap(aimapgen.GetBombTimeMap()), _colliding(false), _speed(moveSpeed), _direction(),
-    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _explotimer()
+    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _explotimer(), _currentState(AIState::IDLE)
     {
         _state.RunScript("../Libs/Engine/sources/Components/AIAlgo/AIAlgo.lua");
     }
@@ -42,6 +42,7 @@ namespace Component
         _direction.z = _state.GetGlobal<float>("Zdir");
         if (_explotimer > 0)
             _explotimer -= _window->GetFrameTime();
+
         _movement.direction = _direction;
 
         _movement.Update(dt, entity);
@@ -56,6 +57,21 @@ namespace Component
     void AIAlgo::LateUpdate(double, ECS::Entity&)
     {
 
+    }
+
+    void AIAlgo::GeneratePathToSymbol(RayLib::Vector3, int )
+    {
+        // vector directions = {up, down, left, right}
+
+        // foreach dir in directions:
+            // if map[position + dir] == symbol
+                // _directions.push_back(dir)
+                // return
+
+            // else if map[position + dir] != box && map[position + dir] != wall (position is free to move to)
+                // _directions.push_back(dir)
+                // generatePathtoSymbol(position + dir, symbol)
+                // break
     }
 
     std::ostream &AIAlgo::operator<<(std::ostream &os)
