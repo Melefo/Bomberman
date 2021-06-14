@@ -8,6 +8,7 @@
 #include "Window.hpp"
 #include "GameConfiguration.hpp"
 #include "ButtonCallbacks.hpp"
+#include <TextUI.hpp>
 
 namespace Component
 {
@@ -37,15 +38,31 @@ namespace Component
     void ButtonCallbacks::IncrementPlayerNbr()
     {
         int playerNbr = Engine::GameConfiguration::GetPlayers();
+        auto& coordinator = ECS::Coordinator::GetInstance();
 
         Engine::GameConfiguration::SetPlayers(playerNbr + 1);
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() != "NumberText" || !entity->HasComponent<Component::TextUI>())
+                continue;
+            entity->GetComponent<Component::TextUI>().SetString(std::to_string(Engine::GameConfiguration::GetPlayers()));
+        }
     }
 
     void ButtonCallbacks::DecrementPlayerNbr()
     {
         int playerNbr = Engine::GameConfiguration::GetPlayers();
+        auto& coordinator = ECS::Coordinator::GetInstance();
 
+        if (playerNbr <= 1)
+            return;
         Engine::GameConfiguration::SetPlayers(playerNbr - 1);
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() != "NumberText" || !entity->HasComponent<Component::TextUI>())
+                continue;
+            entity->GetComponent<Component::TextUI>().SetString(std::to_string(Engine::GameConfiguration::GetPlayers()));
+        }
     }
 
     //void ButtonCallbacks::IncrementPlayerNbr()
