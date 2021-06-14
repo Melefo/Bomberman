@@ -28,9 +28,13 @@ void AIMapsGenerator::UpdateMaps()
     for (auto incr = _entities.begin(); incr != _entities.end();) {
         auto &entity = *incr->get();
         incr++;
+        if (!entity.HasComponent<Component::Transform>())
+            continue;
         if (entity.GetTag() == "Box") {
+            if (!entity.HasComponent<Component::Box>())
+                continue;
             Component::Transform &pos = entity.GetComponent<Component::Transform>();
-            Component::Destructible &dura = entity.GetComponent<Component::Destructible>();
+            Component::Box &dura = entity.GetComponent<Component::Box>();
             if (dura.GetResistance() == 1) {
                 _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = 1;
             } else if (dura.GetResistance() == 2) {
@@ -44,6 +48,8 @@ void AIMapsGenerator::UpdateMaps()
             _playersmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = 1;
         }
         if (entity.GetTag() == "Bomb") {
+            if (!entity.HasComponent<Component::Explosion>())
+                continue;
             Component::Transform &pos = entity.GetComponent<Component::Transform>();
             Component::Explosion &explo = entity.GetComponent<Component::Explosion>();
             _bombpowmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = explo.power;

@@ -31,10 +31,12 @@
 #include "DropBomb.hpp"
 #include "State.hpp"
 #include "AIMapsGenerator.hpp"
+#include "Movement.hpp"
+#include "AController.hpp"
 
 namespace Component
 {
-    class AIAlgo : public IBehaviour {
+    class AIAlgo : public AController {
         public:
             /**
              * @brief Construct a new AIAlgo object
@@ -43,12 +45,12 @@ namespace Component
              * @param aimapgen 
              * @param moveSpeed 
              */
-            AIAlgo(ECS::Entity &player, AIMapsGenerator& aimapgen, float moveSpeed);
+            AIAlgo(ECS::Entity &player, AIMapsGenerator& aimapgen, float moveSpeed, float dropDelay=2.5f);
             /**
              * @brief Destroy the AIAlgo object
              * 
              */
-            ~AIAlgo() = default;
+            ~AIAlgo() override = default;
 
             /**
              * @brief Updates the ai algorithm
@@ -74,22 +76,6 @@ namespace Component
              * @brief 
              * 
              * @param entity 
-             */
-            void SlipperyCollisions(Component::Transform &comp_pos);
-            /**
-             * @brief 
-             * 
-             * @param colliders 
-             * @param position 
-             * @return true 
-             * @return false 
-             */
-            bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position);
-            /**
-             * @brief 
-             * 
-             * @param os 
-             * @return std::ostream& 
              */
             std::ostream &operator<<(std::ostream &os) override;
             /**
@@ -148,7 +134,6 @@ namespace Component
             RayLib::Vector3 _direction;
             std::unique_ptr<RayLib::Window>& _window;
             float _explotimer;
-            AIMapsGenerator& _maps;
     };
 }
 

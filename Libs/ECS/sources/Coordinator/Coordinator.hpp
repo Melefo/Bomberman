@@ -138,6 +138,11 @@ namespace ECS
             {
                 this->_systemManager.RemoveSystem<T>();
             }
+            template<typename T>
+            T& GetSystem()
+            {
+                return this->_systemManager.GetSystem<T>();
+            }
             /**
              * @brief Execute FixedUpdate, Update & LateUpdate
              * 

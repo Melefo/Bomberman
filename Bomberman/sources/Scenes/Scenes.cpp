@@ -69,7 +69,7 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
 
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
                 Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
-                ECS::Entity& player = entityFactory.createPlayer(playerKeys);
+                ECS::Entity& player = entityFactory.createAI();
                 player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
                 currentPlayer++;
             }
@@ -150,6 +150,7 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, c
     EntityFactory entityFactory(coordinator, camera);
     std::vector<std::string> cpymap = map;
 
+    AIMapsGenerator& mapsgen = coordinator.AddSystem<AIMapsGenerator>(cpymap);
     // init camera component
 
     //InitMap(coordinator, camera, map, 0);
@@ -157,7 +158,6 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, c
 
     /*ECS::Entity &entityPlayer = *///entityFactory.createPlayer("");
     entityFactory.createCamera();
-    AIMapsGenerator& mapsgen = coordinator.AddSystem<AIMapsGenerator>(cpymap);
 
     ECS::Entity& gameManager = coordinator.CreateEntity();
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
