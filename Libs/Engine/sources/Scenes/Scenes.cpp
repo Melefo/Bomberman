@@ -147,7 +147,7 @@ void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib
     minus.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementPlayerNbr));
 
     ECS::Entity& number = entityFactory.createText(std::to_string(Engine::GameConfiguration::GetPlayers()), "../assets/pixelplay.png", 50.0f, 4.0f);
-    number.SetTag("NumberText");
+    number.SetTag("TextPlayerNbr");
     Component::TextUI& numberText = number.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> numberTextSize = numberText.MeasureText();
     number.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (numberTextSize.x / 2.0f),
@@ -161,25 +161,65 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
     Scenes::InitNbrPlayers(entityFactory, window);
-
+// Seed Menu
     ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "../assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> seedTextSize = seedText.MeasureText();
     seed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2.0f),
         window->GetSize().y / 4.0f - (seedTextSize.y / 2.0f), 0.0f);
 
+// Map Size Header
     ECS::Entity& mapSize = entityFactory.createText("Select map size", "../assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& mapSizeText = mapSize.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> mapSizeTextSize = mapSizeText.MeasureText();
     mapSize.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSize.x / 2.0f),
-        window->GetSize().y / 2 - (seedTextSize.y / 2.0f), 0.0f);
+        window->GetSize().y / 2 - (mapSizeTextSize.y / 2.0f) - 70, 0.0f);
 
-    ECS::Entity& right = entityFactory.createButton("Right");
-    right.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 + (mapSizeTextSize.x / 2) - 50, window->GetSize().y / 2 + mapSizeTextSize.y, 0.0f);
+// Map Size Longueur
+    ECS::Entity& mapSizeH = entityFactory.createText("Height", "../assets/pixelplay.png", 50.0f, 4.0f);
+    Component::TextUI& mapSizeTextH = mapSizeH.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> mapSizeTextSizeH = mapSizeTextH.MeasureText();
+    mapSizeH.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSizeH.x / 2.0f),
+        window->GetSize().y / 2 - (mapSizeTextSizeH.y / 2.0f) - 15, 0.0f);
 
-    ECS::Entity& left = entityFactory.createButton("Left");
-    left.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSize.x / 2) - 50, window->GetSize().y / 2 + mapSizeTextSize.y, 0.0f);
+    ECS::Entity& upH = entityFactory.createButton("Plus");
+    upH.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 + (mapSizeTextSizeH.x / 2) + 100, window->GetSize().y / 2 + mapSizeTextSizeH.y - 30, 0.0f);
+    upH.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::IncrementMapHeight));
 
+    ECS::Entity& downH = entityFactory.createButton("Minus");
+    downH.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSizeH.x / 2) - 200, window->GetSize().y / 2 + mapSizeTextSizeH.y - 30, 0.0f);
+    downH.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementMapHeight));
+
+    ECS::Entity& mapHeight = entityFactory.createText(std::to_string(Engine::GameConfiguration::GetMapSize().y), "../assets/pixelplay.png", 50.0f, 4.0f);
+    mapHeight.SetTag("TextMapHeight");
+    Component::TextUI& mapHeightText = mapHeight.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> mapHeightTextSize = mapHeightText.MeasureText();
+    mapHeight.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - (mapHeightTextSize.x / 2.0f),
+        window->GetSize().y / 2 + mapSizeTextSizeH.y);
+
+// Map Size Largeur
+    ECS::Entity& mapSizeW = entityFactory.createText("Width", "../assets/pixelplay.png", 50.0f, 4.0f);
+    Component::TextUI& mapSizeTextW = mapSizeW.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> mapSizeTextSizeW = mapSizeTextW.MeasureText();
+    mapSizeW.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSizeW.x / 2.0f),
+        window->GetSize().y / 2 - (mapSizeTextSizeW.y / 2.0f) + 160);
+
+    ECS::Entity& upW = entityFactory.createButton("Plus");
+    upW.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 + (mapSizeTextSizeW.x / 2) + 100, window->GetSize().y / 2 + mapSizeTextSizeW.y + 130, 0.0f);
+    upW.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::IncrementMapWidth));
+
+    ECS::Entity& downW = entityFactory.createButton("Minus");
+    downW.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSizeW.x / 2) - 200, window->GetSize().y / 2 + mapSizeTextSizeW.y + 130, 0.0f);
+    downW.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementMapWidth));
+
+    ECS::Entity& mapWidth = entityFactory.createText(std::to_string(Engine::GameConfiguration::GetMapSize().x), "../assets/pixelplay.png", 50.0f, 4.0f);
+    mapWidth.SetTag("TextMapWidth");
+    Component::TextUI& mapWidthText = mapWidth.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> mapWidthTextSize = mapWidthText.MeasureText();
+    mapWidth.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - (mapWidthTextSize.x / 2.0f),
+        window->GetSize().y / 2 + mapSizeTextSizeW.y + 150, 0.0f);
+
+// Footer
     ECS::Entity& generate = entityFactory.createButton("GenerateBtnStd");
     generate.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4, 0.0f);
     //generate.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::CreateBox));

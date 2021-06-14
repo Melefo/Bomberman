@@ -13,6 +13,7 @@
 #include <map>
 #include "Exceptions.hpp"
 #include "EngineExceptions.hpp"
+#include "Vector2.hpp"
 
 namespace Engine
 {
@@ -46,6 +47,9 @@ namespace Engine
             static void SetPlayers(int playersTotal);
             static void SetPlayerKeys(int player, RayLib::Input& input, int actionKey);
 
+            static RayLib::Vector2<int> GetMapSize(void);
+            static void SetMapSize(int x, int y);
+
             static bool GetDebugMode(void);
             static void SetDebugMode(bool);
 
@@ -57,6 +61,7 @@ namespace Engine
 
         protected:
         private:
+            static RayLib::Vector2<int> _mapSize;
             static int _players;
             static int _enemies;
             static unsigned int _seed;

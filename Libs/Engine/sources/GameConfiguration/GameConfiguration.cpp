@@ -10,6 +10,7 @@
 
 namespace Engine
 {
+    RayLib::Vector2<int> GameConfiguration::_mapSize = {7, 7};
     int GameConfiguration::_players = 0;
     int GameConfiguration::_enemies = 0;
     bool GameConfiguration::_debugMode = false;
@@ -93,6 +94,17 @@ namespace Engine
     void GameConfiguration::SetGameOver(bool gameOver)
     {
         _gameOver = gameOver;
+    }
+
+    RayLib::Vector2<int> GameConfiguration::GetMapSize(void)
+    {
+        return _mapSize;
+    }
+
+    void GameConfiguration::SetMapSize(int x, int y)
+    {
+        _mapSize.x = x;
+        _mapSize.y = y;
     }
 
 }

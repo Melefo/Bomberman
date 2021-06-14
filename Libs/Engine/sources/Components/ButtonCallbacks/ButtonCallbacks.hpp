@@ -82,6 +82,30 @@ namespace Component
              */
             static void DecrementPlayerNbr(void);
 
+            /**
+             * @brief Increment the map of Height
+             * 
+             */
+            static void IncrementMapHeight();
+
+            /**
+             * @brief Decrement the map of Height
+             * 
+             */
+            static void DecrementMapHeight();
+
+            /**
+             * @brief Increment the map of Width
+             * 
+             */
+            static void IncrementMapWidth();
+
+            /**
+             * @brief Decrement the map of Width
+             * 
+             */
+            static void DecrementMapWidth();
+
             static void StartGame(void);
             static void StartEditorMenu(void);
 
@@ -105,6 +129,11 @@ namespace Component
              * 
              */
             Button& _button;
+            /**
+             * @brief Private Method for displaying dynamic text on click
+             * 
+             */
+            static void TextInterfaceLoader(std::string tagName, int nb);
     };
 }
 
