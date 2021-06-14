@@ -6,6 +6,7 @@
 */
 
 #include "Window.hpp"
+#include "GameConfiguration.hpp"
 #include "ButtonCallbacks.hpp"
 
 namespace Component
@@ -32,6 +33,30 @@ namespace Component
     {
 
     }
+
+    void ButtonCallbacks::IncrementPlayerNbr()
+    {
+        int playerNbr = Engine::GameConfiguration::GetPlayers();
+
+        Engine::GameConfiguration::SetPlayers(playerNbr + 1);
+    }
+
+    void ButtonCallbacks::DecrementPlayerNbr()
+    {
+        int playerNbr = Engine::GameConfiguration::GetPlayers();
+
+        Engine::GameConfiguration::SetPlayers(playerNbr - 1);
+    }
+
+    //void ButtonCallbacks::IncrementPlayerNbr()
+    //{
+    //    Storage &storageRef = _entity.GetComponent<Component::Storage>();
+    //
+    //    try {
+    //        storageRef.getVar("_playersNbr") += 1;
+    //    } catch (const std::exception &) {
+    //    }
+    //}
 
     void ButtonCallbacks::QuitWindow()
     {

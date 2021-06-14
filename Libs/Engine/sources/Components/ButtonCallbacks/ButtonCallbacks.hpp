@@ -70,6 +70,18 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
+            /**
+             * @brief Increment the nbr of users
+             * 
+             */
+            void IncrementPlayerNbr(void);
+
+            /**
+             * @brief Decrement the nbr of users
+             * 
+             */
+            void DecrementPlayerNbr(void);
+
             static void StartGame(void);
 
             static void QuitWindow(void);
