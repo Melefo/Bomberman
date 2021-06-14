@@ -20,6 +20,10 @@ class AmbientShader : public RayLib::Shader {
          * @param ShaderPath Path to Shader folder
          */
         AmbientShader(RayLib::Color& color, const std::string& ShaderPath);
+        /**
+         * @brief Destroy the Ambient Shader object
+         * 
+         */
         ~AmbientShader() = default;
 
 };
