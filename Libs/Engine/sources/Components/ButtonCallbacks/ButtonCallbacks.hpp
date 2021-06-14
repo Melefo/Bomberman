@@ -74,13 +74,13 @@ namespace Component
              * @brief Increment the nbr of users
              * 
              */
-            void IncrementPlayerNbr(void);
+            static void IncrementPlayerNbr(void);
 
             /**
              * @brief Decrement the nbr of users
              * 
              */
-            void DecrementPlayerNbr(void);
+            static void DecrementPlayerNbr(void);
 
             static void StartGame(void);
             static void StartEditorMenu(void);
