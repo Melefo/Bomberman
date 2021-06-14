@@ -31,7 +31,7 @@ namespace Component
         if (entity.OfType<IUIObject>().size() > 0)
             return;
 
-        RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName()).getModel();
+        RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName(), entity.GetId()).getModel();
 
         float rotation = 0.0f;
         RayLib::Vector3 worldUp = RayLib::Vector3();
@@ -50,6 +50,7 @@ namespace Component
         }
 
         model.DrawEx(transform.position, worldUp, rotation, transform.scale, WHITE);
+
 
         if (entity.HasComponent<Animator>()) {
             Animator& animator = entity.GetComponent<Animator>();

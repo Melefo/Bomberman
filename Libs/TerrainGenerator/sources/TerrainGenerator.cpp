@@ -257,16 +257,11 @@ void TerrainGenerator::cloneReverseMap()
 {
     int index = 0;
     std::string tempString;
-    bool reverseMap = std::rand() % 2 == 0 ? true : false;
-    std::vector<std::string>& tempMap = _map;
 
     for (auto &it : _map) {
         if (index != 0 && index < _height - 1) {
-            if (reverseMap)
-                tempString = std::string(tempMap[_height-1-index].rbegin() + 1, tempMap[_height-1-index].rend() - 1);
-            else
                 tempString = std::string(it.rbegin() + 1, it.rend() - 1);
-            tempString.erase(0, 2);
+            // tempString.erase(0, 2); si problème rencontré debug e tenvisager de décommanter cette ligne
             tempString += static_cast<char>(mapTexture::OWALL);
             it += tempString;
         } else {
