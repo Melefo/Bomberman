@@ -75,6 +75,7 @@ int main(void)
     coordinator->AddSystem<Component::BehaviourSystem>();
 
     window->SetTargetFPS(60);
+    window->SetExitKey(KEY_NULL);
     assetManagerRef->loadAssets(coordinator->GetEntities());
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
