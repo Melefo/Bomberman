@@ -29,11 +29,24 @@ namespace Component
 
         if (_explosionTimer <= 0.0f) {
             std::cout << "BOOM" << std::endl;
+            // get the assetmanager
+            std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
+            // get the sounds
+            std::map<std::string, RayLib::Sound>& sounds = assetManagerRef->getAssetFromName("Bomb").getSounds();
+            // play sound explosion
+            if (sounds.find("explosion") != sounds.end()) {
+                sounds.find("explosion")->second.Play();
+            }
+
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*_coordinator.get(), _transform.position, _radius);
 
+            // ! j'ai pas trouvé mieux pour que la box soit récupérée
             for (auto it = entities.begin(); it != entities.end(); it++) {
                 if (it->get().HasComponent<Destructible>()) {
                     Destructible& destructible = it->get().GetComponent<Destructible>();
+                    destructible.TakeDamage(power);
+                } else if (it->get().HasComponent<Box>()) {
+                    Box& destructible = it->get().GetComponent<Box>();
                     destructible.TakeDamage(power);
                 }
             }

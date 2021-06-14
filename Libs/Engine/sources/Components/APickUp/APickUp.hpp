@@ -13,6 +13,7 @@
 #include "CollisionSystem.hpp"
 #include "Transform.hpp"
 #include "Window.hpp"
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
@@ -57,7 +58,7 @@ namespace Component
              * @param dt 
              * @param entity 
              */
-            virtual void Update(double dt, ECS::Entity& entity) = 0;
+            void Update(double dt, ECS::Entity& entity) override;
             /**
              * @brief Check collision, call OnPickup
              * 

@@ -15,17 +15,6 @@ namespace Component
     Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, float lerpTime)
     : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y)
     {
-        //_playerPositions
-        const std::list<std::unique_ptr<ECS::Entity>>& entities = ECS::Coordinator::GetInstance()->GetEntities();
-
-        for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get()->GetTag() != "Player")
-                continue;
-            if (it->get()->HasComponent<Transform>()) {
-                Transform& transform = it->get()->GetComponent<Transform>();
-                _playerPositions.push_back(transform.position);
-            }
-        }
     }
 
     void Camera::Update(double, ECS::Entity&)
@@ -47,8 +36,6 @@ namespace Component
             // lerp targets
             const RayLib::Vector3 currentTarget = camera.GetTarget();
             RayLib::Vector3 lerp = currentTarget;
-            // ! fout un peu la gerbe, mais règle le probleme de saccade
-            // ! plus on réduit, moins ça va vite, donc plus c'est stable (mais plus gerbatif)
             lerp.Lerp(positionsAverage, 0.05f);
             camera.SetTarget(lerp);
 
@@ -73,20 +60,54 @@ namespace Component
         RayLib::Vector3 result;
 
         //! mettre à jour la liste des players si yen a qui perd
+        RayLib::Vector2<int> margin = RayLib::Vector2<int>(10, 10);
+        RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0, "")->GetSize();
+        bool offscreen = false;
+        std::size_t extraSpace = 0;
 
-        for (auto it = _playerPositions.begin(); it != _playerPositions.end(); it++) {
-            // if one of the players are off camera, min threshold + 1
-            //if (::GetWorldToScreen(it->get(), camera.GetCamera()).x > RayLib::Window::GetInstance(0.0f, "")->GetSize().x) {
-            //    _transform.position.y += 1;
-            //}
-            //if (::GetWorldToScreen(it->get(), camera.GetCamera()).y > RayLib::Window::GetInstance(0.0f, "")->GetSize().y) {
-            //    _transform.position.y += 1;
-            //}
-            sum += it->get();
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = ECS::Coordinator::GetInstance()->GetEntities();
+        std::size_t size = 0;
+
+        for (auto it = entities.begin(); it != entities.end(); it++) {
+            if (it->get()->GetTag() != "Player")
+                continue;
+            if (!it->get()->HasComponent<Transform>())
+                continue;
+            Transform& transform = it->get()->GetComponent<Transform>();
+
+            if (IsPositionOffScreen(transform.position, margin, windowSize))
+                offscreen = true;
+
+            if (IsPositionOffScreen(transform.position, margin * 2, windowSize))
+                extraSpace += 1;
+
+            sum += transform.position;
+            size++;
         }
+
+        if (offscreen)
+            _transform.position.y += 1.0f;
+        else if (extraSpace == size && _transform.position.y > _minHeight)
+            _transform.position.y -= 1.0f;
+
         if (sum != RayLib::Vector3())
-            result = sum / static_cast<float>(_playerPositions.size());
+            result = sum / static_cast<float>(size);
         return (result);
+    }
+
+    bool Camera::IsPositionOffScreen(Vector3 position, RayLib::Vector2<int> margin, RayLib::Vector2<int> windowSize)
+    {
+        RayLib::Vector2<int> screenPos = camera.GetWorldToScreen(position);
+
+        if (screenPos.x > windowSize.x - margin.x)
+            return (true);
+        if (screenPos.x < margin.x)
+            return (true);
+        if (screenPos.y > windowSize.y - margin.y)
+            return (true);
+        if (screenPos.y < margin.y)
+            return (true);
+        return (false);
     }
 
     Camera& Camera::GetMainCamera()

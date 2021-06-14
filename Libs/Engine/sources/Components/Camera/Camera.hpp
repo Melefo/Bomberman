@@ -72,7 +72,23 @@ namespace Component
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
+            /**
+             * @brief Get the Average Position of all players/AI
+             * 
+             * @return RayLib::Vector3 
+             */
             RayLib::Vector3 GetAveragePosition();
+
+            /**
+             * @brief Returns true if the position is beyond window size - margin
+             * 
+             * @param position 
+             * @param margin 
+             * @param windowSize 
+             * @return true 
+             * @return false 
+             */
+            bool IsPositionOffScreen(Vector3 position, RayLib::Vector2<int> margin, RayLib::Vector2<int> windowSize);
 
             static Camera& GetMainCamera();
 
@@ -80,7 +96,6 @@ namespace Component
         private:
             ECS::Entity& _entity;
             Transform& _transform;
-            std::vector<std::reference_wrapper<RayLib::Vector3>> _playerPositions;
             float _lerpTime;
             float _minHeight;
 

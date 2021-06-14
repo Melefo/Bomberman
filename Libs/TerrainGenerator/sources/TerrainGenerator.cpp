@@ -13,7 +13,7 @@
 
 TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int boxPercentage)
     : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
-    _height(13)
+    _height(13), _mapType(mapType), _map(_height)
 {
     _playersNbr = _playersNbr < 2 ? 2 : _playersNbr;
     _playersNbr = _playersNbr > 8 ? 8 : _playersNbr;
@@ -25,8 +25,6 @@ TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int bo
     };
 
     _width = mapSizes[_playersNbr];
-    _map = std::vector<std::string>(_height);
-    _mapType = mapType;
     generateMap();
 }
 
@@ -34,7 +32,7 @@ TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int bo
  * Getters
  */
 
-std::vector<std::string> TerrainGenerator::getMap() const
+const std::vector<std::string>& TerrainGenerator::getMap() const
 {
     return _map;
 }
@@ -106,7 +104,7 @@ void TerrainGenerator::generateRandomMap(unsigned int seed)
     };
 
     if (seed != 0)
-        srand(seed);
+        std::srand(seed);
     for (auto &it : _map) {
         it.clear();
         if (index == 0 || index == _height-1)
@@ -192,9 +190,9 @@ char TerrainGenerator::generateBoxLevel()
     int twoPercentage = 50;
     int threePercentage = 20;
 
-    if (rand() % 100 + 1 < threePercentage)
+    if (std::rand() % 100 + 1 < threePercentage)
         return static_cast<char>(mapTexture::STRONGBOX);
-    else if (rand() % 100 + 1 < twoPercentage)
+    else if (std::rand() % 100 + 1 < twoPercentage)
         return static_cast<char>(mapTexture::MEDIUMBOX);
     return static_cast<char>(mapTexture::WEAKBOX);
 }
@@ -204,21 +202,21 @@ void TerrainGenerator::generateBoxes()
     for (std::vector<std::string>::iterator it = _map.begin()+1; it != _map.end()-1; it++) {
         for (std::size_t index = 1; index != it->length()-1; index++) {
             if ((*it)[index] == ' ') 
-                (*it)[index] = rand() % 100+1 < _boxPercentage ? generateBoxLevel() : ' ';
+                (*it)[index] = std::rand() % 100+1 < _boxPercentage ? generateBoxLevel() : ' ';
         }
     }
 }
 
 void TerrainGenerator::generateMap()
 {
-    srand(static_cast<unsigned int>(time(NULL)));
+    std::srand(static_cast<unsigned int>(time(NULL)));
 
     if (_mapType == MapType::Basic)
         generateBaseMap();
     else if (_mapType == MapType::Random)
         generateRandomMap(0);
     else {
-        if (rand() % 3 == 0)
+        if (std::rand() % 3 == 0)
             generateBaseMap();
         else
             generateRandomMap(0);
@@ -233,7 +231,7 @@ void TerrainGenerator::generateMap()
 
 std::string TerrainGenerator::generateMapLine(int hPos)
 {
-    std::string result("");
+    std::string result;
 
     result += static_cast<char>(mapTexture::OWALL);
     if (hPos % 2 == 0) {
@@ -259,17 +257,15 @@ void TerrainGenerator::cloneReverseMap()
 {
     int index = 0;
     std::string tempString;
-    bool reverseMap = rand() % 2 == 0 ? true : false;
-    std::vector<std::string> tempMap;
+    bool reverseMap = std::rand() % 2 == 0 ? true : false;
+    std::vector<std::string>& tempMap = _map;
 
-    if (reverseMap)
-        tempMap = _map;
     for (auto &it : _map) {
-        if (index != 0 && index < _height-1) {
+        if (index != 0 && index < _height - 1) {
             if (reverseMap)
-                tempString = std::string(tempMap[_height-1-index].rbegin()-1, tempMap[_height-1-index].rend()-1);
+                tempString = std::string(tempMap[_height-1-index].rbegin() + 1, tempMap[_height-1-index].rend() - 1);
             else
-                tempString = std::string(it.rbegin()-1, it.rend()-1);
+                tempString = std::string(it.rbegin() + 1, it.rend() - 1);
             tempString.erase(0, 2);
             tempString += static_cast<char>(mapTexture::OWALL);
             it += tempString;
@@ -345,9 +341,8 @@ bool TerrainGenerator::tryPlacingTile(const std::vector<std::string> &tile, int 
     return true;
 }
 
-std::vector<std::string> TerrainGenerator::rotateTile(std::vector<std::string> tile) const
+std::vector<std::string> TerrainGenerator::rotateTile(std::vector<std::string> rotatedTile) const
 {
-    std::vector<std::string> rotatedTile = tile;
     std::vector<std::string> tempTile(rotatedTile[0].size());
 
     for (size_t x = 0; x < rotatedTile[0].size(); x++)
@@ -369,7 +364,7 @@ bool TerrainGenerator::tryTetrPositions(const std::vector<std::string> &chosenTi
 
 bool TerrainGenerator::addTetrOnMap(const std::vector<std::vector<std::string>> &tiles)
 {
-    size_t baseId = rand() % tiles.size();
+    size_t baseId = std::rand() % tiles.size();
     std::vector<std::string> chosenTile;
     bool tetrPlaced = false;
 

@@ -91,7 +91,7 @@ namespace RayLib
              * 
              * @param position 
              */
-            void SetPosition(RayLib::Vector3 position);
+            void SetPosition(Vector3 position);
 
             /**
              * @brief Get the Position
@@ -112,7 +112,15 @@ namespace RayLib
              * 
              * @param targetPosition 
              */
-            void SetTarget(RayLib::Vector3 targetPosition);
+            void SetTarget(Vector3 targetPosition);
+
+            /**
+             * @brief Convert world position to screen position
+             * 
+             * @param position 
+             * @return Vector2<int> 
+             */
+            Vector2<int> GetWorldToScreen(Vector3 position);
 
 
 

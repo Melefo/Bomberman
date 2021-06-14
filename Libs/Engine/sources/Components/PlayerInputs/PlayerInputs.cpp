@@ -28,21 +28,22 @@ namespace Component
             // ! keep this transform in cache ?
             if (_entity.HasComponent<Transform>()) {
                 Transform& transform = _entity.GetComponent<Transform>();
-                _dropBomb.InstantiateBomb(transform.position, Explosion::ExplosionType::CIRCLE, 2.0f);
+                _dropBomb.InstantiateBomb(transform.position, Explosion::ExplosionType::CIRCLE);
                 std::cout << "Instantiate bomb" << std::endl;
 
-                _dropBomb.timeToDrop = _dropBomb.dropDelay;
+                _dropBomb.timeToDrop = _dropBomb.GetDropDelay();
             }
         }
 
-        std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
+        //std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
 
-        for (auto it = colliders.begin(); it != colliders.end(); it++) {
-            it->get().DrawLines();
-        }
+        //for (auto it = colliders.begin(); it != colliders.end(); it++) {
+        //    it->get().DrawLines();
+        //}
         _movement.direction = RayLib::Vector3(_input.GetHorizontalAxis(), 0.0f, _input.GetVerticalAxis());
 
         _movement.Update(dt, entity);
+        _dropBomb.Update();
     }
 
     void PlayerInputs::FixedUpdate(ECS::Entity& entity)

@@ -20,6 +20,8 @@ namespace Component
             ~PhysicsSystem() override = default;
 
             void FixedUpdate(ECS::Entity &entity) override;
+            void Update(double dt, ECS::Entity &entity) override;
+
 
         protected:
         private:

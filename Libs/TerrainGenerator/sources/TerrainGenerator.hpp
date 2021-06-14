@@ -52,7 +52,7 @@ class TerrainGenerator {
          * 
          * @return std::vector<std::string> 
          */
-        std::vector<std::string> getMap() const;
+        const std::vector<std::string>& getMap() const;
         /**
          * @brief Display the map on standard output
          * 

@@ -14,6 +14,8 @@ namespace Component
     Movement::Movement(ECS::Entity& attatchedEntity, float moveSpeed) :
     _entity(attatchedEntity), _colliding(false), _speed(moveSpeed), _startSpeed(moveSpeed), _bonusTime(0.0f)
     {
+        _collisionMask.push_back("Wall");
+        _collisionMask.push_back("Box");
     }
 
     void Movement::Update(double, ECS::Entity&)
@@ -62,11 +64,7 @@ namespace Component
         std::vector<std::reference_wrapper<Collider>> colliders = _entity.OfType<Collider>();
         RayLib::Vector3 modifiedDir = direction;
 
-        _colliding = false;
-        for (auto it = colliders.begin(); it != colliders.end(); it++) {
-            if (!_colliding)
-                _colliding = it->get().IsCollidingAtPosition(targetPosition);
-        }
+        _colliding = CheckCollidersPos(colliders, targetPosition, _collisionMask);
 
         if (!_colliding)
             return;
@@ -92,7 +90,7 @@ namespace Component
         for (auto it = newDirections.begin(); it != newDirections.end(); it++) {
             if (it->x == 0.0f && it->z == 0.0f)
                 continue;
-            if (!CheckCollidersPos(colliders, currentPos + *it * _speed)) {
+            if (!CheckCollidersPos(colliders, currentPos + *it * _speed, _collisionMask)) {
                 _colliding = false;
                 direction = *it;
                 return;
@@ -106,11 +104,14 @@ namespace Component
         _speed += bonusSpeed;
     }
 
-    bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position)
+    bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position, std::vector<std::string> collisionMask)
     {
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
-            if (it->get().IsCollidingAtPosition(position))
-                return (true);
+            if (it->get().IsCollidingAtPosition(position, collisionMask)) {
+                ECS::Entity& other = it->get().GetCollisionPosition(position, collisionMask);
+                if (std::find(collisionMask.begin(), collisionMask.end(), other.GetTag()) != collisionMask.end())
+                    return (true);
+            }
         }
         return (false);
     }

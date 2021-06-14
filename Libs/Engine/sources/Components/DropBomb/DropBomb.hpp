@@ -65,8 +65,7 @@ namespace Component
              * @param radius 
              */
             void InstantiateBomb(RayLib::Vector3 position,
-                                 Explosion::ExplosionType explosionType=Explosion::ExplosionType::CIRCLE,
-                                 float radius=1.0f);
+                                 Explosion::ExplosionType explosionType=Explosion::ExplosionType::CIRCLE);
 
             /**
              * @brief 
@@ -74,17 +73,41 @@ namespace Component
              */
             ECS::Entity& CreateBomb(ECS::Coordinator& coordinator, float radius, Explosion::ExplosionType type);
 
+            /**
+             * @brief Get the cross size
+             * 
+             * @return int 
+             */
+            int GetBombNumber();
+
+            /**
+             * @brief Add bonusBombs to be dropped, for duration seconds
+             * 
+             * @param bonusBombs 
+             * @param duration 
+             */
+            void BoostBombNumber(int bonusBombs, float duration);
+            /**
+             * @brief SetBombCooldown to bonusTime, for duration seconds
+             * 
+             * @param bonusTime 
+             * @param duration 
+             */
+            void BoostBombCooldown(float bonusTime, float duration);
+
+            float GetDropDelay(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
-
             /**
-             * @brief Bomb cooldown
+             * @brief Called to regulate bonus time
              * 
              */
-            float dropDelay;
+            void Update();
+
+
             /**
              * @brief Cooldown timer
              * 
@@ -104,6 +127,17 @@ namespace Component
              * 
              */
             std::unique_ptr<RayLib::Window>& _window;
+
+            int _bombNumber;
+            int _defaultBombNumber;
+            // ! appliqué aux deux bonus possibles...
+            float _bonusTime;
+            float _defaultDropDelay;
+            /**
+             * @brief Bomb cooldown
+             * 
+             */
+            float _dropDelay;
     };
 }
 

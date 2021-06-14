@@ -59,16 +59,16 @@ namespace Component
              * 
              * @param damage 
              */
-            void TakeDamage(int damage);
+            virtual void TakeDamage(int damage);
 
             std::ostream &operator<<(std::ostream &os) override;
             std::istream &operator>>(std::istream &is) override;
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
         protected:
-        private:
             ECS::Entity& _myEntity;
             int _resistance;
+        private:
     };
 }
 

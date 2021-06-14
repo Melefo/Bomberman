@@ -12,6 +12,8 @@
 #include "Camera3D.hpp"
 #include "Explosion.hpp"
 #include "Camera.hpp"
+#include "GameConfiguration.hpp"
+#include "RangeBoost.hpp"
 
 class EntityFactory {
     public:
@@ -43,7 +45,7 @@ class EntityFactory {
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createWall();
-        
+
         /**
          * @brief Create a Box object
          * 
@@ -55,27 +57,47 @@ class EntityFactory {
          * @return ECS::Entity::& The entity created
          */
         ECS::Entity& createBox(const int level, const bool draggable);
-        
+
         /**
          * @brief Create a Player object
          * 
          * @param playerColor The color of the player (...colors?)
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createPlayer(const std::string &playerColor);
+        ECS::Entity& createPlayer(Engine::playerkeys& keys);
 
          /**
          * @brief Create a Text object
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createText(const std::string& content="Enter text here");
+        ECS::Entity& createText(const std::string& content, const std::string& fontPath, float size, float spacing=0.0f);
+
         /**
          * @brief Create a random Pick Up bonus
          * 
          * @return ECS::Entity& 
          */
         ECS::Entity& createPickUp(void);
+
+        /**
+         * @brief Create a Speed Pick Up object
+         * 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createSpeedPickUp(void);
+        /**
+         * @brief Create a Range Pick Up object
+         * 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createRangePickUp(void);
+        /**
+         * @brief Create a Cooldown Pick Up object
+         * 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createCooldownPickUp(void);
 
         /**
          * @brief Create a Bomb object
@@ -92,6 +114,7 @@ class EntityFactory {
     private:
         ECS::Coordinator& _coordinator;
         RayLib::Camera3D& _camera;
+        std::vector<std::function<ECS::Entity&(void)>> _pickupFunctions;
 };
 
 #endif /* !ENTITYFACTORY_HPP_ */

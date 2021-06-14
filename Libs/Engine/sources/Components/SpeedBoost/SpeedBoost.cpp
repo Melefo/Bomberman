@@ -35,16 +35,6 @@ namespace Component
         movement.BoostSpeed(0.5f, 5.0f);
         // destroy yourself
         _entity.Dispose();
-        //! (decrement speed in movement class)
-    }
-
-    void SpeedBoost::Update(double, ECS::Entity& entity)
-    {
-        if (entity.HasComponent<Transform>()) {
-            Transform& transform = entity.GetComponent<Transform>();
-            // ! if coordinator.debug
-            RayLib::Window::GetInstance(0, "")->DrawSphereWires(transform.position, _pickupRadius);
-        }
     }
 
     void SpeedBoost::LateUpdate(double, ECS::Entity&)

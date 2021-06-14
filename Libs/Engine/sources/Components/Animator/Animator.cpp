@@ -27,7 +27,9 @@ namespace Component
         std::map<std::string, RayLib::ModelAnimation> &animations = asset.getAnimations();
 
         if (animations.find(_currentState) == animations.end()) {
-            throw ECS::Exception::ComponentException("No state found of name: " + _currentState);
+            // il est possible de juste pas avoir d'animations
+            //throw ECS::Exception::ComponentException("No state found of name: " + _currentState);
+            return;
         }
 
         animations.find(_currentState)->second.Play(model);

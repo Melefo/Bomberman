@@ -13,6 +13,18 @@ namespace RayLib
     {
     }
 
+    Input::Input(const Input& other) :
+    _horizontalAxis(other._horizontalAxis), _verticalAxis(other._verticalAxis)
+    {
+    }
+
+    Input& Input::operator=(const Input& other)
+    {
+        _horizontalAxis = other._horizontalAxis;
+        _verticalAxis = other._verticalAxis;
+        return (*this);
+    }
+
     float Input::GetHorizontalAxis(void)
     {
         if (IsKeyDown(_horizontalAxis.x))

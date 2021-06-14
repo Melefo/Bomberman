@@ -10,7 +10,8 @@
 namespace Component
 {
 
-    GameConfigurator::GameConfigurator() : _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(), ""))
+    GameConfigurator::GameConfigurator() : 
+    _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(), "")), _coordinator(ECS::Coordinator::GetInstance())
     {
 
     }
@@ -20,31 +21,61 @@ namespace Component
         int count = 0;
         // dans le constructeur
 
-        // if drag n drop
-        if (_window->IsFileDropped())
-        {
-            std::vector<std::string> droppedFiles = _window->GetDroppedFiles(&count);
-            // open file
-            std::ifstream myfile(droppedFiles[0]);
+        if (_coordinator->getCurrentScene() == "Editor") {
+            // if drag n drop
+            if (_window->IsFileDropped())
+            {
+                std::vector<std::string> droppedFiles = _window->GetDroppedFiles(&count);
+                // open file
+                std::ifstream myfile(droppedFiles[0]);
 
-            std::stringstream buffer;
-            buffer << myfile.rdbuf();
+                std::stringstream buffer;
+                buffer << myfile.rdbuf();
 
-            std::istringstream iss;
-            iss.str(buffer.str());
-            myfile.close();
+                std::istringstream iss;
+                iss.str(buffer.str());
+                myfile.close();
 
-            //std::cout << iss.str() << std::endl;
-            std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
+                //std::cout << iss.str() << std::endl;
+                std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
 
-            // ! comment trier entity/script ?
-                // ! ouvrir, find node script/Entity
-            //Serialization::EntityLoader::LoadEntity(iss);
-            Serialization::EntityLoader::LoadEntities(iss);
+                // ! comment trier entity/script ?
+                    // ! ouvrir, find node script/Entity
+                //Serialization::EntityLoader::LoadEntity(iss);
+                Serialization::EntityLoader::LoadEntities(iss);
 
-            _window->ClearDroppedFiles();
+                _window->ClearDroppedFiles();
+            }
+        }
+
+        if (_coordinator->getCurrentScene() == "Game") {
+            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver())
+                Engine::GameConfiguration::SetGameOver(true);
         }
     }
+
+    bool GameConfigurator::CheckGameOver(void)
+    {
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = _coordinator->GetEntities();
+        int remainingPlayers = 0;
+        std::string tag = "";
+
+        for (auto it = entities.begin(); it != entities.end(); it++) {
+            tag = it->get()->GetTag();
+            //! faire pareil pour l'IA
+            if (tag.find("Player") != std::string::npos) {
+                remainingPlayers++;
+            }
+        }
+        if (remainingPlayers <= 1) {
+            //std::string sceneName = "MainMenu";
+            //_coordinator->setCurrentScene(sceneName);
+            std::cout << "Only one player remaining, congratulations!" << std::endl;
+            return (true);
+        }
+        return (false);
+    }
+
 
     void GameConfigurator::FixedUpdate(ECS::Entity&)
     {

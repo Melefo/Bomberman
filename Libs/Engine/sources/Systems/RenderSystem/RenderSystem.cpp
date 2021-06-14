@@ -18,6 +18,7 @@ namespace Component
     {
         AddDependency<Transform>();
         AddDependency<Renderer>();
+        // !get asset manager here ?
     }
 
     void RenderSystem::Update(double, ECS::Entity& entity)

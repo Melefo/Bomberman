@@ -10,11 +10,20 @@
 
 #include "Input.hpp"
 #include <vector>
+#include <map>
 #include "Exceptions.hpp"
 #include "EngineExceptions.hpp"
 
 namespace Engine
 {
+
+    struct playerkeys
+    {
+        playerkeys(RayLib::Input input = RayLib::Input(), int key = KEY_X);
+        RayLib::Input movementInput;
+        int actionKey;
+    };
+
     class GameConfiguration {
         public:
             /**
@@ -28,12 +37,6 @@ namespace Engine
              */
             ~GameConfiguration()= default;
 
-            struct playerkeys
-            {
-                RayLib::Input movementInput;
-                int actionKey;
-            };
-
             static playerkeys& GetPlayerKeys(int player);
             static int GetPlayers(void);
 
@@ -43,12 +46,26 @@ namespace Engine
             static void SetPlayers(int playersTotal);
             static void SetPlayerKeys(int player, RayLib::Input& input, int actionKey);
 
+            static bool GetDebugMode(void);
+            static void SetDebugMode(bool);
+
+            static unsigned int GetSeed(void);
+            static void SetSeed(unsigned int);
+
+            static bool GetGameOver(void);
+            static void SetGameOver(bool gameOver);
+
         protected:
         private:
             static int _players;
             static int _enemies;
+            static unsigned int _seed;
+            static bool _debugMode;
+            static bool _gameOver;
+            // ? terraingenerator ?
+            // ? vector de string (map) ?
 
-            static std::vector<playerkeys> _playerKeys;
+            static std::map<int, playerkeys> _playerKeys;
     };
 }
 

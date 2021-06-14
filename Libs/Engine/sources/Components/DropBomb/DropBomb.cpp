@@ -13,8 +13,9 @@
 namespace Component
 {
     DropBomb::DropBomb(float delay)
-    : dropDelay(delay), timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
-     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype"))
+    : timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
+     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _bombNumber(2), _defaultBombNumber(2),
+     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay)
     {
     }
 
@@ -23,7 +24,7 @@ namespace Component
         ECS::Entity& entity = coordinator.CreateEntity();
         entity.SetTag("Bomb");
 
-        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
+        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2, 2, 2));
         entity.AddComponent<Renderer>("Bomb");
         //! si on spawn une bombe sur le joueur, on est bloqués
         //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
@@ -31,8 +32,7 @@ namespace Component
         return (entity);
     }
 
-
-    void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType, float radius)
+    void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType)
     {
         float explosionRadius = 2.50f;
         float boxSize = 7.50f;
@@ -56,7 +56,7 @@ namespace Component
 
         for (auto dir = directions.begin(); dir != directions.end(); dir++) {
             reachedWall = false;
-            for (float i = 0; i < radius; i++) {
+            for (float i = 0; i < _bombNumber; i++) {
                 // if you encounter a wall, stop that direction
                 std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapSphere(*coordinator.get(), position + 
                 (*dir) * i * boxSize, explosionRadius);
@@ -80,4 +80,41 @@ namespace Component
         }
     }
 
+    void DropBomb::Update()
+    {
+        float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
+
+        if (_bonusTime > 0.0f) {
+            _bonusTime -= frameTime;
+        } else {
+            if (_bombNumber != _defaultBombNumber) {
+                _bombNumber = _defaultBombNumber;
+            }
+            if (_dropDelay != _defaultDropDelay) {
+                _dropDelay = _defaultDropDelay;
+            }
+        }
+    }
+
+    float DropBomb::GetDropDelay(void)
+    {
+        return (_dropDelay);
+    }
+
+    int DropBomb::GetBombNumber()
+    {
+        return (_bombNumber);
+    }
+
+    void DropBomb::BoostBombNumber(int bonusBombs, float duration)
+    {
+        _bombNumber = bonusBombs;
+        _bonusTime = duration;
+    }
+
+    void DropBomb::BoostBombCooldown(float bonusDelay, float duration)
+    {
+        _dropDelay = bonusDelay;
+        _bonusTime = duration;
+    }
 }

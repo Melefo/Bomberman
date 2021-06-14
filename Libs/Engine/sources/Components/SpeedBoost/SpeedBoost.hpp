@@ -11,6 +11,7 @@
 #include "APickUp.hpp"
 #include "AController.hpp"
 #include "PlayerInputs.hpp"
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
@@ -56,13 +57,6 @@ namespace Component
              */
             void ApplyBoost(AController& acontroller);
 
-            /**
-             * @brief Called every frame, can be used for debug here
-             * 
-             * @param dt 
-             * @param entity 
-             */
-            void Update(double dt, ECS::Entity& entity) override;
             /**
              * @brief Called after update
              * 

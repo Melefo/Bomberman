@@ -7,6 +7,8 @@
 
 #include "PhysicsSystem.hpp"
 #include "Transform.hpp"
+#include "Collider.hpp"
+#include "GameConfiguration.hpp"
 #include <iostream>
 
 namespace Component
@@ -25,5 +27,15 @@ namespace Component
         // !float fixedDeltaTime = 0.02f;
 
         transform.position += physicsBody.velocity;
+    }
+
+    void PhysicsSystem::Update(double, ECS::Entity& entity)
+    {
+        if (Engine::GameConfiguration::GetDebugMode() == true) {
+            std::vector<std::reference_wrapper<Collider>> colliders = entity.OfType<Collider>();
+            for (auto it = colliders.begin(); it != colliders.end(); it++) {
+                it->get().DrawLines();
+            }
+        }
     }
 }

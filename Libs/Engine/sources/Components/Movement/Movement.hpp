@@ -14,6 +14,7 @@
 #include "Entity.hpp"
 #include "Collider.hpp"
 #include "Transform.hpp"
+#include <algorithm>
 #include "Window.hpp"
 
 namespace Component
@@ -74,7 +75,9 @@ namespace Component
 
             void SlipperyCollisions();
 
-            bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position);
+            bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders,
+                                   RayLib::Vector3 position,
+                                   std::vector<std::string> colMask = {});
 
             void BoostSpeed(float bonusSpeed=3.0f, float time=20.0f);
 
@@ -115,6 +118,8 @@ namespace Component
              * 
              */
             float _bonusTime;
+
+            std::vector<std::string> _collisionMask;
 
     };
 }

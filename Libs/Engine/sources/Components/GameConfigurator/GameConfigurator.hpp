@@ -11,6 +11,7 @@
 #include "IBehaviour.hpp"
 #include "Window.hpp"
 #include "EntityLoader.hpp"
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
@@ -42,6 +43,8 @@ namespace Component
 
             void SaveMap(void);
 
+            bool CheckGameOver(void);
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
@@ -50,6 +53,7 @@ namespace Component
         protected:
         private:
             std::unique_ptr<RayLib::Window>& _window;
+            std::unique_ptr<ECS::Coordinator>& _coordinator;
     };
 }
 

@@ -32,7 +32,15 @@ namespace Component
                 if (it->get().GetTag() == "Player" /* OR TAG == AI*/)
                     OnPickup(it->get());
             }
+        }
+    }
 
+    void APickUp::Update(double, ECS::Entity& entity)
+    {
+        if (entity.HasComponent<Transform>()) {
+            Transform& transform = entity.GetComponent<Transform>();
+            if (Engine::GameConfiguration::GetDebugMode())
+                RayLib::Window::GetInstance(0, "")->DrawSphereWires(transform.position, _pickupRadius);
         }
     }
 }
