@@ -27,6 +27,7 @@
 
 class Scenes {
     public:
+        static void InitNbrPlayers(EntityFactory& entityFactory, std::unique_ptr<RayLib::Window>& window);
         static void InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor);
         static void InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
         static void InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map);
