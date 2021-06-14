@@ -93,7 +93,7 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     ECS::Entity &entityPlay = entityFactory.createButton("NewGameBtnStd");
     entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 150.0f, 0.0f);
-    entityPlay.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::StartGame));
+    entityPlay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::StartEditorMenu));
 
 
 
@@ -104,7 +104,7 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     ECS::Entity &entityQuit = entityFactory.createButton("QuitGameBtnStd");
     entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f + 50.0f, 0.0f);
-    entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::QuitWindow));
+    entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::QuitWindow));
 
     //InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
 
@@ -130,8 +130,48 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
     (void)defaultMap;
 }
 
-void Scenes::InitEditorMenu(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)
+void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>&)
 {
+    EntityFactory entityFactory(coordinator, camera);
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
+
+    ECS::Entity& nbrPlayer = entityFactory.createText("Select number of players", "../assets/pixelplay.png", 50.0f, 4.0f);
+    Component::TextUI& nbrPlayerText = nbrPlayer.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> nbrPlayerTextSize = nbrPlayerText.MeasureText();
+    nbrPlayer.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2.0f),
+        window->GetSize().y / 4.0f - (nbrPlayerTextSize.y / 2));
+
+    ECS::Entity& plus = entityFactory.createButton("Plus");
+    plus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f + (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y, 0.0f);
+
+    ECS::Entity& minus = entityFactory.createButton("Minus");
+    minus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y, 0.0f);
+
+
+    ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "../assets/pixelplay.png", 50.0f, 4.0f);
+    Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> seedTextSize = seedText.MeasureText();
+    seed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2.0f),
+        window->GetSize().y / 4.0f - (seedTextSize.y / 2.0f), 0.0f);
+
+    ECS::Entity& mapSize = entityFactory.createText("Select map size", "../assets/pixelplay.png", 50.0f, 4.0f);
+    Component::TextUI& mapSizeText = mapSize.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> mapSizeTextSize = mapSizeText.MeasureText();
+    mapSize.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSize.x / 2.0f),
+        window->GetSize().y / 2 - (seedTextSize.y / 2.0f), 0.0f);
+
+    ECS::Entity& right = entityFactory.createButton("Right");
+    right.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 + (mapSizeTextSize.x / 2) - 50, window->GetSize().y / 2 + mapSizeTextSize.y, 0.0f);
+
+    ECS::Entity& left = entityFactory.createButton("Left");
+    left.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSize.x / 2) - 50, window->GetSize().y / 2 + mapSizeTextSize.y, 0.0f);
+
+    ECS::Entity& generate = entityFactory.createButton("GenerateBtnStd");
+    generate.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4, 0.0f);
+    //generate.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::CreateBox));
+
+    ECS::Entity& play = entityFactory.createButton("PlayBtnStd");
+    play.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4 + 100, 0.0f);
 }
 
 void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& selMap)

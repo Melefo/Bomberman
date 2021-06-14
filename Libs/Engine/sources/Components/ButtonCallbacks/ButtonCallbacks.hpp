@@ -83,6 +83,7 @@ namespace Component
             void DecrementPlayerNbr(void);
 
             static void StartGame(void);
+            static void StartEditorMenu(void);
 
             static void QuitWindow(void);
 
