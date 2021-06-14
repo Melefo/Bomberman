@@ -24,6 +24,17 @@
 #include "Collider.hpp"
 #include "DropBomb.hpp"
 
+enum MapSymbols
+{
+    PLAYER,
+    BOX_HP_1,
+    BOX_HP_2,
+    BOX_HP_3,
+    WALL,
+    BOMB,
+    EMPTY
+};
+
 class AIMapsGenerator : public ECS::ASystem {
     public:
         AIMapsGenerator(std::vector<std::string>& boxmap);

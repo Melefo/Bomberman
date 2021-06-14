@@ -33,6 +33,15 @@
 #include "AIMapsGenerator.hpp"
 #include "Movement.hpp"
 #include "AController.hpp"
+#include "GameConfiguration.hpp"
+
+enum AIState
+{
+    IDLE,
+    CHASE,
+    HIDE,
+    ATTACK
+};
 
 namespace Component
 {
@@ -93,7 +102,9 @@ namespace Component
              */
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
-            void GeneratePathToSymbol(RayLib::Vector3 position, int find);
+            std::vector<RayLib::Vector3> GeneratePathToSymbol(RayLib::Vector3 position, int find);
+
+            void DebugPath(RayLib::Vector3 startPos);
 
         protected:
         private:
@@ -132,24 +143,14 @@ namespace Component
              * 
              */
             const std::vector<std::vector<int>>& _bombtimermap;
-            bool _colliding;
             float _speed;
             RayLib::Vector3 _direction;
             std::unique_ptr<RayLib::Window>& _window;
-            float _explotimer;
 
             std::vector<RayLib::Vector3> _directionPath;
 
-            AIState _currentState;
+            ::AIState _currentState;
     };
 }
-
-enum AIState
-{
-    IDLE,
-    CHASE,
-    HIDE,
-    ATTACK
-};
 
 #endif /* !AIALGO_HPP_ */
