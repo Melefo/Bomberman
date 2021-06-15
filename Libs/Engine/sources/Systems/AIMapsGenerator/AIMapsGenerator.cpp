@@ -11,6 +11,7 @@ AIMapsGenerator::AIMapsGenerator(std::vector<std::string>& boxmap) : _entities(E
 _boxmap(InitMaps(boxmap)), _playersmap(InitMaps(boxmap)), 
 _bombmap(InitMaps(boxmap))
 {
+    UpdateMaps();
 }
 
 
@@ -24,19 +25,15 @@ void AIMapsGenerator::Update(double, ECS::Entity&)
 
 void AIMapsGenerator::UpdateMaps()
 {
+    std::cout << "Yolo" << std::endl;
     for (auto incr = _entities.begin(); incr != _entities.end();) {
         auto &entity = *incr->get();
         incr++;
         if (!entity.HasComponent<Component::Transform>())
             continue;
         if (entity.GetTag() == "Box") {
-            if (!entity.HasComponent<Component::Box>())
-                continue;
             Component::Transform &pos = entity.GetComponent<Component::Transform>();
-            Component::Box &dura = entity.GetComponent<Component::Box>();
-            if (dura.GetResistance() >= 1) {
-                _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = BoxMapValues::BOX;
-            }
+            _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = BoxMapValues::BOX;
         }
         if (entity.GetTag() == "Player") {
             Component::Transform &pos = entity.GetComponent<Component::Transform>();
@@ -69,9 +66,9 @@ std::vector<std::vector<int>> AIMapsGenerator::InitMaps(std::vector<std::string>
         map.emplace_back();
         for (std::size_t x = 0; x < boxmap[i].size(); x++) {
             if (boxmap[i][x] == 'X')
-                map[i].emplace_back(BoxMapValues::INWALL);
-            else if (boxmap[i][x] == 'o')
                 map[i].emplace_back(BoxMapValues::OFFWALL);
+            else if (boxmap[i][x] == 'o')
+                map[i].emplace_back(BoxMapValues::INWALL);
             else
                 map[i].emplace_back(BoxMapValues::EMPTY);
         }

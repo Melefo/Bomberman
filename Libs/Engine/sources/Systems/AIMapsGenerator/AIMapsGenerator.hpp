@@ -28,18 +28,16 @@
 enum BoxMapValues {
     OFFWALL = -21,
     INWALL = -20,
-    EMPTY = -3,
-    BOX = 1
+    BOX = 1,
+    EMPTY = -3
 };
 
 enum BombMapValues {
-    EMPTY = -3,
     BOMB = 0
 };
 
 enum PlayerMapValues {
-    PLAYER = 1,
-    EMPTY = -3
+    PLAYER = 1
 };
 
 class AIMapsGenerator : public ECS::ASystem {

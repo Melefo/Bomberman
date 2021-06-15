@@ -152,6 +152,13 @@ namespace RayLib
             void SetWindowState(unsigned int flags);
 
             /**
+             * @brief set the key given as the exit key
+             * 
+             * @param key
+             */
+            void SetExitKey(int key);
+
+            /**
              * @brief Function that returns the singleton
              * 
              * @param size 

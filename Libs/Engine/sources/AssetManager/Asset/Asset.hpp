@@ -43,12 +43,18 @@ class Asset {
          */
         std::string _name;
 
+        /**
+         * @brief entityID
+         * 
+         */
+        uint32_t _entityID;
+
     public:
         /**
          * @brief Construct a new Asset object
          * 
          */
-        Asset(std::string name);
+        Asset(std::string name, uint32_t id=-1);
 
         /**
          * @brief Destroy the Asset object
@@ -116,6 +122,8 @@ class Asset {
          * 
          */
         std::map<std::string, RayLib::Sound>& getSounds();
+
+        uint32_t getID(void);
 
 };
 

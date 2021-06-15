@@ -6,6 +6,7 @@
 */
 
 #include "GameConfigurator.hpp"
+#include "BehaviourSystem.hpp"
 
 namespace Component
 {
@@ -21,7 +22,7 @@ namespace Component
         int count = 0;
         // dans le constructeur
 
-        if (_coordinator->getCurrentScene() == "Editor") {
+        if (_coordinator->getCurrentScene() == "EditorMenu") {
             // if drag n drop
             if (_window->IsFileDropped())
             {
@@ -49,8 +50,10 @@ namespace Component
         }
 
         if (_coordinator->getCurrentScene() == "Game") {
-            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver())
+            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver()) {
                 Engine::GameConfiguration::SetGameOver(true);
+                _coordinator->GetSystem<Component::BehaviourSystem>().ToggleStatus();
+            }
         }
     }
 

@@ -102,11 +102,11 @@ namespace Component
              */
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
-            RayLib::Vector2<int> GetClosestSymbolPos(RayLib::Vector2<int> agentPos, std::vector<std::vector<int>>& map, int symbol);
+            RayLib::Vector2<int> GetClosestSymbolPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, int symbol);
 
             RayLib::Vector2<int> GetAgentPos(void);
 
-            void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, std::vector<std::vector<int>>& map, lua_CFunction validNode);
+            void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<std::vector<int>>& map, lua_CFunction validNode);
 
             void DebugPath(RayLib::Vector3 startPos);
 

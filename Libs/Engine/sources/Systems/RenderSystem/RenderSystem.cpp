@@ -31,25 +31,10 @@ namespace Component
         if (entity.OfType<IUIObject>().size() > 0)
             return;
 
-        RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName()).getModel();
+        RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName(), entity.GetId()).getModel();
 
-        float rotation = 0.0f;
-        RayLib::Vector3 worldUp = RayLib::Vector3();
-
-        if (abs(transform.rotation.x) > abs(transform.rotation.y) && abs(transform.rotation.x) > abs(transform.rotation.z)) {
-            worldUp.x = 1.0f;
-            rotation = transform.rotation.x;
-        }
-        if (abs(transform.rotation.y) > abs(transform.rotation.x) && abs(transform.rotation.y) > abs(transform.rotation.z)) {
-            worldUp.y = 1.0f;
-            rotation = transform.rotation.y;
-        }
-        if (abs(transform.rotation.z) > abs(transform.rotation.x) && abs(transform.rotation.z) > abs(transform.rotation.y)) {
-            worldUp.z = 1.0f;
-            rotation = transform.rotation.z;
-        }
-
-        model.DrawEx(transform.position, worldUp, rotation, transform.scale, WHITE);
+        model.RotateModel(transform.rotation);
+        model.DrawEx(transform.position, RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, transform.scale, WHITE);
 
         if (entity.HasComponent<Animator>()) {
             Animator& animator = entity.GetComponent<Animator>();

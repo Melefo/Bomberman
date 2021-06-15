@@ -18,9 +18,6 @@ namespace Component
 
     void BehaviourSystem::Update(double dt, ECS::Entity& entity)
     {
-        if (Engine::GameConfiguration::GetGameOver())
-            return;
-
         std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
         for (IBehaviour& behaviour : behaviours) {
@@ -30,9 +27,6 @@ namespace Component
 
     void BehaviourSystem::FixedUpdate(ECS::Entity &entity)
     {
-        if (Engine::GameConfiguration::GetGameOver())
-            return;
-
         std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
         for (IBehaviour& behaviour : behaviours) {
@@ -42,9 +36,6 @@ namespace Component
 
     void BehaviourSystem::LateUpdate(double dt, ECS::Entity& entity)
     {
-        if (Engine::GameConfiguration::GetGameOver())
-            return;
-
         std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
         for (IBehaviour& behaviour : behaviours) {

@@ -14,7 +14,7 @@ namespace Component
     _ai_player(player), _state(), _entities(ECS::Coordinator::GetInstance()->GetEntities()), _boxmap(aimapgen.GetBoxMap()),
     _playersmap(aimapgen.GetPlayersMap()), _bombmap(aimapgen.GetBombMap()),
     _speed(moveSpeed), _direction(), _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")),
-    _currentState(AIState::HIDE)
+    _currentState(AIState::CHASE)
     {
         _state.RunScript("../Libs/Engine/sources/Components/AIAlgo/AIAlgo.lua");
         _state.RunScript("../Libs/Engine/sources/Components/AIAlgo/Pathfinding.lua");
@@ -23,7 +23,6 @@ namespace Component
     void AIAlgo::Update(double dt, ECS::Entity& entity)
     {
         Component::Transform &transform = _ai_player.GetComponent<Component::Transform>();
-        int BlocSize = 10;
         /*if (!_ai_player.HasComponent<Component::Transform>() && !_ai_player.HasComponent<Component::DropBomb>())
             return;
         std::vector<int> p_pos = {0, 0, 0};
@@ -59,18 +58,21 @@ namespace Component
             _direction = RayLib::Vector3();
         }
 
-        if (_currentState == AIState::HIDE) {
-            targetPos = GetClosestSymbolPos(aimapgen.GetBoxMap(), BoxMapValues::BOX);
+        /*if (_currentState == AIState::HIDE) {
+            targetPos = GetClosestSymbolPos(aiPos, _boxmap, BoxMapValues::BOX);
             GetDirectionsList(aiPos, targetPos, _boxmap, validNode);
             //_directionPath = _state.Call("astar", aiPos, targetPos, _boxmap, validNode);
 
-        }
-        /*if (_currentState == AIState::CHASE) {
+        }*/
+        if (_currentState == AIState::CHASE) {
+            targetPos = GetClosestSymbolPos(aiPos, _boxmap , BoxMapValues::BOX);
+            GetDirectionsList(aiPos, targetPos, _boxmap, validNode);
+
             // _direction = dirToPlayer();
             // if no direct line to player:
                 // _direction = dirToBox();
         }
-        if (_currentState == AIState::ATTACK) {
+        /*if (_currentState == AIState::ATTACK) {
             _dropBomb.InstantiateBomb(transform.position);
             _currentState = AIState::HIDE;
         }*/
@@ -106,35 +108,59 @@ namespace Component
 
     }
 
-    void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, std::vector<std::vector<int>>& map, lua_CFunction validNode)
+    void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<std::vector<int>>& map, lua_CFunction validNode)
     {
-        std::vector<RayLib::Vector2<int>> path = _state.Call<std::vector<RayLib::Vector2<int>>("astar", aiPos, targetPos, map, validNode);
+        std::cout << "aiPos " << aiPos.x << " " << aiPos.y << std::endl;
+        std::cout << "targetPos " << targetPos.x << " " << targetPos.y << std::endl;
+        std::vector<RayLib::Vector2<int>> path = _state.Call <std::vector<RayLib::Vector2<int>>>("astar", aiPos, targetPos, map, validNode);
 
         _directionPath.clear();
 
-        for (auto pathNode = path.begin(), pathNode != path.end(); pathNode++) {
-            _directionPath.push_back(RayLib::Vector3(*pathNode.x - aiPos.x, 0.0f, *pathNode.y - aiPos.y);
+        for (auto pathNode = path.begin(); pathNode != path.end(); pathNode++) {
+            _directionPath.push_back(RayLib::Vector3((*pathNode).x - aiPos.x, 0.0f, (*pathNode).y - aiPos.y));
 
             aiPos += *pathNode;
         }
     }
 
-    RayLib::Vector2<int> AIAlgo::GetClosestSymbolPos(RayLib::Vector2<int> agentPos, std::vector<std::vector<int>>& map, int symbol)
+    RayLib::Vector2<int> AIAlgo::GetClosestSymbolPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, int symbol)
     {
         RayLib::Vector2<int> closestSymbol = RayLib::Vector2<int>();
         float closest = std::numeric_limits<float>::max();
         RayLib::Vector2<int> searchRadius(5, 5);
 
-        RayLib::Vector2<int> currentPoint = agentPos - searchRadius;
+        RayLib::Vector2<int> currentPoint = agentPos - (searchRadius * 0.5f);
+
+        RayLib::Vector2<int> maxPoint = agentPos;
+        maxPoint += (searchRadius * 0.5f);
 
         if (currentPoint.x < 0)
             currentPoint.x = 0;
         if (currentPoint.y < 0)
             currentPoint.y = 0;
 
-        for (std::size_t x = currentPoint.x; x < map.size(); x++) {
-            for (std::size_t y = currentPoint.y; y < map[x].size(); y++) {
-                if (map[x][y] == symbol && _state.Call<bool>("SimpleIsWalkable", RayLib::Vector2<int>(x, y))) {
+        if (maxPoint.y > static_cast<int>(map.size()))
+            maxPoint.y = map.size();
+        if (maxPoint.x > static_cast<int>(map[0].size()))
+            maxPoint.x = map[0].size();
+
+        for (std::size_t i = 0; i < _boxmap.size(); i++)
+        {
+            for (std::size_t j = 0; j < _boxmap[i].size(); j++)
+                std::cout << std::setw(4) << _boxmap[i][j];
+            std::cout << std::endl;
+        }
+
+        std::cout << "agentPos " << agentPos.x << "   " << agentPos.y << std::endl;
+        std::cout << "currentPoint " << currentPoint.x << "   " << currentPoint.y << std::endl;
+        std::cout << "maxPoint " << maxPoint.x << "   " << maxPoint.y << std::endl;
+        std::cout << "symbol " << symbol << std::endl;
+
+        std::cout << "X: " << map.size() << "   Y: "<< map[0].size() << "   Y2: " << map[1].size() << std::endl;
+        for (int y = currentPoint.y; y < maxPoint.y; y++) {
+            for (int x = currentPoint.x; x < maxPoint.x; x++) {
+                if (map[y][x] == symbol && _state.Call<bool>("SimpleIsWalkable", RayLib::Vector2<int>(x, y))) {
+                    std::cout << "Before dst" << std::endl;
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));
                     if (dst < closest) {
                         closest = dst;
@@ -148,11 +174,11 @@ namespace Component
 
     RayLib::Vector2<int> AIAlgo::GetAgentPos(void)
     {
-        // diviser etc
         Transform& transform = _ai_player.GetComponent<Transform>();
 
-        return (RayLib::Vector2<int>(static_cast<int>(transform.position.x),
-                                     static_cast<int>(transform.position.z)));
+
+        return (RayLib::Vector2<int>(static_cast<int>(transform.position.x) / 10.0f,
+                                     static_cast<int>(transform.position.z) / 10.0f));
     }
 
     std::ostream &AIAlgo::operator<<(std::ostream &os)

@@ -80,6 +80,7 @@ function Dump(o)
  end
 
 function astar(start, goal, nodes, valid_node)
+	print("Starting AStar")
 
     local openSet = { start }
 	local closeSet = {}
@@ -94,8 +95,12 @@ function astar(start, goal, nodes, valid_node)
 	end
 
 	gScore[start] = 0
+	print("checkpoint 3")
+	print(Dump(start))
+	print(Dump(goal))
 	fScore[start] = gScore[start] + dist(start, goal)
 
+	print("Starting while")
 	while #openSet > 0 do
 
 		local current = lowest_f_score(openSet, fScore)
@@ -104,17 +109,21 @@ function astar(start, goal, nodes, valid_node)
 			local path = unwind_path({}, came_from, goal)
 
 			table.insert( path, goal )
+			print("return path")
 			return path
 		end
 
 		remove_node(openSet, current)
 		table.insert(closeSet, current)
 
+		print("Starting for")
 		local neighbors = neighbor_nodes(current, nodes)
 		for _, neighbor in ipairs(neighbors) do
+			print("Starting not_in close")
 			if not_in(closeSet, neighbor) then
 				local tentative = gScore[current] + dist(current, neighbor)
 
+				print("Starting not_in open")
 				if not_in(openSet, neighbor) or tentative < gScore[neighbor] then
 					came_from[neighbor] = current
 					gScore[neighbor] = tentative
@@ -126,6 +135,7 @@ function astar(start, goal, nodes, valid_node)
 			end
 		end
 	end
+	print("Null path!")
 	return nil
 end
 

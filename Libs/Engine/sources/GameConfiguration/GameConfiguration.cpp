@@ -10,6 +10,7 @@
 
 namespace Engine
 {
+    TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(4);
     int GameConfiguration::_players = 0;
     int GameConfiguration::_enemies = 0;
     bool GameConfiguration::_debugMode = false;
@@ -95,4 +96,8 @@ namespace Engine
         _gameOver = gameOver;
     }
 
+    TerrainGenerator &GameConfiguration::GetTerrainGenerator(void)
+    {
+        return (_terrainGenerator);
+    }
 }

@@ -171,7 +171,7 @@ end
 
 function IsPositionWalkable(position, neighbour)
     -- ! ajouter + 1 ??
-    if (boxMap[position.x][position.y] == BoxMapValues.EMPTY) then
+    if (boxMap[position.x][position.y] == BoxMapValues.EMPTY and bombMap[position.x][position.y] == BoxMapValues.EMPTY) then
         if (Pathfinding.dist(position, neighbour) <= 1) then
             return (true)
         end

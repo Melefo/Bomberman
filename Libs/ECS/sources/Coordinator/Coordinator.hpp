@@ -68,6 +68,12 @@ namespace ECS
             bool _firstRun;
 
             /**
+             * @brief If the game is running
+             * 
+             */
+            bool _gameIsRunning;
+
+            /**
              * @brief Update all entities from the current scene with the actived systems
              * 
              * @param dt The inverval in seconds from the last update
@@ -169,6 +175,27 @@ namespace ECS
              * @return const std::list<std::unique_ptr<Entity>>& 
              */
             const std::list<std::unique_ptr<Entity>>& GetEntities();
+
+            /**
+             * @brief Remove components of renderer's name given
+             * 
+             * @param const std::string&
+             */
+            void RemoveComponents(const std::string &name);
+
+            /**
+             * @brief Checks if the game is running
+             * 
+             * @return bool
+             * 
+             */
+            bool IsGameRunning(void);
+
+            /**
+             * @brief set the _gameIsRunnning variable
+             * 
+             */
+            void SetGameIsRunning(bool isRunning);
 
             /**
              * @brief Get the Current Scene object

@@ -20,11 +20,7 @@ AssetManager::AssetManager() :
 {
 }
 
-AssetManager::~AssetManager()
-{
-}
-
-void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
+void AssetManager::loadAssetsThreadFunc(std::map<std::string, uint32_t> objects)
 {
     bool isAlreadyLoaded = false;
 
@@ -34,11 +30,16 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
     removeAllUnnecessaryAssets(objects);
     for (auto &object : objects) {
         //_mutex.lock();
-        _loadStatus.currLoading = "Loading the " + object + "\'s asset...";
+        _loadStatus.currLoading = "Loading the " + object.first + "\'s asset...";
         //_mutex.unlock();
         isAlreadyLoaded = false;
         for (auto &asset : _assets) {
-            if (asset->getName() == object) {
+            // ! chaque player et IA ont leur propre asset
+            if (asset->getName().find("Player") != std::string::npos)
+                continue;
+            //if (asset->getName().find("AI") != std::string::npos)
+            //    continue;
+            if (asset->getName() == object.first) {
                 isAlreadyLoaded = true;
                 break;
             }
@@ -48,8 +49,9 @@ void AssetManager::loadAssetsThreadFunc(std::vector<std::string> objects)
                 //Asset newAsset(object);
 
                 //_mutex.lock();
-                std::cout << "Making object with name" << object << std::endl;
-                _assets.push_back(std::make_unique<Asset>(object));
+                std::cout << "Making object with name" << object.first << std::endl;
+
+                _assets.push_back(std::make_unique<Asset>(object.first, object.second));
                 //_mutex.unlock();
             } catch (const Engine::Exception::AssetException &error) {
                 std::cerr << error.what() << std::endl;
@@ -100,30 +102,47 @@ Asset &AssetManager::getAssetFromName(const std::string &name)
     throw Engine::Exception::AssetManagerException("Cannot find an Asset with the name " + name + ".");
 }
 
-std::vector<std::string> AssetManager::getNamesOfObjects(const std::list<std::unique_ptr<ECS::Entity>> &objects)
+Asset &AssetManager::getAssetFromName(const std::string &name, uint32_t id)
 {
-    std::vector<std::string> names;
+    for (auto &asset : _assets) {
+        if (asset->getName() == name && asset->getID() == id)
+            return (*asset);
+    }
+    addAssetOfName(name);
+    for (auto &asset : _assets) {
+        if (asset->getName() == name)
+            return (*asset);
+    }
+    throw Engine::Exception::AssetManagerException("Cannot find an Asset with the name " + name + " and id " + std::to_string(id) + ".");
+}
+
+
+std::map<std::string, uint32_t> AssetManager::getNamesOfObjects(const std::list<std::unique_ptr<ECS::Entity>> &objects)
+{
+    std::map<std::string, uint32_t> names;
 
     for (auto &object : objects) {
         if (object.get()->HasComponent<Component::Renderer>()) {
             Component::Renderer& renderer = object->GetComponent<Component::Renderer>();
             //if (std::find (names.begin(), names.end(), object->GetTag()) == names.end())
             //    names.push_back(object->GetTag());
-            if (std::find (names.begin(), names.end(), renderer.getName()) == names.end())
-                names.push_back(renderer.getName());
+            if (names.find(renderer.getName()) == names.end()) {
+                names.insert(std::pair<std::string, uint32_t>(renderer.getName(), object.get()->GetId()));
+                //names.push_back(renderer.getName());
+            }
         }
     }
     return (names);
 }
 
-void AssetManager::removeAllUnnecessaryAssets(std::vector<std::string> &objects)
+void AssetManager::removeAllUnnecessaryAssets(std::map<std::string, uint32_t> &objects)
 {
     bool isNeeded = false;
 
     for (auto &asset : _assets) {
         isNeeded = false;
         for (auto &object : objects) {
-            if (asset->getName() == object) {
+            if (asset->getName() == object.first) {
                 isNeeded = true;
                 break;
             }
