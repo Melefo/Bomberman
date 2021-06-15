@@ -1,15 +1,25 @@
 #!/usr/local/bin/lua
 
+require "AIAlgo"
+
 local infini = 1 / 0
 
 Start = { x = 0, y = 0 }
 
 function dist(pos1, pos2)
-	return math.sqrt(math.pow(pos2.x - pos1.x, 2) + math.pow(pos2.y - pos1.y, 2))
+	return math.sqrt((pos2.x - pos1.x) ^ 2 + (pos2.y - pos1.y) ^ 2)
 end
 
 function is_valid_node(node, neighbor)
-	return true
+	print("Tolo")
+	print(Dump(BoxMap))
+	print("After dump boxmap")
+	if (BoxMap[position.x][position.y] == BoxMapValues.EMPTY and BombMap[position.x][position.y] == BoxMapValues.EMPTY) then
+        if (dist(position, neighbour) <= 1) then
+            return (true)
+        end
+    end
+    return (false)
 end
 
 function lowest_f_score(set, f_score)
@@ -31,9 +41,12 @@ function neighbor_nodes(currentPos, positions)
 	local neighbours = {}
 
     for _, pos in ipairs(positions) do
-        if (currentPos ~= pos) then
+		print("Yolo")
+        if currentPos ~= pos and is_valid_node(currentPos, pos) then
+			print("Lolo")
             table.insert(neighbours, pos)
         end
+		print("Molo")
     end
     return (neighbours)
 end
@@ -79,9 +92,10 @@ function Dump(o)
     end
  end
 
-function astar(start, goal, nodes, valid_node)
+function AStar(start, goal, nodes)
 	print("Starting AStar")
 
+	print("Nolo")
     local openSet = { start }
 	local closeSet = {}
 
@@ -90,15 +104,21 @@ function astar(start, goal, nodes, valid_node)
 
 	local came_from = {}
 
-	if valid_node then
-		is_valid_node = valid_node
-	end
-
 	gScore[start] = 0
-	print("checkpoint 3")
-	print(Dump(start))
-	print(Dump(goal))
+	print("start and goal :")
+	print(start.x)
+	print(start.y)
+	print(goal.x)
+	print(goal.y)
+	--print(Dump(goal))
+	--print(Dump(nodes))
+	print("gScore:")
+	print(gScore[start])
+	print(start.x - goal.x)
+
 	fScore[start] = gScore[start] + dist(start, goal)
+	print("After dist")
+	print(fScore[start])
 
 	print("Starting while")
 	while #openSet > 0 do
@@ -121,6 +141,9 @@ function astar(start, goal, nodes, valid_node)
 		for _, neighbor in ipairs(neighbors) do
 			print("Starting not_in close")
 			if not_in(closeSet, neighbor) then
+				print(gScore[current])
+				print(Dump(current))
+				print(Dump(neighbor))
 				local tentative = gScore[current] + dist(current, neighbor)
 
 				print("Starting not_in open")
@@ -149,17 +172,19 @@ end
 	--end
 --end
 
-local valid_node_func = function (node, neighbor)
+--local valid_node_func = function (node, neighbor)
 
-	local MAX_DIST = 1
+--	local MAX_DIST = 1
 
-	if dist(node, neighbor) <= MAX_DIST then
-		return true
-	end
-	return false
-end
+	--if dist(node, neighbor) <= MAX_DIST then
+--		return true
+--	end
+--	return false
+--end
 
 --local result = astar(test3[1], test3[index - 1], test3, valid_node_func)
 
 
 --print(Dump(result))
+
+MangeTesMorts()

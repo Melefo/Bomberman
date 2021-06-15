@@ -1,7 +1,5 @@
 #!/usr/local/bin/lua
 
-require "Pathfinding"
-
 BoxMapValues = {
     OFFWALL = -21,
     INWALL = -20,
@@ -30,9 +28,9 @@ moves = {
     down = {x = 0, y = -1}
 };
 
-local bombMap = {}
-local playerMap = {}
-local boxMap = {}
+BombMap = {}
+PlayerMap = {}
+BoxMap = {}
 
 Xdir = 0.0;
 Zdir = 0.0;
@@ -164,17 +162,12 @@ end
 
 
 function SetMapValues(updatedBombMap, updatedPlayerMap, updatedBoxMap)
-    bombMap = updatedBombMap
-    playerMap = updatedPlayerMap
-    boxMap = updatedBoxMap
+    BombMap = updatedBombMap
+    PlayerMap = updatedPlayerMap
+    BoxMap = updatedBoxMap
 end
 
-function IsPositionWalkable(position, neighbour)
-    -- ! ajouter + 1 ??
-    if (boxMap[position.x][position.y] == BoxMapValues.EMPTY and bombMap[position.x][position.y] == BoxMapValues.EMPTY) then
-        if (Pathfinding.dist(position, neighbour) <= 1) then
-            return (true)
-        end
-    end
-    return (false)
+
+function MangeTesMorts()
+    print("Salope")
 end

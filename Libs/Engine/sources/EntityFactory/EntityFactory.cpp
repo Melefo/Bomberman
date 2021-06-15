@@ -127,11 +127,11 @@ ECS::Entity& EntityFactory::createAI()
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("Player");
-    entity.AddComponent<Component::Animator>("Player", "Run");
+    entity.AddComponent<Component::Animator>(entity, "Player", "Idle");
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
     entity.AddComponent<Component::Destructible>(entity, 1);
-    AIMapsGenerator& mapsgen = _coordinator.GetSystem<AIMapsGenerator>();
-    entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, mapsgen, 0.5f);
+    //AIMapsGenerator& mapsgen = _coordinator.GetSystem<AIMapsGenerator>();
+    entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, 0.5f);
     return (entity);
 }
 

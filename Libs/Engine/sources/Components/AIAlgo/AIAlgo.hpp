@@ -54,7 +54,7 @@ namespace Component
              * @param aimapgen 
              * @param moveSpeed 
              */
-            AIAlgo(ECS::Entity &player, AIMapsGenerator& aimapgen, float moveSpeed, float dropDelay=2.5f);
+            AIAlgo(ECS::Entity &player, float moveSpeed, float dropDelay=2.5f);
             /**
              * @brief Destroy the AIAlgo object
              * 
@@ -106,9 +106,12 @@ namespace Component
 
             RayLib::Vector2<int> GetAgentPos(void);
 
-            void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<std::vector<int>>& map, lua_CFunction validNode);
+            void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& map);
 
             void DebugPath(RayLib::Vector3 startPos);
+
+            std::vector<RayLib::Vector2<int>> GetMapAsPositions(const std::vector<std::vector<int>>& map);
+
 
         protected:
         private:
@@ -127,21 +130,6 @@ namespace Component
              * 
              */
             const std::list<std::unique_ptr<ECS::Entity>>& _entities;
-            /**
-             * @brief a map who contain the box informations
-             * 
-             */
-            const std::vector<std::vector<int>>& _boxmap;
-            /**
-             * @brief a map who contain the players informations
-             * 
-             */
-            const std::vector<std::vector<int>>& _playersmap;
-            /**
-             * @brief a map who contain the bomb timer informations
-             * 
-             */
-            const std::vector<std::vector<int>>& _bombmap;
             float _speed;
             RayLib::Vector3 _direction;
             std::unique_ptr<RayLib::Window>& _window;

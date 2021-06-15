@@ -46,7 +46,7 @@ namespace Component
 
     void TextBox::AppendChar(char value)
     {
-        if (this->_value.size() < this->_max)
+        if (static_cast<int>(this->_value.size()) < this->_max)
             this->_value += value;
     }
 

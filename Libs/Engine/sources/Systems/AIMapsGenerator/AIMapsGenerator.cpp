@@ -19,13 +19,12 @@ void AIMapsGenerator::Update(double, ECS::Entity&)
 {
     RemoveCharsFromMap(_boxmap, {BoxMapValues::BOX});
     RemoveCharsFromMap(_playersmap, {PlayerMapValues::PLAYER});
-    RemoveCharsFromMap(_bombmap, {1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    RemoveCharsFromMap(_bombmap, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
     UpdateMaps();
 }
 
 void AIMapsGenerator::UpdateMaps()
 {
-    std::cout << "Yolo" << std::endl;
     for (auto incr = _entities.begin(); incr != _entities.end();) {
         auto &entity = *incr->get();
         incr++;

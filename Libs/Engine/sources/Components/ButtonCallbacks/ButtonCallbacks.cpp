@@ -113,8 +113,11 @@ namespace Component
     void ButtonCallbacks::StartGame()
     {
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
-        if (!terrainGeneratorRef.isGenerated())
-            return;
+        if (!terrainGeneratorRef.isGenerated()) {
+            terrainGeneratorRef.generateRandomMap(0);
+            terrainGeneratorRef.generateBoxes();
+            terrainGeneratorRef.placePlayers();
+        }
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 

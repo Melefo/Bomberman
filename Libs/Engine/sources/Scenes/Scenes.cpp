@@ -72,7 +72,7 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
             }
 
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
-                Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
+                //Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
                 ECS::Entity& player = entityFactory.createAI();
                 player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
 
@@ -168,6 +168,9 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
 
     Scenes::InitNbrPlayers(entityFactory, window);
 
+    std::vector<std::string> cpymap = Engine::GameConfiguration::GetTerrainGenerator().getMap();
+    //AIMapsGenerator& mapsgen = coordinator.AddSystem<AIMapsGenerator>(cpymap);
+
     entityFactory.createCamera();
 
     ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "../assets/pixelplay.png", 50.0f, 4.0f);
@@ -211,12 +214,12 @@ void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     EntityFactory entityFactory(coordinator, camera);
-    std::vector<std::string> cpymap = map;
-
-    AIMapsGenerator& mapsgen = coordinator.AddSystem<AIMapsGenerator>(cpymap);
-    // init camera component
 
     InitMap(coordinator, camera, false);
+
+    std::vector<std::string> cpymap = Engine::GameConfiguration::GetTerrainGenerator().getMap();
+    AIMapsGenerator& mapsgen = coordinator.AddSystem<AIMapsGenerator>(cpymap);
+    // init camera component
 
     entityFactory.createCamera();
 
@@ -229,5 +232,4 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     bomb.AddComponent<Component::Renderer>("Bomb");
     bomb.AddComponent<Component::Transform>(RayLib::Vector3(1000.0f, 100.0f, 0.0f));
     //bomb.Dispose();
-    
 }

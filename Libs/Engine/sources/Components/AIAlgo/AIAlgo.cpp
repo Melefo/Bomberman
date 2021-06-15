@@ -10,9 +10,8 @@
 
 namespace Component
 {
-    AIAlgo::AIAlgo(ECS::Entity &player, AIMapsGenerator& aimapgen, float moveSpeed, float dropDelay) : AController(player, moveSpeed, dropDelay),
-    _ai_player(player), _state(), _entities(ECS::Coordinator::GetInstance()->GetEntities()), _boxmap(aimapgen.GetBoxMap()),
-    _playersmap(aimapgen.GetPlayersMap()), _bombmap(aimapgen.GetBombMap()),
+    AIAlgo::AIAlgo(ECS::Entity &player, float moveSpeed, float dropDelay) : AController(player, moveSpeed, dropDelay),
+    _ai_player(player), _state(), _entities(ECS::Coordinator::GetInstance()->GetEntities()),
     _speed(moveSpeed), _direction(), _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")),
     _currentState(AIState::CHASE)
     {
@@ -22,6 +21,11 @@ namespace Component
 
     void AIAlgo::Update(double dt, ECS::Entity& entity)
     {
+        AIMapsGenerator& mapGen = ECS::Coordinator::GetInstance()->GetSystem<AIMapsGenerator>();
+        const std::vector<std::vector<int>>& bombMap = mapGen.GetBombMap();
+        const std::vector<std::vector<int>>& playerMap = mapGen.GetPlayersMap();
+        const std::vector<std::vector<int>>& boxMap = mapGen.GetBoxMap();
+
         Component::Transform &transform = _ai_player.GetComponent<Component::Transform>();
         /*if (!_ai_player.HasComponent<Component::Transform>() && !_ai_player.HasComponent<Component::DropBomb>())
             return;
@@ -45,12 +49,13 @@ namespace Component
         if (_explotimer > 0)
             _explotimer -= _window->GetFrameTime();*/
 
-        _state.Call("SetMapValues", _bombmap, _playersmap, _boxmap);
+        _state.Call("SetMapValues", bombMap, playerMap, boxMap);
 
-        lua_CFunction validNode = _state.GetGlobal<lua_CFunction>("IsPositionWalkable");
+        //lua_CFunction validNode = _state.GetGlobal<lua_CFunction>("IsPositionWalkable");
 
         RayLib::Vector2<int> targetPos;
         RayLib::Vector2<int> aiPos = GetAgentPos();
+        std::vector<RayLib::Vector2<int>> mapPositions;
 
         //_state.Call("astar", PlayerPos, closestSymbolPos, aimapgen.GetBoxMap(), func);
 
@@ -65,8 +70,9 @@ namespace Component
 
         }*/
         if (_currentState == AIState::CHASE) {
-            targetPos = GetClosestSymbolPos(aiPos, _boxmap , BoxMapValues::BOX);
-            GetDirectionsList(aiPos, targetPos, _boxmap, validNode);
+            targetPos = GetClosestSymbolPos(aiPos, boxMap , BoxMapValues::BOX);
+            mapPositions = GetMapAsPositions(boxMap);
+            GetDirectionsList(aiPos, targetPos, mapPositions);
 
             // _direction = dirToPlayer();
             // if no direct line to player:
@@ -108,11 +114,13 @@ namespace Component
 
     }
 
-    void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<std::vector<int>>& map, lua_CFunction validNode)
+    void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& mapPositions)
     {
         std::cout << "aiPos " << aiPos.x << " " << aiPos.y << std::endl;
         std::cout << "targetPos " << targetPos.x << " " << targetPos.y << std::endl;
-        std::vector<RayLib::Vector2<int>> path = _state.Call <std::vector<RayLib::Vector2<int>>>("astar", aiPos, targetPos, map, validNode);
+        std::vector<RayLib::Vector2<int>> path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", aiPos, targetPos, mapPositions);
+
+        std::cout << "After astar" << std::endl;
 
         _directionPath.clear();
 
@@ -127,7 +135,7 @@ namespace Component
     {
         RayLib::Vector2<int> closestSymbol = RayLib::Vector2<int>();
         float closest = std::numeric_limits<float>::max();
-        RayLib::Vector2<int> searchRadius(5, 5);
+        RayLib::Vector2<int> searchRadius(10, 10);
 
         RayLib::Vector2<int> currentPoint = agentPos - (searchRadius * 0.5f);
 
@@ -144,23 +152,16 @@ namespace Component
         if (maxPoint.x > static_cast<int>(map[0].size()))
             maxPoint.x = map[0].size();
 
-        for (std::size_t i = 0; i < _boxmap.size(); i++)
+        for (std::size_t i = 0; i < map.size(); i++)
         {
-            for (std::size_t j = 0; j < _boxmap[i].size(); j++)
-                std::cout << std::setw(4) << _boxmap[i][j];
+            for (std::size_t j = 0; j < map[i].size(); j++)
+                std::cout << std::setw(4) << map[i][j];
             std::cout << std::endl;
         }
 
-        std::cout << "agentPos " << agentPos.x << "   " << agentPos.y << std::endl;
-        std::cout << "currentPoint " << currentPoint.x << "   " << currentPoint.y << std::endl;
-        std::cout << "maxPoint " << maxPoint.x << "   " << maxPoint.y << std::endl;
-        std::cout << "symbol " << symbol << std::endl;
-
-        std::cout << "X: " << map.size() << "   Y: "<< map[0].size() << "   Y2: " << map[1].size() << std::endl;
         for (int y = currentPoint.y; y < maxPoint.y; y++) {
             for (int x = currentPoint.x; x < maxPoint.x; x++) {
                 if (map[y][x] == symbol && _state.Call<bool>("SimpleIsWalkable", RayLib::Vector2<int>(x, y))) {
-                    std::cout << "Before dst" << std::endl;
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));
                     if (dst < closest) {
                         closest = dst;
@@ -179,6 +180,18 @@ namespace Component
 
         return (RayLib::Vector2<int>(static_cast<int>(transform.position.x) / 10.0f,
                                      static_cast<int>(transform.position.z) / 10.0f));
+    }
+
+    std::vector<RayLib::Vector2<int>> AIAlgo::GetMapAsPositions(const std::vector<std::vector<int>>& map)
+    {
+        std::vector<RayLib::Vector2<int>> result;
+
+        for (std::size_t i = 0; i < map.size(); i++) {
+            for (std::size_t j = 0; j < map[0].size(); j++) {
+                result.push_back(RayLib::Vector2<int>(j, i));
+            }
+        }
+        return (result);
     }
 
     std::ostream &AIAlgo::operator<<(std::ostream &os)
