@@ -94,7 +94,7 @@ ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
     entity.AddComponent<Component::Renderer>("Box");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     //entity.AddComponent<Component::Destructible>(entity, 1);
-    entity.AddComponent<Component::Box>(entity, 1, 0.5f);
+    entity.AddComponent<Component::Box>(entity, 1, 0.1f);
 
     if (draggable)
         entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, _camera);

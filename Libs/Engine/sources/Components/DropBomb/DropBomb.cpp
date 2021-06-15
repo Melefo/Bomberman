@@ -12,10 +12,10 @@
 
 namespace Component
 {
-    DropBomb::DropBomb(float delay)
+    DropBomb::DropBomb(float delay, float minDelay, float maxBombs)
     : timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _bombNumber(2), _defaultBombNumber(2),
-     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay)
+     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay), _minDelay(minDelay), _maxBombs(maxBombs)
     {
     }
 
@@ -36,6 +36,9 @@ namespace Component
     {
         float explosionRadius = 2.50f;
         float boxSize = 7.50f;
+
+        if (_bombNumber > _maxBombs)
+            _bombNumber = _maxBombs;
 
         // spawn a bunch of small bombs in a cross pattern of size radius
         // create a bunch of directions vectors
@@ -83,6 +86,9 @@ namespace Component
     void DropBomb::Update()
     {
         float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
+
+        if (_dropDelay < _minDelay)
+            _dropDelay = _minDelay;
 
         if (_bonusTime > 0.0f) {
             _bonusTime -= frameTime;
