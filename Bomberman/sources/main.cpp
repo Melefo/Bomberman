@@ -73,7 +73,6 @@ int main(void)
     coordinator->AddSystem<Component::UISystem>(camera);
     coordinator->AddSystem<Component::RenderSystem>();
     coordinator->AddSystem<Component::BehaviourSystem>();
-    //entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, mapsgen, 0.5f);
 
     window->SetTargetFPS(60);
     assetManagerRef->loadAssets(coordinator->GetEntities());

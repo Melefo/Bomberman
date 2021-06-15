@@ -47,3 +47,13 @@ function Dump(o)
  end
 
 print(Dump(Vector));
+
+function dumpTest(test)
+	print(Dump(test))
+    print(test.x)
+    local result = {}
+    result[1] = 1
+    result[2] = 2
+    result[3] = 3
+    return result
+end

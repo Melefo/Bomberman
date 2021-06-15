@@ -9,7 +9,7 @@
 #define VECTOR2_HPP_
 
 #include <raylib.h>
-
+#include <cmath>
 
 namespace RayLib
 {
@@ -105,7 +105,19 @@ namespace RayLib
                 return (*this);
             }
 
-            //Vector2 &operator+(const Vector2 &Vector2);
+            Vector2<T>& operator+=(const Vector2<T>& other)
+            {
+                x += other.x;
+                y += other.y;
+                return (*this);
+            }
+
+            Vector2<T>& operator-(const Vector2<T>& other)
+            {
+                x -= other.x;
+                y -= other.y;
+                return (*this);
+            }
             //Vector2 &operator-(const Vector2 &Vector2);
             // dot product ?
 
@@ -120,6 +132,14 @@ namespace RayLib
                 x = static_cast<T>(x * factor);
                 y = static_cast<T>(y * factor);
                 return (*this);
+            }
+
+            float Distance(const Vector2<T>& other)
+            {
+                float distance = static_cast<float>(std::sqrt(std::pow(static_cast<double>(x - other.x), 2.0) +
+                                                         std::pow(static_cast<double>(y - other.y), 2.0)));
+
+                return (distance);
             }
 
             T x;

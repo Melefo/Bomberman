@@ -8,20 +8,21 @@
 #include <iostream>
 #include <vector>
 #include <criterion/criterion.h>
+#include "Vector2.hpp"
 #include "State.hpp"
 
 Test(lua, open)
 {
     Lua::State state;
 
-    cr_assert_eq(state.RunScript("../Lua/tests/test.lua"), 0);
+    cr_assert_eq(state.RunScript("../Libs/Lua/tests/test.lua"), 0);
 }
 
 Test(lua, getglobalvar)
 {
     Lua::State state;
 
-    state.RunScript("../Lua/tests/test.lua");
+    state.RunScript("../Libs/Lua/tests/test.lua");
     cr_assert_eq(state.GetGlobal<std::string>("Hello"), "Hello World!");
     state.SetGlobal("Testing", 123456);
     cr_assert_eq(state.GetGlobal<int>("Testing"), 123456);
@@ -31,7 +32,7 @@ Test(lua, callFunction)
 {
     Lua::State state;
 
-    state.RunScript("../Lua/tests/test.lua");
+    state.RunScript("../Libs/Lua/tests/test.lua");
     cr_assert_eq(state.Call<int>("Add", 42, 69), 111);
 }
 
@@ -41,6 +42,18 @@ Test(lua, vector)
     std::vector<int> vector = {10, 20, 30, 40, 50};
 
     state.SetGlobal("Vector", vector);
-    cr_assert_eq(state.RunScript("../Lua/tests/test.lua"), 0);
+    cr_assert_eq(state.RunScript("../Libs/Lua/tests/test.lua"), 0);
+
+    std::map<std::string, int> test = {
+        {"x", 123},
+        {"y", 456}
+    };
+
+    state.Call("dumpTest", test);
+
+    RayLib::Vector2 vec(12, 34);
+    std::vector<int> result = state.Call<std::vector<int>>("dumpTest", vec);
+    for (std::size_t i = 0; i < result.size(); i++)
+        std::cout << result[i] << std::endl;
     //cr_assert_eq(state.GetGlobal<int>("Testing"), 123456);
 }

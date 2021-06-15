@@ -24,15 +24,22 @@
 #include "Collider.hpp"
 #include "DropBomb.hpp"
 
-enum MapSymbols
-{
-    PLAYER,
-    BOX_HP_1,
-    BOX_HP_2,
-    BOX_HP_3,
-    WALL,
-    BOMB,
-    EMPTY
+
+enum BoxMapValues {
+    OFFWALL = -21,
+    INWALL = -20,
+    EMPTY = -3,
+    BOX = 1
+};
+
+enum BombMapValues {
+    EMPTY = -3,
+    BOMB = 0
+};
+
+enum PlayerMapValues {
+    PLAYER = 1,
+    EMPTY = -3
 };
 
 class AIMapsGenerator : public ECS::ASystem {
@@ -48,15 +55,13 @@ class AIMapsGenerator : public ECS::ASystem {
         std::vector<std::vector<int>>& RemoveCharsFromMap(std::vector<std::vector<int>>& map, std::vector<int> chars);
         const std::vector<std::vector<int>>& GetBoxMap() const;
         const std::vector<std::vector<int>>& GetPlayersMap() const;
-        const std::vector<std::vector<int>>& GetBombPowMap() const;
-        const std::vector<std::vector<int>>& GetBombTimeMap() const;
+        const std::vector<std::vector<int>>& GetBombMap() const;
     protected:
     private:
         const std::list<std::unique_ptr<ECS::Entity>>& _entities;
         std::vector<std::vector<int>> _boxmap;
         std::vector<std::vector<int>> _playersmap;
-        std::vector<std::vector<int>> _bombpowmap;
-        std::vector<std::vector<int>> _bombtimermap;
+        std::vector<std::vector<int>> _bombmap;
 };
 
 #endif /* !AIMAPSGENERATOR_HPP_ */

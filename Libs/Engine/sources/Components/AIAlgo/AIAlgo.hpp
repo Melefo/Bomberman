@@ -102,7 +102,11 @@ namespace Component
              */
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
-            std::vector<RayLib::Vector3> GeneratePathToSymbol(RayLib::Vector3 position, int find);
+            RayLib::Vector2<int> GetClosestSymbolPos(RayLib::Vector2<int> agentPos, std::vector<std::vector<int>>& map, int symbol);
+
+            RayLib::Vector2<int> GetAgentPos(void);
+
+            void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, std::vector<std::vector<int>>& map, lua_CFunction validNode);
 
             void DebugPath(RayLib::Vector3 startPos);
 
@@ -134,15 +138,10 @@ namespace Component
              */
             const std::vector<std::vector<int>>& _playersmap;
             /**
-             * @brief a map who contain the bomb power informations
-             * 
-             */
-            const std::vector<std::vector<int>>& _bombpowmap;
-            /**
              * @brief a map who contain the bomb timer informations
              * 
              */
-            const std::vector<std::vector<int>>& _bombtimermap;
+            const std::vector<std::vector<int>>& _bombmap;
             float _speed;
             RayLib::Vector3 _direction;
             std::unique_ptr<RayLib::Window>& _window;

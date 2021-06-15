@@ -9,17 +9,16 @@
 
 AIMapsGenerator::AIMapsGenerator(std::vector<std::string>& boxmap) : _entities(ECS::Coordinator::GetInstance()->GetEntities()),
 _boxmap(InitMaps(boxmap)), _playersmap(InitMaps(boxmap)), 
-_bombpowmap(InitMaps(boxmap)), _bombtimermap(InitMaps(boxmap))
+_bombmap(InitMaps(boxmap))
 {
 }
 
 
 void AIMapsGenerator::Update(double, ECS::Entity&)
 {
-    RemoveCharsFromMap(_boxmap, {1, 2, 3});
-    RemoveCharsFromMap(_playersmap, {1, 2, 3});
-    RemoveCharsFromMap(_bombpowmap, {1, 2, 3});
-    RemoveCharsFromMap(_bombtimermap, {1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    RemoveCharsFromMap(_boxmap, {BoxMapValues::BOX});
+    RemoveCharsFromMap(_playersmap, {PlayerMapValues::PLAYER});
+    RemoveCharsFromMap(_bombmap, {1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
     UpdateMaps();
 }
 
@@ -35,25 +34,20 @@ void AIMapsGenerator::UpdateMaps()
                 continue;
             Component::Transform &pos = entity.GetComponent<Component::Transform>();
             Component::Box &dura = entity.GetComponent<Component::Box>();
-            if (dura.GetResistance() == 1) {
-                _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = 1;
-            } else if (dura.GetResistance() == 2) {
-                _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = 2;
-            } else {
-                _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = 3;
+            if (dura.GetResistance() >= 1) {
+                _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = BoxMapValues::BOX;
             }
         }
         if (entity.GetTag() == "Player") {
             Component::Transform &pos = entity.GetComponent<Component::Transform>();
-            _playersmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = 1;
+            _playersmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = PlayerMapValues::PLAYER;
         }
         if (entity.GetTag() == "Bomb") {
             if (!entity.HasComponent<Component::Explosion>())
                 continue;
             Component::Transform &pos = entity.GetComponent<Component::Transform>();
             Component::Explosion &explo = entity.GetComponent<Component::Explosion>();
-            _bombpowmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = explo.power;
-            _bombtimermap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = static_cast<int>(explo.GetExplosionTimer());
+            _bombmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = static_cast<int>(explo.GetExplosionTimer());
         }
     }
 }
@@ -75,11 +69,11 @@ std::vector<std::vector<int>> AIMapsGenerator::InitMaps(std::vector<std::string>
         map.emplace_back();
         for (std::size_t x = 0; x < boxmap[i].size(); x++) {
             if (boxmap[i][x] == 'X')
-                map[i].emplace_back(-20);
+                map[i].emplace_back(BoxMapValues::INWALL);
             else if (boxmap[i][x] == 'o')
-                map[i].emplace_back(-21);
+                map[i].emplace_back(BoxMapValues::OFFWALL);
             else
-                map[i].emplace_back(-3);
+                map[i].emplace_back(BoxMapValues::EMPTY);
         }
     }
     return (map);
@@ -105,12 +99,7 @@ const std::vector<std::vector<int>>& AIMapsGenerator::GetPlayersMap() const
     return (_playersmap);
 }
 
-const std::vector<std::vector<int>>& AIMapsGenerator::GetBombPowMap() const
+const std::vector<std::vector<int>>& AIMapsGenerator::GetBombMap() const
 {
-    return (_bombpowmap);
-}
-
-const std::vector<std::vector<int>>& AIMapsGenerator::GetBombTimeMap() const
-{
-    return (_bombtimermap);
+    return (_bombmap);
 }
