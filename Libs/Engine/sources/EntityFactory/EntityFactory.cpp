@@ -168,7 +168,7 @@ ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::Explo
     entity.AddComponent<Component::Renderer>("Bomb");
     //! si on spawn une bombe sur le joueur, on est bloqués
     //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
-    entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, radius, type);
+    entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, entity, radius, type);
     return (entity);
 }
 

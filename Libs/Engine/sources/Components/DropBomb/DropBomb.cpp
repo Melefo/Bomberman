@@ -12,10 +12,10 @@
 
 namespace Component
 {
-    DropBomb::DropBomb(float delay, float minDelay, float maxBombs)
+    DropBomb::DropBomb(ECS::Entity& self, float delay, float minDelay, float maxBombs)
     : timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _bombNumber(2), _defaultBombNumber(2),
-     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay), _minDelay(minDelay), _maxBombs(maxBombs)
+     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay), _minDelay(minDelay), _maxBombs(maxBombs), _self(self)
     {
     }
 
@@ -25,10 +25,7 @@ namespace Component
         entity.SetTag("Bomb");
 
         entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2, 2, 2));
-        //entity.AddComponent<Renderer>("Bomb");
-        //! si on spawn une bombe sur le joueur, on est bloqués
-        //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
-        entity.AddComponent<IBehaviour, Explosion>(entity, radius, type);
+        entity.AddComponent<IBehaviour, Explosion>(entity, _self, radius, type);
         return (entity);
     }
 

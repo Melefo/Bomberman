@@ -10,9 +10,9 @@
 
 namespace Component
 {
-    Explosion::Explosion(ECS::Entity& entity, float radius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
+    Explosion::Explosion(ECS::Entity& entity, ECS::Entity& parent, float radius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity), _transform(_myEntity.GetComponent<Transform>()),
-    _coordinator(ECS::Coordinator::GetInstance())
+    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent)
     {
         _radius = radius;
         type = startType;
@@ -52,6 +52,43 @@ namespace Component
             }
             _myEntity.Dispose();
         }
+
+        CheckParentLeftRadius();
+    }
+
+    void Explosion::CheckParentLeftRadius(void)
+    {
+        bool found = false;
+
+        // si tu détruis ton parent, ne le cherche pas
+        if (_explosionTimer <= 0.05f)
+            return;
+
+        // either already has a collider, or is not a center bomb
+        if (_myEntity.OfType<Collider>().size() > 0 || !_myEntity.HasComponent<Renderer>())
+            return;
+
+        // happens if the factory creates a bomb
+        if (_parent.GetId() == _myEntity.GetId())
+            return;
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        Transform& transform = _myEntity.GetComponent<Transform>();
+
+        std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*coordinator.get(), transform.position, _radius);
+        for (auto entity = entities.begin(); entity != entities.end(); entity++) {
+            if (entity->get().GetId() == _parent.GetId()) {
+                found = true;
+                std::cout << "Parent is in radius " << _radius << std::endl;
+
+            }
+        }
+
+        if (!found) {
+            std::cout << "Parent is no longer in radius " << _radius << std::endl;
+
+            _myEntity.AddComponent<Collider, SphereCollider>(_myEntity, transform.position, _radius);
+        }
+
     }
 
     void Explosion::FixedUpdate(ECS::Entity&)

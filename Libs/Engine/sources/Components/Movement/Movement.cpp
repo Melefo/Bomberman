@@ -16,6 +16,7 @@ namespace Component
     {
         _collisionMask.push_back("Wall");
         _collisionMask.push_back("Box");
+        _collisionMask.push_back("Bomb");
     }
 
     void Movement::Update(double, ECS::Entity& entity)
