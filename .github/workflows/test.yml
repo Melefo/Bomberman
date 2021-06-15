@@ -32,8 +32,11 @@ jobs:
           cd build &&
           cmake ..
       - name: Makefile
-        run: make -C build ray_unit_tests ecs_unit_tests bomberman_unit_tests
+        run: make -C build ray_unit_tests ecs_unit_tests bomberman_unit_tests xmlGen_unit_tests engine_unit_tests terrainGen_unit_tests
       - name: Run unit tests
         run: ./build/Bomberman/bomberman_unit_tests &&
-          ./build/ECS/ecs_unit_tests &&
-          ./build/RayLib/ray_unit_tests
+          ./build/Libs/ECS/ecs_unit_tests &&
+          ./build/Libs/RayLib/ray_unit_tests &&
+          ./build/Libs/XMLGenerator/xmlGen_unit_tests &&
+          ./build/Libs/Engine/engine_unit_tests &&
+          ./build/Libs/TerrainGenerator/terrainGen_unit_tests
