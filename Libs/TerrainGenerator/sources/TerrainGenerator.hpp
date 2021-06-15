@@ -94,6 +94,25 @@ class TerrainGenerator {
          */
         void setPlayersNumber(int newSize);
 
+        /**
+         * @brief If a map has been generated
+         * 
+         * @return bool
+         */
+        bool isGenerated();
+
+        /**
+         * @brief Randomly generate boxes for Random and Basic maps
+         * 
+         */
+        void generateBoxes();
+        /**
+         * @brief Place players on map based on their number
+         * Specific to Random maps
+         * 
+         */
+        void placePlayers();
+
     protected:
         /**
          * @brief Generate a line based on the actual position
@@ -109,11 +128,6 @@ class TerrainGenerator {
          * @return char Box level '1', '2' or '3'
          */
         char generateBoxLevel();
-        /**
-         * @brief Randomly generate boxes for Random and Basic maps
-         * 
-         */
-        void generateBoxes();
         /**
          * @brief Clone the generated map mirror on the other face
          * Specific to Random maps
@@ -190,12 +204,6 @@ class TerrainGenerator {
          */
         bool isMapFull();
         /**
-         * @brief Place players on map based on their number
-         * Specific to Random maps
-         * 
-         */
-        void placePlayers();
-        /**
          * @brief Randomly generates either a Basic map or a Random one 
          * 
          */
@@ -241,6 +249,12 @@ class TerrainGenerator {
          * 
          */
         std::vector<std::string> _map;
+
+        /**
+         * @brief If a map has been generated
+         * 
+         */
+        bool _isGenerated;
 };
 
 #endif /* !TERRAINGENERATOR_HPP_ */

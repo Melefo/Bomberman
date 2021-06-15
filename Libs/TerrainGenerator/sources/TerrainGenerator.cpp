@@ -13,7 +13,7 @@
 
 TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int boxPercentage)
     : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
-    _height(13), _mapType(mapType), _map(_height)
+    _height(13), _mapType(mapType), _map(_height), _isGenerated(false)
 {
     _playersNbr = _playersNbr < 2 ? 2 : _playersNbr;
     _playersNbr = _playersNbr > 8 ? 8 : _playersNbr;
@@ -25,7 +25,7 @@ TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int bo
     };
 
     _width = mapSizes[_playersNbr];
-    generateMap();
+    //generateMap();
 }
 
 /**
@@ -62,6 +62,7 @@ void TerrainGenerator::generateBaseMap()
             it = generateMapLine(index);
         index++;
     }
+    _isGenerated = true;
 }
 
 void TerrainGenerator::generateRandomMap(unsigned int seed)
@@ -123,6 +124,7 @@ void TerrainGenerator::generateRandomMap(unsigned int seed)
     //fillHoles();
     trimMap();
     cloneReverseMap();
+    _isGenerated = true;
 }
 
 void TerrainGenerator::clearMap()
@@ -140,6 +142,7 @@ void TerrainGenerator::clearMap()
         }
         index++;
     }
+    _isGenerated = false;
 }
 
 void TerrainGenerator::addTileOnMap(int y, int x)
@@ -431,4 +434,9 @@ void TerrainGenerator::makeSpaceForPlayers()
             }
         }
     }
+}
+
+bool TerrainGenerator::isGenerated()
+{
+    return _isGenerated;
 }

@@ -72,10 +72,10 @@ int main(void)
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0) {
-            Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera, TerrainGenerator(Engine::GameConfiguration::GetPlayers()).getMap());
+            Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera);
             assetManagerRef->loadAssets(coordinator->GetEntities());
         }
-
+        
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);
 

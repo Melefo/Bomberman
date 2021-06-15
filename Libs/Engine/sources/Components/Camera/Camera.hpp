@@ -92,6 +92,8 @@ namespace Component
 
             static Camera& GetMainCamera();
 
+            ECS::Entity &getEntity();
+
         protected:
         private:
             ECS::Entity& _entity;

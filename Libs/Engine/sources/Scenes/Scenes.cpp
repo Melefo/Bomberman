@@ -22,14 +22,17 @@
 #include "Texture.hpp"
 #include <string>
 #include "GameConfigurator.hpp"
+#include "ButtonCallbacks.hpp"
+#include "PhysicsSystem.hpp"
+#include "BehaviourSystem.hpp"
 #include "TextUI.hpp"
 
-std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>> Scenes::scenesCtor =
-    {std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("MainMenu", &InitMainMenu),
-     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("EditorMenu", &InitEditorMenu),
-     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("Editor", &InitEditor),
-     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("Game", &InitGame),
-     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&, const std::vector<std::string>&)>>("LoadingScreen", &InitLoadingScreen),
+std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>> Scenes::scenesCtor =
+    {std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("MainMenu", &InitMainMenu),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("EditorMenu", &InitEditorMenu),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("Editor", &InitEditor),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("Game", &InitGame),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("LoadingScreen", &InitLoadingScreen),
     };
 
 void Scenes::switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &nextScene)
@@ -41,41 +44,44 @@ void Scenes::switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::s
     am.loadAssets(coordinator.getScene(nextScene).GetEntities());
 }
 
-void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string> &map, const bool isEditor)
+void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const bool isEditor, int deepness)
 {
     EntityFactory entityFactory(coordinator, camera);
     int players = Engine::GameConfiguration::GetPlayers();
     //int enemies = Engine::GameConfiguration::GetEnemies();
     int currentPlayer = 1;
+    TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
+    const std::vector<std::string> &map = terrainGeneratorRef.getMap();
 
     for (size_t y = 0; y < map.size(); y++) {
         for (size_t x = 0; x < map[y].size(); x++) {
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
             || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
                 ECS::Entity& wall = entityFactory.createWall();
-                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
             } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
                 ECS::Entity& box = entityFactory.createBox(1, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
             } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
                 ECS::Entity& box = entityFactory.createBox(2, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
             } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
                 ECS::Entity& box = entityFactory.createBox(3, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
             }
 
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
                 Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
                 ECS::Entity& player = entityFactory.createPlayer(playerKeys);
-                player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
+                player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
                 currentPlayer++;
             }
         }
     }
+    
 }
 
-void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>&)
+void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     EntityFactory entityFactory(coordinator, camera);
 
@@ -108,7 +114,7 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
 
 }
 
-void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& defaultMap)
+void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     EntityFactory entityFactory(coordinator, camera);
 
@@ -125,10 +131,7 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
     /*ECS::Entity &text = entityFactory.createText();
     text.GetComponent<Component::Transform>().position = RayLib::Vector3(200 + 2, 300 + 2);
     text.GetComponent<Component::Transform>().scale = RayLib::Vector3(20, 6);*/
-    (void)defaultMap;
 }
-
-
 
 void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib::Window>& window)
 {
@@ -152,15 +155,16 @@ void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib
     RayLib::Vector2<float> numberTextSize = numberText.MeasureText();
     number.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (numberTextSize.x / 2.0f),
         window->GetSize().y / 4.0f - (numberTextSize.y / 2) + 100);
-
 }
 
-void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>&)
+void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     EntityFactory entityFactory(coordinator, camera);
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
     Scenes::InitNbrPlayers(entityFactory, window);
+
+    entityFactory.createCamera();
 
     ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "../assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
@@ -182,7 +186,7 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
 
     ECS::Entity& generate = entityFactory.createButton("GenerateBtnStd");
     generate.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4, 0.0f);
-    //generate.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::CreateBox));
+    generate.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::GenerateBackgroundMap));
 
     ECS::Entity& play = entityFactory.createButton("PlayBtnStd");
     play.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4 + 100, 0.0f);
@@ -192,26 +196,22 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     enterSeed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2), window->GetSize().y / 4.0f + seedTextSize.y, 0.0f);
 }
 
-void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& selMap)
+void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     EntityFactory entityFactory(coordinator, camera);
 
     ECS::Entity &entityAddBox = entityFactory.createButton("MapEditorBtn");
     entityAddBox.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
-    entityAddBox.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::CreateBox));
-    (void)selMap;
 }
 
-void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const std::vector<std::string>& map)
+void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     EntityFactory entityFactory(coordinator, camera);
 
     // init camera component
 
-    //InitMap(coordinator, camera, map, 0);
-    InitMap(coordinator, camera, map, false);            // ajoute la default map en fond
+    InitMap(coordinator, camera, false);
 
-    /*ECS::Entity &entityPlayer = *///entityFactory.createPlayer("");
     entityFactory.createCamera();
 
     ECS::Entity& gameManager = coordinator.CreateEntity();
@@ -223,4 +223,5 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, c
     bomb.AddComponent<Component::Renderer>("Bomb");
     bomb.AddComponent<Component::Transform>(RayLib::Vector3(1000.0f, 100.0f, 0.0f));
     //bomb.Dispose();
+    
 }
