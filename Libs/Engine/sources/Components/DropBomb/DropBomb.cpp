@@ -25,7 +25,7 @@ namespace Component
         entity.SetTag("Bomb");
 
         entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2, 2, 2));
-        entity.AddComponent<Renderer>("Bomb");
+        //entity.AddComponent<Renderer>("Bomb");
         //! si on spawn une bombe sur le joueur, on est bloqués
         //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
         entity.AddComponent<IBehaviour, Explosion>(entity, radius, type);
@@ -54,6 +54,7 @@ namespace Component
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
         firstBomb.GetComponent<Transform>().position = position;
+        firstBomb.AddComponent<Renderer>("Bomb");
 
         bool reachedWall = false;
 
@@ -76,7 +77,6 @@ namespace Component
 
                 // create small bombs of radius boxsize
                 ECS::Entity& bomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
-
                 // spacing = boxsize so radius * boxsize
                 bomb.GetComponent<Transform>().position = position + (*dir) * i * boxSize;
             }
