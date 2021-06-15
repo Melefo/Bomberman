@@ -60,11 +60,11 @@ namespace Lua
         return TableValue<std::string>(this->_state, this->_pos, key);
     }
 
-    TableValue<int> Object::operator[](int key)
+    TableValue<std::size_t> Object::operator[](std::size_t key)
     {
         if (!this->IsTable())
             throw Exception::TableValueException("This object is not a Lua Table");
-        return TableValue<int>(this->_state, this->_pos, key);
+        return TableValue<std::size_t>(this->_state, this->_pos, key);
     }
 
     Object::Object(State& state, int pos) :

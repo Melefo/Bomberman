@@ -7,6 +7,7 @@ BoxMapValues = {
     BOX = 1
 }
 
+
 BombMapValues = {
     OFFWALL = -21,
     INWALL = -20,
@@ -43,7 +44,7 @@ function is_a_safe_area(bombarea, boxarea, playerarea)
 end
 
 function is_a_free_to_walk_area(area)
-    if (area != BoxMapValues.EMPTY) then
+    if (area ~= BoxMapValues.EMPTY) then
         return false
     else
         return true
@@ -133,7 +134,7 @@ function get_safe_direction(pos, boxmap, bombtimemap)
     local direction = get_direction(pos, boxmap, bombtimemap)
 
     modify_direction()
-    if (Xdir == 0 and Zdir == 0)
+    if (Xdir == 0 and Zdir == 0) then
         direction = get_simple_direction(pos, boxmap, bombtimemap)
         modify_direction(direction)
     end
@@ -157,6 +158,3 @@ function is_safe(pos, bombtimemap)
     end
     return (true)
 end
-
-
-

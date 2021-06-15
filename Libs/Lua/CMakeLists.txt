@@ -37,6 +37,9 @@ ENDMACRO()
 
 HEADER_DIRECTORIES(INC)
 
+add_dependencies(luaBind lua_static)
+add_dependencies(lua_unit_tests lua_static)
+
 TARGET_LINK_LIBRARIES(luaBind lua_static encapsu)
 TARGET_LINK_LIBRARIES(lua_unit_tests lua_static criterion -lgcov encapsu)
 TARGET_COMPILE_OPTIONS(lua_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)

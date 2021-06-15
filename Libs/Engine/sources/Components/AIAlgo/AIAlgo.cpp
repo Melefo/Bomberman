@@ -13,14 +13,21 @@ namespace Component
     AIAlgo::AIAlgo(ECS::Entity &player, float moveSpeed, float dropDelay) : AController(player, moveSpeed, dropDelay),
     _ai_player(player), _state(), _entities(ECS::Coordinator::GetInstance()->GetEntities()),
     _speed(moveSpeed), _direction(), _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")),
-    _currentState(AIState::CHASE)
+    _currentState(AIState::CHASE), _enabled(true)
     {
-        _state.RunScript("../Libs/Engine/sources/Components/AIAlgo/AIAlgo.lua");
-        _state.RunScript("../Libs/Engine/sources/Components/AIAlgo/Pathfinding.lua");
+        if (_state.RunScript("../assets/AIAlgo.lua") != 0)
+        {
+            this->_enabled = false;
+            std::cout << "Huh" << std::endl;
+        }
+        if (_state.RunScript("../assets/Pathfinding.lua") != 0)
+            this->_enabled = false;
     }
 
     void AIAlgo::Update(double dt, ECS::Entity& entity)
     {
+        if (!this->_enabled)
+            return;
         AIMapsGenerator& mapGen = ECS::Coordinator::GetInstance()->GetSystem<AIMapsGenerator>();
         const std::vector<std::vector<int>>& bombMap = mapGen.GetBombMap();
         const std::vector<std::vector<int>>& playerMap = mapGen.GetPlayersMap();
@@ -141,7 +148,7 @@ namespace Component
             //std::cout << "X: " << (*pathNode).x << " - " << aiPos.x << " = " << (*pathNode).x - aiPos.x << std::endl;
             //std::cout << "Y: " << (*pathNode).y << " - " << aiPos.y << " = " << (*pathNode).y - aiPos.y << std::endl;
 
-            RayLib::Vector3 dirToAdd = RayLib::Vector3((*pathNode).x - aiPos.x, 0.0f, (*pathNode).y - aiPos.y);
+            RayLib::Vector3 dirToAdd = RayLib::Vector3(static_cast<float>((*pathNode).x - aiPos.x), 0.0f, static_cast<float>((*pathNode).y - aiPos.y));
 
             _directionPath.push_back(dirToAdd);
             //std::cout << "Pushing to _dirPath: " << dirToAdd << std::endl;
@@ -167,9 +174,9 @@ namespace Component
             currentPoint.y = 0;
 
         if (maxPoint.y > static_cast<int>(map.size()))
-            maxPoint.y = map.size();
+            maxPoint.y = static_cast<int>(map.size());
         if (maxPoint.x > static_cast<int>(map[0].size()))
-            maxPoint.x = map[0].size();
+            maxPoint.x = static_cast<int>(map[0].size());
 
         /*for (std::size_t i = 0; i < map.size(); i++)
         {
@@ -197,8 +204,8 @@ namespace Component
         Transform& transform = _ai_player.GetComponent<Transform>();
 
 
-        return (RayLib::Vector2<int>(static_cast<int>(transform.position.x) / 10.0f,
-                                     static_cast<int>(transform.position.z) / 10.0f));
+        return (RayLib::Vector2<int>(static_cast<int>(transform.position.x / 10.0f),
+                                     static_cast<int>(transform.position.z / 10.0f)));
     }
 
     std::vector<RayLib::Vector2<int>> AIAlgo::GetMapAsPositions(const std::vector<std::vector<int>>& map)
@@ -207,7 +214,7 @@ namespace Component
 
         for (std::size_t i = 0; i < map.size(); i++) {
             for (std::size_t j = 0; j < map[0].size(); j++) {
-                result.push_back(RayLib::Vector2<int>(j, i));
+                result.push_back(RayLib::Vector2<int>(static_cast<int>(j), static_cast<int>(i)));
             }
         }
         return (result);

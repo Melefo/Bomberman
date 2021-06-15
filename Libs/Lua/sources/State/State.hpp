@@ -36,10 +36,10 @@ namespace Lua
         static constexpr bool value = false;
     };
 
-    template<template<typename...> typename V, typename U>
-    struct is_rayvector<V<U>>
+    template<typename Value>
+    struct is_rayvector<RayLib::Vector2<Value>>
     {
-        static constexpr bool value = std::is_same<V<U>, RayLib::Vector2<U>>::value;
+        static constexpr bool value = true;
     };
     
     template<typename T>
@@ -48,19 +48,19 @@ namespace Lua
         static constexpr bool value = false;
     };
 
-    template<template<typename...> typename V, typename U>
-    struct is_vector<V<U>>
+    template<typename Value>
+    struct is_vector<std::vector<Value>>
     {
-        static constexpr bool value = std::is_same<V<U>, std::vector<U>>::value;
+        static constexpr bool value = true;
     };
 
-    template <class T>
+    template <typename T>
     struct is_map
     {
         static constexpr bool value = false;
     };
 
-    template<class Key, class Value>
+    template<typename Key, typename Value>
     struct is_map<std::map<Key, Value>>
     {
         static constexpr bool value = true;
@@ -222,7 +222,7 @@ namespace Lua
             typename std::enable_if<std::is_arithmetic<T>::value>::type
             Push(T t)
             {
-                lua_pushnumber(this->_ls.get(), t);
+                lua_pushnumber(this->_ls.get(), static_cast<lua_Number>(t));
             }
             /**
              * @brief Push a vector to Lua
@@ -249,6 +249,18 @@ namespace Lua
              */
             template<typename T>
             void Push(RayLib::Vector2<T> vec);
+
+            template <typename T>
+            typename std::enable_if<is_vector<T>::value, T>::type
+                Pop(int index);
+
+            template <typename T>
+            typename std::enable_if<is_map<T>::value, T>::type
+                Pop(int index);
+
+            template <typename T>
+            typename std::enable_if<is_rayvector<T>::value, T>::type
+                Pop(int index);
 
             /**
              * @brief Pop a bool from Lua
@@ -305,18 +317,6 @@ namespace Lua
             Pop(int)
             {
             }
-
-            template <typename T>
-            typename std::enable_if<is_vector<T>::value, T>::type
-            Pop(int index);
-
-            template <typename T>
-            typename std::enable_if<is_map<T>::value, T>::type
-            Pop(int index);
-
-            template <typename T>
-            typename std::enable_if<is_rayvector<T>::value, T>::type
-            Pop(int index);
 
             /**
              * @brief Get the Lua State object
@@ -526,7 +526,7 @@ namespace Lua
              * @param key 
              * @return TableValue<int> 
              */
-            TableValue<int> operator[](int key);
+            TableValue<std::size_t> operator[](std::size_t key);
         private:
             /**
              * @brief Reference to Lua Stack State

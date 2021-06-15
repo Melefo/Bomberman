@@ -224,5 +224,3 @@ end
 
 
 --print(Dump(result))
-
-MangeTesMorts()

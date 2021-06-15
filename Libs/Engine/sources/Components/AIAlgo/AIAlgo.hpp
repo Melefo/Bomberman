@@ -35,7 +35,7 @@
 #include "AController.hpp"
 #include "GameConfiguration.hpp"
 
-enum AIState
+enum class AIState
 {
     IDLE,
     CHASE,
@@ -137,6 +137,7 @@ namespace Component
             std::vector<RayLib::Vector3> _directionPath;
 
             ::AIState _currentState;
+            bool _enabled;
     };
 }
 

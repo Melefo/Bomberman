@@ -59,16 +59,16 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
             || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
                 ECS::Entity& wall = entityFactory.createWall();
-                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
+                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
             } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
                 ECS::Entity& box = entityFactory.createBox(1, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
             } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
                 ECS::Entity& box = entityFactory.createBox(2, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
             } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
                 ECS::Entity& box = entityFactory.createBox(3, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
+                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
             }
 
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
@@ -94,7 +94,7 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
 
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
-    ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
+    ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "assets/pixelplay.png", 200.0f, 4.0f);
     Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - (text.MeasureText().x / 2.0f),
                                                                                window->GetSize().y / 2.0f - 350.0f, 0.0f);
@@ -139,7 +139,7 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
 
 void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib::Window>& window)
 {
-    ECS::Entity& nbrPlayer = entityFactory.createText("Select number of players", "../assets/pixelplay.png", 50.0f, 4.0f);
+    ECS::Entity& nbrPlayer = entityFactory.createText("Select number of players", "assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& nbrPlayerText = nbrPlayer.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> nbrPlayerTextSize = nbrPlayerText.MeasureText();
     nbrPlayer.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2.0f),
@@ -153,7 +153,7 @@ void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib
     minus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y, 0.0f);
     minus.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementPlayerNbr));
 
-    ECS::Entity& number = entityFactory.createText(std::to_string(Engine::GameConfiguration::GetPlayers()), "../assets/pixelplay.png", 50.0f, 4.0f);
+    ECS::Entity& number = entityFactory.createText(std::to_string(Engine::GameConfiguration::GetPlayers()), "assets/pixelplay.png", 50.0f, 4.0f);
     number.SetTag("NumberText");
     Component::TextUI& numberText = number.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> numberTextSize = numberText.MeasureText();
@@ -173,13 +173,13 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
 
     entityFactory.createCamera();
 
-    ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "../assets/pixelplay.png", 50.0f, 4.0f);
+    ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> seedTextSize = seedText.MeasureText();
     seed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2.0f),
         window->GetSize().y / 4.0f - (seedTextSize.y / 2.0f), 0.0f);
 
-    ECS::Entity& mapSize = entityFactory.createText("Select map size", "../assets/pixelplay.png", 50.0f, 4.0f);
+    ECS::Entity& mapSize = entityFactory.createText("Select map size", "assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& mapSizeText = mapSize.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> mapSizeTextSize = mapSizeText.MeasureText();
     mapSize.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSize.x / 2.0f),
@@ -199,7 +199,7 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     play.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4 + 100, 0.0f);
     play.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::StartGame));
 
-    ECS::Entity& enterSeed = entityFactory.createTextBox(std::numeric_limits<int>::digits10, "../assets/pixelplay.png", 50.0f, 4.0f);
+    ECS::Entity& enterSeed = entityFactory.createTextBox(std::numeric_limits<int>::digits10, "assets/pixelplay.png", 50.0f, 4.0f);
     enterSeed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2), window->GetSize().y / 4.0f + seedTextSize.y, 0.0f);
 }
 
@@ -218,7 +218,7 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     InitMap(coordinator, camera, false);
 
     std::vector<std::string> cpymap = Engine::GameConfiguration::GetTerrainGenerator().getMap();
-    AIMapsGenerator& mapsgen = coordinator.AddSystem<AIMapsGenerator>(cpymap);
+    coordinator.AddSystem<AIMapsGenerator>(cpymap);
     // init camera component
 
     entityFactory.createCamera();
