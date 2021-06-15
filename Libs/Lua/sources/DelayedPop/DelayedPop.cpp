@@ -20,4 +20,14 @@ namespace Lua
         if (this->_nbr > 0)
             lua_pop(this->_state.GetLuaState().get(), this->_nbr);
     }
+
+    int DelayedPop::GetNbr() const
+    {
+        return this->_nbr;
+    }
+
+    void DelayedPop::SetNbr(int nbr)
+    {
+        this->_nbr = nbr;
+    }
 }

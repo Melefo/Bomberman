@@ -29,6 +29,18 @@ namespace Lua
             lua_close(ls);
         }
     };
+
+    template<typename T>
+    struct is_rayvector
+    {
+        static constexpr bool value = false;
+    };
+
+    template<template<typename...> typename V, typename U>
+    struct is_rayvector<V<U>>
+    {
+        static constexpr bool value = std::is_same<V<U>, RayLib::Vector2<U>>::value;
+    };
     
     template<typename T>
     struct is_vector
@@ -40,6 +52,18 @@ namespace Lua
     struct is_vector<V<U>>
     {
         static constexpr bool value = std::is_same<V<U>, std::vector<U>>::value;
+    };
+
+    template <class T>
+    struct is_map
+    {
+        static constexpr bool value = false;
+    };
+
+    template<class Key, class Value>
+    struct is_map<std::map<Key, Value>>
+    {
+        static constexpr bool value = true;
     };
 
     class Object;
@@ -284,6 +308,14 @@ namespace Lua
 
             template <typename T>
             typename std::enable_if<is_vector<T>::value, T>::type
+            Pop(int index);
+
+            template <typename T>
+            typename std::enable_if<is_map<T>::value, T>::type
+            Pop(int index);
+
+            template <typename T>
+            typename std::enable_if<is_rayvector<T>::value, T>::type
             Pop(int index);
 
             /**
@@ -556,6 +588,44 @@ Lua::State::Pop(int index)
 
     for (int i = 0; i < size; i++)
         vec.push_back(table[i + 1].Cast<typename T::value_type>());
+
+    return vec;
+}
+
+template <typename T>
+typename std::enable_if<Lua::is_map<T>::value, T>::type
+Lua::State::Pop(int index)
+{
+    T map;
+    index = lua_absindex(this->_ls.get(), index);
+    Object table(*this, index);
+
+    lua_pushnil(this->_ls.get());
+    DelayedPop delayed(*this, 1);
+    while (lua_next(this->_ls.get(), index)) {
+        DelayedPop pop(*this, 1);
+        std::string key = this->Pop<std::string>(-2);
+        typename T::mapped_type value = this->Pop<typename T::mapped_type>(-1);
+        
+        map[key] = value;
+        lua_pop(this->_ls.get(), 2);
+        pop.SetNbr(0);
+        this->Push(key);
+    }
+
+    delayed.SetNbr(0);
+    return map;
+}
+
+template <typename T>
+typename std::enable_if<Lua::is_rayvector<T>::value, T>::type
+Lua::State::Pop(int index)
+{
+    T vec;
+    std::map<std::string, typename T::value_type> map = this->Pop<std::map<std::string, typename T::value_type>>(index);
+
+    vec.x = map["x"];
+    vec.y = map["y"];
 
     return vec;
 }

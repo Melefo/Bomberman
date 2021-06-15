@@ -22,6 +22,7 @@ namespace RayLib
     class Vector2
     {
         public:
+            using value_type = T;
 
             /**
              * @brief Construct a new Vector 2<T> object

@@ -38,7 +38,7 @@ ENDMACRO()
 HEADER_DIRECTORIES(INC)
 
 TARGET_LINK_LIBRARIES(luaBind lua_static encapsu)
-TARGET_LINK_LIBRARIES(lua_unit_tests criterion -lgcov lua_static encapsu)
+TARGET_LINK_LIBRARIES(lua_unit_tests lua_static criterion -lgcov encapsu)
 TARGET_COMPILE_OPTIONS(lua_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
 target_include_directories(luaBind PUBLIC ${INC} ${lua_SOURCE_DIR})

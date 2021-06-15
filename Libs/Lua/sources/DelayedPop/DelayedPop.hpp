@@ -42,6 +42,14 @@ namespace Lua
              * @return DelayedPop& asigned DelayedPop
              */
             DelayedPop& operator=(const DelayedPop&) = delete;
+            /**
+             * @brief Set the number of variable to pop from stack
+             */
+            void SetNbr(int nbr);
+            /**
+             * @brief Return the number of variable that will be popped from stack
+             */
+            int GetNbr() const;
         private:
             /**
              * @brief Reference to Lua stack state

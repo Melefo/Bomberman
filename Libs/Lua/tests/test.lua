@@ -57,3 +57,9 @@ function dumpTest(test)
     result[3] = 3
     return result
 end
+
+
+function mapTest()
+	local result = {x = 12, y = 34}
+    return result
+end
