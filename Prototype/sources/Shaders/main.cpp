@@ -9,7 +9,6 @@
 #include "Camera.hpp"
 #include "Window.hpp"
 #include "RenderSystem.hpp"
-#include "Material.hpp"
 #include "Entity.hpp"
 #include "PhysicsSystem.hpp"
 #include "Collider.hpp"
@@ -301,8 +300,8 @@ int basic_lighting_remastered(void)
 
 int main(void)
 {
-    // applyShaderToCube();
+    applyShaderToCube();
     // customBoxMain();
     // allBlue();
-    basic_lighting_remastered();
+    // basic_lighting_remastered();
 }
