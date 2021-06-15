@@ -28,6 +28,8 @@
 #include "CoolDownBoost.hpp"
 #include "Explosion.hpp"
 #include "Box.hpp"
+#include "TextBox.hpp"
+#include "TextBoxCallback.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -45,6 +47,18 @@ ECS::Entity& EntityFactory::createButton(const std::string& assetName)
     entity.AddComponent<Component::Renderer>(assetName);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
+
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createTextBox(int maxLength, const std::string& fontPath, float size, float spacing, RayLib::Color color)
+{
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    entity.AddComponent<Component::Renderer>();
+    entity.AddComponent<Component::IUIObject, Component::TextBox>(maxLength, fontPath, size, spacing, color, false, true);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
+    entity.AddComponent<Component::IBehaviour, Component::TextBoxCallback>(entity);
 
     return (entity);
 }

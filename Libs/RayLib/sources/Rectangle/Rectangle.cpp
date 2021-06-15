@@ -58,5 +58,14 @@ namespace RayLib
         return (rect);
     }
 
+    void Rectangle::DrawRectangle(RayLib::Color color)
+    {
+        ::DrawRectangleRec(this->GetRectangle(), color);
+    }
+
+    void Rectangle::DrawRectangleLines(RayLib::Color color)
+    {
+        ::DrawRectangleLines(static_cast<int>(this->x), static_cast<int>(this->y), static_cast<int>(this->width), static_cast<int>(this->height), color);
+    }
 }
 

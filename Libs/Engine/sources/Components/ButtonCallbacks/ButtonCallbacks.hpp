@@ -106,12 +106,16 @@ namespace Component
              */
             static void DecrementMapWidth();
 
+            /**
+             * @brief Generate a map in the background
+             * 
+             */
+            static void GenerateBackgroundMap(void);
+
             static void StartGame(void);
             static void StartEditorMenu(void);
 
             static void QuitWindow(void);
-
-            static void CreateBox(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
