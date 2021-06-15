@@ -28,9 +28,7 @@ moves = {
     down = {x = 0, y = -1}
 };
 
-BombMap = {}
-PlayerMap = {}
-BoxMap = {}
+
 
 Xdir = 0.0;
 Zdir = 0.0;
@@ -145,7 +143,7 @@ end
 
 function SimpleIsWalkable(pos)
 
-    if (bombMap[pos.x][pos.y] < BombMapValues.BOMB) then
+    if (bombMap[pos.y + 1][pos.x + 1] < BombMapValues.BOMB) then
         return (true)
     end
     return (false)
@@ -161,13 +159,4 @@ function is_safe(pos, bombtimemap)
 end
 
 
-function SetMapValues(updatedBombMap, updatedPlayerMap, updatedBoxMap)
-    BombMap = updatedBombMap
-    PlayerMap = updatedPlayerMap
-    BoxMap = updatedBoxMap
-end
 
-
-function MangeTesMorts()
-    print("Salope")
-end

@@ -131,7 +131,10 @@ ECS::Entity& EntityFactory::createAI()
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
     entity.AddComponent<Component::Destructible>(entity, 1);
     //AIMapsGenerator& mapsgen = _coordinator.GetSystem<AIMapsGenerator>();
+    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(90.0f, 0.0f, 0.0f);
+
     entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, 0.5f);
+    // add destructible
     return (entity);
 }
 

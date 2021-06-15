@@ -63,25 +63,37 @@ namespace Component
             _direction = RayLib::Vector3();
         }
 
-        /*if (_currentState == AIState::HIDE) {
-            targetPos = GetClosestSymbolPos(aiPos, _boxmap, BoxMapValues::BOX);
-            GetDirectionsList(aiPos, targetPos, _boxmap, validNode);
-            //_directionPath = _state.Call("astar", aiPos, targetPos, _boxmap, validNode);
+        if (_currentState == AIState::HIDE) {
+            targetPos = GetClosestSymbolPos(aiPos, boxMap, BoxMapValues::EMPTY);
 
-        }*/
+            if (targetPos.x == aiPos.x && targetPos.y == aiPos.y)
+                std::cout << "Could not find hiding pos" << std::endl;
+            else
+                std::cout << "Found hiding pos" << std::endl;
+
+            mapPositions = GetMapAsPositions(boxMap);
+            GetDirectionsList(aiPos, targetPos, mapPositions);
+
+            _direction = _directionPath[0];
+            if (_direction == RayLib::Vector3())
+                _currentState = AIState::IDLE;
+
+        }
         if (_currentState == AIState::CHASE) {
             targetPos = GetClosestSymbolPos(aiPos, boxMap , BoxMapValues::BOX);
             mapPositions = GetMapAsPositions(boxMap);
             GetDirectionsList(aiPos, targetPos, mapPositions);
 
-            // _direction = dirToPlayer();
-            // if no direct line to player:
-                // _direction = dirToBox();
+            _direction = _directionPath[0];
+
+            if (_direction == RayLib::Vector3())
+                _currentState = AIState::ATTACK;
+
         }
-        /*if (_currentState == AIState::ATTACK) {
+        if (_currentState == AIState::ATTACK) {
             _dropBomb.InstantiateBomb(transform.position);
             _currentState = AIState::HIDE;
-        }*/
+        }
 
         if (Engine::GameConfiguration::GetDebugMode())
             DebugPath(transform.position);
@@ -100,7 +112,7 @@ namespace Component
 
         for (auto dir = _directionPath.begin(); dir != _directionPath.end(); dir++) {
             currentPos += *dir;
-            _window->DrawCubeWires(currentPos, 5.0f, RED);
+            _window->DrawCubeWires(currentPos + RayLib::Vector3(0.0f, 1.0f, 0.0f), 5.0f, RED);
         }
     }
 
@@ -116,16 +128,23 @@ namespace Component
 
     void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& mapPositions)
     {
-        std::cout << "aiPos " << aiPos.x << " " << aiPos.y << std::endl;
-        std::cout << "targetPos " << targetPos.x << " " << targetPos.y << std::endl;
         std::vector<RayLib::Vector2<int>> path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", aiPos, targetPos, mapPositions);
 
-        std::cout << "After astar" << std::endl;
+        for (std::size_t i = 0; i < path.size(); i++) {
+            //std::cout << "Path [" << i << "]: X: " << path[i].x << " Y: " << path[i].y << std::endl;
+        }
 
         _directionPath.clear();
 
         for (auto pathNode = path.begin(); pathNode != path.end(); pathNode++) {
-            _directionPath.push_back(RayLib::Vector3((*pathNode).x - aiPos.x, 0.0f, (*pathNode).y - aiPos.y));
+
+            //std::cout << "X: " << (*pathNode).x << " - " << aiPos.x << " = " << (*pathNode).x - aiPos.x << std::endl;
+            //std::cout << "Y: " << (*pathNode).y << " - " << aiPos.y << " = " << (*pathNode).y - aiPos.y << std::endl;
+
+            RayLib::Vector3 dirToAdd = RayLib::Vector3((*pathNode).x - aiPos.x, 0.0f, (*pathNode).y - aiPos.y);
+
+            _directionPath.push_back(dirToAdd);
+            //std::cout << "Pushing to _dirPath: " << dirToAdd << std::endl;
 
             aiPos += *pathNode;
         }
@@ -133,7 +152,7 @@ namespace Component
 
     RayLib::Vector2<int> AIAlgo::GetClosestSymbolPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, int symbol)
     {
-        RayLib::Vector2<int> closestSymbol = RayLib::Vector2<int>();
+        RayLib::Vector2<int> closestSymbol = agentPos;
         float closest = std::numeric_limits<float>::max();
         RayLib::Vector2<int> searchRadius(10, 10);
 
@@ -152,12 +171,12 @@ namespace Component
         if (maxPoint.x > static_cast<int>(map[0].size()))
             maxPoint.x = map[0].size();
 
-        for (std::size_t i = 0; i < map.size(); i++)
+        /*for (std::size_t i = 0; i < map.size(); i++)
         {
             for (std::size_t j = 0; j < map[i].size(); j++)
                 std::cout << std::setw(4) << map[i][j];
             std::cout << std::endl;
-        }
+        }*/
 
         for (int y = currentPoint.y; y < maxPoint.y; y++) {
             for (int x = currentPoint.x; x < maxPoint.x; x++) {
