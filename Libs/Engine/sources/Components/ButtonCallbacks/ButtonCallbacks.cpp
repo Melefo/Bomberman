@@ -60,7 +60,7 @@ namespace Component
         coordinatorRef->RemoveComponents("Bomb");
 
         terrainGeneratorRef.clearMap();
-        // terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
+        terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
         terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers());
         Engine::GameConfiguration::SetSeed(std::rand() % 10000);
 
@@ -100,7 +100,7 @@ namespace Component
     {
         int playerNbr = Engine::GameConfiguration::GetPlayers();
 
-        if (playerNbr <= 1)
+        if (playerNbr - 1 <= 1)
             return;
         Engine::GameConfiguration::SetPlayers(playerNbr - 1);
         TextInterfaceLoader("TextPlayerNbr", Engine::GameConfiguration::GetPlayers());
