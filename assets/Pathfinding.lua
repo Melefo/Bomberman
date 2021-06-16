@@ -1,6 +1,5 @@
 #!/usr/local/bin/lua
 
-BombMap = {}
 PlayerMap = {}
 BoxMap = {}
 
@@ -29,8 +28,7 @@ local infini = 1 / 0
 
 Start = { x = 0, y = 0 }
 
-function SetMapValues(updatedBombMap, updatedPlayerMap, updatedBoxMap)
-    BombMap = updatedBombMap
+function SetMapValues(updatedPlayerMap, updatedBoxMap)
     PlayerMap = updatedPlayerMap
     BoxMap = updatedBoxMap
 end
@@ -40,14 +38,8 @@ function dist(pos1, pos2)
 end
 
 function is_valid_node(node, neighbor)
-	--print(Dump(BoxMap[node.x + 1][node.y + 1]))
-	--print("Volo")
-
-	--print(BoxMap[node.y + 1][node.x + 1])
-	if (BoxMap[node.y + 1][node.x + 1] == BoxMapValues.EMPTY) then
-		--print("Rolo")
+	if (BoxMap[node.y + 1][node.x + 1] ~= BoxMapValues.INWALL and BoxMap[node.y + 1][node.x + 1] ~= BoxMapValues.OFFWALL) then
         if (dist(node, neighbor) <= 1.0) then
-			--print("Solo")
             return (true)
         end
     end
@@ -73,14 +65,10 @@ function neighbor_nodes(currentPos, positions)
 	local neighbours = {}
 
     for _, pos in ipairs(positions) do
-		--print("Yolo")
         if (currentPos.x ~= pos.x or currentPos.y ~= pos.y) and is_valid_node(currentPos, pos) then
-			--print("Lolo")
             table.insert(neighbours, pos)
         end
-		--print("Molo")
     end
-	---print("Nolo")
     return (neighbours)
 end
 
@@ -125,9 +113,6 @@ function Dump(o)
  end
 
 function AStar(start, goal, nodes)
-	--print("Starting AStar")
-
-	--print("Nolo")
     local openSet = { start }
 	local closeSet = {}
 
@@ -137,54 +122,26 @@ function AStar(start, goal, nodes)
 	local came_from = {}
 
 	gScore[start] = 0
-	--print("start and goal :")
-	--print(start.x)
-	--print(start.y)
-	--print(goal.x)
-	--print(goal.y)
-	--print(Dump(goal))
-	--print(Dump(nodes))
-	--print("gScore:")
-	--print(gScore[start])
-	--print(start.x - goal.x)
-
 	fScore[start] = gScore[start] + (dist(start, goal) + .0)
-    --print("After dist")
-	--print(fScore[start])
 
-	--print("Starting while")
 	while #openSet > 0 do
-
 		local current = lowest_f_score(openSet, fScore)
 
-		--print("156 curr " .. Dump(current))
-		--print("157 goal " .. Dump(goal))
-		--print()
-
 		if current.x == goal.x and current.y == goal.y then
-			local path = unwind_path({}, came_from, goal)
+			local path = unwind_path({}, came_from, current)
 
 			table.insert( path, goal )
-			--print("return path")
 			return path
 		end
 
 		remove_node(openSet, current)
 		table.insert(closeSet, current)
 
-		--print("Starting for")
-		--print("Get neighbor nodes")
 		local neighbors = neighbor_nodes(current, nodes)
-		--print("After neighbor nodes")
 		for _, neighbor in ipairs(neighbors) do
-			--print("Starting not_in close")
 			if not_in(closeSet, neighbor) then
-				--print(gScore[current])
-				--print(Dump(current))
-				--print(Dump(neighbor))
 				local tentative = gScore[current] + (dist(current, neighbor) + .0)
 
-				--print("Starting not_in open")
 				if not_in(openSet, neighbor) or tentative < gScore[neighbor] then
 					came_from[neighbor] = current
 					gScore[neighbor] = tentative
@@ -196,7 +153,6 @@ function AStar(start, goal, nodes)
 			end
 		end
 	end
-	print("Null path!")
 	return ({ start })
 end
 

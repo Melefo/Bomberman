@@ -13,13 +13,10 @@ namespace Component
     AIAlgo::AIAlgo(ECS::Entity &player, float moveSpeed, float dropDelay) : AController(player, moveSpeed, dropDelay),
     _ai_player(player), _state(), _entities(ECS::Coordinator::GetInstance()->GetEntities()),
     _speed(moveSpeed), _direction(), _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")),
-    _currentState(AIState::CHASE), _enabled(true)
+    _currentState(AIState::HIDE), _enabled(true)
     {
         if (_state.RunScript("../assets/AIAlgo.lua") != 0)
-        {
-            this->_enabled = false;
-            std::cout << "Huh" << std::endl;
-        }
+            this->_enabled = false; 
         if (_state.RunScript("../assets/Pathfinding.lua") != 0)
             this->_enabled = false;
     }
@@ -29,7 +26,6 @@ namespace Component
         if (!this->_enabled)
             return;
         AIMapsGenerator& mapGen = ECS::Coordinator::GetInstance()->GetSystem<AIMapsGenerator>();
-        const std::vector<std::vector<int>>& bombMap = mapGen.GetBombMap();
         const std::vector<std::vector<int>>& playerMap = mapGen.GetPlayersMap();
         const std::vector<std::vector<int>>& boxMap = mapGen.GetBoxMap();
 
@@ -56,7 +52,7 @@ namespace Component
         if (_explotimer > 0)
             _explotimer -= _window->GetFrameTime();*/
 
-        _state.Call("SetMapValues", bombMap, playerMap, boxMap);
+        _state.Call("SetMapValues", playerMap, boxMap);
 
         //lua_CFunction validNode = _state.GetGlobal<lua_CFunction>("IsPositionWalkable");
 
@@ -66,11 +62,12 @@ namespace Component
 
         //_state.Call("astar", PlayerPos, closestSymbolPos, aimapgen.GetBoxMap(), func);
 
-        if (_currentState == AIState::IDLE) {
+        switch (this->_currentState)
+        {
+        case AIState::IDLE:
             _direction = RayLib::Vector3();
-        }
-
-        if (_currentState == AIState::HIDE) {
+            break;
+        case AIState::HIDE:
             targetPos = GetClosestSymbolPos(aiPos, boxMap, BoxMapValues::EMPTY);
 
             if (targetPos.x == aiPos.x && targetPos.y == aiPos.y)
@@ -83,29 +80,29 @@ namespace Component
 
             _direction = _directionPath[0];
             if (_direction == RayLib::Vector3())
-                _currentState = AIState::IDLE;
-
-        }
-        if (_currentState == AIState::CHASE) {
-            targetPos = GetClosestSymbolPos(aiPos, boxMap , BoxMapValues::BOX);
+                _currentState = AIState::CHASE;
+            break;
+        case AIState::CHASE:
+            targetPos = GetClosestSymbolPos(aiPos, boxMap, BoxMapValues::BOX);
             mapPositions = GetMapAsPositions(boxMap);
             GetDirectionsList(aiPos, targetPos, mapPositions);
 
             _direction = _directionPath[0];
-
-            if (_direction == RayLib::Vector3())
+            if (aiPos.x + _direction.x == targetPos.x && aiPos.y + _direction.z == targetPos.y)
                 _currentState = AIState::ATTACK;
-
-        }
-        if (_currentState == AIState::ATTACK) {
-            _dropBomb.InstantiateBomb(transform.position);
+            break;
+        case AIState::ATTACK:
+            if (boxMap[aiPos.y][aiPos.x + 1] != BoxMapValues::EMPTY && boxMap[aiPos.y][aiPos.x - 1] != BoxMapValues::EMPTY && boxMap[aiPos.y + 1][aiPos.x] != BoxMapValues::EMPTY && boxMap[aiPos.y - 1][aiPos.x] != BoxMapValues::EMPTY)
+                break;
+            _dropBomb.InstantiateBomb(RayLib::Vector3(std::round(transform.position.x / 10) * 10, std::round(transform.position.y / 10) * 10, std::round(transform.position.z / 10) * 10));
             _currentState = AIState::HIDE;
+            break;
         }
 
         if (Engine::GameConfiguration::GetDebugMode())
             DebugPath(transform.position);
 
-        _movement.direction = _direction * _speed;
+        _movement.direction = _direction * (_speed * 1.25f);
 
         _movement.Update(dt, entity);
         _dropBomb.Update();
@@ -143,18 +140,22 @@ namespace Component
 
         _directionPath.clear();
 
-        for (auto pathNode = path.begin(); pathNode != path.end(); pathNode++) {
+        for (auto &pathNode : path) {
 
             //std::cout << "X: " << (*pathNode).x << " - " << aiPos.x << " = " << (*pathNode).x - aiPos.x << std::endl;
             //std::cout << "Y: " << (*pathNode).y << " - " << aiPos.y << " = " << (*pathNode).y - aiPos.y << std::endl;
 
-            RayLib::Vector3 dirToAdd = RayLib::Vector3(static_cast<float>((*pathNode).x - aiPos.x), 0.0f, static_cast<float>((*pathNode).y - aiPos.y));
+            if (pathNode.x == aiPos.x && pathNode.y == aiPos.y)
+                continue;
+            RayLib::Vector3 dirToAdd = RayLib::Vector3(static_cast<float>(pathNode.x - aiPos.x), 0.0f, static_cast<float>(pathNode.y - aiPos.y));
 
             _directionPath.push_back(dirToAdd);
             //std::cout << "Pushing to _dirPath: " << dirToAdd << std::endl;
 
-            aiPos += *pathNode;
+            aiPos = pathNode;
         }
+        if (_directionPath.size() == 0)
+            _directionPath.push_back(RayLib::Vector3(0, 0, 0));
     }
 
     RayLib::Vector2<int> AIAlgo::GetClosestSymbolPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, int symbol)
@@ -163,21 +164,19 @@ namespace Component
         float closest = std::numeric_limits<float>::max();
         RayLib::Vector2<int> searchRadius(10, 10);
 
-        RayLib::Vector2<int> currentPoint = agentPos - (searchRadius * 0.5f);
-
         RayLib::Vector2<int> maxPoint = agentPos;
+        RayLib::Vector2<int> minPoint = agentPos;
         maxPoint += (searchRadius * 0.5f);
-
-        if (currentPoint.x < 0)
-            currentPoint.x = 0;
-        if (currentPoint.y < 0)
-            currentPoint.y = 0;
+        minPoint -= (searchRadius * 0.5f);
 
         if (maxPoint.y > static_cast<int>(map.size()))
             maxPoint.y = static_cast<int>(map.size());
         if (maxPoint.x > static_cast<int>(map[0].size()))
             maxPoint.x = static_cast<int>(map[0].size());
-
+        if (minPoint.y < 0)
+            minPoint.y = 0;
+        if (minPoint.x < 0)
+            minPoint.x = 0;
         /*for (std::size_t i = 0; i < map.size(); i++)
         {
             for (std::size_t j = 0; j < map[i].size(); j++)
@@ -185,8 +184,8 @@ namespace Component
             std::cout << std::endl;
         }*/
 
-        for (int y = currentPoint.y; y < maxPoint.y; y++) {
-            for (int x = currentPoint.x; x < maxPoint.x; x++) {
+        for (int y = minPoint.y; y < maxPoint.y; y++) {
+            for (int x = minPoint.x; x < maxPoint.x; x++) {
                 if (map[y][x] == symbol && _state.Call<bool>("SimpleIsWalkable", RayLib::Vector2<int>(x, y))) {
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));
                     if (dst < closest) {
@@ -203,9 +202,8 @@ namespace Component
     {
         Transform& transform = _ai_player.GetComponent<Transform>();
 
-
-        return (RayLib::Vector2<int>(static_cast<int>(transform.position.x / 10.0f),
-                                     static_cast<int>(transform.position.z / 10.0f)));
+        return (RayLib::Vector2<int>(static_cast<int>(std::lround(transform.position.x / 10.0f)),
+                                     static_cast<int>(std::lround(transform.position.z / 10.0f))));
     }
 
     std::vector<RayLib::Vector2<int>> AIAlgo::GetMapAsPositions(const std::vector<std::vector<int>>& map)

@@ -28,7 +28,7 @@
 enum BoxMapValues {
     OFFWALL = -21,
     INWALL = -20,
-    BOX = 1,
+    BOX = -1,
     EMPTY = -3
 };
 
@@ -48,7 +48,8 @@ class AIMapsGenerator : public ECS::ASystem {
         void Update(double dt, ECS::Entity& entity) override;
         void FixedUpdate(ECS::Entity& entity) override;
         void LateUpdate(double dt, ECS::Entity& entity) override;
-        void UpdateMaps();
+        void UpdateMaps(ECS::Entity& entity);
+        void InitMaps(ECS::Entity& entity);
         std::vector<std::vector<int>> InitMaps(std::vector<std::string>& boxmap);
         std::vector<std::vector<int>>& RemoveCharsFromMap(std::vector<std::vector<int>>& map, std::vector<int> chars);
         const std::vector<std::vector<int>>& GetBoxMap() const;
@@ -56,10 +57,8 @@ class AIMapsGenerator : public ECS::ASystem {
         const std::vector<std::vector<int>>& GetBombMap() const;
     protected:
     private:
-        const std::list<std::unique_ptr<ECS::Entity>>& _entities;
         std::vector<std::vector<int>> _boxmap;
         std::vector<std::vector<int>> _playersmap;
-        std::vector<std::vector<int>> _bombmap;
 };
 
 #endif /* !AIMAPSGENERATOR_HPP_ */

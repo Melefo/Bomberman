@@ -77,7 +77,7 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
                 player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
 
                 //ECS::Entity& player = entityFactory.createPlayer(playerKeys);
-                //player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), deepness, static_cast<float>(y * BOX_SIZE));
+                //player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
                 currentPlayer++;
             }
         }

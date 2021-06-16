@@ -7,45 +7,46 @@
 
 #include "AIMapsGenerator.hpp"
 
-AIMapsGenerator::AIMapsGenerator(std::vector<std::string>& boxmap) : _entities(ECS::Coordinator::GetInstance()->GetEntities()),
-_boxmap(InitMaps(boxmap)), _playersmap(InitMaps(boxmap)), 
-_bombmap(InitMaps(boxmap))
+AIMapsGenerator::AIMapsGenerator(std::vector<std::string>& boxmap) :
+_boxmap(InitMaps(boxmap)), _playersmap(InitMaps(boxmap))
 {
-    UpdateMaps();
+    this->AddDependency<Component::Transform>();
+    for (auto& entity : ECS::Coordinator::GetInstance()->GetEntities())
+        InitMaps(*entity);
 }
 
 
-void AIMapsGenerator::Update(double, ECS::Entity&)
+void AIMapsGenerator::Update(double, ECS::Entity& entity)
 {
-    RemoveCharsFromMap(_boxmap, {BoxMapValues::BOX});
-    RemoveCharsFromMap(_playersmap, {PlayerMapValues::PLAYER});
-    RemoveCharsFromMap(_bombmap, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
-    UpdateMaps();
+    //RemoveCharsFromMap(_playersmap, {PlayerMapValues::PLAYER});
+    //RemoveCharsFromMap(_boxmap, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    UpdateMaps(entity);
 }
 
-void AIMapsGenerator::UpdateMaps()
+void AIMapsGenerator::UpdateMaps(ECS::Entity& entity)
 {
-    for (auto incr = _entities.begin(); incr != _entities.end();) {
-        auto &entity = *incr->get();
-        incr++;
-        if (!entity.HasComponent<Component::Transform>())
-            continue;
-        if (entity.GetTag() == "Box") {
-            Component::Transform &pos = entity.GetComponent<Component::Transform>();
-            _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = BoxMapValues::BOX;
-        }
-        if (entity.GetTag() == "Player") {
-            Component::Transform &pos = entity.GetComponent<Component::Transform>();
-            _playersmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = PlayerMapValues::PLAYER;
-        }
-        if (entity.GetTag() == "Bomb") {
-            if (!entity.HasComponent<Component::Explosion>())
-                continue;
-            Component::Transform &pos = entity.GetComponent<Component::Transform>();
-            Component::Explosion &explo = entity.GetComponent<Component::Explosion>();
-            _bombmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = static_cast<int>(explo.GetExplosionTimer());
-        }
+    if (entity.GetTag() == "Player")
+    {
+        Component::Transform& pos = entity.GetComponent<Component::Transform>();
+        _playersmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = PlayerMapValues::PLAYER;
     }
+    if (entity.GetTag() == "Bomb") {
+        if (!entity.HasComponent<Component::Explosion>())
+            return;
+        Component::Transform& pos = entity.GetComponent<Component::Transform>();
+        Component::Explosion &explo = entity.GetComponent<Component::Explosion>();
+        _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = static_cast<int>(explo.GetExplosionTimer());
+    }
+}
+
+void AIMapsGenerator::InitMaps(ECS::Entity& entity)
+{
+    if (entity.GetTag() == "Box")
+    {
+        Component::Transform& pos = entity.GetComponent<Component::Transform>();
+        _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = BoxMapValues::BOX;
+    }
+    this->UpdateMaps(entity);
 }
 
 void AIMapsGenerator::FixedUpdate(ECS::Entity&)
@@ -93,9 +94,4 @@ const std::vector<std::vector<int>>& AIMapsGenerator::GetBoxMap() const
 const std::vector<std::vector<int>>& AIMapsGenerator::GetPlayersMap() const
 {
     return (_playersmap);
-}
-
-const std::vector<std::vector<int>>& AIMapsGenerator::GetBombMap() const
-{
-    return (_bombmap);
 }
