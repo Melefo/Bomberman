@@ -7,8 +7,6 @@
 
 #include "Coordinator.hpp"
 #include "Exceptions.hpp"
-//#include "Camera.hpp"
-//#include "Transform.hpp"
 
 namespace ECS
 {

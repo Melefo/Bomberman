@@ -8,6 +8,7 @@
 #include "Window.hpp"
 #include "GameConfiguration.hpp"
 #include "ButtonCallbacks.hpp"
+#include "PhysicsSystem.hpp"
 #include "Camera.hpp"
 #include "Scenes.hpp"
 #include <TextUI.hpp>
@@ -147,10 +148,6 @@ namespace Component
         ECS::Coordinator::GetInstance()->CloseWindow = true;
     }
 
-    void thisIsMyBreakPoint() {
-
-    }
-
     void ButtonCallbacks::Replay()
     {
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
@@ -167,6 +164,7 @@ namespace Component
         coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(true);
         Engine::GameConfiguration::SetGameOver(false);
+        coordinatorRef->GetSystem<Component::PhysicsSystem>().SetStatus(true);
     }
 
     void ButtonCallbacks::StartGame()
@@ -179,6 +177,7 @@ namespace Component
 
         coordinator->setCurrentScene(sceneName);
         coordinator->SetGameIsRunning(true);
+        coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(true);
     }
 
     void ButtonCallbacks::StartEditorMenu()
