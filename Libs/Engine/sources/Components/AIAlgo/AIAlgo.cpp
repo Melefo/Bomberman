@@ -62,6 +62,10 @@ namespace Component
 
         //_state.Call("astar", PlayerPos, closestSymbolPos, aimapgen.GetBoxMap(), func);
 
+        if (_dropBomb.timeToDrop > 0.0f) {
+            _dropBomb.timeToDrop -= _window->GetFrameTime();
+        }
+
         switch (this->_currentState)
         {
         case AIState::IDLE:
@@ -94,8 +98,11 @@ namespace Component
         case AIState::ATTACK:
             if (boxMap[aiPos.y][aiPos.x + 1] != BoxMapValues::EMPTY && boxMap[aiPos.y][aiPos.x - 1] != BoxMapValues::EMPTY && boxMap[aiPos.y + 1][aiPos.x] != BoxMapValues::EMPTY && boxMap[aiPos.y - 1][aiPos.x] != BoxMapValues::EMPTY)
                 break;
-            _dropBomb.InstantiateBomb(RayLib::Vector3(std::round(transform.position.x / 10) * 10, std::round(transform.position.y / 10) * 10, std::round(transform.position.z / 10) * 10));
-            _currentState = AIState::HIDE;
+            if (_dropBomb.timeToDrop <= 0.0f) {
+                _dropBomb.InstantiateBomb(RayLib::Vector3(std::round(transform.position.x / 10) * 10, std::round(transform.position.y / 10) * 10, std::round(transform.position.z / 10) * 10));
+                _currentState = AIState::HIDE;
+                _dropBomb.timeToDrop = _dropBomb.GetDropDelay();
+            }
             break;
         }
 

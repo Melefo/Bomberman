@@ -17,7 +17,7 @@ namespace Component
     {
         // get AController from collision
         //AController& acontroller = collision.GetComponent<PlayerInputs>();
-        if (collision.GetTag() == "Player") {
+        if (collision.GetTag() == "Player" && collision.HasComponent<PlayerInputs>()) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             DecrementCooldown(playerInputs);
         }
