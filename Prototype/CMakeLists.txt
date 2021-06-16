@@ -32,6 +32,10 @@ add_executable(shaderPrototype
   sources/Shaders/main.cpp
 )
 
+add_executable(drawablePrototype
+  sources/Drawable/main.cpp
+)
+
 MACRO(HEADER_DIRECTORIES return_list)
     FILE(GLOB_RECURSE new_list sources/**/*.hpp)
     SET(dir_list "")
@@ -52,6 +56,7 @@ add_executable(behaviourPrototype
 
 target_include_directories(behaviourPrototype PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
 
+TARGET_LINK_LIBRARIES(drawablePrototype encapsu ecs engine)
 TARGET_LINK_LIBRARIES(shaderPrototype encapsu ecs engine)
 TARGET_LINK_LIBRARIES(loopPrototype encapsu)
 TARGET_LINK_LIBRARIES(inputPrototype encapsu)
