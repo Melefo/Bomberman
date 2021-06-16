@@ -15,8 +15,7 @@ namespace Component
     _speed(moveSpeed), _direction(), _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")),
     _currentState(AIState::HIDE), _enabled(true)
     {
-        if (_state.RunScript("../assets/AIAlgo.lua") != 0)
-            this->_enabled = false; 
+
         if (_state.RunScript("../assets/Pathfinding.lua") != 0)
             this->_enabled = false;
     }
