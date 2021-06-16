@@ -25,7 +25,7 @@ TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int bo
     };
 
     _width = mapSizes[_playersNbr];
-    //generateMap();
+    generateMap();
 }
 
 TerrainGenerator::TerrainGenerator(int playersNbr, int width, int height, const MapType mapType, int boxPercentage)
