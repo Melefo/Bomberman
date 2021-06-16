@@ -61,18 +61,9 @@ namespace RayLib
             int GetLocation(std::string location);
 
             /**
-             * @brief Set a value to an element of a shader file
+             * @brief Set the Value to an element of a shader file
              * 
-             * @tparam T Any value between
-             * FLOAT
-             * VEC2
-             * VEC3
-             * VEC4
-             * INT
-             * IVEC2
-             * IVEC3
-             * IVEC4
-             * SAMPLER2D
+             * @tparam T 
              * @param location The location in the file. Found with GetLocation function
              * @param value The value to set
              * @param uniformType The uniform type of the value
@@ -87,14 +78,14 @@ namespace RayLib
              * SHADER_UNIFORM_IVEC4
              * SHADER_UNIFORM_SAMPLER2D
              */
-            template <typename T>
+            template<typename T>
             void SetValue(int location, T value, int uniformType)
             {
-                ::SetShaderValue(_shader, location, static_cast<void *>(&value), uniformType);
+                ::SetShaderValue(_shader, location, &value, uniformType);
             }
 
             /**
-             * @brief Set a new location into the shader locs array
+             * @brief Set locId raylib attribute new location according to the loaded shader
              * 
              * @param locId Id of the location
              * @param location Name of the location to find
@@ -121,7 +112,6 @@ namespace RayLib
             void EndMode();
 
         protected:
-        private:
             /**
              * @brief The C raylib's Shader structure
              * 
