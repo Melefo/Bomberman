@@ -13,7 +13,7 @@ namespace Component
     AIAlgo::AIAlgo(ECS::Entity &player, float moveSpeed, float dropDelay) : AController(player, moveSpeed, dropDelay),
     _ai_player(player), _state(), _entities(ECS::Coordinator::GetInstance()->GetEntities()),
     _speed(moveSpeed), _direction(), _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")),
-    _currentState(AIState::HIDE), _enabled(true)
+    _currentState(AIState::HIDE), _enabled(true), _stateDuration(0.75f), _timeToStateChange(0.75f)
     {
 
         if (_state.RunScript("../assets/Pathfinding.lua") != 0)
@@ -65,58 +65,63 @@ namespace Component
             _dropBomb.timeToDrop -= _window->GetFrameTime();
         }
 
-        /*for (std::size_t i = 0; i < boxMap.size(); i++) {
-            for (std::size_t j = 0; j < boxMap[i].size(); j++) {
-                std::cout << std::setw(4) << boxMap[i][j];
+        if (_timeToStateChange <= 0.0f) {
+            /*for (std::size_t i = 0; i < boxMap.size(); i++) {
+                for (std::size_t j = 0; j < boxMap[i].size(); j++) {
+                    std::cout << std::setw(4) << boxMap[i][j];
+                }
+                std::cout << std::endl;
             }
-            std::cout << std::endl;
-        }
-        std::cout << std::endl;*/
-        switch (this->_currentState)
-        {
-        case AIState::IDLE:
-            _direction = RayLib::Vector3();
-            break;
-        case AIState::HIDE:
-            targetPos = GetClosestSymbolPos(aiPos, boxMap, BoxMapValues::EMPTY);
-
-            if (targetPos.x == aiPos.x && targetPos.y == aiPos.y)
-                std::cout << "Could not find hiding pos" << std::endl;
-            else
-                std::cout << "Found hiding pos\nTarget X : " << targetPos.x << " / Target Y : " << targetPos.y << std::endl;
-
-            mapPositions = GetMapAsPositions(boxMap);
-            GetDirectionsList(aiPos, targetPos, mapPositions);
-
-            _direction = _directionPath[0];
-            if (_direction == RayLib::Vector3())
-                _currentState = AIState::CHASE;
-            break;
-        case AIState::CHASE:
-            targetPos = GetClosestSymbolPos(aiPos, boxMap, BoxMapValues::BOX);
-            mapPositions = GetMapAsPositions(boxMap);
-            GetDirectionsList(aiPos, targetPos, mapPositions);
-
-            _direction = _directionPath[0];
-            if (aiPos.x + _direction.x == targetPos.x && aiPos.y + _direction.z == targetPos.y)
-                _currentState = AIState::ATTACK;
-            break;
-        case AIState::ATTACK:
-            if (boxMap[aiPos.y][aiPos.x + 1] != BoxMapValues::EMPTY && boxMap[aiPos.y][aiPos.x - 1] != BoxMapValues::EMPTY && boxMap[aiPos.y + 1][aiPos.x] != BoxMapValues::EMPTY && boxMap[aiPos.y - 1][aiPos.x] != BoxMapValues::EMPTY)
+            std::cout << std::endl;*/
+            switch (this->_currentState)
+            {
+            case AIState::IDLE:
+                _direction = RayLib::Vector3();
                 break;
-            if (_dropBomb.timeToDrop <= 0.0f) {
-                _dropBomb.InstantiateBomb(RayLib::Vector3(std::round(transform.position.x / 10) * 10, std::round(transform.position.y / 10) * 10, std::round(transform.position.z / 10) * 10));
-                _dropBomb.timeToDrop = _dropBomb.GetDropDelay();
+            case AIState::HIDE:
+                targetPos = GetClosestSymbolPos(aiPos, boxMap, BoxMapValues::EMPTY);
+
+                if (targetPos.x == aiPos.x && targetPos.y == aiPos.y)
+                    std::cout << "Could not find hiding pos" << std::endl;
+                else
+                    std::cout << "Found hiding pos\nTarget X : " << targetPos.x << " / Target Y : " << targetPos.y << std::endl;
+
+                mapPositions = GetMapAsPositions(boxMap);
+                GetDirectionsList(aiPos, targetPos, mapPositions);
+
+                _direction = _directionPath[0];
+                if (_direction == RayLib::Vector3())
+                    _currentState = AIState::CHASE;
+                break;
+            case AIState::CHASE:
+                targetPos = GetClosestSymbolPos(aiPos, boxMap, BoxMapValues::BOX);
+                mapPositions = GetMapAsPositions(boxMap);
+                GetDirectionsList(aiPos, targetPos, mapPositions);
+
+                _direction = _directionPath[0];
+                if (aiPos.x + _direction.x == targetPos.x && aiPos.y + _direction.z == targetPos.y)
+                    _currentState = AIState::ATTACK;
+                break;
+            case AIState::ATTACK:
+                if (boxMap[aiPos.y][aiPos.x + 1] != BoxMapValues::EMPTY && boxMap[aiPos.y][aiPos.x - 1] != BoxMapValues::EMPTY && boxMap[aiPos.y + 1][aiPos.x] != BoxMapValues::EMPTY && boxMap[aiPos.y - 1][aiPos.x] != BoxMapValues::EMPTY) {
+                    _currentState = AIState::HIDE;
+                    break;
+                }
+                if (_dropBomb.timeToDrop <= 0.0f) {
+                    _dropBomb.InstantiateBomb(RayLib::Vector3(std::round(transform.position.x / 10) * 10, std::round(transform.position.y / 10) * 10, std::round(transform.position.z / 10) * 10));
+                    _dropBomb.timeToDrop = _dropBomb.GetDropDelay();
+                }
+                _currentState = AIState::HIDE;
+                _direction = RayLib::Vector3();
+                break;
             }
-            _currentState = AIState::HIDE;
-            _direction = RayLib::Vector3();
-            break;
+
+            _movement.direction = _direction * (_speed);
+
+            _timeToStateChange = _stateDuration;
+        } else {
+            _timeToStateChange -= _window->GetFrameTime();
         }
-
-        //if (Engine::GameConfiguration::GetDebugMode())
-        //    DebugPath(transform.position);
-
-        _movement.direction = _direction * (_speed);
 
         _movement.Update(dt, entity);
         _dropBomb.Update();
@@ -209,7 +214,7 @@ namespace Component
     {
         RayLib::Vector2<int> closestSymbol = agentPos;
         float closest = std::numeric_limits<float>::max();
-        RayLib::Vector2<int> searchRadius(10, 10);
+        RayLib::Vector2<int> searchRadius(20, 20);
 
         RayLib::Vector2<int> maxPoint = agentPos;
         RayLib::Vector2<int> minPoint = agentPos;
