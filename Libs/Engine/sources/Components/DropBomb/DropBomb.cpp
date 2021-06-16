@@ -35,7 +35,7 @@ namespace Component
         float boxSize = 7.50f;
 
         if (_bombNumber > _maxBombs)
-            _bombNumber = _maxBombs;
+            _bombNumber = static_cast<int>(_maxBombs);
 
         // spawn a bunch of small bombs in a cross pattern of size radius
         // create a bunch of directions vectors
