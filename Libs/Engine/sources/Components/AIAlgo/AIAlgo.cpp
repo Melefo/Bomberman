@@ -238,7 +238,8 @@ namespace Component
 
         for (int y = minPoint.y; y < maxPoint.y; y++) {
             for (int x = minPoint.x; x < maxPoint.x; x++) {
-                if (map[y][x] == symbol && _state.Call<bool>("SimpleIsWalkable", RayLib::Vector2<int>(x, y))) {
+                if (map[y][x] == symbol) {
+
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));
                     if (dst < closest) {
                         closest = dst;

@@ -38,11 +38,19 @@ function dist(pos1, pos2)
 end
 
 function is_valid_node(node, neighbor)
+
+	--! le joueur est bloqué quand il pose une bombe /!\
+	--if (BoxMap[node.y + 1][node.x + 1] == BoxMapValues.EMPTY) then
+	--	if (dist(node, neighbor) <= 1.0) then
+    --        return (true)
+    --    end
+	--end
+
 	if (BoxMap[node.y + 1][node.x + 1] ~= BoxMapValues.INWALL and BoxMap[node.y + 1][node.x + 1] ~= BoxMapValues.OFFWALL and BoxMap[node.y+1][node.x+1] ~= BoxMapValues.BOX) then
-        if (dist(node, neighbor) <= 1.0) then
-            return (true)
-        end
-    end
+	    if (dist(node, neighbor) <= 1.0) then
+	        return (true)
+	    end
+	end
     return (false)
 end
 
