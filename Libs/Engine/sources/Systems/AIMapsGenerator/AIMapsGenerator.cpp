@@ -10,20 +10,19 @@
 AIMapsGenerator::AIMapsGenerator(std::vector<std::string>& boxmap) :
 _boxmap(InitMaps(boxmap)), _playersmap(InitMaps(boxmap)), _stringMap(boxmap)
 {
-    this->AddDependency<Component::Transform>();
+    this->AddDependency<Component::Camera>();
     for (auto& entity : ECS::Coordinator::GetInstance()->GetEntities())
         InitMaps(*entity);
 }
 
-
-void AIMapsGenerator::Update(double, ECS::Entity& entity)
+void AIMapsGenerator::Update(double, ECS::Entity&)
 {
-    //RemoveCharsFromMap(_playersmap, {PlayerMapValues::PLAYER});
-    //RemoveCharsFromMap(_boxmap, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    RemoveCharsFromMap(_playersmap, {PlayerMapValues::PLAYER});
+    RemoveCharsFromMap(_boxmap, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
 
-    //_boxmap = InitMaps(_stringMap);
-    //_playersmap = InitMaps(_stringMap);
-    UpdateMaps(entity);
+    for (auto& entity : ECS::Coordinator::GetInstance()->GetEntities()) {
+        InitMaps(*entity);
+    }
 }
 
 void AIMapsGenerator::UpdateMaps(ECS::Entity& entity)
