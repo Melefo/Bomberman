@@ -41,6 +41,11 @@ class BasicLight : public RayLib::Shader {
          */
         void UpdateValues();
 
+        /**
+         * @brief Get light source position
+         * 
+         * @return ::Vector3& 
+         */
         ::Vector3& GetPosition();
 
     protected:
