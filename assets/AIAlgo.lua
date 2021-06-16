@@ -142,14 +142,6 @@ function get_safe_direction(pos, boxmap, bombtimemap)
     return (0)
 end 
 
-function SimpleIsWalkable(pos)
-
-    if (bombMap[pos.y + 1][pos.x + 1] < BombMapValues.BOMB) then
-        return (true)
-    end
-    return (false)
-end
-
 function is_safe(pos, bombtimemap)
     if (bombtimemap[pos[3]+1][pos[1]+1] < 4 and bombtimemap[pos[3]+1][pos[1]+1] >= 0) then
         return (false)

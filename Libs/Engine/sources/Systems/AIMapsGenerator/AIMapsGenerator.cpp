@@ -8,7 +8,7 @@
 #include "AIMapsGenerator.hpp"
 
 AIMapsGenerator::AIMapsGenerator(std::vector<std::string>& boxmap) :
-_boxmap(InitMaps(boxmap)), _playersmap(InitMaps(boxmap))
+_boxmap(InitMaps(boxmap)), _playersmap(InitMaps(boxmap)), _stringMap(boxmap)
 {
     this->AddDependency<Component::Transform>();
     for (auto& entity : ECS::Coordinator::GetInstance()->GetEntities())
@@ -20,6 +20,9 @@ void AIMapsGenerator::Update(double, ECS::Entity& entity)
 {
     //RemoveCharsFromMap(_playersmap, {PlayerMapValues::PLAYER});
     //RemoveCharsFromMap(_boxmap, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+
+    //_boxmap = InitMaps(_stringMap);
+    //_playersmap = InitMaps(_stringMap);
     UpdateMaps(entity);
 }
 
@@ -35,6 +38,7 @@ void AIMapsGenerator::UpdateMaps(ECS::Entity& entity)
             return;
         Component::Transform& pos = entity.GetComponent<Component::Transform>();
         Component::Explosion &explo = entity.GetComponent<Component::Explosion>();
+
         _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = static_cast<int>(explo.GetExplosionTimer());
     }
 }
@@ -80,7 +84,7 @@ std::vector<std::vector<int>>& AIMapsGenerator::RemoveCharsFromMap(std::vector<s
 {
     for (std::size_t i = 0; i < map.size(); i++) {
         for (std::size_t v = 0; v < values.size(); v++) {
-            std::replace(map[i].begin(), map[i].end(), values.at(v), -1);
+            std::replace(map[i].begin(), map[i].end(), values.at(v), static_cast<int>(BoxMapValues::EMPTY));
         }
     }
     return (map);

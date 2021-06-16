@@ -36,7 +36,7 @@ namespace Component
              * @param dropBombKey Key to press
              * @param dropDelay Cooldown for bomb-dropping
              */
-            DropBomb(float dropDelay=2.5f);
+            DropBomb(float dropDelay=3.0f);
             /**
              * @brief Destroy the Drop Bomb object
              * 

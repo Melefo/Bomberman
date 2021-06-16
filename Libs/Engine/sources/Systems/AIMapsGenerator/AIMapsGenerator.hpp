@@ -23,7 +23,8 @@
 #include "PhysicsBody.hpp"
 #include "Collider.hpp"
 #include "DropBomb.hpp"
-
+#include "GameConfigurator.hpp"
+#include "Camera.hpp"
 
 enum BoxMapValues {
     OFFWALL = -21,
@@ -59,6 +60,7 @@ class AIMapsGenerator : public ECS::ASystem {
     private:
         std::vector<std::vector<int>> _boxmap;
         std::vector<std::vector<int>> _playersmap;
+        std::vector<std::string> _stringMap;
 };
 
 #endif /* !AIMAPSGENERATOR_HPP_ */

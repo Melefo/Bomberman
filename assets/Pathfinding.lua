@@ -46,6 +46,13 @@ function is_valid_node(node, neighbor)
     return (false)
 end
 
+function SimpleIsWalkable(pos)
+    if (BoxMap[pos.y + 1][pos.x + 1] < BombMapValues.BOMB) then
+        return (true)
+    end
+    return (false)
+end
+
 function lowest_f_score(set, f_score)
 	local lowest = infini
 	local best = nil
