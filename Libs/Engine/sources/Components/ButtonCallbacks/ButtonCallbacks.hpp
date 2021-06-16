@@ -70,11 +70,54 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
+            /**
+             * @brief Increment the nbr of users
+             * 
+             */
+            static void IncrementPlayerNbr(void);
+
+            /**
+             * @brief Decrement the nbr of users
+             * 
+             */
+            static void DecrementPlayerNbr(void);
+
+            /**
+             * @brief Increment the map of Height
+             * 
+             */
+            static void IncrementMapHeight();
+
+            /**
+             * @brief Decrement the map of Height
+             * 
+             */
+            static void DecrementMapHeight();
+
+            /**
+             * @brief Increment the map of Width
+             * 
+             */
+            static void IncrementMapWidth();
+
+            /**
+             * @brief Decrement the map of Width
+             * 
+             */
+            static void DecrementMapWidth();
+
+            /**
+             * @brief Generate a map in the background
+             * 
+             */
+            static void GenerateBackgroundMap(void);
+
             static void StartGame(void);
+            static void StartEditorMenu(void);
+            static void ExitGameToMainMenu(void);
 
+            static void Replay(void);
             static void QuitWindow(void);
-
-            static void CreateBox(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
@@ -92,6 +135,11 @@ namespace Component
              * 
              */
             Button& _button;
+            /**
+             * @brief Private Method for displaying dynamic text on click
+             * 
+             */
+            static void TextInterfaceLoader(std::string tagName, int nb);
     };
 }
 

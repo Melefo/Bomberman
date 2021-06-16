@@ -40,17 +40,9 @@ int main(void)
     //! camera pos and target determined by component
     //! attention le 3e arg: world up est important
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Prototype");
-    TerrainGenerator map(4);
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Bomberman");
 
     RayLib::AudioDevice::InitAudioDevice();
-
-    // !uncomment to get a speed pickup
-    //ECS::Entity& pickup = entityFactory.createPickUp();
-    //pickup.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 20.0f);
-
-    //! uncomment to generate a map
-    //Scenes::InitMap(*coordinator.get(), camera, map.getMap(), true);            // ajoute la default map en fond
 
     //! game manager for drag and drop
     //ECS::Entity& gameManager = coordinator->CreateEntity();
@@ -75,14 +67,15 @@ int main(void)
     coordinator->AddSystem<Component::BehaviourSystem>();
 
     window->SetTargetFPS(60);
+    window->SetExitKey(KEY_ESCAPE);
     assetManagerRef->loadAssets(coordinator->GetEntities());
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0) {
-            Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera, map.getMap());
+            Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera);
             assetManagerRef->loadAssets(coordinator->GetEntities());
         }
-
+        
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);
 

@@ -16,14 +16,6 @@ namespace Component
 
     void APickUp::FixedUpdate(ECS::Entity& entity)
     {
-        /*std::vector<std::reference_wrapper<Collider>> colliders = entity.OfType<Collider>();
-
-        for (Collider& col : colliders) {
-            if (col.IsColliding()) {
-                OnPickup(col.GetCollision());
-            }
-        }*/
-
         if (entity.HasComponent<Transform>()) {
             Transform& transform = entity.GetComponent<Transform>();
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(_coordinator, transform.position, _pickupRadius);
@@ -39,8 +31,10 @@ namespace Component
     {
         if (entity.HasComponent<Transform>()) {
             Transform& transform = entity.GetComponent<Transform>();
-            if (Engine::GameConfiguration::GetDebugMode())
+            if (Engine::GameConfiguration::GetDebugMode()) {
                 RayLib::Window::GetInstance(0, "")->DrawSphereWires(transform.position, _pickupRadius);
+            }
+            transform.rotation.y += 1.0f;
         }
     }
 }

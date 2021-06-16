@@ -9,14 +9,15 @@
 #define GAMECONFIGURATION_HPP_
 
 #include "Input.hpp"
-#include <vector>
-#include <map>
 #include "Exceptions.hpp"
 #include "EngineExceptions.hpp"
+#include "Vector2.hpp"
+#include "TerrainGenerator.hpp"
+#include <vector>
+#include <map>
 
 namespace Engine
 {
-
     struct playerkeys
     {
         playerkeys(RayLib::Input input = RayLib::Input(), int key = KEY_X);
@@ -46,6 +47,9 @@ namespace Engine
             static void SetPlayers(int playersTotal);
             static void SetPlayerKeys(int player, RayLib::Input& input, int actionKey);
 
+            static RayLib::Vector2<int> GetMapSize(void);
+            static void SetMapSize(int x, int y);
+
             static bool GetDebugMode(void);
             static void SetDebugMode(bool);
 
@@ -55,16 +59,17 @@ namespace Engine
             static bool GetGameOver(void);
             static void SetGameOver(bool gameOver);
 
+            static TerrainGenerator &GetTerrainGenerator(void);
+
         protected:
         private:
+            static RayLib::Vector2<int> _mapSize;
             static int _players;
             static int _enemies;
             static unsigned int _seed;
             static bool _debugMode;
             static bool _gameOver;
-            // ? terraingenerator ?
-            // ? vector de string (map) ?
-
+            static TerrainGenerator _terrainGenerator;
             static std::map<int, playerkeys> _playerKeys;
     };
 }

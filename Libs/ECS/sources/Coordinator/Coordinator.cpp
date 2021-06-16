@@ -6,6 +6,9 @@
 */
 
 #include "Coordinator.hpp"
+#include "Exceptions.hpp"
+//#include "Camera.hpp"
+//#include "Transform.hpp"
 
 namespace ECS
 {
@@ -13,7 +16,7 @@ namespace ECS
 
 
     Coordinator::Coordinator(std::string defaultScene, double fixedDeltaTime) :
-    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true), CloseWindow(false)
+    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true), _gameIsRunning(false), CloseWindow(false)
     {
 
     }
@@ -112,6 +115,21 @@ namespace ECS
         this->_lastRun = now;
     }
 
+    void Coordinator::RemoveComponents(const std::string &name)
+    {
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = this->GetEntities();
+        std::vector<ECS::Entity*> toDelete;
+
+        for (auto &entity : entities) {
+            if (entity->GetTag().find(name) != std::string::npos)
+                toDelete.push_back(&(*entity));
+        }
+        for (auto &entity : toDelete) {
+            //std::cout << "Deleting entity of tag: " << entity->GetTag() << " with an id of: " << entity->GetId() << std::endl;
+            entity->Dispose();
+        }
+    }
+
     double Coordinator::getFixedDeltaTime() const
     {
         return this->_fixedDeltaTime;
@@ -138,6 +156,16 @@ namespace ECS
             if (it.first == sceneName)
                 return it.second;
         }
-        throw("");
+        throw(Exception::CoordinatorException("Scene \"" + sceneName + "\" not found"));
+    }
+
+    bool Coordinator::IsGameRunning(void)
+    {
+        return _gameIsRunning;
+    }
+
+    void Coordinator::SetGameIsRunning(bool isRunning)
+    {
+        _gameIsRunning = isRunning;
     }
 }

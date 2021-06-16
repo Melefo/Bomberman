@@ -100,6 +100,22 @@ namespace ECS
                 const auto &it = this->_systems.find(name);
                 return it != this->_systems.end();
             }
+
+            /**
+             * @brief Get a System from Manager
+             *
+             * @return T& The System
+             */
+            template<typename T>
+            T& GetSystem()
+            {
+                std::string name(typeid(T).name());
+
+                const auto& it = this->_systems.find(name);
+                if (it == this->_systems.end())
+                    throw Exception::EntityException("This System is not added");
+                return dynamic_cast<T&>(*it->second);
+            }
             /**
              * @brief Get the Systems object
              * 

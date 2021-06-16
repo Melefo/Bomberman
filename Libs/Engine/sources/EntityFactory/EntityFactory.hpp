@@ -37,7 +37,13 @@ class EntityFactory {
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createButton(const std::string& texturePath="../assets/Default_texture.png");
+        ECS::Entity& createButton(const std::string& texturePath = "../assets/Default_texture.png");
+        /**
+         * @brief Create a TextBox object
+         *
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createTextBox(int maxLength, const std::string& fontPath, float size, float spacing = 0.0f, RayLib::Color color = BLACK);
         
         /**
          * @brief Create a Wall object

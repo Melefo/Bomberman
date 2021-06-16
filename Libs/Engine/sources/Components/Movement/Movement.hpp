@@ -15,6 +15,7 @@
 #include "Collider.hpp"
 #include "Transform.hpp"
 #include <algorithm>
+#include "Animator.hpp"
 #include "Window.hpp"
 
 namespace Component
@@ -31,7 +32,7 @@ namespace Component
              * @param attatchedEntity 
              * @param moveSpeed 
              */
-            Movement(ECS::Entity& attatchedEntity, float moveSpeed = 0.5f);
+            Movement(ECS::Entity& attatchedEntity, float moveSpeed = 0.5f, float maxSpeed=1.0f);
 
             /**
              * @brief Destroy the Player Movement object
@@ -118,6 +119,8 @@ namespace Component
              * 
              */
             float _bonusTime;
+
+            float _maxSpeed;
 
             std::vector<std::string> _collisionMask;
 

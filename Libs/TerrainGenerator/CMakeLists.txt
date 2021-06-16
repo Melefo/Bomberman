@@ -9,7 +9,7 @@ file(GLOB_RECURSE TEST tests/*.cpp)
 if(MSVC)
   add_compile_options(/W4 /WX)
 else()
-  add_compile_options(-Wall -Wextra -Wshadow)
+  add_compile_options(-Wall -Wextra -Wshadow -Wshadow -Wno-missing-field-initializers)
 endif()
 
 add_library(terrainGen
@@ -47,8 +47,8 @@ ENDMACRO()
 HEADER_DIRECTORIES(INC)
 TESTS_HEADER_DIRECTORIES(TEST_INC)
 
-TARGET_LINK_LIBRARIES(terrainGen xmlGen)
-TARGET_LINK_LIBRARIES(terrainGen_unit_tests criterion xmlGen -lgcov)
+TARGET_LINK_LIBRARIES(terrainGen xmlGen encapsu)
+TARGET_LINK_LIBRARIES(terrainGen_unit_tests criterion xmlGen encapsu -lgcov)
 TARGET_COMPILE_OPTIONS(terrainGen_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
 target_include_directories(terrainGen PUBLIC ${raylib_SOURCE_DIR}/src ${INC})

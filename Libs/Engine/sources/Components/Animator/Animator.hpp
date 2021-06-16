@@ -10,6 +10,7 @@
 
 #include "IComponent.hpp"
 #include "ModelAnimation.hpp"
+#include "AssetManager.hpp"
 #include <map>
 
 namespace Component
@@ -22,7 +23,7 @@ namespace Component
              * @param assetName
              * @param stateName 
              */
-            Animator(const std::string& assetName, std::string stateName);
+            Animator(ECS::Entity& entity, const std::string& assetName, std::string stateName);
             /**
              * @brief Destroy the Animator object
              * 
@@ -49,6 +50,8 @@ namespace Component
              */
             void SetState(const std::string& state);
 
+            const std::string& GetState(void) const;
+
             /**
              * @brief Play animation at current state of statemachine
              * 
@@ -67,6 +70,8 @@ namespace Component
         private:
             std::string _currentState;
             std::string _name;
+            ECS::Entity& _entity;
+            Asset& _asset;
     };
 }
 

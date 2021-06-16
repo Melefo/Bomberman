@@ -48,12 +48,20 @@ namespace RayLib
         return (::IsKeyDown(key));
     }
 
+    bool Input::IsKeyPressed(int key)
+    {
+        return (::IsKeyPressed(key));
+    }
+
     int Input::GetKeyPressed(void)
     {
-        // ! il y a une queue donc faire un while ?
         return (::GetKeyPressed());
     }
 
+    int Input::GetCharPressed(void)
+    {
+        return (::GetCharPressed());
+    }
 
     Vector2<int> Input::GetHorizontalKeys(void)
     {

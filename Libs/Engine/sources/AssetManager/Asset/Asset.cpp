@@ -9,8 +9,8 @@
 #include "EngineExceptions.hpp"
 #include "Asset.hpp"
 
-Asset::Asset(std::string name)
-    : _name(name)
+Asset::Asset(std::string name, uint32_t id)
+    : _name(name), _entityID(id)
 {
     std::string file;
 
@@ -21,20 +21,15 @@ Asset::Asset(std::string name)
         for (auto& element : std::filesystem::recursive_directory_iterator("../assets/")) {
             if (!element.is_regular_file())
                 continue;
-            //if (element.symlink_status().type() == std::filesystem::file_type::directory)
-            //    continue;
             file = element.path().string();
             if (file.find(name) != std::string::npos) {
                 if (file.find("model") != std::string::npos && !_model) {
                     _model = std::make_unique<RayLib::Model>(file);
-                }
-                else if (file.find("anim") != std::string::npos) {
+                } else if (file.find("anim") != std::string::npos) {
                     _animations.insert(std::pair<std::string, RayLib::ModelAnimation>(getAnimationName(file), RayLib::ModelAnimation(file)));
-                }
-                else if (file.find("texture") != std::string::npos && !_texture) {
+                } else if (file.find("texture") != std::string::npos && !_texture) {
                     _texture = std::make_unique<RayLib::Texture>(file);
-                }
-                else if (file.find("sound") != std::string::npos) {
+                } else if (file.find("sound") != std::string::npos) {
                     _sounds.insert(std::pair<std::string, RayLib::Sound>(getAnimationName(file), RayLib::Sound(file)));
                 }
             }
@@ -125,4 +120,10 @@ std::map<std::string, RayLib::Sound> &Asset::getSounds()
 {
     return (_sounds);
 }
+
+uint32_t Asset::getID(void)
+{
+    return (_entityID);
+}
+
 

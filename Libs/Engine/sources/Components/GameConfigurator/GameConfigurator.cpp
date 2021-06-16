@@ -6,6 +6,8 @@
 */
 
 #include "GameConfigurator.hpp"
+#include "BehaviourSystem.hpp"
+#include "Scenes.hpp"
 
 namespace Component
 {
@@ -21,7 +23,7 @@ namespace Component
         int count = 0;
         // dans le constructeur
 
-        if (_coordinator->getCurrentScene() == "Editor") {
+        if (_coordinator->getCurrentScene() == "EditorMenu") {
             // if drag n drop
             if (_window->IsFileDropped())
             {
@@ -49,8 +51,12 @@ namespace Component
         }
 
         if (_coordinator->getCurrentScene() == "Game") {
-            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver())
+            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver()) {
                 Engine::GameConfiguration::SetGameOver(true);
+                _coordinator->SetGameIsRunning(false);
+                Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), _nbrPlayersAlive == 0? "TIE": "YOU WON, CONGRATS!");
+                //_coordinator->GetSystem<Component::BehaviourSystem>().ToggleStatus();
+            }
         }
     }
 
@@ -60,22 +66,17 @@ namespace Component
         int remainingPlayers = 0;
         std::string tag = "";
 
-        for (auto it = entities.begin(); it != entities.end(); it++) {
-            tag = it->get()->GetTag();
-            //! faire pareil pour l'IA
-            if (tag.find("Player") != std::string::npos) {
+        for (auto &entity : entities) {
+            if (entity->GetTag().find("Player") != std::string::npos)
                 remainingPlayers++;
-            }
         }
-        if (remainingPlayers <= 1) {
-            //std::string sceneName = "MainMenu";
-            //_coordinator->setCurrentScene(sceneName);
-            std::cout << "Only one player remaining, congratulations!" << std::endl;
+        _nbrPlayersAlive = remainingPlayers;
+        if (_nbrPlayersAlive <= 1) {
+            std::cout << "Game is over! GG!" << std::endl;
             return (true);
         }
         return (false);
     }
-
 
     void GameConfigurator::FixedUpdate(ECS::Entity&)
     {

@@ -14,7 +14,6 @@ namespace Component
     {
     }
 
-
     void PlayerInputs::Update(double dt, ECS::Entity& entity)
     {
         float windowFrameTime = _window->GetFrameTime();
@@ -22,6 +21,9 @@ namespace Component
         if (_dropBomb.timeToDrop > 0.0f) {
             _dropBomb.timeToDrop -= windowFrameTime;
         }
+
+        if (!ECS::Coordinator::GetInstance()->IsGameRunning())
+            return;
 
         if (_input.IsKeyDown(_bombKey) && _dropBomb.timeToDrop <= 0.0f) {
 

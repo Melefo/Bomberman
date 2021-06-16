@@ -11,7 +11,7 @@ find_package(Boost REQUIRED)
 if(MSVC)
   add_compile_options(/W4 /WX)
 else()
-  add_compile_options(-Wall -Wextra -Wshadow)
+  add_compile_options(-Wall -Wextra -Wshadow -Wshadow -Wno-missing-field-initializers)
 endif()
 
 add_library(xmlGen

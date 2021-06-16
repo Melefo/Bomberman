@@ -9,6 +9,16 @@
 
 namespace ECS::Exception
 {
+
+    CoordinatorException::CoordinatorException(std::string value) :
+    _value(value)
+    {}
+
+    const char *CoordinatorException::what() const noexcept
+    {
+        return this->_value.c_str();
+    }
+
     SystemManagerException::SystemManagerException(std::string value) :
     _value(value)
     {}

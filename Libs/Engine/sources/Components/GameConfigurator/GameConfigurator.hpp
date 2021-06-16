@@ -54,6 +54,8 @@ namespace Component
         private:
             std::unique_ptr<RayLib::Window>& _window;
             std::unique_ptr<ECS::Coordinator>& _coordinator;
+
+            int _nbrPlayersAlive;
     };
 }
 

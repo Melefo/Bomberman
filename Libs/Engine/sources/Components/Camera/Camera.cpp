@@ -60,7 +60,8 @@ namespace Component
         RayLib::Vector3 result;
 
         //! mettre à jour la liste des players si yen a qui perd
-        RayLib::Vector2<int> margin = RayLib::Vector2<int>(10, 10);
+        RayLib::Vector2<int> margin = RayLib::Vector2<int>(2, 2);
+
         RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0, "")->GetSize();
         bool offscreen = false;
         std::size_t extraSpace = 0;
@@ -75,8 +76,9 @@ namespace Component
                 continue;
             Transform& transform = it->get()->GetComponent<Transform>();
 
-            if (IsPositionOffScreen(transform.position, margin, windowSize))
+            if (IsPositionOffScreen(transform.position, margin, windowSize)) {
                 offscreen = true;
+            }
 
             if (IsPositionOffScreen(transform.position, margin * 2, windowSize))
                 extraSpace += 1;
@@ -123,5 +125,8 @@ namespace Component
         throw ECS::Exception::ComponentException("There is no camera in the scene");
     }
 
-
+    ECS::Entity &Camera::getEntity()
+    {
+        return _entity;
+    }
 }

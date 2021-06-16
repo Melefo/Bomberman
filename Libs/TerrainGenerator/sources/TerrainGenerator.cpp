@@ -13,7 +13,7 @@
 
 TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int boxPercentage)
     : _playersNbr(playersNbr % 2 == 0 ? playersNbr : playersNbr+1), _boxPercentage(boxPercentage),
-    _height(13), _mapType(mapType), _map(_height)
+    _height(13), _mapType(mapType), _map(_height), _isGenerated(false)
 {
     _playersNbr = _playersNbr < 2 ? 2 : _playersNbr;
     _playersNbr = _playersNbr > 8 ? 8 : _playersNbr;
@@ -26,6 +26,12 @@ TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int bo
 
     _width = mapSizes[_playersNbr];
     generateMap();
+}
+
+TerrainGenerator::TerrainGenerator(int playersNbr, int width, int height, const MapType mapType, int boxPercentage)
+    : _playersNbr(playersNbr), _boxPercentage(boxPercentage), _height(height), _width(width), _mapType(mapType), _map(_height), _isGenerated(false)
+{
+    //generateMap();
 }
 
 /**
@@ -62,6 +68,7 @@ void TerrainGenerator::generateBaseMap()
             it = generateMapLine(index);
         index++;
     }
+    _isGenerated = true;
 }
 
 void TerrainGenerator::generateRandomMap(unsigned int seed)
@@ -123,6 +130,7 @@ void TerrainGenerator::generateRandomMap(unsigned int seed)
     //fillHoles();
     trimMap();
     cloneReverseMap();
+    _isGenerated = true;
 }
 
 void TerrainGenerator::clearMap()
@@ -140,6 +148,7 @@ void TerrainGenerator::clearMap()
         }
         index++;
     }
+    _isGenerated = false;
 }
 
 void TerrainGenerator::addTileOnMap(int y, int x)
@@ -160,6 +169,13 @@ void TerrainGenerator::setPlayersNumber(int newSize) {
     else if (newSize % 2 != 0)
         _playersNbr = newSize + 1;
     generateMap();
+}
+
+void TerrainGenerator::setMapSize(RayLib::Vector2<int> mapSize)
+{
+    this->_height = mapSize.y;
+    this->_width = mapSize.x;
+    this->_map.resize(mapSize.y);
 }
 
 /**
@@ -257,16 +273,11 @@ void TerrainGenerator::cloneReverseMap()
 {
     int index = 0;
     std::string tempString;
-    bool reverseMap = std::rand() % 2 == 0 ? true : false;
-    std::vector<std::string>& tempMap = _map;
 
     for (auto &it : _map) {
         if (index != 0 && index < _height - 1) {
-            if (reverseMap)
-                tempString = std::string(tempMap[_height-1-index].rbegin() + 1, tempMap[_height-1-index].rend() - 1);
-            else
                 tempString = std::string(it.rbegin() + 1, it.rend() - 1);
-            tempString.erase(0, 2);
+            // tempString.erase(0, 2); si problème rencontré debug e tenvisager de décommanter cette ligne
             tempString += static_cast<char>(mapTexture::OWALL);
             it += tempString;
         } else {
@@ -436,4 +447,9 @@ void TerrainGenerator::makeSpaceForPlayers()
             }
         }
     }
+}
+
+bool TerrainGenerator::isGenerated()
+{
+    return _isGenerated;
 }
