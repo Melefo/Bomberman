@@ -9,23 +9,10 @@
 #include "Vector4.hpp"
 
 BasicLight::BasicLight(LightType type, RayLib::Vector3 position, RayLib::Color& color, const std::string& ShaderPath)
-    : RayLib::Shader(ShaderPath+"base_lighting.vs", ShaderPath+"lighting.fs")
+    : RayLib::Shader(ShaderPath+"base_lighting.vs", ShaderPath+"lighting.fs"),
+    _type(static_cast<int>(type)), _position(position.getVector3()), _target(RayLib::Vector3().getVector3()), _color(color.getColor()),
+    _typeLoc(GetLocation("light.type")), _posLoc(GetLocation("light.position")), _targetLoc(GetLocation("light.target")), _colorLoc(GetLocation("light.color"))
 {
-    _type = static_cast<int>(type);
-    _position = position.getVector3();
-    _target = RayLib::Vector3().getVector3();
-    _color = color.getColor();
-
-    std::string typeName("light.type");
-    std::string posName("light.position");
-    std::string targetName("light.target");
-    std::string colorName("light.color");
-
-    _typeLoc = GetLocation(typeName);
-    _posLoc = GetLocation(posName);
-    _targetLoc = GetLocation(targetName);
-    _colorLoc = GetLocation(colorName);
-
     UpdateValues();
 }
 
