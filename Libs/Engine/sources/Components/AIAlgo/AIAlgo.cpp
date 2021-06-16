@@ -106,9 +106,10 @@ namespace Component
                 break;
             if (_dropBomb.timeToDrop <= 0.0f) {
                 _dropBomb.InstantiateBomb(RayLib::Vector3(std::round(transform.position.x / 10) * 10, std::round(transform.position.y / 10) * 10, std::round(transform.position.z / 10) * 10));
-                _currentState = AIState::HIDE;
                 _dropBomb.timeToDrop = _dropBomb.GetDropDelay();
             }
+            _currentState = AIState::HIDE;
+            _direction = RayLib::Vector3();
             break;
         }
 
@@ -137,15 +138,27 @@ namespace Component
     {
         RayLib::Color col;
 
-        col = _currentState == AIState::ATTACK ? RED : WHITE;
-        col = _currentState == AIState::CHASE ? ORANGE : WHITE;
-        col = _currentState == AIState::HIDE ? GREEN : WHITE;
+        switch (this->_currentState)
+        {
+        case AIState::IDLE:
+            col = BLUE;
+            break;
+        case AIState::HIDE:
+            col = GREEN;
+            break;
+        case AIState::CHASE:
+            col = ORANGE;
+            break;
+        case AIState::ATTACK:
+            col = RED;
+            break;
+        }
 
         for (auto &node : path) {
             RayLib::Vector3 position = RayLib::Vector3(node.x, 0.0f, node.y);
             position = position * 10.0f;
             position += RayLib::Vector3(0.0f, 1.0f, 0.0f);
-            _window->DrawSphereWires(position, 7.5f, 20, 20, RED);
+            _window->DrawSphereWires(position, 7.5f, 20, 20, col);
         }
     }
 
