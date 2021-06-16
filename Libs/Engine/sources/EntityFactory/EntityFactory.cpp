@@ -133,7 +133,7 @@ ECS::Entity& EntityFactory::createAI()
     //AIMapsGenerator& mapsgen = _coordinator.GetSystem<AIMapsGenerator>();
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(90.0f, 0.0f, 0.0f);
 
-    entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, 0.5f);
+    entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, 0.75f, 5.0f);
     // add destructible
     return (entity);
 }

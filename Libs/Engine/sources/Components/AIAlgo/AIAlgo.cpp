@@ -65,13 +65,13 @@ namespace Component
             _dropBomb.timeToDrop -= _window->GetFrameTime();
         }
 
-        for (std::size_t i = 0; i < boxMap.size(); i++) {
+        /*for (std::size_t i = 0; i < boxMap.size(); i++) {
             for (std::size_t j = 0; j < boxMap[i].size(); j++) {
                 std::cout << std::setw(4) << boxMap[i][j];
             }
             std::cout << std::endl;
         }
-        std::cout << std::endl;
+        std::cout << std::endl;*/
         switch (this->_currentState)
         {
         case AIState::IDLE:
@@ -115,7 +115,7 @@ namespace Component
         if (Engine::GameConfiguration::GetDebugMode())
             DebugPath(transform.position);
 
-        _movement.direction = _direction * (_speed * 1.25f);
+        _movement.direction = _direction * (_speed);
 
         _movement.Update(dt, entity);
         _dropBomb.Update();
