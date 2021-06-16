@@ -262,6 +262,10 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     bomb.AddComponent<Component::Renderer>("Bomb");
     bomb.AddComponent<Component::Transform>(RayLib::Vector3(1000.0f, 100.0f, 0.0f));
     //bomb.Dispose();
+
+    ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
+    Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
+    entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(-1000.0f, -1.0f, 0.0f);
 }
 
 void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage)
@@ -270,7 +274,7 @@ void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& came
     EntityFactory entityFactory(coordinator, camera.camera);
 
     camera.getEntity().GetComponent<Component::Transform>().position.z = -180;
-    
+
     ECS::Entity& entityTitle = entityFactory.createText(endingMessage, "../assets/pixelplay.png", 200.0f, 4.0f);
     Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
     RayLib::Vector3 center = RayLib::Vector3(windowRef->GetSize().x / 2.0f - (text.MeasureText().x / 2.0f),

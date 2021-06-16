@@ -14,6 +14,8 @@
 #include "IUIObject.hpp"
 #include "Renderer.hpp"
 #include "AssetManager.hpp"
+#include "Window.hpp"
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
@@ -63,6 +65,8 @@ namespace Component
              * 
              */
             RayLib::Camera3D& _camera;
+
+            std::unique_ptr<RayLib::Window>& _window;
 
     };
 }

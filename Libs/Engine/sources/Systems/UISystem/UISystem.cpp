@@ -11,7 +11,7 @@
 
 namespace Component
 {
-    UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera)
+    UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera), _window(RayLib::Window::GetInstance(0.0f, ""))
     {
         // ! obsolète ?
         AddDependency<IUIObject>();
@@ -48,6 +48,9 @@ namespace Component
         for (IUIObject& uiObject : uiObjects) {
             uiObject.Draw(position, assetManagerRef->getAssetFromName(renderer.getName()), scale);
         }
+
+        if (Engine::GameConfiguration::GetDebugMode())
+            _window->DrawFPS(RayLib::Vector2<int>(10, 10));
         _camera.BeginMode();
     }
 }

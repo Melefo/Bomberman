@@ -143,4 +143,9 @@ namespace RayLib
     {
         ::SetExitKey(key);
     }
+
+    void Window::DrawFPS(Vector2<int> pos)
+    {
+        ::DrawFPS(pos.x, pos.y);
+    }
 }

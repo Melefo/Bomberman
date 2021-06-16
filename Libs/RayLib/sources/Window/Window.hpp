@@ -13,6 +13,7 @@
 #include "Color.hpp"
 #include <string>
 #include <memory>
+#include "Window.hpp"
 #include "BoundingBox.hpp"
 
 namespace RayLib
@@ -178,6 +179,9 @@ namespace RayLib
             bool IsFileDropped(void);
             std::vector<std::string> GetDroppedFiles(int *count);
             void ClearDroppedFiles(void);
+
+            // draw FPS
+            void DrawFPS(Vector2<int> pos);
 
         protected:
         private:
