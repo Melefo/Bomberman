@@ -181,7 +181,7 @@ namespace ECS
              * 
              * @param const std::string&
              */
-            void RemoveComponents(const std::string &name);
+            void RemoveEntities(const std::string &name);
 
             /**
              * @brief Checks if the game is running

@@ -117,7 +117,7 @@ namespace ECS
         this->_lastRun = now;
     }
 
-    void Coordinator::RemoveComponents(const std::string &name)
+    void Coordinator::RemoveEntities(const std::string &name)
     {
         const std::list<std::unique_ptr<ECS::Entity>>& entities = this->GetEntities();
         std::vector<ECS::Entity*> toDelete;

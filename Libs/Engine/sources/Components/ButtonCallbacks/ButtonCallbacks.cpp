@@ -53,11 +53,11 @@ namespace Component
         Component::Camera &cameraRef = Component::Camera::GetMainCamera();
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
 
-        coordinatorRef->RemoveComponents("Wall");
-        coordinatorRef->RemoveComponents("Box");
-        coordinatorRef->RemoveComponents("Player");
-        coordinatorRef->RemoveComponents("PickUp");
-        coordinatorRef->RemoveComponents("Bomb");
+        coordinatorRef->RemoveEntities("Wall");
+        coordinatorRef->RemoveEntities("Box");
+        coordinatorRef->RemoveEntities("Player");
+        coordinatorRef->RemoveEntities("PickUp");
+        coordinatorRef->RemoveEntities("Bomb");
 
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
@@ -156,7 +156,7 @@ namespace Component
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 
-        coordinatorRef->RemoveComponents("");
+        coordinatorRef->RemoveEntities("");
 
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
         terrainGeneratorRef.clearMap();
@@ -195,7 +195,7 @@ namespace Component
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "MainMenu";
 
-        coordinatorRef->RemoveComponents("");
+        coordinatorRef->RemoveEntities("");
 
         coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(false);
