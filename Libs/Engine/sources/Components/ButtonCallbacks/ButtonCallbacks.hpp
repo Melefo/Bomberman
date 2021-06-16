@@ -114,7 +114,9 @@ namespace Component
 
             static void StartGame(void);
             static void StartEditorMenu(void);
+            static void ExitGameToMainMenu(void);
 
+            static void Replay(void);
             static void QuitWindow(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};

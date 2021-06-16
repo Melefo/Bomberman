@@ -26,6 +26,7 @@
 #include "PhysicsSystem.hpp"
 #include "BehaviourSystem.hpp"
 #include "TextUI.hpp"
+#include "Camera.hpp"
 
 std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>> Scenes::scenesCtor =
     {std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("MainMenu", &InitMainMenu),
@@ -109,9 +110,6 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f + 50.0f, 0.0f);
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::QuitWindow));
-
-    //InitMap(coordinator, camera, defaultMap, 0);            // ajoute la default map en fond
-
 }
 
 void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
@@ -264,5 +262,29 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     bomb.AddComponent<Component::Renderer>("Bomb");
     bomb.AddComponent<Component::Transform>(RayLib::Vector3(1000.0f, 100.0f, 0.0f));
     //bomb.Dispose();
+}
+
+void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage)
+{
+    std::unique_ptr<RayLib::Window>& windowRef = RayLib::Window::GetInstance(0, "");
+    EntityFactory entityFactory(coordinator, camera.camera);
+
+    camera.getEntity().GetComponent<Component::Transform>().position.z = -180;
     
+    ECS::Entity& entityTitle = entityFactory.createText(endingMessage, "../assets/pixelplay.png", 200.0f, 4.0f);
+    Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
+    RayLib::Vector3 center = RayLib::Vector3(windowRef->GetSize().x / 2.0f - (text.MeasureText().x / 2.0f),
+                                             windowRef->GetSize().y / 2.0f - 350.0f, 0.0f);
+    entityTitle.GetComponent<Component::Transform>().position = center;
+
+    /*ECS::Entity &entityReplay = entityFactory.createButton("ReplayBtnStd");
+    entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f,
+                                                                               windowRef->GetSize().y / 2.0f + 150.0f, 0.0f);
+    entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
+    */
+
+    ECS::Entity &entityMainMenu = entityFactory.createButton("MainMenuBtnStd");
+    entityMainMenu.GetComponent<Component::Transform>().position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f,
+                                                                                   windowRef->GetSize().y / 2.0f + 300.0f, 0.0f);
+    entityMainMenu.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ExitGameToMainMenu));
 }

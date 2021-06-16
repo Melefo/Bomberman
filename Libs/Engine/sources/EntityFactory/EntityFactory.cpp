@@ -43,6 +43,7 @@ ECS::Entity& EntityFactory::createButton(const std::string& assetName)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
+    entity.SetTag("button_" + assetName);
     entity.AddComponent<Component::IUIObject, Component::Button>();
     entity.AddComponent<Component::Renderer>(assetName);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
@@ -55,6 +56,7 @@ ECS::Entity& EntityFactory::createTextBox(int maxLength, const std::string& font
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
+    entity.SetTag("TextBox");
     entity.AddComponent<Component::Renderer>();
     entity.AddComponent<Component::IUIObject, Component::TextBox>(maxLength, fontPath, size, spacing, color, false, true);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
@@ -67,6 +69,7 @@ ECS::Entity& EntityFactory::createText(const std::string& content, const std::st
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
+    entity.SetTag(content);
     entity.AddComponent<Component::Renderer>();
     entity.AddComponent<Component::IUIObject, Component::TextUI>(content, fontPath, size, spacing);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));

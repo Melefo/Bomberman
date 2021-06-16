@@ -38,7 +38,7 @@ namespace Component
     }
 
     void ButtonCallbacks::GenerateBackgroundMap()
-    {
+    { 
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         bool cameraExists = true;
 
@@ -147,6 +147,35 @@ namespace Component
         ECS::Coordinator::GetInstance()->CloseWindow = true;
     }
 
+    void thisIsMyBreakPoint() {
+
+    }
+
+    void ButtonCallbacks::Replay()
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
+        std::string sceneName = "Game";
+
+        coordinatorRef->SetGameIsRunning(true);
+        Engine::GameConfiguration::SetGameOver(false);
+
+        for (auto &entity : coordinatorRef->GetEntities())
+            std::cout << "Entity's tag: " << entity->GetTag() << "\twith an id of: " << entity->GetId() << std::endl;
+
+        /*coordinatorRef->RemoveComponents("Player");
+        coordinatorRef->RemoveComponents("Wall");
+        coordinatorRef->RemoveComponents("Box");
+        coordinatorRef->RemoveComponents("Bomb");
+        coordinatorRef->RemoveComponents("PickUp");
+        coordinatorRef->RemoveComponents("button_");
+        coordinatorRef->RemoveComponents("WON");
+        coordinatorRef->RemoveComponents("TIE");*/
+        coordinatorRef->RemoveComponents("");
+        thisIsMyBreakPoint();
+        std::cout << "ouais" << std::endl;
+        coordinatorRef->setCurrentScene(sceneName);
+    }
+
     void ButtonCallbacks::StartGame()
     {
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
@@ -166,5 +195,17 @@ namespace Component
 
         coordinator->setCurrentScene(sceneName);
         coordinator->SetGameIsRunning(false);
+    }
+
+    void ButtonCallbacks::ExitGameToMainMenu()
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
+        std::string sceneName = "MainMenu";
+
+        coordinatorRef->RemoveComponents("");
+
+        coordinatorRef->setCurrentScene(sceneName);
+        coordinatorRef->SetGameIsRunning(false);
+        Engine::GameConfiguration::SetGameOver(false);
     }
 }
