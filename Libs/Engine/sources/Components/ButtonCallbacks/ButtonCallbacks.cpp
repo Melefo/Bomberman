@@ -38,7 +38,7 @@ namespace Component
     }
 
     void ButtonCallbacks::GenerateBackgroundMap()
-    {
+    { 
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         bool cameraExists = true;
 
@@ -60,6 +60,7 @@ namespace Component
         coordinatorRef->RemoveComponents("Bomb");
 
         terrainGeneratorRef.clearMap();
+        terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
         terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers());
         Engine::GameConfiguration::SetSeed(std::rand() % 10000);
 
@@ -73,41 +74,106 @@ namespace Component
         //std::size_t centerY = terrainGeneratorRef.getMap().size() / 2;
     }
 
+    void ButtonCallbacks::TextInterfaceLoader(std::string tagName, int nb)
+    {
+        auto& coordinator = ECS::Coordinator::GetInstance();
+
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() != tagName || !entity->HasComponent<Component::TextUI>())
+                continue;
+            entity->GetComponent<Component::TextUI>().SetString(std::to_string(nb));
+        }
+    }
+
     void ButtonCallbacks::IncrementPlayerNbr()
     {
         int playerNbr = Engine::GameConfiguration::GetPlayers();
-        auto& coordinator = ECS::Coordinator::GetInstance();
 
         if (playerNbr >= 8)
             return;
         Engine::GameConfiguration::SetPlayers(playerNbr + 1);
-        for (auto& entity : coordinator->GetEntities())
-        {
-            if (entity->GetTag() != "NumberText" || !entity->HasComponent<Component::TextUI>())
-                continue;
-            entity->GetComponent<Component::TextUI>().SetString(std::to_string(Engine::GameConfiguration::GetPlayers()));
-        }
+        TextInterfaceLoader("TextPlayerNbr", Engine::GameConfiguration::GetPlayers());
     }
 
     void ButtonCallbacks::DecrementPlayerNbr()
     {
         int playerNbr = Engine::GameConfiguration::GetPlayers();
-        auto& coordinator = ECS::Coordinator::GetInstance();
 
-        if (playerNbr <= 1)
+        if (playerNbr - 1 <= 1)
             return;
         Engine::GameConfiguration::SetPlayers(playerNbr - 1);
-        for (auto& entity : coordinator->GetEntities())
-        {
-            if (entity->GetTag() != "NumberText" || !entity->HasComponent<Component::TextUI>())
-                continue;
-            entity->GetComponent<Component::TextUI>().SetString(std::to_string(Engine::GameConfiguration::GetPlayers()));
-        }
+        TextInterfaceLoader("TextPlayerNbr", Engine::GameConfiguration::GetPlayers());
+    }
+
+    void ButtonCallbacks::IncrementMapHeight()
+    {
+        RayLib::Vector2<int> mapSize = Engine::GameConfiguration::GetMapSize();
+
+        Engine::GameConfiguration::SetMapSize(mapSize.x, mapSize.y + 2);
+        TextInterfaceLoader("TextMapHeight", Engine::GameConfiguration::GetMapSize().y);
+    }
+
+    void ButtonCallbacks::DecrementMapHeight()
+    {
+        RayLib::Vector2<int> mapSize = Engine::GameConfiguration::GetMapSize();
+
+        if ((mapSize.y - 2) < 7)
+            return;
+        Engine::GameConfiguration::SetMapSize(mapSize.x, mapSize.y - 2);
+        TextInterfaceLoader("TextMapHeight", Engine::GameConfiguration::GetMapSize().y);
+    }
+
+    void ButtonCallbacks::IncrementMapWidth()
+    {
+        RayLib::Vector2<int> mapSize = Engine::GameConfiguration::GetMapSize();
+
+        Engine::GameConfiguration::SetMapSize(mapSize.x + 2, mapSize.y);
+        TextInterfaceLoader("TextMapWidth", Engine::GameConfiguration::GetMapSize().x);
+    }
+
+    void ButtonCallbacks::DecrementMapWidth()
+    {
+        RayLib::Vector2<int> mapSize = Engine::GameConfiguration::GetMapSize();
+
+        if ((mapSize.x - 2) < 7)
+            return;
+        Engine::GameConfiguration::SetMapSize(mapSize.x - 2, mapSize.y);
+        TextInterfaceLoader("TextMapWidth", Engine::GameConfiguration::GetMapSize().x);
     }
 
     void ButtonCallbacks::QuitWindow()
     {
         ECS::Coordinator::GetInstance()->CloseWindow = true;
+    }
+
+    void thisIsMyBreakPoint() {
+
+    }
+
+    void ButtonCallbacks::Replay()
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
+        std::string sceneName = "Game";
+
+        coordinatorRef->SetGameIsRunning(true);
+        Engine::GameConfiguration::SetGameOver(false);
+
+        for (auto &entity : coordinatorRef->GetEntities())
+            std::cout << "Entity's tag: " << entity->GetTag() << "\twith an id of: " << entity->GetId() << std::endl;
+
+        /*coordinatorRef->RemoveComponents("Player");
+        coordinatorRef->RemoveComponents("Wall");
+        coordinatorRef->RemoveComponents("Box");
+        coordinatorRef->RemoveComponents("Bomb");
+        coordinatorRef->RemoveComponents("PickUp");
+        coordinatorRef->RemoveComponents("button_");
+        coordinatorRef->RemoveComponents("WON");
+        coordinatorRef->RemoveComponents("TIE");*/
+        coordinatorRef->RemoveComponents("");
+        thisIsMyBreakPoint();
+        std::cout << "ouais" << std::endl;
+        coordinatorRef->setCurrentScene(sceneName);
     }
 
     void ButtonCallbacks::StartGame()
@@ -132,5 +198,17 @@ namespace Component
 
         coordinator->setCurrentScene(sceneName);
         coordinator->SetGameIsRunning(false);
+    }
+
+    void ButtonCallbacks::ExitGameToMainMenu()
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
+        std::string sceneName = "MainMenu";
+
+        coordinatorRef->RemoveComponents("");
+
+        coordinatorRef->setCurrentScene(sceneName);
+        coordinatorRef->SetGameIsRunning(false);
+        Engine::GameConfiguration::SetGameOver(false);
     }
 }

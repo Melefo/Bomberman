@@ -10,6 +10,7 @@
 
 #include <string>
 #include <vector>
+#include "Vector2.hpp"
 
 class TerrainGenerator {
     public:
@@ -35,12 +36,20 @@ class TerrainGenerator {
             Random // Generate a random map
         };
         /**
+         * @brief Construct a new Terrain Generator:: Terrain Generator object
+         * 
+         * @param playersNbr 
+         * @param mapType 
+         * @param boxPercentage 
+         */
+        TerrainGenerator(int playersNbr, const MapType mapType = MapType::Default, int boxPercentage = 80);
+        /**
          * @brief Construct a new Terrain Generator object
          * 
          * @param playersNbr Number of players (From 1 to 8)
          * @param boxPercentage Percentage of box spawning (80 by default)
          */
-        TerrainGenerator(int playersNbr, const MapType mapType = MapType::Default, int boxPercentage = 80);
+        TerrainGenerator(int playersNbr, int width, int height, const MapType mapType = MapType::Default, int boxPercentage = 80);
         /**
          * @brief Destroy the Terrain Generator object
          * 
@@ -93,6 +102,13 @@ class TerrainGenerator {
          * @param newSize The new player numbers
          */
         void setPlayersNumber(int newSize);
+
+        /**
+         * @brief Set the Map Size object
+         * 
+         * @param mapSize 
+         */
+        void setMapSize(RayLib::Vector2<int> mapSize);
 
         /**
          * @brief If a map has been generated

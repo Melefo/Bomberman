@@ -7,6 +7,8 @@
 
 #include "Coordinator.hpp"
 #include "Exceptions.hpp"
+//#include "Camera.hpp"
+//#include "Transform.hpp"
 
 namespace ECS
 {
@@ -122,8 +124,10 @@ namespace ECS
             if (entity->GetTag().find(name) != std::string::npos)
                 toDelete.push_back(&(*entity));
         }
-        for (auto &entity : toDelete)
-            _scenes[_currentScene].DeleteEntity(*entity);
+        for (auto &entity : toDelete) {
+            //std::cout << "Deleting entity of tag: " << entity->GetTag() << " with an id of: " << entity->GetId() << std::endl;
+            entity->Dispose();
+        }
     }
 
     double Coordinator::getFixedDeltaTime() const
