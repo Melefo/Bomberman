@@ -7,7 +7,7 @@ BoxMapValues = {
     OFFWALL = -21,
     INWALL = -20,
     EMPTY = -3,
-    BOX = 1
+    BOX = -1
 }
 
 BombMapValues = {
@@ -38,7 +38,7 @@ function dist(pos1, pos2)
 end
 
 function is_valid_node(node, neighbor)
-	if (BoxMap[node.y + 1][node.x + 1] ~= BoxMapValues.INWALL and BoxMap[node.y + 1][node.x + 1] ~= BoxMapValues.OFFWALL) then
+	if (BoxMap[node.y + 1][node.x + 1] ~= BoxMapValues.INWALL and BoxMap[node.y + 1][node.x + 1] ~= BoxMapValues.OFFWALL and BoxMap[node.y+1][node.x+1] ~= BoxMapValues.BOX) then
         if (dist(node, neighbor) <= 1.0) then
             return (true)
         end

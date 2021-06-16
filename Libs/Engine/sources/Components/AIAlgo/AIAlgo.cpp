@@ -66,6 +66,13 @@ namespace Component
             _dropBomb.timeToDrop -= _window->GetFrameTime();
         }
 
+        for (std::size_t i = 0; i < boxMap.size(); i++) {
+            for (std::size_t j = 0; j < boxMap[i].size(); j++) {
+                std::cout << std::setw(4) << boxMap[i][j];
+            }
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
         switch (this->_currentState)
         {
         case AIState::IDLE:
@@ -77,7 +84,7 @@ namespace Component
             if (targetPos.x == aiPos.x && targetPos.y == aiPos.y)
                 std::cout << "Could not find hiding pos" << std::endl;
             else
-                std::cout << "Found hiding pos" << std::endl;
+                std::cout << "Found hiding pos\nTarget X : " << targetPos.x << " / Target Y : " << targetPos.y << std::endl;
 
             mapPositions = GetMapAsPositions(boxMap);
             GetDirectionsList(aiPos, targetPos, mapPositions);
