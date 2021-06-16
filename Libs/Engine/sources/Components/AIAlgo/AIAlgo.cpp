@@ -214,7 +214,7 @@ namespace Component
     {
         RayLib::Vector2<int> closestSymbol = agentPos;
         float closest = std::numeric_limits<float>::max();
-        RayLib::Vector2<int> searchRadius(20, 20);
+        RayLib::Vector2<int> searchRadius(100, 100);
 
         RayLib::Vector2<int> maxPoint = agentPos;
         RayLib::Vector2<int> minPoint = agentPos;
