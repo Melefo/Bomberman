@@ -21,6 +21,7 @@
 #include "BasicLight.hpp"
 #include "AmbientShader.hpp"
 #include "raymath.h"
+#include "TerrainShader.hpp"
 #include <iostream>
 
 int applyShaderToCube(void)
@@ -307,10 +308,66 @@ int basic_lighting_remastered(void)
     return 0;
 }
 
+int floorShader()
+{
+    std::string protoShadersPath = "../assets/shaders/";
+
+    const int screenWidth = 800;
+    const int screenHeight = 450;
+    
+    const int boxSize = 10;
+
+    RayLib::Vector2<float> mapSize(13*boxSize, 17*boxSize);
+
+    std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+    std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
+
+    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(screenWidth, screenHeight), "Prototype");
+
+    coordinator->AddSystem<Component::RenderSystem>();
+
+    ECS::Entity& box = coordinator->CreateEntity();
+    box.AddComponent<Component::Transform>();
+    box.AddComponent<Component::Renderer>("floor");
+    box.GetComponent<Component::Transform>().scale = RayLib::Vector3(130.0f, 0.0f, 170.0f);
+    box.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+
+    window->SetTargetFPS(60);
+    camera.SetCameraMode(CAMERA_FREE);
+
+    TerrainShader terrainShader(protoShadersPath, RayLib::Vector2<float>(mapSize.x, mapSize.y));
+
+    RayLib::Color floorColor(68, 194, 64, 255);
+
+    RayLib::Texture texture(RayLib::Image(RayLib::Vector2<int>(static_cast<int>(mapSize.x), static_cast<int>(mapSize.y)), floorColor.getColor()));
+    assetManagerRef->getAssetFromName("floor").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    assetManagerRef->getAssetFromName("floor").getModel().SetMaterialShader(0, terrainShader);
+
+    while (!window->WindowShouldClose())
+    {
+        camera.Update();
+
+        window->BeginDrawing();
+
+            window->ClearBackground(RAYWHITE);
+            camera.BeginMode();
+            window->DrawGrid(20, 10.0f);
+            terrainShader.BeginMode();
+            coordinator->Run();
+            terrainShader.EndMode();
+            camera.EndMode();
+
+        window->EndDrawing();
+    }
+    return (0);
+}
+
 int main(void)
 {
     // applyShaderToCube();
     // customBoxMain();
-    allBlue();
+    //allBlue();
     // basic_lighting_remastered();
+    floorShader();
 }
