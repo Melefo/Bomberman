@@ -31,18 +31,17 @@ BasicLight::BasicLight(LightType type, RayLib::Vector3 position, RayLib::Color& 
 
 void BasicLight::UpdateValues()
 {
-    float position[3] = {_position.x, _position.y, _position.z};
-    float target[3] = {_target.x, _target.y, _target.z};
-    float color[4] = {
-        _color.r/static_cast<float>(255),
+    RayLib::Vector3 position(_position.x, _position.y, _position.z);
+    RayLib::Vector3 target(_target.x, _target.y, _target.z);
+    RayLib::Vector4 shaderColor(_color.r/static_cast<float>(255),
         _color.g/static_cast<float>(255),
         _color.b/static_cast<float>(255),
-        _color.a/static_cast<float>(255)};
+        _color.a/static_cast<float>(255));
 
     SetValue(_typeLoc, &_type, SHADER_UNIFORM_VEC3);
-    SetValue(_posLoc, position, SHADER_UNIFORM_VEC3);
-    SetValue(_targetLoc, &target, SHADER_UNIFORM_VEC3);
-    SetValue(_colorLoc, color, SHADER_UNIFORM_VEC4);
+    SetValue(_posLoc, position.getVector3(), SHADER_UNIFORM_VEC3);
+    SetValue(_targetLoc, target.getVector3(), SHADER_UNIFORM_VEC3);
+    SetValue(_colorLoc, shaderColor.getVector4(), SHADER_UNIFORM_VEC4);
 }
 
 ::Vector3& BasicLight::GetPosition()

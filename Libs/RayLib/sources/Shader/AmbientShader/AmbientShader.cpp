@@ -6,17 +6,17 @@
 */
 
 #include "AmbientShader.hpp"
+#include "Vector4.hpp"
 #include <iostream>
 
 AmbientShader::AmbientShader(RayLib::Color& color, const std::string& ShaderPath)
     : RayLib::Shader("", ShaderPath+"ambient_lighting.fs")
 {
     int location = GetLocation("color");
-    float shaderColor[4] = {
-        color.r/static_cast<float>(255),
+    RayLib::Vector4 shaderColor(color.r/static_cast<float>(255),
         color.g/static_cast<float>(255),
         color.b/static_cast<float>(255),
-        color.a/static_cast<float>(255)};
+        color.a/static_cast<float>(255));
 
-    SetValue(location, shaderColor, SHADER_UNIFORM_VEC4);
+    SetValue(location, shaderColor.getVector4(), SHADER_UNIFORM_VEC4);
 }
