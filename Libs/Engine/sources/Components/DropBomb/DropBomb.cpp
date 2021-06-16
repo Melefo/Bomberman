@@ -37,6 +37,8 @@ namespace Component
         if (_bombNumber > _maxBombs)
             _bombNumber = static_cast<int>(_maxBombs);
 
+        position = RayLib::Vector3(RoundToNearest10(position.x), 0.0f, RoundToNearest10(position.z));
+
         // spawn a bunch of small bombs in a cross pattern of size radius
         // create a bunch of directions vectors
         std::vector<RayLib::Vector3> directions = {RayLib::Vector3(1.0f, 0.0f, 0.0f),
@@ -78,6 +80,24 @@ namespace Component
                 bomb.GetComponent<Transform>().position = position + (*dir) * i * boxSize;
             }
         }
+    }
+
+    int DropBomb::RoundToNearest10(float num)
+    {
+        float dec = num - std::floor(num);
+        int rounded = std::floor(num);
+
+        if (rounded % 10 < 5) {
+            rounded = (rounded / 10) * 10;
+        } else if(rounded % 10 ==5) {
+            if(dec > 0)
+                rounded = (((rounded + 10) / 10) * 10);
+            else
+                rounded = (rounded / 10) * 10;
+        } else {
+            rounded = (((rounded + 10) / 10) * 10);
+        }
+        return (rounded);
     }
 
     void DropBomb::Update()

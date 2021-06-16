@@ -22,19 +22,6 @@ namespace Component
 
     void UISystem::Update(double, ECS::Entity& entity)
     {
-        /*
-        std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
-        Transform& transform = entity.GetComponent<Transform>();
-
-        RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
-
-        _camera.EndMode();
-        for (IUIObject& uiObject : uiObjects) {
-            // ! ajouter dans vector3 un .magnitude pour récup un float
-            uiObject.Draw(position, RayLib::Vector2<float>(transform.scale.x, transform.scale.y));
-        }
-        _camera.BeginMode();*/
-
         std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
         Transform& transform = entity.GetComponent<Transform>();
         Renderer& renderer = entity.GetComponent<Renderer>();
