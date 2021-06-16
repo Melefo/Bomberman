@@ -160,7 +160,7 @@ namespace Component
         }
 
         for (auto &node : path) {
-            RayLib::Vector3 position = RayLib::Vector3(node.x, 0.0f, node.y);
+            RayLib::Vector3 position = RayLib::Vector3(static_cast<float>(node.x), 0.0f, static_cast<float>(node.y));
             position = position * 10.0f;
             position += RayLib::Vector3(0.0f, 1.0f, 0.0f);
             _window->DrawSphereWires(position, 7.5f, 20, 20, col);
