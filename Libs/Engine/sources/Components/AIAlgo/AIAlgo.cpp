@@ -112,8 +112,8 @@ namespace Component
             break;
         }
 
-        if (Engine::GameConfiguration::GetDebugMode())
-            DebugPath(transform.position);
+        //if (Engine::GameConfiguration::GetDebugMode())
+        //    DebugPath(transform.position);
 
         _movement.direction = _direction * (_speed);
 
@@ -133,6 +133,23 @@ namespace Component
         }
     }
 
+    void AIAlgo::DebugPath(std::vector<RayLib::Vector2<int>> path)
+    {
+        RayLib::Color col;
+
+        col = _currentState == AIState::ATTACK ? RED : WHITE;
+        col = _currentState == AIState::CHASE ? ORANGE : WHITE;
+        col = _currentState == AIState::HIDE ? GREEN : WHITE;
+
+        for (auto &node : path) {
+            RayLib::Vector3 position = RayLib::Vector3(node.x, 0.0f, node.y);
+            position = position * 10.0f;
+            position += RayLib::Vector3(0.0f, 1.0f, 0.0f);
+            _window->DrawSphereWires(position, 7.5f, 20, 20, RED);
+        }
+    }
+
+
     void AIAlgo::FixedUpdate(ECS::Entity& entity)
     {
         _movement.FixedUpdate(entity);
@@ -149,6 +166,10 @@ namespace Component
 
         for (std::size_t i = 0; i < path.size(); i++) {
             //std::cout << "Path [" << i << "]: X: " << path[i].x << " Y: " << path[i].y << std::endl;
+        }
+
+        if (Engine::GameConfiguration::GetDebugMode()) {
+            DebugPath(path);
         }
 
         _directionPath.clear();

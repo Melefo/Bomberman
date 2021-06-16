@@ -109,6 +109,7 @@ namespace Component
             void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& map);
 
             void DebugPath(RayLib::Vector3 startPos);
+            void DebugPath(std::vector<RayLib::Vector2<int>> path);
 
             std::vector<RayLib::Vector2<int>> GetMapAsPositions(const std::vector<std::vector<int>>& map);
 
