@@ -156,24 +156,17 @@ namespace Component
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 
+        coordinatorRef->RemoveComponents("");
+
+        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
+        terrainGeneratorRef.clearMap();
+        terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());
+        terrainGeneratorRef.generateBoxes();
+        terrainGeneratorRef.placePlayers();
+
+        coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(true);
         Engine::GameConfiguration::SetGameOver(false);
-
-        for (auto &entity : coordinatorRef->GetEntities())
-            std::cout << "Entity's tag: " << entity->GetTag() << "\twith an id of: " << entity->GetId() << std::endl;
-
-        /*coordinatorRef->RemoveComponents("Player");
-        coordinatorRef->RemoveComponents("Wall");
-        coordinatorRef->RemoveComponents("Box");
-        coordinatorRef->RemoveComponents("Bomb");
-        coordinatorRef->RemoveComponents("PickUp");
-        coordinatorRef->RemoveComponents("button_");
-        coordinatorRef->RemoveComponents("WON");
-        coordinatorRef->RemoveComponents("TIE");*/
-        coordinatorRef->RemoveComponents("");
-        thisIsMyBreakPoint();
-        std::cout << "ouais" << std::endl;
-        coordinatorRef->setCurrentScene(sceneName);
     }
 
     void ButtonCallbacks::StartGame()

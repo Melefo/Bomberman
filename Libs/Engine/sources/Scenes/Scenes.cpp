@@ -277,11 +277,10 @@ void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& came
                                              windowRef->GetSize().y / 2.0f - 350.0f, 0.0f);
     entityTitle.GetComponent<Component::Transform>().position = center;
 
-    /*ECS::Entity &entityReplay = entityFactory.createButton("ReplayBtnStd");
+    ECS::Entity &entityReplay = entityFactory.createButton("ReplayBtnStd");
     entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f,
                                                                                windowRef->GetSize().y / 2.0f + 150.0f, 0.0f);
     entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
-    */
 
     ECS::Entity &entityMainMenu = entityFactory.createButton("MainMenuBtnStd");
     entityMainMenu.GetComponent<Component::Transform>().position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f,

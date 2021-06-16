@@ -50,6 +50,8 @@ namespace ECS
                 if (entity->HasComponents(dependencies)) {
                     pair.second->Update(dt, *entity);
                 }
+                if (entities.size() == 0)
+                    break;
             }
         }
     }
@@ -124,10 +126,8 @@ namespace ECS
             if (entity->GetTag().find(name) != std::string::npos)
                 toDelete.push_back(&(*entity));
         }
-        for (auto &entity : toDelete) {
-            //std::cout << "Deleting entity of tag: " << entity->GetTag() << " with an id of: " << entity->GetId() << std::endl;
+        for (auto &entity : toDelete)
             entity->Dispose();
-        }
     }
 
     double Coordinator::getFixedDeltaTime() const
