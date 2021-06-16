@@ -13,6 +13,12 @@ namespace RayLib
     {
     }
 
+    Mesh::Mesh(float radius, int rings, int slices) : _mesh(::GenMeshSphere(radius, rings, slices)), _loaded(true)
+    {
+
+    }
+
+
     Mesh::Mesh(Image img, Vector3 scale) : _mesh(::GenMeshCubicmap(img.GetImage(), scale.getVector3())), _loaded(true)
     {
     }

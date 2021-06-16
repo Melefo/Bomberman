@@ -26,6 +26,8 @@ namespace RayLib
              */
             Mesh(Vector3 scale=Vector3(1.0f, 1.0f, 1.0f));
 
+            Mesh(float radius, int rings, int slices);
+
             /**
              * @brief Construct a new Mesh object
              * Generate a mesh based on the given image
