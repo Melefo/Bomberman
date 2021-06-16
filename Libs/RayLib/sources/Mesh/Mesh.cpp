@@ -18,6 +18,10 @@ namespace RayLib
 
     }
 
+    Mesh::Mesh(float width, float length, int resX, int resZ) : _mesh(::GenMeshPlane(width, length, resX, resZ)), _loaded(true)
+    {
+
+    }
 
     Mesh::Mesh(Image img, Vector3 scale) : _mesh(::GenMeshCubicmap(img.GetImage(), scale.getVector3())), _loaded(true)
     {

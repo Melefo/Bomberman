@@ -25,8 +25,23 @@ namespace RayLib
              * @param scale 
              */
             Mesh(Vector3 scale=Vector3(1.0f, 1.0f, 1.0f));
-
+            /**
+             * @brief Construct a new Mesh object
+             * 
+             * @param radius 
+             * @param rings 
+             * @param slices 
+             */
             Mesh(float radius, int rings, int slices);
+            /**
+             * @brief Construct a new Mesh object
+             * 
+             * @param width 
+             * @param length 
+             * @param resX 
+             * @param resZ 
+             */
+            Mesh(float width, float length, int resX, int resZ);
 
             /**
              * @brief Construct a new Mesh object
