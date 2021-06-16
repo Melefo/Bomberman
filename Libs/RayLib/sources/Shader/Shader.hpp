@@ -61,8 +61,9 @@ namespace RayLib
             int GetLocation(std::string location);
 
             /**
-             * @brief Set a value to an element of a shader file
+             * @brief Set the Value to an element of a shader file
              * 
+             * @tparam T 
              * @param location The location in the file. Found with GetLocation function
              * @param value The value to set
              * @param uniformType The uniform type of the value
@@ -77,9 +78,10 @@ namespace RayLib
              * SHADER_UNIFORM_IVEC4
              * SHADER_UNIFORM_SAMPLER2D
              */
-            void SetValue(int location, void *value, int uniformType)
+            template<typename T>
+            void SetValue(int location, T value, int uniformType)
             {
-                ::SetShaderValue(_shader, location, value, uniformType);
+                ::SetShaderValue(_shader, location, &value, uniformType);
             }
 
             /**
