@@ -75,58 +75,6 @@ int applyShaderToCube(void)
     return (0);
 }
 
-ECS::Entity& InitBox(ECS::Coordinator& coordinator)
-{
-    ECS::Entity &entity = coordinator.CreateEntity();
-    entity.AddComponent<Component::Transform>();
-    entity.AddComponent<Component::PhysicsBody>();
-    entity.AddComponent<Component::Renderer>("box");
-    //entity.AddComponent<Component::Renderer>("../assets/Cat_V2/test.iqm", "../Prototype/sources/Shaders/resources/cube_texture.png");
-    entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 7.5f);
-
-    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(-90.0f, 0.0f, 0.0f);
-
-    //entity.AddComponent<Component::IBehaviour, Component::DropBomb>(entity);
-
-    return (entity);
-}
-
-int customBoxMain(void)
-{
-    std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-    std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
-
-    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
-
-    InitBox(*coordinator.get());
-    //assetManagerRef->getAssetFromName("box").getModel().SetMaterialTexture;
-
-    coordinator->AddSystem<Component::PhysicsSystem>();
-    coordinator->AddSystem<Component::RenderSystem>();
-    coordinator->AddSystem<Component::BehaviourSystem>();
-    coordinator->AddSystem<Component::UISystem>(camera);
-
-    window->SetTargetFPS(60);
-    camera.SetCameraMode(CAMERA_FREE);
-
-    while (!window->WindowShouldClose())
-    {
-        camera.Update();
-
-        window->BeginDrawing();
-        window->ClearBackground(RAYWHITE);
-        camera.BeginMode();
-
-        coordinator->Run();
-
-        window->DrawGrid(20, 10.0f);
-        camera.EndMode();
-        window->EndDrawing();
-    }
-    return (0);
-}
-
 int allBlue(void)
 {
     int screenWidth = 1920;
@@ -366,8 +314,7 @@ int floorShader()
 int main(void)
 {
     // applyShaderToCube();
-    // customBoxMain();
-    //allBlue();
+    // allBlue();
     // basic_lighting_remastered();
     floorShader();
 }
