@@ -33,7 +33,7 @@ class BasicLight : public RayLib::Shader {
          * @brief Destroy the BasicLight object
          * 
          */
-        ~BasicLight();
+        ~BasicLight() = default;
 
         /**
          * @brief Update shader's light properties

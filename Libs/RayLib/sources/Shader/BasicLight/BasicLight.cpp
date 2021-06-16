@@ -29,10 +29,6 @@ BasicLight::BasicLight(LightType type, RayLib::Vector3 position, RayLib::Color& 
     UpdateValues();
 }
 
-BasicLight::~BasicLight()
-{
-}
-
 void BasicLight::UpdateValues()
 {
     float position[3] = {_position.x, _position.y, _position.z};
