@@ -36,12 +36,20 @@ class TerrainGenerator {
             Random // Generate a random map
         };
         /**
+         * @brief Construct a new Terrain Generator:: Terrain Generator object
+         * 
+         * @param playersNbr 
+         * @param mapType 
+         * @param boxPercentage 
+         */
+        TerrainGenerator(int playersNbr, const MapType mapType = MapType::Default, int boxPercentage = 80);
+        /**
          * @brief Construct a new Terrain Generator object
          * 
          * @param playersNbr Number of players (From 1 to 8)
          * @param boxPercentage Percentage of box spawning (80 by default)
          */
-        TerrainGenerator(int playersNbr, const MapType mapType = MapType::Default, int boxPercentage = 80);
+        TerrainGenerator(int playersNbr, int width, int height, const MapType mapType = MapType::Default, int boxPercentage = 80);
         /**
          * @brief Destroy the Terrain Generator object
          * 

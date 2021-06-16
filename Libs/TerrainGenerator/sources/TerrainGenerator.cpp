@@ -28,6 +28,12 @@ TerrainGenerator::TerrainGenerator(int playersNbr, const MapType mapType, int bo
     //generateMap();
 }
 
+TerrainGenerator::TerrainGenerator(int playersNbr, int width, int height, const MapType mapType, int boxPercentage)
+    : _playersNbr(playersNbr), _boxPercentage(boxPercentage), _height(height), _width(width), _mapType(mapType), _map(_height), _isGenerated(false)
+{
+    //generateMap();
+}
+
 /**
  * Getters
  */
@@ -169,6 +175,7 @@ void TerrainGenerator::setMapSize(RayLib::Vector2<int> mapSize)
 {
     this->_height = mapSize.y;
     this->_width = mapSize.x;
+    this->_map.resize(mapSize.y);
 }
 
 /**

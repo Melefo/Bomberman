@@ -11,13 +11,13 @@
 namespace Engine
 {
     RayLib::Vector2<int> GameConfiguration::_mapSize = {7, 7};
-    TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(4);
-    int GameConfiguration::_players = 0;
+    int GameConfiguration::_players = 2;
     int GameConfiguration::_enemies = 0;
     bool GameConfiguration::_debugMode = false;
     unsigned int GameConfiguration::_seed = 0;
     bool GameConfiguration::_gameOver = false;
     std::map<int, playerkeys> GameConfiguration::_playerKeys = {};
+    TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(Engine::GameConfiguration::GetPlayers(), Engine::GameConfiguration::GetMapSize().x, Engine::GameConfiguration::GetMapSize().y);
 
     playerkeys::playerkeys(RayLib::Input input, int key) :
     movementInput(input), actionKey(key)
