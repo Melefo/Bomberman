@@ -21,6 +21,8 @@
 #include "CollisionSystem.hpp"
 #include "SphereCollider.hpp"
 #include "Renderer.hpp"
+#include "Sound.hpp"
+#include "AssetCache.hpp"
 
 namespace Component
 {
@@ -145,6 +147,8 @@ namespace Component
             std::unique_ptr<ECS::Coordinator>& _coordinator;
 
             ECS::Entity& _parent;
+
+            std::shared_ptr<RayLib::Sound> _explosionSound;
 
     };
 }

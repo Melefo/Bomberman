@@ -12,7 +12,7 @@ namespace Component
 {
     Explosion::Explosion(ECS::Entity& entity, ECS::Entity& parent, float radius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity), _transform(_myEntity.GetComponent<Transform>()),
-    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent)
+    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent), _explosionSound(AssetCache::GetAsset<RayLib::Sound>("../assets/bomb/Bomb_sound_explosion.wav"))
     {
         _radius = radius;
         type = startType;
@@ -30,11 +30,7 @@ namespace Component
         if (_explosionTimer <= 0.0f) {
             std::cout << "BOOM" << std::endl;
 
-            // ! assetcache->getasset<Sound>();
-            // play sound explosion
-            //if (sounds.find("explosion") != sounds.end()) {
-            //    sounds.find("explosion")->second.Play();
-            //}
+            _explosionSound->Play();
 
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*_coordinator.get(), _transform.position, _radius);
 

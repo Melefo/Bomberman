@@ -31,7 +31,7 @@ namespace RayLib
             Mesh(Vector3 scale=Vector3(1.0f, 1.0f, 1.0f));
             /**
              * @brief Construct a new Mesh object
-             * 
+             * Generates a sphere with given scale
              * @param radius 
              * @param rings 
              * @param slices 
@@ -39,7 +39,7 @@ namespace RayLib
             Mesh(float radius, int rings, int slices);
             /**
              * @brief Construct a new Mesh object
-             * 
+             * Generates a plane with given scale
              * @param width 
              * @param length 
              * @param resX 
