@@ -29,6 +29,12 @@ class Asset {
          * @brief 
          * 
          */
+        std::unique_ptr<RayLib::Mesh> _mesh;
+
+        /**
+         * @brief 
+         * 
+         */
         std::unique_ptr<RayLib::Texture> _texture;
 
         /**

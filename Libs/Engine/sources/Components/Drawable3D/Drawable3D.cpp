@@ -6,6 +6,7 @@
 */
 
 #include "Drawable3D.hpp"
+#include "AssetCache.hpp"
 
 namespace Component
 {
@@ -13,9 +14,9 @@ namespace Component
     {
     }
 
-    Drawable3D::Drawable3D(const std::string& path) : _model(path)
+    Drawable3D::Drawable3D(const std::string& path) : _model(AssetCache::GetAsset<RayLib::Mesh>(path))
     {
-        // ! check if the asset manager has mesh cached
+
     }
 
     void Drawable3D::Draw(RayLib::Vector3 position, RayLib::Vector3 scale, RayLib::Color tint)

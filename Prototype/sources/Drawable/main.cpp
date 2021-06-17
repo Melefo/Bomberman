@@ -12,38 +12,47 @@
 #include "RenderSystem.hpp"
 #include <iostream>
 #include "Mesh.hpp"
+#include "Vector2.hpp"
+#include "AssetCache.hpp"
+#include "Shader.hpp"
+#include "ButtonCallbacks.hpp"
+#include "EntityFactory.hpp"
 
 int main(void)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
+    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 50.0f, 0.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 0.0f, 0.0f));
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Bomberman");
 
     coordinator->AddSystem<Component::RenderSystem>();
 
-    ECS::Entity& sphere = coordinator->CreateEntity();
-    RayLib::Mesh mesh(1.0f, 20, 20);
-    sphere.AddComponent<Component::Drawable3D>(mesh);
-    sphere.AddComponent<Component::Transform>();
+    //Component::ButtonCallbacks::GenerateBackgroundMap();
 
-    ECS::Entity& bomb = coordinator->CreateEntity();
-    bomb.AddComponent<Component::Transform>();
+    EntityFactory factory(*coordinator.get(), camera);
 
-    bomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm");
-    RayLib::Texture bombTexture("../assets/bomb/Bomb_texture.png");
-    bomb.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, bombTexture);
+    for (int i = 0; i < 100; i++) {
 
-    // create mesh (inherits from iDrawable)
+        RayLib::Shader& shader = AssetCache::GetAsset<RayLib::Shader>("../assets/shaders/mask");
+        RayLib::Texture& text = AssetCache::GetAsset<RayLib::Texture>("../assets/Box/Box_texture.png");
+
+        ECS::Entity& box = factory.createBox(0, false);
+        box.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, text);
+        //box.GetComponent<Component::Drawable3D>().SetMaterialShader(0, shader);
+    }
 
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_ESCAPE);
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
+        camera.Update();
+
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);
         camera.BeginMode();
 
         coordinator->Run();
+
+        window->DrawGrid(100.0f, 1.0f);
 
         camera.EndMode();
         window->EndDrawing();

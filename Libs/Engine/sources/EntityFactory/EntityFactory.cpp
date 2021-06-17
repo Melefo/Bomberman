@@ -30,6 +30,8 @@
 #include "Box.hpp"
 #include "TextBox.hpp"
 #include "TextBoxCallback.hpp"
+#include "Drawable3D.hpp"
+#include "AssetCache.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     : _coordinator(coordinator), _camera(camera)
@@ -79,9 +81,16 @@ ECS::Entity& EntityFactory::createText(const std::string& content, const std::st
 ECS::Entity& EntityFactory::createWall()
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
+    RayLib::Texture& text = AssetCache::GetAsset<RayLib::Texture>("../assets/Wall/Wall_texture.png");
+    RayLib::Mesh& wallMesh = AssetCache::GetAsset<RayLib::Mesh>("../assets/Wall/Wall_model.iqm");
     entity.SetTag("Wall");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(90, 0, 0), RayLib::Vector3(2.5f, 2.5f, 2.5f));
-    entity.AddComponent<Component::Renderer>("Wall");
+
+    entity.AddComponent<Component::Drawable3D>(wallMesh);
+
+    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, text);
+
+    //entity.AddComponent<Component::Renderer>("Wall");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
     return (entity);
@@ -90,11 +99,17 @@ ECS::Entity& EntityFactory::createWall()
 ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
+
+    RayLib::Texture& text = AssetCache::GetAsset<RayLib::Texture>("../assets/Box/Box_texture.png");
+    RayLib::Mesh& mesh = AssetCache::GetAsset<RayLib::Mesh>("../assets/Box/Box_model.iqm");
+    entity.AddComponent<Component::Drawable3D>(mesh);
+
+    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, text);
     entity.SetTag("Box");
     entity.AddComponent<Component::Transform>();
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5, 5, 5);
-    entity.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
-    entity.AddComponent<Component::Renderer>("Box");
+    entity.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+    //entity.AddComponent<Component::Renderer>("Box");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     //entity.AddComponent<Component::Destructible>(entity, 1);
     entity.AddComponent<Component::Box>(entity, 1, 0.1f);
