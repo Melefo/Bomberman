@@ -8,7 +8,9 @@
 #include "Coordinator.hpp"
 #include "Camera.hpp"
 #include "Window.hpp"
+#include "Drawable.hpp"
 #include <iostream>
+#include "Mesh.hpp"
 
 int main(void)
 {
@@ -17,7 +19,10 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Bomberman");
 
     // create mesh
+    RayLib::Mesh mesh(1.0f, 20, 20);
+    Component::Drawable drawable(mesh);
     // create drawable (from mesh)
+
 
     // create mesh (inherits from idrawable)
 
@@ -30,7 +35,7 @@ int main(void)
         camera.BeginMode();
         coordinator->Run();
 
-        // drawable.Draw()
+        drawable.Draw(RayLib::Vector3(), RayLib::Vector3(), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f), BLUE);
 
         // mesh(idrawable).Draw()
 

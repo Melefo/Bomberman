@@ -24,7 +24,7 @@ namespace RayLib
     }
 
 
-    Model::Model(Mesh mesh)
+    Model::Model(Mesh& mesh)
     {
         _model = ::LoadModelFromMesh(mesh.GetMesh());
         mesh.SetLoaded(false);

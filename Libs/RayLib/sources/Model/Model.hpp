@@ -37,7 +37,7 @@ namespace RayLib
              * 
              * @param mesh 
              */
-            Model(Mesh mesh);
+            Model(Mesh& mesh);
 
             /**
              * @brief Construct a new Model object
