@@ -10,6 +10,8 @@
 
 #include <memory>
 #include "Vector2.hpp"
+#define PHYSAC_IMPLEMENTATION
+
 #include "physac.h"
 
 namespace RayLib

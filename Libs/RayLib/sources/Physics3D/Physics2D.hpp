@@ -21,6 +21,9 @@ namespace RayLib
 
             static bool CheckCollision(RayLib::PhysicsBody& body1, RayLib::PhysicsBody& body2);
 
+            static void InitPhysics(void);
+            static void ClosePhysics(void);
+
         protected:
         private:
     };

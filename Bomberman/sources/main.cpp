@@ -6,6 +6,7 @@
 */
 
 #include <iostream>
+#include <physac.h>
 #include "Coordinator.hpp"
 #include "Transform.hpp"
 #include "PhysicsSystem.hpp"
@@ -25,9 +26,9 @@
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
 #include "PlayerInputs.hpp"
-
 #include "TerrainGenerator.hpp"
 #include "AudioDevice.hpp"
+#include "Physics2D.hpp"
 
 #define BOX_SIZE 10
 
@@ -41,6 +42,8 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Bomberman");
 
     RayLib::AudioDevice::InitAudioDevice();
+
+    RayLib::Physics2D::InitPhysics();
 
     //! game manager for drag and drop
     //ECS::Entity& gameManager = coordinator->CreateEntity();
@@ -63,6 +66,7 @@ int main(void)
     coordinator->AddSystem<Component::UISystem>(camera);
     coordinator->AddSystem<Component::RenderSystem>();
     coordinator->AddSystem<Component::BehaviourSystem>();
+
 
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_ESCAPE);
@@ -89,5 +93,7 @@ int main(void)
         window->EndDrawing();
     }
     RayLib::AudioDevice::CloseAudioDevice();
+    RayLib::Physics2D::ClosePhysics();
+
     return (0);
 }

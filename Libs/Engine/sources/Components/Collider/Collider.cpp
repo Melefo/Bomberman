@@ -16,8 +16,11 @@ namespace Component
 
     }
 
-    bool Collider::IsColliding(std::vector<std::string> )
+    bool Collider::IsColliding()
     {
+        // loop over entities, if is colliding with my body ;) && tag is in colMask
+            // true
+
         return (false);
     }
 }

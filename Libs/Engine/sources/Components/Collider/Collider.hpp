@@ -60,7 +60,7 @@ namespace Component
              * @return true 
              * @return false 
              */
-            bool IsColliding(std::vector<std::string> colMask);
+            bool IsColliding(void);
             /**
              * @brief Call IsColliding with a temporary position
              * 
@@ -68,7 +68,7 @@ namespace Component
              * @return true 
              * @return false 
              */
-            bool IsCollidingAtPosition(RayLib::Vector3 center, std::vector<std::string> colMask);
+            bool IsCollidingAtPosition(RayLib::Vector3 center);
 
             /**
              * @brief Returns true if the collider collides with given box
@@ -90,7 +90,7 @@ namespace Component
              * 
              * @return ECS::Entity& 
              */
-            ECS::Entity& GetCollision(std::vector<std::string> colMask);
+            ECS::Entity& GetCollision();
 
             /**
              * @brief Get the Collision Position object
@@ -98,7 +98,9 @@ namespace Component
              * @param center 
              * @return ECS::Entity& 
              */
-            ECS::Entity& GetCollisionPosition(RayLib::Vector3 center, std::vector<std::string> colMask);
+            ECS::Entity& GetCollisionPosition(RayLib::Vector3 center);
+
+            // ! change collision mask at runtime ??
 
         protected:
             /**
