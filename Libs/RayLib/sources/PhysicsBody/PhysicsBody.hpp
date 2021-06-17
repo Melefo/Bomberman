@@ -28,7 +28,6 @@ namespace RayLib
 
 			::PhysicsBodyData& GetPhysicsBody();
 
-		// ! floor->enabled = false;         // Disable body state to convert it to static (no dynamics, but collisions)
 		private:
 			std::unique_ptr<::PhysicsBodyData> _physicsBody;
 		
