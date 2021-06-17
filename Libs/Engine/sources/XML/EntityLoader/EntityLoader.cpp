@@ -11,7 +11,6 @@ namespace Serialization
 {
     std::map<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>> EntityLoader::_loadAbleComponents = {
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Transform", &EntityLoader::LoadTransform),
-        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Renderer", &EntityLoader::LoadRenderer),
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("BoxCollider", &EntityLoader::LoadBoxCollider),
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Destructible", &EntityLoader::LoadDestructible),
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Box", &EntityLoader::LoadBox)
@@ -62,12 +61,6 @@ namespace Serialization
     {
         entity.AddComponent<Component::Transform>();
         entity.GetComponent<Component::Transform>() << ptree;
-    }
-
-    void EntityLoader::LoadRenderer(ECS::Entity& entity, boost::property_tree::ptree &ptree)
-    {
-        entity.AddComponent<Component::Renderer>();
-        entity.GetComponent<Component::Renderer>() << ptree;
     }
 
     void EntityLoader::LoadBoxCollider(ECS::Entity& entity, boost::property_tree::ptree& ptree)

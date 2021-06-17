@@ -24,7 +24,6 @@
 #include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
-#include "AssetManager.hpp"
 #include "PlayerInputs.hpp"
 
 #include "TerrainGenerator.hpp"
@@ -35,7 +34,6 @@
 int main(void)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-    std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
 
     //! camera pos and target determined by component
     //! attention le 3e arg: world up est important
@@ -68,12 +66,10 @@ int main(void)
 
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_ESCAPE);
-    assetManagerRef->loadAssets(coordinator->GetEntities());
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0) {
             Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera);
-            assetManagerRef->loadAssets(coordinator->GetEntities());
         }
         
         window->BeginDrawing();

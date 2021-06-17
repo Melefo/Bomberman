@@ -7,6 +7,7 @@
 
 #include "DropBomb.hpp"
 #include <iostream>
+#include "Drawable3D.hpp"
 #include "CollisionSystem.hpp"
 #include "Camera.hpp"
 
@@ -37,6 +38,8 @@ namespace Component
         if (_bombNumber > _maxBombs)
             _bombNumber = static_cast<int>(_maxBombs);
 
+        position = RayLib::Vector3(static_cast<float>(RoundToNearest10(position.x)), 0.0f, static_cast<float>(RoundToNearest10(position.z)));
+
         // spawn a bunch of small bombs in a cross pattern of size radius
         // create a bunch of directions vectors
         std::vector<RayLib::Vector3> directions = {RayLib::Vector3(1.0f, 0.0f, 0.0f),
@@ -51,7 +54,7 @@ namespace Component
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
         firstBomb.GetComponent<Transform>().position = position;
-        firstBomb.AddComponent<Renderer>("Bomb");
+        firstBomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
         bool reachedWall = false;
 
@@ -78,6 +81,24 @@ namespace Component
                 bomb.GetComponent<Transform>().position = position + (*dir) * i * boxSize;
             }
         }
+    }
+
+    int DropBomb::RoundToNearest10(float num)
+    {
+        float dec = num - std::floor(num);
+        int rounded = static_cast<int>(std::floor(num));
+
+        if (rounded % 10 < 5) {
+            rounded = (rounded / 10) * 10;
+        } else if(rounded % 10 ==5) {
+            if(dec > 0)
+                rounded = (((rounded + 10) / 10) * 10);
+            else
+                rounded = (rounded / 10) * 10;
+        } else {
+            rounded = (((rounded + 10) / 10) * 10);
+        }
+        return (rounded);
     }
 
     void DropBomb::Update()

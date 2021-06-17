@@ -16,7 +16,6 @@
 #include "Rectangle.hpp"
 #include "Mouse.hpp"
 #include "BoundingBox.hpp"
-#include "Asset.hpp"
 
 namespace Component
 {
@@ -30,7 +29,7 @@ namespace Component
              * @brief Construct a new Button object
              * 
              */
-            Button();
+            Button(const std::string& path);
             /**
              * @brief Destroy the Button object
              * 
@@ -57,7 +56,6 @@ namespace Component
              * @param scale 
              */
             void Draw(RayLib::Vector2<float> position,
-                      Asset& asset,
                       RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
 
             /**
@@ -102,6 +100,8 @@ namespace Component
             std::vector<std::function<void()>> _callbacks;
 
             RayLib::Color _tint;
+
+            std::shared_ptr<RayLib::Texture> _texture;
     };
 }
 

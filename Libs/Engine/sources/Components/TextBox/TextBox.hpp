@@ -13,6 +13,7 @@
 #include "IBehaviour.hpp"
 #include "Color.hpp"
 #include "Font.hpp"
+#include "AssetCache.hpp"
 
 namespace Component
 {
@@ -67,7 +68,6 @@ namespace Component
             * @param scale
             */
             void Draw(RayLib::Vector2<float> position,
-                Asset& asset,
                 RayLib::Vector2<float> scale = RayLib::Vector2<float>(1.0f, 1.0f)) override;
             /**
              * @brief Get the IsAlpha object
@@ -116,7 +116,7 @@ namespace Component
              * @brief Font used to display the value
              * 
              */
-            RayLib::Font _font;
+            std::shared_ptr<RayLib::Font> _font;
             /**
              * @brief Color used to display the value
              * 

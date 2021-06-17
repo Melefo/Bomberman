@@ -7,8 +7,6 @@
 
 #include "Coordinator.hpp"
 #include "Exceptions.hpp"
-//#include "Camera.hpp"
-//#include "Transform.hpp"
 
 namespace ECS
 {
@@ -50,6 +48,8 @@ namespace ECS
                 if (entity->HasComponents(dependencies)) {
                     pair.second->Update(dt, *entity);
                 }
+                if (entities.size() == 0)
+                    break;
             }
         }
     }
@@ -115,7 +115,7 @@ namespace ECS
         this->_lastRun = now;
     }
 
-    void Coordinator::RemoveComponents(const std::string &name)
+    void Coordinator::RemoveEntities(const std::string &name)
     {
         const std::list<std::unique_ptr<ECS::Entity>>& entities = this->GetEntities();
         std::vector<ECS::Entity*> toDelete;
@@ -124,10 +124,8 @@ namespace ECS
             if (entity->GetTag().find(name) != std::string::npos)
                 toDelete.push_back(&(*entity));
         }
-        for (auto &entity : toDelete) {
-            //std::cout << "Deleting entity of tag: " << entity->GetTag() << " with an id of: " << entity->GetId() << std::endl;
+        for (auto &entity : toDelete)
             entity->Dispose();
-        }
     }
 
     double Coordinator::getFixedDeltaTime() const

@@ -49,22 +49,6 @@ Test(serializeTransform, transform)
     cr_assert(src.rotation == dest.rotation);
 }
 
-Test(serializeTexture, texture)
-{
-    RayLib::Texture src("file.png");
-    RayLib::Texture dest("");
-
-    IXMLSerializable& serializableObj = src;
-    std::ostringstream oss;
-    std::istringstream iss;
-
-    oss << serializableObj;
-    iss.str(oss.str());
-    iss >> dest;
-
-    cr_assert(src.GetFileName() == dest.GetFileName());
-}
-
 // ! cannot be pushed because openGL not supported by workflows
 /*Test(serializeModel, model)
 {

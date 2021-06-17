@@ -8,6 +8,7 @@
 #include "Window.hpp"
 #include "GameConfiguration.hpp"
 #include "ButtonCallbacks.hpp"
+#include "PhysicsSystem.hpp"
 #include "Camera.hpp"
 #include "Scenes.hpp"
 #include <TextUI.hpp>
@@ -53,11 +54,11 @@ namespace Component
         Component::Camera &cameraRef = Component::Camera::GetMainCamera();
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
 
-        coordinatorRef->RemoveComponents("Wall");
-        coordinatorRef->RemoveComponents("Box");
-        coordinatorRef->RemoveComponents("Player");
-        coordinatorRef->RemoveComponents("PickUp");
-        coordinatorRef->RemoveComponents("Bomb");
+        coordinatorRef->RemoveEntities("Wall");
+        coordinatorRef->RemoveEntities("Box");
+        coordinatorRef->RemoveEntities("Player");
+        coordinatorRef->RemoveEntities("PickUp");
+        coordinatorRef->RemoveEntities("Bomb");
 
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
@@ -147,33 +148,23 @@ namespace Component
         ECS::Coordinator::GetInstance()->CloseWindow = true;
     }
 
-    void thisIsMyBreakPoint() {
-
-    }
-
     void ButtonCallbacks::Replay()
     {
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 
+        coordinatorRef->RemoveEntities("");
+
+        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
+        terrainGeneratorRef.clearMap();
+        terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());
+        terrainGeneratorRef.generateBoxes();
+        terrainGeneratorRef.placePlayers();
+
+        coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(true);
         Engine::GameConfiguration::SetGameOver(false);
-
-        for (auto &entity : coordinatorRef->GetEntities())
-            std::cout << "Entity's tag: " << entity->GetTag() << "\twith an id of: " << entity->GetId() << std::endl;
-
-        /*coordinatorRef->RemoveComponents("Player");
-        coordinatorRef->RemoveComponents("Wall");
-        coordinatorRef->RemoveComponents("Box");
-        coordinatorRef->RemoveComponents("Bomb");
-        coordinatorRef->RemoveComponents("PickUp");
-        coordinatorRef->RemoveComponents("button_");
-        coordinatorRef->RemoveComponents("WON");
-        coordinatorRef->RemoveComponents("TIE");*/
-        coordinatorRef->RemoveComponents("");
-        thisIsMyBreakPoint();
-        std::cout << "ouais" << std::endl;
-        coordinatorRef->setCurrentScene(sceneName);
+        coordinatorRef->GetSystem<Component::PhysicsSystem>().SetStatus(true);
     }
 
     void ButtonCallbacks::StartGame()
@@ -186,6 +177,7 @@ namespace Component
 
         coordinator->setCurrentScene(sceneName);
         coordinator->SetGameIsRunning(true);
+        coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(true);
     }
 
     void ButtonCallbacks::StartEditorMenu()
@@ -202,7 +194,7 @@ namespace Component
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "MainMenu";
 
-        coordinatorRef->RemoveComponents("");
+        coordinatorRef->RemoveEntities("");
 
         coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(false);

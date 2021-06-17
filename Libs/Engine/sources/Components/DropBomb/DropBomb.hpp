@@ -107,6 +107,7 @@ namespace Component
              */
             void Update();
 
+            int RoundToNearest10(float num);
 
             /**
              * @brief Cooldown timer

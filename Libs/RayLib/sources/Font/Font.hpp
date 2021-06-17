@@ -12,6 +12,7 @@
 #include <string>
 #include "Vector2.hpp"
 #include "Color.hpp"
+#include "IAsset.hpp"
 
 namespace RayLib
 {
@@ -19,7 +20,7 @@ namespace RayLib
      * @brief Font encapsulation
      * 
      */
-    class Font {
+    class Font : public IAsset {
         public:
             /**
              * @brief Construct a new Font object

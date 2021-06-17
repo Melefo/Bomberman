@@ -34,7 +34,7 @@ namespace ECS
         const auto &it = this->_components.find(name);
 
         if (it == this->_components.end())
-            throw Exception::EntityException("Entity doesn't contain this Component");
+            throw Exception::EntityException("Entity doesn't contain Component " + name);
         return (*it->second);
     }
 
