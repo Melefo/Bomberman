@@ -52,7 +52,7 @@ namespace RayLib
 		return *this->_physicsBody;
 	}
 
-	void SetPosition(const RayLib::Vector2<float>& pos)
+	void PhysacBody::SetPosition(const RayLib::Vector2<float>& pos)
 	{
 		this->_physicsBody->position = pos.getVector2();
 	}
