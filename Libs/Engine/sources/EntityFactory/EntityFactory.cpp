@@ -129,7 +129,6 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
 
     Component::Transform& transform = entity.GetComponent<Component::Transform>();
 
-    //entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
     entity.AddComponent<Component::Collider, Component::SquareCollider>(entity,
                                                                         std::vector<std::string>({"Wall", "Box", "Bomb"}),
                                                                         RayLib::Vector2<float>(transform.position),

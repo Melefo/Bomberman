@@ -104,11 +104,13 @@ namespace Component
 
     bool SquareCollider::CheckCollision(RayLib::Circle& circle)
     {
+        UpdateSquare();
         return (RayLib::Physics2D::CheckCollision(_rect, circle));
     }
 
     bool SquareCollider::CheckCollision(RayLib::Rectangle& rec)
     {
+        UpdateSquare();
         return (RayLib::Physics2D::CheckCollision(_rect, rec));
     }
 
@@ -127,6 +129,5 @@ namespace Component
         _rect.height = transform.scale.z;
         _rect.x = transform.position.x - transform.scale.x / 2.0f;
         _rect.y = transform.position.z - transform.scale.z / 2.0f;
-        std::cout << "Rect UpdateSquare   x " << _rect.x << " y " << _rect.y << " width " << _rect.width << " height " << _rect.height << std::endl;
     }
 }

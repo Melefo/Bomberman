@@ -22,8 +22,10 @@ namespace Component
                                                                                                                                     _pickupRadius));
 
             for (auto it = entities.begin(); it != entities.end(); it++) {
-                if (it->get().GetTag() == "Player" /* OR TAG == AI*/)
+
+                if (it->get().GetTag() == "Player" /* OR TAG == AI*/) {
                     OnPickup(it->get());
+                }
             }
         }
     }

@@ -16,11 +16,14 @@ namespace Component
         std::vector<std::reference_wrapper<ECS::Entity>> collisions;
 
         for (auto it = entities.begin(); it != entities.end(); it++) {
+
             std::vector<std::reference_wrapper<Collider>> colliders = it->get()->OfType<Collider>();
 
             for (auto col = colliders.begin(); col != colliders.end(); col++) {
-                if (col->get().CheckCollision(circle))
+                if (col->get().CheckCollision(circle)) {
+
                     collisions.push_back(*(it->get()));
+                }
             }
         }
         return (collisions);
