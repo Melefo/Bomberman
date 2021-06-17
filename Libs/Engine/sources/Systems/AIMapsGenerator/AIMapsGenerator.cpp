@@ -18,7 +18,7 @@ _boxmap(InitMaps(boxmap)), _playersmap(InitMaps(boxmap)), _stringMap(boxmap)
 void AIMapsGenerator::Update(double, ECS::Entity&)
 {
     RemoveCharsFromMap(_playersmap, {PlayerMapValues::PLAYER});
-    RemoveCharsFromMap(_boxmap, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    RemoveCharsFromMap(_boxmap, {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
 
     for (auto& entity : ECS::Coordinator::GetInstance()->GetEntities()) {
         InitMaps(*entity);
@@ -37,19 +37,20 @@ void AIMapsGenerator::UpdateMaps(ECS::Entity& entity)
             return;
         Component::Transform& pos = entity.GetComponent<Component::Transform>();
         Component::Explosion &explo = entity.GetComponent<Component::Explosion>();
-
-        _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = static_cast<int>(explo.GetExplosionTimer());
+        if (_boxmap[static_cast<int>(round(pos.position.z / 10))][static_cast<int>(round(pos.position.x / 10))] == BoxMapValues::BOX)
+            return;
+        _boxmap[static_cast<int>(round(pos.position.z / 10))][static_cast<int>(round(pos.position.x / 10))] = static_cast<int>(explo.GetExplosionTimer());
     }
 }
 
 void AIMapsGenerator::InitMaps(ECS::Entity& entity)
 {
+    this->UpdateMaps(entity);
     if (entity.GetTag() == "Box")
     {
         Component::Transform& pos = entity.GetComponent<Component::Transform>();
         _boxmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = BoxMapValues::BOX;
     }
-    this->UpdateMaps(entity);
 }
 
 void AIMapsGenerator::FixedUpdate(ECS::Entity&)

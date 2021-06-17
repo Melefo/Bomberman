@@ -103,13 +103,16 @@ namespace Component
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
             RayLib::Vector2<int> GetClosestSymbolPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, int symbol);
+            RayLib::Vector2<int> GetBestSafePos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>& mapPositions);
+            RayLib::Vector2<int> GetBestBoxPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>& mapPositions);
+            RayLib::Vector2<int> GetBestPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>& mapPositions, int value);
 
             RayLib::Vector2<int> GetAgentPos(void);
 
-            void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& map);
+            void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& mapPositions, const std::vector<std::vector<int>>& map);
 
             void DebugPath(RayLib::Vector3 startPos);
-            void DebugPath(std::vector<RayLib::Vector2<int>> path);
+            void DebugPath(std::vector<RayLib::Vector2<int>> path, RayLib::Vector2<int> targetPos);
 
             std::vector<RayLib::Vector2<int>> GetMapAsPositions(const std::vector<std::vector<int>>& map);
 

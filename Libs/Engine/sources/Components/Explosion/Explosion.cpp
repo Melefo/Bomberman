@@ -28,7 +28,6 @@ namespace Component
         _window->DrawSphereWires(_transform.position, _radius);
 
         if (_explosionTimer <= 0.0f) {
-            std::cout << "BOOM" << std::endl;
             // get the assetmanager
             std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
             // get the sounds
