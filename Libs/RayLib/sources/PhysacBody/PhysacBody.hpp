@@ -25,7 +25,7 @@ namespace RayLib
 			~PhysacBody();
 
 			static void InitPhysics(void);
-			static void ClosePhyics(void);
+			static void ClosePhysics(void);
 			static bool IsPhysicsEnabled(void);
 
 			::PhysicsBodyData& GetPhysicsBody();

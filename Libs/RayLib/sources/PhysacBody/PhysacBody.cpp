@@ -37,7 +37,7 @@ namespace RayLib
 		::InitPhysics();
 	}
 
-	void PhysacBody::InitPhysics(void)
+	void PhysacBody::ClosePhysics(void)
 	{
 		::ClosePhysics();
 	}
