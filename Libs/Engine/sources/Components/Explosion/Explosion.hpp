@@ -19,10 +19,10 @@
 #include "Exceptions.hpp"
 #include "Box.hpp"
 #include "CollisionSystem.hpp"
-#include "SphereCollider.hpp"
 #include "Renderer.hpp"
 #include "Sound.hpp"
 #include "AssetCache.hpp"
+#include "BoxCollider.hpp"
 
 namespace Component
 {

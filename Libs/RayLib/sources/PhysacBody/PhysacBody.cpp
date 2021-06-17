@@ -10,26 +10,29 @@
 namespace RayLib
 {
 	PhysacBody::PhysacBody(const RayLib::Vector2<float>& pos, float radius, float density) :
-	_physicsBody(std::make_unique<::PhysicsBodyData>(::CreatePhysicsBodyCircle(pos.getVector2(), radius, density)))
+	_physicsBody(::CreatePhysicsBodyCircle(pos.getVector2(), radius, density))
+	//_physicsBody(std::make_unique<::PhysicsBodyData>(::CreatePhysicsBodyCircle(pos.getVector2(), radius, density)))
 	{
 		this->_physicsBody->enabled = false;
 	}
 
 	PhysacBody::PhysacBody(const RayLib::Vector2<float>& pos, float width, float height, float density) :
-	_physicsBody(std::make_unique<::PhysicsBodyData>(::CreatePhysicsBodyRectangle(pos.getVector2(), width, height, density)))
+	_physicsBody(::CreatePhysicsBodyRectangle(pos.getVector2(), width, height, density))
 	{
 		this->_physicsBody->enabled = false;
 	}
 
 	PhysacBody::PhysacBody(const RayLib::Vector2<float>& pos, float radius, int sides, float density) :
-	_physicsBody(std::make_unique<::PhysicsBodyData>(::CreatePhysicsBodyPolygon(pos.getVector2(), radius, sides, density)))
+	_physicsBody(::CreatePhysicsBodyPolygon(pos.getVector2(), radius, sides, density))
 	{
 		this->_physicsBody->enabled = false;
 	}
 
 	PhysacBody::~PhysacBody()
 	{
-		::DestroyPhysicsBody(this->_physicsBody.get());
+		::DestroyPhysicsBody(this->_physicsBody);
+
+		//::DestroyPhysicsBody(this->_physicsBody.get());
 	}
 
 	void PhysacBody::InitPhysics(void)
@@ -55,6 +58,11 @@ namespace RayLib
 	void PhysacBody::SetPosition(const RayLib::Vector2<float>& pos)
 	{
 		this->_physicsBody->position = pos.getVector2();
+	}
+
+	RayLib::Vector2<float> PhysacBody::GetPosition(void)
+	{
+		return (this->_physicsBody->position);
 	}
 
 	void PhysacBody::SetRectScale(const RayLib::Vector2<float>& scale)

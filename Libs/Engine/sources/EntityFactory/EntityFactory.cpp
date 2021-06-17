@@ -18,7 +18,6 @@
 #include "EntityFactory.hpp"
 #include "Scenes.hpp"
 #include "Animator.hpp"
-#include "SphereCollider.hpp"
 #include "Texture.hpp"
 #include "Image.hpp"
 #include "TextUI.hpp"
@@ -113,7 +112,13 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
     entity.AddComponent<Component::PhysicsBody>();
 
-    entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
+    Component::Transform& transform = entity.GetComponent<Component::Transform>();
+
+    //entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
+    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity,
+                                                                     RayLib::Vector2<float>(transform.position.x, transform.position.z),
+                                                                     {"Wall", "Box", "Bomb"},
+                                                                     RayLib::Vector2<float>(transform.scale.x, transform.scale.z));
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, keys.movementInput, keys.actionKey);
 

@@ -80,7 +80,12 @@ namespace Component
         if (!found) {
             std::cout << "Parent is no longer in radius " << _radius << std::endl;
 
-            _myEntity.AddComponent<Collider, SphereCollider>(_myEntity, transform.position, _radius);
+            _myEntity.AddComponent<Collider, BoxCollider>(_myEntity,
+                                                          RayLib::Vector2<float>(transform.position.x, transform.position.z),
+                                                          {"Player"},
+                                                          RayLib::Vector2<float>(transform.scale.x, transform.scale.z));
+
+            //_myEntity.AddComponent<Collider, SphereCollider>(_myEntity, transform.position, _radius);
         }
 
     }

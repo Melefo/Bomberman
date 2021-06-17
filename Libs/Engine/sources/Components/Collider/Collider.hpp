@@ -15,9 +15,6 @@
 #include <memory>
 #include "Entity.hpp"
 #include "Coordinator.hpp"
-#include "BoundingBox.hpp"
-#include "RayCollision.hpp"
-#include "Ray.hpp"
 #include <physac.h>
 #include "PhysacBody.hpp"
 #include "Transform.hpp"
@@ -55,51 +52,7 @@ namespace Component
              */
             Collider& operator=(const Collider& other) = default;
 
-            /**
-             * @brief Returns true if the collider collides with any other entity
-             * 
-             * @return true 
-             * @return false 
-             */
-            bool IsColliding(void);
-            /**
-             * @brief Call IsColliding with a temporary position
-             * 
-             * @param center 
-             * @return true 
-             * @return false 
-             */
-            virtual bool IsCollidingAtPosition(RayLib::Vector3 center) = 0;
-
-            /**
-             * @brief Returns true if the collider collides with given box
-             * 
-             * @param box 
-             * @return true 
-             * @return false 
-             */
-            virtual bool CheckCollision(RayLib::PhysacBody& other) = 0;
-
-            /**
-             * @brief Draw the lines of the collider
-             * 
-             */
-            virtual void DrawLines() = 0;
-
-            /**
-             * @brief Get the Entity we are colliding with, throws an error if no entity collides
-             * 
-             * @return ECS::Entity& 
-             */
-            virtual ECS::Entity& GetCollision() = 0;
-
-            /**
-             * @brief Get the Collision Position object
-             * 
-             * @param center 
-             * @return ECS::Entity& 
-             */
-            virtual ECS::Entity& GetCollisionPosition(RayLib::Vector3 center) = 0;
+            virtual RayLib::PhysacBody& GetPhysacBody() = 0;
 
             // ! change collision mask at runtime ??
 
@@ -116,8 +69,6 @@ namespace Component
             ECS::Entity& _myEntity;
 
             std::vector<std::string> _collisionMask;
-
-            RayLib::PhysacBody _myBody;
         private:
 
     };

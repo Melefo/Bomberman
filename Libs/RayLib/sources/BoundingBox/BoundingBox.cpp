@@ -52,4 +52,3 @@ namespace RayLib
         return (Vector3());
     }
 }
-

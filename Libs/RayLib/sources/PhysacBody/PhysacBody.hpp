@@ -12,7 +12,7 @@
 #include "Vector2.hpp"
 #define PHYSAC_IMPLEMENTATION
 
-#include "physac.h"
+#include <physac.h>
 
 namespace RayLib
 {
@@ -29,14 +29,19 @@ namespace RayLib
 			static bool IsPhysicsEnabled(void);
 
 			::PhysicsBodyData& GetPhysicsBody();
+			RayLib::Vector2<float> GetPosition(void);
 			void SetPosition(const RayLib::Vector2<float>& pos);
 
 			void SetRectScale(const RayLib::Vector2<float>& scale);
 			void SetCircleRadiusScale(float radius);
 
 		private:
-			std::unique_ptr<::PhysicsBodyData> _physicsBody;
-		
+			::PhysicsBodyData *_physicsBody;
+
+			//std::unique_ptr<::PhysicsBodyData> _physicsBody;
+			//std::unique_ptr<PhysicsBody> _physicsBody;
+
+
 	};
 }
 

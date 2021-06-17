@@ -134,9 +134,11 @@ namespace Component
 
     bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position, std::vector<std::string> collisionMask)
     {
+        RayLib::Vector2<float> pos2D = RayLib::Vector2<float>(position.x, position.z);
+
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
-            if (it->get().IsCollidingAtPosition(position, collisionMask)) {
-                ECS::Entity& other = it->get().GetCollisionPosition(position, collisionMask);
+            if (Engine::Physics2D::IsCollidingAtPosition(_entity, pos2D, collisionMask)) {
+                ECS::Entity& other = Engine::Physics2D::GetCollisionPosition(_entity, pos2D, collisionMask);
                 if (std::find(collisionMask.begin(), collisionMask.end(), other.GetTag()) != collisionMask.end())
                     return (true);
             }

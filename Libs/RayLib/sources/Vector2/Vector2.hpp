@@ -10,7 +10,6 @@
 
 #include <raylib.h>
 
-
 namespace RayLib
 {
     /**

@@ -22,7 +22,6 @@
 #include "Draggable.hpp"
 #include "Input.hpp"
 #include "Camera.hpp"
-#include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
 #include "PlayerInputs.hpp"
