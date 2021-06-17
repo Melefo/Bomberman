@@ -14,7 +14,7 @@ namespace Component
     {
     }
 
-    Drawable3D::Drawable3D(const std::string& path) : _model(AssetCache::GetAsset<RayLib::Mesh>(path))
+    Drawable3D::Drawable3D(const std::string& path) : _model(*AssetCache::GetAsset<RayLib::Mesh>(path))
     {
 
     }

@@ -10,7 +10,7 @@
 namespace Component
 {
     Animator::Animator(ECS::Entity& entity, const std::string& assetName, std::string stateName)
-    : _currentState(stateName), _name(assetName), _entity(entity), _asset(AssetManager::GetInstance()->getAssetFromName(_name, entity.GetId()))
+    : _currentState(stateName), _name(assetName), _entity(entity)
     {
     }
 
@@ -26,15 +26,13 @@ namespace Component
 
     void Animator::PlayCurrentState(RayLib::Model& model)
     {
-        std::map<std::string, RayLib::ModelAnimation> &animations = _asset.getAnimations();
-
-        if (animations.find(_currentState) == animations.end()) {
+        // ! fix animator
+        /*if (animations.find(_currentState) == animations.end()) {
             // il est possible de juste pas avoir d'animations
             //throw ECS::Exception::ComponentException("No state found of name: " + _currentState);
             return;
         }
-
-        animations.find(_currentState)->second.Play(model);
+        animations.find(_currentState)->second.Play(model);*/
     }
 
     const std::string &Animator::getName() const

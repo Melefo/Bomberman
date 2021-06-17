@@ -81,8 +81,8 @@ ECS::Entity& EntityFactory::createText(const std::string& content, const std::st
 ECS::Entity& EntityFactory::createWall()
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
-    RayLib::Texture& text = AssetCache::GetAsset<RayLib::Texture>("../assets/Wall/Wall_texture.png");
-    RayLib::Mesh& wallMesh = AssetCache::GetAsset<RayLib::Mesh>("../assets/Wall/Wall_model.iqm");
+    RayLib::Texture& text = *AssetCache:: GetAsset<RayLib::Texture>("../assets/Wall/Wall_texture.png");
+    RayLib::Mesh& wallMesh = *AssetCache::GetAsset<RayLib::Mesh>("../assets/Wall/Wall_model.iqm");
     entity.SetTag("Wall");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(90, 0, 0), RayLib::Vector3(2.5f, 2.5f, 2.5f));
 
@@ -100,8 +100,8 @@ ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
-    RayLib::Texture& text = AssetCache::GetAsset<RayLib::Texture>("../assets/Box/Box_texture.png");
-    RayLib::Mesh& mesh = AssetCache::GetAsset<RayLib::Mesh>("../assets/Box/Box_model.iqm");
+    RayLib::Texture& text = *AssetCache::GetAsset<RayLib::Texture>("../assets/Box/Box_texture.png");
+    RayLib::Mesh& mesh = *AssetCache::GetAsset<RayLib::Mesh>("../assets/Box/Box_model.iqm");
     entity.AddComponent<Component::Drawable3D>(mesh);
 
     entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, text);

@@ -34,8 +34,8 @@ int main(void)
     sphereEntity.AddComponent<Component::Drawable3D>(sphereMesh);
     Component::Drawable3D& drawable = sphereEntity.GetComponent<Component::Drawable3D>();
 
-    RayLib::Shader& shader = AssetCache::GetAsset<RayLib::Shader>("../assets/shaders/mask");
-    drawable.SetMaterialShader(0, shader);
+    std::shared_ptr<RayLib::Shader> shader = AssetCache::GetAsset<RayLib::Shader>("../assets/shaders/mask");
+    drawable.SetMaterialShader(0, *shader);
 
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_ESCAPE);

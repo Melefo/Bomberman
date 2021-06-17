@@ -17,15 +17,14 @@ namespace Component
     {
     }
 
-    void Button::Draw(RayLib::Vector2<float> position, Asset& asset, RayLib::Vector2<float> scale)
+    void Button::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale)
     {
         RayLib::Vector3 vec3Pos = RayLib::Vector3(position.x, position.y, 0.0f);
-        RayLib::Texture& texture = asset.getTexture();
 
         _rect.x = position.x;
         _rect.y = position.y;
-        _rect.width = static_cast<float>(texture.GetTexture().width);
-        _rect.height = static_cast<float>(texture.GetTexture().height);
+        //_rect.width = static_cast<float>(texture.GetTexture().width);
+        //_rect.height = static_cast<float>(texture.GetTexture().height);
 
         // ? multiplier scale par _rect scale ?
 
@@ -37,7 +36,8 @@ namespace Component
         } else {
             _tint.Lerp(WHITE, 0.25f);
         }
-        texture.DrawTextureEx(position, 0.0f, scale.x, _tint);
+
+        //texture.DrawTextureEx(position, 0.0f, scale.x, _tint);
     }
 
     bool Button::IsMouseOver(void)

@@ -7,4 +7,4 @@
 
 #include "AssetCache.hpp"
 
-std::map<std::string, std::unique_ptr<RayLib::IAsset>> AssetCache::_assets;
+std::map<std::string, std::shared_ptr<RayLib::IAsset>> AssetCache::_assets;

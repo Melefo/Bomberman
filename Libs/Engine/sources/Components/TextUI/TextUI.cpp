@@ -14,7 +14,7 @@ namespace Component
     {
     }
 
-    void TextUI::Draw(RayLib::Vector2<float> position, Asset&, RayLib::Vector2<float>)
+    void TextUI::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float>)
     {
         _font.DrawText(_string, position, _size, _spacing, _color);
     }

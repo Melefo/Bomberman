@@ -13,7 +13,7 @@ namespace Component
         : _max(lengthMax), _font(fontPath), _color(color), _size(size), _spacing(spacing), _value(), _isAlpha(isAlpha), _isNum(isNum), _rect(0.0f, 0.0f, this->_font.MeasureText(std::string(_max, '0'), _size, _spacing).x, _size)
 	{}
 
-	void TextBox::Draw(RayLib::Vector2<float> position, Asset&, RayLib::Vector2<float>)
+	void TextBox::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float>)
 	{
         _rect.x = position.x;
         _rect.y = position.y;

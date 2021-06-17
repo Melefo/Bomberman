@@ -22,12 +22,13 @@
 #include "AmbientShader.hpp"
 #include "raymath.h"
 #include "TerrainShader.hpp"
+#include "AssetCache.hpp"
+#include "Drawable3D.hpp"
 #include <iostream>
 
 int applyShaderToCube(void)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-    std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
 
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype");
@@ -36,25 +37,33 @@ int applyShaderToCube(void)
 
     ECS::Entity& box = coordinator->CreateEntity();
     box.AddComponent<Component::Transform>();
-    box.AddComponent<Component::Renderer>("box");
+    box.AddComponent<Component::Renderer>();
     box.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
     box.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
     ECS::Entity& box2 = coordinator->CreateEntity();
     box2.AddComponent<Component::Transform>();
-    box2.AddComponent<Component::Renderer>("box2");
+    box2.AddComponent<Component::Renderer>();
     box2.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
     box2.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 0.0f);
 
-    RayLib::Texture texture("../Prototype/sources/Shaders/resources/cube_texture.png");
-    RayLib::Shader shader("", "../Prototype/sources/Shaders/resources/glsl/grayscale.fs");
+    Component::Drawable3D& boxDrawable = box.GetComponent<Component::Drawable3D>();
+    Component::Drawable3D& box2Drawable = box2.GetComponent<Component::Drawable3D>();
 
-    assetManagerRef->getAssetFromName("box").getModel().SetMaterialShader(0, shader);
-    assetManagerRef->getAssetFromName("box").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    //RayLib::Texture texture("../Prototype/sources/Shaders/resources/cube_texture.png");
+    RayLib::Texture& texture = *AssetCache::GetAsset<RayLib::Texture>("../Prototype/sources/Shaders/resources/cube_texture.png");
+    RayLib::Shader& shader = *AssetCache::GetAsset<RayLib::Shader>("../Prototype/sources/Shaders/resources/glsl/grayscale");
+
+    boxDrawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    boxDrawable.SetMaterialShader(0, shader);
+
+    //assetManagerRef->getAssetFromName("box").getModel().SetMaterialShader(0, shader);
+    //assetManagerRef->getAssetFromName("box").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
     //box.GetComponent<Component::Renderer>().GetModel().SetMaterialShader(0, shader);
     //box.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
 
-    assetManagerRef->getAssetFromName("box2").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    box2Drawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    //assetManagerRef->getAssetFromName("box2").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
 
     window->SetTargetFPS(60);
     camera.SetCameraMode(CAMERA_FREE);
@@ -81,7 +90,7 @@ int allBlue(void)
     int screenHeight = 1080;
 
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-    std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
+    //std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
 
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(screenWidth, screenHeight), "Prototype");
@@ -90,23 +99,30 @@ int allBlue(void)
 
     ECS::Entity& box = coordinator->CreateEntity();
     box.AddComponent<Component::Transform>();
-    box.AddComponent<Component::Renderer>("box");
+    box.AddComponent<Component::Renderer>();
     box.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
     box.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
     ECS::Entity& box2 = coordinator->CreateEntity();
     box2.AddComponent<Component::Transform>();
-    box2.AddComponent<Component::Renderer>("box2");
+    box2.AddComponent<Component::Renderer>();
     box2.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
     box2.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 0.0f);
 
-    RayLib::Texture texture("../Prototype/sources/Shaders/resources/cube_texture.png");
+    Component::Drawable3D& boxDrawable = box.GetComponent<Component::Drawable3D>();
+    Component::Drawable3D& box2Drawable = box2.GetComponent<Component::Drawable3D>();
+
+    RayLib::Texture& texture = AssetCache::GetAsset<RayLib::Texture>("../Prototype/sources/Shaders/resources/cube_texture.png");
+
+    //RayLib::Texture texture("../Prototype/sources/Shaders/resources/cube_texture.png");
     // RayLib::Color color(216, 240, 240, 255);
     RayLib::Color color(222, 70, 0, 100);
     AmbientShader ambientShader(color, "../assets/shaders/");
 
-    assetManagerRef->getAssetFromName("box").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
-    assetManagerRef->getAssetFromName("box2").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    boxDrawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    box2Drawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    //assetManagerRef->getAssetFromName("box").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    //assetManagerRef->getAssetFromName("box2").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
 
     // By activating next line (Adding entity to the ambient shader), it will add it on display.
     // Otherwise its texture will remain the same
@@ -268,7 +284,7 @@ int floorShader()
     RayLib::Vector2<float> mapSize(13*boxSize, 17*boxSize);
 
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-    std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
+    //std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
 
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(screenWidth, screenHeight), "Prototype");
@@ -277,9 +293,11 @@ int floorShader()
 
     ECS::Entity& box = coordinator->CreateEntity();
     box.AddComponent<Component::Transform>();
-    box.AddComponent<Component::Renderer>("floor");
+    box.AddComponent<Component::Renderer>();
     box.GetComponent<Component::Transform>().scale = RayLib::Vector3(130.0f, 0.0f, 170.0f);
     box.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+
+    Component::Drawable3D& boxDrawable = box.GetComponent<Component::Drawable3D>();
 
     window->SetTargetFPS(60);
     camera.SetCameraMode(CAMERA_FREE);
@@ -289,8 +307,10 @@ int floorShader()
     RayLib::Color floorColor(68, 194, 64, 255);
 
     RayLib::Texture texture(RayLib::Image(RayLib::Vector2<int>(static_cast<int>(mapSize.x), static_cast<int>(mapSize.y)), floorColor.getColor()));
-    assetManagerRef->getAssetFromName("floor").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
-    assetManagerRef->getAssetFromName("floor").getModel().SetMaterialShader(0, terrainShader);
+    boxDrawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    boxDrawable.SetMaterialShader(0, terrainShader);
+    //assetManagerRef->getAssetFromName("floor").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    //assetManagerRef->getAssetFromName("floor").getModel().SetMaterialShader(0, terrainShader);
 
     while (!window->WindowShouldClose())
     {

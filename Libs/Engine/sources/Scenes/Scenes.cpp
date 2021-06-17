@@ -36,13 +36,13 @@ std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("LoadingScreen", &InitLoadingScreen),
     };
 
-void Scenes::switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &nextScene)
+void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &nextScene)
 {
     std::string str("LoadingScreen");
 
     coordinator.setCurrentScene(str);
-    am.setNextScene(nextScene);
-    am.loadAssets(coordinator.getScene(nextScene).GetEntities());
+    //am.setNextScene(nextScene);
+    //am.loadAssets(coordinator.getScene(nextScene).GetEntities());
 }
 
 void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const bool isEditor, int deepness)

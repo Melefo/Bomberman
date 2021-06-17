@@ -17,7 +17,6 @@
 #include "Transform.hpp"
 #include "Destructible.hpp"
 #include "Exceptions.hpp"
-#include "AssetManager.hpp"
 #include "Box.hpp"
 #include "CollisionSystem.hpp"
 #include "SphereCollider.hpp"

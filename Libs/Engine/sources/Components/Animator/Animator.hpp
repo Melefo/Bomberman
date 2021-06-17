@@ -10,7 +10,7 @@
 
 #include "IComponent.hpp"
 #include "ModelAnimation.hpp"
-#include "AssetManager.hpp"
+#include "Entity.hpp"
 #include <map>
 
 namespace Component
@@ -71,7 +71,6 @@ namespace Component
             std::string _currentState;
             std::string _name;
             ECS::Entity& _entity;
-            Asset& _asset;
     };
 }
 

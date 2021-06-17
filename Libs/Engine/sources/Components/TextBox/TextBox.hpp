@@ -67,7 +67,6 @@ namespace Component
             * @param scale
             */
             void Draw(RayLib::Vector2<float> position,
-                Asset& asset,
                 RayLib::Vector2<float> scale = RayLib::Vector2<float>(1.0f, 1.0f)) override;
             /**
              * @brief Get the IsAlpha object

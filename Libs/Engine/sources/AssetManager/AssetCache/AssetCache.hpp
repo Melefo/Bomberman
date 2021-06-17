@@ -40,15 +40,11 @@ class AssetCache {
          * @return T& 
          */
         template<typename T>
-        static T& GetAsset(const std::string& path)
+        static std::shared_ptr<T> GetAsset(const std::string& path)
         {
-            const auto &it = _assets.find(path);
-
-            if (it == _assets.end()) {
-                _assets[path] = std::make_unique<T>(path);
-                return (dynamic_cast<T&>(*_assets[path]));
-            }
-            return (dynamic_cast<T&>(*it->second));
+            if (_assets.find(path) == _assets.end())
+                _assets[path] = std::make_shared<T>(path);
+            return (std::dynamic_pointer_cast<T>(_assets[path]));
         }
 
         /* ? Targs ... ?
@@ -65,7 +61,7 @@ class AssetCache {
          * String for the path, IAsset for the asset
          * 
          */
-        static std::map<std::string, std::unique_ptr<RayLib::IAsset>> _assets;
+        static std::map<std::string, std::shared_ptr<RayLib::IAsset>> _assets;
 };
 
 #endif /* !ASSETCACHE_HPP_ */

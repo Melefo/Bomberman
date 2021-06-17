@@ -16,7 +16,6 @@
 #include "Rectangle.hpp"
 #include "Mouse.hpp"
 #include "BoundingBox.hpp"
-#include "Asset.hpp"
 
 namespace Component
 {
@@ -57,7 +56,6 @@ namespace Component
              * @param scale 
              */
             void Draw(RayLib::Vector2<float> position,
-                      Asset& asset,
                       RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
 
             /**
