@@ -8,9 +8,7 @@
 #ifndef PHYSICS2D_HPP_
 #define PHYSICS2D_HPP_
 
-#define PHYSAC_IMPLEMENTATION
 
-#include <physac.h>
 #include <raylib.h>
 #include "PhysacBody.hpp"
 #include "Entity.hpp"

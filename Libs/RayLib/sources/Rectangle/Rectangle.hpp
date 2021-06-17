@@ -17,7 +17,7 @@ namespace RayLib
      * @brief Rectangle encapsulation
      * 
      */
-    class Rectangle {
+    class Rectangle : public ::Rectangle {
         public:
             /**
              * @brief Construct a new Rectangle
@@ -86,10 +86,6 @@ namespace RayLib
              */
             void DrawRectangleLines(RayLib::Color color = DARKGRAY);
 
-            float x;
-            float y;
-            float width;
-            float height;
         protected:
         private:
     };

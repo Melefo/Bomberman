@@ -15,8 +15,6 @@
 #include <memory>
 #include "Entity.hpp"
 #include "Coordinator.hpp"
-#include <physac.h>
-#include "PhysacBody.hpp"
 #include "Transform.hpp"
 
 namespace Component
@@ -52,7 +50,7 @@ namespace Component
              */
             Collider& operator=(const Collider& other) = default;
 
-            virtual RayLib::PhysacBody& GetPhysacBody() = 0;
+            // virtual RayLib::PhysacBody& GetPhysacBody() = 0;
 
             // ! change collision mask at runtime ??
 

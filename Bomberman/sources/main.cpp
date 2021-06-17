@@ -6,7 +6,6 @@
 */
 
 #include <iostream>
-#include <physac.h>
 #include "Coordinator.hpp"
 #include "Transform.hpp"
 #include "PhysicsSystem.hpp"
