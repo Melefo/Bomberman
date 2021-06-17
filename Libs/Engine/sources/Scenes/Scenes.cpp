@@ -73,8 +73,9 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
             }
 
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
-                Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
-                ECS::Entity& player = entityFactory.createPlayer(playerKeys);
+                //Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
+                //ECS::Entity& player = entityFactory.createPlayer(playerKeys);
+                ECS::Entity& player = entityFactory.createAI();
                 player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
                 currentPlayer++;
             }
