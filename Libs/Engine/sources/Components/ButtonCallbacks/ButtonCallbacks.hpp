@@ -83,6 +83,30 @@ namespace Component
             static void DecrementPlayerNbr(void);
 
             /**
+             * @brief Increment the map of Height
+             * 
+             */
+            static void IncrementMapHeight();
+
+            /**
+             * @brief Decrement the map of Height
+             * 
+             */
+            static void DecrementMapHeight();
+
+            /**
+             * @brief Increment the map of Width
+             * 
+             */
+            static void IncrementMapWidth();
+
+            /**
+             * @brief Decrement the map of Width
+             * 
+             */
+            static void DecrementMapWidth();
+
+            /**
              * @brief Generate a map in the background
              * 
              */
@@ -90,7 +114,9 @@ namespace Component
 
             static void StartGame(void);
             static void StartEditorMenu(void);
+            static void ExitGameToMainMenu(void);
 
+            static void Replay(void);
             static void QuitWindow(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
@@ -109,6 +135,11 @@ namespace Component
              * 
              */
             Button& _button;
+            /**
+             * @brief Private Method for displaying dynamic text on click
+             * 
+             */
+            static void TextInterfaceLoader(std::string tagName, int nb);
     };
 }
 

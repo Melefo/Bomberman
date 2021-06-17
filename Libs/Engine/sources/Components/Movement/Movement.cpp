@@ -11,11 +11,12 @@
 
 namespace Component
 {
-    Movement::Movement(ECS::Entity& attatchedEntity, float moveSpeed) :
-    _entity(attatchedEntity), _colliding(false), _speed(moveSpeed), _startSpeed(moveSpeed), _bonusTime(0.0f)
+    Movement::Movement(ECS::Entity& attatchedEntity, float moveSpeed, float maxSpeed) :
+    _entity(attatchedEntity), _colliding(false), _speed(moveSpeed), _startSpeed(moveSpeed), _bonusTime(0.0f), _maxSpeed(maxSpeed)
     {
         _collisionMask.push_back("Wall");
         _collisionMask.push_back("Box");
+        _collisionMask.push_back("Bomb");
     }
 
     void Movement::Update(double, ECS::Entity& entity)
@@ -63,6 +64,9 @@ namespace Component
 
         if  (_entity.HasComponent<PhysicsBody>()) {
             PhysicsBody& physicsBody = _entity.GetComponent<PhysicsBody>();
+
+            if (_speed > _maxSpeed)
+                _speed = _maxSpeed;
 
             if (!_colliding) {
                 // ! cache ?

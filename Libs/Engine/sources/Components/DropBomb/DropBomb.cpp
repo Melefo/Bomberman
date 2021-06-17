@@ -12,10 +12,10 @@
 
 namespace Component
 {
-    DropBomb::DropBomb(float delay)
+    DropBomb::DropBomb(ECS::Entity& self, float delay, float minDelay, float maxBombs)
     : timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _bombNumber(2), _defaultBombNumber(2),
-     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay)
+     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay), _minDelay(minDelay), _maxBombs(maxBombs), _self(self)
     {
     }
 
@@ -25,10 +25,7 @@ namespace Component
         entity.SetTag("Bomb");
 
         entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2, 2, 2));
-        entity.AddComponent<Renderer>("Bomb");
-        //! si on spawn une bombe sur le joueur, on est bloqués
-        //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
-        entity.AddComponent<IBehaviour, Explosion>(entity, radius, type);
+        entity.AddComponent<IBehaviour, Explosion>(entity, _self, radius, type);
         return (entity);
     }
 
@@ -36,6 +33,9 @@ namespace Component
     {
         float explosionRadius = 2.50f;
         float boxSize = 7.50f;
+
+        if (_bombNumber > _maxBombs)
+            _bombNumber = static_cast<int>(_maxBombs);
 
         // spawn a bunch of small bombs in a cross pattern of size radius
         // create a bunch of directions vectors
@@ -51,6 +51,7 @@ namespace Component
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
         firstBomb.GetComponent<Transform>().position = position;
+        firstBomb.AddComponent<Renderer>("Bomb");
 
         bool reachedWall = false;
 
@@ -73,7 +74,6 @@ namespace Component
 
                 // create small bombs of radius boxsize
                 ECS::Entity& bomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
-
                 // spacing = boxsize so radius * boxsize
                 bomb.GetComponent<Transform>().position = position + (*dir) * i * boxSize;
             }
@@ -83,6 +83,9 @@ namespace Component
     void DropBomb::Update()
     {
         float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
+
+        if (_dropDelay < _minDelay)
+            _dropDelay = _minDelay;
 
         if (_bonusTime > 0.0f) {
             _bonusTime -= frameTime;

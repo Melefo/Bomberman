@@ -36,7 +36,7 @@ namespace Component
              * @param dropBombKey Key to press
              * @param dropDelay Cooldown for bomb-dropping
              */
-            DropBomb(float dropDelay=3.0f);
+            DropBomb(ECS::Entity& self, float dropDelay=2.5f, float minDelay = 1.0f, float maxBombs = 5.0f);
             /**
              * @brief Destroy the Drop Bomb object
              * 
@@ -138,6 +138,11 @@ namespace Component
              * 
              */
             float _dropDelay;
+
+            float _minDelay;
+            float _maxBombs;
+
+            ECS::Entity& _self;
     };
 }
 

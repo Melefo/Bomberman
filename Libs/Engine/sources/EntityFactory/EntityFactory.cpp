@@ -44,6 +44,7 @@ ECS::Entity& EntityFactory::createButton(const std::string& assetName)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
+    entity.SetTag("button_" + assetName);
     entity.AddComponent<Component::IUIObject, Component::Button>();
     entity.AddComponent<Component::Renderer>(assetName);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
@@ -56,6 +57,7 @@ ECS::Entity& EntityFactory::createTextBox(int maxLength, const std::string& font
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
+    entity.SetTag("TextBox");
     entity.AddComponent<Component::Renderer>();
     entity.AddComponent<Component::IUIObject, Component::TextBox>(maxLength, fontPath, size, spacing, color, false, true);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
@@ -68,6 +70,7 @@ ECS::Entity& EntityFactory::createText(const std::string& content, const std::st
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
+    entity.SetTag(content);
     entity.AddComponent<Component::Renderer>();
     entity.AddComponent<Component::IUIObject, Component::TextUI>(content, fontPath, size, spacing);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
@@ -95,7 +98,7 @@ ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
     entity.AddComponent<Component::Renderer>("Box");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     //entity.AddComponent<Component::Destructible>(entity, 1);
-    entity.AddComponent<Component::Box>(entity, 1, 0.5f);
+    entity.AddComponent<Component::Box>(entity, 1, 0.1f);
 
     if (draggable)
         entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, _camera);
@@ -187,7 +190,7 @@ ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::Explo
     entity.AddComponent<Component::Renderer>("Bomb");
     //! si on spawn une bombe sur le joueur, on est bloqués
     //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
-    entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, radius, type);
+    entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, entity, radius, type);
     return (entity);
 }
 

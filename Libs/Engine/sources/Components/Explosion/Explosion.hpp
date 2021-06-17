@@ -19,6 +19,9 @@
 #include "Exceptions.hpp"
 #include "AssetManager.hpp"
 #include "Box.hpp"
+#include "CollisionSystem.hpp"
+#include "SphereCollider.hpp"
+#include "Renderer.hpp"
 
 namespace Component
 {
@@ -48,7 +51,8 @@ namespace Component
              * @param power 
              * @param timer Time in seconds before the physics check goes out
              */
-            Explosion(ECS::Entity& entity, float radius=1.0f,
+            Explosion(ECS::Entity& attatchedEntity, ECS::Entity& parent,
+                      float radius=1.0f,
                       Explosion::ExplosionType type=Explosion::ExplosionType::CROSS,
                       unsigned int power=1,
                       float timer=3.0f);
@@ -93,6 +97,8 @@ namespace Component
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
             float GetExplosionTimer() const;
+            void CheckParentLeftRadius(void);
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
             std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
@@ -139,6 +145,8 @@ namespace Component
              * 
              */
             std::unique_ptr<ECS::Coordinator>& _coordinator;
+
+            ECS::Entity& _parent;
 
     };
 }
