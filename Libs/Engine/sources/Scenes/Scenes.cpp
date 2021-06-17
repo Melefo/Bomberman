@@ -37,7 +37,7 @@ std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("LoadingScreen", &InitLoadingScreen),
     };
 
-void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &nextScene)
+void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &)
 {
     std::string str("LoadingScreen");
 
@@ -265,7 +265,6 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     //bomb.Dispose();
 
     ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
-    Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(-1000.0f, -1.0f, 0.0f);
 }
 
