@@ -85,7 +85,7 @@ namespace RayLib
              *
              * @return ::Vector2
              */
-            ::Vector2 getVector2(void)
+            ::Vector2 getVector2(void) const
             {
                 ::Vector2 vec = {x, y};
 

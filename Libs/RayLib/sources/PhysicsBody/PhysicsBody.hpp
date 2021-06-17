@@ -8,6 +8,8 @@
 #ifndef PHYSICSBODY_HPP_
 #define PHYSICSBODY_HPP_
 
+#include <memory>
+#include "Vector2.hpp"
 #include "physac.h"
 
 namespace RayLib
@@ -15,16 +17,20 @@ namespace RayLib
 	class PhysicsBody
 	{
 		public:
-			PhysicsBody(RayLib::Vector2 pos, float radius, float density);
-			PhysicsBody(RayLib::Vector2 pos, float width, float height, float density);
-			PhysicsBody(RayLib::Vector2 pos, float radius, int sides, float density);
+			PhysicsBody(const RayLib::Vector2<float>& pos, float radius, float density);
+			PhysicsBody(const RayLib::Vector2<float>& pos, float width, float height, float density);
+			PhysicsBody(const RayLib::Vector2<float>& pos, float radius, int sides, float density);
+			~PhysicsBody();
 
 			static void InitPhysics(void);
+			static void ClosePhyics(void);
 			static bool IsPhysicsEnabled(void);
+
+			::PhysicsBodyData& GetPhysicsBody();
 
 		// ! floor->enabled = false;         // Disable body state to convert it to static (no dynamics, but collisions)
 		private:
-			std::unique_ptr<PhysicsBodyData> _physicsBody;
+			std::unique_ptr<::PhysicsBodyData> _physicsBody;
 		
 	};
 }

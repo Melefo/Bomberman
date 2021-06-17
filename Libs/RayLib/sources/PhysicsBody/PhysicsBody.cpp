@@ -9,18 +9,24 @@
 
 namespace RayLib
 {
-	PhysicsBody::PhysicsBody(RayLib::Vector2 pos, float radius, float density) :
+	PhysicsBody::PhysicsBody(const RayLib::Vector2<float>& pos, float radius, float density) :
+	_physicsBody(std::make_unique<::PhysicsBodyData>(::CreatePhysicsBodyCircle(pos.getVector2(), radius, density)))
 	{
 	}
 
-	PhysicsBody::PhysicsBody(RayLib::Vector2 pos, float width, float height, float density)
+	PhysicsBody::PhysicsBody(const RayLib::Vector2<float>& pos, float width, float height, float density) :
+	_physicsBody(std::make_unique<::PhysicsBodyData>(::CreatePhysicsBodyRectangle(pos.getVector2(), width, height, density)))
 	{
-
 	}
 
-	PhysicsBody::PhysicsBody(RayLib::Vector2 pos, float radius, int sides, float density)
+	PhysicsBody::PhysicsBody(const RayLib::Vector2<float>& pos, float radius, int sides, float density) :
+	_physicsBody(std::make_unique<::PhysicsBodyData>(::CreatePhysicsBodyPolygon(pos.getVector2(), radius, sides, density)))
 	{
+	}
 
+	PhysicsBody::~PhysicsBody()
+	{
+		::DestroyPhysicsBody(this->_physicsBody.get());
 	}
 
 	void PhysicsBody::InitPhysics(void)
@@ -28,8 +34,18 @@ namespace RayLib
 		::InitPhysics();
 	}
 
+	void PhysicsBody::InitPhysics(void)
+	{
+		::ClosePhysics();
+	}
+
 	bool PhysicsBody::IsPhysicsEnabled(void)
 	{
 		return ::IsPhysicsEnabled();
+	}
+
+	::PhysicsBodyData& GetPhyicsBody()
+	{
+		return *this->_physicsBody;
 	}
 }
