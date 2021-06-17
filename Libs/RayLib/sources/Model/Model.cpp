@@ -30,9 +30,9 @@ namespace RayLib
         mesh.SetLoaded(false);
     }
 
-    void Model::Draw(Vector3 position, float scale, Color tint)
+    void Model::Draw(Vector3 position, Vector3 scale, Color tint)
     {
-        ::DrawModel(_model, position.getVector3(), scale, tint.getColor());
+        ::DrawModelEx(_model, position.getVector3(), Vector3().getVector3(), 0.0f, scale.getVector3(), tint.getColor());
     }
 
     void Model::DrawEx(Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)

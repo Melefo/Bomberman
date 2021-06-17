@@ -14,6 +14,7 @@
 #include "Color.hpp"
 #include "Texture.hpp"
 #include "Mesh.hpp"
+#include "IDrawable.hpp"
 #include "Shader.hpp"
 #include <raymath.h>
 
@@ -58,7 +59,7 @@ namespace RayLib
              * @param scale 
              * @param tint 
              */
-            void Draw(Vector3 position, float scale, Color tint);
+            void Draw(Vector3 position, Vector3 scale, Color tint);
 
             /**
              * @brief Draw model, with rotation parameters

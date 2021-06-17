@@ -11,13 +11,16 @@
 #include <iostream>
 #include <cmath>
 #include "IUIObject.hpp"
+#include "Drawable3D.hpp"
 
 namespace Component
 {
     RenderSystem::RenderSystem()
     {
         AddDependency<Transform>();
-        AddDependency<Renderer>();
+        //AddDependency<Renderer>();
+        AddDependency<Drawable3D>();
+
         // !get asset manager here ?
     }
 
@@ -25,20 +28,23 @@ namespace Component
     {
         std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
         Transform& transform = entity.GetComponent<Transform>();
-        Renderer& renderer = entity.GetComponent<Renderer>();
+        //Renderer& renderer = entity.GetComponent<Renderer>();
+        Drawable3D& drawable = entity.GetComponent<Drawable3D>();
 
         //! on ne render pas ici les UI, pour le moment...
         if (entity.OfType<IUIObject>().size() > 0)
             return;
 
-        RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName(), entity.GetId()).getModel();
+        //RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName(), entity.GetId()).getModel();
 
-        model.RotateModel(transform.rotation);
-        model.DrawEx(transform.position, RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, transform.scale, WHITE);
+        drawable.RotateModel(transform.rotation);
+        drawable.Draw(transform.position, transform.scale, WHITE);
+        //model.RotateModel(transform.rotation);
+        //model.DrawEx(transform.position, RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, transform.scale, WHITE);
 
-        if (entity.HasComponent<Animator>()) {
-            Animator& animator = entity.GetComponent<Animator>();
-            animator.PlayCurrentState(model);
-        }
+        //if (entity.HasComponent<Animator>()) {
+        //    Animator& animator = entity.GetComponent<Animator>();
+        //    animator.PlayCurrentState(model);
+        //}
     }
 }
