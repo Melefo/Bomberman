@@ -64,8 +64,9 @@ namespace RayLib
 
     Model::~Model()
     {
-        if (_model.meshCount > 0)
-            UnloadModel(_model);
+        if (_model.meshCount > 0) {
+            ::UnloadModelKeepMeshes(_model);
+        }
     }
 
     std::ostream& Model::operator<<(std::ostream& os)
