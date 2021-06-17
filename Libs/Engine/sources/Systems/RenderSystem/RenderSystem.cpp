@@ -34,11 +34,11 @@ namespace Component
             return;
 
         drawable.RotateModel(transform.rotation);
-        drawable.Draw(transform.position, transform.scale, WHITE);
 
-        //if (entity.HasComponent<Animator>()) {
-        //    Animator& animator = entity.GetComponent<Animator>();
-        //    animator.PlayCurrentState(model);
-        //}
+        if (entity.HasComponent<Animator>()) {
+            Animator& animator = entity.GetComponent<Animator>();
+            animator.PlayCurrentState(drawable.GetModel());
+        }
+        drawable.Draw(transform.position, transform.scale, WHITE);
     }
 }

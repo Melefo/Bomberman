@@ -40,6 +40,9 @@ HEADER_DIRECTORIES(INC)
 
 TARGET_LINK_LIBRARIES(encapsu raylib xmlGen)
 
+ADD_DEPENDENCIES(encapsu physac)
+ADD_DEPENDENCIES(ray_unit_tests physac)
+
 TARGET_LINK_LIBRARIES(ray_unit_tests raylib xmlGen criterion -lgcov)
 TARGET_COMPILE_OPTIONS(ray_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 

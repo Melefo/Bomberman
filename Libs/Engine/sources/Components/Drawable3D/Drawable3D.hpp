@@ -13,6 +13,7 @@
 #include "IComponent.hpp"
 #include "Mesh.hpp"
 #include "Shader.hpp"
+#include "EngineExceptions.hpp"
 
 namespace Component
 {
@@ -29,7 +30,24 @@ namespace Component
              * 
              * @param path 
              */
-            Drawable3D(const std::string& path);
+            Drawable3D(const std::string& meshPath);
+
+            /**
+             * @brief Construct a new Drawable 3 D object
+             * 
+             * @param meshPath 
+             * @param texturePath 
+             */
+            Drawable3D(const std::string& meshPath, const std::string& texturePath);
+
+            /**
+             * @brief Construct a new Drawable 3 D object
+             * 
+             * @param meshPath 
+             * @param texturePath 
+             * @param shaderPath 
+             */
+            Drawable3D(const std::string& meshPath, const std::string& texturePath, const std::string& shaderPath);
             /**
              * @brief Destroy the Drawable 3 D object
              * 
@@ -49,6 +67,14 @@ namespace Component
             void SetMaterialTexture(int matIndex, int mapType, RayLib::Texture& text);
             void SetMaterialShader(int matIndex, RayLib::Shader& shader);
 
+            void SetTexture(const std::string& path);
+            void SetModel(const std::string& path);
+            void SetShader(const std::string& path);
+
+            RayLib::Model& GetModel(void);
+            RayLib::Shader& GetShader(void);
+            RayLib::Texture& GetTexture(void);
+
             // set rotation
             void RotateModel(RayLib::Vector3 rotation);
 
@@ -58,7 +84,10 @@ namespace Component
 
         protected:
         private:
-            RayLib::Model _model;
+            std::shared_ptr<RayLib::Model> _model;
+            std::shared_ptr<RayLib::Texture> _texture;
+            std::shared_ptr<RayLib::Shader> _shader;
+
     };
 }
 

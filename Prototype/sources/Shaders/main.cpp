@@ -37,32 +37,24 @@ int applyShaderToCube(void)
 
     ECS::Entity& box = coordinator->CreateEntity();
     box.AddComponent<Component::Transform>();
-    box.AddComponent<Component::Renderer>();
-    box.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
+    box.AddComponent<Component::Drawable3D>(RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f)),
+                                            "../Prototype/sources/Shaders/resources/cube_texture.png",
+                                            "../Prototype/sources/Shaders/resources/glsl/grayscale");
     box.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
     ECS::Entity& box2 = coordinator->CreateEntity();
     box2.AddComponent<Component::Transform>();
-    box2.AddComponent<Component::Renderer>();
-    box2.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
+    box2.AddComponent<Component::Drawable3D>(RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f)),
+                                            "../Prototype/sources/Shaders/resources/cube_texture.png");
     box2.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 0.0f);
 
-    Component::Drawable3D& boxDrawable = box.GetComponent<Component::Drawable3D>();
-    Component::Drawable3D& box2Drawable = box2.GetComponent<Component::Drawable3D>();
-
     //RayLib::Texture texture("../Prototype/sources/Shaders/resources/cube_texture.png");
-    RayLib::Texture& texture = *AssetCache::GetAsset<RayLib::Texture>("../Prototype/sources/Shaders/resources/cube_texture.png");
-    RayLib::Shader& shader = *AssetCache::GetAsset<RayLib::Shader>("../Prototype/sources/Shaders/resources/glsl/grayscale");
-
-    boxDrawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
-    boxDrawable.SetMaterialShader(0, shader);
 
     //assetManagerRef->getAssetFromName("box").getModel().SetMaterialShader(0, shader);
     //assetManagerRef->getAssetFromName("box").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
     //box.GetComponent<Component::Renderer>().GetModel().SetMaterialShader(0, shader);
     //box.GetComponent<Component::Renderer>().GetModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
 
-    box2Drawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
     //assetManagerRef->getAssetFromName("box2").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
 
     window->SetTargetFPS(60);
@@ -99,28 +91,24 @@ int allBlue(void)
 
     ECS::Entity& box = coordinator->CreateEntity();
     box.AddComponent<Component::Transform>();
-    box.AddComponent<Component::Renderer>();
-    box.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
+    box.AddComponent<Component::Drawable3D>(RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f)),
+                                            "../Prototype/sources/Shaders/resources/cube_texture.png");
     box.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
     ECS::Entity& box2 = coordinator->CreateEntity();
     box2.AddComponent<Component::Transform>();
-    box2.AddComponent<Component::Renderer>();
-    box2.GetComponent<Component::Transform>().scale = RayLib::Vector3(10.0f, 10.0f, 10.0f);
+    box2.AddComponent<Component::Drawable3D>(RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f)),
+                                            "../Prototype/sources/Shaders/resources/cube_texture.png");
     box2.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 0.0f);
 
     Component::Drawable3D& boxDrawable = box.GetComponent<Component::Drawable3D>();
     Component::Drawable3D& box2Drawable = box2.GetComponent<Component::Drawable3D>();
-
-    RayLib::Texture& texture = AssetCache::GetAsset<RayLib::Texture>("../Prototype/sources/Shaders/resources/cube_texture.png");
 
     //RayLib::Texture texture("../Prototype/sources/Shaders/resources/cube_texture.png");
     // RayLib::Color color(216, 240, 240, 255);
     RayLib::Color color(222, 70, 0, 100);
     AmbientShader ambientShader(color, "../assets/shaders/");
 
-    boxDrawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
-    box2Drawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
     //assetManagerRef->getAssetFromName("box").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
     //assetManagerRef->getAssetFromName("box2").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
 

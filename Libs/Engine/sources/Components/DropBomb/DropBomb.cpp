@@ -54,7 +54,7 @@ namespace Component
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
         firstBomb.GetComponent<Transform>().position = position;
-        firstBomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm");
+        firstBomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
         bool reachedWall = false;
 

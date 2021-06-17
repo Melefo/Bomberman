@@ -260,7 +260,7 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     // create a bomb
     ECS::Entity& bomb = coordinator.CreateEntity();
     bomb.SetTag("Bomb");
-    bomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm");
+    bomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
     bomb.AddComponent<Component::Transform>(RayLib::Vector3(1000.0f, 100.0f, 0.0f));
     //bomb.Dispose();
 

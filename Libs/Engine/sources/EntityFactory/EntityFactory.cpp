@@ -77,14 +77,10 @@ ECS::Entity& EntityFactory::createText(const std::string& content, const std::st
 ECS::Entity& EntityFactory::createWall()
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
-    RayLib::Texture& text = *AssetCache:: GetAsset<RayLib::Texture>("../assets/Wall/Wall_texture.png");
-    RayLib::Mesh& wallMesh = *AssetCache::GetAsset<RayLib::Mesh>("../assets/Wall/Wall_model.iqm");
     entity.SetTag("Wall");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(90, 0, 0), RayLib::Vector3(2.5f, 2.5f, 2.5f));
 
-    entity.AddComponent<Component::Drawable3D>(wallMesh);
-
-    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, text);
+    entity.AddComponent<Component::Drawable3D>("../assets/Wall/Wall_model.iqm", "../assets/Wall/Wall_texture.png");
 
     //entity.AddComponent<Component::Renderer>("Wall");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
@@ -96,15 +92,9 @@ ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
-    RayLib::Texture& text = *AssetCache::GetAsset<RayLib::Texture>("../assets/Box/Box_texture.png");
-    RayLib::Mesh& mesh = *AssetCache::GetAsset<RayLib::Mesh>("../assets/Box/Box_model.iqm");
-    entity.AddComponent<Component::Drawable3D>(mesh);
-
-    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, text);
+    entity.AddComponent<Component::Drawable3D>("../assets/Box/Box_model.iqm", "../assets/Box/Box_texture.png");
     entity.SetTag("Box");
-    entity.AddComponent<Component::Transform>();
-    entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5, 5, 5);
-    entity.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), RayLib::Vector3(), RayLib::Vector3(5, 5, 5));
     //entity.AddComponent<Component::Renderer>("Box");
     entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
     //entity.AddComponent<Component::Destructible>(entity, 1);
@@ -123,17 +113,16 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
     entity.AddComponent<Component::PhysicsBody>();
 
-    //entity.AddComponent<Component::Animator>(entity, "Player", "Idle");
     entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, keys.movementInput, keys.actionKey);
 
-    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb");
+    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture.png");
 
-    RayLib::Texture& text = *AssetCache::GetAsset<RayLib::Texture>("../assets/Player/Player_texture.png");
-    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, text);
+    entity.AddComponent<Component::Animator>(entity, "../assets/Player/Player_anim_Idle.glb", "Idle");
+    entity.GetComponent<Component::Animator>().AddState("../assets/Player/Player_anim_Run.glb", "Run");
 
-    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(90.0f, 0.0f, 0.0f);
     entity.AddComponent<Component::Destructible>(entity, 1);
     return (entity);
 }
@@ -141,13 +130,13 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
 ECS::Entity& EntityFactory::createRangePickUp(void)
 {
     RayLib::Mesh cubeMesh(RayLib::Vector3(1.0f, 1.0f, 1.0f));
-    RayLib::Texture& texture = *AssetCache::GetAsset<RayLib::Texture>("../assets/PickUps/RangePickUp_texture.png");
 
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("RangePickUp");
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::Drawable3D>(cubeMesh);
-    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    entity.GetComponent<Component::Drawable3D>().SetTexture("../assets/PickUps/RangePickUp_texture.png");
+
     entity.AddComponent<Component::IBehaviour, Component::RangeBoost>(entity, 5.0f);
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
     return (entity);
@@ -156,13 +145,12 @@ ECS::Entity& EntityFactory::createRangePickUp(void)
 ECS::Entity& EntityFactory::createCooldownPickUp(void)
 {
     RayLib::Mesh cubeMesh(RayLib::Vector3(1.0f, 1.0f, 1.0f));
-    RayLib::Texture& texture = *AssetCache::GetAsset<RayLib::Texture>("../assets/PickUps/CoolDownPickUp_texture.png");
 
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("CoolDownPickUp");
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::Drawable3D>(cubeMesh);
-    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    entity.GetComponent<Component::Drawable3D>().SetTexture("../assets/PickUps/CoolDownPickUp_texture.png");
     entity.AddComponent<Component::IBehaviour, Component::CoolDownBoost>(entity, 5.0f);
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
     return (entity);
@@ -171,13 +159,12 @@ ECS::Entity& EntityFactory::createCooldownPickUp(void)
 ECS::Entity& EntityFactory::createSpeedPickUp(void)
 {
     RayLib::Mesh cubeMesh(RayLib::Vector3(1.0f, 1.0f, 1.0f));
-    RayLib::Texture& texture = *AssetCache::GetAsset<RayLib::Texture>("../assets/PickUps/SpeedPickUp_texture.png");
 
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("SpeedPickUp");
     entity.AddComponent<Component::Transform>();
     entity.AddComponent<Component::Drawable3D>(cubeMesh);
-    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    entity.GetComponent<Component::Drawable3D>().SetTexture("../assets/PickUps/SpeedPickUp_texture.png");
     entity.AddComponent<Component::IBehaviour, Component::SpeedBoost>(entity, 5.0f);
     entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(5.0f, 5.0f, 5.0f);
 
@@ -195,10 +182,8 @@ ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::Explo
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
-    entity.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm");
+    entity.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
-    RayLib::Texture& text = *AssetCache::GetAsset<RayLib::Texture>("../assets/bomb/Bomb_texture.png");
-    entity.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, text);
     entity.SetTag("Bomb");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE));
     //! si on spawn une bombe sur le joueur, on est bloqués

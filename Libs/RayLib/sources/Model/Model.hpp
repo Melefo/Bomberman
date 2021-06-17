@@ -24,7 +24,7 @@ namespace RayLib
      * @brief Model encapsulation
      * 
      */
-    class Model : public IXMLSerializable {
+    class Model : public IAsset {
         public:
             /**
              * @brief Construct a new Model object based on given file
@@ -99,11 +99,6 @@ namespace RayLib
             const std::string& GetFileName() const;
 
             void RotateModel(RayLib::Vector3 rotation);
-
-            std::ostream& operator<<(std::ostream& os) override;
-            std::istream& operator>>(std::istream& is) override;
-
-            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
         protected:
         private:

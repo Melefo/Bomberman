@@ -20,7 +20,7 @@ namespace RayLib
      * @brief Encapsulation for ModelAnimation struct
      * 
      */
-    class ModelAnimation {
+    class ModelAnimation : public IAsset {
         public:
             /**
              * @brief Construct a new Model Animation object
