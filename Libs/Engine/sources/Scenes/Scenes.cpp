@@ -58,19 +58,17 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
     for (size_t y = 0; y < map.size(); y++) {
         for (size_t x = 0; x < map[y].size(); x++) {
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
-            || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
-                ECS::Entity& wall = entityFactory.createWall();
-                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
-                ECS::Entity& box = entityFactory.createBox(1, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
-                ECS::Entity& box = entityFactory.createBox(2, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
-                ECS::Entity& box = entityFactory.createBox(3, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-            }
+            || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL))
+                ECS::Entity& wall = entityFactory.createWall(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)));
+            else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX))
+                ECS::Entity& box = entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                                                           1, isEditor ? true : false);
+            else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX))
+                ECS::Entity& box = entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                                                           2, isEditor ? true : false);
+            else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX))
+                ECS::Entity& box = entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                                                           3, isEditor ? true : false);
 
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
                 Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
@@ -117,12 +115,10 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
 {
     EntityFactory entityFactory(coordinator, camera);
 
-    ECS::Entity &loadingBarBg = entityFactory.createBox(1, false);
-    loadingBarBg.GetComponent<Component::Transform>().position = RayLib::Vector3(0, 0, 0);
+    ECS::Entity &loadingBarBg = entityFactory.createBox(RayLib::Vector3(), 1, false);
     loadingBarBg.GetComponent<Component::Transform>().scale = RayLib::Vector3(15, 1, 2);
 
-    ECS::Entity &loadingBar = entityFactory.createBox(1, false);
-    loadingBar.GetComponent<Component::Transform>().position = RayLib::Vector3(-3.5f, 0.1f, 0.5f);
+    ECS::Entity &loadingBar = entityFactory.createBox(RayLib::Vector3(-3.5f, 0.1f, 0.5f), 1, false);
     loadingBar.GetComponent<Component::Transform>().scale = RayLib::Vector3(4, 1, 1);
     loadingBar.RemoveComponent<Component::Renderer>();
     loadingBar.AddComponent<Component::Renderer>();

@@ -18,11 +18,11 @@
 #include "Destructible.hpp"
 #include "Exceptions.hpp"
 #include "Box.hpp"
+#include "SquareCollider.hpp"
 #include "CollisionSystem.hpp"
 #include "Renderer.hpp"
 #include "Sound.hpp"
 #include "AssetCache.hpp"
-#include "BoxCollider.hpp"
 
 namespace Component
 {

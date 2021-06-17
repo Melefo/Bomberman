@@ -13,7 +13,6 @@
 #include "BehaviourSystem.hpp"
 #include "UISystem.hpp"
 #include "CollisionSystem.hpp"
-#include "BoxCollider.hpp"
 #include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "Button.hpp"
@@ -40,8 +39,6 @@ int main(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Bomberman");
 
     RayLib::AudioDevice::InitAudioDevice();
-
-    RayLib::Physics2D::InitPhysics();
 
     //! game manager for drag and drop
     //ECS::Entity& gameManager = coordinator->CreateEntity();
@@ -91,7 +88,5 @@ int main(void)
         window->EndDrawing();
     }
     RayLib::AudioDevice::CloseAudioDevice();
-    RayLib::Physics2D::ClosePhysics();
-
     return (0);
 }

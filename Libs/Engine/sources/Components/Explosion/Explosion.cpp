@@ -32,7 +32,8 @@ namespace Component
 
             _explosionSound->Play();
 
-            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*_coordinator.get(), _transform.position, _radius);
+            RayLib::Circle areaOfEffect(_transform.position, _radius);
+            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*_coordinator.get(), areaOfEffect);
 
             // ! j'ai pas trouvé mieux pour que la box soit récupérée
             for (auto it = entities.begin(); it != entities.end(); it++) {
@@ -68,7 +69,8 @@ namespace Component
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         Transform& transform = _myEntity.GetComponent<Transform>();
 
-        std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*coordinator.get(), transform.position, _radius);
+        RayLib::Circle checkZone(RayLib::Vector2<float>(transform.position), _radius);
+        std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*coordinator.get(), checkZone);
         for (auto entity = entities.begin(); entity != entities.end(); entity++) {
             if (entity->get().GetId() == _parent.GetId()) {
                 found = true;
@@ -80,10 +82,10 @@ namespace Component
         if (!found) {
             std::cout << "Parent is no longer in radius " << _radius << std::endl;
 
-            _myEntity.AddComponent<Collider, BoxCollider>(_myEntity,
-                                                          RayLib::Vector2<float>(transform.position.x, transform.position.z),
-                                                          {"Player"},
-                                                          RayLib::Vector2<float>(transform.scale.x, transform.scale.z));
+            _myEntity.AddComponent<Collider, SquareCollider>(_myEntity,
+                                                             std::vector<std::string>({"Player"}),
+                                                             RayLib::Vector2<float>(transform.position.x, transform.position.z),
+                                                             RayLib::Vector2<float>(transform.scale.x, transform.scale.z));
 
             //_myEntity.AddComponent<Collider, SphereCollider>(_myEntity, transform.position, _radius);
         }

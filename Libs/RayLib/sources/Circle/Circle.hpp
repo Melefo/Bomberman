@@ -19,8 +19,8 @@ namespace RayLib
             ~Circle() = default;
 
             void SetRadius(float radius);
-            RayLib::Vector2<float> GetCenter(void);
-            float GetRadius(void);
+            const RayLib::Vector2<float> GetCenter(void) const;
+            float GetRadius(void) const;
             void SetCenter(RayLib::Vector2<float> center);
 
         protected:

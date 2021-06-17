@@ -10,7 +10,7 @@
 
 namespace Component
 {
-    std::vector<std::reference_wrapper<ECS::Entity>> CollisionSystem::OverlapSphere(ECS::Coordinator& coordinator, RayLib::Vector3 center, float radius)
+    std::vector<std::reference_wrapper<ECS::Entity>> CollisionSystem::OverlapCircle(ECS::Coordinator& coordinator, RayLib::Circle circle)
     {
         const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator.GetEntities();
         std::vector<std::reference_wrapper<ECS::Entity>> collisions;
@@ -19,14 +19,14 @@ namespace Component
             std::vector<std::reference_wrapper<Collider>> colliders = it->get()->OfType<Collider>();
 
             for (auto col = colliders.begin(); col != colliders.end(); col++) {
-                if (col->get().CheckCollision(center, radius))
+                if (col->get().CheckCollision(circle))
                     collisions.push_back(*(it->get()));
             }
         }
         return (collisions);
     }
 
-    std::vector<std::reference_wrapper<ECS::Entity>> CollisionSystem::OverlapBox(ECS::Coordinator& coordinator, RayLib::BoundingBox box)
+    std::vector<std::reference_wrapper<ECS::Entity>> CollisionSystem::OverlapBox(ECS::Coordinator& coordinator, RayLib::Rectangle rectangle)
     {
         const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator.GetEntities();
         std::vector<std::reference_wrapper<ECS::Entity>> collisions;
@@ -35,7 +35,7 @@ namespace Component
             std::vector<std::reference_wrapper<Collider>> colliders = it->get()->OfType<Collider>();
 
             for (auto col = colliders.begin(); col != colliders.end(); col++) {
-                if (col->get().CheckCollision(box))
+                if (col->get().CheckCollision(rectangle))
                     collisions.push_back(*(it->get()));
             }
         }

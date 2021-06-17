@@ -9,12 +9,10 @@
 #include "Transform.hpp"
 #include "Button.hpp"
 #include "ButtonCallbacks.hpp"
-#include "BoxCollider.hpp"
 #include "Renderer.hpp"
-#include "Draggable.hpp"
 #include "Destructible.hpp"
 #include "Movement.hpp"
-#include "DropBomb.hpp"
+#include "SquareCollider.hpp"
 #include "EntityFactory.hpp"
 #include "Scenes.hpp"
 #include "Animator.hpp"
@@ -73,34 +71,51 @@ ECS::Entity& EntityFactory::createText(const std::string& content, const std::st
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createWall()
+ECS::Entity& EntityFactory::createWall(RayLib::Vector3 pos)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
-    entity.SetTag("Wall");
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(-20.0f, 0.0f, 0.0f), RayLib::Vector3(90, 0, 0), RayLib::Vector3(2.5f, 2.5f, 2.5f));
 
-    entity.AddComponent<Component::Drawable3D>("../assets/Wall/Wall_model.iqm", "../assets/Wall/Wall_texture.png");
+    RayLib::Mesh cubeMesh(RayLib::Vector3(1.0f, 1.0f, 1.0f));
+
+    entity.SetTag("Wall");
+    entity.AddComponent<Component::Transform>(pos, RayLib::Vector3(90, 0, 0), RayLib::Vector3(10.0f, 10.0f, 10.0f));
+
+    entity.AddComponent<Component::Drawable3D>(cubeMesh);
+    entity.GetComponent<Component::Drawable3D>().SetTexture("../assets/Wall/Wall_texture.png");
+    Component::Transform& transform = entity.GetComponent<Component::Transform>();
 
     //entity.AddComponent<Component::Renderer>("Wall");
-    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+
+    entity.AddComponent<Component::Collider, Component::SquareCollider>(entity,
+                                                                        std::vector<std::string>({"Player"}),
+                                                                        RayLib::Vector2<float>(pos),
+                                                                        RayLib::Vector2<float>(transform.scale));
 
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createBox(const int, const bool draggable)
+ECS::Entity& EntityFactory::createBox(RayLib::Vector3 position, const int, const bool draggable)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
-    entity.AddComponent<Component::Drawable3D>("../assets/Box/Box_model.iqm", "../assets/Box/Box_texture.png");
+    RayLib::Mesh cubeMesh(RayLib::Vector3(1.0f, 1.0f, 1.0f));
+
+    entity.AddComponent<Component::Drawable3D>(cubeMesh);
+    entity.GetComponent<Component::Drawable3D>().SetTexture("../assets/Box/Box_texture.png");
     entity.SetTag("Box");
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), RayLib::Vector3(), RayLib::Vector3(5, 5, 5));
+
+    entity.AddComponent<Component::Transform>(position, RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    Component::Transform& transform = entity.GetComponent<Component::Transform>();
     //entity.AddComponent<Component::Renderer>("Box");
-    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    entity.AddComponent<Component::Collider, Component::SquareCollider>(entity,
+                                                                        std::vector<std::string>({"Player"}),
+                                                                        RayLib::Vector2<float>(position),
+                                                                        RayLib::Vector2<float>(transform.scale));
     //entity.AddComponent<Component::Destructible>(entity, 1);
     entity.AddComponent<Component::Box>(entity, 1, 0.1f);
 
-    if (draggable)
-        entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, _camera);
+    //if (draggable)
+    //    entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, _camera);
 
     return (entity);
 }
@@ -115,10 +130,10 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
     Component::Transform& transform = entity.GetComponent<Component::Transform>();
 
     //entity.AddComponent<Component::Collider, Component::SphereCollider>(entity, RayLib::Vector3(), 4.0f);
-    entity.AddComponent<Component::Collider, Component::BoxCollider>(entity,
-                                                                     RayLib::Vector2<float>(transform.position.x, transform.position.z),
-                                                                     {"Wall", "Box", "Bomb"},
-                                                                     RayLib::Vector2<float>(transform.scale.x, transform.scale.z));
+    entity.AddComponent<Component::Collider, Component::SquareCollider>(entity,
+                                                                        std::vector<std::string>({"Wall", "Box", "Bomb"}),
+                                                                        RayLib::Vector2<float>(transform.position),
+                                                                        RayLib::Vector2<float>(transform.scale));
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, keys.movementInput, keys.actionKey);
 

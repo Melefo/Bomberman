@@ -14,12 +14,12 @@ namespace RayLib
     {
     }
 
-    RayLib::Vector2<float> Circle::GetCenter(void)
+    const RayLib::Vector2<float> Circle::GetCenter(void) const
     {
         return (_center);
     }
 
-    float Circle::GetRadius(void)
+    float Circle::GetRadius(void) const
     {
         return (_radius);
     }

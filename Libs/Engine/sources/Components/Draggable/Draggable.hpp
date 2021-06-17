@@ -16,7 +16,6 @@
 #include "Camera3D.hpp"
 #include "Mouse.hpp"
 #include "Transform.hpp"
-#include "Physics3D.hpp"
 #include <cmath>
 
 namespace Component

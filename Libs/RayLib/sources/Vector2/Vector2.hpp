@@ -9,6 +9,7 @@
 #define VECTOR2_HPP_
 
 #include <raylib.h>
+#include "Vector3.hpp"
 
 namespace RayLib
 {
@@ -70,6 +71,17 @@ namespace RayLib
             }
 
             /**
+             * @brief Construct a new Vector 2<T>
+             *
+             * @param vec 
+             */
+            Vector2<T>(const Vector3& vec) :
+            x(static_cast<T>(vec.x)), y(static_cast<T>(vec.z))
+            {
+
+            }
+
+            /**
              * @brief Construct a new Vector 2<T> object
              * 
              * @param vec 
@@ -78,6 +90,7 @@ namespace RayLib
             x(static_cast<T>(vec.x)), y(static_cast<T>(vec.y))
             {
             }
+
 
             /**
              * @brief Get the Vector2 raylib structure

@@ -16,6 +16,8 @@
 #include "Entity.hpp"
 #include "Coordinator.hpp"
 #include "Transform.hpp"
+#include "Circle.hpp"
+#include "Rectangle.hpp"
 
 namespace Component
 {
@@ -49,6 +51,18 @@ namespace Component
              * @return Collider& 
              */
             Collider& operator=(const Collider& other) = default;
+
+            virtual bool IsColliding(void) = 0;
+
+            virtual bool IsCollidingAtPosition(RayLib::Vector2<float> pos) = 0;
+
+            virtual bool CheckCollision(RayLib::Circle& circle) = 0;
+            virtual bool CheckCollision(RayLib::Rectangle& rec) = 0;
+
+            virtual void DrawLines() = 0;
+
+            virtual ECS::Entity& GetCollision(void) = 0;
+            virtual ECS::Entity& GetCollisionPosition(RayLib::Vector2<float> pos) = 0;
 
             // virtual RayLib::PhysacBody& GetPhysacBody() = 0;
 

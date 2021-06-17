@@ -8,8 +8,8 @@
 #include "Button.hpp"
 #include <memory>
 #include "Window.hpp"
-#include "Physics3D.hpp"
 #include "AssetCache.hpp"
+#include "Physics2D.hpp"
 
 namespace Component
 {
@@ -49,8 +49,7 @@ namespace Component
         RayLib::Vector2<float> winSize = RayLib::Vector2<float>(static_cast<float>(window->GetSize().x),
                                                                 static_cast<float>(window->GetSize().y));
 
-        return (RayLib::Physics3D::CheckCollision(mousePos, _rect));
-        //return (RayLib::Physics3D::CheckCollision(mouseRay, _bounds).HasHit());
+        return (RayLib::Physics2D::CheckCollision(mousePos, _rect));
     }
 
     void Button::AddCallback(std::function<void()> callBack)
