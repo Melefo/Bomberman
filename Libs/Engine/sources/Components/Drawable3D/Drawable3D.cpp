@@ -22,7 +22,8 @@ namespace Component
     void Drawable3D::Draw(RayLib::Vector3 position, RayLib::Vector3 scale, RayLib::Color tint)
     {
         // rotation and angle are taken from the transform
-        _model.DrawEx(position, 0.0f, 0.0f, scale, tint);
+        //_model.Draw(position, scale, tint);
+        _model.DrawEx(position, RayLib::Vector3(0.0f, 1.0f, 0.0f), 0.0f, scale, tint);
     }
 
     void Drawable3D::SetMaterialTexture(int matIndex, int mapType, RayLib::Texture& text)

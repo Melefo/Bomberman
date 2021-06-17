@@ -13,6 +13,7 @@
 #include "IBehaviour.hpp"
 #include "Color.hpp"
 #include "Font.hpp"
+#include "AssetCache.hpp"
 
 namespace Component
 {
@@ -115,7 +116,7 @@ namespace Component
              * @brief Font used to display the value
              * 
              */
-            RayLib::Font _font;
+            std::shared_ptr<RayLib::Font> _font;
             /**
              * @brief Color used to display the value
              * 

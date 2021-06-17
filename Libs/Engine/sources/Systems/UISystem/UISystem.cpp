@@ -16,14 +16,12 @@ namespace Component
         // ! obsolète ?
         AddDependency<IUIObject>();
 
-        AddDependency<Renderer>();
         AddDependency<Transform>();
     }
 
     void UISystem::Update(double, ECS::Entity& entity)
     {
         Transform& transform = entity.GetComponent<Transform>();
-        Renderer& renderer = entity.GetComponent<Renderer>();
 
         std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
         RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
@@ -32,7 +30,7 @@ namespace Component
 
         _camera.EndMode();
         for (IUIObject& uiObject : uiObjects) {
-            //uiObject.Draw(position, scale);
+            uiObject.Draw(position, scale);
         }
 
         if (Engine::GameConfiguration::GetDebugMode())

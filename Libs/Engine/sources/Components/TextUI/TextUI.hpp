@@ -47,7 +47,7 @@ namespace Component
         protected:
         private:
             std::string _string;
-            RayLib::Font _font;
+            std::shared_ptr<RayLib::Font> _font;
             RayLib::Color _color;
             float _size;
             float _spacing;

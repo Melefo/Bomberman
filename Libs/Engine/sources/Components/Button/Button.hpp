@@ -29,7 +29,7 @@ namespace Component
              * @brief Construct a new Button object
              * 
              */
-            Button();
+            Button(const std::string& path);
             /**
              * @brief Destroy the Button object
              * 
@@ -100,6 +100,8 @@ namespace Component
             std::vector<std::function<void()>> _callbacks;
 
             RayLib::Color _tint;
+
+            std::shared_ptr<RayLib::Texture> _texture;
     };
 }
 

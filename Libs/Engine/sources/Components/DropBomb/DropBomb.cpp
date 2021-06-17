@@ -7,6 +7,7 @@
 
 #include "DropBomb.hpp"
 #include <iostream>
+#include "Drawable3D.hpp"
 #include "CollisionSystem.hpp"
 #include "Camera.hpp"
 
@@ -53,7 +54,7 @@ namespace Component
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
         firstBomb.GetComponent<Transform>().position = position;
-        firstBomb.AddComponent<Renderer>("Bomb");
+        firstBomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm");
 
         bool reachedWall = false;
 

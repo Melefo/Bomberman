@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include "Model.hpp"
+#include "IAsset.hpp"
 
 namespace RayLib
 {
