@@ -5,8 +5,8 @@
 ** PhysicsBody
 */
 
-#ifndef PHYSICSBODY_HPP_
-#define PHYSICSBODY_HPP_
+#ifndef PHYSACBODY_HPP_
+#define PHYSACBODY_HPP_
 
 #include <memory>
 #include "Vector2.hpp"
@@ -16,19 +16,20 @@
 
 namespace RayLib
 {
-	class PhysicsBody
+	class PhysacBody
 	{
 		public:
-			PhysicsBody(const RayLib::Vector2<float>& pos, float radius, float density);
-			PhysicsBody(const RayLib::Vector2<float>& pos, float width, float height, float density);
-			PhysicsBody(const RayLib::Vector2<float>& pos, float radius, int sides, float density);
-			~PhysicsBody();
+			PhysacBody(const RayLib::Vector2<float>& pos, float radius, float density);
+			PhysacBody(const RayLib::Vector2<float>& pos, float width, float height, float density);
+			PhysacBody(const RayLib::Vector2<float>& pos, float radius, int sides, float density);
+			~PhysacBody();
 
 			static void InitPhysics(void);
 			static void ClosePhyics(void);
 			static bool IsPhysicsEnabled(void);
 
 			::PhysicsBodyData& GetPhysicsBody();
+			void SetPosition(const RayLib::Vector2<float>& pos);
 
 		private:
 			std::unique_ptr<::PhysicsBodyData> _physicsBody;
