@@ -31,6 +31,9 @@ namespace RayLib
 			::PhysicsBodyData& GetPhysicsBody();
 			void SetPosition(const RayLib::Vector2<float>& pos);
 
+			void SetRectScale(const RayLib::Vector2<float>& scale);
+			void SetCircleRadiusScale(float radius);
+
 		private:
 			std::unique_ptr<::PhysicsBodyData> _physicsBody;
 		

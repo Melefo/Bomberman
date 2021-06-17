@@ -19,7 +19,8 @@
 #include "RayCollision.hpp"
 #include "Ray.hpp"
 #include <physac.h>
-#include "PhysicsBody.hpp"
+#include "PhysacBody.hpp"
+#include "Transform.hpp"
 
 namespace Component
 {
@@ -68,7 +69,7 @@ namespace Component
              * @return true 
              * @return false 
              */
-            bool IsCollidingAtPosition(RayLib::Vector3 center);
+            virtual bool IsCollidingAtPosition(RayLib::Vector3 center) = 0;
 
             /**
              * @brief Returns true if the collider collides with given box
@@ -77,20 +78,20 @@ namespace Component
              * @return true 
              * @return false 
              */
-            bool CheckCollision(RayLib::PhysicsBody& other);
+            virtual bool CheckCollision(RayLib::PhysacBody& other) = 0;
 
             /**
              * @brief Draw the lines of the collider
              * 
              */
-            void DrawLines();
+            virtual void DrawLines() = 0;
 
             /**
              * @brief Get the Entity we are colliding with, throws an error if no entity collides
              * 
              * @return ECS::Entity& 
              */
-            ECS::Entity& GetCollision();
+            virtual ECS::Entity& GetCollision() = 0;
 
             /**
              * @brief Get the Collision Position object
@@ -98,7 +99,7 @@ namespace Component
              * @param center 
              * @return ECS::Entity& 
              */
-            ECS::Entity& GetCollisionPosition(RayLib::Vector3 center);
+            virtual ECS::Entity& GetCollisionPosition(RayLib::Vector3 center) = 0;
 
             // ! change collision mask at runtime ??
 
@@ -115,6 +116,8 @@ namespace Component
             ECS::Entity& _myEntity;
 
             std::vector<std::string> _collisionMask;
+
+            RayLib::PhysacBody _myBody;
         private:
 
     };

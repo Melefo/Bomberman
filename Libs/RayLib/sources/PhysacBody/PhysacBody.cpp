@@ -56,4 +56,14 @@ namespace RayLib
 	{
 		this->_physicsBody->position = pos.getVector2();
 	}
+
+	void PhysacBody::SetRectScale(const RayLib::Vector2<float>& scale)
+	{
+		this->_physicsBody->shape.vertexData = CreateRectanglePolygon(this->_physicsBody->position, scale.getVector2());
+	}
+
+	void PhysacBody::SetCircleRadiusScale(float radius)
+	{
+		this->_physicsBody->shape.radius = radius;
+	}
 }
