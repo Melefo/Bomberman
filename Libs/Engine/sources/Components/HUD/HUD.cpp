@@ -14,14 +14,14 @@ namespace Component
     {
         RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0, "")->GetSize();
         std::map<int, RayLib::Vector3> hudPos = {
-            {1, {100, windowSize.y - 200}},
-            {2, {windowSize.x - 400, windowSize.y - 200}},
-            {3, {100, 100}},
-            {4, {windowSize.x - 400, 100}},
-            {5, {100, windowSize.y / 2 - 100}},
-            {6, {windowSize.x - 400, windowSize.y / 2 - 100}},
-            {7, {windowSize.x / 2 - 200, 100}},
-            {8, {windowSize.x / 2 - 200, windowSize.y - 200}},
+            {1, {100.0f, windowSize.y - 200.0f}},
+            {2, {windowSize.x - 400.0f, windowSize.y - 200.0f}},
+            {3, {100.0f, 100.0f}},
+            {4, {windowSize.x - 400.0f, 100.0f}},
+            {5, {100.0f, windowSize.y / 2.0f - 100.0f}},
+            {6, {windowSize.x - 400.0f, windowSize.y / 2.0f - 100.0f}},
+            {7, {windowSize.x / 2.0f - 200.0f, 100.0f}},
+            {8, {windowSize.x / 2.0f - 200.0f, windowSize.y - 200.0f}},
         };
         _offset = hudPos[playerNbr];
     }

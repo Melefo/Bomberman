@@ -24,7 +24,6 @@ namespace Component
             for (auto it = entities.begin(); it != entities.end(); it++) {
                 if (it->get().GetTag().find("PlayerEntity") != std::string::npos /* OR TAG == AI*/)
                     OnPickup(it->get());
-                }
             }
         }
     }

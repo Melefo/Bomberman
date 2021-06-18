@@ -132,7 +132,7 @@ namespace Component
         _speed += bonusSpeed;
     }
 
-    bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position, std::vector<std::string> collisionMask)
+    bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position, std::vector<std::string>)
     {
         RayLib::Vector2<float> pos2D = RayLib::Vector2<float>(position.x, position.z);
 
