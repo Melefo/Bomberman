@@ -53,7 +53,6 @@ namespace Component
                 _direction = RayLib::Vector3();
                 break;
             case AIState::HIDE:
-                std::cout << "HIDE" << std::endl;
                 mapPositions = GetMapAsPositions(boxMap);
                 targetPos = GetBestPos(aiPos, boxMap, mapPositions, BoxMapValues::EMPTY);
                 GetDirectionsList(aiPos, targetPos, mapPositions, boxMap);
@@ -63,7 +62,6 @@ namespace Component
                     _currentState = AIState::CHASE;
                 break;
             case AIState::CHASE:
-                std::cout << "CHASE" << std::endl;
                 mapPositions = GetMapAsPositions(boxMap);
                 targetPos = GetBestPos(aiPos, boxMap, mapPositions, BoxMapValues::BOX);
                 /*if (targetPos.x == aiPos.x && targetPos.y == aiPos.y) {
@@ -74,15 +72,12 @@ namespace Component
                 GetDirectionsList(aiPos, targetPos, mapPositions, boxMap);
 
                 _direction = _directionPath[0];
-                std::cout << "aiPos: " << aiPos.x << " " << aiPos.y << std::endl;
-                std::cout << "direc: " << _direction.x << " " << _direction.z << std::endl;
                 if (aiPos.x + _direction.x == targetPos.x && aiPos.y + _direction.z == targetPos.y)
                     _currentState = AIState::ATTACK;
                 if (_direction.x == 0 && _direction.z == 0)
                     _currentState = AIState::ATTACK;
                 break;
             case AIState::ATTACK:
-                std::cout << "ATTACK" << std::endl;
                 /*if (boxMap[aiPos.y][aiPos.x + 1] != BoxMapValues::EMPTY && boxMap[aiPos.y][aiPos.x - 1] != BoxMapValues::EMPTY && boxMap[aiPos.y + 1][aiPos.x] != BoxMapValues::EMPTY && boxMap[aiPos.y - 1][aiPos.x] != BoxMapValues::EMPTY) {
                     _currentState = AIState::HIDE;
                     break;

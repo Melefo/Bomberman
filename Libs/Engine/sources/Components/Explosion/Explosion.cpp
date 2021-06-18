@@ -95,12 +95,12 @@ namespace Component
         for (auto entity = entities.begin(); entity != entities.end(); entity++) {
             if (entity->get().GetId() == _parent.GetId()) {
                 found = true;
-                std::cout << "Parent is in radius " << _radius << std::endl;
+                //std::cout << "Parent is in radius " << _radius << std::endl;
             }
         }
 
         if (!found) {
-            std::cout << "Parent is no longer in radius " << _radius << std::endl;
+            //std::cout << "Parent is no longer in radius " << _radius << std::endl;
 
             _myEntity.AddComponent<Collider, SquareCollider>(_myEntity,
                                                              std::vector<std::string>({"Player"}),

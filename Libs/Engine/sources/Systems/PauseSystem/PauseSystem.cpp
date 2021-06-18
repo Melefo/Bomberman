@@ -9,13 +9,20 @@
 
 namespace Component
 {
-    PauseSystem::PauseSystem() : _input()
+    PauseSystem::PauseSystem() : _input(), _pauseSystem(false)
     {
     }
 
     void PauseSystem::Update(double, ECS::Entity& entity)
     {
-        if (this->_input.IsKeyReleased(KeyboardKey::KEY_P) == true) {
+        if (this->_input.IsKeyReleased(KeyboardKey::KEY_P) == true && _pauseSystem == false) {
+            _pauseSystem = true;
+            if (!ECS::Coordinator::GetInstance()->HasSystem<PhysicsSystem>() && !ECS::Coordinator::GetInstance()->HasSystem<BehaviourSystem>())
+                return;
+            ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
+            ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
+        } else if (this->_input.IsKeyReleased(KeyboardKey::KEY_O) == true && _pauseSystem == true) {
+            _pauseSystem = false;
             if (!ECS::Coordinator::GetInstance()->HasSystem<PhysicsSystem>() && !ECS::Coordinator::GetInstance()->HasSystem<BehaviourSystem>())
                 return;
             ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
