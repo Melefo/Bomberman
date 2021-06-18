@@ -196,6 +196,8 @@ namespace Component
         RayLib::Vector2<int> minPoint = agentPos;
         std::vector<RayLib::Vector2<int>> path;
         RayLib::Vector2<int> searchRadius(map.size() / 2, map.size() / 2);
+        if (map.size() < map[0].size())
+            searchRadius= RayLib::Vector2<int>(map[0].size()/ 2, map[0].size() / 2);
         float closest = std::numeric_limits<float>::max();
 
         maxPoint += (searchRadius * 0.5f);

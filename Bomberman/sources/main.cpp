@@ -55,7 +55,7 @@ int main(void)
     RayLib::Input player2Input;
     Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_X);
 
-    Engine::GameConfiguration::SetDebugMode(true);
+    Engine::GameConfiguration::SetDebugMode(false);
 
     Engine::GameConfiguration::SetEnemies(2);
 
