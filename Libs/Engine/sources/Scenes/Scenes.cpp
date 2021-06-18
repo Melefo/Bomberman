@@ -46,9 +46,9 @@ void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &)
     //am.loadAssets(coordinator.getScene(nextScene).GetEntities());
 }
 
-void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const bool isEditor, int deepness)
+void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D&, const bool isEditor, int deepness)
 {
-    EntityFactory entityFactory(coordinator, camera);
+    EntityFactory entityFactory(coordinator);
     int players = Engine::GameConfiguration::GetPlayers();
     //int enemies = Engine::GameConfiguration::GetEnemies();
     int currentPlayer = 1;
@@ -84,10 +84,10 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
 
 void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
-    EntityFactory entityFactory(coordinator, camera);
+    EntityFactory entityFactory(coordinator);
 
     // init camera component
-    entityFactory.createCamera();
+    entityFactory.createCamera(camera);
 
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
@@ -112,9 +112,9 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::QuitWindow));
 }
 
-void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
+void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D&)
 {
-    EntityFactory entityFactory(coordinator, camera);
+    EntityFactory entityFactory(coordinator);
 
     ECS::Entity &loadingBarBg = entityFactory.createBox(RayLib::Vector3(), 1, false);
     loadingBarBg.GetComponent<Component::Transform>().scale = RayLib::Vector3(15, 1, 2);
@@ -177,13 +177,13 @@ void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib
 
 void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
-    EntityFactory entityFactory(coordinator, camera);
+    EntityFactory entityFactory(coordinator);
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
     Scenes::InitNbrPlayers(entityFactory, window);
 // Seed Menu
 
-    entityFactory.createCamera();
+    entityFactory.createCamera(camera);
 
     ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "../assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
@@ -255,9 +255,9 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     enterSeed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2), window->GetSize().y / 4.0f + seedTextSize.y, 0.0f);
 }
 
-void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
+void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D&)
 {
-    EntityFactory entityFactory(coordinator, camera);
+    EntityFactory entityFactory(coordinator);
 
     ECS::Entity &entityAddBox = entityFactory.createButton("../assets/buttons/MapEditorBtn_texture.png");
     entityAddBox.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
@@ -265,13 +265,13 @@ void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 
 void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
-    EntityFactory entityFactory(coordinator, camera);
+    EntityFactory entityFactory(coordinator);
 
     // init camera component
 
     InitMap(coordinator, camera, false);
 
-    entityFactory.createCamera();
+    entityFactory.createCamera(camera);
 
     ECS::Entity& gameManager = coordinator.CreateEntity();
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
@@ -290,7 +290,7 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage)
 {
     std::unique_ptr<RayLib::Window>& windowRef = RayLib::Window::GetInstance(0, "");
-    EntityFactory entityFactory(coordinator, camera.camera);
+    EntityFactory entityFactory(coordinator);
 
     camera.getEntity().GetComponent<Component::Transform>().position.z = -180;
 

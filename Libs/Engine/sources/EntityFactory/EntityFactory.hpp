@@ -17,7 +17,7 @@
 
 class EntityFactory {
     public:
-        EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera);
+        EntityFactory(ECS::Coordinator& coordinator);
         ~EntityFactory() = default;
 
         /**
@@ -133,12 +133,11 @@ class EntityFactory {
          */
         ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
 
-        ECS::Entity& createCamera(void);
+        ECS::Entity& createCamera(RayLib::Camera3D &camera);
 
     protected:
     private:
         ECS::Coordinator& _coordinator;
-        RayLib::Camera3D& _camera;
         std::vector<std::function<ECS::Entity&(void)>> _pickupFunctions;
 };
 

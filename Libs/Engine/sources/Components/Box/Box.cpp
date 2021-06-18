@@ -30,11 +30,9 @@ namespace Component
     void Box::SpawnLoot(void)
     {
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-        // get camera
-        Component::Camera& camera = Component::Camera::GetMainCamera();
 
         // create a factory
-        EntityFactory factory(*coordinator.get(), camera.camera);
+        EntityFactory factory(*coordinator.get());
         // spawn a bonus
         ECS::Entity& pickup = factory.createPickUp();
         Transform& myTransform = _myEntity.GetComponent<Transform>();
