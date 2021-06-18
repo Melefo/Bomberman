@@ -42,11 +42,6 @@ namespace Component
              * 
              */
             RayLib::Input _input;
-            /**
-             * @brief pause system
-             * 
-             */
-            bool _pauseSystem;
     };
 }
 
