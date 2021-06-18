@@ -53,7 +53,8 @@ namespace Component
 
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
-        Explosion& firstExplo = firstBomb.GetComponent<Explosion>();
+        // ! for chainbomb feature
+        // Explosion& firstExplo = firstBomb.GetComponent<Explosion>();
         firstBomb.GetComponent<Transform>().position = position;
         firstBomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
