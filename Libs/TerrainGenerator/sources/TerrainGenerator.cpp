@@ -161,14 +161,9 @@ void TerrainGenerator::generateXMLFile()
     //XMLGenerator xmlFile(_map);
 }
 
-void TerrainGenerator::setPlayersNumber(int newSize) {
-    if (newSize < 1)
-        _playersNbr = 2;
-    else if (newSize > 8)
-        _playersNbr = 8;
-    else if (newSize % 2 != 0)
-        _playersNbr = newSize + 1;
-    generateMap();
+void TerrainGenerator::setPlayersNumber(int newSize) 
+{
+    _playersNbr = newSize;
 }
 
 void TerrainGenerator::setMapSize(RayLib::Vector2<int> mapSize)

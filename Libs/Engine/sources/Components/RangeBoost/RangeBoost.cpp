@@ -18,10 +18,10 @@ namespace Component
     {
         // get AController from collision
         //AController& acontroller = collision.GetComponent<PlayerInputs>();
-        if (collision.GetTag() == "Player" && collision.HasComponent<PlayerInputs>()) {
+        if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             IncrementRange(playerInputs);
-        } else if (collision.GetTag() == "AI" && collision.HasComponent<AIAlgo>()) {
+        } else if (collision.GetTag().find("AI") != std::string::npos) {
             AController& aiController = collision.GetComponent<AIAlgo>();
             IncrementRange(aiController);
         }

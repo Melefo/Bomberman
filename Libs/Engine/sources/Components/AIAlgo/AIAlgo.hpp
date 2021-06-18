@@ -90,13 +90,6 @@ namespace Component
             /**
              * @brief 
              * 
-             * @param is 
-             * @return std::istream& 
-             */
-            std::istream &operator>>(std::istream &is) override;
-            /**
-             * @brief 
-             * 
              * @param ptree 
              * @return boost::property_tree::ptree& 
              */

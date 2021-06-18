@@ -67,7 +67,7 @@ namespace Component
     void GameConfigurator::ResetPlayersAnimations()
     {
         for (auto &entity : _coordinator->GetEntities()) {
-            if (entity->GetTag().find("Player") != std::string::npos)
+            if (entity->GetTag().find("PlayerEntity") != std::string::npos)
                 entity->GetComponent<Component::Animator>().SetState("Idle");
         }
     }
@@ -79,9 +79,9 @@ namespace Component
         std::string tag = "";
 
         for (auto &entity : entities) {
-            if (entity->GetTag() == "Player")
+            if (entity->GetTag().find("PlayerEntity") != std::string::npos)
                 remainingPlayers++;
-            if (entity->GetTag() == "AI")
+            if (entity->GetTag().find("AI") != std::string::npos)
                 remainingPlayers++;
         }
         _nbrPlayersAlive = remainingPlayers;

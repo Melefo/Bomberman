@@ -57,7 +57,7 @@ int main(void)
 
     Engine::GameConfiguration::SetDebugMode(false);
 
-    Engine::GameConfiguration::SetEnemies(2);
+    Engine::GameConfiguration::SetIA(2);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::UISystem>(camera);

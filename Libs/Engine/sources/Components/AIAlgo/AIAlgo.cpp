@@ -254,11 +254,6 @@ namespace Component
         return (os);
     }
 
-    std::istream &AIAlgo::operator>>(std::istream &is)
-    {
-        return (is);
-    }
-
     boost::property_tree::ptree& AIAlgo::operator<<(boost::property_tree::ptree &ptree)
     {
         return (ptree);

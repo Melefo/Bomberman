@@ -24,15 +24,6 @@ namespace Component
         return (os);
     }
 
-    std::istream &Transform::operator>>(std::istream &is)
-    {
-        boost::property_tree::ptree tree;
-        boost::property_tree::xml_parser::read_xml(is, tree);
-
-        this->operator<<(tree);
-        return (is);
-    }
-
     boost::property_tree::ptree& Transform::operator<<(boost::property_tree::ptree &ptree)
     {
         boost::property_tree::ptree transformTree = ptree.get_child("Transform");

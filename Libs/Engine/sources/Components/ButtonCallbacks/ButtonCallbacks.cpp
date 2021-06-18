@@ -56,14 +56,15 @@ namespace Component
 
         coordinatorRef->RemoveEntities("Wall");
         coordinatorRef->RemoveEntities("Box");
-        coordinatorRef->RemoveEntities("Player");
         coordinatorRef->RemoveEntities("AI");
+        coordinatorRef->RemoveEntities("PlayerEntity");
         coordinatorRef->RemoveEntities("PickUp");
         coordinatorRef->RemoveEntities("Bomb");
+        coordinatorRef->RemoveEntities("HUD");
 
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
-        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetEnemies());
+        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA());
         Engine::GameConfiguration::SetSeed(std::rand() % 10000);
 
         terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());         // TODO: get the seed entered by the user and put it here
@@ -90,9 +91,10 @@ namespace Component
 
     void ButtonCallbacks::IncrementPlayerNbr()
     {
+        int IA = Engine::GameConfiguration::GetIA();
         int playerNbr = Engine::GameConfiguration::GetPlayers();
 
-        if (playerNbr >= 8)
+        if ((IA + playerNbr + 1) > 8)
             return;
         Engine::GameConfiguration::SetPlayers(playerNbr + 1);
         TextInterfaceLoader("TextPlayerNbr", Engine::GameConfiguration::GetPlayers());
@@ -101,11 +103,34 @@ namespace Component
     void ButtonCallbacks::DecrementPlayerNbr()
     {
         int playerNbr = Engine::GameConfiguration::GetPlayers();
+        int IA = Engine::GameConfiguration::GetIA();
 
-        if (playerNbr - 1 <= 1)
+        if (((playerNbr - 1) < 0) || ((IA + playerNbr - 1) < 2))
             return;
         Engine::GameConfiguration::SetPlayers(playerNbr - 1);
         TextInterfaceLoader("TextPlayerNbr", Engine::GameConfiguration::GetPlayers());
+    }
+
+    void ButtonCallbacks::IncrementIANbr()
+    {
+        int IA = Engine::GameConfiguration::GetIA();
+        int playerNbr = Engine::GameConfiguration::GetPlayers();
+
+        if ((IA + playerNbr + 1) > 8)
+            return;
+        Engine::GameConfiguration::SetIA(IA + 1);
+        TextInterfaceLoader("TextIANbr", Engine::GameConfiguration::GetIA());
+    }
+
+    void ButtonCallbacks::DecrementIANbr()
+    {
+        int IA = Engine::GameConfiguration::GetIA();
+        int playerNbr = Engine::GameConfiguration::GetPlayers();
+
+        if (((IA - 1) < 0) || ((IA + playerNbr - 1) < 2))
+            return;
+        Engine::GameConfiguration::SetIA(IA - 1);
+        TextInterfaceLoader("TextIANbr", Engine::GameConfiguration::GetIA());
     }
 
     void ButtonCallbacks::IncrementMapHeight()

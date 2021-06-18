@@ -41,9 +41,7 @@ class IXMLSerializable
         IXMLSerializable &operator=(const IXMLSerializable &other) = delete;
 
         virtual std::ostream &operator<<(std::ostream &os) = 0;
-        virtual std::istream &operator>>(std::istream &is) = 0;
         virtual boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) = 0;
-
 
     protected:
     private:
@@ -58,6 +56,10 @@ inline std::ostream &operator<<(std::ostream &os, IXMLSerializable &xml)
 inline std::istream &operator>>(std::istream &is, IXMLSerializable &xml)
 {
     //xml.LoadFromXML(is);
-    return xml.operator>>(is);
+    boost::property_tree::ptree tree;
+    boost::property_tree::xml_parser::read_xml(is, tree);
+
+    xml.operator<<(tree);
+    return (is);
 }
 #endif /* !IXMLSERIALIZABLE_HPP_ */

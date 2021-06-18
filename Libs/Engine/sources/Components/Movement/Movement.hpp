@@ -84,7 +84,6 @@ namespace Component
             void BoostSpeed(float bonusSpeed=3.0f, float time=20.0f);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
             /**

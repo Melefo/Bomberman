@@ -172,15 +172,6 @@ namespace RayLib
                 return (os);
             }
 
-            std::istream& operator>>(std::istream& is) override
-            {
-                 boost::property_tree::ptree tree;
-                boost::property_tree::xml_parser::read_xml(is, tree);
-
-                this->operator<<(tree);
-                return (is);
-            }
-
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override
             {
                 boost::property_tree::ptree vec2 = ptree.get_child("Vector2");

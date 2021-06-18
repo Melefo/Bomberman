@@ -24,10 +24,12 @@
 #include "SpeedBoost.hpp"
 #include "CoolDownBoost.hpp"
 #include "Explosion.hpp"
+#include "PhysicsBody.hpp"
 #include "Box.hpp"
 #include "AIAlgo.hpp"
 #include "TextBox.hpp"
 #include "TextBoxCallback.hpp"
+#include "HUDText.hpp"
 #include "Drawable3D.hpp"
 #include "AssetCache.hpp"
 
@@ -55,7 +57,7 @@ ECS::Entity& EntityFactory::createTextBox(int maxLength, const std::string& font
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
-    entity.SetTag("TextBox");
+    entity.SetTag("TextField");
     entity.AddComponent<Component::IUIObject, Component::TextBox>(maxLength, fontPath, size, spacing, color, false, true);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::TextBoxCallback>(entity);
@@ -121,10 +123,15 @@ ECS::Entity& EntityFactory::createBox(RayLib::Vector3 position, const int, const
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys)
+ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys, int nbrOfThePlayer)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
-    entity.SetTag("Player");
+    if (nbrOfThePlayer <= 9)
+        entity.SetTag("PlayerEntity_00" + std::to_string(nbrOfThePlayer));
+    else if (nbrOfThePlayer <= 99)
+        entity.SetTag("PlayerEntity_0" + std::to_string(nbrOfThePlayer));
+    else if (nbrOfThePlayer <= 999)
+        entity.SetTag("PlayerEntity_" + std::to_string(nbrOfThePlayer));
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
     entity.AddComponent<Component::PhysicsBody>();
 
@@ -170,6 +177,33 @@ ECS::Entity& EntityFactory::createAI()
 
     entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, 0.75f, 5.0f);
     // add destructible
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createHUDText(Component::AController &controller, int nbrOfThePlayer)
+{
+    ECS::Entity &entity = createBaseHUD(controller, nbrOfThePlayer);
+
+    entity.SetTag(entity.GetTag() + "_text");
+    entity.AddComponent<Component::Renderer>();
+    entity.AddComponent<Component::IUIObject, Component::TextUI>("Player " + std::to_string(nbrOfThePlayer), "../assets/pixelplay.png", 50.0f, 4.0f);
+    entity.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 0, 0);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createBaseHUD(Component::AController &controller, int nbrOfThePlayer)
+{
+    ECS::Entity &entity = _coordinator.CreateEntity();
+    if (nbrOfThePlayer <= 9)
+        entity.SetTag("HUD_00" + std::to_string(nbrOfThePlayer));
+    else if (nbrOfThePlayer <= 99)
+        entity.SetTag("HUD_0" + std::to_string(nbrOfThePlayer));
+    else if (nbrOfThePlayer <= 999)
+        entity.SetTag("HUD_" + std::to_string(nbrOfThePlayer));
+
+    entity.AddComponent<Component::HUDText>(controller, nbrOfThePlayer);
+    RayLib::Vector3 &offset = entity.GetComponent<Component::HUDText>().getOffset();
+    entity.AddComponent<Component::Transform>(offset, RayLib::Vector3(0, 0, 0), RayLib::Vector3(6, 6, 6));
     return (entity);
 }
 

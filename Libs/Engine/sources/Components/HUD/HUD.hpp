@@ -2,67 +2,65 @@
 ** EPITECH PROJECT, 2021
 ** B-YEP-400-NAN-4-1-indiestudio-victor.trencic
 ** File description:
-** AController
+** HUD
 */
 
-#ifndef ACONTROLLER_HPP_
-#define ACONTROLLER_HPP_
+#ifndef HUD_HPP_
+#define HUD_HPP_
 
-#include "IBehaviour.hpp"
-#include "Movement.hpp"
-#include "DropBomb.hpp"
+#include "IComponent.hpp"
+#include "Entity.hpp"
+#include "AController.hpp"
 
 namespace Component
 {
-    class AController : public IBehaviour {
+    /**
+     * @brief HUD base component class
+     * 
+     */
+    class HUD : public IBehaviour {
         public:
             /**
-             * @brief Construct a new AController object
+             * @brief Construct a new HUD object
              * 
-             * @param attatchedEntity 
-             * @param speed 
-             * @param dropDelay 
+             * @param attatchedEntity
+             * @param playerNbr
              */
-            AController(ECS::Entity& attatchedEntity, float speed=0.5f, float dropDelay=2.5f);
+            HUD(Component::AController &attatchedController, int playerNbr);
             /**
-             * @brief Destroy the AController object
+             * @brief Destroy the HUD object
              * 
              */
-            ~AController() = default;
+            ~HUD() = default;
             /**
-             * @brief Construct a new AController object
+             * @brief Construct a new HUD object
              * 
              * @param other 
              */
-            AController(const AController& other) = default;
+            HUD(const HUD& other) = default;
             /**
-             * @brief Assignment operator
+             * @brief 
              * 
              * @param other 
-             * @return AController& 
+             * @return HUD& 
              */
-            AController& operator=(const AController& other) = default;
+            HUD& operator=(const HUD& other) = default;
 
             /**
-             * @brief Get the Movement object
+             * @brief Get the offset of the hud part
              * 
-             * @return Component::Movement& 
-             */
-            Component::Movement& GetMovement();
-            /**
-             * @brief Get the Drop Bomb object
+             * @return Raylib::Vector3 offset
              * 
-             * @return Component::DropBomb& 
              */
-            Component::DropBomb& GetDropBomb();
+            RayLib::Vector3 &getOffset();
 
             /**
-             * @brief Get the AController
+             * @brief Get the AController of the hud part
              * 
-             * @return 
+             * @return Component::AController &_myAController
              * 
              */
-            Component::AController &GetAController();
+            Component::AController &getAController();
 
             /**
              * @brief Called every frame
@@ -87,17 +85,19 @@ namespace Component
 
         protected:
             /**
-             * @brief movement behaviour
+             * @brief Reference to attatched AController
              * 
              */
-            Component::Movement _movement;
+            Component::AController &_myAController;
+
             /**
-             * @brief Dropbomb component
+             * @brief Offset to know where to draw things
              * 
              */
-            Component::DropBomb _dropBomb;
+            RayLib::Vector3 _offset;
+
         private:
     };
 }
 
-#endif /* !ACONTROLLER_HPP_ */
+#endif /* !HUD_HPP_ */
