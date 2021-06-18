@@ -11,6 +11,7 @@
 #include <raylib.h>
 #include <cmath>
 #include "Vector3.hpp"
+#include "IXMLSerializable.hpp"
 
 namespace RayLib
 {
@@ -20,7 +21,7 @@ namespace RayLib
      * @tparam T typically <int> or <float>
      */
     template <typename T>
-    class Vector2
+    class Vector2 : public IXMLSerializable
     {
         public:
             using value_type = T;
@@ -160,6 +161,33 @@ namespace RayLib
                                                          std::pow(static_cast<double>(y - other.y), 2.0)));
 
                 return (distance);
+            }
+
+            std::ostream& operator<<(std::ostream& os) override
+            {
+                os << "<Vector2>";
+                os << "<x>" << x << "</x>";
+                os << "<y>" << y << "</y>";
+                os << "</Vector2>";
+                return (os);
+            }
+
+            std::istream& operator>>(std::istream& is) override
+            {
+                 boost::property_tree::ptree tree;
+                boost::property_tree::xml_parser::read_xml(is, tree);
+
+                this->operator<<(tree);
+                return (is);
+            }
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override
+            {
+                boost::property_tree::ptree vec2 = ptree.get_child("Vector2");
+
+                x = vec2.get<T>("x");
+                y = vec2.get<T>("y");
+                return (ptree);
             }
 
             T x;
