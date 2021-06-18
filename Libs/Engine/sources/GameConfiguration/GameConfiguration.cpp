@@ -10,7 +10,7 @@
 
 namespace Engine
 {
-    RayLib::Vector2<int> GameConfiguration::_mapSize = {7, 7};
+    RayLib::Vector2<int> GameConfiguration::_mapSize = {15, 15};
     int GameConfiguration::_players = 2;
     int GameConfiguration::_enemies = 0;
     bool GameConfiguration::_debugMode = false;

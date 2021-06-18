@@ -64,12 +64,19 @@ namespace Component
                 std::cout << "CHASE" << std::endl;
                 mapPositions = GetMapAsPositions(boxMap);
                 targetPos = GetBestPos(aiPos, boxMap, mapPositions, BoxMapValues::BOX);
+                /*if (targetPos.x == aiPos.x && targetPos.y == aiPos.y) {
+                    mapPositions = GetMapAsPositions(playerMap);
+                    targetPos = GetBestPos(aiPos, playerMap, mapPositions, PlayerMapValues::PLAYER);
+                    //prblm il voit pas les box
+                }*/
                 GetDirectionsList(aiPos, targetPos, mapPositions, boxMap);
 
                 _direction = _directionPath[0];
                 std::cout << "aiPos: " << aiPos.x << " " << aiPos.y << std::endl;
                 std::cout << "direc: " << _direction.x << " " << _direction.z << std::endl;
                 if (aiPos.x + _direction.x == targetPos.x && aiPos.y + _direction.z == targetPos.y)
+                    _currentState = AIState::ATTACK;
+                if (_direction.x == 0 && _direction.z == 0)
                     _currentState = AIState::ATTACK;
                 break;
             case AIState::ATTACK:
@@ -186,7 +193,7 @@ namespace Component
         RayLib::Vector2<int> maxPoint = agentPos;
         RayLib::Vector2<int> minPoint = agentPos;
         std::vector<RayLib::Vector2<int>> path;
-        RayLib::Vector2<int> searchRadius(map.size(), map.size());
+        RayLib::Vector2<int> searchRadius(map.size() / 2, map.size() / 2);
         float closest = std::numeric_limits<float>::max();
 
         maxPoint += (searchRadius * 0.5f);
