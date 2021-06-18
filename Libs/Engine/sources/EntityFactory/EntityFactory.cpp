@@ -56,7 +56,7 @@ ECS::Entity& EntityFactory::createTextBox(int maxLength, const std::string& font
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
-    entity.SetTag("TextBox");
+    entity.SetTag("TextField");
     entity.AddComponent<Component::IUIObject, Component::TextBox>(maxLength, fontPath, size, spacing, color, false, true);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::TextBoxCallback>(entity);
