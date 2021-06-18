@@ -30,6 +30,7 @@
 #include "TextBox.hpp"
 #include "TextBoxCallback.hpp"
 #include "HUDText.hpp"
+#include "HUDBonusIcon.hpp"
 #include "Drawable3D.hpp"
 #include "AssetCache.hpp"
 
@@ -87,8 +88,6 @@ ECS::Entity& EntityFactory::createWall(RayLib::Vector3 pos)
     entity.GetComponent<Component::Drawable3D>().SetTexture("../assets/Wall/Wall_texture.png");
     Component::Transform& transform = entity.GetComponent<Component::Transform>();
 
-    //entity.AddComponent<Component::Renderer>("Wall");
-
     entity.AddComponent<Component::Collider, Component::SquareCollider>(entity,
                                                                         std::vector<std::string>({"Player"}),
                                                                         RayLib::Vector2<float>(pos),
@@ -109,7 +108,6 @@ ECS::Entity& EntityFactory::createBox(RayLib::Vector3 position, const int, const
 
     entity.AddComponent<Component::Transform>(position, RayLib::Vector3(), RayLib::Vector3(10.0f, 10.0f, 10.0f));
     Component::Transform& transform = entity.GetComponent<Component::Transform>();
-    //entity.AddComponent<Component::Renderer>("Box");
     entity.AddComponent<Component::Collider, Component::SquareCollider>(entity,
                                                                         std::vector<std::string>({"Player"}),
                                                                         RayLib::Vector2<float>(position),
@@ -180,12 +178,39 @@ ECS::Entity& EntityFactory::createAI()
     return (entity);
 }
 
+ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer)
+{
+    ECS::Entity &icon = createBaseHUD(controller, nbrOfThePlayer);
+
+    icon.SetTag(icon.GetTag() + "_bonusIcon");
+    icon.AddComponent<Component::IUIObject, Component::Button>(path);
+    if (path.find("Range") != std::string::npos)
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 60, 0);
+    else if (path.find("Speed") != std::string::npos)
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(70, 60, 0);
+    icon.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
+    icon.AddComponent<Component::IBehaviour, Component::HUDBonusIcon>(controller, nbrOfThePlayer, timer);
+    return (icon);
+}
+
+/*ECS::Entity& EntityFactory::createHUDBonusBar(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer)
+{
+    ECS::Entity &icon = createBaseHUD(controller, nbrOfThePlayer);
+
+    icon.SetTag(icon.GetTag() + "_bonusIcon");
+    icon.AddComponent<Component::IUIObject, Component::Button>(path);
+    icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 60, 0);
+    icon.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
+    icon.AddComponent<Component::IBehaviour, Component::HUDBonusIcon>(controller, nbrOfThePlayer, timer);
+    return (icon);
+}
+*/
+
 ECS::Entity& EntityFactory::createHUDText(Component::AController &controller, int nbrOfThePlayer)
 {
     ECS::Entity &entity = createBaseHUD(controller, nbrOfThePlayer);
 
     entity.SetTag(entity.GetTag() + "_text");
-    entity.AddComponent<Component::Renderer>();
     entity.AddComponent<Component::IUIObject, Component::TextUI>("Player " + std::to_string(nbrOfThePlayer), "../assets/pixelplay.png", 50.0f, 4.0f);
     entity.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 0, 0);
     return (entity);

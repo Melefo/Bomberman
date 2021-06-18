@@ -149,4 +149,9 @@ namespace Component
         _dropDelay = bonusDelay;
         _bonusTime = duration;
     }
+
+    float &DropBomb::GetBonusTime()
+    {
+        return _bonusTime;
+    }
 }

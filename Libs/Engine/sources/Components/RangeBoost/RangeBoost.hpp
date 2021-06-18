@@ -70,6 +70,7 @@ namespace Component
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
         protected:
         private:
+            int getPlayerNbr(const std::string &tag);
     };
 }
 
