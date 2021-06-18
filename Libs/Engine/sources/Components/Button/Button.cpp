@@ -8,24 +8,25 @@
 #include "Button.hpp"
 #include <memory>
 #include "Window.hpp"
-#include "Physics3D.hpp"
+#include "AssetCache.hpp"
+#include "Physics2D.hpp"
 
 namespace Component
 {
-    Button::Button()
-    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f), _tint()
+    Button::Button(const std::string& path)
+    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f), _tint(), _texture(AssetCache::GetAsset<RayLib::Texture>(path))
     {
+
     }
 
-    void Button::Draw(RayLib::Vector2<float> position, Asset& asset, RayLib::Vector2<float> scale)
+    void Button::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale)
     {
         RayLib::Vector3 vec3Pos = RayLib::Vector3(position.x, position.y, 0.0f);
-        RayLib::Texture& texture = asset.getTexture();
 
         _rect.x = position.x;
         _rect.y = position.y;
-        _rect.width = static_cast<float>(texture.GetTexture().width);
-        _rect.height = static_cast<float>(texture.GetTexture().height);
+        _rect.width = static_cast<float>(_texture->GetTexture().width);
+        _rect.height = static_cast<float>(_texture->GetTexture().height);
 
         // ? multiplier scale par _rect scale ?
 
@@ -37,7 +38,8 @@ namespace Component
         } else {
             _tint.Lerp(WHITE, 0.25f);
         }
-        texture.DrawTextureEx(position, 0.0f, scale.x, _tint);
+
+        _texture->DrawTextureEx(position, 0.0f, scale.x, _tint);
     }
 
     bool Button::IsMouseOver(void)
@@ -47,8 +49,7 @@ namespace Component
         RayLib::Vector2<float> winSize = RayLib::Vector2<float>(static_cast<float>(window->GetSize().x),
                                                                 static_cast<float>(window->GetSize().y));
 
-        return (RayLib::Physics3D::CheckCollision(mousePos, _rect));
-        //return (RayLib::Physics3D::CheckCollision(mouseRay, _bounds).HasHit());
+        return (RayLib::Physics2D::CheckCollision(mousePos, _rect));
     }
 
     void Button::AddCallback(std::function<void()> callBack)

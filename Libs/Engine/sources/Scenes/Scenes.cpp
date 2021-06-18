@@ -25,6 +25,7 @@
 #include "ButtonCallbacks.hpp"
 #include "PhysicsSystem.hpp"
 #include "BehaviourSystem.hpp"
+#include "Drawable3D.hpp"
 #include "TextUI.hpp"
 #include "Camera.hpp"
 
@@ -36,13 +37,13 @@ std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("LoadingScreen", &InitLoadingScreen),
     };
 
-void Scenes::switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &nextScene)
+void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &)
 {
     std::string str("LoadingScreen");
 
     coordinator.setCurrentScene(str);
-    am.setNextScene(nextScene);
-    am.loadAssets(coordinator.getScene(nextScene).GetEntities());
+    //am.setNextScene(nextScene);
+    //am.loadAssets(coordinator.getScene(nextScene).GetEntities());
 }
 
 void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, const bool isEditor, int deepness)
@@ -57,19 +58,17 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
     for (size_t y = 0; y < map.size(); y++) {
         for (size_t x = 0; x < map[y].size(); x++) {
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
-            || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL)) {
-                ECS::Entity& wall = entityFactory.createWall();
-                wall.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX)) {
-                ECS::Entity& box = entityFactory.createBox(1, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX)) {
-                ECS::Entity& box = entityFactory.createBox(2, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-            } else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX)) {
-                ECS::Entity& box = entityFactory.createBox(3, isEditor ? true : false);
-                box.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-            }
+            || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL))
+                entityFactory.createWall(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)));
+            else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX))
+                entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                                                           1, isEditor ? true : false);
+            else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX))
+                entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                                                           2, isEditor ? true : false);
+            else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX))
+                entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                                        3, isEditor ? true : false);
 
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
                 Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
@@ -97,17 +96,17 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - (text.MeasureText().x / 2.0f),
                                                                                window->GetSize().y / 2.0f - 350.0f, 0.0f);
 
-    ECS::Entity &entityPlay = entityFactory.createButton("NewGameBtnStd");
+    ECS::Entity &entityPlay = entityFactory.createButton("../assets/buttons/NewGameBtnStd_texture.png");
     entityPlay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 150.0f, 0.0f);
     entityPlay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::StartEditorMenu));
 
 
-    ECS::Entity &entitySettings = entityFactory.createButton("OptionsBtnStd");
+    ECS::Entity &entitySettings = entityFactory.createButton("../assets/buttons/OptionsBtnStd_texture.png");
     entitySettings.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 50.0f, 0.0f);
 
-    ECS::Entity &entityQuit = entityFactory.createButton("QuitGameBtnStd");
+    ECS::Entity &entityQuit = entityFactory.createButton("../assets/buttons/QuitGameBtnStd_texture.png");
     entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f + 50.0f, 0.0f);
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::QuitWindow));
@@ -117,12 +116,10 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
 {
     EntityFactory entityFactory(coordinator, camera);
 
-    ECS::Entity &loadingBarBg = entityFactory.createBox(1, false);
-    loadingBarBg.GetComponent<Component::Transform>().position = RayLib::Vector3(0, 0, 0);
+    ECS::Entity &loadingBarBg = entityFactory.createBox(RayLib::Vector3(), 1, false);
     loadingBarBg.GetComponent<Component::Transform>().scale = RayLib::Vector3(15, 1, 2);
 
-    ECS::Entity &loadingBar = entityFactory.createBox(1, false);
-    loadingBar.GetComponent<Component::Transform>().position = RayLib::Vector3(-3.5f, 0.1f, 0.5f);
+    ECS::Entity &loadingBar = entityFactory.createBox(RayLib::Vector3(-3.5f, 0.1f, 0.5f), 1, false);
     loadingBar.GetComponent<Component::Transform>().scale = RayLib::Vector3(4, 1, 1);
     loadingBar.RemoveComponent<Component::Renderer>();
     loadingBar.AddComponent<Component::Renderer>();
@@ -140,11 +137,11 @@ void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib
     nbrPlayer.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2.0f),
         window->GetSize().y / 4.0f - (nbrPlayerTextSize.y / 2));
 
-    ECS::Entity& plus = entityFactory.createButton("Plus");
+    ECS::Entity& plus = entityFactory.createButton("../assets/buttons/Plus_texture.png");
     plus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f + (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y, 0.0f);
     plus.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::IncrementPlayerNbr));
 
-    ECS::Entity& minus = entityFactory.createButton("Minus");
+    ECS::Entity& minus = entityFactory.createButton("../assets/buttons/Minus_texture.png");
     minus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y, 0.0f);
     minus.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementPlayerNbr));
 
@@ -186,11 +183,11 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     mapSizeH.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSizeH.x / 2.0f),
         window->GetSize().y / 2 - (mapSizeTextSizeH.y / 2.0f) - 15, 0.0f);
 
-    ECS::Entity& upH = entityFactory.createButton("Plus");
+    ECS::Entity& upH = entityFactory.createButton("../assets/buttons/Plus_texture.png");
     upH.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 + (mapSizeTextSizeH.x / 2) + 100, window->GetSize().y / 2 + mapSizeTextSizeH.y - 30, 0.0f);
     upH.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::IncrementMapHeight));
 
-    ECS::Entity& downH = entityFactory.createButton("Minus");
+    ECS::Entity& downH = entityFactory.createButton("../assets/buttons/Minus_texture.png");
     downH.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSizeH.x / 2) - 200, window->GetSize().y / 2 + mapSizeTextSizeH.y - 30, 0.0f);
     downH.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementMapHeight));
 
@@ -208,11 +205,11 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     mapSizeW.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSizeW.x / 2.0f),
         window->GetSize().y / 2 - (mapSizeTextSizeW.y / 2.0f) + 160);
 
-    ECS::Entity& upW = entityFactory.createButton("Plus");
+    ECS::Entity& upW = entityFactory.createButton("../assets/buttons/Plus_texture.png");
     upW.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 + (mapSizeTextSizeW.x / 2) + 100, window->GetSize().y / 2 + mapSizeTextSizeW.y + 130, 0.0f);
     upW.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::IncrementMapWidth));
 
-    ECS::Entity& downW = entityFactory.createButton("Minus");
+    ECS::Entity& downW = entityFactory.createButton("../assets/buttons/Minus_texture.png");
     downW.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2 - (mapSizeTextSizeW.x / 2) - 200, window->GetSize().y / 2 + mapSizeTextSizeW.y + 130, 0.0f);
     downW.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementMapWidth));
 
@@ -224,11 +221,11 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
         window->GetSize().y / 2 + mapSizeTextSizeW.y + 150, 0.0f);
 
 // Footer
-    ECS::Entity& generate = entityFactory.createButton("GenerateBtnStd");
+    ECS::Entity& generate = entityFactory.createButton("../assets/buttons/GenerateBtnStd_texture.png");
     generate.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4, 0.0f);
     generate.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::GenerateBackgroundMap));
 
-    ECS::Entity& play = entityFactory.createButton("PlayBtnStd");
+    ECS::Entity& play = entityFactory.createButton("../assets/buttons/PlayBtnStd_texture.png");
     play.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4 + 100, 0.0f);
     play.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::StartGame));
 
@@ -240,7 +237,7 @@ void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
     EntityFactory entityFactory(coordinator, camera);
 
-    ECS::Entity &entityAddBox = entityFactory.createButton("MapEditorBtn");
+    ECS::Entity &entityAddBox = entityFactory.createButton("../assets/buttons/MapEditorBtn_texture.png");
     entityAddBox.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
 }
 
@@ -260,12 +257,11 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     // create a bomb
     ECS::Entity& bomb = coordinator.CreateEntity();
     bomb.SetTag("Bomb");
-    bomb.AddComponent<Component::Renderer>("Bomb");
+    bomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
     bomb.AddComponent<Component::Transform>(RayLib::Vector3(1000.0f, 100.0f, 0.0f));
     //bomb.Dispose();
 
     ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
-    entityTitle.GetComponent<Component::TextUI>();
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(-1000.0f, -1.0f, 0.0f);
 }
 
@@ -282,12 +278,12 @@ void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& came
                                              windowRef->GetSize().y / 2.0f - 350.0f, 0.0f);
     entityTitle.GetComponent<Component::Transform>().position = center;
 
-    ECS::Entity &entityReplay = entityFactory.createButton("ReplayBtnStd");
+    ECS::Entity &entityReplay = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
     entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f,
                                                                                windowRef->GetSize().y / 2.0f + 150.0f, 0.0f);
     entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
 
-    ECS::Entity &entityMainMenu = entityFactory.createButton("MainMenuBtnStd");
+    ECS::Entity &entityMainMenu = entityFactory.createButton("../assets/buttons/MainMenuBtnStd_texture.png");
     entityMainMenu.GetComponent<Component::Transform>().position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f,
                                                                                    windowRef->GetSize().y / 2.0f + 300.0f, 0.0f);
     entityMainMenu.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ExitGameToMainMenu));

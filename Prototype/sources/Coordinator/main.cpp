@@ -16,7 +16,6 @@
 #include "Input.hpp"
 #include "BoundingBox.hpp"
 #include "Ray.hpp"
-#include "Physics3D.hpp"
 #include "Mouse.hpp"
 #include "RayCollision.hpp"
 #include <cmath>

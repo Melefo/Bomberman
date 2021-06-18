@@ -9,8 +9,7 @@
 
 namespace Component
 {
-    PhysicsBody::PhysicsBody(RayLib::Vector3 startVelocity)
+    PhysicsBody::PhysicsBody() : velocity()
     {
-        velocity = startVelocity;
     }
 }

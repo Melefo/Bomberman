@@ -14,6 +14,7 @@
 #include "Color.hpp"
 #include "Texture.hpp"
 #include "Mesh.hpp"
+#include "IDrawable.hpp"
 #include "Shader.hpp"
 #include <raymath.h>
 
@@ -23,7 +24,7 @@ namespace RayLib
      * @brief Model encapsulation
      * 
      */
-    class Model : public IXMLSerializable {
+    class Model : public IAsset {
         public:
             /**
              * @brief Construct a new Model object based on given file
@@ -37,7 +38,7 @@ namespace RayLib
              * 
              * @param mesh 
              */
-            Model(Mesh mesh);
+            Model(Mesh& mesh);
 
             /**
              * @brief Construct a new Model object
@@ -58,7 +59,7 @@ namespace RayLib
              * @param scale 
              * @param tint 
              */
-            void Draw(Vector3 position, float scale, Color tint);
+            void Draw(Vector3 position, Vector3 scale, Color tint);
 
             /**
              * @brief Draw model, with rotation parameters
@@ -98,11 +99,6 @@ namespace RayLib
             const std::string& GetFileName() const;
 
             void RotateModel(RayLib::Vector3 rotation);
-
-            std::ostream& operator<<(std::ostream& os) override;
-            std::istream& operator>>(std::istream& is) override;
-
-            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
         protected:
         private:

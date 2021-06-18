@@ -8,7 +8,7 @@
 #include "TextBoxCallback.hpp"
 #include "Mouse.hpp"
 #include "Window.hpp"
-#include "Physics3D.hpp"
+#include "Physics2D.hpp"
 
 namespace Component
 {
@@ -45,6 +45,6 @@ namespace Component
 		RayLib::Vector2<float> winSize = RayLib::Vector2<float>(static_cast<float>(window->GetSize().x),
 			static_cast<float>(window->GetSize().y));
 
-		return RayLib::Physics3D::CheckCollision(mousePos, this->_textBox.GetRectangle());
+		return RayLib::Physics2D::CheckCollision(mousePos, this->_textBox.GetRectangle());
 	}
 }

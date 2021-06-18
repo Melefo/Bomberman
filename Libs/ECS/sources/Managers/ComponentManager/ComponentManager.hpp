@@ -74,7 +74,7 @@ namespace ECS
 
                 const auto &it = this->_components.find(name);
                 if (it == this->_components.end())
-                    throw Exception::EntityException("Entity doesn't contains this Component");
+                    throw Exception::EntityException("Entity doesn't contains Component " + name);
                 return dynamic_cast<T &>(*it->second);
             }
             /**
@@ -117,7 +117,7 @@ namespace ECS
                 std::string name(typeid(T).name());
 
                 if (this->HasComponent<T>())
-                    throw Exception::EntityException("Entity already contains this Component");
+                    throw Exception::EntityException("Entity already contains Component " + name);
                 this->_components[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
             }
             /**
@@ -136,7 +136,7 @@ namespace ECS
                 std::string name(typeid(T).name());
 
                 if (this->HasComponent<T>())
-                    throw Exception::EntityException("Entity already contains this Component");
+                    throw Exception::EntityException("Entity already contains Component " + name);
                 this->_components[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
 
                 std::string baseName(typeid(Base).name());

@@ -17,6 +17,7 @@
 #include <algorithm>
 #include "Animator.hpp"
 #include "Window.hpp"
+#include "Physics2D.hpp"
 
 namespace Component
 {
