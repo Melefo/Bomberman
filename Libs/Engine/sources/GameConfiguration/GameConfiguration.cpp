@@ -22,6 +22,7 @@ namespace Engine
     std::map<int, playerkeys> GameConfiguration::_playerKeys = {};
     TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA(),
                                                                              Engine::GameConfiguration::GetMapSize().x, Engine::GameConfiguration::GetMapSize().y);
+    bool GameConfiguration::_droppedMap = false;
 
     playerkeys::playerkeys(RayLib::Input input, int key) :
     movementInput(input), actionKey(key)
@@ -125,6 +126,16 @@ namespace Engine
     void GameConfiguration::SetIsMapBasic(bool value)
     {
         _isMapBasic = value;
+    }
+
+    void GameConfiguration::SetDroppedMap(bool isDropped)
+    {
+        _droppedMap = isDropped;
+    }
+
+    bool GameConfiguration::GetDroppedMap(void)
+    {
+        return (_droppedMap);
     }
 
     void GameConfiguration::SaveMap(void)

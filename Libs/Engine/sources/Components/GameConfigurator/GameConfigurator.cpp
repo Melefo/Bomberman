@@ -43,7 +43,18 @@ namespace Component
                 //std::cout << iss.str() << std::endl;
                 std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
 
+                // clear all existing entities
+
+                _coordinator->RemoveEntities("Wall");
+                _coordinator->RemoveEntities("Box");
+                _coordinator->RemoveEntities("AI");
+                _coordinator->RemoveEntities("PlayerEntity");
+                _coordinator->RemoveEntities("PickUp");
+                _coordinator->RemoveEntities("Bomb");
+
                 Serialization::EntityLoader::LoadEntities(iss);
+
+                Engine::GameConfiguration::SetDroppedMap(true);
 
                 _window->ClearDroppedFiles();
             }

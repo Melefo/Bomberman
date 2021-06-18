@@ -41,11 +41,7 @@ int main(void)
     RayLib::AudioDevice::InitAudioDevice();
 
     //! game manager for drag and drop
-    //ECS::Entity& gameManager = coordinator->CreateEntity();
-    //gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
 
-    //! uncomment to save generated map
-    //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
     Engine::GameConfiguration::SetPlayers(2);
     RayLib::Input player1Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT), RayLib::Vector2<int>(KEY_DOWN, KEY_UP));

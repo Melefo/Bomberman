@@ -200,6 +200,9 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
 
     entityFactory.createCamera(camera);
 
+    ECS::Entity& gameManager = coordinator.CreateEntity();
+    gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
+
     ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> seedTextSize = seedText.MeasureText();

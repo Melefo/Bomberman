@@ -64,6 +64,9 @@ namespace Engine
 
             static void SaveMap(void);
 
+            static void SetDroppedMap(bool isDropped);
+            static bool GetDroppedMap(void);
+
             static TerrainGenerator &GetTerrainGenerator(void);
 
         protected:
@@ -77,6 +80,7 @@ namespace Engine
             static bool _gameOver;
             static TerrainGenerator _terrainGenerator;
             static std::map<int, playerkeys> _playerKeys;
+            static bool _droppedMap;
     };
 }
 

@@ -210,16 +210,19 @@ namespace Component
 
     void ButtonCallbacks::StartGame(void)
     {
-        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
-        if (!terrainGeneratorRef.isGenerated()) {
-            terrainGeneratorRef.generateRandomMap(0);
-            terrainGeneratorRef.generateBoxes();
-            terrainGeneratorRef.placePlayers();
+        if (Engine::GameConfiguration::GetDroppedMap() == false) {
+            TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
+            if (!terrainGeneratorRef.isGenerated()) {
+                terrainGeneratorRef.generateRandomMap(0);
+                terrainGeneratorRef.generateBoxes();
+                terrainGeneratorRef.placePlayers();
+            }
         }
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 
         coordinator->setCurrentScene(sceneName);
+
         coordinator->SetGameIsRunning(true);
         coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(true);
     }
