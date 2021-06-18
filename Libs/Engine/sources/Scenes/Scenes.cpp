@@ -37,7 +37,7 @@ std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("LoadingScreen", &InitLoadingScreen),
     };
 
-void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &nextScene)
+void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &)
 {
     std::string str("LoadingScreen");
 
@@ -59,16 +59,16 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
         for (size_t x = 0; x < map[y].size(); x++) {
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::OWALL)
             || map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::INWALL))
-                ECS::Entity& wall = entityFactory.createWall(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)));
+                entityFactory.createWall(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)));
             else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::WEAKBOX))
-                ECS::Entity& box = entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
                                                            1, isEditor ? true : false);
             else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::MEDIUMBOX))
-                ECS::Entity& box = entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
                                                            2, isEditor ? true : false);
             else if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::STRONGBOX))
-                ECS::Entity& box = entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
-                                                           3, isEditor ? true : false);
+                entityFactory.createBox(RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE)),
+                                        3, isEditor ? true : false);
 
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentPlayer <= players) {
                 Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
@@ -261,7 +261,6 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     //bomb.Dispose();
 
     ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
-    Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(-1000.0f, -1.0f, 0.0f);
 }
 

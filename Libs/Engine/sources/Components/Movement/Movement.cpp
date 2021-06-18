@@ -138,9 +138,9 @@ namespace Component
 
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
             try {
-                ECS::Entity& other = it->get().GetCollisionPosition(pos2D);
+                it->get().GetCollisionPosition(pos2D);
                 return (true);
-            } catch (const Engine::Exception::EngineException& e) {
+            } catch (const Engine::Exception::EngineException&) {
 
             }
         }
