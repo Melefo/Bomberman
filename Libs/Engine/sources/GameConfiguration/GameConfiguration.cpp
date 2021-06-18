@@ -14,6 +14,7 @@ namespace Engine
     int GameConfiguration::_players = 2;
     int GameConfiguration::_IA = 0;
     bool GameConfiguration::_debugMode = false;
+    bool GameConfiguration::_isMapBasic = true;
     unsigned int GameConfiguration::_seed = 0;
     bool GameConfiguration::_gameOver = false;
     std::map<int, playerkeys> GameConfiguration::_playerKeys = {};
@@ -111,5 +112,15 @@ namespace Engine
     TerrainGenerator &GameConfiguration::GetTerrainGenerator(void)
     {
         return (_terrainGenerator);
+    }
+
+    bool GameConfiguration::GetIsMapBasic(void)
+    {
+        return (_isMapBasic);
+    }
+
+    void GameConfiguration::SetIsMapBasic(bool value)
+    {
+        _isMapBasic = value;
     }
 }
