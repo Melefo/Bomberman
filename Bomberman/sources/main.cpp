@@ -26,6 +26,7 @@
 #include "TerrainGenerator.hpp"
 #include "AudioDevice.hpp"
 #include "Physics2D.hpp"
+#include "PauseSystem.hpp"
 
 #define BOX_SIZE 10
 
@@ -63,6 +64,7 @@ int main(void)
     coordinator->AddSystem<Component::UISystem>(camera);
     coordinator->AddSystem<Component::RenderSystem>();
     coordinator->AddSystem<Component::BehaviourSystem>();
+    coordinator->AddSystem<Component::PauseSystem>();
 
 
     window->SetTargetFPS(60);
