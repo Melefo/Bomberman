@@ -17,7 +17,8 @@ namespace Engine
     unsigned int GameConfiguration::_seed = 0;
     bool GameConfiguration::_gameOver = false;
     std::map<int, playerkeys> GameConfiguration::_playerKeys = {};
-    TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(Engine::GameConfiguration::GetPlayers(), Engine::GameConfiguration::GetMapSize().x, Engine::GameConfiguration::GetMapSize().y);
+    TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetEnemies(),
+                                                                             Engine::GameConfiguration::GetMapSize().x, Engine::GameConfiguration::GetMapSize().y);
 
     playerkeys::playerkeys(RayLib::Input input, int key) :
     movementInput(input), actionKey(key)

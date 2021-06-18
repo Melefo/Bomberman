@@ -50,7 +50,7 @@ class EntityFactory {
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createWall();
+        ECS::Entity& createWall(RayLib::Vector3 pos);
 
         /**
          * @brief Create a Box object
@@ -62,7 +62,7 @@ class EntityFactory {
          * @param draggable Is the box draggable
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createBox(const int level, const bool draggable);
+        ECS::Entity& createBox(RayLib::Vector3 pos, const int level, const bool draggable);
 
         /**
          * @brief Create a Player object

@@ -30,7 +30,6 @@ namespace Component
 
 
             void Draw(RayLib::Vector2<float> position,
-                              Asset& asset,
                               RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
 
             std::string& GetContent(void);
@@ -48,7 +47,7 @@ namespace Component
         protected:
         private:
             std::string _string;
-            RayLib::Font _font;
+            std::shared_ptr<RayLib::Font> _font;
             RayLib::Color _color;
             float _size;
             float _spacing;

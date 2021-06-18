@@ -11,43 +11,30 @@
 
 namespace Component
 {
-    UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera)
+    UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera), _window(RayLib::Window::GetInstance(0, ""))
     {
         // ! obsolète ?
         AddDependency<IUIObject>();
 
-        AddDependency<Renderer>();
         AddDependency<Transform>();
     }
 
     void UISystem::Update(double, ECS::Entity& entity)
     {
-        /*
-        std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
         Transform& transform = entity.GetComponent<Transform>();
 
-        RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
-
-        _camera.EndMode();
-        for (IUIObject& uiObject : uiObjects) {
-            // ! ajouter dans vector3 un .magnitude pour récup un float
-            uiObject.Draw(position, RayLib::Vector2<float>(transform.scale.x, transform.scale.y));
-        }
-        _camera.BeginMode();*/
-
-        std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
-        Transform& transform = entity.GetComponent<Transform>();
-        Renderer& renderer = entity.GetComponent<Renderer>();
-
-        //RayLib::Texture& texture = assetManagerRef->getAssetFromName(renderer.getName()).getTexture();
         std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
         RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
         RayLib::Vector2<float> scale = RayLib::Vector2<float>(transform.scale.x, transform.scale.y);
 
+
         _camera.EndMode();
         for (IUIObject& uiObject : uiObjects) {
-            uiObject.Draw(position, assetManagerRef->getAssetFromName(renderer.getName()), scale);
+            uiObject.Draw(position, scale);
         }
+
+        if (Engine::GameConfiguration::GetDebugMode())
+            _window->DrawFPS(RayLib::Vector2<int>(10, 10));
         _camera.BeginMode();
     }
 }

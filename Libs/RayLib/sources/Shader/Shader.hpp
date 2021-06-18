@@ -8,6 +8,7 @@
 #ifndef SHADER_HPP_
 #define SHADER_HPP_
 
+#include "IAsset.hpp"
 #include <string>
 #include <raylib.h>
 #include <vector>
@@ -18,8 +19,14 @@ namespace RayLib
      * @brief Shader
      * Encapsulation of the raylib structure Shader
      */
-    class Shader {
+    class Shader : public IAsset {
         public:
+            /**
+             * @brief Construct a new Shader object
+             * 
+             * @param shadersPath The path to the vertex and fragment shader
+             */
+            Shader(const std::string& shadersPath);
             /**
              * @brief Construct a new Shader object
              * 
@@ -43,7 +50,7 @@ namespace RayLib
              * @brief Destroy the Shader object
              * 
              */
-            ~Shader();
+            ~Shader() override;
 
             /**
              * @brief Get the Shader structure

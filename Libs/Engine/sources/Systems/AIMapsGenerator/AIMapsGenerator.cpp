@@ -27,8 +27,7 @@ void AIMapsGenerator::Update(double, ECS::Entity&)
 
 void AIMapsGenerator::UpdateMaps(ECS::Entity& entity)
 {
-    if (entity.GetTag() == "Player")
-    {
+    if (entity.GetTag() == "Player" || entity.GetTag() == "AI") {
         Component::Transform& pos = entity.GetComponent<Component::Transform>();
         _playersmap[static_cast<int>(pos.position.z / 10)][static_cast<int>(pos.position.x / 10)] = PlayerMapValues::PLAYER;
     }

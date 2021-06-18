@@ -6,6 +6,7 @@
 */
 
 #include "CoolDownBoost.hpp"
+#include "AIAlgo.hpp"
 
 namespace Component
 {
@@ -20,9 +21,10 @@ namespace Component
         if (collision.GetTag() == "Player" && collision.HasComponent<PlayerInputs>()) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             DecrementCooldown(playerInputs);
+        } else if (collision.GetTag() == "AI" && collision.HasComponent<AIAlgo>()) {
+            AController& aiController = collision.GetComponent<AIAlgo>();
+            DecrementCooldown(aiController);
         }
-        // else if tag AI Controller ...
-
     }
 
     void CoolDownBoost::DecrementCooldown(AController& acontroller)

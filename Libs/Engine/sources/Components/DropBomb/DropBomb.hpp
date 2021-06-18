@@ -14,7 +14,7 @@
 #include "Entity.hpp"
 #include "Collider.hpp"
 #include "Explosion.hpp"
-#include "BoxCollider.hpp"
+#include "SquareCollider.hpp"
 #include "Transform.hpp"
 #include "Renderer.hpp"
 #include "Window.hpp"
@@ -107,6 +107,7 @@ namespace Component
              */
             void Update();
 
+            int RoundToNearest10(float num);
 
             /**
              * @brief Cooldown timer

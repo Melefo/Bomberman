@@ -6,13 +6,14 @@
 */
 
 #include "Explosion.hpp"
+#include "Drawable3D.hpp"
 #include <iostream>
 
 namespace Component
 {
     Explosion::Explosion(ECS::Entity& entity, ECS::Entity& parent, float radius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity), _transform(_myEntity.GetComponent<Transform>()),
-    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent)
+    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent), _explosionSound(AssetCache::GetAsset<RayLib::Sound>("../assets/bomb/Bomb_sound_explosion.wav"))
     {
         _radius = radius;
         type = startType;
@@ -28,16 +29,12 @@ namespace Component
         _window->DrawSphereWires(_transform.position, _radius);
 
         if (_explosionTimer <= 0.0f) {
-            // get the assetmanager
-            std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
-            // get the sounds
-            std::map<std::string, RayLib::Sound>& sounds = assetManagerRef->getAssetFromName("Bomb").getSounds();
-            // play sound explosion
-            if (sounds.find("explosion") != sounds.end()) {
-                sounds.find("explosion")->second.Play();
-            }
+            //std::cout << "BOOM" << std::endl;
 
-            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*_coordinator.get(), _transform.position, _radius);
+            _explosionSound->Play();
+
+            RayLib::Circle areaOfEffect(_transform.position, _radius);
+            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*_coordinator.get(), areaOfEffect);
 
             // ! j'ai pas trouvé mieux pour que la box soit récupérée
             for (auto it = entities.begin(); it != entities.end(); it++) {
@@ -64,7 +61,7 @@ namespace Component
             return;
 
         // either already has a collider, or is not a center bomb
-        if (_myEntity.OfType<Collider>().size() > 0 || !_myEntity.HasComponent<Renderer>())
+        if (_myEntity.OfType<Collider>().size() > 0 || !_myEntity.HasComponent<Drawable3D>())
             return;
 
         // happens if the factory creates a bomb
@@ -73,19 +70,22 @@ namespace Component
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         Transform& transform = _myEntity.GetComponent<Transform>();
 
-        std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*coordinator.get(), transform.position, _radius);
+        RayLib::Circle checkZone(RayLib::Vector2<float>(transform.position), _radius);
+        std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*coordinator.get(), checkZone);
         for (auto entity = entities.begin(); entity != entities.end(); entity++) {
             if (entity->get().GetId() == _parent.GetId()) {
                 found = true;
                 std::cout << "Parent is in radius " << _radius << std::endl;
-
             }
         }
 
         if (!found) {
             std::cout << "Parent is no longer in radius " << _radius << std::endl;
 
-            _myEntity.AddComponent<Collider, SphereCollider>(_myEntity, transform.position, _radius);
+            _myEntity.AddComponent<Collider, SquareCollider>(_myEntity,
+                                                             std::vector<std::string>({"Player"}),
+                                                             RayLib::Vector2<float>(transform.position.x, transform.position.z),
+                                                             RayLib::Vector2<float>(transform.scale.x, transform.scale.z));
         }
 
     }

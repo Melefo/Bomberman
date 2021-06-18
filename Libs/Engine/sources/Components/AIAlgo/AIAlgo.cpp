@@ -24,6 +24,8 @@ namespace Component
     {
         if (!this->_enabled)
             return;
+        if (!ECS::Coordinator::GetInstance()->HasSystem<AIMapsGenerator>())
+            return;
         AIMapsGenerator& mapGen = ECS::Coordinator::GetInstance()->GetSystem<AIMapsGenerator>();
         const std::vector<std::vector<int>>& playerMap = mapGen.GetPlayersMap();
         const std::vector<std::vector<int>>& boxMap = mapGen.GetBoxMap();

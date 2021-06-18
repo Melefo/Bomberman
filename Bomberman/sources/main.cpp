@@ -13,7 +13,6 @@
 #include "BehaviourSystem.hpp"
 #include "UISystem.hpp"
 #include "CollisionSystem.hpp"
-#include "BoxCollider.hpp"
 #include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "Button.hpp"
@@ -21,21 +20,18 @@
 #include "Draggable.hpp"
 #include "Input.hpp"
 #include "Camera.hpp"
-#include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
-#include "AssetManager.hpp"
 #include "PlayerInputs.hpp"
-
 #include "TerrainGenerator.hpp"
 #include "AudioDevice.hpp"
+#include "Physics2D.hpp"
 
 #define BOX_SIZE 10
 
 int main(void)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-    std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
 
     //! camera pos and target determined by component
     //! attention le 3e arg: world up est important
@@ -61,19 +57,20 @@ int main(void)
 
     Engine::GameConfiguration::SetDebugMode(true);
 
+    Engine::GameConfiguration::SetEnemies(2);
+
     coordinator->AddSystem<Component::PhysicsSystem>();
     coordinator->AddSystem<Component::UISystem>(camera);
     coordinator->AddSystem<Component::RenderSystem>();
     coordinator->AddSystem<Component::BehaviourSystem>();
 
+
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_ESCAPE);
-    assetManagerRef->loadAssets(coordinator->GetEntities());
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0) {
             Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera);
-            assetManagerRef->loadAssets(coordinator->GetEntities());
         }
         
         window->BeginDrawing();

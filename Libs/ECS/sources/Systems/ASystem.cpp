@@ -49,6 +49,11 @@ namespace ECS
         return this->_enabled;
     }
 
+    void ASystem::SetStatus(bool newStatus)
+    {
+        _enabled = newStatus;
+    }
+
     void ASystem::ToggleStatus()
     {
         this->_enabled = !this->_enabled;

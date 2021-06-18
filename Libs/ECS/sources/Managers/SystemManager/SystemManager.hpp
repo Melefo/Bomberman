@@ -66,7 +66,7 @@ namespace ECS
                 std::string name(typeid(T).name());
 
                 if (this->HasSystem<T>())
-                    throw Exception::SystemManagerException("Cannot add more than once system " + name + " .");
+                    throw Exception::SystemManagerException("Cannot add more than once system " + name);
 
                 this->_systems[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
                 return dynamic_cast<T &>(*this->_systems[name]);
