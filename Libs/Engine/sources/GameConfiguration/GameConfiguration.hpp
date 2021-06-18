@@ -41,8 +41,8 @@ namespace Engine
             static playerkeys& GetPlayerKeys(int player);
             static int GetPlayers(void);
 
-            static int GetEnemies(void);
-            static void SetEnemies(int total);
+            static int GetIA(void);
+            static void SetIA(int total);
 
             static void SetPlayers(int playersTotal);
             static void SetPlayerKeys(int player, RayLib::Input& input, int actionKey);
@@ -65,7 +65,7 @@ namespace Engine
         private:
             static RayLib::Vector2<int> _mapSize;
             static int _players;
-            static int _enemies;
+            static int _IA;
             static unsigned int _seed;
             static bool _debugMode;
             static bool _gameOver;

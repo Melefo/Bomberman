@@ -54,9 +54,9 @@ namespace Component
             void UpdateSquare(void);
 
             std::ostream &operator<<(std::ostream &os) override {return (os);}
-            std::istream &operator>>(std::istream &is) override {return (is);}
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return (ptree);}
 
+            bool CheckCollisionMask(ECS::Entity& entity);
 
             /**
              * @brief Get the Rectangle object

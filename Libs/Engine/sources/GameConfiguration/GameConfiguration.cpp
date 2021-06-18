@@ -12,7 +12,7 @@ namespace Engine
 {
     RayLib::Vector2<int> GameConfiguration::_mapSize = {7, 7};
     int GameConfiguration::_players = 2;
-    int GameConfiguration::_enemies = 0;
+    int GameConfiguration::_IA = 0;
     bool GameConfiguration::_debugMode = false;
     unsigned int GameConfiguration::_seed = 0;
     bool GameConfiguration::_gameOver = false;
@@ -57,14 +57,14 @@ namespace Engine
         _playerKeys[player] = playerkeys(RayLib::Input(input), actionKey);
     }
 
-    int GameConfiguration::GetEnemies(void)
+    int GameConfiguration::GetIA(void)
     {
-        return (_enemies);
+        return (_IA);
     }
 
-    void GameConfiguration::SetEnemies(int total)
+    void GameConfiguration::SetIA(int total)
     {
-        _enemies = total;
+        _IA = total;
     }
 
     bool GameConfiguration::GetDebugMode(void)

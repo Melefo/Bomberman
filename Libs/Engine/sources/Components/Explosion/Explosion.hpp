@@ -99,9 +99,12 @@ namespace Component
 
             void CheckParentLeftRadius(void);
 
+            void Explode(void);
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+
+            void AddChildExplosion(Explosion& childExplo);
 
             /**
              * @brief Explosion type
@@ -146,9 +149,18 @@ namespace Component
              */
             std::unique_ptr<ECS::Coordinator>& _coordinator;
 
+            /**
+             * @brief Parent entity, player that spawned it
+             * 
+             */
             ECS::Entity& _parent;
-
+            /**
+             * @brief Explosion sound
+             * 
+             */
             std::shared_ptr<RayLib::Sound> _explosionSound;
+
+            std::vector<std::reference_wrapper<Explosion>> _childExplosions;
 
     };
 }

@@ -67,10 +67,29 @@ class EntityFactory {
         /**
          * @brief Create a Player object
          * 
-         * @param playerColor The color of the player (...colors?)
+         * @param Engine::playerkeys& keys used to controller the player
+         * @param int To set the tag with the nbr of the player (J1, J2, J3...)
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createPlayer(Engine::playerkeys& keys);
+        ECS::Entity& createPlayer(Engine::playerkeys& keys, int nbrOfThePlayer);
+
+        /**
+         * @brief Create a basic HUD part
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createBaseHUD(Component::AController &controller, int nbrOfThePlayer);
+
+        /**
+         * @brief Create a HUD part with a text
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createHUDText(Component::AController &controller, int nbrOfThePlayer);
 
          /**
          * @brief Create a Text object

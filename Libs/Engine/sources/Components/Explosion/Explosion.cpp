@@ -8,6 +8,7 @@
 #include "Explosion.hpp"
 #include "Drawable3D.hpp"
 #include <iostream>
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
@@ -26,30 +27,49 @@ namespace Component
         _explosionTimer -= _window->GetFrameTime();
 
         // ! draw wire sphere on the window to see/debug radius!
-        _window->DrawSphereWires(_transform.position, _radius);
+        if (Engine::GameConfiguration::GetDebugMode())
+            _window->DrawSphereWires(_transform.position, _radius);
 
         if (_explosionTimer <= 0.0f) {
-            std::cout << "BOOM" << std::endl;
-
-            _explosionSound->Play();
-
-            RayLib::Circle areaOfEffect(_transform.position, _radius);
-            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*_coordinator.get(), areaOfEffect);
-
-            // ! j'ai pas trouvé mieux pour que la box soit récupérée
-            for (auto it = entities.begin(); it != entities.end(); it++) {
-                if (it->get().HasComponent<Destructible>()) {
-                    Destructible& destructible = it->get().GetComponent<Destructible>();
-                    destructible.TakeDamage(power);
-                } else if (it->get().HasComponent<Box>()) {
-                    Box& destructible = it->get().GetComponent<Box>();
-                    destructible.TakeDamage(power);
-                }
-            }
-            _myEntity.Dispose();
+            Explode();
         }
 
         CheckParentLeftRadius();
+    }
+
+    void Explosion::Explode(void)
+    {
+        // ! chain bombs feature
+        /*if (_explosionTimer > 0.05f) {
+            for (auto childExplo : _childExplosions) {
+                childExplo.get().Explode();
+            }
+        }*/
+
+        _explosionSound->Play();
+
+        RayLib::Circle areaOfEffect(_transform.position, _radius);
+        std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*_coordinator.get(), areaOfEffect);
+
+        // ! j'ai pas trouvé mieux pour que la box soit récupérée
+        for (auto it = entities.begin(); it != entities.end(); it++) {
+            if (it->get().HasComponent<Destructible>()) {
+                Destructible& destructible = it->get().GetComponent<Destructible>();
+                destructible.TakeDamage(power);
+            } else if (it->get().HasComponent<Box>()) {
+                Box& destructible = it->get().GetComponent<Box>();
+                destructible.TakeDamage(power);
+            }
+
+            // ? chain bombs feature
+
+        }
+        _myEntity.Dispose();
+    }
+
+    void Explosion::AddChildExplosion(Explosion& childExplo)
+    {
+        _childExplosions.push_back(childExplo);
     }
 
     void Explosion::CheckParentLeftRadius(void)

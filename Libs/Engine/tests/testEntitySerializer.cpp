@@ -14,21 +14,21 @@
 #include "Model.hpp"
 #include "Renderer.hpp"
 
-//Test(serializeVec3, vec3)
-//{
-//    RayLib::Vector3 src(1.0f, 2.0f, 3.0f);
-//    RayLib::Vector3 dest = RayLib::Vector3();
-//
-//    IXMLSerializable& serializableObj = src;
-//    std::ostringstream oss;
-//    std::istringstream iss;
-//
-//    oss << serializableObj;
-//    iss.str(oss.str());
-//    iss >> dest;
-//    cr_assert(src == dest);
-//}
-//
+Test(serializeVec3, vec3)
+{
+    RayLib::Vector3 src(1.0f, 2.0f, 3.0f);
+    RayLib::Vector3 dest = RayLib::Vector3();
+
+    IXMLSerializable& serializableObj = src;
+    std::ostringstream oss;
+    std::istringstream iss;
+
+    oss << serializableObj;
+    iss.str(oss.str());
+    iss >> dest;
+    cr_assert(src == dest);
+}
+
 //Test(serializeTransform, transform)
 //{
 //    Component::Transform src(RayLib::Vector3(1.0f, 0.0f, 0.0f),

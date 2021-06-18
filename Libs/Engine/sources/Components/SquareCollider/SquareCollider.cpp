@@ -24,7 +24,7 @@ namespace Component
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
                 continue;
-            if (std::find(_collisionMask.begin(), _collisionMask.end(), entityIt->get()->GetTag()) == _collisionMask.end())
+            if (!CheckCollisionMask(*entityIt->get()))
                 continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
@@ -45,7 +45,7 @@ namespace Component
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
                 continue;
-            if (std::find(_collisionMask.begin(), _collisionMask.end(), entityIt->get()->GetTag()) == _collisionMask.end())
+            if (!CheckCollisionMask(*entityIt->get()))
                 continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
@@ -69,7 +69,7 @@ namespace Component
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
                 continue;
-            if (std::find(_collisionMask.begin(), _collisionMask.end(), entityIt->get()->GetTag()) == _collisionMask.end())
+            if (!CheckCollisionMask(*entityIt->get()))
                 continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
@@ -90,7 +90,7 @@ namespace Component
         for (auto entityIt = _otherEntities.begin(); entityIt != _otherEntities.end(); entityIt++) {
             if (entityIt->get()->GetId() == _myEntity.GetId())
                 continue;
-            if (std::find(_collisionMask.begin(), _collisionMask.end(), entityIt->get()->GetTag()) == _collisionMask.end())
+            if (!CheckCollisionMask(*entityIt->get()))
                 continue;
             std::vector<std::reference_wrapper<Collider>> colliders = entityIt->get()->OfType<Collider>();
 
@@ -117,6 +117,16 @@ namespace Component
     const RayLib::Rectangle& SquareCollider::GetRectangle() const
     {
         return this->_rect;
+    }
+
+    bool SquareCollider::CheckCollisionMask(ECS::Entity& entity)
+    {
+        for (auto mask : _collisionMask) {
+            if (entity.GetTag().find(mask) != std::string::npos) {
+                return (true);
+            }
+        }
+        return (false);
     }
 
     void SquareCollider::UpdateSquare(void)

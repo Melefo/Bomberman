@@ -17,7 +17,7 @@ namespace Component
     {
         // get AController from collision
         //AController& acontroller = collision.GetComponent<PlayerInputs>();
-        if (collision.GetTag() == "Player") {
+        if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             DecrementCooldown(playerInputs);
         }
