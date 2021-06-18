@@ -82,6 +82,18 @@ namespace Component
             static void DecrementPlayerNbr(void);
 
             /**
+             * @brief Increment the nbr of IA
+             * 
+             */
+            static void IncrementIANbr(void);
+
+            /**
+             * @brief Decrement the nbr of IA
+             * 
+             */
+            static void DecrementIANbr(void);
+
+            /**
              * @brief Increment the map of Height
              * 
              */

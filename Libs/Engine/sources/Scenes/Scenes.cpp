@@ -131,18 +131,19 @@ void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& 
 
 void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib::Window>& window)
 {
+//Player
     ECS::Entity& nbrPlayer = entityFactory.createText("Select number of players", "../assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& nbrPlayerText = nbrPlayer.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> nbrPlayerTextSize = nbrPlayerText.MeasureText();
     nbrPlayer.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2.0f),
-        window->GetSize().y / 4.0f - (nbrPlayerTextSize.y / 2));
+        window->GetSize().y / 4.0f - (nbrPlayerTextSize.y / 2) - 180);
 
     ECS::Entity& plus = entityFactory.createButton("../assets/buttons/Plus_texture.png");
-    plus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f + (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y, 0.0f);
+    plus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f + (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y - 180, 0.0f);
     plus.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::IncrementPlayerNbr));
 
     ECS::Entity& minus = entityFactory.createButton("../assets/buttons/Minus_texture.png");
-    minus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y, 0.0f);
+    minus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrPlayerTextSize.x / 2) - 50, window->GetSize().y / 4.0f + nbrPlayerTextSize.y - 180, 0.0f);
     minus.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementPlayerNbr));
 
     ECS::Entity& number = entityFactory.createText(std::to_string(Engine::GameConfiguration::GetPlayers()), "../assets/pixelplay.png", 50.0f, 4.0f);
@@ -150,7 +151,28 @@ void Scenes::InitNbrPlayers(EntityFactory &entityFactory, std::unique_ptr<RayLib
     Component::TextUI& numberText = number.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> numberTextSize = numberText.MeasureText();
     number.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (numberTextSize.x / 2.0f),
-        window->GetSize().y / 4.0f - (numberTextSize.y / 2) + 100);
+        window->GetSize().y / 4.0f - (numberTextSize.y / 2) + 100 - 180);
+//IA
+    ECS::Entity& nbrIA = entityFactory.createText("Select number of IA", "../assets/pixelplay.png", 50.0f, 4.0f);
+    Component::TextUI& nbrIAText = nbrIA.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> nbrIATextSize = nbrIAText.MeasureText();
+    nbrIA.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrIATextSize.x / 2.0f),
+        window->GetSize().y / 4.0f - (nbrIATextSize.y / 2) + 20);
+
+    ECS::Entity& plusIA = entityFactory.createButton("../assets/buttons/Plus_texture.png");
+    plusIA.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f + (nbrIATextSize.x / 2), window->GetSize().y / 4.0f + nbrIATextSize.y + 20, 0.0f);
+    plusIA.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::IncrementIANbr));
+
+    ECS::Entity& minusIA = entityFactory.createButton("../assets/buttons/Minus_texture.png");
+    minusIA.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (nbrIATextSize.x / 2) - 90, window->GetSize().y / 4.0f + nbrIATextSize.y + 20, 0.0f);
+    minusIA.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementIANbr));
+
+    ECS::Entity& numberIA = entityFactory.createText(std::to_string(Engine::GameConfiguration::GetIA()), "../assets/pixelplay.png", 50.0f, 4.0f);
+    numberIA.SetTag("TextIANbr");
+    Component::TextUI& numberIAText = numberIA.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> numberIATextSize = numberIAText.MeasureText();
+    numberIA.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f - (numberIATextSize.x / 2.0f),
+        window->GetSize().y / 4.0f - (numberIATextSize.y / 2) + 100 + 20);
 }
 
 void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
