@@ -22,4 +22,9 @@ namespace Component
     {
         return (_dropBomb);
     }
+
+    Component::AController& AController::GetAController()
+    {
+        return (*this);
+    }
 }

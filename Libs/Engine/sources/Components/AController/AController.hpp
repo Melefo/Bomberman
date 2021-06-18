@@ -57,6 +57,14 @@ namespace Component
             Component::DropBomb& GetDropBomb();
 
             /**
+             * @brief Get the AController
+             * 
+             * @return 
+             * 
+             */
+            Component::AController &GetAController();
+
+            /**
              * @brief Called every frame
              * To be overridden by a playercontroller or AI controller
              * @param dt 
