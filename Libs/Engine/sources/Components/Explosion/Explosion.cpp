@@ -6,6 +6,7 @@
 */
 
 #include "Explosion.hpp"
+#include "Drawable3D.hpp"
 #include <iostream>
 
 namespace Component
@@ -32,7 +33,8 @@ namespace Component
 
             _explosionSound->Play();
 
-            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*_coordinator.get(), _transform.position, _radius);
+            RayLib::Circle areaOfEffect(_transform.position, _radius);
+            std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*_coordinator.get(), areaOfEffect);
 
             // ! j'ai pas trouvé mieux pour que la box soit récupérée
             for (auto it = entities.begin(); it != entities.end(); it++) {
@@ -59,7 +61,7 @@ namespace Component
             return;
 
         // either already has a collider, or is not a center bomb
-        if (_myEntity.OfType<Collider>().size() > 0 || !_myEntity.HasComponent<Renderer>())
+        if (_myEntity.OfType<Collider>().size() > 0 || !_myEntity.HasComponent<Drawable3D>())
             return;
 
         // happens if the factory creates a bomb
@@ -68,19 +70,22 @@ namespace Component
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         Transform& transform = _myEntity.GetComponent<Transform>();
 
-        std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(*coordinator.get(), transform.position, _radius);
+        RayLib::Circle checkZone(RayLib::Vector2<float>(transform.position), _radius);
+        std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*coordinator.get(), checkZone);
         for (auto entity = entities.begin(); entity != entities.end(); entity++) {
             if (entity->get().GetId() == _parent.GetId()) {
                 found = true;
                 std::cout << "Parent is in radius " << _radius << std::endl;
-
             }
         }
 
         if (!found) {
             std::cout << "Parent is no longer in radius " << _radius << std::endl;
 
-            _myEntity.AddComponent<Collider, SphereCollider>(_myEntity, transform.position, _radius);
+            _myEntity.AddComponent<Collider, SquareCollider>(_myEntity,
+                                                             std::vector<std::string>({"Player"}),
+                                                             RayLib::Vector2<float>(transform.position.x, transform.position.z),
+                                                             RayLib::Vector2<float>(transform.scale.x, transform.scale.z));
         }
 
     }

@@ -62,8 +62,11 @@ namespace Component
             reachedWall = false;
             for (float i = 0; i < _bombNumber; i++) {
                 // if you encounter a wall, stop that direction
-                std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapSphere(*coordinator.get(), position + 
-                (*dir) * i * boxSize, explosionRadius);
+
+                RayLib::Vector3 wallCheckPos = position + (*dir) * i * boxSize;
+                std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapCircle(*coordinator.get(),
+                                                                                                                     RayLib::Circle(RayLib::Vector2<float>(wallCheckPos.x, wallCheckPos.z),
+                                                                                                                                    explosionRadius));
 
                 for (auto entity = entitiesAtPosition.begin(); entity != entitiesAtPosition.end(); entity++) {
                     if (entity->get().GetTag() == "Wall") {

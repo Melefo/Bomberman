@@ -10,13 +10,9 @@
 
 namespace Component
 {
-    Collider::Collider(ECS::Entity& attatchedEntity)
-     : _otherEntities(ECS::Coordinator::GetInstance("", 0.02f)->GetEntities()), _myEntity(attatchedEntity)
+    Collider::Collider(ECS::Entity& attatchedEntity, std::vector<std::string> collisionMask)
+     : _otherEntities(ECS::Coordinator::GetInstance("", 0.02f)->GetEntities()), _myEntity(attatchedEntity), _collisionMask(collisionMask)
     {
-    }
 
-    bool Collider::IsColliding(std::vector<std::string>)
-    {
-        return (false);
     }
 }

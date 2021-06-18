@@ -13,7 +13,6 @@
 #include "BehaviourSystem.hpp"
 #include "UISystem.hpp"
 #include "CollisionSystem.hpp"
-#include "BoxCollider.hpp"
 #include "Movement.hpp"
 #include "DropBomb.hpp"
 #include "Button.hpp"
@@ -21,13 +20,12 @@
 #include "Draggable.hpp"
 #include "Input.hpp"
 #include "Camera.hpp"
-#include "SphereCollider.hpp"
 #include "GameConfigurator.hpp"
 #include "Scenes.hpp"
 #include "PlayerInputs.hpp"
-
 #include "TerrainGenerator.hpp"
 #include "AudioDevice.hpp"
+#include "Physics2D.hpp"
 
 #define BOX_SIZE 10
 
@@ -63,6 +61,7 @@ int main(void)
     coordinator->AddSystem<Component::UISystem>(camera);
     coordinator->AddSystem<Component::RenderSystem>();
     coordinator->AddSystem<Component::BehaviourSystem>();
+
 
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_ESCAPE);

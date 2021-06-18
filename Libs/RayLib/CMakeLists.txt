@@ -4,7 +4,6 @@ SET(CMAKE_CXX_STANDARD 20)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/")
 
 FIND_PACKAGE(raylib REQUIRED)
-FIND_PACKAGE(physac REQUIRED)
 
 file(GLOB_RECURSE SRC sources/**/*.cpp sources/Shader/**/*.cpp)
 file(GLOB_RECURSE TEST tests/**/*.cpp tests/*.cpp)
@@ -40,11 +39,8 @@ HEADER_DIRECTORIES(INC)
 
 TARGET_LINK_LIBRARIES(encapsu raylib xmlGen)
 
-ADD_DEPENDENCIES(encapsu physac)
-ADD_DEPENDENCIES(ray_unit_tests physac)
-
 TARGET_LINK_LIBRARIES(ray_unit_tests raylib xmlGen criterion -lgcov)
 TARGET_COMPILE_OPTIONS(ray_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
-target_include_directories(encapsu PUBLIC ${raylib_SOURCE_DIR}/src ${INC} ${PHYSAC_INCLUDE_DIR})
-target_include_directories(ray_unit_tests PUBLIC ${raylib_SOURCE_DIR}/src ${INC} ${PHYSAC_INCLUDE_DIR})
+target_include_directories(encapsu PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
+target_include_directories(ray_unit_tests PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
