@@ -121,12 +121,12 @@ namespace Component
 
     bool SquareCollider::CheckCollisionMask(ECS::Entity& entity)
     {
-        for (auto tag : _collisionMask) {
-            if (entity.GetTag().find(tag) != std::string::npos) {
+        for (auto mask : _collisionMask) {
+            if (entity.GetTag().find(mask) != std::string::npos) {
                 return (true);
             }
         }
-        return (true);
+        return (false);
     }
 
     void SquareCollider::UpdateSquare(void)
