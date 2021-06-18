@@ -32,8 +32,8 @@
 #include "Drawable3D.hpp"
 #include "AssetCache.hpp"
 
-EntityFactory::EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
-    : _coordinator(coordinator), _camera(camera)
+EntityFactory::EntityFactory(ECS::Coordinator& coordinator)
+    : _coordinator(coordinator)
 {
     _pickupFunctions.push_back(std::bind(&EntityFactory::createSpeedPickUp, this));
     _pickupFunctions.push_back(std::bind(&EntityFactory::createRangePickUp, this));
@@ -245,13 +245,13 @@ ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::Explo
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createCamera(void)
+ECS::Entity& EntityFactory::createCamera(RayLib::Camera3D &camera)
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
     entity.SetTag("Camera");
 
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, -50.0f));
-    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, _camera);
+    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
     return (entity);
 }
