@@ -94,7 +94,7 @@ ECS::Entity& EntityFactory::createWall(RayLib::Vector3 pos)
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createBox(RayLib::Vector3 position, const int, const bool draggable)
+ECS::Entity& EntityFactory::createBox(RayLib::Vector3 position, const int, const bool)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 

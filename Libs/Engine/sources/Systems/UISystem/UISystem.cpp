@@ -11,7 +11,7 @@
 
 namespace Component
 {
-    UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera), _window(RayLib::Window::GetInstance(0.0f, ""))
+    UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera), _window(RayLib::Window::GetInstance(0, ""))
     {
         // ! obsolète ?
         AddDependency<IUIObject>();
