@@ -100,4 +100,21 @@ namespace Component
         SetMaterialShader(0, *_shader);
     }
 
+    std::ostream &Drawable3D::operator<<(std::ostream &os)
+    {
+        return (os);
+    }
+
+    boost::property_tree::ptree& Drawable3D::operator<<(boost::property_tree::ptree &ptree)
+    {
+        // ! get asset name
+        /*boost::property_tree::ptree vec3 = ptree.get_child("Vector3");
+
+        x = vec3.get<float>("x");
+        y = vec3.get<float>("y");
+        z = vec3.get<float>("z");*/
+        return (ptree);
+    }
+
+
 }

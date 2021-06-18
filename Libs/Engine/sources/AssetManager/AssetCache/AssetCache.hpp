@@ -47,6 +47,16 @@ class AssetCache {
             return (std::dynamic_pointer_cast<T>(_assets[path]));
         }
 
+        template<typename T>
+        static std::string GetAssetName(std::shared_ptr<T> assetPtr)
+        {
+            for (auto it : _assets) {
+                if (it.second == assetPtr)
+                    return (it.first);
+            }
+            return ("");
+        }
+
         /* ? Targs ... ?
         template<typename T>
         T& CreateAsset(const std::string& path)
