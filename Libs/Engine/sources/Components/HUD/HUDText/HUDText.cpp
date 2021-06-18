@@ -18,15 +18,15 @@ namespace Component {
     {
     }
 
-    void HUDText::Update(double dt, ECS::Entity& entity)
+    void HUDText::Update(double, ECS::Entity&)
     {
     }
 
-    void HUDText::FixedUpdate(ECS::Entity& entity)
+    void HUDText::FixedUpdate(ECS::Entity&)
     {
     }
 
-    void HUDText::LateUpdate(double dt, ECS::Entity& entity)
+    void HUDText::LateUpdate(double, ECS::Entity&)
     {
     }
 }
