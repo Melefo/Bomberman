@@ -8,6 +8,7 @@
 #include "Explosion.hpp"
 #include "Drawable3D.hpp"
 #include <iostream>
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
@@ -26,7 +27,8 @@ namespace Component
         _explosionTimer -= _window->GetFrameTime();
 
         // ! draw wire sphere on the window to see/debug radius!
-        _window->DrawSphereWires(_transform.position, _radius);
+        if (Engine::GameConfiguration::GetDebugMode())
+            _window->DrawSphereWires(_transform.position, _radius);
 
         if (_explosionTimer <= 0.0f) {
             //std::cout << "BOOM" << std::endl;
