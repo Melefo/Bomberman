@@ -68,7 +68,7 @@ int main(void)
 
 
     window->SetTargetFPS(60);
-    window->SetExitKey(KEY_ESCAPE);
+    window->SetExitKey(KEY_PAUSE);
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0) {

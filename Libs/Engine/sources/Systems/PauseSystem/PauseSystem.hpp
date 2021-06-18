@@ -43,10 +43,10 @@ namespace Component
              */
             RayLib::Input _input;
             /**
-             * @brief Pause State 
+             * @brief pause system
              * 
              */
-            bool _pauseState;
+            bool _pauseSystem;
     };
 }
 

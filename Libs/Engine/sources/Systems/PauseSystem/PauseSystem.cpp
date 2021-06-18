@@ -9,22 +9,25 @@
 
 namespace Component
 {
-    PauseSystem::PauseSystem() : _input(), _pauseState(false)
+    PauseSystem::PauseSystem() : _input(), _pauseSystem(false)
     {
     }
 
     void PauseSystem::Update(double, ECS::Entity& entity)
     {
-        std::cout << _pauseState;
-        if (this->_input.IsKeyPressed(KeyboardKey::KEY_P) == true) {
-            std::cout << " pass "; 
-            _pauseState = !_pauseState;
+        if (this->_input.IsKeyReleased(KeyboardKey::KEY_ESCAPE) == true && _pauseSystem == false) {
+            _pauseSystem = true;
+            if (!ECS::Coordinator::GetInstance()->HasSystem<PhysicsSystem>() && !ECS::Coordinator::GetInstance()->HasSystem<BehaviourSystem>())
+                return;
+            ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
+            ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
+        } else if (this->_input.IsKeyReleased(KeyboardKey::KEY_P) == true && _pauseSystem == true) {
+            _pauseSystem = false;
             if (!ECS::Coordinator::GetInstance()->HasSystem<PhysicsSystem>() && !ECS::Coordinator::GetInstance()->HasSystem<BehaviourSystem>())
                 return;
             ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
             ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
         }
-        std::cout << std::endl;
     }
 
     void PauseSystem::FixedUpdate(ECS::Entity &entity)

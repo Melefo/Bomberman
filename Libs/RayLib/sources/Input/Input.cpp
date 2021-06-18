@@ -53,6 +53,11 @@ namespace RayLib
         return (::IsKeyPressed(key));
     }
 
+    bool Input::IsKeyReleased(int key)
+    {
+        return (::IsKeyReleased(key));
+    }
+
     int Input::GetKeyPressed(void)
     {
         return (::GetKeyPressed());
