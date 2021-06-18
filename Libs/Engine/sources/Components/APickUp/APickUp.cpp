@@ -20,9 +20,8 @@ namespace Component
             Transform& transform = entity.GetComponent<Transform>();
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(_coordinator, RayLib::Circle(RayLib::Vector2<float>(transform.position.x, transform.position.z),
                                                                                                                                     _pickupRadius));
-
             for (auto it = entities.begin(); it != entities.end(); it++) {
-                if (it->get().GetTag().find("PlayerEntity") != std::string::npos /* OR TAG == AI*/)
+                if (it->get().GetTag().find("PlayerEntity") != std::string::npos /* OR TAG == AI*/) {
                     OnPickup(it->get());
             }
         }
