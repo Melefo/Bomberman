@@ -8,11 +8,9 @@
 #ifndef PHYSICSBODY_HPP_
 #define PHYSICSBODY_HPP_
 
-#include "physac.h"
-
 namespace RayLib
 {
-	class PhysicsBody : public ::PhysicsBodyData
+	class PhysicsBody
 	{
 
 	};
