@@ -265,7 +265,7 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     //bomb.Dispose();
 
     ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
-    Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
+    entityTitle.GetComponent<Component::TextUI>();
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(-1000.0f, -1.0f, 0.0f);
 }
 

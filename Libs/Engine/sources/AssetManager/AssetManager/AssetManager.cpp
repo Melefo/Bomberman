@@ -35,7 +35,7 @@ void AssetManager::loadAssetsThreadFunc(std::map<std::string, uint32_t> objects)
         isAlreadyLoaded = false;
         for (auto &asset : _assets) {
             // ! chaque player et IA ont leur propre asset
-            if (asset->getName().find("Player") != std::string::npos)
+            if (asset->getName().find("PlayerEntity") != std::string::npos)
                 continue;
             //if (asset->getName().find("AI") != std::string::npos)
             //    continue;

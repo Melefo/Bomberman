@@ -56,7 +56,7 @@ namespace Component
 
         coordinatorRef->RemoveEntities("Wall");
         coordinatorRef->RemoveEntities("Box");
-        coordinatorRef->RemoveEntities("Player_");
+        coordinatorRef->RemoveEntities("PlayerEntity");
         coordinatorRef->RemoveEntities("PickUp");
         coordinatorRef->RemoveEntities("Bomb");
         coordinatorRef->RemoveEntities("HUD");

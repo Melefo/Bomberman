@@ -111,11 +111,11 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys, int nbrOfTheP
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     if (nbrOfThePlayer <= 9)
-        entity.SetTag("Player_00" + std::to_string(nbrOfThePlayer));
+        entity.SetTag("PlayerEntity_00" + std::to_string(nbrOfThePlayer));
     else if (nbrOfThePlayer <= 99)
-        entity.SetTag("Player_0" + std::to_string(nbrOfThePlayer));
+        entity.SetTag("PlayerEntity_0" + std::to_string(nbrOfThePlayer));
     else if (nbrOfThePlayer <= 999)
-        entity.SetTag("Player_" + std::to_string(nbrOfThePlayer));
+        entity.SetTag("PlayerEntity_" + std::to_string(nbrOfThePlayer));
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 1));
     entity.AddComponent<Component::PhysicsBody>();
     entity.AddComponent<Component::Renderer>("Player");

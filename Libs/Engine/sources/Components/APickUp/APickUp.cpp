@@ -21,7 +21,7 @@ namespace Component
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapSphere(_coordinator, transform.position, _pickupRadius);
 
             for (auto it = entities.begin(); it != entities.end(); it++) {
-                if (it->get().GetTag() == "Player" /* OR TAG == AI*/)
+                if (it->get().GetTag().find("PlayerEntity") != std::string::npos /* OR TAG == AI*/)
                     OnPickup(it->get());
             }
         }
