@@ -129,6 +129,12 @@ namespace Component
              */
             static void SwitchMapStatus(void);
 
+            /**
+             * @brief save map in xml file
+             * 
+             */
+            static void SaveMap(void);
+
             static void StartGame(void);
             static void StartEditorMenu(void);
             static void ExitGameToMainMenu(void);
@@ -152,10 +158,16 @@ namespace Component
              */
             Button& _button;
             /**
-             * @brief Private Method for displaying dynamic text on click
+             * @brief Private Method for displaying dynamic text on click with int
              * 
              */
             static void TextInterfaceLoader(std::string tagName, int nb);
+            /**
+             * @brief Private Method for displaying dynamic text on click with string
+             * 
+             * @param tagName 
+             * @param str 
+             */
             static void TextInterfaceLoader(std::string tagName, std::string str);
     };
 }

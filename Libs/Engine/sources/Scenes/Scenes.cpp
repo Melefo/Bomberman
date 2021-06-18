@@ -200,9 +200,15 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     mapTypeStatus.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4 - (mapTypeStatusTextSize.x / 2.0f),
         window->GetSize().y / 2 - (mapTypeStatusTextSize.y / 2.0f) - 15, 0.0f);
 
-    ECS::Entity& mapType = entityFactory.createButton("../assets/buttons/Plus_texture.png");
+    ECS::Entity& mapType = entityFactory.createButton("../assets/buttons/Switch_texture.png");
     mapType.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4 - (mapTypeStatusTextSize.x / 2.0f), window->GetSize().y / 2 + mapTypeStatusTextSize.y - 30, 0.0f);
     mapType.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::SwitchMapStatus));
+
+//Save Button
+
+    ECS::Entity& save = entityFactory.createButton("../assets/buttons/Save_texture.png");
+    save.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x - (mapTypeStatusTextSize.x / 2.0f) - (window->GetSize().x / 10), window->GetSize().y + mapTypeStatusTextSize.y - (window->GetSize().x / 10), 0.0f);
+    save.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::SaveMap));
 
 // Map Size Header
     ECS::Entity& mapSize = entityFactory.createText("Select map size", "../assets/pixelplay.png", 50.0f, 4.0f);

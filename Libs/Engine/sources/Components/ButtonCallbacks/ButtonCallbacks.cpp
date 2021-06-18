@@ -253,4 +253,9 @@ namespace Component
             TextInterfaceLoader("TextMapStatus", "BASIC");
         }
     }
+
+    void ButtonCallbacks::SaveMap(void)
+    {
+        Engine::GameConfiguration::SaveMap();
+    }
 }
