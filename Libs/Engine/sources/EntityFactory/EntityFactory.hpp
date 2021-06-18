@@ -116,6 +116,8 @@ class EntityFactory {
 
         ECS::Entity& createCamera(void);
 
+        ECS::Entity& createFloor(RayLib::Vector2<float> mapSize);
+
     protected:
     private:
         ECS::Coordinator& _coordinator;
