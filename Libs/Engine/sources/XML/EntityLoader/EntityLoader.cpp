@@ -31,7 +31,7 @@ namespace Serialization
         ECS::Entity& entity = coordinator->CreateEntity();
         //boost::property_tree::ptree entityNode = ptree.get_child("Entity");
 
-        entity.SetTag(ptree.get_value<std::string>("tag"));
+        entity.SetTag(ptree.get<std::string>("tag"));
 
         for (auto it = _loadAbleComponents.begin(); it != _loadAbleComponents.end(); it++) {
             if (ptree.find(it->first) != ptree.not_found()) {

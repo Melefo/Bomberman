@@ -91,6 +91,12 @@ class EntityFactory {
          */
         ECS::Entity& createHUDText(Component::AController &controller, int nbrOfThePlayer);
 
+        /**
+         * @brief Create a AI object
+         * 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createAI();
          /**
          * @brief Create a Text object
          * 

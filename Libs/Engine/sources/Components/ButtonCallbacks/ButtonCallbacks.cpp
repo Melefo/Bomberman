@@ -56,6 +56,7 @@ namespace Component
 
         coordinatorRef->RemoveEntities("Wall");
         coordinatorRef->RemoveEntities("Box");
+        coordinatorRef->RemoveEntities("AI");
         coordinatorRef->RemoveEntities("PlayerEntity");
         coordinatorRef->RemoveEntities("PickUp");
         coordinatorRef->RemoveEntities("Bomb");
@@ -63,7 +64,7 @@ namespace Component
 
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
-        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers());
+        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA());
         Engine::GameConfiguration::SetSeed(std::rand() % 10000);
 
         if (Engine::GameConfiguration::GetIsMapBasic())
@@ -210,8 +211,11 @@ namespace Component
     void ButtonCallbacks::StartGame(void)
     {
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
-        if (!terrainGeneratorRef.isGenerated())
-            return;
+        if (!terrainGeneratorRef.isGenerated()) {
+            terrainGeneratorRef.generateRandomMap(0);
+            terrainGeneratorRef.generateBoxes();
+            terrainGeneratorRef.placePlayers();
+        }
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 

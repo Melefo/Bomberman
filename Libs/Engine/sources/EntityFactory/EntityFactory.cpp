@@ -26,6 +26,7 @@
 #include "Explosion.hpp"
 #include "PhysicsBody.hpp"
 #include "Box.hpp"
+#include "AIAlgo.hpp"
 #include "TextBox.hpp"
 #include "TextBoxCallback.hpp"
 #include "HUDText.hpp"
@@ -150,6 +151,32 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys, int nbrOfTheP
 
     entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(90.0f, 0.0f, 0.0f);
     entity.AddComponent<Component::Destructible>(entity, 1);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createAI()
+{
+    ECS::Entity &entity = _coordinator.CreateEntity();
+    entity.SetTag("AI");
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
+    entity.AddComponent<Component::PhysicsBody>();
+
+    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture.png");
+    entity.AddComponent<Component::Animator>(entity, "../assets/Player/Player_anim_Idle.glb", "Idle");
+    entity.GetComponent<Component::Animator>().AddState("../assets/Player/Player_anim_Run.glb", "Run");
+
+    Component::Transform& transform = entity.GetComponent<Component::Transform>();
+    entity.AddComponent<Component::Collider, Component::SquareCollider>(entity,
+                                                                        std::vector<std::string>({"Wall", "Box", "Bomb"}),
+                                                                        RayLib::Vector2<float>(transform.position),
+                                                                        RayLib::Vector2<float>(transform.scale));
+
+    entity.AddComponent<Component::Destructible>(entity, 1);
+    //AIMapsGenerator& mapsgen = _coordinator.GetSystem<AIMapsGenerator>();
+    entity.GetComponent<Component::Transform>().rotation = RayLib::Vector3(90.0f, 0.0f, 0.0f);
+
+    entity.AddComponent<Component::IBehaviour, Component::AIAlgo>(entity, 0.75f, 5.0f);
+    // add destructible
     return (entity);
 }
 
