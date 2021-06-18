@@ -167,4 +167,21 @@ namespace Engine
         file << "</Entities>";
         file.close();
     }
+
+    void GameConfiguration::SaveMap(const std::string& terrainPath)
+    {
+        if (!_terrainGenerator.isGenerated())
+            return;
+        std::ofstream file(terrainPath + ".txt", std::ofstream::trunc | std::ofstream::out);
+        std::ostringstream oss;
+
+        const std::vector<std::string> terrain = _terrainGenerator.getMap();
+
+        for (auto line : terrain) {
+            oss << line << std::endl;
+        }
+        file << oss.str();
+        file.close();
+    }
+
 }

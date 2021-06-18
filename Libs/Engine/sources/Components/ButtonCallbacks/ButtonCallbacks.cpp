@@ -263,6 +263,10 @@ namespace Component
 
     void ButtonCallbacks::SaveMap(void)
     {
-        Engine::GameConfiguration::SaveMap();
+        //! pour le xml (sans arg)
+        //Engine::GameConfiguration::SaveMap();
+
+        //! pour le .txt (arg = path)
+        Engine::GameConfiguration::SaveMap("map");
     }
 }

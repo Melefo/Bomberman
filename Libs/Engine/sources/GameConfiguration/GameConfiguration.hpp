@@ -63,6 +63,8 @@ namespace Engine
             static void SetGameOver(bool gameOver);
 
             static void SaveMap(void);
+            static void SaveMap(const std::string& path);
+
 
             static void SetDroppedMap(bool isDropped);
             static bool GetDroppedMap(void);

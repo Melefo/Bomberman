@@ -31,31 +31,13 @@ namespace Component
             {
                 std::vector<std::string> droppedFiles = _window->GetDroppedFiles(&count);
                 // open file
-                std::ifstream myfile(droppedFiles[0]);
 
-                std::stringstream buffer;
-                buffer << myfile.rdbuf();
-
-                std::istringstream iss;
-                iss.str(buffer.str());
-                myfile.close();
-
-                //std::cout << iss.str() << std::endl;
-                std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
-
-                // clear all existing entities
-
-                _coordinator->RemoveEntities("Wall");
-                _coordinator->RemoveEntities("Box");
-                _coordinator->RemoveEntities("AI");
-                _coordinator->RemoveEntities("PlayerEntity");
-                _coordinator->RemoveEntities("PickUp");
-                _coordinator->RemoveEntities("Bomb");
-
-                Serialization::EntityLoader::LoadEntities(iss);
-
-                Engine::GameConfiguration::SetDroppedMap(true);
-
+                if (droppedFiles[0].find(".xml") != std::string::npos) {
+                    ParseXMLEntities(droppedFiles[0]);
+                }
+                if (droppedFiles[0].find(".txt") != std::string::npos) {
+                    ParseTerrain(droppedFiles[0]);
+                }
                 _window->ClearDroppedFiles();
             }
         }
@@ -70,6 +52,68 @@ namespace Component
                 //_coordinator->GetSystem<Component::BehaviourSystem>().ToggleStatus();
             }
         }
+    }
+
+    void GameConfigurator::ParseXMLEntities(const std::string& path)
+    {
+        std::ifstream myfile(path);
+
+        std::stringstream buffer;
+        buffer << myfile.rdbuf();
+
+        std::istringstream iss;
+        iss.str(buffer.str());
+        myfile.close();
+
+        //std::cout << iss.str() << std::endl;
+        std::cout << "Dropped file: " << path << std::endl;
+
+        // clear all existing entities
+
+        _coordinator->RemoveEntities("Wall");
+        _coordinator->RemoveEntities("Box");
+        _coordinator->RemoveEntities("AI");
+        _coordinator->RemoveEntities("PlayerEntity");
+        _coordinator->RemoveEntities("PickUp");
+        _coordinator->RemoveEntities("Bomb");
+
+        Serialization::EntityLoader::LoadEntities(iss);
+
+        Engine::GameConfiguration::SetDroppedMap(true);
+
+    }
+
+    //! gestion d'erreur
+    void GameConfigurator::ParseTerrain(const std::string& path)
+    {
+        std::vector<std::string> lines;
+        // loop getline
+        std::ifstream infile(path);
+
+        //gameconfiguration get terrain
+        Component::Camera &cameraRef = Component::Camera::GetMainCamera();
+        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
+
+        std::string line;
+        while (std::getline(infile, line)) {
+            lines.push_back(line);
+        }
+
+        _coordinator->RemoveEntities("Wall");
+        _coordinator->RemoveEntities("Box");
+        _coordinator->RemoveEntities("AI");
+        _coordinator->RemoveEntities("PlayerEntity");
+        _coordinator->RemoveEntities("PickUp");
+        _coordinator->RemoveEntities("Bomb");
+        _coordinator->RemoveEntities("HUD");
+
+        // terrain.clear
+        terrainGeneratorRef.clearMap();
+        // terrain.setmap (lines)
+        terrainGeneratorRef.SetMap(lines);
+        Scenes::InitMap(*_coordinator, cameraRef.camera, false);
+        cameraRef.getEntity().GetComponent<Component::Transform>().position.z = -200;
+        infile.close();
     }
 
     void GameConfigurator::ResetPlayersAnimations()

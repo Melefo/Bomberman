@@ -448,3 +448,9 @@ bool TerrainGenerator::isGenerated()
 {
     return _isGenerated;
 }
+
+void TerrainGenerator::SetMap(std::vector<std::string> map)
+{
+    _isGenerated = true;
+    _map = map;
+}
