@@ -6,6 +6,7 @@
 */
 
 #include "EntityLoader.hpp"
+#include "EngineExceptions.hpp"
 
 namespace Serialization
 {
@@ -30,6 +31,8 @@ namespace Serialization
         ECS::Entity& entity = coordinator->CreateEntity();
         //boost::property_tree::ptree entityNode = ptree.get_child("Entity");
 
+        entity.SetTag(ptree.get_value<std::string>("tag"));
+
         for (auto it = _loadAbleComponents.begin(); it != _loadAbleComponents.end(); it++) {
             if (ptree.find(it->first) != ptree.not_found()) {
                 it->second(entity, ptree);
@@ -48,7 +51,13 @@ namespace Serialization
 
     void EntityLoader::LoadEntities(boost::property_tree::ptree &ptree)
     {
+        if (ptree.find("Entities") == ptree.not_found())
+            throw Engine::Exception::EngineException("Entity node not found in XML");
+
         boost::property_tree::ptree entitiesNode = ptree.get_child("Entities");
+
+        if (entitiesNode.find("Entity") == entitiesNode.not_found())
+            throw Engine::Exception::EngineException("Entity node not found in XML");
 
         for (auto& it : entitiesNode) {
             boost::property_tree::ptree entityNode = it.second;
