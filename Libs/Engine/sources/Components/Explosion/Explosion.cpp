@@ -6,6 +6,7 @@
 */
 
 #include "Explosion.hpp"
+#include "Drawable3D.hpp"
 #include <iostream>
 
 namespace Component
@@ -60,7 +61,7 @@ namespace Component
             return;
 
         // either already has a collider, or is not a center bomb
-        if (_myEntity.OfType<Collider>().size() > 0 || !_myEntity.HasComponent<Renderer>())
+        if (_myEntity.OfType<Collider>().size() > 0 || !_myEntity.HasComponent<Drawable3D>())
             return;
 
         // happens if the factory creates a bomb
@@ -75,7 +76,6 @@ namespace Component
             if (entity->get().GetId() == _parent.GetId()) {
                 found = true;
                 std::cout << "Parent is in radius " << _radius << std::endl;
-
             }
         }
 
@@ -86,8 +86,6 @@ namespace Component
                                                              std::vector<std::string>({"Player"}),
                                                              RayLib::Vector2<float>(transform.position.x, transform.position.z),
                                                              RayLib::Vector2<float>(transform.scale.x, transform.scale.z));
-
-            //_myEntity.AddComponent<Collider, SphereCollider>(_myEntity, transform.position, _radius);
         }
 
     }
