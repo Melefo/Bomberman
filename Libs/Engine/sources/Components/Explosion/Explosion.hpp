@@ -97,6 +97,7 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
+            float GetExplosionTimer() const;
             void CheckParentLeftRadius(void);
 
             void Explode(void);

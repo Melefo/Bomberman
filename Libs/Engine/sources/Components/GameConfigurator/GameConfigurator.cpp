@@ -81,6 +81,8 @@ namespace Component
         for (auto &entity : entities) {
             if (entity->GetTag().find("PlayerEntity") != std::string::npos)
                 remainingPlayers++;
+            if (entity->GetTag().find("AI") != std::string::npos)
+                remainingPlayers++;
         }
         _nbrPlayersAlive = remainingPlayers;
         if (_nbrPlayersAlive <= 1) {

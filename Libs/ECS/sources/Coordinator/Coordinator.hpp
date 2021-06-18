@@ -149,6 +149,12 @@ namespace ECS
             {
                 return this->_systemManager.GetSystem<T>();
             }
+
+            template<typename T>
+            bool HasSystem()
+            {
+                return this->_systemManager.HasSystem<T>();
+            }
             /**
              * @brief Execute FixedUpdate, Update & LateUpdate
              * 

@@ -6,6 +6,7 @@
 */
 
 #include "CoolDownBoost.hpp"
+#include "AIAlgo.hpp"
 
 namespace Component
 {
@@ -20,9 +21,10 @@ namespace Component
         if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             DecrementCooldown(playerInputs);
+        } else if (collision.GetTag().find("AI") != std::string::npos) {
+            AController& aiController = collision.GetComponent<AIAlgo>();
+            DecrementCooldown(aiController);
         }
-        // else if tag AI Controller ...
-
     }
 
     void CoolDownBoost::DecrementCooldown(AController& acontroller)
