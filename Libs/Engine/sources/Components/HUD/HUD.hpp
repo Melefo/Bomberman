@@ -24,6 +24,7 @@ namespace Component
              * @brief Construct a new HUD object
              * 
              * @param attatchedEntity
+             * @param playerNbr
              */
             HUD(Component::AController &attatchedController, int playerNbr);
             /**

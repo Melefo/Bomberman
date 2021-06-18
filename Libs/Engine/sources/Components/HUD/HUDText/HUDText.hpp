@@ -13,7 +13,17 @@
 namespace Component {
     class HUDText : public HUD {
         public:
+        /**
+             * @brief Construct a new HUDText object
+             * 
+             * @param attatchedEntity
+             * @param playerNbr
+             */
             HUDText(Component::AController &attatchedController, int playerNbr);
+            /**
+             * @brief Destroy the HUDText object
+             * 
+             */
             ~HUDText();
 
             /**
