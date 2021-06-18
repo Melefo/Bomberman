@@ -15,9 +15,9 @@
 #include <memory>
 #include "Entity.hpp"
 #include "Coordinator.hpp"
-#include "BoundingBox.hpp"
-#include "RayCollision.hpp"
-#include "Ray.hpp"
+#include "Transform.hpp"
+#include "Circle.hpp"
+#include "Rectangle.hpp"
 
 namespace Component
 {
@@ -32,7 +32,7 @@ namespace Component
              * 
              * @param attatchedEntity
              */
-            Collider(ECS::Entity& attatchedEntity);
+            Collider(ECS::Entity& attatchedEntity, std::vector<std::string> collisionMask);
             /**
              * @brief Destroy the Collider object
              * 
@@ -52,68 +52,21 @@ namespace Component
              */
             Collider& operator=(const Collider& other) = default;
 
-            /**
-             * @brief Returns true if the collider collides with any other entity
-             * 
-             * @return true 
-             * @return false 
-             */
-            virtual bool IsColliding(std::vector<std::string> colMask);
-            /**
-             * @brief Call IsColliding with a temporary position
-             * 
-             * @param center 
-             * @return true 
-             * @return false 
-             */
-            virtual bool IsCollidingAtPosition(RayLib::Vector3 center, std::vector<std::string> colMask) = 0;
-            /**
-             * @brief Returns true if the collider collides with given circle
-             * 
-             * @param center 
-             * @param radius 
-             * @return true 
-             * @return false 
-             */
-            virtual bool CheckCollision(RayLib::Vector3 center, float radius) = 0;
-            /**
-             * @brief Returns true if the collider collides with given box
-             * 
-             * @param box 
-             * @return true 
-             * @return false 
-             */
-            virtual bool CheckCollision(RayLib::BoundingBox& box) = 0;
-            /**
-             * @brief Returns true if the collider collides with given ray
-             * 
-             * @param ray 
-             * @return true 
-             * @return false 
-             */
-            virtual bool CheckCollision(RayLib::Ray& ray) = 0;
+            virtual bool IsColliding(void) = 0;
 
-            /**
-             * @brief Draw the lines of the collider
-             * 
-             */
+            virtual bool IsCollidingAtPosition(RayLib::Vector2<float> pos) = 0;
+
+            virtual bool CheckCollision(RayLib::Circle& circle) = 0;
+            virtual bool CheckCollision(RayLib::Rectangle& rec) = 0;
+
             virtual void DrawLines() = 0;
 
-            /**
-             * @brief Get the Entity we are colliding with, throws an error if no entity collides
-             * 
-             * @return ECS::Entity& 
-             */
-            virtual ECS::Entity& GetCollision(std::vector<std::string> colMask) = 0;
+            virtual ECS::Entity& GetCollision(void) = 0;
+            virtual ECS::Entity& GetCollisionPosition(RayLib::Vector2<float> pos) = 0;
 
-            /**
-             * @brief Get the Collision Position object
-             * 
-             * @param center 
-             * @return ECS::Entity& 
-             */
-            virtual ECS::Entity& GetCollisionPosition(RayLib::Vector3 center, std::vector<std::string> colMask) = 0;
+            // virtual RayLib::PhysacBody& GetPhysacBody() = 0;
 
+            // ! change collision mask at runtime ??
 
         protected:
             /**
@@ -126,6 +79,8 @@ namespace Component
              * 
              */
             ECS::Entity& _myEntity;
+
+            std::vector<std::string> _collisionMask;
         private:
 
     };

@@ -9,6 +9,14 @@
 
 namespace RayLib
 {
+
+    Mesh::Mesh(const std::string& path)
+    {
+        ::Model model = ::LoadModel(path.c_str());
+        _mesh = model.meshes[0];
+        _loaded = true;
+    }
+
     Mesh::Mesh(Vector3 scale) : _mesh(::GenMeshCube(scale.x, scale.y, scale.z)), _loaded(true)
     {
     }

@@ -8,7 +8,7 @@ file(GLOB_RECURSE BEHAVIOUR_SRC sources/Behaviour/**/*.cpp)
 if(MSVC)
   add_compile_options(/W4 /WX)
 else()
-  add_compile_options(-Wall -Wextra -Wshadow)
+  add_compile_options(-Wall -Wextra -Wshadow -Wno-missing-field-initializers)
 endif()
 
 add_executable(loopPrototype

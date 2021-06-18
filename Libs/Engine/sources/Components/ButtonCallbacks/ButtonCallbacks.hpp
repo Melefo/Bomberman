@@ -14,7 +14,6 @@
 #include "Button.hpp"
 #include <iostream>
 #include "Coordinator.hpp"
-#include "AssetManager.hpp"
 
 namespace Component
 {

@@ -13,7 +13,6 @@
 #include "Camera3D.hpp"
 #include "IUIObject.hpp"
 #include "Renderer.hpp"
-#include "AssetManager.hpp"
 #include "Window.hpp"
 #include "GameConfiguration.hpp"
 

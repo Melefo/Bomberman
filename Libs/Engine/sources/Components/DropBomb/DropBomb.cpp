@@ -7,6 +7,7 @@
 
 #include "DropBomb.hpp"
 #include <iostream>
+#include "Drawable3D.hpp"
 #include "CollisionSystem.hpp"
 #include "Camera.hpp"
 
@@ -37,7 +38,7 @@ namespace Component
         if (_bombNumber > _maxBombs)
             _bombNumber = static_cast<int>(_maxBombs);
 
-        position = RayLib::Vector3(RoundToNearest10(position.x), 0.0f, RoundToNearest10(position.z));
+        position = RayLib::Vector3(static_cast<float>(RoundToNearest10(position.x)), 0.0f, static_cast<float>(RoundToNearest10(position.z)));
 
         // spawn a bunch of small bombs in a cross pattern of size radius
         // create a bunch of directions vectors
@@ -53,7 +54,7 @@ namespace Component
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
         firstBomb.GetComponent<Transform>().position = position;
-        firstBomb.AddComponent<Renderer>("Bomb");
+        firstBomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
         bool reachedWall = false;
 
@@ -61,8 +62,11 @@ namespace Component
             reachedWall = false;
             for (float i = 0; i < _bombNumber; i++) {
                 // if you encounter a wall, stop that direction
-                std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapSphere(*coordinator.get(), position + 
-                (*dir) * i * boxSize, explosionRadius);
+
+                RayLib::Vector3 wallCheckPos = position + (*dir) * i * boxSize;
+                std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapCircle(*coordinator.get(),
+                                                                                                                     RayLib::Circle(RayLib::Vector2<float>(wallCheckPos.x, wallCheckPos.z),
+                                                                                                                                    explosionRadius));
 
                 for (auto entity = entitiesAtPosition.begin(); entity != entitiesAtPosition.end(); entity++) {
                     if (entity->get().GetTag() == "Wall") {
@@ -85,7 +89,7 @@ namespace Component
     int DropBomb::RoundToNearest10(float num)
     {
         float dec = num - std::floor(num);
-        int rounded = std::floor(num);
+        int rounded = static_cast<int>(std::floor(num));
 
         if (rounded % 10 < 5) {
             rounded = (rounded / 10) * 10;

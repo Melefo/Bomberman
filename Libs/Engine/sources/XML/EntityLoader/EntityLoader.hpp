@@ -13,7 +13,6 @@
 #include "Coordinator.hpp"
 #include "Transform.hpp"
 #include "Renderer.hpp"
-#include "BoxCollider.hpp"
 #include "Destructible.hpp"
 #include "Box.hpp"
 
