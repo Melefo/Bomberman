@@ -115,6 +115,12 @@ namespace ECS
              */
             bool GetStatus() const;
             /**
+             * @brief Set the Status object
+             * 
+             * @param bool new status
+             */
+            void SetStatus(bool newStatus);
+            /**
              * @brief Enable/Disable the system
              * 
              */

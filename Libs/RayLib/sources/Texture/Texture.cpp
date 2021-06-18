@@ -50,32 +50,6 @@ namespace RayLib
         UnloadTexture(_texture);
     }
 
-    std::ostream& Texture::operator<<(std::ostream& os)
-    {
-        os << "<Texture>";
-        os << "<fileName>" << _fileName << "</fileName>";
-        os << "</Texture>";
-        return (os);
-    }
-
-    std::istream& Texture::operator>>(std::istream& is)
-    {
-        boost::property_tree::ptree tree;
-        boost::property_tree::xml_parser::read_xml(is, tree);
-
-        this->operator<<(tree);
-        return (is);
-    }
-
-    boost::property_tree::ptree& Texture::operator<<(boost::property_tree::ptree &ptree)
-    {
-        boost::property_tree::ptree tex = ptree.get_child("Texture");
-
-        _fileName = tex.get<std::string>("fileName");
-        _texture = LoadTexture(_fileName.c_str());
-        return (ptree);
-    }
-
     const std::string& Texture::GetFileName() const
     {
         return (_fileName);

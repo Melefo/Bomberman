@@ -6,6 +6,7 @@
 */
 
 #include "SpeedBoost.hpp"
+#include "AIAlgo.hpp"
 
 namespace Component
 {
@@ -20,9 +21,10 @@ namespace Component
         if (collision.GetTag() == "Player" && collision.HasComponent<PlayerInputs>()) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             ApplyBoost(playerInputs);
+        } else if (collision.GetTag() == "AI" && collision.HasComponent<AIAlgo>()) {
+            AController& aiController = collision.GetComponent<AIAlgo>();
+            ApplyBoost(aiController);
         }
-        // else if tag AI Controller ...
-
     }
 
     void SpeedBoost::ApplyBoost(AController& acontroller)

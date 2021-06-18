@@ -15,6 +15,7 @@
 #include "Vector2.hpp"
 #include "Camera3D.hpp"
 #include "Rectangle.hpp"
+#include "IAsset.hpp"
 
 namespace RayLib
 {
@@ -22,13 +23,13 @@ namespace RayLib
      * @brief Texture encapsulation
      * 
      */
-    class Texture : public IXMLSerializable {
+    class Texture : public IAsset {
         public:
             /**
              * @brief Destroy the Texture object
              *
              */
-            ~Texture();
+            ~Texture() override;
 
             /**
              * @brief Construct a new Texture object from a file
@@ -87,11 +88,6 @@ namespace RayLib
              * @return ::Texture2D 
              */
             ::Texture2D GetTexture();
-
-            std::ostream& operator<<(std::ostream& os) override;
-            std::istream& operator>>(std::istream& is) override;
-
-            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
             const std::string& GetFileName() const;
 

@@ -6,6 +6,7 @@
 */
 
 #include "RangeBoost.hpp"
+#include "AIAlgo.hpp"
 
 namespace Component
 {
@@ -20,9 +21,10 @@ namespace Component
         if (collision.GetTag() == "Player" && collision.HasComponent<PlayerInputs>()) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             IncrementRange(playerInputs);
+        } else if (collision.GetTag() == "AI" && collision.HasComponent<AIAlgo>()) {
+            AController& aiController = collision.GetComponent<AIAlgo>();
+            IncrementRange(aiController);
         }
-        // else if tag AI Controller ...
-
     }
 
     void RangeBoost::IncrementRange(AController& acontroller)

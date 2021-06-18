@@ -28,7 +28,7 @@ namespace Component
             {
                 // Check collision between ray and box
                 for (auto it = _colliders.begin(); it != _colliders.end(); it++) {
-                    _selected = it->get().CheckCollision(ray);
+                    //_selected = it->get().CheckCollision(ray);
                     if (_selected)
                         break;
                 }
@@ -39,13 +39,13 @@ namespace Component
 
         // if selected, move with mouse flat on plane (y = 0)
         if (_selected) {
-            RayLib::RayCollision hitInfo = RayLib::Physics3D::CheckCollision(ray, 0.0f);
+            /*RayLib::RayCollision hitInfo = RayLib::Physics3D::CheckCollision(ray, 0.0f);
 
             if (hitInfo.HasHit()) {
                 // snap position
                 RayLib::Vector3 position = hitInfo.GetPosition();
                 _transform.position = RayLib::Vector3(round(position.x), position.y, round(position.z));
-            }
+            }*/
         }
     }
 

@@ -8,7 +8,6 @@
 #ifndef SCENES_HPP_
 #define SCENES_HPP_
 
-#include "AssetManager.hpp"
 #include "Coordinator.hpp"
 #include "Camera3D.hpp"
 #include "Entity.hpp"
@@ -36,7 +35,7 @@ class Scenes {
         static void InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage);
         static void InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera);
 
-        static void switchScene(ECS::Coordinator &coordinator, AssetManager &am, std::string &newScene);
+        static void switchScene(ECS::Coordinator &coordinator, std::string &newScene);
 
         static std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>> scenesCtor;
     private:

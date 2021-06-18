@@ -70,7 +70,7 @@ namespace Component
         std::size_t size = 0;
 
         for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get()->GetTag() != "Player")
+            if (it->get()->GetTag() != "Player" && it->get()->GetTag() != "AI")
                 continue;
             if (!it->get()->HasComponent<Transform>())
                 continue;

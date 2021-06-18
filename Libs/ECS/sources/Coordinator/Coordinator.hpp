@@ -149,6 +149,12 @@ namespace ECS
             {
                 return this->_systemManager.GetSystem<T>();
             }
+
+            template<typename T>
+            bool HasSystem()
+            {
+                return this->_systemManager.HasSystem<T>();
+            }
             /**
              * @brief Execute FixedUpdate, Update & LateUpdate
              * 
@@ -181,7 +187,7 @@ namespace ECS
              * 
              * @param const std::string&
              */
-            void RemoveComponents(const std::string &name);
+            void RemoveEntities(const std::string &name);
 
             /**
              * @brief Checks if the game is running

@@ -7,6 +7,8 @@
 
 #include "GameConfigurator.hpp"
 #include "BehaviourSystem.hpp"
+#include "PhysicsSystem.hpp"
+#include "Animator.hpp"
 #include "Scenes.hpp"
 
 namespace Component
@@ -54,9 +56,19 @@ namespace Component
             if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver()) {
                 Engine::GameConfiguration::SetGameOver(true);
                 _coordinator->SetGameIsRunning(false);
+                _coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(false);
+                ResetPlayersAnimations();
                 Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), _nbrPlayersAlive == 0? "TIE": "YOU WON, CONGRATS!");
                 //_coordinator->GetSystem<Component::BehaviourSystem>().ToggleStatus();
             }
+        }
+    }
+
+    void GameConfigurator::ResetPlayersAnimations()
+    {
+        for (auto &entity : _coordinator->GetEntities()) {
+            if (entity->GetTag().find("Player") != std::string::npos)
+                entity->GetComponent<Component::Animator>().SetState("Idle");
         }
     }
 
@@ -67,7 +79,9 @@ namespace Component
         std::string tag = "";
 
         for (auto &entity : entities) {
-            if (entity->GetTag().find("Player") != std::string::npos)
+            if (entity->GetTag() == "Player")
+                remainingPlayers++;
+            if (entity->GetTag() == "AI")
                 remainingPlayers++;
         }
         _nbrPlayersAlive = remainingPlayers;
