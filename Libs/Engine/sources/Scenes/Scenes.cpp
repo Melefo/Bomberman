@@ -280,6 +280,7 @@ void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 
 void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 {
+    //std::unique_ptr<RayLib::Window>& windowRef = RayLib::Window::GetInstance(0, "");
     EntityFactory entityFactory(coordinator, camera);
 
     InitMap(coordinator, camera, false);
@@ -304,6 +305,16 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 
     ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(-1000.0f, -1.0f, 0.0f);
+
+    ECS::Entity& mainMenuButt = entityFactory.createButton("../assets/buttons/MainMenuBtnStd_texture.png");
+    mainMenuButt.SetTag("MainMenuPauseButton");
+    mainMenuButt.GetComponent<Component::Transform>().position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
+    mainMenuButt.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ExitGameToMainMenu));
+
+    ECS::Entity& entityReplay = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
+    entityReplay.SetTag("ReplayPauseButton");
+    entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
+    entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
 }
 
 void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage)

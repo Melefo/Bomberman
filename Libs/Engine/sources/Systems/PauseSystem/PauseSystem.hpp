@@ -16,6 +16,9 @@
 #include "Coordinator.hpp"
 #include "BehaviourSystem.hpp"
 #include "PhysicsSystem.hpp"
+#include "EntityFactory.hpp"
+#include "ButtonCallbacks.hpp"
+#include "Button.hpp"
 
 namespace Component
 {
