@@ -78,7 +78,7 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D& camera, co
             }
         }
     }
-    
+    entityFactory.createFloor(RayLib::Vector2<float>(map[0].size(), map.size()));
 }
 
 void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
