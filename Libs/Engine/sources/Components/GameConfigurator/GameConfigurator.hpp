@@ -41,7 +41,6 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
-            void SaveMap(void);
 
             bool CheckGameOver(void);
 

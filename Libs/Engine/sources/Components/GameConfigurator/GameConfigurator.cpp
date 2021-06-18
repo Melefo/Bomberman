@@ -96,34 +96,4 @@ namespace Component
     {
 
     }
-
-    void GameConfigurator::SaveMap(void)
-    {
-        // open a file called map.xml
-        std::ofstream file("./map.xml", std::ofstream::trunc | std::ofstream::out);
-
-        // get coordinator
-        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-        // get entities
-        const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator->GetEntities();
-        std::ostringstream oss;
-
-        for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get()->GetTag() != "Wall" && it->get()->GetTag() != "Box")
-                continue;
-            std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> components = it->get()->GetComponents();
-            oss << "<Entity>";
-
-            oss << "<tag>" << it->get()->GetTag() << "</tag>";
-            for (auto cmp = components.begin(); cmp != components.end(); cmp++) {
-                IXMLSerializable& obj = *cmp->get();
-                oss << obj;
-            }
-            oss << "</Entity>";
-        }
-        file << "<Entities>";
-        file << oss.str();
-        file << "</Entities>";
-        file.close();
-    }
 }

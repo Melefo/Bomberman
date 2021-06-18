@@ -62,6 +62,8 @@ namespace Engine
             static bool GetGameOver(void);
             static void SetGameOver(bool gameOver);
 
+            static void SaveMap(void);
+
             static TerrainGenerator &GetTerrainGenerator(void);
 
         protected:
