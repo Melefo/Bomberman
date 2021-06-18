@@ -40,6 +40,10 @@ namespace Component
     {
         // rotation and angle are taken from the transform
         //_model.Draw(position, scale, tint);
+        if (_texture)
+            SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, *_texture);
+        if (_shader)
+            SetMaterialShader(0, *_shader);
         _model->DrawEx(position, RayLib::Vector3(0.0f, 1.0f, 0.0f), 0.0f, scale, tint);
     }
 

@@ -26,16 +26,13 @@ int main(void)
 
     coordinator->AddSystem<Component::RenderSystem>();
 
-    // sphere mesh
-    RayLib::Mesh sphereMesh(1.0f, 20, 20);
-    // drawable
-    ECS::Entity& sphereEntity = coordinator->CreateEntity();
-    sphereEntity.AddComponent<Component::Transform>();
-    sphereEntity.AddComponent<Component::Drawable3D>(sphereMesh);
-    Component::Drawable3D& drawable = sphereEntity.GetComponent<Component::Drawable3D>();
+    ECS::Entity& entity1 = coordinator->CreateEntity();
+    entity1.AddComponent<Component::Transform>(RayLib::Vector3(5.0f, 0.0f, 0.0f));
+    entity1.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
-    std::shared_ptr<RayLib::Shader> shader = AssetCache::GetAsset<RayLib::Shader>("../assets/shaders/mask");
-    drawable.SetMaterialShader(0, *shader);
+    ECS::Entity& entity2 = coordinator->CreateEntity();
+    entity2.AddComponent<Component::Transform>(RayLib::Vector3(-5.0f, 0.0f, 0.0f));
+    entity2.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/castle/castle_diffuse.png");
 
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_ESCAPE);
