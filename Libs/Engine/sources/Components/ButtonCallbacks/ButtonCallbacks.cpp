@@ -261,6 +261,7 @@ namespace Component
         std::string sceneName = "Game";
 
         coordinator->setCurrentScene(sceneName);
+        coordinator->DeleteScene("EditorMenu");
 
         coordinator->SetGameIsRunning(true);
         coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(true);
@@ -298,6 +299,7 @@ namespace Component
         coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(false);
         Engine::GameConfiguration::SetGameOver(false);
+        coordinatorRef->DeleteScene("Game");
     }
 
     void ButtonCallbacks::SwitchMapStatus(void)

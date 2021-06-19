@@ -38,7 +38,10 @@ int main(int ac, char **av)
     //! camera pos and target determined by component
     //! attention le 3e arg: world up est important
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1000), "Bomberman");
+    RayLib::Window::SetTraceLogLevel(LOG_WARNING);
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(), "Bomberman");
+    RayLib::Vector2<int> maxSize = window->GetMaxSize();
+    window->SetSize(RayLib::Vector2<int>(static_cast<int>(maxSize.x / 1.5f), static_cast<int>(maxSize.y / 1.5f)));
 
     RayLib::AudioDevice::InitAudioDevice();
 
@@ -69,10 +72,10 @@ int main(int ac, char **av)
     coordinator->AddSystem<Component::BehaviourSystem>();
     coordinator->AddSystem<Component::PauseSystem>();
 
-
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_PAUSE);
     window->SetIcon(RayLib::Image("../assets/Icon.png"));
+    window->SetWindowState(FLAG_WINDOW_RESIZABLE);
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0 && Scenes::scenesCtor.find(coordinator->getCurrentScene()) != Scenes::scenesCtor.end()) {

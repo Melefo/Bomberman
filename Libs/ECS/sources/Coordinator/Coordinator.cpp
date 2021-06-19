@@ -34,10 +34,12 @@ namespace ECS
 
     void Coordinator::Update(double dt)
     {
+
         for (auto &pair : this->_systemManager.GetSystems())
         {
             if (!pair.second->GetStatus())
                 continue;
+            std::string scene = this->_currentScene;
             auto dependencies = pair.second->GetDependencies();
 
             auto& entities = this->_scenes[this->_currentScene].GetEntities();
@@ -48,7 +50,7 @@ namespace ECS
                 if (entity->HasComponents(dependencies)) {
                     pair.second->Update(dt, *entity);
                 }
-                if (entities.size() == 0)
+                if (entities.size() == 0 || scene != this->_currentScene)
                     break;
             }
         }
@@ -60,6 +62,7 @@ namespace ECS
         {
             if (!pair.second->GetStatus())
                 continue;
+            std::string scene = this->_currentScene;
             auto dependencies = pair.second->GetDependencies();
 
             auto& entities = this->_scenes[this->_currentScene].GetEntities();
@@ -70,6 +73,8 @@ namespace ECS
                 if (entity->HasComponents(dependencies)) {
                     pair.second->FixedUpdate(*entity);
                 }
+                if (entities.size() == 0 || scene != this->_currentScene)
+                    break;
             }
         }
     }
@@ -81,6 +86,7 @@ namespace ECS
             if (!pair.second->GetStatus())
                 continue;
             auto dependencies = pair.second->GetDependencies();
+            std::string scene = this->_currentScene;
 
             auto& entities = this->_scenes[this->_currentScene].GetEntities();
             for (auto it = entities.begin(); it != entities.end();) {
@@ -90,6 +96,8 @@ namespace ECS
                 if (entity->HasComponents(dependencies)) {
                     pair.second->LateUpdate(dt, *entity);
                 }
+                if (entities.size() == 0 || scene != this->_currentScene)
+                    break;
             }
         }
     }
@@ -146,6 +154,11 @@ namespace ECS
     void Coordinator::setCurrentScene(const std::string& sceneName)
     {
         this->_currentScene = sceneName;
+    }
+
+    void Coordinator::DeleteScene(const std::string& sceneName)
+    {
+        this->_scenes.erase(sceneName);
     }
 
     const ECS::EntityManager &Coordinator::getScene(const std::string& sceneName) const

@@ -25,8 +25,8 @@ namespace Component
 
         _rect.x = position.x;
         _rect.y = position.y;
-        _rect.width = static_cast<float>(_texture->GetTexture().width);
-        _rect.height = static_cast<float>(_texture->GetTexture().height);
+        _rect.width = static_cast<float>(_texture->GetTexture().width) * scale.x;
+        _rect.height = static_cast<float>(_texture->GetTexture().height) * scale.y;
 
         // ? multiplier scale par _rect scale ?
 

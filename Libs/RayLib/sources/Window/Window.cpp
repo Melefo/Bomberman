@@ -109,9 +109,24 @@ namespace RayLib
 
     Vector2<int> Window::GetSize()
     {
-        Vector2<int> size(GetScreenWidth(), GetScreenHeight());
+        Vector2<int> size(::GetScreenWidth(), ::GetScreenHeight());
 
         return (size);
+    }
+
+    Vector2<int> Window::GetMaxSize()
+    {
+        Vector2<int> size(::GetMonitorWidth(::GetCurrentMonitor()), ::GetMonitorHeight(::GetCurrentMonitor()));
+
+        return (size);
+    }
+
+    Vector2<float> Window::GetScale()
+    {
+        Vector2<int> window = this->GetSize();
+        Vector2<int> monitor = this->GetMaxSize();
+
+        return Vector2<float>(static_cast<float>(window.x) / monitor.x, static_cast<float>(window.y) / monitor.y);
     }
 
     void Window::SetSize(const Vector2<int>& size)
@@ -163,5 +178,10 @@ namespace RayLib
     void Window::DrawFPS(Vector2<int> pos)
     {
         ::DrawFPS(pos.x, pos.y);
+    }
+
+    void Window::SetTraceLogLevel(int logLevel)
+    {
+        ::SetTraceLogLevel(logLevel);
     }
 }

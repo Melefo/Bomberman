@@ -25,7 +25,7 @@ namespace Component
             }
             DecrementCooldown(controller);
 
-            EntityFactory entityFactory(_coordinator);
+            EntityFactory entityFactory(*ECS::Coordinator::GetInstance());
             entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/CoolDownPickUp_texture.png", controller.GetDropBomb().GetBonusTimeCoolDown());
             entityFactory.createHUDBonusBar(controller, getPlayerNbr(collision.GetTag()), "CoolDown", controller.GetDropBomb().GetBonusTimeCoolDown());
 
