@@ -7,13 +7,15 @@
 
 #include "EntityLoader.hpp"
 #include "EngineExceptions.hpp"
+#include "PhysicsBody.hpp"
 
 namespace Serialization
 {
     std::map<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>> EntityLoader::_loadAbleComponents = {
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Transform", &EntityLoader::LoadTransform),
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Destructible", &EntityLoader::LoadDestructible),
-        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Box", &EntityLoader::LoadBox)
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Box", &EntityLoader::LoadBox),
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("PhysicsBody", &EntityLoader::LoadPhysicsBody)
     };
 
     ECS::Entity& EntityLoader::LoadEntity(std::istream& iss)
@@ -32,6 +34,8 @@ namespace Serialization
         //boost::property_tree::ptree entityNode = ptree.get_child("Entity");
 
         entity.SetTag(ptree.get<std::string>("tag"));
+
+        entity.AddComponent<Component::Transform>();
 
         for (auto it = _loadAbleComponents.begin(); it != _loadAbleComponents.end(); it++) {
             if (ptree.find(it->first) != ptree.not_found()) {
@@ -69,7 +73,8 @@ namespace Serialization
 
     void EntityLoader::LoadTransform(ECS::Entity& entity, boost::property_tree::ptree &ptree)
     {
-        entity.AddComponent<Component::Transform>();
+        if (!entity.HasComponent<Component::Transform>())
+            entity.AddComponent<Component::Transform>();
         entity.GetComponent<Component::Transform>() << ptree;
     }
 
@@ -83,5 +88,10 @@ namespace Serialization
     {
         entity.AddComponent<Component::Box>(entity);
         entity.GetComponent<Component::Box>() << ptree;
+    }
+
+    void EntityLoader::LoadPhysicsBody(ECS::Entity& entity, boost::property_tree::ptree &ptree)
+    {
+        entity.AddComponent<Component::PhysicsBody>(entity);
     }
 }

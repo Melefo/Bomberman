@@ -12,4 +12,15 @@ namespace Component
     PhysicsBody::PhysicsBody() : velocity()
     {
     }
+
+    std::ostream &PhysicsBody::operator<<(std::ostream &os)
+    {
+        os << "<PhysicsBody></PhysicsBody>";
+        return (os);
+    }
+
+    boost::property_tree::ptree& PhysicsBody::operator<<(boost::property_tree::ptree &ptree)
+    {
+        return (ptree);
+    }
 }

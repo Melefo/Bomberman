@@ -87,6 +87,12 @@ namespace Serialization
              */
             static void LoadDestructible(ECS::Entity& entity, boost::property_tree::ptree &ptree);
 
+            /**
+             * @brief Add physicsbody to entity
+             * 
+             */
+            static void EntityLoader::LoadPhysicsBody(ECS::Entity& entity, boost::property_tree::ptree &ptree);
+
             static void LoadBox(ECS::Entity& entity, boost::property_tree::ptree &ptree);
 
 
