@@ -315,6 +315,11 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     entityReplay.SetTag("ReplayPauseButton");
     entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
     entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
+
+    /*ECS::Entity& entityPauseText = entityFactory.createText("Pause", "../assets/pixelplay.png", 200.0f, 4.0f);
+    entityPauseText.SetTag("PauseText");
+    entityPauseText.GetComponent<Component::Transform>().position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
+    impossible de récup un text la dépendencies button*/
 }
 
 void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage)

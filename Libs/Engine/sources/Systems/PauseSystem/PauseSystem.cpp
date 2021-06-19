@@ -18,37 +18,45 @@ namespace Component
     {
         bool mmPauseButton = false;
         bool rPauseButton = false;
+        bool pauseText = false;
         if (entity.GetTag() == "MainMenuPauseButton")
             mmPauseButton = true;
         if (entity.GetTag() == "ReplayPauseButton")
             rPauseButton = true;
+        if (entity.GetTag() == "PauseText")
+            pauseText = true;
         if (!entity.HasComponent<Transform>())
             return;
         Transform& transform = entity.GetComponent<Transform>();
         std::unique_ptr<RayLib::Window>& windowRef = RayLib::Window::GetInstance(0, "");
 
-        if (this->_input.IsKeyReleased(KeyboardKey::KEY_P) == true && _pauseSystem == false) {
-            _pauseSystem = true;
+        if (this->_input.IsKeyReleased(KeyboardKey::KEY_P) == true) {
             if (!ECS::Coordinator::GetInstance()->HasSystem<PhysicsSystem>() && !ECS::Coordinator::GetInstance()->HasSystem<BehaviourSystem>())
                 return;
-            ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
-            ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
             if (mmPauseButton) {
-                std::cout << "DETECT1";
-                transform.position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f, windowRef->GetSize().y / 2.0f + 300.0f, 0.0f);
+                transform.position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f, windowRef->GetSize().y / 2.0f + 300.0f, -100.0f);
             }
             if (rPauseButton) {
-                std::cout << "DETECT2";
-                transform.position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 150.0f, windowRef->GetSize().y / 2.0f + 150.0f, 0.0f);
+                transform.position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f, windowRef->GetSize().y / 2.0f + 150.0f, -100.0f);
             }
-        } else if (this->_input.IsKeyReleased(KeyboardKey::KEY_O) == true && _pauseSystem == true) {
-            _pauseSystem = false;
+            if (pauseText) {
+                transform.position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f, windowRef->GetSize().y / 2.0f - 150.0f, -100.0f);
+            }
+            if (!_pauseSystem) {
+                ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
+                ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
+            }
+            _pauseSystem = true;
+        } else if (this->_input.IsKeyReleased(KeyboardKey::KEY_O) == true) {
             if (!ECS::Coordinator::GetInstance()->HasSystem<PhysicsSystem>() && !ECS::Coordinator::GetInstance()->HasSystem<BehaviourSystem>())
                 return;
-            ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
-            ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
-            if (mmPauseButton || rPauseButton)
+            if (mmPauseButton || rPauseButton || pauseText)
                 transform.position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
+            if (_pauseSystem) {
+                ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
+                ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
+            }
+            _pauseSystem = false;
         }
     }
 
