@@ -80,7 +80,7 @@ class EntityFactory {
          * @param int The n th player. So the function knows where to put the hud
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createBaseHUD(Component::AController &controller, int nbrOfThePlayer);
+        ECS::Entity& createBaseHUD(int nbrOfThePlayer);
 
         /**
          * @brief Create a HUD part with a text

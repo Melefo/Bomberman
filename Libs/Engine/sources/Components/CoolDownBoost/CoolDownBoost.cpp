@@ -7,6 +7,7 @@
 
 #include "CoolDownBoost.hpp"
 #include "AIAlgo.hpp"
+#include "EntityFactory.hpp"
 
 namespace Component
 {
@@ -21,6 +22,9 @@ namespace Component
         if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             DecrementCooldown(playerInputs);
+            EntityFactory entityFactory(_coordinator);
+            Component::AController &controller = collision.GetComponent<Component::PlayerInputs>().GetAController();
+            entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/CoolDownPickUp_texture.png", controller.GetDropBomb().GetBonusTime());
         } else if (collision.GetTag().find("AI") != std::string::npos) {
             AController& aiController = collision.GetComponent<AIAlgo>();
             DecrementCooldown(aiController);

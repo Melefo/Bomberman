@@ -180,7 +180,7 @@ ECS::Entity& EntityFactory::createAI()
 
 ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer)
 {
-    ECS::Entity &icon = createBaseHUD(controller, nbrOfThePlayer);
+    ECS::Entity &icon = createBaseHUD(nbrOfThePlayer);
 
     icon.SetTag(icon.GetTag() + "_bonusIcon");
     icon.AddComponent<Component::IUIObject, Component::Button>(path);
@@ -188,6 +188,8 @@ ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controlle
         icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 60, 0);
     else if (path.find("Speed") != std::string::npos)
         icon.GetComponent<Component::Transform>().position += RayLib::Vector3(70, 60, 0);
+    else if (path.find("CoolDown") != std::string::npos)
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(140, 60, 0);
     icon.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
     icon.AddComponent<Component::IBehaviour, Component::HUDBonusIcon>(controller, nbrOfThePlayer, timer);
     return (icon);
@@ -208,15 +210,16 @@ ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controlle
 
 ECS::Entity& EntityFactory::createHUDText(Component::AController &controller, int nbrOfThePlayer)
 {
-    ECS::Entity &entity = createBaseHUD(controller, nbrOfThePlayer);
+    ECS::Entity &entity = createBaseHUD(nbrOfThePlayer);
 
     entity.SetTag(entity.GetTag() + "_text");
+    entity.AddComponent<Component::HUDText>(controller, nbrOfThePlayer);
     entity.AddComponent<Component::IUIObject, Component::TextUI>("Player " + std::to_string(nbrOfThePlayer), "../assets/pixelplay.png", 50.0f, 4.0f);
     entity.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 0, 0);
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createBaseHUD(Component::AController &controller, int nbrOfThePlayer)
+ECS::Entity& EntityFactory::createBaseHUD(int nbrOfThePlayer)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     if (nbrOfThePlayer <= 9)
@@ -226,9 +229,7 @@ ECS::Entity& EntityFactory::createBaseHUD(Component::AController &controller, in
     else if (nbrOfThePlayer <= 999)
         entity.SetTag("HUD_" + std::to_string(nbrOfThePlayer));
 
-    entity.AddComponent<Component::HUDText>(controller, nbrOfThePlayer);
-    RayLib::Vector3 &offset = entity.GetComponent<Component::HUDText>().getOffset();
-    entity.AddComponent<Component::Transform>(offset, RayLib::Vector3(0, 0, 0), RayLib::Vector3(6, 6, 6));
+    entity.AddComponent<Component::Transform>(Component::HUD::GetOffsetFromPlayerNbr(nbrOfThePlayer), RayLib::Vector3(0, 0, 0), RayLib::Vector3(6, 6, 6));
     return (entity);
 }
 

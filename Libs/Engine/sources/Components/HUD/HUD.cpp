@@ -10,7 +10,11 @@
 namespace Component
 {
     HUD::HUD(Component::AController &attatchedController, int playerNbr)
-     : _myAController(attatchedController)
+     : _myAController(attatchedController), _offset(GetOffsetFromPlayerNbr(playerNbr))
+    {
+    }
+
+    RayLib::Vector3 &HUD::GetOffsetFromPlayerNbr(int playerNbr)
     {
         RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0, "")->GetSize();
         std::map<int, RayLib::Vector3> hudPos = {
@@ -23,7 +27,7 @@ namespace Component
             {7, {windowSize.x / 2.0f - 200.0f, 100.0f}},
             {8, {windowSize.x / 2.0f - 200.0f, windowSize.y - 200.0f}},
         };
-        _offset = hudPos[playerNbr];
+        return (hudPos[playerNbr]);
     }
 
     RayLib::Vector3 &HUD::getOffset()

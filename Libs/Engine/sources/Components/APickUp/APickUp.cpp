@@ -38,4 +38,13 @@ namespace Component
             transform.rotation.y += 1.0f;
         }
     }
+
+    int APickUp::getPlayerNbr(const std::string &tag)
+    {
+        for (unsigned int i = 0; tag[i]; i++) {
+            if (tag[i] >= '0' && tag[i] <= '9')
+                return std::stoi(&tag[i]);
+        }
+        return -1;
+    }
 }
