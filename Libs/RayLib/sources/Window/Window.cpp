@@ -13,7 +13,7 @@ namespace RayLib
 
     std::unique_ptr<Window> Window::_window = nullptr;
 
-    Window::Window(Vector2<int> size, const std::string& title)
+    Window::Window(Vector2<int> size, const std::string& title) : _fullscreen(false)
     {
         ::InitWindow(size.x, size.y, title.c_str());
         //if (IsWindowReady() == false)
@@ -81,6 +81,11 @@ namespace RayLib
         ::SetTargetFPS(target);
     }
 
+    void Window::SetIcon(const Image& image)
+    {
+        ::SetWindowIcon(image.GetImage());
+    }
+
     bool Window::WindowShouldClose(void)
     {
         return (::WindowShouldClose());
@@ -89,6 +94,17 @@ namespace RayLib
     void Window::CloseWindow()
     {
         ::CloseWindow();
+    }
+
+    void Window::ToggleFullScreen()
+    {
+        this->_fullscreen = !this->_fullscreen;
+        ::ToggleFullscreen();
+    }
+
+    bool Window::IsFullScreen() const
+    {
+        return this->_fullscreen;
     }
 
     Vector2<int> Window::GetSize()

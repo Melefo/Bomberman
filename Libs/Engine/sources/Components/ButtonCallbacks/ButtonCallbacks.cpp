@@ -258,6 +258,17 @@ namespace Component
         coordinator->SetGameIsRunning(false);
     }
 
+    void ButtonCallbacks::StartOptionMenu(void)
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        coordinator->setCurrentScene("OptionsMenu");
+    }
+
+    void ButtonCallbacks::ToggleFullScreen(void)
+    {
+        RayLib::Window::GetInstance(0, "")->ToggleFullScreen();
+    }
+
     void ButtonCallbacks::ExitGameToMainMenu(void)
     {
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();

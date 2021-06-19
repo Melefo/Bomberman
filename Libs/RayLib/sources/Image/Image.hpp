@@ -57,7 +57,7 @@ namespace RayLib
              */
             Image(const std::string &fileName, int *frames);
 
-            ::Image GetImage();
+            ::Image GetImage() const;
 
         protected:
         private:

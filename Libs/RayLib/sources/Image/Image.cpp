@@ -35,7 +35,7 @@ namespace RayLib
         UnloadImage(_image);
     }
 
-    ::Image Image::GetImage()
+    ::Image Image::GetImage() const
     {
         return (_image);
     }

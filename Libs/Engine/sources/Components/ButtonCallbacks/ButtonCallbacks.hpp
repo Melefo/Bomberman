@@ -137,10 +137,13 @@ namespace Component
 
             static void StartGame(void);
             static void StartEditorMenu(void);
+            static void StartOptionMenu(void);
             static void ExitGameToMainMenu(void);
 
             static void Replay(void);
             static void QuitWindow(void);
+
+            static void ToggleFullScreen(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};

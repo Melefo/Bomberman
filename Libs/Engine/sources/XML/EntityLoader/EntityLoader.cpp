@@ -38,7 +38,7 @@ namespace Serialization
                 it->second(entity, ptree);
             }
         }
-        std::cout << "Created entity with tag: " << entity.GetTag() << std::endl;
+        //std::cout << "Created entity with tag: " << entity.GetTag() << std::endl;
 
         return (entity);
     }
