@@ -53,6 +53,20 @@ namespace RayLib
             void SetSize(const Vector2<int>& size);
 
             /**
+             * @brief Get the monitor's size as a vector2<int>
+             *
+             * @return Vector2<int>
+             */
+            Vector2<int> GetMaxSize();
+
+            /**
+             * @brief Get the Scale between monitor size and window size
+             *
+             * @return Vector2<float>
+             */
+            Vector2<float> GetScale();
+
+            /**
              * @brief Change Window State mode
              *
              * @param size
@@ -187,6 +201,8 @@ namespace RayLib
              * @return std::unique_ptr<Window>& 
              */
             static std::unique_ptr<Window>& GetInstance(Vector2<int> size, const std::string& title);
+
+            static void SetTraceLogLevel(int logLevel);
 
             /**
              * @brief Construct a new Window

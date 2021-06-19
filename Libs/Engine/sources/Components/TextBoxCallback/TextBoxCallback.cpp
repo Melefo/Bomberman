@@ -44,7 +44,11 @@ namespace Component
 		std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 		RayLib::Vector2<float> winSize = RayLib::Vector2<float>(static_cast<float>(window->GetSize().x),
 			static_cast<float>(window->GetSize().y));
+		RayLib::Vector2<float> scale = window->GetScale();
+		RayLib::Rectangle rectangle = this->_textBox.GetRectangle();
+		rectangle.width *= scale.x;
+		rectangle.height *= scale.y;
 
-		return RayLib::Physics2D::CheckCollision(mousePos, this->_textBox.GetRectangle());
+		return RayLib::Physics2D::CheckCollision(mousePos, rectangle);
 	}
 }
