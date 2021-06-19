@@ -29,7 +29,7 @@
 
 #define BOX_SIZE 10
 
-int main(void)
+int main(int ac, char **av)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
 
@@ -54,7 +54,12 @@ int main(void)
     RayLib::Input player3Input;
     Engine::GameConfiguration::SetPlayerKeys(3, player3Input, KEY_E);
 
-    Engine::GameConfiguration::SetDebugMode(false);
+
+    std::cout << "ac: " << ac << std::endl;
+    if (ac == 2 && std::string(av[1]) == "-d")
+        Engine::GameConfiguration::SetDebugMode(true);
+    else
+        Engine::GameConfiguration::SetDebugMode(false);
 
     Engine::GameConfiguration::SetIA(2);
 
@@ -71,7 +76,7 @@ int main(void)
         if (coordinator->GetEntities().size() == 0) {
             Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera);
         }
-        
+
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);
 
