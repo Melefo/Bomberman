@@ -52,7 +52,7 @@ namespace Component
         }
     }
 
-    void PauseSystem::FixedUpdate(ECS::Entity &entity)
+    void PauseSystem::FixedUpdate(ECS::Entity&)
     {
         /*std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 
@@ -61,7 +61,7 @@ namespace Component
         }*/
     }
 
-    void PauseSystem::LateUpdate(double dt, ECS::Entity& entity)
+    void PauseSystem::LateUpdate(double, ECS::Entity&)
     {
         /*std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
 

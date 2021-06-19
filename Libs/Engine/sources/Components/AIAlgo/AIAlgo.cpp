@@ -16,8 +16,8 @@ namespace Component
     _currentState(AIState::HIDE), _enabled(true), _stateDuration(0.75f), _timeToStateChange(0.35f)
     {
 
-        if (_state.RunScript("../assets/Pathfinding.lua") != 0)
-            this->_enabled = false;
+        /*if (_state.RunScript("../assets/Pathfinding.lua") != 0)
+            this->_enabled = false;*/
     }
 
     void AIAlgo::Update(double dt, ECS::Entity& entity)
@@ -27,12 +27,12 @@ namespace Component
         if (!ECS::Coordinator::GetInstance()->HasSystem<AIMapsGenerator>())
             return;
         AIMapsGenerator& mapGen = ECS::Coordinator::GetInstance()->GetSystem<AIMapsGenerator>();
-        const std::vector<std::vector<int>>& playerMap = mapGen.GetPlayersMap();
+        //const std::vector<std::vector<int>>& playerMap = mapGen.GetPlayersMap();
         const std::vector<std::vector<int>>& boxMap = mapGen.GetBoxMap();
 
         Component::Transform &transform = _ai_player.GetComponent<Component::Transform>();
 
-        _state.Call("SetMapValues", playerMap, boxMap);
+        //_state.Call("SetMapValues", playerMap, boxMap);
 
         //lua_CFunction validNode = _state.GetGlobal<lua_CFunction>("IsPositionWalkable");
 
@@ -140,7 +140,7 @@ namespace Component
             _window->DrawSphereWires(position, 7.5f, 20, 20, col);
         }
         col = BLUE;
-        RayLib::Vector3 posi = RayLib::Vector3(targetPos.x, 0.0f, targetPos.y);
+        RayLib::Vector3 posi = RayLib::Vector3(static_cast<float>(targetPos.x), 0.0f, static_cast<float>(targetPos.y));
         posi = posi * 10.0f;
         posi += RayLib::Vector3(0.0f, 1.0f, 0.0f);
         _window->DrawSphereWires(posi, 7.5f, 20, 20, col);
@@ -157,9 +157,9 @@ namespace Component
 
     }
 
-    void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& mapPositions, const std::vector<std::vector<int>>& map)
+    void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>&, const std::vector<std::vector<int>>& map)
     {
-        std::vector<RayLib::Vector2<int>> path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", aiPos, targetPos, mapPositions);
+        std::vector<RayLib::Vector2<int>> path = {};//_state.Call<std::vector<RayLib::Vector2<int>>>("AStar", aiPos, targetPos, mapPositions);
 
         if (Engine::GameConfiguration::GetDebugMode()) {
             DebugPath(path, targetPos);
@@ -184,15 +184,15 @@ namespace Component
             _directionPath.push_back(RayLib::Vector3(0, 0, 0));
     }
 
-    RayLib::Vector2<int> AIAlgo::GetBestPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>& mapPositions, int value)
+    RayLib::Vector2<int> AIAlgo::GetBestPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>&, int value)
     {
         RayLib::Vector2<int> closestSymbol = agentPos;
         RayLib::Vector2<int> maxPoint = agentPos;
         RayLib::Vector2<int> minPoint = agentPos;
         std::vector<RayLib::Vector2<int>> path;
-        RayLib::Vector2<int> searchRadius(map.size() / 2, map.size() / 2);
+        RayLib::Vector2<int> searchRadius(static_cast<int>(map.size() / 2), static_cast<int>(map.size() / 2));
         if (map.size() < map[0].size())
-            searchRadius= RayLib::Vector2<int>(map[0].size()/ 2, map[0].size() / 2);
+            searchRadius= RayLib::Vector2<int>(static_cast<int>(map[0].size()/ 2), static_cast<int>(map[0].size() / 2));
         float closest = std::numeric_limits<float>::max();
 
         maxPoint += (searchRadius * 0.5f);
@@ -210,7 +210,7 @@ namespace Component
         for (int y = minPoint.y; y < maxPoint.y; y++) {
             for (int x = minPoint.x; x < maxPoint.x; x++) {
                 if (map[y][x] == value) {
-                    path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", agentPos, (RayLib::Vector2<int>(x, y)), mapPositions);
+                    path = {};
                     if (path.back().x != x && path.back().y != y)
                         continue;
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));
