@@ -43,13 +43,16 @@ int main(void)
     //! game manager for drag and drop
 
 
-    Engine::GameConfiguration::SetPlayers(2);
+    Engine::GameConfiguration::SetPlayers(3);
     RayLib::Input player1Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT), RayLib::Vector2<int>(KEY_DOWN, KEY_UP));
 
     Engine::GameConfiguration::SetPlayerKeys(1, player1Input, KEY_ENTER);
 
-    RayLib::Input player2Input;
-    Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_X);
+    RayLib::Input player2Input(RayLib::Vector2<int>(KEY_J, KEY_G), RayLib::Vector2<int>(KEY_H, KEY_Y));
+    Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_SPACE);
+
+    RayLib::Input player3Input;
+    Engine::GameConfiguration::SetPlayerKeys(3, player3Input, KEY_E);
 
     Engine::GameConfiguration::SetDebugMode(false);
 
