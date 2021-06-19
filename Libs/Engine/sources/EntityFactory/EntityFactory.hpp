@@ -17,7 +17,7 @@
 
 class EntityFactory {
     public:
-        EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera);
+        EntityFactory(ECS::Coordinator& coordinator);
         ~EntityFactory() = default;
 
         /**
@@ -80,7 +80,7 @@ class EntityFactory {
          * @param int The n th player. So the function knows where to put the hud
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createBaseHUD(Component::AController &controller, int nbrOfThePlayer);
+        ECS::Entity& createBaseHUD(int nbrOfThePlayer);
 
         /**
          * @brief Create a HUD part with a text
@@ -97,6 +97,16 @@ class EntityFactory {
          * @return ECS::Entity& 
          */
         ECS::Entity& createAI();
+
+        /**
+         * @brief Create a HUD part with a bonus icon
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createHUDBonusIcon(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer);
+
          /**
          * @brief Create a Text object
          * 
@@ -139,12 +149,11 @@ class EntityFactory {
          */
         ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
 
-        ECS::Entity& createCamera(void);
+        ECS::Entity& createCamera(RayLib::Camera3D &camera, const std::string& musicPath = "");
 
     protected:
     private:
         ECS::Coordinator& _coordinator;
-        RayLib::Camera3D& _camera;
         std::vector<std::function<ECS::Entity&(void)>> _pickupFunctions;
 };
 

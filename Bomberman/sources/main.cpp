@@ -30,7 +30,7 @@
 
 #define BOX_SIZE 10
 
-int main(void)
+int main(int ac, char **av)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
 
@@ -42,21 +42,25 @@ int main(void)
     RayLib::AudioDevice::InitAudioDevice();
 
     //! game manager for drag and drop
-    //ECS::Entity& gameManager = coordinator->CreateEntity();
-    //gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
 
-    //! uncomment to save generated map
-    //gameManager.GetComponent<Component::GameConfigurator>().SaveMap();
 
-    Engine::GameConfiguration::SetPlayers(2);
+    Engine::GameConfiguration::SetPlayers(3);
     RayLib::Input player1Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT), RayLib::Vector2<int>(KEY_DOWN, KEY_UP));
 
     Engine::GameConfiguration::SetPlayerKeys(1, player1Input, KEY_ENTER);
 
-    RayLib::Input player2Input;
-    Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_X);
+    RayLib::Input player2Input(RayLib::Vector2<int>(KEY_J, KEY_G), RayLib::Vector2<int>(KEY_H, KEY_Y));
+    Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_SPACE);
 
-    Engine::GameConfiguration::SetDebugMode(false);
+    RayLib::Input player3Input;
+    Engine::GameConfiguration::SetPlayerKeys(3, player3Input, KEY_E);
+
+
+    std::cout << "ac: " << ac << std::endl;
+    if (ac == 2 && std::string(av[1]) == "-d")
+        Engine::GameConfiguration::SetDebugMode(true);
+    else
+        Engine::GameConfiguration::SetDebugMode(false);
 
     Engine::GameConfiguration::SetIA(2);
 
@@ -74,7 +78,7 @@ int main(void)
         if (coordinator->GetEntities().size() == 0 && Scenes::scenesCtor.find(coordinator->getCurrentScene()) != Scenes::scenesCtor.end()) {
             Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera);
         }
-        
+
         window->BeginDrawing();
         window->ClearBackground(RAYWHITE);
 

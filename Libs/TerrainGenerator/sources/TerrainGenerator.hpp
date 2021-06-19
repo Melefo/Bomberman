@@ -129,6 +129,8 @@ class TerrainGenerator {
          */
         void placePlayers();
 
+        void SetMap(std::vector<std::string> map);
+
     protected:
         /**
          * @brief Generate a line based on the actual position

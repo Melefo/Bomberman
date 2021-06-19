@@ -43,4 +43,10 @@ namespace RayLib
         // ! invalid free
         //::UnloadSound(_sound);
     }
+
+    bool Sound::ISSoundPlaying()
+    {
+        return (::IsSoundPlaying(_sound));
+    }
+
 }

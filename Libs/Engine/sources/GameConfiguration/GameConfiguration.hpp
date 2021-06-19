@@ -50,6 +50,9 @@ namespace Engine
             static RayLib::Vector2<int> GetMapSize(void);
             static void SetMapSize(int x, int y);
 
+            static bool GetIsMapBasic(void);
+            static void SetIsMapBasic(bool value);
+
             static bool GetDebugMode(void);
             static void SetDebugMode(bool);
 
@@ -58,6 +61,13 @@ namespace Engine
 
             static bool GetGameOver(void);
             static void SetGameOver(bool gameOver);
+
+            static void SaveMap(void);
+            static void SaveMap(const std::string& path);
+
+
+            static void SetDroppedMap(bool isDropped);
+            static bool GetDroppedMap(void);
 
             static TerrainGenerator &GetTerrainGenerator(void);
 
@@ -68,9 +78,11 @@ namespace Engine
             static int _IA;
             static unsigned int _seed;
             static bool _debugMode;
+            static bool _isMapBasic;
             static bool _gameOver;
             static TerrainGenerator _terrainGenerator;
             static std::map<int, playerkeys> _playerKeys;
+            static bool _droppedMap;
     };
 }
 

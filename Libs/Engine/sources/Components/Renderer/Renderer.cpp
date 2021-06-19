@@ -26,7 +26,7 @@ namespace Component
     {
         boost::property_tree::ptree rendererTree = ptree.get_child("Renderer");
 
-        _name = rendererTree.get_child("AssetName").get_value<std::string>("AssetName");
+        _name = rendererTree.get<std::string>("AssetName");
         return (ptree);
     }
 

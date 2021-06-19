@@ -100,4 +100,32 @@ namespace Component
         SetMaterialShader(0, *_shader);
     }
 
+    std::ostream &Drawable3D::operator<<(std::ostream &os)
+    {
+        os << "<Drawable3D>";
+        os << "<_model>" << AssetCache::GetAssetName(_model) << "</_model>";
+        os << "<_texture>" << AssetCache::GetAssetName(_texture) << "</_texture>";
+        os << "<_shader>" << AssetCache::GetAssetName(_shader) << "</_shader>";
+        os << "</Drawable3D>";
+        return (os);
+    }
+
+    boost::property_tree::ptree& Drawable3D::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree drawable3DTree = ptree.get_child("Drawable3D");
+
+        std::string texturePath = drawable3DTree.get<std::string>("_texture");
+        std::string shaderPath = drawable3DTree.get<std::string>("_shader");
+        std::string modelPath = drawable3DTree.get<std::string>("_model");
+
+        if (modelPath != "")
+            _model = AssetCache::GetAsset<RayLib::Model>(modelPath);
+        if (texturePath != "")
+            SetTexture(texturePath);
+        if (shaderPath != "")
+            SetShader(shaderPath);
+        return (ptree);
+    }
+
+
 }

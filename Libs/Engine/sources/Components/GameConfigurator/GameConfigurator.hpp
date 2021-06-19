@@ -41,7 +41,8 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
-            void SaveMap(void);
+            void ParseXMLEntities(const std::string& path);
+            void ParseTerrain(const std::string& path);
 
             bool CheckGameOver(void);
 

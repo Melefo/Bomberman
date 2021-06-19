@@ -78,8 +78,8 @@ namespace Component
             // set rotation
             void RotateModel(RayLib::Vector3 rotation);
 
-            std::ostream &operator<<(std::ostream &os) override {return os;};
-            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+            std::ostream &operator<<(std::ostream &os) override;
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
         protected:
         private:

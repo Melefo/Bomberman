@@ -118,14 +118,14 @@ namespace ECS
     void Coordinator::RemoveEntities(const std::string &name)
     {
         const std::list<std::unique_ptr<ECS::Entity>>& entities = this->GetEntities();
-        std::vector<ECS::Entity*> toDelete;
 
-        for (auto &entity : entities) {
-            if (entity->GetTag().find(name) != std::string::npos)
-                toDelete.push_back(&(*entity));
+        for (auto it = entities.begin(); it != entities.end();) {
+            auto toDel = it->get();
+            it++;
+            if (toDel->GetTag().find(name) != std::string::npos) {
+                toDel->Dispose();
+            }
         }
-        for (auto &entity : toDelete)
-            entity->Dispose();
     }
 
     double Coordinator::getFixedDeltaTime() const

@@ -97,31 +97,43 @@ namespace Component
              * @brief Increment the map of Height
              * 
              */
-            static void IncrementMapHeight();
+            static void IncrementMapHeight(void);
 
             /**
              * @brief Decrement the map of Height
              * 
              */
-            static void DecrementMapHeight();
+            static void DecrementMapHeight(void);
 
             /**
              * @brief Increment the map of Width
              * 
              */
-            static void IncrementMapWidth();
+            static void IncrementMapWidth(void);
 
             /**
              * @brief Decrement the map of Width
              * 
              */
-            static void DecrementMapWidth();
+            static void DecrementMapWidth(void);
 
             /**
              * @brief Generate a map in the background
              * 
              */
             static void GenerateBackgroundMap(void);
+
+            /**
+             * @brief switch the IsMapBasic variable
+             * 
+             */
+            static void SwitchMapStatus(void);
+
+            /**
+             * @brief save map in xml file
+             * 
+             */
+            static void SaveMap(void);
 
             static void StartGame(void);
             static void StartEditorMenu(void);
@@ -146,10 +158,17 @@ namespace Component
              */
             Button& _button;
             /**
-             * @brief Private Method for displaying dynamic text on click
+             * @brief Private Method for displaying dynamic text on click with int
              * 
              */
             static void TextInterfaceLoader(std::string tagName, int nb);
+            /**
+             * @brief Private Method for displaying dynamic text on click with string
+             * 
+             * @param tagName 
+             * @param str 
+             */
+            static void TextInterfaceLoader(std::string tagName, std::string str);
     };
 }
 
