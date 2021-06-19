@@ -53,11 +53,13 @@ void TerrainGenerator::displayMap()
         std::cout << *it << std::endl;
 }
 
-void TerrainGenerator::generateBaseMap()
+void TerrainGenerator::generateBaseMap(int seed)
 {
     int index = 0;
 
     clearMap();
+    if (seed != -1)
+        std::srand(seed);
     for (; index < _height; index++)
         _map[index] = std::string(_width, static_cast<char>(mapTexture::OWALL));
     index = 0;
@@ -223,12 +225,12 @@ void TerrainGenerator::generateMap()
     std::srand(static_cast<unsigned int>(time(NULL)));
 
     if (_mapType == MapType::Basic)
-        generateBaseMap();
+        generateBaseMap(0);
     else if (_mapType == MapType::Random)
         generateRandomMap(0);
     else {
         if (std::rand() % 3 == 0)
-            generateBaseMap();
+            generateBaseMap(0);
         else
             generateRandomMap(0);
     }

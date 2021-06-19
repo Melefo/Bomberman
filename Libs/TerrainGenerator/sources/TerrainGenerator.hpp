@@ -71,7 +71,7 @@ class TerrainGenerator {
          * @brief Generate bomberman's basic map
          * 
          */
-        void generateBaseMap();
+        void generateBaseMap(int seed);
         /**
          * @brief Generate procedurally generated map
          * 

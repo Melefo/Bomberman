@@ -90,7 +90,7 @@ namespace Component
             Engine::GameConfiguration::SetSeed(std::rand() % 10000);
 
         if (Engine::GameConfiguration::GetIsMapBasic())
-            terrainGeneratorRef.generateBaseMap();
+            terrainGeneratorRef.generateBaseMap(Engine::GameConfiguration::GetSeed());
         else
             terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());         // TODO: get the seed entered by the user and put it here
         terrainGeneratorRef.generateBoxes();
