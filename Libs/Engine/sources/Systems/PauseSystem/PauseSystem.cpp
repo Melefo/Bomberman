@@ -9,72 +9,30 @@
 
 namespace Component
 {
-    PauseSystem::PauseSystem() : _input(), _pauseSystem(false)
+    PauseSystem::PauseSystem() : _input()
     {
-        this->AddDependency<Button>();
+        this->AddDependency<Camera>();
     }
 
-    void PauseSystem::Update(double, ECS::Entity& entity)
+    void PauseSystem::Update(double, ECS::Entity&)
     {
-        bool mmPauseButton = false;
-        bool rPauseButton = false;
-        bool pauseText = false;
-        if (entity.GetTag() == "MainMenuPauseButton")
-            mmPauseButton = true;
-        if (entity.GetTag() == "ReplayPauseButton")
-            rPauseButton = true;
-        if (entity.GetTag() == "PauseText")
-            pauseText = true;
-        if (!entity.HasComponent<Transform>())
-            return;
-        Transform& transform = entity.GetComponent<Transform>();
-        std::unique_ptr<RayLib::Window>& windowRef = RayLib::Window::GetInstance(0, "");
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
 
-        if (this->_input.IsKeyReleased(KeyboardKey::KEY_P) == true) {
-            if (!ECS::Coordinator::GetInstance()->HasSystem<PhysicsSystem>() && !ECS::Coordinator::GetInstance()->HasSystem<BehaviourSystem>())
-                return;
-            if (mmPauseButton) {
-                transform.position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f, windowRef->GetSize().y / 2.0f + 300.0f, -100.0f);
-            }
-            if (rPauseButton) {
-                transform.position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f, windowRef->GetSize().y / 2.0f + 150.0f, -100.0f);
-            }
-            if (pauseText) {
-                transform.position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f, windowRef->GetSize().y / 2.0f - 150.0f, -100.0f);
-            }
-            if (!_pauseSystem) {
-                ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
-                ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
-            }
-            _pauseSystem = true;
-        } else if (this->_input.IsKeyReleased(KeyboardKey::KEY_O) == true) {
-            if (!ECS::Coordinator::GetInstance()->HasSystem<PhysicsSystem>() && !ECS::Coordinator::GetInstance()->HasSystem<BehaviourSystem>())
-                return;
-            if (mmPauseButton || rPauseButton || pauseText)
-                transform.position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
-            if (_pauseSystem) {
-                ECS::Coordinator::GetInstance()->GetSystem<PhysicsSystem>().ToggleStatus();
-                ECS::Coordinator::GetInstance()->GetSystem<BehaviourSystem>().ToggleStatus();
-            }
-            _pauseSystem = false;
+        std::cout << this->_input.GetKeyPressed() << std::endl;
+        if (this->_input.IsKeyPressed(KeyboardKey::KEY_ESCAPE) == true)
+        {
+            if (coordinator->getCurrentScene() == "Game")
+                coordinator->setCurrentScene("Pause");
+            else if (coordinator->getCurrentScene() == "Pause")
+                coordinator->setCurrentScene("Game");
         }
     }
 
     void PauseSystem::FixedUpdate(ECS::Entity&)
     {
-        /*std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
-
-        for (IBehaviour& behaviour : behaviours) {
-            behaviour.FixedUpdate(entity);
-        }*/
     }
 
     void PauseSystem::LateUpdate(double, ECS::Entity&)
     {
-        /*std::vector<std::reference_wrapper<IBehaviour>> behaviours = entity.OfType<IBehaviour>();
-
-        for (IBehaviour& behaviour : behaviours) {
-            behaviour.LateUpdate(dt, entity);
-        }*/
     }
 }

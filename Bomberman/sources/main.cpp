@@ -61,7 +61,7 @@ int main(void)
     Engine::GameConfiguration::SetIA(2);
 
     coordinator->AddSystem<Component::PhysicsSystem>();
-    coordinator->AddSystem<Component::UISystem>(camera);
+    coordinator->AddSystem<Component::UISystem>();
     coordinator->AddSystem<Component::RenderSystem>();
     coordinator->AddSystem<Component::BehaviourSystem>();
     coordinator->AddSystem<Component::PauseSystem>();
@@ -71,7 +71,7 @@ int main(void)
     window->SetExitKey(KEY_PAUSE);
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
-        if (coordinator->GetEntities().size() == 0) {
+        if (coordinator->GetEntities().size() == 0 && Scenes::scenesCtor.find(coordinator->getCurrentScene()) != Scenes::scenesCtor.end()) {
             Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera);
         }
         

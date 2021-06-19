@@ -36,6 +36,7 @@ std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("Editor", &InitEditor),
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("Game", &InitGame),
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("LoadingScreen", &InitLoadingScreen),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("Pause", &InitPause),
     };
 
 void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &)
@@ -124,6 +125,29 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f + 50.0f, 0.0f);
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::QuitWindow));
+}
+
+void Scenes::InitPause(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
+{
+    EntityFactory entityFactory(coordinator, camera);
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
+
+    entityFactory.createCamera();
+
+    ECS::Entity& mainMenuButt = entityFactory.createButton("../assets/buttons/MainMenuBtnStd_texture.png");
+    mainMenuButt.SetTag("MainMenuPauseButton");
+    mainMenuButt.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f, window->GetSize().y / 2.0f + 300.0f, -100.0f);
+    mainMenuButt.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ExitGameToMainMenu));
+
+    ECS::Entity& entityReplay = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
+    entityReplay.SetTag("ReplayPauseButton");
+    entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f, window->GetSize().y / 2.0f + 150.0f, -100.0f);
+    entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
+
+
+    ECS::Entity& entityPauseText = entityFactory.createText("Pause", "../assets/pixelplay.png", 200.0f, 4.0f);
+    entityPauseText.SetTag("PauseText");
+    entityPauseText.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f, window->GetSize().y / 2.0f - 300.0f, -100.0f);
 }
 
 void Scenes::InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
@@ -305,21 +329,6 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 
     ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(-1000.0f, -1.0f, 0.0f);
-
-    ECS::Entity& mainMenuButt = entityFactory.createButton("../assets/buttons/MainMenuBtnStd_texture.png");
-    mainMenuButt.SetTag("MainMenuPauseButton");
-    mainMenuButt.GetComponent<Component::Transform>().position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
-    mainMenuButt.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ExitGameToMainMenu));
-
-    ECS::Entity& entityReplay = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
-    entityReplay.SetTag("ReplayPauseButton");
-    entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
-    entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
-
-    /*ECS::Entity& entityPauseText = entityFactory.createText("Pause", "../assets/pixelplay.png", 200.0f, 4.0f);
-    entityPauseText.SetTag("PauseText");
-    entityPauseText.GetComponent<Component::Transform>().position = RayLib::Vector3(10000.0f, 10000.0f, 10000.0f);
-    impossible de récup un text la dépendencies button*/
 }
 
 void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage)

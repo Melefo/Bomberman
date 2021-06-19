@@ -208,14 +208,14 @@ namespace ECS
              * 
              * @return const std::string& 
              */
-            const std::string &getCurrentScene(void);
+            const std::string& getCurrentScene(void);
 
             /**
              * @brief Set the Current Scene object
              * 
              * @param sceneName 
              */
-            void setCurrentScene(std::string &sceneName);
+            void setCurrentScene(const std::string& sceneName);
 
             /**
              * @brief Get a Scene object from a name
@@ -223,7 +223,7 @@ namespace ECS
              * @param sceneName 
              * @return ECS::EntityManager& 
              */
-            const ECS::EntityManager &getScene(std::string &sceneName) const;
+            const ECS::EntityManager &getScene(const std::string& sceneName) const;
 
             /**
              * @brief Close Window
