@@ -210,7 +210,7 @@ namespace Component
         for (int y = minPoint.y; y < maxPoint.y; y++) {
             for (int x = minPoint.x; x < maxPoint.x; x++) {
                 if (map[y][x] == value) {
-                    path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", agentPos, RayLib::Vector2(x, y), mapPositions);
+                    path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", agentPos, RayLib::Vector2<int>(x, y), mapPositions);
                     if (path.back().x != x && path.back().y != y)
                         continue;
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));
