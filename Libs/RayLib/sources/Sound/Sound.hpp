@@ -67,6 +67,8 @@ namespace RayLib
              */
             ::Sound GetSound();
 
+            bool ISSoundPlaying();
+
         protected:
         private:
             /**

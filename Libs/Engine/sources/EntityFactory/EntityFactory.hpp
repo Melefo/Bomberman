@@ -149,7 +149,7 @@ class EntityFactory {
          */
         ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
 
-        ECS::Entity& createCamera(RayLib::Camera3D &camera);
+        ECS::Entity& createCamera(RayLib::Camera3D &camera, const std::string& musicPath = "");
 
     protected:
     private:

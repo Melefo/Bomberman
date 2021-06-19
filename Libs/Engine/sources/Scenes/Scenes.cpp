@@ -105,7 +105,7 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
 
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
-    ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "assets/pixelplay.png", 200.0f, 4.0f);
+    ECS::Entity& entityTitle = entityFactory.createText("Bomberman", "../assets/pixelplay.png", 200.0f, 4.0f);
     Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - (text.MeasureText().x / 2.0f),
                                                                                window->GetSize().y / 2.0f - 350.0f, 0.0f);
@@ -198,12 +198,12 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     Scenes::InitNbrPlayers(entityFactory, window);
 // Seed Menu
 
-    entityFactory.createCamera(camera);
+    entityFactory.createCamera(camera, "../assets/EditorMenu.mp3");
 
     ECS::Entity& gameManager = coordinator.CreateEntity();
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
 
-    ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "assets/pixelplay.png", 50.0f, 4.0f);
+    ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a text file", "assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> seedTextSize = seedText.MeasureText();
     seed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2.0f),

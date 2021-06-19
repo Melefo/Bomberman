@@ -290,20 +290,23 @@ ECS::Entity& EntityFactory::createBomb(float radius, Component::Explosion::Explo
     entity.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
     entity.SetTag("Bomb");
-    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE));
+    entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(BOX_SIZE, BOX_SIZE, BOX_SIZE));
     //! si on spawn une bombe sur le joueur, on est bloqués
     //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
     entity.AddComponent<Component::IBehaviour, Component::Explosion>(entity, entity, radius, type);
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createCamera(RayLib::Camera3D &camera)
+ECS::Entity& EntityFactory::createCamera(RayLib::Camera3D &camera, const std::string& musicPath)
 {
     ECS::Entity& entity = _coordinator.CreateEntity();
 
     entity.SetTag("Camera");
 
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 100.0f, -50.0f));
-    entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
+    if (musicPath != "")
+        entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera, musicPath);
+    else
+        entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
     return (entity);
 }

@@ -25,7 +25,7 @@ namespace Component
         ECS::Entity& entity = coordinator.CreateEntity();
         entity.SetTag("Bomb");
 
-        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(0, 0, 0), RayLib::Vector3(2, 2, 2));
+        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(90, 0, 0), RayLib::Vector3(2, 2, 2));
         entity.AddComponent<IBehaviour, Explosion>(entity, _self, radius, type);
         return (entity);
     }
