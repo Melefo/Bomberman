@@ -253,13 +253,12 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     RayLib::Vector2<int> size = window->GetSize();
 
     Scenes::InitNbrPlayers(entityFactory, window);
-// Seed Menu
 
     entityFactory.createCamera(camera, "../assets/EditorMenu.mp3");
 
     ECS::Entity& gameManager = coordinator.CreateEntity();
     gameManager.AddComponent<Component::IBehaviour, Component::GameConfigurator>();
-
+// Seed Menu
     ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a text file", "assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> seedTextSize = seedText.MeasureText();
@@ -269,6 +268,10 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     ECS::Entity& enterSeed = entityFactory.createTextBox(std::numeric_limits<int>::digits10, "../assets/pixelplay.png", 50.0f, 4.0f);
     enterSeed.GetComponent<Component::Transform>().position = RayLib::Vector3(0.75f - (seedTextSize.x * scale.x / size.x / 2), 0.25f + seedTextSize.y * scale.y / size.y, 0.0f);
     enterSeed.SetTag("TextSeed");
+
+    ECS::Entity& clearSeed = entityFactory.createButton("../assets/buttons/Switch_texture.png");
+    clearSeed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2) + 200, window->GetSize().y / 4.0f + seedTextSize.y - 20, 0.0f);
+    clearSeed.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ClearSeed));
 
 //Basic or Complex Map
 

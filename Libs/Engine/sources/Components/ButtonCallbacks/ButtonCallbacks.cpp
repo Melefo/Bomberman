@@ -39,7 +39,7 @@ namespace Component
     {
     }
 
-    int GetSeed(void)
+    int ButtonCallbacks::GetSeed(void)
     {
         auto& coordinator = ECS::Coordinator::GetInstance();
         std::string seedText;
@@ -54,6 +54,18 @@ namespace Component
             }
         }
         return (-1);
+    }
+
+    void ButtonCallbacks::ClearSeed(void)
+    {
+        auto& coordinator = ECS::Coordinator::GetInstance();
+        std::string seedText;
+
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() == "TextSeed" && entity->HasComponent<Component::TextBox>())
+                entity->GetComponent<Component::TextBox>().SetValue("");
+        }
     }
 
     void ButtonCallbacks::GenerateBackgroundMap()
@@ -220,7 +232,10 @@ namespace Component
 
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
         terrainGeneratorRef.clearMap();
-        terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());
+        if (Engine::GameConfiguration::GetIsMapBasic())
+            terrainGeneratorRef.generateBaseMap(Engine::GameConfiguration::GetSeed());
+        else
+            terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());
         terrainGeneratorRef.generateBoxes();
         terrainGeneratorRef.placePlayers();
 
@@ -235,7 +250,9 @@ namespace Component
         if (Engine::GameConfiguration::GetDroppedMap() == false) {
             TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
             if (!terrainGeneratorRef.isGenerated()) {
-                terrainGeneratorRef.generateRandomMap(0);
+                std::cout << "LOURD" << std::endl;
+                Engine::GameConfiguration::SetSeed(std::rand() % 10000);
+                terrainGeneratorRef.generateBaseMap(Engine::GameConfiguration::GetSeed());
                 terrainGeneratorRef.generateBoxes();
                 terrainGeneratorRef.placePlayers();
             }
@@ -273,9 +290,11 @@ namespace Component
     {
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "MainMenu";
+        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
 
+        ClearSeed();
+        terrainGeneratorRef.SetIsGenerated(false);
         coordinatorRef->RemoveEntities("");
-
         coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(false);
         Engine::GameConfiguration::SetGameOver(false);

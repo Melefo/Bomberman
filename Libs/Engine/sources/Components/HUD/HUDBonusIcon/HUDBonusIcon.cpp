@@ -9,16 +9,9 @@
 
 namespace Component
 {
-    HUDBonusIcon::HUDBonusIcon(Component::AController &attatchedController, int playerNbr, float &timer)
-        : HUD(attatchedController, playerNbr), _timer(timer), _entityTag("HUD_")
+    HUDBonusIcon::HUDBonusIcon(Component::AController &attatchedController, int playerNbr, float &timer, const std::string &tag)
+        : HUD(attatchedController, playerNbr), _timer(timer), _entityTag(tag)
     {
-        if (playerNbr <= 9)
-            _entityTag += "00" + std::to_string(playerNbr);
-        else if (playerNbr <= 99)
-            _entityTag += "0" + std::to_string(playerNbr);
-        else if (playerNbr <= 999)
-            _entityTag += "" + std::to_string(playerNbr);
-        _entityTag += "_bonusIcon";
     }
 
     HUDBonusIcon::~HUDBonusIcon()

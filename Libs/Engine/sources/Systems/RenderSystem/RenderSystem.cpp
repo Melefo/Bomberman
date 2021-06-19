@@ -25,8 +25,11 @@ namespace Component
 
     void RenderSystem::Update(double, ECS::Entity& entity)
     {
+    }
+
+    void RenderSystem::FixedUpdate(ECS::Entity &entity)
+    {
         Transform& transform = entity.GetComponent<Transform>();
-        //Renderer& renderer = entity.GetComponent<Renderer>();
         Drawable3D& drawable = entity.GetComponent<Drawable3D>();
 
         //! on ne render pas ici les UI, pour le moment...

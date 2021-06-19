@@ -17,14 +17,18 @@ namespace Component
 
     void CoolDownBoost::OnPickup(ECS::Entity& collision)
     {
-        // get AController from collision
-        //AController& acontroller = collision.GetComponent<PlayerInputs>();
         if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
-            AController& playerInputs = collision.GetComponent<PlayerInputs>();
-            DecrementCooldown(playerInputs);
+            AController& controller = collision.GetComponent<PlayerInputs>();
+            if (controller.GetDropBomb().GetBonusTimeCoolDown() > 0.0) {
+                DecrementCooldown(controller);
+                return;
+            }
+            DecrementCooldown(controller);
+
             EntityFactory entityFactory(_coordinator);
-            Component::AController &controller = collision.GetComponent<Component::PlayerInputs>().GetAController();
-            entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/CoolDownPickUp_texture.png", controller.GetDropBomb().GetBonusTime());
+            entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/CoolDownPickUp_texture.png", controller.GetDropBomb().GetBonusTimeCoolDown());
+            entityFactory.createHUDBonusBar(controller, getPlayerNbr(collision.GetTag()), "CoolDown", controller.GetDropBomb().GetBonusTimeCoolDown());
+
         } else if (collision.GetTag().find("AI") != std::string::npos) {
             AController& aiController = collision.GetComponent<AIAlgo>();
             DecrementCooldown(aiController);

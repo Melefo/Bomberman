@@ -47,6 +47,11 @@ namespace Component
         return this->_value;
     }
 
+    void TextBox::SetValue(std::string value)
+    {
+        this->_value = value;
+    }
+
     RayLib::Rectangle TextBox::GetRectangle() const
     {
         return this->_rect;

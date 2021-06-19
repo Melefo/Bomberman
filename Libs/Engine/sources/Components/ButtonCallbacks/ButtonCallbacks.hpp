@@ -135,6 +135,8 @@ namespace Component
              */
             static void SaveMap(void);
 
+            static void ClearSeed(void);
+
             static void StartGame(void);
             static void StartEditorMenu(void);
             static void StartOptionMenu(void);
@@ -172,6 +174,11 @@ namespace Component
              * @param str 
              */
             static void TextInterfaceLoader(std::string tagName, std::string str);
+            /**
+             * @brief Give seed value in string to int
+             * 
+             */
+            static int GetSeed(void);
     };
 }
 

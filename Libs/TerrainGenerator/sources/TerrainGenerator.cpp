@@ -175,6 +175,11 @@ void TerrainGenerator::setMapSize(RayLib::Vector2<int> mapSize)
     this->_map.resize(mapSize.y);
 }
 
+void TerrainGenerator::SetIsGenerated(bool value)
+{
+    this->_isGenerated = value;
+}
+
 /**
  * Private
  */

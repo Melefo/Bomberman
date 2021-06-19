@@ -31,6 +31,7 @@
 #include "TextBoxCallback.hpp"
 #include "HUDText.hpp"
 #include "HUDBonusIcon.hpp"
+#include "HUDBonusBar.hpp"
 #include "Drawable3D.hpp"
 #include "AssetCache.hpp"
 
@@ -184,29 +185,54 @@ ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controlle
 
     icon.SetTag(icon.GetTag() + "_bonusIcon");
     icon.AddComponent<Component::IUIObject, Component::Button>(path);
-    if (path.find("Range") != std::string::npos)
+    if (path.find("Range") != std::string::npos) {
         icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 60, 0);
-    else if (path.find("Speed") != std::string::npos)
+        icon.SetTag(icon.GetTag() + "_Range");
+    } else if (path.find("Speed") != std::string::npos) {
         icon.GetComponent<Component::Transform>().position += RayLib::Vector3(70, 60, 0);
-    else if (path.find("CoolDown") != std::string::npos)
+        icon.SetTag(icon.GetTag() + "_Speed");
+    } else if (path.find("CoolDown") != std::string::npos) {
         icon.GetComponent<Component::Transform>().position += RayLib::Vector3(140, 60, 0);
+        icon.SetTag(icon.GetTag() + "_CoolDown");
+    }
     icon.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
-    icon.AddComponent<Component::IBehaviour, Component::HUDBonusIcon>(controller, nbrOfThePlayer, timer);
+    icon.AddComponent<Component::IBehaviour, Component::HUDBonusIcon>(controller, nbrOfThePlayer, timer, icon.GetTag());
+    
     return (icon);
 }
 
-/*ECS::Entity& EntityFactory::createHUDBonusBar(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer)
+ECS::Entity& EntityFactory::createHUDBonusBar(Component::AController &controller, int nbrOfThePlayer, const std::string &type, float &timer)
 {
-    ECS::Entity &icon = createBaseHUD(controller, nbrOfThePlayer);
+    ECS::Entity &bar_bg = createBaseHUD(nbrOfThePlayer);
 
-    icon.SetTag(icon.GetTag() + "_bonusIcon");
-    icon.AddComponent<Component::IUIObject, Component::Button>(path);
-    icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 60, 0);
-    icon.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
-    icon.AddComponent<Component::IBehaviour, Component::HUDBonusIcon>(controller, nbrOfThePlayer, timer);
-    return (icon);
+    bar_bg.SetTag(bar_bg.GetTag() + "_bonusBar_bg");
+    bar_bg.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarBackground.png");
+    RayLib::Vector3 pos;
+    if (type.find("RangeUp") != std::string::npos) {
+        pos = RayLib::Vector3(0, 60 + 80, 0);
+        bar_bg.SetTag(bar_bg.GetTag() + "_Range");
+    } else if (type.find("SpeedBoost") != std::string::npos) {
+        pos = RayLib::Vector3(70, 60 + 80, 0);
+        bar_bg.SetTag(bar_bg.GetTag() + "_Speed");
+    } else if (type.find("CoolDown") != std::string::npos) {
+        pos = RayLib::Vector3(140, 60 + 80, 0);
+        bar_bg.SetTag(bar_bg.GetTag() + "_CoolDown");
+    }
+    bar_bg.GetComponent<Component::Transform>().position += pos;
+    bar_bg.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
+    bar_bg.AddComponent<Component::IBehaviour, Component::HUDBonusBar>(controller, nbrOfThePlayer, timer, true, bar_bg.GetTag());
+
+
+    ECS::Entity &bar_front = createBaseHUD(nbrOfThePlayer);
+
+    bar_front.SetTag(bar_front.GetTag() + "_bonusBar_front");
+    bar_front.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarFront.png");
+    bar_front.GetComponent<Component::Transform>().position += pos;
+    bar_front.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
+    bar_front.AddComponent<Component::IBehaviour, Component::HUDBonusBar>(controller, nbrOfThePlayer, timer, false, bar_front.GetTag());
+
+    return (bar_front);
 }
-*/
 
 ECS::Entity& EntityFactory::createHUDText(Component::AController &controller, int nbrOfThePlayer)
 {
