@@ -39,7 +39,7 @@ namespace Component
     {
     }
 
-    int GetSeed(void)
+    int ButtonCallbacks::GetSeed(void)
     {
         auto& coordinator = ECS::Coordinator::GetInstance();
         std::string seedText;
@@ -54,6 +54,19 @@ namespace Component
             }
         }
         return (-1);
+    }
+
+    void ButtonCallbacks::ClearSeed(void)
+    {
+        auto& coordinator = ECS::Coordinator::GetInstance();
+        std::string seedText;
+        std::string::size_type sz;
+
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() == "TextSeed" && entity->HasComponent<Component::TextBox>())
+                entity->GetComponent<Component::TextBox>().SetValue("");
+        }
     }
 
     void ButtonCallbacks::GenerateBackgroundMap()

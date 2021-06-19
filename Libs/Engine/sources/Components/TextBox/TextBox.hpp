@@ -90,6 +90,12 @@ namespace Component
              */
             const std::string& GetValue() const;
             /**
+             * @brief Set the Value object
+             * 
+             * @param value 
+             */
+            void SetValue(std::string value);
+            /**
              * @brief Get the Rectangle object
              * 
              * @return RayLib::Rectangle 
