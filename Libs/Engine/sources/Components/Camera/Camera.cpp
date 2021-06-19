@@ -9,16 +9,27 @@
 #include <iostream>
 #include "Window.hpp"
 #include "Exceptions.hpp"
+#include "AssetCache.hpp"
 
 namespace Component
 {
     Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, float lerpTime)
-    : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y)
+    : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y),
+    _music(nullptr)
     {
+    }
+
+    Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, const std::string& musicPath, float lerpTime)
+    : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y),
+    _music(AssetCache::GetAsset<RayLib::Sound>(musicPath))
+    {
+        _music->Play();
     }
 
     void Camera::Update(double, ECS::Entity&)
     {
+        if (_music && !_music->ISSoundPlaying())
+            _music->Play();
         //std::cout << "Camera position: " << _transform.position << std::endl;
     }
 
@@ -70,7 +81,7 @@ namespace Component
         std::size_t size = 0;
 
         for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get()->GetTag().find("PlayerEntity") == std::string::npos)
+            if (it->get()->GetTag().find("PlayerEntity") == std::string::npos && it->get()->GetTag().find("AI") == std::string::npos)
                 continue;
             if (!it->get()->HasComponent<Transform>())
                 continue;

@@ -17,6 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install deps
+        run: sudo dnf install -y lua-devel
       - name: Install updated Criterion
         run: sudo dnf remove -y libcriterion-devel &&
           git clone --recursive https://github.com/Snaipe/Criterion &&

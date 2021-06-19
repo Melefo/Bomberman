@@ -34,6 +34,7 @@ class Scenes {
         static void InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera);
         static void InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage);
         static void InitLoadingScreen(ECS::Coordinator& coordinator, RayLib::Camera3D& camera);
+        static void InitPause(ECS::Coordinator& coordinator, RayLib::Camera3D& camera);
 
         static void switchScene(ECS::Coordinator &coordinator, std::string &newScene);
 

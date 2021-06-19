@@ -25,7 +25,7 @@ namespace Component
         ECS::Entity& entity = coordinator.CreateEntity();
         entity.SetTag("Bomb");
 
-        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2, 2, 2));
+        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(90, 0, 0), RayLib::Vector3(2, 2, 2));
         entity.AddComponent<IBehaviour, Explosion>(entity, _self, radius, type);
         return (entity);
     }
@@ -33,7 +33,7 @@ namespace Component
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType)
     {
         float explosionRadius = 2.50f;
-        float boxSize = 7.50f;
+        float boxSize = 10.0f;
 
         if (_bombNumber > _maxBombs)
             _bombNumber = static_cast<int>(_maxBombs);
@@ -72,7 +72,7 @@ namespace Component
 
                 for (auto entity = entitiesAtPosition.begin(); entity != entitiesAtPosition.end(); entity++) {
                     if (entity->get().GetTag() == "Wall") {
-                        std::cout << "Stopped cross" << std::endl;
+                        //std::cout << "Stopped cross" << std::endl;
                         reachedWall = true;
                     }
                 }
@@ -148,5 +148,10 @@ namespace Component
     {
         _dropDelay = bonusDelay;
         _bonusTime = duration;
+    }
+
+    float &DropBomb::GetBonusTime()
+    {
+        return _bonusTime;
     }
 }

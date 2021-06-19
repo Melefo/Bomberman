@@ -30,11 +30,12 @@ namespace Component
         if (Engine::GameConfiguration::GetDebugMode())
             _window->DrawSphereWires(_transform.position, _radius);
 
+        CheckParentLeftRadius();
+
         if (_explosionTimer <= 0.0f) {
             Explode();
         }
 
-        CheckParentLeftRadius();
     }
 
     void Explosion::Explode(void)
@@ -95,12 +96,12 @@ namespace Component
         for (auto entity = entities.begin(); entity != entities.end(); entity++) {
             if (entity->get().GetId() == _parent.GetId()) {
                 found = true;
-                std::cout << "Parent is in radius " << _radius << std::endl;
+                //std::cout << "Parent is in radius " << _radius << std::endl;
             }
         }
 
         if (!found) {
-            std::cout << "Parent is no longer in radius " << _radius << std::endl;
+            //std::cout << "Parent is no longer in radius " << _radius << std::endl;
 
             _myEntity.AddComponent<Collider, SquareCollider>(_myEntity,
                                                              std::vector<std::string>({"Player"}),
@@ -118,5 +119,10 @@ namespace Component
     void Explosion::LateUpdate(double, ECS::Entity&)
     {
 
+    }
+
+    float Explosion::GetExplosionTimer() const
+    {
+        return (_explosionTimer);
     }
 }

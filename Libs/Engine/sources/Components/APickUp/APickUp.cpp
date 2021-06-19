@@ -21,7 +21,7 @@ namespace Component
             std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(_coordinator, RayLib::Circle(RayLib::Vector2<float>(transform.position.x, transform.position.z),
                                                                                                                                     _pickupRadius));
             for (auto it = entities.begin(); it != entities.end(); it++) {
-                if (it->get().GetTag().find("PlayerEntity") != std::string::npos /* OR TAG == AI*/) {
+                if (it->get().GetTag().find("PlayerEntity") != std::string::npos || it->get().GetTag().find("AI") != std::string::npos) {
                     OnPickup(it->get());
                 }
             }
@@ -37,5 +37,14 @@ namespace Component
             }
             transform.rotation.y += 1.0f;
         }
+    }
+
+    int APickUp::getPlayerNbr(const std::string &tag)
+    {
+        for (unsigned int i = 0; tag[i]; i++) {
+            if (tag[i] >= '0' && tag[i] <= '9')
+                return std::stoi(&tag[i]);
+        }
+        return -1;
     }
 }

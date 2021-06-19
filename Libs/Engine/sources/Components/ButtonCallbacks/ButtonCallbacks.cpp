@@ -75,6 +75,7 @@ namespace Component
 
         coordinatorRef->RemoveEntities("Wall");
         coordinatorRef->RemoveEntities("Box");
+        coordinatorRef->RemoveEntities("AI");
         coordinatorRef->RemoveEntities("PlayerEntity");
         coordinatorRef->RemoveEntities("PickUp");
         coordinatorRef->RemoveEntities("Bomb");
@@ -231,13 +232,19 @@ namespace Component
 
     void ButtonCallbacks::StartGame(void)
     {
-        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
-        if (!terrainGeneratorRef.isGenerated())
-            return;
+        if (Engine::GameConfiguration::GetDroppedMap() == false) {
+            TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
+            if (!terrainGeneratorRef.isGenerated()) {
+                terrainGeneratorRef.generateRandomMap(0);
+                terrainGeneratorRef.generateBoxes();
+                terrainGeneratorRef.placePlayers();
+            }
+        }
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 
         coordinator->setCurrentScene(sceneName);
+
         coordinator->SetGameIsRunning(true);
         coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(true);
     }
@@ -278,6 +285,10 @@ namespace Component
 
     void ButtonCallbacks::SaveMap(void)
     {
-        Engine::GameConfiguration::SaveMap();
+        //! pour le xml (sans arg)
+        //Engine::GameConfiguration::SaveMap();
+
+        //! pour le .txt (arg = path)
+        Engine::GameConfiguration::SaveMap("map");
     }
 }

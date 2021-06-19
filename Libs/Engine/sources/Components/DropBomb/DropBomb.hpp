@@ -81,6 +81,14 @@ namespace Component
             int GetBombNumber();
 
             /**
+             * @brief Get the time 
+             * 
+             * @return float&
+             * 
+             */
+            float &GetBonusTime();
+
+            /**
              * @brief Add bonusBombs to be dropped, for duration seconds
              * 
              * @param bonusBombs 

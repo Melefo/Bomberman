@@ -6,6 +6,8 @@
 */
 
 #include "SpeedBoost.hpp"
+#include "AIAlgo.hpp"
+#include "EntityFactory.hpp"
 
 namespace Component
 {
@@ -20,9 +22,13 @@ namespace Component
         if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
             AController& playerInputs = collision.GetComponent<PlayerInputs>();
             ApplyBoost(playerInputs);
+            EntityFactory entityFactory(_coordinator);
+            Component::AController &controller = collision.GetComponent<Component::PlayerInputs>().GetAController();
+            entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/SpeedPickUp_texture.png", controller.GetDropBomb().GetBonusTime());
+        } else if (collision.GetTag().find("AI") != std::string::npos) {
+            AController& aiController = collision.GetComponent<AIAlgo>();
+            ApplyBoost(aiController);
         }
-        // else if tag AI Controller ...
-
     }
 
     void SpeedBoost::ApplyBoost(AController& acontroller)
@@ -30,7 +36,7 @@ namespace Component
         // get movement
         Movement& movement = acontroller.GetMovement();
 
-        std::cout << "Applying speed boost" << std::endl;
+        //std::cout << "Applying speed boost" << std::endl;
         // increment speed
         movement.BoostSpeed(0.5f, 5.0f);
         // destroy yourself

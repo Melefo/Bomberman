@@ -212,7 +212,7 @@ void TerrainGenerator::generateBoxes()
 {
     for (std::vector<std::string>::iterator it = _map.begin()+1; it != _map.end()-1; it++) {
         for (std::size_t index = 1; index != it->length()-1; index++) {
-            if ((*it)[index] == ' ') 
+            if ((*it)[index] == ' ')
                 (*it)[index] = std::rand() % 100+1 < _boxPercentage ? generateBoxLevel() : ' ';
         }
     }
@@ -447,4 +447,10 @@ void TerrainGenerator::makeSpaceForPlayers()
 bool TerrainGenerator::isGenerated()
 {
     return _isGenerated;
+}
+
+void TerrainGenerator::SetMap(std::vector<std::string> map)
+{
+    _isGenerated = true;
+    _map = map;
 }

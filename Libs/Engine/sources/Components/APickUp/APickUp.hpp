@@ -77,6 +77,8 @@ namespace Component
             ECS::Entity& _entity;
             float _pickupRadius;
             ECS::Coordinator& _coordinator;
+
+            int getPlayerNbr(const std::string &tag);
         private:
     };
 }

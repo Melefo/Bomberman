@@ -12,7 +12,7 @@
 
 namespace Engine
 {
-    RayLib::Vector2<int> GameConfiguration::_mapSize = {7, 7};
+    RayLib::Vector2<int> GameConfiguration::_mapSize = {15, 15};
     int GameConfiguration::_players = 2;
     int GameConfiguration::_IA = 0;
     bool GameConfiguration::_debugMode = false;
@@ -20,7 +20,9 @@ namespace Engine
     unsigned int GameConfiguration::_seed = 0;
     bool GameConfiguration::_gameOver = false;
     std::map<int, playerkeys> GameConfiguration::_playerKeys = {};
-    TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(Engine::GameConfiguration::GetPlayers(), Engine::GameConfiguration::GetMapSize().x, Engine::GameConfiguration::GetMapSize().y);
+    TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA(),
+                                                                             Engine::GameConfiguration::GetMapSize().x, Engine::GameConfiguration::GetMapSize().y);
+    bool GameConfiguration::_droppedMap = false;
 
     playerkeys::playerkeys(RayLib::Input input, int key) :
     movementInput(input), actionKey(key)
@@ -126,6 +128,16 @@ namespace Engine
         _isMapBasic = value;
     }
 
+    void GameConfiguration::SetDroppedMap(bool isDropped)
+    {
+        _droppedMap = isDropped;
+    }
+
+    bool GameConfiguration::GetDroppedMap(void)
+    {
+        return (_droppedMap);
+    }
+
     void GameConfiguration::SaveMap(void)
     {
         // open a file called map.xml
@@ -155,4 +167,21 @@ namespace Engine
         file << "</Entities>";
         file.close();
     }
+
+    void GameConfiguration::SaveMap(const std::string& terrainPath)
+    {
+        if (!_terrainGenerator.isGenerated())
+            return;
+        std::ofstream file(terrainPath + ".txt", std::ofstream::trunc | std::ofstream::out);
+        std::ostringstream oss;
+
+        const std::vector<std::string> terrain = _terrainGenerator.getMap();
+
+        for (auto line : terrain) {
+            oss << line << std::endl;
+        }
+        file << oss.str();
+        file.close();
+    }
+
 }

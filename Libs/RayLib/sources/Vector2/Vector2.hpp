@@ -9,7 +9,9 @@
 #define VECTOR2_HPP_
 
 #include <raylib.h>
+#include <cmath>
 #include "Vector3.hpp"
+#include "IXMLSerializable.hpp"
 
 namespace RayLib
 {
@@ -19,15 +21,16 @@ namespace RayLib
      * @tparam T typically <int> or <float>
      */
     template <typename T>
-    class Vector2
+    class Vector2 : public IXMLSerializable
     {
         public:
+            using value_type = T;
 
             /**
              * @brief Construct a new Vector 2<T> object
              * Initialise parameters to zero
              */
-            Vector2<T>(void) :
+            Vector2(void) :
             x(0), y(0)
             {
             }
@@ -36,14 +39,14 @@ namespace RayLib
              * @brief Destroy the Vector 2<T> object
              * 
              */
-            ~Vector2<T>() = default;
+            ~Vector2() = default;
 
             /**
              * @brief Construct a new Vector 2<T> object
              * 
              * @param newX set x parameter
              */
-            Vector2<T>(T newX) :
+            Vector2(T newX) :
             x(newX), y(0)
             {
             }
@@ -54,7 +57,7 @@ namespace RayLib
              * @param newX set x parameter
              * @param newY set y parameter
              */
-            Vector2<T>(T newX, T newY) :
+            Vector2(T newX, T newY) :
             x(newX), y(newY)
             {
             }
@@ -64,7 +67,7 @@ namespace RayLib
              *
              * @param vec 
              */
-            Vector2<T>(const Vector2<T>& vec) :
+            Vector2(const Vector2<T>& vec) :
             x(vec.x), y(vec.y)
             {
 
@@ -75,7 +78,7 @@ namespace RayLib
              *
              * @param vec 
              */
-            Vector2<T>(const Vector3& vec) :
+            Vector2(const Vector3& vec) :
             x(static_cast<T>(vec.x)), y(static_cast<T>(vec.z))
             {
 
@@ -86,7 +89,7 @@ namespace RayLib
              * 
              * @param vec 
              */
-            Vector2<T>(const ::Vector2& vec) :
+            Vector2(const ::Vector2& vec) :
             x(static_cast<T>(vec.x)), y(static_cast<T>(vec.y))
             {
             }
@@ -117,7 +120,25 @@ namespace RayLib
                 return (*this);
             }
 
-            //Vector2 &operator+(const Vector2 &Vector2);
+            Vector2<T>& operator+=(const Vector2<T>& other)
+            {
+                x += other.x;
+                y += other.y;
+                return (*this);
+            }
+
+            Vector2<T>& operator-=(const Vector2<T>& other)
+            {
+                x -= other.x;
+                y -= other.y;
+                return (*this);
+            }
+
+            Vector2<T> operator-(const Vector2<T>& other)
+            {
+                return (Vector2<T>(x - other.x, y - other.y));
+            }
+
             //Vector2 &operator-(const Vector2 &Vector2);
             // dot product ?
 
@@ -134,10 +155,37 @@ namespace RayLib
                 return (*this);
             }
 
+            float Distance(const Vector2<T>& other)
+            {
+                float distance = static_cast<float>(std::sqrt(std::pow(static_cast<double>(x - other.x), 2.0) +
+                                                         std::pow(static_cast<double>(y - other.y), 2.0)));
+
+                return (distance);
+            }
+
+            std::ostream& operator<<(std::ostream& os) override
+            {
+                os << "<Vector2>";
+                os << "<x>" << x << "</x>";
+                os << "<y>" << y << "</y>";
+                os << "</Vector2>";
+                return (os);
+            }
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override
+            {
+                boost::property_tree::ptree vec2 = ptree.get_child("Vector2");
+
+                x = vec2.get<T>("x");
+                y = vec2.get<T>("y");
+                return (ptree);
+            }
+
             T x;
             T y;
         protected:
         private:
     };
 }
+
 #endif /* !VECTOR2_HPP_ */
