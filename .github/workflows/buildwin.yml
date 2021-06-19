@@ -20,9 +20,14 @@ jobs:
           $url = "https://sourceforge.net/projects/boost/files/boost-binaries/1.75.0/boost_1_75_0-msvc-14.2-64.exe"
           (New-Object System.Net.WebClient).DownloadFile($url, "$env:TEMP\boost.exe")
           Start-Process -Wait -FilePath "$env:TEMP\boost.exe" "/SILENT","/SP-","/SUPPRESSMSGBOXES","/DIR=C:\\hostedtoolcache\\windows\\Boost"
-          echo "BOOST_ROOT=C:\\hostedtoolcache\windows\\Boost\\include" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-          echo "BOOST_LIBRARYDIR=C:\\hostedtoolcache\\windows\\Boost\\lib" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
           echo ";C:\\hostedtoolcache\\windows\\Boost" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - name: Install Lua
+        run: |
+          $url = "https://netactuate.dl.sourceforge.net/project/luabinaries/5.4.2/Windows%20Libraries/Static/lua-5.4.2_Win64_vc14_lib.zip"
+          (New-Object System.Net.WebClient).DownloadFile($url, "$env:TEMP\lua.zip")
+          Expand-Archive -LiteralPath "$env:TEMP\lua.zip" -DestinationPath "$env:TEMP\Lua"
+          Move-Item "$env:TEMP\Lua" "C:\hostedtoolcache\windows\Lua"
+          echo ";C:\\hostedtoolcache\\windows\\Lua" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       - name: Cmake
         run: |
           mkdir build
@@ -30,8 +35,15 @@ jobs:
           cmake ..
       - name: MSVC
         run: cmake --build build --target bomberman --config release
+      - name: Create Artifact 
+        run: |
+          mkdir artifact
+          cd artifact
+          mkdir bin
+          Copy-Item ..\build\Bomberman\Release\bomberman.exe bin\
+          Copy-Item ..\assets . -Recurse
       - name: Archive production artifact
         uses: actions/upload-artifact@v1
         with:
           name: bomberman.exe
-          path: build\Bomberman\Release\bomberman.exe
+          path: artifact

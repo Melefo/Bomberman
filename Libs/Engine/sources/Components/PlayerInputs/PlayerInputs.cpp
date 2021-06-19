@@ -25,13 +25,13 @@ namespace Component
         if (!ECS::Coordinator::GetInstance()->IsGameRunning())
             return;
 
-        if (_input.IsKeyDown(_bombKey) && _dropBomb.timeToDrop <= 0.0f) {
+        if (_input.IsKeyPressed(_bombKey) && _dropBomb.timeToDrop <= 0.0f) {
 
             // ! keep this transform in cache ?
             if (_entity.HasComponent<Transform>()) {
                 Transform& transform = _entity.GetComponent<Transform>();
                 _dropBomb.InstantiateBomb(transform.position, Explosion::ExplosionType::CIRCLE);
-                std::cout << "Instantiate bomb" << std::endl;
+                //std::cout << "Instantiate bomb" << std::endl;
 
                 _dropBomb.timeToDrop = _dropBomb.GetDropDelay();
             }

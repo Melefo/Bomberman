@@ -98,6 +98,14 @@ namespace RayLib
             bool IsKeyPressed(int key);
 
             /**
+             * @brief
+             * returns if the key is currently released
+             * @param key
+             * @return true
+             * @return false
+             */
+            bool IsKeyReleased(int key);
+            /**
              * @brief Get the Horizontal Keys
              * 
              * @return Vector2<int> 

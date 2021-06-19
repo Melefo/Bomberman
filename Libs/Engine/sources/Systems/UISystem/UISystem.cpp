@@ -7,15 +7,15 @@
 
 #include "UISystem.hpp"
 #include "Transform.hpp"
+#include "Camera.hpp"
 #include <iostream>
 
 namespace Component
 {
-    UISystem::UISystem(RayLib::Camera3D& camera) : _camera(camera), _window(RayLib::Window::GetInstance(0, ""))
+    UISystem::UISystem() : _window(RayLib::Window::GetInstance(0, ""))
     {
         // ! obsolète ?
         AddDependency<IUIObject>();
-
         AddDependency<Transform>();
     }
 
@@ -26,15 +26,22 @@ namespace Component
         std::vector<std::reference_wrapper<IUIObject>> uiObjects = entity.OfType<IUIObject>();
         RayLib::Vector2<float> position = RayLib::Vector2<float>(transform.position.x, transform.position.y);
         RayLib::Vector2<float> scale = RayLib::Vector2<float>(transform.scale.x, transform.scale.y);
+        try
+        {
+            RayLib::Camera3D& camera = Component::Camera::GetMainCamera().camera;
 
+            camera.EndMode();
+            for (IUIObject& uiObject : uiObjects) {
+                uiObject.Draw(position, scale);
+            }
 
-        _camera.EndMode();
-        for (IUIObject& uiObject : uiObjects) {
-            uiObject.Draw(position, scale);
+            if (Engine::GameConfiguration::GetDebugMode())
+                _window->DrawFPS(RayLib::Vector2<int>(10, 10));
+            camera.BeginMode();
         }
-
-        if (Engine::GameConfiguration::GetDebugMode())
-            _window->DrawFPS(RayLib::Vector2<int>(10, 10));
-        _camera.BeginMode();
+        catch (ECS::Exception::ComponentException&)
+        {
+            return;
+        }
     }
 }
