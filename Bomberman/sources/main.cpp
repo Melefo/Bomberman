@@ -26,6 +26,7 @@
 #include "TerrainGenerator.hpp"
 #include "AudioDevice.hpp"
 #include "Physics2D.hpp"
+#include "Image.hpp"
 #include "PauseSystem.hpp"
 
 #define BOX_SIZE 10
@@ -55,8 +56,6 @@ int main(int ac, char **av)
     RayLib::Input player3Input;
     Engine::GameConfiguration::SetPlayerKeys(3, player3Input, KEY_E);
 
-
-    std::cout << "ac: " << ac << std::endl;
     if (ac == 2 && std::string(av[1]) == "-d")
         Engine::GameConfiguration::SetDebugMode(true);
     else
@@ -73,6 +72,7 @@ int main(int ac, char **av)
 
     window->SetTargetFPS(60);
     window->SetExitKey(KEY_PAUSE);
+    window->SetIcon(RayLib::Image("../assets/Icon.png"));
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
         if (coordinator->GetEntities().size() == 0 && Scenes::scenesCtor.find(coordinator->getCurrentScene()) != Scenes::scenesCtor.end()) {

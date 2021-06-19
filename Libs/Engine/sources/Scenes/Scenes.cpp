@@ -37,6 +37,7 @@ std::map<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("Game", &InitGame),
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("LoadingScreen", &InitLoadingScreen),
      std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("Pause", &InitPause),
+     std::pair<std::string, std::function<void(ECS::Coordinator&, RayLib::Camera3D&)>>("OptionsMenu", &InitOptions),
     };
 
 void Scenes::switchScene(ECS::Coordinator &coordinator, std::string &)
@@ -120,11 +121,29 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     ECS::Entity &entitySettings = entityFactory.createButton("../assets/buttons/OptionsBtnStd_texture.png");
     entitySettings.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f - 50.0f, 0.0f);
+    entitySettings.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::StartOptionMenu));
 
     ECS::Entity &entityQuit = entityFactory.createButton("../assets/buttons/QuitGameBtnStd_texture.png");
     entityQuit.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
                                                                                window->GetSize().y / 2.0f + 50.0f, 0.0f);
     entityQuit.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::QuitWindow));
+}
+
+void Scenes::InitOptions(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
+{
+    EntityFactory entityFactory(coordinator);
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
+
+    entityFactory.createCamera(camera);
+
+    ECS::Entity& fullscreenButton = entityFactory.createButton();
+    fullscreenButton.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f,
+        window->GetSize().y / 2.0f - 50.0f, 0.0f);
+    fullscreenButton.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ToggleFullScreen));
+
+    ECS::Entity& mainMenuButt = entityFactory.createButton("../assets/buttons/MainMenuBtnStd_texture.png");
+    mainMenuButt.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200.0f, window->GetSize().y / 2.0f + 300.0f, -100.0f);
+    mainMenuButt.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ExitGameToMainMenu));
 }
 
 void Scenes::InitPause(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
