@@ -39,7 +39,7 @@ int main(int ac, char **av)
     //! attention le 3e arg: world up est important
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 10.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
     RayLib::Window::SetTraceLogLevel(LOG_WARNING);
-    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(), "Bomberman");
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(960, 540), "Bomberman");
     RayLib::Vector2<int> maxSize = window->GetMaxSize();
     window->SetSize(RayLib::Vector2<int>(static_cast<int>(maxSize.x / 1.5f), static_cast<int>(maxSize.y / 1.5f)));
 

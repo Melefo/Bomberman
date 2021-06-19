@@ -43,12 +43,12 @@ EntityFactory::EntityFactory(ECS::Coordinator& coordinator)
     _pickupFunctions.push_back(std::bind(&EntityFactory::createCooldownPickUp, this));
 }
 
-ECS::Entity& EntityFactory::createButton(const std::string& path)
+ECS::Entity& EntityFactory::createButton(const std::string& path, bool lerp)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
     entity.SetTag("button");
-    entity.AddComponent<Component::IUIObject, Component::Button>(path);
+    entity.AddComponent<Component::IUIObject, Component::Button>(path, lerp);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     entity.AddComponent<Component::IBehaviour, Component::ButtonCallbacks>(entity);
 

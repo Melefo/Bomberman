@@ -37,7 +37,7 @@ class EntityFactory {
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createButton(const std::string& texturePath = "../assets/Default_texture.png");
+        ECS::Entity& createButton(const std::string& texturePath = "../assets/Default_texture.png", bool lerp = true);
         /**
          * @brief Create a TextBox object
          *

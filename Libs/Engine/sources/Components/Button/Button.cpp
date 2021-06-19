@@ -13,8 +13,8 @@
 
 namespace Component
 {
-    Button::Button(const std::string& path)
-    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f), _tint(), _texture(AssetCache::GetAsset<RayLib::Texture>(path))
+    Button::Button(const std::string& path, bool lerp)
+    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f), _tint(), _texture(AssetCache::GetAsset<RayLib::Texture>(path)), _lerp(lerp)
     {
 
     }
@@ -30,7 +30,7 @@ namespace Component
 
         // ? multiplier scale par _rect scale ?
 
-        if (IsMouseOver()) {
+        if (this->_lerp && IsMouseOver()) {
             if (RayLib::Mouse::IsButtonDown(MOUSE_BUTTON_LEFT))
                 _tint.Lerp(DARKGRAY, 0.25f);
             else

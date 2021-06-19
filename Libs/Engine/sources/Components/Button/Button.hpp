@@ -29,7 +29,7 @@ namespace Component
              * @brief Construct a new Button object
              * 
              */
-            Button(const std::string& path);
+            Button(const std::string& path, bool lerp = true);
             /**
              * @brief Destroy the Button object
              * 
@@ -101,6 +101,7 @@ namespace Component
             RayLib::Color _tint;
 
             std::shared_ptr<RayLib::Texture> _texture;
+            bool _lerp;
     };
 }
 

@@ -250,7 +250,6 @@ namespace Component
         if (Engine::GameConfiguration::GetDroppedMap() == false) {
             TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
             if (!terrainGeneratorRef.isGenerated()) {
-                std::cout << "LOURD" << std::endl;
                 Engine::GameConfiguration::SetSeed(std::rand() % 10000);
                 terrainGeneratorRef.generateBaseMap(Engine::GameConfiguration::GetSeed());
                 terrainGeneratorRef.generateBoxes();
