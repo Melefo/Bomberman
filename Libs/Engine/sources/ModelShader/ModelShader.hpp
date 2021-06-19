@@ -18,9 +18,9 @@ namespace Component {
 
             virtual void Update() = 0;
 
-            std::ostream &operator<<(std::ostream &os) override;
-            std::istream &operator>>(std::istream &is) override;
-            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
+            std::ostream &operator<<(std::ostream &os);
+            std::istream &operator>>(std::istream &is);
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree);
 
         protected:
         private:
