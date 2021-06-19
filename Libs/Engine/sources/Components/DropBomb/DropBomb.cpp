@@ -72,7 +72,7 @@ namespace Component
 
                 for (auto entity = entitiesAtPosition.begin(); entity != entitiesAtPosition.end(); entity++) {
                     if (entity->get().GetTag() == "Wall") {
-                        std::cout << "Stopped cross" << std::endl;
+                        //std::cout << "Stopped cross" << std::endl;
                         reachedWall = true;
                     }
                 }

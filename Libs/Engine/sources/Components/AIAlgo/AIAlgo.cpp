@@ -53,7 +53,6 @@ namespace Component
                 _direction = RayLib::Vector3();
                 break;
             case AIState::HIDE:
-                std::cout << "HIDE" << std::endl;
                 mapPositions = GetMapAsPositions(boxMap);
                 targetPos = GetBestPos(aiPos, boxMap, mapPositions, BoxMapValues::EMPTY);
                 GetDirectionsList(aiPos, targetPos, mapPositions, boxMap);
@@ -63,7 +62,6 @@ namespace Component
                     _currentState = AIState::CHASE;
                 break;
             case AIState::CHASE:
-                std::cout << "CHASE" << std::endl;
                 mapPositions = GetMapAsPositions(boxMap);
                 targetPos = GetBestPos(aiPos, boxMap, mapPositions, BoxMapValues::BOX);
                 /*if (targetPos.x == aiPos.x && targetPos.y == aiPos.y) {
@@ -74,15 +72,12 @@ namespace Component
                 GetDirectionsList(aiPos, targetPos, mapPositions, boxMap);
 
                 _direction = _directionPath[0];
-                std::cout << "aiPos: " << aiPos.x << " " << aiPos.y << std::endl;
-                std::cout << "direc: " << _direction.x << " " << _direction.z << std::endl;
                 if (aiPos.x + _direction.x == targetPos.x && aiPos.y + _direction.z == targetPos.y)
                     _currentState = AIState::ATTACK;
                 if (_direction.x == 0 && _direction.z == 0)
                     _currentState = AIState::ATTACK;
                 break;
             case AIState::ATTACK:
-                std::cout << "ATTACK" << std::endl;
                 /*if (boxMap[aiPos.y][aiPos.x + 1] != BoxMapValues::EMPTY && boxMap[aiPos.y][aiPos.x - 1] != BoxMapValues::EMPTY && boxMap[aiPos.y + 1][aiPos.x] != BoxMapValues::EMPTY && boxMap[aiPos.y - 1][aiPos.x] != BoxMapValues::EMPTY) {
                     _currentState = AIState::HIDE;
                     break;
@@ -145,7 +140,7 @@ namespace Component
             _window->DrawSphereWires(position, 7.5f, 20, 20, col);
         }
         col = BLUE;
-        RayLib::Vector3 posi = RayLib::Vector3(targetPos.x, 0.0f, targetPos.y);
+        RayLib::Vector3 posi = RayLib::Vector3(static_cast<float>(targetPos.x), 0.0f, static_cast<float>(targetPos.y));
         posi = posi * 10.0f;
         posi += RayLib::Vector3(0.0f, 1.0f, 0.0f);
         _window->DrawSphereWires(posi, 7.5f, 20, 20, col);
@@ -195,9 +190,9 @@ namespace Component
         RayLib::Vector2<int> maxPoint = agentPos;
         RayLib::Vector2<int> minPoint = agentPos;
         std::vector<RayLib::Vector2<int>> path;
-        RayLib::Vector2<int> searchRadius(map.size() / 2, map.size() / 2);
+        RayLib::Vector2<int> searchRadius(static_cast<int>(map.size() / 2), static_cast<int>(map.size() / 2));
         if (map.size() < map[0].size())
-            searchRadius= RayLib::Vector2<int>(map[0].size()/ 2, map[0].size() / 2);
+            searchRadius= RayLib::Vector2<int>(static_cast<int>(map[0].size()/ 2), static_cast<int>(map[0].size() / 2));
         float closest = std::numeric_limits<float>::max();
 
         maxPoint += (searchRadius * 0.5f);
@@ -215,7 +210,7 @@ namespace Component
         for (int y = minPoint.y; y < maxPoint.y; y++) {
             for (int x = minPoint.x; x < maxPoint.x; x++) {
                 if (map[y][x] == value) {
-                    path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", agentPos, (RayLib::Vector2<int>(x, y)), mapPositions);
+                    path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", agentPos, RayLib::Vector2<int>(x, y), mapPositions);
                     if (path.back().x != x && path.back().y != y)
                         continue;
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));

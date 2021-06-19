@@ -14,9 +14,7 @@
 #include <string>
 #include "DelayedPop.hpp"
 #include "Nil.hpp"
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
+#include "lua.hpp"
 #include "Vector2.hpp"
 #include "Exceptions.hpp"
 

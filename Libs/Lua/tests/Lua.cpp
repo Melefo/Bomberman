@@ -53,8 +53,8 @@ Test(lua, vector)
     RayLib::Vector2 vec(12, 34);
     std::map<std::string, int> result = state.Call<std::map<std::string, int>>("mapTest");
     RayLib::Vector2<int> rayvec = state.Call<RayLib::Vector2<int>>("mapTest");
-    for (auto& pair : result)
+    /*for (auto& pair : result)
         std::cout << pair.first << " " << pair.second << std::endl;
     std::cout << "RayLib::Vector2\tx: " << rayvec.x << "\ty: " << rayvec.y << std::endl;
-    //cr_assert_eq(state.GetGlobal<int>("Testing"), 123456);
+    //cr_assert_eq(state.GetGlobal<int>("Testing"), 123456);*/
 }

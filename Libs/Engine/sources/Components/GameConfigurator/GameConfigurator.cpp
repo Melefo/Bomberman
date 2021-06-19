@@ -41,7 +41,7 @@ namespace Component
                 myfile.close();
 
                 //std::cout << iss.str() << std::endl;
-                std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
+                //std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
 
                 // ! comment trier entity/script ?
                     // ! ouvrir, find node script/Entity
@@ -86,7 +86,7 @@ namespace Component
         }
         _nbrPlayersAlive = remainingPlayers;
         if (_nbrPlayersAlive <= 1) {
-            std::cout << "Game is over! GG!" << std::endl;
+            //std::cout << "Game is over! GG!" << std::endl;
             return (true);
         }
         return (false);

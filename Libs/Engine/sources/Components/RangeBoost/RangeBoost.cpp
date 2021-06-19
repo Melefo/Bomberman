@@ -32,7 +32,7 @@ namespace Component
         // get movement
         DropBomb& dropBomb = acontroller.GetDropBomb();
 
-        std::cout << "Applying Range boost" << std::endl;
+        //std::cout << "Applying Range boost" << std::endl;
 
         //! soit nombre fixe, soit get number + 1
         dropBomb.BoostBombNumber(3, 10.0f);

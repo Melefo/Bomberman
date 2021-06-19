@@ -32,7 +32,7 @@ namespace Component
         // get movement
         DropBomb& dropBomb = acontroller.GetDropBomb();
 
-        std::cout << "Applying cooldown boost" << std::endl;
+        //std::cout << "Applying cooldown boost" << std::endl;
 
         //! soit nombre fixe, soit get delay - 1
         dropBomb.BoostBombCooldown(1.5f, 5.0f);

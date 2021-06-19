@@ -32,7 +32,7 @@ namespace Component
         // get movement
         Movement& movement = acontroller.GetMovement();
 
-        std::cout << "Applying speed boost" << std::endl;
+        //std::cout << "Applying speed boost" << std::endl;
         // increment speed
         movement.BoostSpeed(0.5f, 5.0f);
         // destroy yourself
