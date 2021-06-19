@@ -140,4 +140,24 @@ namespace Component
         _rect.x = transform.position.x - transform.scale.x / 2.0f;
         _rect.y = transform.position.z - transform.scale.z / 2.0f;
     }
+
+    std::ostream &SquareCollider::operator<<(std::ostream &os)
+    {
+        os << "<SquareCollider>";
+        os << "<_rect>" << _rect << "</_rect>";
+        // ! serialize collision mask ?
+        os << "</SquareCollider>";
+        return (os);
+    }
+
+    boost::property_tree::ptree& SquareCollider::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree squareColTree = ptree.get_child("Transform");
+        boost::property_tree::ptree& rectTree = squareColTree.get_child("_rect");
+
+        _rect << rectTree;
+        // ! load collision mask ?
+
+        return (ptree);
+    }
 }

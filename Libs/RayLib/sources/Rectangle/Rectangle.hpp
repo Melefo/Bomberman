@@ -10,6 +10,7 @@
 
 #include <raylib.h>
 #include "Color.hpp"
+#include "IXMLSerializable.hpp"
 
 namespace RayLib
 {
@@ -17,7 +18,7 @@ namespace RayLib
      * @brief Rectangle encapsulation
      * 
      */
-    class Rectangle : public ::Rectangle {
+    class Rectangle : public ::Rectangle, public IXMLSerializable {
         public:
             /**
              * @brief Construct a new Rectangle
@@ -85,6 +86,9 @@ namespace RayLib
              *
              */
             void DrawRectangleLines(RayLib::Color color = DARKGRAY);
+
+            std::ostream& operator<<(std::ostream& os) override;
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
         protected:
         private:

@@ -67,5 +67,27 @@ namespace RayLib
     {
         ::DrawRectangleLines(static_cast<int>(this->x), static_cast<int>(this->y), static_cast<int>(this->width), static_cast<int>(this->height), color);
     }
+
+    std::ostream& Rectangle::operator<<(std::ostream& os)
+    {
+        os << "<Rectangle>";
+        os << "<x>" << x << "</x>";
+        os << "<y>" << y << "</y>";
+        os << "<width>" << width << "</width>";
+        os << "<height>" << height << "</height>";
+        os << "</Rectangle>";
+        return (os);
+    }
+
+    boost::property_tree::ptree& Rectangle::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree rectTree = ptree.get_child("Rectangle");
+
+        x = rectTree.get<float>("x");
+        y = rectTree.get<float>("y");
+        width = rectTree.get<float>("width");
+        height = rectTree.get<float>("height");
+        return (ptree);
+    }
 }
 

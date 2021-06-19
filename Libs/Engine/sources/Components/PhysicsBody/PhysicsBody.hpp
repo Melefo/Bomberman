@@ -47,8 +47,8 @@ namespace Component
              */
             PhysicsBody& operator=(const PhysicsBody& other) = default;
 
-            std::ostream &operator<<(std::ostream &os) override {return os;};
-            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+            std::ostream &operator<<(std::ostream &os) override;
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
             /**
              * @brief Ultimately used to change the entity's position

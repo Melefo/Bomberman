@@ -8,6 +8,8 @@
 #include "EntityLoader.hpp"
 #include "EngineExceptions.hpp"
 #include "PhysicsBody.hpp"
+#include "Collider.hpp"
+#include "SquareCollider.hpp"
 
 namespace Serialization
 {
@@ -15,7 +17,8 @@ namespace Serialization
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Transform", &EntityLoader::LoadTransform),
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Destructible", &EntityLoader::LoadDestructible),
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Box", &EntityLoader::LoadBox),
-        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("PhysicsBody", &EntityLoader::LoadPhysicsBody)
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("PhysicsBody", &EntityLoader::LoadPhysicsBody),
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("SquareCollider", &EntityLoader::LoadSquareCollider)
     };
 
     ECS::Entity& EntityLoader::LoadEntity(std::istream& iss)
@@ -90,8 +93,14 @@ namespace Serialization
         entity.GetComponent<Component::Box>() << ptree;
     }
 
-    void EntityLoader::LoadPhysicsBody(ECS::Entity& entity, boost::property_tree::ptree &ptree)
+    void EntityLoader::LoadPhysicsBody(ECS::Entity& entity, boost::property_tree::ptree&)
     {
-        entity.AddComponent<Component::PhysicsBody>(entity);
+        entity.AddComponent<Component::PhysicsBody>();
+    }
+
+    void EntityLoader::LoadSquareCollider(ECS::Entity& entity, boost::property_tree::ptree &ptree)
+    {
+        entity.AddComponent<Component::Collider, Component::SquareCollider>(entity, std::vector<std::string>({}), 0.0f, 0.0f);
+        entity.OfType<Component::Collider>()[0].get() << ptree;
     }
 }
