@@ -35,8 +35,15 @@ jobs:
           cmake ..
       - name: MSVC
         run: cmake --build build --target bomberman --config release
+      - name: Create Artifact 
+        run: |
+          mkdir artifact
+          cd artifact
+          mkdir bin
+          Copy-Item ..\build\Bomberman\Release\bomberman.exe bin\
+          Copy-Item ..\assets . -Recurse
       - name: Archive production artifact
         uses: actions/upload-artifact@v1
         with:
           name: bomberman.exe
-          path: build\Bomberman\Release\bomberman.exe
+          path: artifact

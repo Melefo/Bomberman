@@ -24,8 +24,14 @@ jobs:
           cmake ..
       - name: Makefile
         run: make -C build bomberman
+      - name: Create Artifact
+        run: mkdir artifact &&
+          cd artifact &&
+          mkdir bin &&
+          cp ../build/Bomberman/bomberman bin/ &&
+          cp -r ../assets .
       - name: Archive production artifact
         uses: actions/upload-artifact@v1
         with:
           name: bomberman
-          path: build/Bomberman/bomberman
+          path: artifact
