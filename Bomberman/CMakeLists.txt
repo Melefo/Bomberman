@@ -3,8 +3,6 @@ PROJECT(bomberman)
 SET(CMAKE_CXX_STANDARD 20)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
-FIND_PACKAGE(Lua REQUIRED)
-
 file(GLOB_RECURSE SRC sources/**/*.cpp)
 file(GLOB_RECURSE TEST tests/*.cpp)
 
@@ -37,9 +35,9 @@ ENDMACRO()
 
 HEADER_DIRECTORIES(INC)
 
-TARGET_LINK_LIBRARIES(bomberman encapsu ${LUA_LIBRARIES} ecs engine terrainGen)
-TARGET_LINK_LIBRARIES(bomberman_unit_tests criterion encapsu ${LUA_LIBRARIES} engine terrainGen -lgcov encapsu ecs)
+TARGET_LINK_LIBRARIES(bomberman encapsu ecs engine terrainGen)
+TARGET_LINK_LIBRARIES(bomberman_unit_tests criterion encapsu engine terrainGen -lgcov encapsu ecs)
 TARGET_COMPILE_OPTIONS(bomberman_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
-target_include_directories(bomberman PUBLIC ${INC} ${LUA_INCLUDE_DIR})
-target_include_directories(bomberman_unit_tests PUBLIC ${INC} ${LUA_INCLUDE_DIR})
+target_include_directories(bomberman PUBLIC ${INC})
+target_include_directories(bomberman_unit_tests PUBLIC ${INC})
