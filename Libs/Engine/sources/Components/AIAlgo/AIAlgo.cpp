@@ -16,8 +16,8 @@ namespace Component
     _currentState(AIState::HIDE), _enabled(true), _stateDuration(0.75f), _timeToStateChange(0.35f)
     {
 
-        /*if (_state.RunScript("../assets/Pathfinding.lua") != 0)
-            this->_enabled = false;*/
+        if (_state.RunScript("../assets/Pathfinding.lua") != 0)
+            this->_enabled = false;
     }
 
     void AIAlgo::Update(double dt, ECS::Entity& entity)
@@ -27,12 +27,12 @@ namespace Component
         if (!ECS::Coordinator::GetInstance()->HasSystem<AIMapsGenerator>())
             return;
         AIMapsGenerator& mapGen = ECS::Coordinator::GetInstance()->GetSystem<AIMapsGenerator>();
-        //const std::vector<std::vector<int>>& playerMap = mapGen.GetPlayersMap();
+        const std::vector<std::vector<int>>& playerMap = mapGen.GetPlayersMap();
         const std::vector<std::vector<int>>& boxMap = mapGen.GetBoxMap();
 
         Component::Transform &transform = _ai_player.GetComponent<Component::Transform>();
 
-        //_state.Call("SetMapValues", playerMap, boxMap);
+        _state.Call("SetMapValues", playerMap, boxMap);
 
         //lua_CFunction validNode = _state.GetGlobal<lua_CFunction>("IsPositionWalkable");
 
@@ -157,9 +157,9 @@ namespace Component
 
     }
 
-    void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>&, const std::vector<std::vector<int>>& map)
+    void AIAlgo::GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& mapPositions, const std::vector<std::vector<int>>& map)
     {
-        std::vector<RayLib::Vector2<int>> path = {};//_state.Call<std::vector<RayLib::Vector2<int>>>("AStar", aiPos, targetPos, mapPositions);
+        std::vector<RayLib::Vector2<int>> path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", aiPos, targetPos, mapPositions);
 
         if (Engine::GameConfiguration::GetDebugMode()) {
             DebugPath(path, targetPos);
@@ -184,7 +184,7 @@ namespace Component
             _directionPath.push_back(RayLib::Vector3(0, 0, 0));
     }
 
-    RayLib::Vector2<int> AIAlgo::GetBestPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>&, int value)
+    RayLib::Vector2<int> AIAlgo::GetBestPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>& mapPositions, int value)
     {
         RayLib::Vector2<int> closestSymbol = agentPos;
         RayLib::Vector2<int> maxPoint = agentPos;
@@ -210,7 +210,7 @@ namespace Component
         for (int y = minPoint.y; y < maxPoint.y; y++) {
             for (int x = minPoint.x; x < maxPoint.x; x++) {
                 if (map[y][x] == value) {
-                    path = {};
+                    path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", agentPos, RayLib::Vector2(x, y), mapPositions);
                     if (path.back().x != x && path.back().y != y)
                         continue;
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));
