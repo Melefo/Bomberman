@@ -3,7 +3,7 @@ PROJECT(luaBind)
 SET(CMAKE_CXX_STANDARD 20)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../../cmake/")
 
-FIND_PACKAGE(lua REQUIRED)
+FIND_PACKAGE(Lua REQUIRED)
 
 file(GLOB_RECURSE SRC sources/**/*.cpp)
 file(GLOB_RECURSE TEST tests/**/*.cpp tests/*.cpp)
@@ -37,12 +37,9 @@ ENDMACRO()
 
 HEADER_DIRECTORIES(INC)
 
-add_dependencies(luaBind lua_static)
-add_dependencies(lua_unit_tests lua_static)
-
-TARGET_LINK_LIBRARIES(luaBind lua_static encapsu)
-TARGET_LINK_LIBRARIES(lua_unit_tests lua_static criterion -lgcov encapsu)
+TARGET_LINK_LIBRARIES(luaBind ${LUA_LIBRARIES} encapsu)
+TARGET_LINK_LIBRARIES(lua_unit_tests ${LUA_LIBRARIES} criterion -lgcov encapsu)
 TARGET_COMPILE_OPTIONS(lua_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
 
-target_include_directories(luaBind PUBLIC ${INC} ${lua_SOURCE_DIR})
-target_include_directories(lua_unit_tests PUBLIC ${INC} ${lua_SOURCE_DIR})
+target_include_directories(luaBind PUBLIC ${INC} ${LUA_INCLUDE_DIR})
+target_include_directories(lua_unit_tests PUBLIC ${INC} ${LUA_INCLUDE_DIR})

@@ -140,7 +140,7 @@ namespace Component
             _window->DrawSphereWires(position, 7.5f, 20, 20, col);
         }
         col = BLUE;
-        RayLib::Vector3 posi = RayLib::Vector3(targetPos.x, 0.0f, targetPos.y);
+        RayLib::Vector3 posi = RayLib::Vector3(static_cast<float>(targetPos.x), 0.0f, static_cast<float>(targetPos.y));
         posi = posi * 10.0f;
         posi += RayLib::Vector3(0.0f, 1.0f, 0.0f);
         _window->DrawSphereWires(posi, 7.5f, 20, 20, col);
@@ -190,9 +190,9 @@ namespace Component
         RayLib::Vector2<int> maxPoint = agentPos;
         RayLib::Vector2<int> minPoint = agentPos;
         std::vector<RayLib::Vector2<int>> path;
-        RayLib::Vector2<int> searchRadius(map.size() / 2, map.size() / 2);
+        RayLib::Vector2<int> searchRadius(static_cast<int>(map.size() / 2), static_cast<int>(map.size() / 2));
         if (map.size() < map[0].size())
-            searchRadius= RayLib::Vector2<int>(map[0].size()/ 2, map[0].size() / 2);
+            searchRadius= RayLib::Vector2<int>(static_cast<int>(map[0].size()/ 2), static_cast<int>(map[0].size() / 2));
         float closest = std::numeric_limits<float>::max();
 
         maxPoint += (searchRadius * 0.5f);
@@ -210,7 +210,7 @@ namespace Component
         for (int y = minPoint.y; y < maxPoint.y; y++) {
             for (int x = minPoint.x; x < maxPoint.x; x++) {
                 if (map[y][x] == value) {
-                    path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", agentPos, (RayLib::Vector2<int>(x, y)), mapPositions);
+                    path = _state.Call<std::vector<RayLib::Vector2<int>>>("AStar", agentPos, RayLib::Vector2<int>(x, y), mapPositions);
                     if (path.back().x != x && path.back().y != y)
                         continue;
                     float dst = agentPos.Distance(RayLib::Vector2<int>(x, y));
