@@ -11,7 +11,8 @@
 #include "PhysicsSystem.hpp"
 #include "Camera.hpp"
 #include "Scenes.hpp"
-#include <TextUI.hpp>
+#include "TextUI.hpp"
+#include "TextBox.hpp"
 #include <cstdlib>
 
 namespace Component
@@ -38,9 +39,27 @@ namespace Component
     {
     }
 
+    int GetSeed(void)
+    {
+        auto& coordinator = ECS::Coordinator::GetInstance();
+        std::string seedText;
+        std::string::size_type sz;
+
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() == "TextSeed" && entity->HasComponent<Component::TextBox>()) {
+                seedText = entity->GetComponent<Component::TextBox>().GetValue();
+                if (seedText != "")
+                    return (std::stoi(seedText, &sz));
+            }
+        }
+        return (-1);
+    }
+
     void ButtonCallbacks::GenerateBackgroundMap()
     { 
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
+        int seed = GetSeed();
         bool cameraExists = true;
 
         try {
@@ -64,7 +83,10 @@ namespace Component
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
         terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers());
-        Engine::GameConfiguration::SetSeed(std::rand() % 10000);
+        if (seed != -1) {
+            Engine::GameConfiguration::SetSeed(seed);
+        } else
+            Engine::GameConfiguration::SetSeed(std::rand() % 10000);
 
         if (Engine::GameConfiguration::GetIsMapBasic())
             terrainGeneratorRef.generateBaseMap();

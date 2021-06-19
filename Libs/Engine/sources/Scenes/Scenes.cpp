@@ -181,15 +181,19 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
 
     Scenes::InitNbrPlayers(entityFactory, window);
-// Seed Menu
-
     entityFactory.createCamera(camera);
+
+// Seed Menu
 
     ECS::Entity& seed = entityFactory.createText("Enter a seed \nor drop a XML file", "../assets/pixelplay.png", 50.0f, 4.0f);
     Component::TextUI& seedText = seed.GetComponent<Component::TextUI>();
     RayLib::Vector2<float> seedTextSize = seedText.MeasureText();
     seed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2.0f),
         window->GetSize().y / 4.0f - (seedTextSize.y / 2.0f), 0.0f);
+
+    ECS::Entity& enterSeed = entityFactory.createTextBox(std::numeric_limits<int>::digits10, "../assets/pixelplay.png", 50.0f, 4.0f);
+    enterSeed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2), window->GetSize().y / 4.0f + seedTextSize.y, 0.0f);
+    enterSeed.SetTag("TextSeed");
 
 //Basic or Complex Map
 
@@ -269,9 +273,6 @@ void Scenes::InitEditorMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& cam
     ECS::Entity& play = entityFactory.createButton("../assets/buttons/PlayBtnStd_texture.png");
     play.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 2.0f - 200, window->GetSize().y / 5.0f * 4 + 100, 0.0f);
     play.GetComponent<Component::Button>().AddCallback(std::bind(&Component::ButtonCallbacks::StartGame));
-
-    ECS::Entity& enterSeed = entityFactory.createTextBox(std::numeric_limits<int>::digits10, "../assets/pixelplay.png", 50.0f, 4.0f);
-    enterSeed.GetComponent<Component::Transform>().position = RayLib::Vector3(window->GetSize().x / 4.0f * 3 - (seedTextSize.x / 2), window->GetSize().y / 4.0f + seedTextSize.y, 0.0f);
 }
 
 void Scenes::InitEditor(ECS::Coordinator& coordinator, RayLib::Camera3D&)

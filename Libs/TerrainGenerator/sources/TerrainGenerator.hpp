@@ -77,7 +77,7 @@ class TerrainGenerator {
          * 
          * @param seed The seed randomizer
          */
-        void generateRandomMap(unsigned int seed);
+        void generateRandomMap(int seed);
         /**
          * @brief Clear the map objects and only keep outer walls
          * 

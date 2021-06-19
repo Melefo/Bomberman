@@ -71,7 +71,7 @@ void TerrainGenerator::generateBaseMap()
     _isGenerated = true;
 }
 
-void TerrainGenerator::generateRandomMap(unsigned int seed)
+void TerrainGenerator::generateRandomMap(int seed)
 {
     int index = 0;
     static std::vector<std::vector<std::string>> tiles = {
@@ -110,7 +110,7 @@ void TerrainGenerator::generateRandomMap(unsigned int seed)
         }
     };
 
-    if (seed != 0)
+    if (seed != -1)
         std::srand(seed);
     for (auto &it : _map) {
         it.clear();
