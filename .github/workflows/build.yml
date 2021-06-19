@@ -16,7 +16,8 @@ jobs:
       image: epitechcontent/epitest-docker:latest
     steps:
       - uses: actions/checkout@v2
-
+      - name: Install deps
+        run: sudo dnf install -y lua-devel
       - name: CMake
         run: mkdir build &&
           cd build &&
