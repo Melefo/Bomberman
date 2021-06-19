@@ -109,6 +109,9 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     RayLib::Vector2<float> scale = window->GetScale();
     RayLib::Vector2<int> size = window->GetSize();
 
+    ECS::Entity& background = entityFactory.createButton("../assets/backgrounds/MainMenu.png", false);
+    background.GetComponent<Component::Transform>().scale = RayLib::Vector3(0.38f, 0.38f, 0);
+
     ECS::Entity& entityTitle = entityFactory.createButton("../assets/Logo.png", false);
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(0.175f, 0.075f, 0.0f);
 

@@ -39,7 +39,7 @@ namespace Component
             _tint.Lerp(WHITE, 0.25f);
         }
 
-        _texture->DrawTextureEx(position, 0.0f, scale.x, _tint);
+        _texture->DrawTextureNPatch(position, 0.0f, scale, _tint);
     }
 
     bool Button::IsMouseOver(void)

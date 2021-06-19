@@ -40,6 +40,16 @@ namespace RayLib
         ::DrawBillboard(camera.GetCamera(), _texture, center.getVector3(), size, tint.getColor());
     }
 
+    void Texture::DrawTextureNPatch(Vector2<float> position, float rotation, Vector2<float> scale, Color tint)
+    {
+        Rectangle source(0.0f, 0.0f, static_cast<float>(_texture.width), static_cast<float>(_texture.height));
+        NPatchInfo info = {source.GetRectangle(), 0, 0, 0, 0, NPATCH_NINE_PATCH};
+        Rectangle dest(position.x, position.y, _texture.width * scale.x, _texture.height * scale.y);
+        Vector2 vect(0, 0);
+
+        ::DrawTextureNPatch(_texture, info, dest.GetRectangle(), vect.getVector2(), rotation, tint);
+    }
+
     ::Texture2D Texture::GetTexture()
     {
         return (_texture);
