@@ -10,7 +10,7 @@
 namespace Component
 {
     APickUp::APickUp(ECS::Entity& entity, float pickupRadius)
-    : _entity(entity), _pickupRadius(pickupRadius), _coordinator(*(ECS::Coordinator::GetInstance().get()))
+    : _entity(entity), _pickupRadius(pickupRadius), _coordinator(*ECS::Coordinator::GetInstance())
     {
     }
 

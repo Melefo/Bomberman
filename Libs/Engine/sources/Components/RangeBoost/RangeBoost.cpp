@@ -25,7 +25,7 @@ namespace Component
             }
             IncrementRange(controller);
 
-            EntityFactory entityFactory(_coordinator);
+            EntityFactory entityFactory(*ECS::Coordinator::GetInstance());
             entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/RangePickUp_texture.png", controller.GetDropBomb().GetBonusTimeRange());
             entityFactory.createHUDBonusBar(controller, getPlayerNbr(collision.GetTag()), "RangeUp", controller.GetDropBomb().GetBonusTimeRange());
 

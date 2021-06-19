@@ -114,7 +114,7 @@ ECS::Entity& EntityFactory::createBox(RayLib::Vector3 position, const int, const
                                                                         RayLib::Vector2<float>(position),
                                                                         RayLib::Vector2<float>(transform.scale));
     //entity.AddComponent<Component::Destructible>(entity, 1);
-    entity.AddComponent<Component::Box>(entity, 1, 0.1f);
+    entity.AddComponent<Component::Box>(entity, 1);
 
     //if (draggable)
     //    entity.AddComponent<Component::IBehaviour, Component::Draggable>(entity, _camera);
@@ -186,13 +186,13 @@ ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controlle
     icon.SetTag(icon.GetTag() + "_bonusIcon");
     icon.AddComponent<Component::IUIObject, Component::Button>(path);
     if (path.find("Range") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 60, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 0.04f, 0);
         icon.SetTag(icon.GetTag() + "_Range");
     } else if (path.find("Speed") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(70, 60, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.04f, 0.04f, 0);
         icon.SetTag(icon.GetTag() + "_Speed");
     } else if (path.find("CoolDown") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(140, 60, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.08f, 0.04f, 0);
         icon.SetTag(icon.GetTag() + "_CoolDown");
     }
     icon.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
@@ -209,13 +209,13 @@ ECS::Entity& EntityFactory::createHUDBonusBar(Component::AController &controller
     bar_bg.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarBackground.png");
     RayLib::Vector3 pos;
     if (type.find("RangeUp") != std::string::npos) {
-        pos = RayLib::Vector3(0, 60 + 80, 0);
+        pos = RayLib::Vector3(0, 0.09f, 0);
         bar_bg.SetTag(bar_bg.GetTag() + "_Range");
     } else if (type.find("SpeedBoost") != std::string::npos) {
-        pos = RayLib::Vector3(70, 60 + 80, 0);
+        pos = RayLib::Vector3(0.04f, 0.09f, 0);
         bar_bg.SetTag(bar_bg.GetTag() + "_Speed");
     } else if (type.find("CoolDown") != std::string::npos) {
-        pos = RayLib::Vector3(140, 60 + 80, 0);
+        pos = RayLib::Vector3(0.08f, 0.09f, 0);
         bar_bg.SetTag(bar_bg.GetTag() + "_CoolDown");
     }
     bar_bg.GetComponent<Component::Transform>().position += pos;
@@ -255,7 +255,7 @@ ECS::Entity& EntityFactory::createBaseHUD(int nbrOfThePlayer)
     else if (nbrOfThePlayer <= 999)
         entity.SetTag("HUD_" + std::to_string(nbrOfThePlayer));
 
-    entity.AddComponent<Component::Transform>(Component::HUD::GetOffsetFromPlayerNbr(nbrOfThePlayer), RayLib::Vector3(0, 0, 0), RayLib::Vector3(6, 6, 6));
+    entity.AddComponent<Component::Transform>(Component::HUD::GetOffsetFromPlayerNbr(nbrOfThePlayer), RayLib::Vector3());
     return (entity);
 }
 

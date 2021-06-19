@@ -60,7 +60,7 @@ namespace Component
              * @param int playerNbr
              * @return RayLib::Vector3&
              */
-            static RayLib::Vector3 &GetOffsetFromPlayerNbr(int playerNbr);
+            static RayLib::Vector3 GetOffsetFromPlayerNbr(int playerNbr);
 
             /**
              * @brief Get the AController of the hud part

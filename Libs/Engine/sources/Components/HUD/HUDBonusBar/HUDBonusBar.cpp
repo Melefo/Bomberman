@@ -21,7 +21,7 @@ namespace Component
     void HUDBonusBar::Update(double, ECS::Entity& entity)
     {
         if (!_isBg && _timer > 0.0)
-            entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(_timer / _maxTimer > 1? 1.0f: _timer / _maxTimer, 1.0f + (1 / (_timer / _maxTimer)), 1.0f);
+            entity.GetComponent<Component::Transform>().scale = RayLib::Vector3(_timer / _maxTimer > 1? 1.0f: _timer / _maxTimer, 1.0f, 1.0f);
         if (_timer <= 0.0f)
             ECS::Coordinator::GetInstance()->RemoveEntities(_entityTag);
     }

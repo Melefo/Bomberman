@@ -25,7 +25,7 @@ namespace Component
             }
             ApplyBoost(controller);
 
-            EntityFactory entityFactory(_coordinator);
+            EntityFactory entityFactory(*ECS::Coordinator::GetInstance());
             entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/SpeedPickUp_texture.png", controller.GetMovement().GetBonusTime());
             entityFactory.createHUDBonusBar(controller, getPlayerNbr(collision.GetTag()), "SpeedBoost", controller.GetMovement().GetBonusTime());
 

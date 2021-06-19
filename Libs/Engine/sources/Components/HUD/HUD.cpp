@@ -14,19 +14,23 @@ namespace Component
     {
     }
 
-    RayLib::Vector3 &HUD::GetOffsetFromPlayerNbr(int playerNbr)
+    RayLib::Vector3 HUD::GetOffsetFromPlayerNbr(int playerNbr)
     {
-        RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0, "")->GetSize();
+        std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
+        RayLib::Vector2<float> scale = window->GetScale();
+        RayLib::Vector2<int> size = window->GetSize();
+
         std::map<int, RayLib::Vector3> hudPos = {
-            {1, {100.0f, windowSize.y - 200.0f}},
-            {2, {windowSize.x - 400.0f, windowSize.y - 200.0f}},
-            {3, {100.0f, 100.0f}},
-            {4, {windowSize.x - 400.0f, 100.0f}},
-            {5, {100.0f, windowSize.y / 2.0f - 100.0f}},
-            {6, {windowSize.x - 400.0f, windowSize.y / 2.0f - 100.0f}},
-            {7, {windowSize.x / 2.0f - 200.0f, 100.0f}},
-            {8, {windowSize.x / 2.0f - 200.0f, windowSize.y - 200.0f}},
+            {1, {0.05f, 0.85f}},
+            {2, {0.85f, 0.85f}},
+            {3, {0.05f, 0.05f}},
+            {4, {0.85f, 0.05f}},
+            {5, {0.05f, 0.45f}},
+            {6, {0.85f, 0.45f}},
+            {7, {0.45f, 0.05f}},
+            {8, {0.45f, 0.85f}},
         };
+
         return (hudPos[playerNbr]);
     }
 
