@@ -107,6 +107,15 @@ class EntityFactory {
          */
         ECS::Entity& createHUDBonusIcon(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer);
 
+        /**
+         * @brief Create a HUD part with a bonus bar
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createHUDBonusBar(Component::AController &controller, int nbrOfThePlayer, const std::string &type, float &timer);
+
          /**
          * @brief Create a Text object
          * 

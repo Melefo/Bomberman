@@ -16,7 +16,7 @@ namespace Component
     DropBomb::DropBomb(ECS::Entity& self, float delay, float minDelay, float maxBombs)
     : timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _bombNumber(2), _defaultBombNumber(2),
-     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay), _minDelay(minDelay), _maxBombs(maxBombs), _self(self)
+     _bonusTimeRange(0.0f), _bonusTimeCoolDown(0.0f), _defaultDropDelay(delay), _dropDelay(delay), _minDelay(minDelay), _maxBombs(maxBombs), _self(self)
     {
     }
 
@@ -116,15 +116,13 @@ namespace Component
         if (_dropDelay < _minDelay)
             _dropDelay = _minDelay;
 
-        if (_bonusTime > 0.0f) {
-            _bonusTime -= frameTime;
-        } else {
-            if (_bombNumber != _defaultBombNumber) {
-                _bombNumber = _defaultBombNumber;
-            }
-            if (_dropDelay != _defaultDropDelay) {
-                _dropDelay = _defaultDropDelay;
-            }
+        if (_bonusTimeRange > 0.0f) {
+            _bonusTimeRange -= frameTime;
+            _bombNumber = _defaultBombNumber;
+        }
+        if (_bonusTimeCoolDown > 0.0f) {
+            _bonusTimeCoolDown -= frameTime;
+            _dropDelay = _defaultDropDelay;
         }
     }
 
@@ -141,17 +139,22 @@ namespace Component
     void DropBomb::BoostBombNumber(int bonusBombs, float duration)
     {
         _bombNumber = bonusBombs;
-        _bonusTime = duration;
+        _bonusTimeRange = duration;
     }
 
     void DropBomb::BoostBombCooldown(float bonusDelay, float duration)
     {
         _dropDelay = bonusDelay;
-        _bonusTime = duration;
+        _bonusTimeCoolDown = duration;
     }
 
-    float &DropBomb::GetBonusTime()
+    float &DropBomb::GetBonusTimeRange()
     {
-        return _bonusTime;
+        return _bonusTimeRange;
+    }
+
+    float &DropBomb::GetBonusTimeCoolDown()
+    {
+        return _bonusTimeCoolDown;
     }
 }

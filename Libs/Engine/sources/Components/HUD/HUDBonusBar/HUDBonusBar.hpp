@@ -2,29 +2,29 @@
 ** EPITECH PROJECT, 2021
 ** B-YEP-400-NAN-4-1-indiestudio-victor.trencic
 ** File description:
-** HUDBonusIcon
+** HUDBonusBar
 */
 
-#ifndef HUDBONUSICON_HPP_
-#define HUDBONUSICON_HPP_
+#ifndef HUDBONUSBAR_HPP_
+#define HUDBONUSBAR_HPP_
 
 #include "HUD.hpp"
 
 namespace Component {
-    class HUDBonusIcon : public HUD {
+    class HUDBonusBar : public HUD {
         public:
         /**
-             * @brief Construct a new HUDBonusIcon object
+             * @brief Construct a new HUDBonusBar object
              * 
              * @param attatchedEntity
              * @param playerNbr
              */
-            HUDBonusIcon(Component::AController &attatchedController, int playerNbr, float &timer, const std::string &tag);
+            HUDBonusBar(Component::AController &attatchedController, int playerNbr, float &timer, bool isBg, const std::string &tag);
             /**
-             * @brief Destroy the HUDBonusIcon object
+             * @brief Destroy the HUDBonusBar object
              * 
              */
-            ~HUDBonusIcon();
+            ~HUDBonusBar();
 
             /**
              * @brief Called every frame
@@ -52,8 +52,10 @@ namespace Component {
         protected:
         private:
             float &_timer;
+            float _maxTimer;
             std::string _entityTag;
+            bool _isBg;
     };
 }
 
-#endif /* !HUDBONUSICON_HPP_ */
+#endif /* !HUDBONUSBAR_HPP_ */
