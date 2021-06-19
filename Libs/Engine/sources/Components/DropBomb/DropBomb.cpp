@@ -33,7 +33,7 @@ namespace Component
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType)
     {
         float explosionRadius = 2.50f;
-        float boxSize = 7.50f;
+        float boxSize = 10.0f;
 
         if (_bombNumber > _maxBombs)
             _bombNumber = static_cast<int>(_maxBombs);
