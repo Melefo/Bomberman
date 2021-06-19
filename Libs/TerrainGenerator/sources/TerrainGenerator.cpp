@@ -161,14 +161,9 @@ void TerrainGenerator::generateXMLFile()
     //XMLGenerator xmlFile(_map);
 }
 
-void TerrainGenerator::setPlayersNumber(int newSize) {
-    if (newSize < 1)
-        _playersNbr = 2;
-    else if (newSize > 8)
-        _playersNbr = 8;
-    else if (newSize % 2 != 0)
-        _playersNbr = newSize + 1;
-    generateMap();
+void TerrainGenerator::setPlayersNumber(int newSize) 
+{
+    _playersNbr = newSize;
 }
 
 void TerrainGenerator::setMapSize(RayLib::Vector2<int> mapSize)
@@ -217,7 +212,7 @@ void TerrainGenerator::generateBoxes()
 {
     for (std::vector<std::string>::iterator it = _map.begin()+1; it != _map.end()-1; it++) {
         for (std::size_t index = 1; index != it->length()-1; index++) {
-            if ((*it)[index] == ' ') 
+            if ((*it)[index] == ' ')
                 (*it)[index] = std::rand() % 100+1 < _boxPercentage ? generateBoxLevel() : ' ';
         }
     }

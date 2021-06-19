@@ -9,7 +9,9 @@
 #define VECTOR2_HPP_
 
 #include <raylib.h>
+#include <cmath>
 #include "Vector3.hpp"
+#include "IXMLSerializable.hpp"
 
 namespace RayLib
 {
@@ -19,9 +21,10 @@ namespace RayLib
      * @tparam T typically <int> or <float>
      */
     template <typename T>
-    class Vector2
+    class Vector2 : public IXMLSerializable
     {
         public:
+            using value_type = T;
 
             /**
              * @brief Construct a new Vector 2<T> object
@@ -117,7 +120,25 @@ namespace RayLib
                 return (*this);
             }
 
-            //Vector2 &operator+(const Vector2 &Vector2);
+            Vector2<T>& operator+=(const Vector2<T>& other)
+            {
+                x += other.x;
+                y += other.y;
+                return (*this);
+            }
+
+            Vector2<T>& operator-=(const Vector2<T>& other)
+            {
+                x -= other.x;
+                y -= other.y;
+                return (*this);
+            }
+
+            Vector2<T> operator-(const Vector2<T>& other)
+            {
+                return (Vector2<T>(x - other.x, y - other.y));
+            }
+
             //Vector2 &operator-(const Vector2 &Vector2);
             // dot product ?
 
@@ -134,10 +155,37 @@ namespace RayLib
                 return (*this);
             }
 
+            float Distance(const Vector2<T>& other)
+            {
+                float distance = static_cast<float>(std::sqrt(std::pow(static_cast<double>(x - other.x), 2.0) +
+                                                         std::pow(static_cast<double>(y - other.y), 2.0)));
+
+                return (distance);
+            }
+
+            std::ostream& operator<<(std::ostream& os) override
+            {
+                os << "<Vector2>";
+                os << "<x>" << x << "</x>";
+                os << "<y>" << y << "</y>";
+                os << "</Vector2>";
+                return (os);
+            }
+
+            boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override
+            {
+                boost::property_tree::ptree vec2 = ptree.get_child("Vector2");
+
+                x = vec2.get<T>("x");
+                y = vec2.get<T>("y");
+                return (ptree);
+            }
+
             T x;
             T y;
         protected:
         private:
     };
 }
+
 #endif /* !VECTOR2_HPP_ */

@@ -156,15 +156,6 @@ namespace RayLib
         return (newVec);
     }
 
-    std::istream& Vector3::operator>>(std::istream& is)
-    {
-        boost::property_tree::ptree tree;
-        boost::property_tree::xml_parser::read_xml(is, tree);
-
-        this->operator<<(tree);
-        return (is);
-    }
-
     std::ostream& Vector3::operator<<(std::ostream& os)
     {
         os << "<Vector3>";
