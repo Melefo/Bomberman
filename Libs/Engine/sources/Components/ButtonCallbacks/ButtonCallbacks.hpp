@@ -135,16 +135,53 @@ namespace Component
              */
             static void SaveMap(void);
 
+            /**
+             * @brief Clear the seed
+             * 
+             */
             static void ClearSeed(void);
 
+            /**
+             * @brief Start the Game
+             * 
+             */
             static void StartGame(void);
+            /**
+             * @brief Start the Editor menu
+             * 
+             */
             static void StartEditorMenu(void);
+            /**
+             * @brief Start the Options menu
+             * 
+             */
             static void StartOptionMenu(void);
+            /**
+             * @brief Return to the Main menu
+             * 
+             */
             static void ExitGameToMainMenu(void);
 
+            /**
+             * @brief Restart the current game
+             * 
+             */
             static void Replay(void);
+            /**
+             * @brief Continue the paused game
+             * 
+             */
+            static void Continue(void);
+            /**
+             * @brief Quit the window
+             * 
+             */
             static void QuitWindow(void);
 
+            /**
+             * @brief Toggle fullscreen
+             * 
+             */
             static void ToggleFullScreen(void);
 
 
