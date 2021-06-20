@@ -113,15 +113,23 @@ namespace Component
     {
         float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
 
+
         if (_dropDelay < _minDelay)
             _dropDelay = _minDelay;
 
         if (_bonusTimeRange > 0.0f) {
             _bonusTimeRange -= frameTime;
+        }
+
+        if (_bonusTimeRange <= 0.0f) {
             _bombNumber = _defaultBombNumber;
         }
+
         if (_bonusTimeCoolDown > 0.0f) {
             _bonusTimeCoolDown -= frameTime;
+        }
+
+        if (_bonusTimeCoolDown <= 0.0f) {
             _dropDelay = _defaultDropDelay;
         }
     }
