@@ -255,11 +255,23 @@ namespace Component
         ECS::Coordinator::GetInstance()->CloseWindow = true;
     }
 
+    void ButtonCallbacks::Continue(void)
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
+        std::string sceneName = "Game";
+
+        coordinatorRef->setCurrentScene(sceneName);
+        coordinatorRef->SetGameIsRunning(true);
+        Engine::GameConfiguration::SetGameOver(false);
+        coordinatorRef->GetSystem<Component::PhysicsSystem>().SetStatus(true);
+    }
+
     void ButtonCallbacks::Replay(void)
     {
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 
+        coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->RemoveEntities("");
 
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
@@ -271,7 +283,6 @@ namespace Component
         terrainGeneratorRef.generateBoxes();
         terrainGeneratorRef.placePlayers();
 
-        coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(true);
         Engine::GameConfiguration::SetGameOver(false);
         coordinatorRef->GetSystem<Component::PhysicsSystem>().SetStatus(true);

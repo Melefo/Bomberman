@@ -210,9 +210,14 @@ void Scenes::InitPause(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     entityPauseText.SetTag("PauseText");
     entityPauseText.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.35f, 0.0f);
 
+    ECS::Entity& entityContinue = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
+    entityContinue.SetTag("ContinuePauseButton");
+    entityContinue.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.6f, 0.0f);
+    entityContinue.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Continue));
+
     ECS::Entity& entityReplay = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
     entityReplay.SetTag("ReplayPauseButton");
-    entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.6f, 0.0f);
+    entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.7f, 0.0f);
     entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
 
     ECS::Entity& mainMenuButt = entityFactory.createButton("../assets/buttons/MainMenuBtnStd_texture.png");
