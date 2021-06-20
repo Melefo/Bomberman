@@ -181,6 +181,18 @@ ECS::Entity& EntityFactory::createAI(int nbrAI)
     return (entity);
 }
 
+ECS::Entity& EntityFactory::createHUDBackground(int nbrOfThePlayer)
+{
+    ECS::Entity &bg = createBaseHUD(nbrOfThePlayer);
+
+    bg.SetTag(bg.GetTag() + "_background");
+    bg.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/HUD_background.png", false);
+    bg.GetComponent<Component::Transform>().position += RayLib::Vector3(-0.01f, -0.01f, 0);
+    bg.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
+    
+    return (bg);
+}
+
 ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer)
 {
     ECS::Entity &icon = createBaseHUD(nbrOfThePlayer);
@@ -188,13 +200,13 @@ ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controlle
     icon.SetTag(icon.GetTag() + "_bonusIcon");
     icon.AddComponent<Component::IUIObject, Component::Button>(path);
     if (path.find("Range") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 0.04f, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 0.05f, 0);
         icon.SetTag(icon.GetTag() + "_Range");
     } else if (path.find("Speed") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.04f, 0.04f, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.04f, 0.05f, 0);
         icon.SetTag(icon.GetTag() + "_Speed");
     } else if (path.find("CoolDown") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.08f, 0.04f, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.08f, 0.05f, 0);
         icon.SetTag(icon.GetTag() + "_CoolDown");
     }
     icon.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
@@ -206,28 +218,30 @@ ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controlle
 ECS::Entity& EntityFactory::createHUDBonusBar(Component::AController &controller, int nbrOfThePlayer, const std::string &type, float &timer)
 {
     ECS::Entity &bar_bg = createBaseHUD(nbrOfThePlayer);
-
-    bar_bg.SetTag(bar_bg.GetTag() + "_bonusBar_bg");
-    bar_bg.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarBackground.png");
+    ECS::Entity &bar_front = createBaseHUD(nbrOfThePlayer);
     RayLib::Vector3 pos;
+
+    bar_front.SetTag(bar_front.GetTag() + "_bonusBar_front");
+    bar_bg.SetTag(bar_bg.GetTag() + "_bonusBar_bg");
     if (type.find("RangeUp") != std::string::npos) {
-        pos = RayLib::Vector3(0, 0.09f, 0);
+        pos = RayLib::Vector3(0, 0.125f, 0);
+        bar_front.SetTag(bar_front.GetTag() + "_Range");
         bar_bg.SetTag(bar_bg.GetTag() + "_Range");
     } else if (type.find("SpeedBoost") != std::string::npos) {
-        pos = RayLib::Vector3(0.04f, 0.09f, 0);
+        pos = RayLib::Vector3(0.04f, 0.125f, 0);
+        bar_front.SetTag(bar_front.GetTag() + "_Speed");
         bar_bg.SetTag(bar_bg.GetTag() + "_Speed");
     } else if (type.find("CoolDown") != std::string::npos) {
-        pos = RayLib::Vector3(0.08f, 0.09f, 0);
+        pos = RayLib::Vector3(0.08f, 0.125f, 0);
+        bar_front.SetTag(bar_front.GetTag() + "_CoolDown");
         bar_bg.SetTag(bar_bg.GetTag() + "_CoolDown");
     }
+
+    bar_bg.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarBackground.png");
     bar_bg.GetComponent<Component::Transform>().position += pos;
     bar_bg.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
     bar_bg.AddComponent<Component::IBehaviour, Component::HUDBonusBar>(controller, nbrOfThePlayer, timer, true, bar_bg.GetTag());
 
-
-    ECS::Entity &bar_front = createBaseHUD(nbrOfThePlayer);
-
-    bar_front.SetTag(bar_front.GetTag() + "_bonusBar_front");
     bar_front.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarFront.png");
     bar_front.GetComponent<Component::Transform>().position += pos;
     bar_front.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);

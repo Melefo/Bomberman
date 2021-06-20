@@ -81,8 +81,10 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D&, const boo
                 Engine::playerkeys& playerKeys = Engine::GameConfiguration::GetPlayerKeys(currentPlayer);
                 ECS::Entity& player = entityFactory.createPlayer(playerKeys, currentPlayer);
                 player.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), static_cast<float>(deepness), static_cast<float>(y * BOX_SIZE));
-                if (coordinator.IsGameRunning())
+                if (coordinator.IsGameRunning()) {
+                    entityFactory.createHUDBackground(currentPlayer);
                     entityFactory.createHUDText(player.GetComponent<Component::PlayerInputs>().GetAController(), currentPlayer);
+                }
                 currentPlayer++;
                 continue;
             }

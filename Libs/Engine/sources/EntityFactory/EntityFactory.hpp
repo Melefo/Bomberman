@@ -92,6 +92,15 @@ class EntityFactory {
         ECS::Entity& createHUDText(Component::AController &controller, int nbrOfThePlayer);
 
         /**
+         * @brief Create a HUD part for the background
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createHUDBackground(int nbrOfThePlayer);
+
+        /**
          * @brief Create a AI object
          * 
          * @return ECS::Entity& 
