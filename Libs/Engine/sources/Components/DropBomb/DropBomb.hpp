@@ -56,7 +56,6 @@ namespace Component
              */
             DropBomb& operator=(const DropBomb& other) = default;
 
-            // ! à mettre dans une factory
             /**
              * @brief Function to create a bomb, belongs in an entity factory
              * 
@@ -68,7 +67,7 @@ namespace Component
                                  Explosion::ExplosionType explosionType=Explosion::ExplosionType::CIRCLE);
 
             /**
-             * @brief 
+             * @brief Create a bomb
              * 
              */
             ECS::Entity& CreateBomb(ECS::Coordinator& coordinator, float radius, Explosion::ExplosionType type);
@@ -111,6 +110,11 @@ namespace Component
              */
             void BoostBombCooldown(float bonusTime, float duration);
 
+            /**
+             * @brief Get the Drop Delay object
+             * 
+             * @return float 
+             */
             float GetDropDelay(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
@@ -122,6 +126,12 @@ namespace Component
              */
             void Update();
 
+            /**
+             * @brief Round a float to a multiple of 10
+             * 
+             * @param num 
+             * @return int 
+             */
             int RoundToNearest10(float num);
 
             /**

@@ -83,12 +83,31 @@ namespace Component
              */
             float &GetBonusTime();
 
+            /**
+             * @brief Try to keep volucity if the angle of a collision is triggered
+             * 
+             */
             void SlipperyCollisions();
 
+            /**
+             * @brief Check if the entity is colliding
+             * 
+             * @param colliders 
+             * @param position 
+             * @param colMask 
+             * @return true 
+             * @return false 
+             */
             bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders,
                                    RayLib::Vector3 position,
                                    std::vector<std::string> colMask = {});
 
+            /**
+             * @brief Add a speed boost to entity
+             * 
+             * @param bonusSpeed 
+             * @param time 
+             */
             void BoostSpeed(float bonusSpeed=3.0f, float time=20.0f);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};

@@ -144,12 +144,22 @@ namespace ECS
             {
                 this->_systemManager.RemoveSystem<T>();
             }
+            /**
+            * @brief Get a system from the list which updates entities
+            *
+            * @tparam T Type of the system to get
+            */
             template<typename T>
             T& GetSystem()
             {
                 return this->_systemManager.GetSystem<T>();
             }
 
+            /**
+            * @brief Find if a system is in the list which updates entities
+            *
+            * @tparam T Type of the system to check
+            */
             template<typename T>
             bool HasSystem()
             {

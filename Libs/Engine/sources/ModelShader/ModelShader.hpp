@@ -13,8 +13,30 @@
 namespace Component {
     class ModelShader : public ECS::IComponent {
         public:
+            /**
+             * @brief Construct a new Model Shader object
+             * 
+             * @param shaderPath 
+             */
             ModelShader(const std::string shaderPath);
+            /**
+             * @brief Destroy the Model Shader object
+             * 
+             */
             ~ModelShader() = default;
+            /**
+             * @brief Construct a new Model Shader object
+             * 
+             * @param other 
+             */
+            ModelShader(const ModelShader& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return ModelShader& 
+             */
+            ModelShader& operator=(const ModelShader& other) = default;
 
             virtual void Update() = 0;
 

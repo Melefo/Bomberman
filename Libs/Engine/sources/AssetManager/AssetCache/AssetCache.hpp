@@ -30,6 +30,17 @@ class AssetCache {
          * 
          */
         ~AssetCache() = default;
+        /**
+        * @brief Copy a new AssetCache object
+        *
+        */
+        AssetCache(const AssetCache&) = delete;
+        /**
+        * @brief Assign a new AssetCache object
+        *
+        * @return AssetCache& assigned AssetCache
+        */
+        AssetCache& operator=(const AssetCache&) = delete;
 
         /**
          * @brief Get the Asset object
@@ -47,7 +58,12 @@ class AssetCache {
             return (std::dynamic_pointer_cast<T>(_assets[path]));
         }
 
-        //! mettre en cpp ?
+        /**
+         * @brief Get the AssetName object
+         *
+         * @param assetPtr asset
+         * @return std::string the name of the asset
+         */
         static std::string GetAssetName(std::shared_ptr<RayLib::IAsset> assetPtr)
         {
             for (auto it : _assets) {
@@ -56,13 +72,6 @@ class AssetCache {
             }
             return ("");
         }
-
-        /* ? Targs ... ?
-        template<typename T>
-        T& CreateAsset(const std::string& path)
-        {
-            T& asset = T(path);
-        }*/
 
     protected:
     private:

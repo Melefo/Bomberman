@@ -101,9 +101,19 @@ namespace Component
              */
             bool IsPositionOffScreen(Vector3 position, RayLib::Vector2<int> margin, RayLib::Vector2<int> windowSize);
 
+            /**
+             * @brief Get the Main Camera object
+             * 
+             * @return Camera& 
+             */
             static Camera& GetMainCamera();
 
-            ECS::Entity &getEntity();
+            /**
+             * @brief Get the Entity object
+             * 
+             * @return ECS::Entity& 
+             */
+            ECS::Entity& GetEntity();
 
         protected:
         private:

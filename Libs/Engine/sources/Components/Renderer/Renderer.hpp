@@ -45,7 +45,12 @@ namespace Component
              */
             Renderer& operator=(const Renderer& other) = default;
 
-            const std::string &getName() const;
+            /**
+             * @brief Get the Name object
+             * 
+             * @return const std::string& 
+             */
+            const std::string &GetName() const;
 
             std::ostream& operator<<(std::ostream& os) override;
 

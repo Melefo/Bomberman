@@ -36,7 +36,20 @@ namespace Engine
              * @brief Destroy the Game Configuration object
              * 
              */
-            ~GameConfiguration()= default;
+            ~GameConfiguration() = default;
+            /**
+             * @brief Construct a new Game Configuration object
+             * 
+             * @param other 
+             */
+            GameConfiguration(const GameConfiguration& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return GameConfiguration& 
+             */
+            GameConfiguration& operator=(const GameConfiguration& other) = default;
 
             /**
              * @brief Get the Player Keys object
@@ -188,6 +201,11 @@ namespace Engine
              */
             static float GetVolume(void);
 
+            /**
+             * @brief Get the Terrain Generator object
+             * 
+             * @return TerrainGenerator& 
+             */
             static TerrainGenerator &GetTerrainGenerator(void);
 
         protected:

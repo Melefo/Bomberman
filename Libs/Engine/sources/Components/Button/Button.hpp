@@ -83,6 +83,11 @@ namespace Component
             std::ostream &operator<<(std::ostream &os) override {return os;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
+            /**
+             * @brief Get the Texture object
+             * 
+             * @return ::Texture2D 
+             */
             ::Texture2D GetTexture() const;
 
             // todo getrect

@@ -17,8 +17,28 @@ namespace Component
 {
     class GameConfigurator : public IBehaviour {
         public:
+            /**
+             * @brief Construct a new Game Configurator object
+             * 
+             */
             GameConfigurator();
+            /**
+             * @brief Destroy the Game Configurator object
+             * 
+             */
             ~GameConfigurator() override = default;
+            /**
+             * @brief Construct a new Game Configurator object
+             * 
+             */
+            GameConfigurator(const GameConfigurator&) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return GameConfigurator& 
+             */
+            GameConfigurator& operator=(const GameConfigurator& other) = default;
 
             /**
              * @brief Called once per cpu update

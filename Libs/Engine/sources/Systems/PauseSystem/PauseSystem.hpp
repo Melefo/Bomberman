@@ -34,6 +34,19 @@ namespace Component
              * 
              */
             ~PauseSystem() override = default;
+            /**
+             * @brief Construct a new Pause System object
+             * 
+             * @param other 
+             */
+            PauseSystem(const PauseSystem& other) = default;
+            /**
+             * @brief Assignement operator
+             * 
+             * @param other 
+             * @return PauseSystem& 
+             */
+            PauseSystem& operator=(const PauseSystem& other) = default;
 
             void Update(double dt, ECS::Entity &entity) override;
             void FixedUpdate(ECS::Entity &entity) override;

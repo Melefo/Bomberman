@@ -110,7 +110,7 @@ namespace Component
         terrainGeneratorRef.placePlayers();
 
         Scenes::InitMap(*coordinatorRef, cameraRef.camera, false);
-        cameraRef.getEntity().GetComponent<Component::Transform>().position.z = -200;
+        cameraRef.GetEntity().GetComponent<Component::Transform>().position.z = -200;
     }
 
     void ButtonCallbacks::TextInterfaceLoader(std::string tagName, int nb)

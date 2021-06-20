@@ -15,8 +15,31 @@ namespace Component
 {
     class Particle : public IBehaviour {
         public:
+            /**
+             * @brief Construct a new Particle object
+             * 
+             * @param startSpeed 
+             * @param lifeTime 
+             */
             Particle(float startSpeed=2.0f, float lifeTime=1.5f);
+            /**
+             * @brief Destroy the Particle object
+             * 
+             */
             ~Particle() override = default;
+            /**
+             * @brief Construct a new Particle object
+             * 
+             * @param other 
+             */
+            Particle(const Particle& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return Particle& 
+             */
+            Particle& operator=(const Particle& other) = default;
 
             /**
              * @brief Called once per cpu update, lerp color to transparent, kill

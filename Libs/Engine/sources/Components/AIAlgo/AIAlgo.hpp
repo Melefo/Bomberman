@@ -62,6 +62,19 @@ namespace Component
             ~AIAlgo() override = default;
 
             /**
+             * @brief Copy a new AIAlgo object
+             *
+             */
+            AIAlgo(const AIAlgo&) = default;
+
+            /**
+             * @brief Assign a new AIAlgo object
+             *
+             * @return AIAlgo& assigned AIAlgo
+             */
+            AIAlgo& operator=(const AIAlgo&) = default;
+
+            /**
              * @brief Updates the ai algorithm
              * 
              * @param dt 
@@ -75,38 +88,101 @@ namespace Component
              */
             void FixedUpdate(ECS::Entity& entity) override;
             /**
-             * @brief 
+             * @brief LateUpdate
              * 
              * @param dt 
              * @param entity 
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
             /**
-             * @brief 
+             * @brief Send AIAlgo to a stream
              * 
              * @param entity 
              */
             std::ostream &operator<<(std::ostream &os) override;
             /**
-             * @brief 
+             * @brief Send AIAlgo to a Boost ptree
              * 
              * @param ptree 
              * @return boost::property_tree::ptree& 
              */
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
+            /**
+             * @brief Get the Closest Symbol Pos object
+             * 
+             * @param agentPos 
+             * @param map 
+             * @param symbol 
+             * @return RayLib::Vector2<int> 
+             */
             RayLib::Vector2<int> GetClosestSymbolPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, int symbol);
+            /**
+             * @brief Get the Best Safe Pos object
+             * 
+             * @param agentPos 
+             * @param map 
+             * @param mapPositions 
+             * @return RayLib::Vector2<int> 
+             */
             RayLib::Vector2<int> GetBestSafePos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>& mapPositions);
+            /**
+             * @brief Get the Best Box Pos object
+             * 
+             * @param agentPos 
+             * @param map 
+             * @param mapPositions 
+             * @return RayLib::Vector2<int> 
+             */
             RayLib::Vector2<int> GetBestBoxPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>& mapPositions);
+            /**
+             * @brief Get the Best Pos object
+             * 
+             * @param agentPos 
+             * @param map 
+             * @param mapPositions 
+             * @param value 
+             * @return RayLib::Vector2<int> 
+             */
             RayLib::Vector2<int> GetBestPos(RayLib::Vector2<int> agentPos, const std::vector<std::vector<int>>& map, const std::vector<RayLib::Vector2<int>>& mapPositions, int value);
 
+            /**
+             * @brief Get the Agent Pos object
+             * 
+             * @return RayLib::Vector2<int> 
+             */
             RayLib::Vector2<int> GetAgentPos(void);
 
+            /**
+             * @brief Get the Directions List object
+             * 
+             * @param aiPos 
+             * @param targetPos 
+             * @param mapPositions 
+             * @param map 
+             */
             void GetDirectionsList(RayLib::Vector2<int> aiPos, RayLib::Vector2<int> targetPos, const std::vector<RayLib::Vector2<int>>& mapPositions, const std::vector<std::vector<int>>& map);
 
+            /**
+             * @brief Print the path generated
+             * 
+             * @param startPos 
+             */
             void DebugPath(RayLib::Vector3 startPos);
+            /**
+             * @brief Print a path to a target
+             * 
+             * @param path 
+             * @param targetPos 
+             */
             void DebugPath(std::vector<RayLib::Vector2<int>> path, RayLib::Vector2<int> targetPos);
 
+            /**
+             * @brief Get the Map As Positions object
+             * 
+             * @param map 
+             * @return std::vector<RayLib::Vector2<int>> 
+             */
             std::vector<RayLib::Vector2<int>> GetMapAsPositions(const std::vector<std::vector<int>>& map);
 
 
@@ -127,16 +203,48 @@ namespace Component
              * 
              */
             const std::list<std::unique_ptr<ECS::Entity>>& _entities;
+            /**
+             * @brief Speed of the AI
+             * 
+             */
             float _speed;
+            /**
+             * @brief Direction of the AI
+             * 
+             */
             RayLib::Vector3 _direction;
+            /**
+             * @brief Pointer to the current window
+             * 
+             */
             std::unique_ptr<RayLib::Window>& _window;
 
+            /**
+             * @brief List of direction to a target
+             * 
+             */
             std::vector<RayLib::Vector3> _directionPath;
 
+            /**
+             * @brief Current State of the AI
+             * 
+             */
             ::AIState _currentState;
 
+            /**
+             * @brief Is the IA enabled
+             * 
+             */
             bool _enabled;
+            /**
+             * @brief Duration of the current state
+             * 
+             */
             float _stateDuration;
+            /**
+             * @brief Duration needed before switching state
+             * 
+             */
             float _timeToStateChange;
 
     };

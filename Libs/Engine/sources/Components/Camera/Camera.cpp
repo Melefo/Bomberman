@@ -138,7 +138,7 @@ namespace Component
         throw ECS::Exception::ComponentException("There is no camera in the scene");
     }
 
-    ECS::Entity &Camera::getEntity()
+    ECS::Entity& Camera::GetEntity()
     {
         return _entity;
     }

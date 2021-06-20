@@ -25,6 +25,19 @@ namespace Component {
              * 
              */
             ~HUDBonusBar();
+            /**
+             * @brief Construct a new HUDBonusBar object
+             * 
+             * @param other 
+             */
+            HUDBonusBar(const HUDBonusBar& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return HUDBonusBar& 
+             */
+            HUDBonusBar& operator=(const HUDBonusBar& other) = default;
 
             /**
              * @brief Called every frame

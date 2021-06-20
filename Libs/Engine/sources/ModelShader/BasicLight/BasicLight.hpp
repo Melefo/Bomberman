@@ -34,6 +34,19 @@ class BasicLight : public RayLib::Shader {
          * 
          */
         ~BasicLight() = default;
+        /**
+         * @brief Construct a new BasicLight object
+         * 
+         * @param other 
+         */
+        BasicLight(const BasicLight & other) = default;
+        /**
+         * @brief Assignment operator
+         * 
+         * @param other 
+         * @return BasicLight& 
+         */
+        BasicLight& operator=(const BasicLight& other) = default;
 
         /**
          * @brief Update shader's light properties

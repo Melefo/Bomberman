@@ -30,7 +30,7 @@ namespace Component
         return (ptree);
     }
 
-    const std::string &Renderer::getName() const
+    const std::string &Renderer::GetName() const
     {
         return (_name);
     }

@@ -112,7 +112,7 @@ namespace Component
         // terrain.setmap (lines)
         terrainGeneratorRef.SetMap(lines);
         Scenes::InitMap(*_coordinator, cameraRef.camera, false);
-        cameraRef.getEntity().GetComponent<Component::Transform>().position.z = -200;
+        cameraRef.GetEntity().GetComponent<Component::Transform>().position.z = -200;
         infile.close();
     }
 

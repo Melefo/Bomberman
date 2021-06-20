@@ -64,21 +64,78 @@ namespace Component
              * @param tint 
              */
             void Draw(RayLib::Vector3 position, RayLib::Vector3 scale, RayLib::Color tint);
+            /**
+             * @brief Set the Material Texture object
+             * 
+             * @param matIndex 
+             * @param mapType 
+             * @param text 
+             */
             void SetMaterialTexture(int matIndex, int mapType, RayLib::Texture& text);
+            /**
+             * @brief Set the Material Shader object
+             * 
+             * @param matIndex 
+             * @param shader 
+             */
             void SetMaterialShader(int matIndex, RayLib::Shader& shader);
 
+            /**
+             * @brief Set the Texture object
+             * 
+             * @param path 
+             */
             void SetTexture(const std::string& path);
+            /**
+             * @brief Set the Model object
+             * 
+             * @param path 
+             */
             void SetModel(const std::string& path);
+            /**
+             * @brief Set the Shader object
+             * 
+             * @param path 
+             */
             void SetShader(const std::string& path);
 
+            /**
+             * @brief Get the Model object
+             * 
+             * @return RayLib::Model& 
+             */
             RayLib::Model& GetModel(void);
+            /**
+             * @brief Get the Shader object
+             * 
+             * @return RayLib::Shader& 
+             */
             RayLib::Shader& GetShader(void);
+            /**
+             * @brief Get the Texture object
+             * 
+             * @return RayLib::Texture& 
+             */
             RayLib::Texture& GetTexture(void);
 
-            // set rotation
+            /**
+             * @brief Set the rotation of the model
+             * 
+             * @param rotation 
+             */
             void RotateModel(RayLib::Vector3 rotation);
 
+            /**
+             * @brief Set the Color object
+             * 
+             * @param color 
+             */
             void SetColor(RayLib::Color color);
+            /**
+             * @brief Get the Color object
+             * 
+             * @return RayLib::Color& 
+             */
             RayLib::Color& GetColor(void);
 
             std::ostream &operator<<(std::ostream &os) override;

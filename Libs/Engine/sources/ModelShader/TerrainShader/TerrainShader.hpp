@@ -13,8 +13,31 @@
 
 class TerrainShader : public Component::ModelShader {
     public:
+        /**
+         * @brief Construct a new Terrain Shader object
+         * 
+         * @param shaderFolderPath 
+         * @param mapSize 
+         */
         TerrainShader(const std::string& shaderFolderPath, RayLib::Vector2<float> mapSize);
+        /**
+         * @brief Destroy the Terrain Shader object
+         * 
+         */
         ~TerrainShader() = default;
+        /**
+         * @brief Construct a new Terrain Shader object
+         * 
+         * @param other 
+         */
+        TerrainShader(const TerrainShader& other) = default;
+        /**
+         * @brief Assignment operator
+         * 
+         * @param other 
+         * @return TerrainShader& 
+         */
+        TerrainShader& operator=(const TerrainShader& other) = default;
 
         void Update();
 

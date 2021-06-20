@@ -18,6 +18,14 @@ Bomberman is a project where we try to do an Bomberman-like game with a homemade
 
 ***
 
+## Players Keys
+
+Player 1 will use zqsd to move & E to drop a bomb
+Player 2 will use arrows to move & enter to drop a bomb
+Player 3 will use yghj to move & space to drop a bomb
+
+***
+
 ## Installation
 
 You can build the project yourself!

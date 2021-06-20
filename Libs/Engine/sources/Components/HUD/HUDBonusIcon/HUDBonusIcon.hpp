@@ -25,6 +25,19 @@ namespace Component {
              * 
              */
             ~HUDBonusIcon();
+            /**
+             * @brief Construct a new HUDBonusIcon object
+             * 
+             * @param other 
+             */
+            HUDBonusIcon(const HUDBonusIcon& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return HUDBonusIcon& 
+             */
+            HUDBonusIcon& operator=(const HUDBonusIcon& other) = default;
 
             /**
              * @brief Called every frame
