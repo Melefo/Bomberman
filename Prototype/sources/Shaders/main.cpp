@@ -396,7 +396,7 @@ int skyboxShader()
 
     cmShader->SetValue(cmShader->GetLocation("equirectangularMap"), 0, SHADER_UNIFORM_INT);
 
-    RayLib::Texture panorama("../assets/SkyBox/8f0155212ad2f2ae.png");
+    RayLib::Texture panorama("../assets/SkyBox/skybox.png");
     RayLib::Texture texture(*cmShader, panorama, 1024, PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
 
     cubeMap.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_CUBEMAP, texture);
