@@ -96,7 +96,7 @@ namespace Component
 
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
-        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers());
+        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA());
         if (seed != -1) {
             Engine::GameConfiguration::SetSeed(seed);
         } else
@@ -105,14 +105,12 @@ namespace Component
         if (Engine::GameConfiguration::GetIsMapBasic())
             terrainGeneratorRef.generateBaseMap(Engine::GameConfiguration::GetSeed());
         else
-            terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());         // TODO: get the seed entered by the user and put it here
+            terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());
         terrainGeneratorRef.generateBoxes();
         terrainGeneratorRef.placePlayers();
 
         Scenes::InitMap(*coordinatorRef, cameraRef.camera, false);
         cameraRef.getEntity().GetComponent<Component::Transform>().position.z = -200;
-        //std::size_t centerX = terrainGeneratorRef.getMap()[terrainGeneratorRef.getMap().size() / 2].size() / 2;
-        //std::size_t centerY = terrainGeneratorRef.getMap().size() / 2;
     }
 
     void ButtonCallbacks::TextInterfaceLoader(std::string tagName, int nb)
@@ -145,6 +143,8 @@ namespace Component
         int playerNbr = Engine::GameConfiguration::GetPlayers();
 
         if ((IA + playerNbr + 1) > 8)
+            return;
+        if (playerNbr >= 3)
             return;
         Engine::GameConfiguration::SetPlayers(playerNbr + 1);
         TextInterfaceLoader("TextPlayerNbr", Engine::GameConfiguration::GetPlayers());
