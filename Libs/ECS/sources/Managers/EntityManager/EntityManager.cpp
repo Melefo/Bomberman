@@ -33,13 +33,14 @@ namespace ECS
 
     void EntityManager::DeleteEntity(Entity& entity)
     {
-        for (auto it = this->_entities.begin(); it != this->_entities.end(); it++)
-            if ((*it)->GetId() == entity.GetId())
-            {
+        for (auto it = this->_entities.begin(); it != this->_entities.end(); it++) {
+
+            if ((*it)->GetId() == entity.GetId()) {
                 this->_available.push_back(entity.GetId());
                 this->_entities.erase(it);
                 return;
             }
+        }
     }
 
     const std::list<std::unique_ptr<Entity>>& EntityManager::GetEntities() const

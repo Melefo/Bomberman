@@ -18,7 +18,6 @@ namespace Component
     {
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
 
-        std::cout << this->_input.GetKeyPressed() << std::endl;
         if (this->_input.IsKeyPressed(KeyboardKey::KEY_ESCAPE) == true)
         {
             if (coordinator->getCurrentScene() == "Game")

@@ -101,6 +101,7 @@ namespace RayLib
              */
             void DrawBillboard(RayLib::Camera3D camera, RayLib::Vector3 center=RayLib::Vector3(), float size=1.0f, Color tint=WHITE);
 
+            void DrawTextureNPatch(Vector2<float> position, float rotation, Vector2<float> scale, Color tint);
             /**
              * @brief Get the Texture as a raylib structure
              * 

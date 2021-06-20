@@ -3,7 +3,12 @@ PROJECT(general)
 SET(CMAKE_CXX_STANDARD 20)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
+option(UnitTests "UnitTests" OFF)
+option(Prototypes "Prototypes" OFF)
+
 ADD_SUBDIRECTORY(Libs)
-# ADD_SUBDIRECTORY(Prototype)
+if (Prototypes)
+	ADD_SUBDIRECTORY(Prototype)
+endif()
 ADD_SUBDIRECTORY(Bomberman)
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})

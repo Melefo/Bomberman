@@ -71,13 +71,13 @@ class TerrainGenerator {
          * @brief Generate bomberman's basic map
          * 
          */
-        void generateBaseMap();
+        void generateBaseMap(int seed);
         /**
          * @brief Generate procedurally generated map
          * 
          * @param seed The seed randomizer
          */
-        void generateRandomMap(unsigned int seed);
+        void generateRandomMap(int seed);
         /**
          * @brief Clear the map objects and only keep outer walls
          * 
@@ -128,6 +128,10 @@ class TerrainGenerator {
          * 
          */
         void placePlayers();
+
+        void SetMap(std::vector<std::string> map);
+
+        void SetIsGenerated(bool value);
 
     protected:
         /**

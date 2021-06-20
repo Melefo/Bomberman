@@ -53,11 +53,13 @@ void TerrainGenerator::displayMap()
         std::cout << *it << std::endl;
 }
 
-void TerrainGenerator::generateBaseMap()
+void TerrainGenerator::generateBaseMap(int seed)
 {
     int index = 0;
 
     clearMap();
+    if (seed != -1)
+        std::srand(seed);
     for (; index < _height; index++)
         _map[index] = std::string(_width, static_cast<char>(mapTexture::OWALL));
     index = 0;
@@ -71,7 +73,7 @@ void TerrainGenerator::generateBaseMap()
     _isGenerated = true;
 }
 
-void TerrainGenerator::generateRandomMap(unsigned int seed)
+void TerrainGenerator::generateRandomMap(int seed)
 {
     int index = 0;
     static std::vector<std::vector<std::string>> tiles = {
@@ -110,7 +112,7 @@ void TerrainGenerator::generateRandomMap(unsigned int seed)
         }
     };
 
-    if (seed != 0)
+    if (seed != -1)
         std::srand(seed);
     for (auto &it : _map) {
         it.clear();
@@ -173,6 +175,11 @@ void TerrainGenerator::setMapSize(RayLib::Vector2<int> mapSize)
     this->_map.resize(mapSize.y);
 }
 
+void TerrainGenerator::SetIsGenerated(bool value)
+{
+    this->_isGenerated = value;
+}
+
 /**
  * Private
  */
@@ -223,12 +230,12 @@ void TerrainGenerator::generateMap()
     std::srand(static_cast<unsigned int>(time(NULL)));
 
     if (_mapType == MapType::Basic)
-        generateBaseMap();
+        generateBaseMap(0);
     else if (_mapType == MapType::Random)
         generateRandomMap(0);
     else {
         if (std::rand() % 3 == 0)
-            generateBaseMap();
+            generateBaseMap(0);
         else
             generateRandomMap(0);
     }
@@ -447,4 +454,10 @@ void TerrainGenerator::makeSpaceForPlayers()
 bool TerrainGenerator::isGenerated()
 {
     return _isGenerated;
+}
+
+void TerrainGenerator::SetMap(std::vector<std::string> map)
+{
+    _isGenerated = true;
+    _map = map;
 }

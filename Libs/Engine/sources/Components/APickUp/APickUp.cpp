@@ -10,7 +10,7 @@
 namespace Component
 {
     APickUp::APickUp(ECS::Entity& entity, float pickupRadius)
-    : _entity(entity), _pickupRadius(pickupRadius), _coordinator(*(ECS::Coordinator::GetInstance().get()))
+    : _entity(entity), _pickupRadius(pickupRadius), _coordinator(*ECS::Coordinator::GetInstance())
     {
     }
 
@@ -37,5 +37,14 @@ namespace Component
             }
             transform.rotation.y += 1.0f;
         }
+    }
+
+    int APickUp::getPlayerNbr(const std::string &tag)
+    {
+        for (unsigned int i = 0; tag[i]; i++) {
+            if (tag[i] >= '0' && tag[i] <= '9')
+                return std::stoi(&tag[i]);
+        }
+        return -1;
     }
 }

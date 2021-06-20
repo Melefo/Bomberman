@@ -29,7 +29,7 @@ namespace Component
              * @brief Construct a new Button object
              * 
              */
-            Button(const std::string& path);
+            Button(const std::string& path, bool lerp = true);
             /**
              * @brief Destroy the Button object
              * 
@@ -83,6 +83,8 @@ namespace Component
             std::ostream &operator<<(std::ostream &os) override {return os;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
+            ::Texture2D GetTexture() const;
+
             // todo getrect
 
         protected:
@@ -101,6 +103,7 @@ namespace Component
             RayLib::Color _tint;
 
             std::shared_ptr<RayLib::Texture> _texture;
+            bool _lerp;
     };
 }
 

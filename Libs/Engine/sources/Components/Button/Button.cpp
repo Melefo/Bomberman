@@ -13,8 +13,8 @@
 
 namespace Component
 {
-    Button::Button(const std::string& path)
-    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f), _tint(), _texture(AssetCache::GetAsset<RayLib::Texture>(path))
+    Button::Button(const std::string& path, bool lerp)
+    : IUIObject(), _rect(0.0f, 0.0f, 0.0f, 0.0f), _tint(), _texture(AssetCache::GetAsset<RayLib::Texture>(path)), _lerp(lerp)
     {
 
     }
@@ -25,12 +25,12 @@ namespace Component
 
         _rect.x = position.x;
         _rect.y = position.y;
-        _rect.width = static_cast<float>(_texture->GetTexture().width);
-        _rect.height = static_cast<float>(_texture->GetTexture().height);
+        _rect.width = static_cast<float>(_texture->GetTexture().width) * scale.x;
+        _rect.height = static_cast<float>(_texture->GetTexture().height) * scale.y;
 
         // ? multiplier scale par _rect scale ?
 
-        if (IsMouseOver()) {
+        if (this->_lerp && IsMouseOver()) {
             if (RayLib::Mouse::IsButtonDown(MOUSE_BUTTON_LEFT))
                 _tint.Lerp(DARKGRAY, 0.25f);
             else
@@ -39,7 +39,7 @@ namespace Component
             _tint.Lerp(WHITE, 0.25f);
         }
 
-        _texture->DrawTextureEx(position, 0.0f, scale.x, _tint);
+        _texture->DrawTextureNPatch(position, 0.0f, scale, _tint);
     }
 
     bool Button::IsMouseOver(void)
@@ -62,6 +62,11 @@ namespace Component
         for (auto callback : _callbacks) {
             callback();
         }
+    }
+
+    ::Texture2D Button::GetTexture() const
+    {
+        return this->_texture->GetTexture();
     }
 }
 

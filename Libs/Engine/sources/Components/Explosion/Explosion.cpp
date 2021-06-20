@@ -30,11 +30,12 @@ namespace Component
         if (Engine::GameConfiguration::GetDebugMode())
             _window->DrawSphereWires(_transform.position, _radius);
 
+        CheckParentLeftRadius();
+
         if (_explosionTimer <= 0.0f) {
             Explode();
         }
 
-        CheckParentLeftRadius();
     }
 
     void Explosion::Explode(void)

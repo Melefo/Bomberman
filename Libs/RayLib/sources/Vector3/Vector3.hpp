@@ -19,7 +19,7 @@ namespace RayLib
      * @brief Vector3 encapsulation
      * 
      */
-    struct Vector3 : public ::Vector3, public IXMLSerializable
+    class Vector3 : public ::Vector3, public IXMLSerializable
     {
         public:
             /**
