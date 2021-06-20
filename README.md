@@ -23,7 +23,7 @@ You can build the project yourself!
 > Requirements
  - Lua
  - Boost
- - *(Criterion if you want to compile unit tests)*
+ - *(Criterion built from its master branch if you want to compile unit tests)*
 
 Clone the repository 
 ```bash
