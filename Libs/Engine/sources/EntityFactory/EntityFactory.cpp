@@ -145,7 +145,7 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys, int nbrOfTheP
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, keys.movementInput, keys.actionKey);
 
-    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture.png");
+    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture_" + std::to_string(nbrOfThePlayer) + ".png");
 
     entity.AddComponent<Component::Animator>(entity, "../assets/Player/Player_anim_Idle.glb", "Idle");
     entity.GetComponent<Component::Animator>().AddState("../assets/Player/Player_anim_Run.glb", "Run");
@@ -155,14 +155,14 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys, int nbrOfTheP
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createAI()
+ECS::Entity& EntityFactory::createAI(int nbrAI)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("AI");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
     entity.AddComponent<Component::PhysicsBody>();
 
-    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture.png");
+    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture_" + std::to_string(nbrAI) + ".png");
     entity.AddComponent<Component::Animator>(entity, "../assets/Player/Player_anim_Idle.glb", "Idle");
     entity.GetComponent<Component::Animator>().AddState("../assets/Player/Player_anim_Run.glb", "Run");
 

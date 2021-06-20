@@ -96,7 +96,7 @@ class EntityFactory {
          * 
          * @return ECS::Entity& 
          */
-        ECS::Entity& createAI();
+        ECS::Entity& createAI(int nbrAI);
 
         /**
          * @brief Create a HUD part with a bonus icon

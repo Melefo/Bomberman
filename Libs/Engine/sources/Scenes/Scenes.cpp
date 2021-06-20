@@ -90,7 +90,7 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D&, const boo
             if (map[y][x] == static_cast<char>(TerrainGenerator::mapTexture::PLAYER) && currentAI <= enemies) {
                 //std::cout << "Spawn AI at " << "X " << x << " Y " << y << std::endl;
 
-                ECS::Entity& ai = entityFactory.createAI();
+                ECS::Entity& ai = entityFactory.createAI(currentPlayer + currentAI - 1);
                 ai.GetComponent<Component::Transform>().position = RayLib::Vector3(static_cast<float>(x * BOX_SIZE), 1, static_cast<float>(y * BOX_SIZE));
                 currentAI++;
             }
