@@ -210,7 +210,7 @@ void Scenes::InitPause(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     entityPauseText.SetTag("PauseText");
     entityPauseText.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.35f, 0.0f);
 
-    ECS::Entity& entityContinue = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
+    ECS::Entity& entityContinue = entityFactory.createButton("../assets/buttons/ContinueBtnStd_texture.png");
     entityContinue.SetTag("ContinuePauseButton");
     entityContinue.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.6f, 0.0f);
     entityContinue.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Continue));
@@ -457,7 +457,7 @@ void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& came
     std::unique_ptr<RayLib::Window>& windowRef = RayLib::Window::GetInstance(0, "");
     EntityFactory entityFactory(coordinator);
 
-    camera.getEntity().GetComponent<Component::Transform>().position.z = -180;
+    camera.getEntity().GetComponent<Component::Transform>().position.z += -180;
 
     ECS::Entity& entityTitle = entityFactory.createText(endingMessage, "../assets/pixelplay.png", 200.0f, 4.0f);
     Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
