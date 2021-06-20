@@ -7,6 +7,7 @@
 
 #include "SpeedBoost.hpp"
 #include "AIAlgo.hpp"
+#include "EntityFactory.hpp"
 
 namespace Component
 {
@@ -16,11 +17,18 @@ namespace Component
 
     void SpeedBoost::OnPickup(ECS::Entity& collision)
     {
-        // get AController from collision
-        //AController& acontroller = collision.GetComponent<PlayerInputs>();
         if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
-            AController& playerInputs = collision.GetComponent<PlayerInputs>();
-            ApplyBoost(playerInputs);
+            AController& controller = collision.GetComponent<PlayerInputs>();
+            if (controller.GetMovement().GetBonusTime() > 0.0) {
+                ApplyBoost(controller);
+                return;
+            }
+            ApplyBoost(controller);
+
+            EntityFactory entityFactory(*ECS::Coordinator::GetInstance());
+            entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/SpeedPickUp_texture.png", controller.GetMovement().GetBonusTime());
+            entityFactory.createHUDBonusBar(controller, getPlayerNbr(collision.GetTag()), "SpeedBoost", controller.GetMovement().GetBonusTime());
+
         } else if (collision.GetTag().find("AI") != std::string::npos) {
             AController& aiController = collision.GetComponent<AIAlgo>();
             ApplyBoost(aiController);

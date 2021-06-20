@@ -11,7 +11,8 @@
 #include "PhysicsSystem.hpp"
 #include "Camera.hpp"
 #include "Scenes.hpp"
-#include <TextUI.hpp>
+#include "TextUI.hpp"
+#include "TextBox.hpp"
 #include <cstdlib>
 
 namespace Component
@@ -38,9 +39,39 @@ namespace Component
     {
     }
 
+    int ButtonCallbacks::GetSeed(void)
+    {
+        auto& coordinator = ECS::Coordinator::GetInstance();
+        std::string seedText;
+        std::string::size_type sz;
+
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() == "TextSeed" && entity->HasComponent<Component::TextBox>()) {
+                seedText = entity->GetComponent<Component::TextBox>().GetValue();
+                if (seedText != "")
+                    return (std::stoi(seedText, &sz));
+            }
+        }
+        return (-1);
+    }
+
+    void ButtonCallbacks::ClearSeed(void)
+    {
+        auto& coordinator = ECS::Coordinator::GetInstance();
+        std::string seedText;
+
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() == "TextSeed" && entity->HasComponent<Component::TextBox>())
+                entity->GetComponent<Component::TextBox>().SetValue("");
+        }
+    }
+
     void ButtonCallbacks::GenerateBackgroundMap()
     { 
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
+        int seed = GetSeed();
         bool cameraExists = true;
 
         try {
@@ -64,10 +95,16 @@ namespace Component
 
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
-        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA());
-        Engine::GameConfiguration::SetSeed(std::rand() % 10000);
+        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers());
+        if (seed != -1) {
+            Engine::GameConfiguration::SetSeed(seed);
+        } else
+            Engine::GameConfiguration::SetSeed(std::rand() % 10000);
 
-        terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());         // TODO: get the seed entered by the user and put it here
+        if (Engine::GameConfiguration::GetIsMapBasic())
+            terrainGeneratorRef.generateBaseMap(Engine::GameConfiguration::GetSeed());
+        else
+            terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());         // TODO: get the seed entered by the user and put it here
         terrainGeneratorRef.generateBoxes();
         terrainGeneratorRef.placePlayers();
 
@@ -89,7 +126,19 @@ namespace Component
         }
     }
 
-    void ButtonCallbacks::IncrementPlayerNbr()
+    void ButtonCallbacks::TextInterfaceLoader(std::string tagName, std::string str)
+    {
+        auto& coordinator = ECS::Coordinator::GetInstance();
+
+        for (auto& entity : coordinator->GetEntities())
+        {
+            if (entity->GetTag() != tagName || !entity->HasComponent<Component::TextUI>())
+                continue;
+            entity->GetComponent<Component::TextUI>().SetString(str);
+        }
+    }
+
+    void ButtonCallbacks::IncrementPlayerNbr(void)
     {
         int IA = Engine::GameConfiguration::GetIA();
         int playerNbr = Engine::GameConfiguration::GetPlayers();
@@ -100,7 +149,7 @@ namespace Component
         TextInterfaceLoader("TextPlayerNbr", Engine::GameConfiguration::GetPlayers());
     }
 
-    void ButtonCallbacks::DecrementPlayerNbr()
+    void ButtonCallbacks::DecrementPlayerNbr(void)
     {
         int playerNbr = Engine::GameConfiguration::GetPlayers();
         int IA = Engine::GameConfiguration::GetIA();
@@ -111,7 +160,7 @@ namespace Component
         TextInterfaceLoader("TextPlayerNbr", Engine::GameConfiguration::GetPlayers());
     }
 
-    void ButtonCallbacks::IncrementIANbr()
+    void ButtonCallbacks::IncrementIANbr(void)
     {
         int IA = Engine::GameConfiguration::GetIA();
         int playerNbr = Engine::GameConfiguration::GetPlayers();
@@ -122,7 +171,7 @@ namespace Component
         TextInterfaceLoader("TextIANbr", Engine::GameConfiguration::GetIA());
     }
 
-    void ButtonCallbacks::DecrementIANbr()
+    void ButtonCallbacks::DecrementIANbr(void)
     {
         int IA = Engine::GameConfiguration::GetIA();
         int playerNbr = Engine::GameConfiguration::GetPlayers();
@@ -133,7 +182,7 @@ namespace Component
         TextInterfaceLoader("TextIANbr", Engine::GameConfiguration::GetIA());
     }
 
-    void ButtonCallbacks::IncrementMapHeight()
+    void ButtonCallbacks::IncrementMapHeight(void)
     {
         RayLib::Vector2<int> mapSize = Engine::GameConfiguration::GetMapSize();
 
@@ -141,7 +190,7 @@ namespace Component
         TextInterfaceLoader("TextMapHeight", Engine::GameConfiguration::GetMapSize().y);
     }
 
-    void ButtonCallbacks::DecrementMapHeight()
+    void ButtonCallbacks::DecrementMapHeight(void)
     {
         RayLib::Vector2<int> mapSize = Engine::GameConfiguration::GetMapSize();
 
@@ -151,7 +200,7 @@ namespace Component
         TextInterfaceLoader("TextMapHeight", Engine::GameConfiguration::GetMapSize().y);
     }
 
-    void ButtonCallbacks::IncrementMapWidth()
+    void ButtonCallbacks::IncrementMapWidth(void)
     {
         RayLib::Vector2<int> mapSize = Engine::GameConfiguration::GetMapSize();
 
@@ -159,7 +208,7 @@ namespace Component
         TextInterfaceLoader("TextMapWidth", Engine::GameConfiguration::GetMapSize().x);
     }
 
-    void ButtonCallbacks::DecrementMapWidth()
+    void ButtonCallbacks::DecrementMapWidth(void)
     {
         RayLib::Vector2<int> mapSize = Engine::GameConfiguration::GetMapSize();
 
@@ -169,23 +218,47 @@ namespace Component
         TextInterfaceLoader("TextMapWidth", Engine::GameConfiguration::GetMapSize().x);
     }
 
-    void ButtonCallbacks::QuitWindow()
+    void ButtonCallbacks::IncrementVolume(void)
+    {
+        float volume = Engine::GameConfiguration::GetVolume();
+        float add = 0.01f;
+        RayLib::Input input;
+
+        if (volume >= 1.0f)
+            return;
+        if (input.IsKeyDown(KEY_LEFT_CONTROL) || input.IsKeyDown(KEY_RIGHT_CONTROL))
+            add = 0.05f;
+        if (volume + add > 1.0f)
+            add = 1.0f - volume;
+        Engine::GameConfiguration::SetVolume(volume + add);
+        TextInterfaceLoader("TextVolumeNbr", std::to_string(static_cast<int>(Engine::GameConfiguration::GetVolume() * 100)) + "%");
+    }
+
+    void ButtonCallbacks::DecrementVolume(void)
+    {
+        float volume = Engine::GameConfiguration::GetVolume();
+        float rem = 0.01f;
+        RayLib::Input input;
+
+        if (volume <= 0.0f)
+            return;
+        if (input.IsKeyDown(KEY_LEFT_CONTROL) || input.IsKeyDown(KEY_RIGHT_CONTROL))
+            rem = 0.05f;
+        if (volume - rem < 0.0f)
+            rem = volume;
+        Engine::GameConfiguration::SetVolume(volume - rem);
+        TextInterfaceLoader("TextVolumeNbr", std::to_string(static_cast<int>(Engine::GameConfiguration::GetVolume() * 100)) + "%");
+    }
+
+    void ButtonCallbacks::QuitWindow(void)
     {
         ECS::Coordinator::GetInstance()->CloseWindow = true;
     }
 
-    void ButtonCallbacks::Replay()
+    void ButtonCallbacks::Continue(void)
     {
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
-
-        coordinatorRef->RemoveEntities("");
-
-        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
-        terrainGeneratorRef.clearMap();
-        terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());
-        terrainGeneratorRef.generateBoxes();
-        terrainGeneratorRef.placePlayers();
 
         coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(true);
@@ -193,23 +266,50 @@ namespace Component
         coordinatorRef->GetSystem<Component::PhysicsSystem>().SetStatus(true);
     }
 
-    void ButtonCallbacks::StartGame()
+    void ButtonCallbacks::Replay(void)
     {
+        std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
+        std::string sceneName = "Game";
+
+        coordinatorRef->setCurrentScene(sceneName);
+        coordinatorRef->RemoveEntities("");
+
         TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
-        if (!terrainGeneratorRef.isGenerated()) {
-            terrainGeneratorRef.generateRandomMap(0);
-            terrainGeneratorRef.generateBoxes();
-            terrainGeneratorRef.placePlayers();
+        terrainGeneratorRef.clearMap();
+        if (Engine::GameConfiguration::GetIsMapBasic())
+            terrainGeneratorRef.generateBaseMap(Engine::GameConfiguration::GetSeed());
+        else
+            terrainGeneratorRef.generateRandomMap(Engine::GameConfiguration::GetSeed());
+        terrainGeneratorRef.generateBoxes();
+        terrainGeneratorRef.placePlayers();
+
+        coordinatorRef->SetGameIsRunning(true);
+        Engine::GameConfiguration::SetGameOver(false);
+        coordinatorRef->GetSystem<Component::PhysicsSystem>().SetStatus(true);
+    }
+
+    void ButtonCallbacks::StartGame(void)
+    {
+        if (Engine::GameConfiguration::GetDroppedMap() == false) {
+            TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
+            if (!terrainGeneratorRef.isGenerated()) {
+                Engine::GameConfiguration::SetSeed(std::rand() % 10000);
+                terrainGeneratorRef.generateBaseMap(Engine::GameConfiguration::GetSeed());
+                terrainGeneratorRef.generateBoxes();
+                terrainGeneratorRef.placePlayers();
+            }
         }
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         std::string sceneName = "Game";
 
         coordinator->setCurrentScene(sceneName);
+        coordinator->DeleteScene("EditorMenu");
+
         coordinator->SetGameIsRunning(true);
         coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(true);
     }
 
-    void ButtonCallbacks::StartEditorMenu()
+    void ButtonCallbacks::StartEditorMenu(void)
     {
         std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
         std::string sceneName = "EditorMenu";
@@ -218,15 +318,51 @@ namespace Component
         coordinator->SetGameIsRunning(false);
     }
 
-    void ButtonCallbacks::ExitGameToMainMenu()
+    void ButtonCallbacks::StartOptionMenu(void)
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        coordinator->setCurrentScene("OptionsMenu");
+    }
+
+    void ButtonCallbacks::ToggleFullScreen(void)
+    {
+        RayLib::Window::GetInstance(0, "")->ToggleFullScreen();
+    }
+
+    void ButtonCallbacks::ExitGameToMainMenu(void)
     {
         std::unique_ptr<ECS::Coordinator>& coordinatorRef = ECS::Coordinator::GetInstance();
         std::string sceneName = "MainMenu";
+        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
 
+        ClearSeed();
+        terrainGeneratorRef.SetIsGenerated(false);
         coordinatorRef->RemoveEntities("");
-
         coordinatorRef->setCurrentScene(sceneName);
         coordinatorRef->SetGameIsRunning(false);
         Engine::GameConfiguration::SetGameOver(false);
+        coordinatorRef->DeleteScene("Game");
+    }
+
+    void ButtonCallbacks::SwitchMapStatus(void)
+    {
+        bool isMapBasic = Engine::GameConfiguration::GetIsMapBasic();
+
+        if (isMapBasic) {
+            Engine::GameConfiguration::SetIsMapBasic(false);
+            TextInterfaceLoader("TextMapStatus", "COMPLEX");
+        } else {
+            Engine::GameConfiguration::SetIsMapBasic(true);
+            TextInterfaceLoader("TextMapStatus", "BASIC");
+        }
+    }
+
+    void ButtonCallbacks::SaveMap(void)
+    {
+        //! pour le xml (sans arg)
+        //Engine::GameConfiguration::SaveMap();
+
+        //! pour le .txt (arg = path)
+        Engine::GameConfiguration::SaveMap("map");
     }
 }

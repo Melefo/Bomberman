@@ -13,15 +13,23 @@ namespace Component
         : _max(lengthMax), _font(AssetCache::GetAsset<RayLib::Font>(fontPath)), _color(color), _size(size), _spacing(spacing), _value(), _isAlpha(isAlpha), _isNum(isNum), _rect(0.0f, 0.0f, this->_font->MeasureText(std::string(_max, '0'), _size, _spacing).x, _size)
 	{}
 
-	void TextBox::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float>)
+	void TextBox::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float> scale)
 	{
+        float width = _rect.width;
+        float height = _rect.height;
+
         _rect.x = position.x;
         _rect.y = position.y;
+        _rect.width *= scale.x;
+        _rect.height *= scale.y;
 
         this->_rect.DrawRectangle();
         this->_rect.DrawRectangleLines();
 
-        this->_font->DrawText(this->_value, position, this->_size, this->_spacing, this->_color);
+        _rect.width = width;
+        _rect.height = height;
+
+        this->_font->DrawText(this->_value, position, this->_size * scale.x, this->_spacing, this->_color);
 	}
 
     bool TextBox::GetIsAlpha() const
@@ -37,6 +45,11 @@ namespace Component
     const std::string& TextBox::GetValue() const
     {
         return this->_value;
+    }
+
+    void TextBox::SetValue(std::string value)
+    {
+        this->_value = value;
     }
 
     RayLib::Rectangle TextBox::GetRectangle() const

@@ -102,7 +102,7 @@ namespace RayLib
              */
             ::Vector2 getVector2(void) const
             {
-                ::Vector2 vec = {x, y};
+                ::Vector2 vec = {static_cast<float>(x), static_cast<float>(y)};
 
                 return (vec);
             }

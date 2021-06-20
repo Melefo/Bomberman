@@ -81,6 +81,22 @@ namespace Component
             int GetBombNumber();
 
             /**
+             * @brief Get the time of the range bonus
+             * 
+             * @return float&
+             * 
+             */
+            float &GetBonusTimeRange();
+
+            /**
+             * @brief Get the time of the cooldown bonus
+             * 
+             * @return float&
+             * 
+             */
+            float &GetBonusTimeCoolDown();
+
+            /**
              * @brief Add bonusBombs to be dropped, for duration seconds
              * 
              * @param bonusBombs 
@@ -131,7 +147,8 @@ namespace Component
             int _bombNumber;
             int _defaultBombNumber;
             // ! appliqué aux deux bonus possibles...
-            float _bonusTime;
+            float _bonusTimeRange;
+            float _bonusTimeCoolDown;
             float _defaultDropDelay;
             /**
              * @brief Bomb cooldown

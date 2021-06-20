@@ -23,10 +23,21 @@ namespace Component
         // !get asset manager here ?
     }
 
-    void RenderSystem::Update(double, ECS::Entity& entity)
+    void RenderSystem::Update(double, ECS::Entity&entity)
+    {
+        if (entity.OfType<IUIObject>().size() > 0)
+            return;
+        if (entity.HasComponent<Animator>())
+            return;
+
+        Transform& transform = entity.GetComponent<Transform>();
+        entity.GetComponent<Drawable3D>().Draw(transform.position, transform.scale, WHITE);
+
+    }
+
+    void RenderSystem::FixedUpdate(ECS::Entity &entity)
     {
         Transform& transform = entity.GetComponent<Transform>();
-        //Renderer& renderer = entity.GetComponent<Renderer>();
         Drawable3D& drawable = entity.GetComponent<Drawable3D>();
 
         //! on ne render pas ici les UI, pour le moment...

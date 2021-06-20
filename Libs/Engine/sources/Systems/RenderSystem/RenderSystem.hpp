@@ -53,6 +53,14 @@ namespace Component
              */
             void Update(double dt, ECS::Entity &entity) override;
 
+            /**
+             * @brief Update Animations
+             * 
+             * @param dt 
+             * @param entity 
+             */
+            void FixedUpdate(ECS::Entity &entity) override;
+
         protected:
         private:
     };

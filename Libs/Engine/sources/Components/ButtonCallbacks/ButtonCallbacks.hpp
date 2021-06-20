@@ -97,25 +97,25 @@ namespace Component
              * @brief Increment the map of Height
              * 
              */
-            static void IncrementMapHeight();
+            static void IncrementMapHeight(void);
 
             /**
              * @brief Decrement the map of Height
              * 
              */
-            static void DecrementMapHeight();
+            static void DecrementMapHeight(void);
 
             /**
              * @brief Increment the map of Width
              * 
              */
-            static void IncrementMapWidth();
+            static void IncrementMapWidth(void);
 
             /**
              * @brief Decrement the map of Width
              * 
              */
-            static void DecrementMapWidth();
+            static void DecrementMapWidth(void);
 
             /**
              * @brief Generate a map in the background
@@ -123,12 +123,79 @@ namespace Component
              */
             static void GenerateBackgroundMap(void);
 
+            /**
+             * @brief switch the IsMapBasic variable
+             * 
+             */
+            static void SwitchMapStatus(void);
+
+            /**
+             * @brief save map in xml file
+             * 
+             */
+            static void SaveMap(void);
+
+            /**
+             * @brief Clear the seed
+             * 
+             */
+            static void ClearSeed(void);
+
+            /**
+             * @brief Start the Game
+             * 
+             */
             static void StartGame(void);
+            /**
+             * @brief Start the Editor menu
+             * 
+             */
             static void StartEditorMenu(void);
+            /**
+             * @brief Start the Options menu
+             * 
+             */
+            static void StartOptionMenu(void);
+            /**
+             * @brief Return to the Main menu
+             * 
+             */
             static void ExitGameToMainMenu(void);
 
+            /**
+             * @brief Restart the current game
+             * 
+             */
             static void Replay(void);
+            /**
+             * @brief Continue the paused game
+             * 
+             */
+            static void Continue(void);
+            /**
+             * @brief Quit the window
+             * 
+             */
             static void QuitWindow(void);
+
+            /**
+             * @brief Toggle fullscreen
+             * 
+             */
+            static void ToggleFullScreen(void);
+
+
+            /**
+             * @brief Increment the volume of the music
+             *
+             */
+            static void IncrementVolume(void);
+
+            /**
+             * @brief Decrement the value of the music
+             *
+             */
+            static void DecrementVolume(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
@@ -146,10 +213,22 @@ namespace Component
              */
             Button& _button;
             /**
-             * @brief Private Method for displaying dynamic text on click
+             * @brief Private Method for displaying dynamic text on click with int
              * 
              */
             static void TextInterfaceLoader(std::string tagName, int nb);
+            /**
+             * @brief Private Method for displaying dynamic text on click with string
+             * 
+             * @param tagName 
+             * @param str 
+             */
+            static void TextInterfaceLoader(std::string tagName, std::string str);
+            /**
+             * @brief Give seed value in string to int
+             * 
+             */
+            static int GetSeed(void);
     };
 }
 

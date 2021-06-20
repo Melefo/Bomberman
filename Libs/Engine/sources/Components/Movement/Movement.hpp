@@ -75,6 +75,14 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
+            /**
+             * @brief Get the time 
+             * 
+             * @return float&
+             * 
+             */
+            float &GetBonusTime();
+
             void SlipperyCollisions();
 
             bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders,

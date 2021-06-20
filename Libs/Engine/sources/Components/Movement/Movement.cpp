@@ -153,4 +153,8 @@ namespace Component
 
     }
 
+    float &Movement::GetBonusTime()
+    {
+        return _bonusTime;
+    }
 }

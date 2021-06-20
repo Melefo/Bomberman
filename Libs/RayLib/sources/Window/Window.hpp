@@ -14,6 +14,7 @@
 #include <string>
 #include <memory>
 #include "Window.hpp"
+#include "Image.hpp"
 #include "BoundingBox.hpp"
 
 namespace RayLib
@@ -51,6 +52,39 @@ namespace RayLib
              */
             void SetSize(const Vector2<int>& size);
 
+            /**
+             * @brief Get the monitor's size as a vector2<int>
+             *
+             * @return Vector2<int>
+             */
+            Vector2<int> GetMaxSize();
+
+            /**
+             * @brief Get the Scale between monitor size and window size
+             *
+             * @return Vector2<float>
+             */
+            Vector2<float> GetScale();
+
+            /**
+             * @brief Change Window State mode
+             *
+             * @param size
+             */
+            void ToggleFullScreen();
+            /**
+             * @brief Get Window State mode
+             *
+             * @return bool
+             */
+            bool IsFullScreen() const;
+
+            /**
+             * @brief Set the window's Icon
+             * 
+             * @param image 
+             */
+            void SetIcon(const Image& image);
             /**
              * @brief Set the window's title
              * 
@@ -168,6 +202,8 @@ namespace RayLib
              */
             static std::unique_ptr<Window>& GetInstance(Vector2<int> size, const std::string& title);
 
+            static void SetTraceLogLevel(int logLevel);
+
             /**
              * @brief Construct a new Window
              * 
@@ -185,7 +221,7 @@ namespace RayLib
 
         protected:
         private:
-
+            bool _fullscreen;
             static std::unique_ptr<Window> _window;
 
     };

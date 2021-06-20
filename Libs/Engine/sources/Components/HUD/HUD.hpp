@@ -55,6 +55,14 @@ namespace Component
             RayLib::Vector3 &getOffset();
 
             /**
+             * @brief Get the offset needed for the Nth player 
+             * 
+             * @param int playerNbr
+             * @return RayLib::Vector3&
+             */
+            static RayLib::Vector3 GetOffsetFromPlayerNbr(int playerNbr);
+
+            /**
              * @brief Get the AController of the hud part
              * 
              * @return Component::AController &_myAController

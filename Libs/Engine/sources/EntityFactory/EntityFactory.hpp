@@ -17,7 +17,7 @@
 
 class EntityFactory {
     public:
-        EntityFactory(ECS::Coordinator& coordinator, RayLib::Camera3D& camera);
+        EntityFactory(ECS::Coordinator& coordinator);
         ~EntityFactory() = default;
 
         /**
@@ -37,7 +37,7 @@ class EntityFactory {
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createButton(const std::string& texturePath = "../assets/Default_texture.png");
+        ECS::Entity& createButton(const std::string& texturePath = "../assets/Default_texture.png", bool lerp = true);
         /**
          * @brief Create a TextBox object
          *
@@ -80,7 +80,7 @@ class EntityFactory {
          * @param int The n th player. So the function knows where to put the hud
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createBaseHUD(Component::AController &controller, int nbrOfThePlayer);
+        ECS::Entity& createBaseHUD(int nbrOfThePlayer);
 
         /**
          * @brief Create a HUD part with a text
@@ -97,12 +97,31 @@ class EntityFactory {
          * @return ECS::Entity& 
          */
         ECS::Entity& createAI();
+
+        /**
+         * @brief Create a HUD part with a bonus icon
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createHUDBonusIcon(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer);
+
+        /**
+         * @brief Create a HUD part with a bonus bar
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createHUDBonusBar(Component::AController &controller, int nbrOfThePlayer, const std::string &type, float &timer);
+
          /**
          * @brief Create a Text object
          * 
          * @return ECS::Entity::& The entity created
          */
-        ECS::Entity& createText(const std::string& content, const std::string& fontPath, float size, float spacing=0.0f);
+        ECS::Entity& createText(const std::string& content, const std::string& fontPath, float size, float spacing=0.0f, RayLib::Color color = BLACK);
 
         /**
          * @brief Create a random Pick Up bonus
@@ -139,12 +158,11 @@ class EntityFactory {
          */
         ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
 
-        ECS::Entity& createCamera(void);
+        ECS::Entity& createCamera(RayLib::Camera3D &camera, const std::string& musicPath = "");
 
     protected:
     private:
         ECS::Coordinator& _coordinator;
-        RayLib::Camera3D& _camera;
         std::vector<std::function<ECS::Entity&(void)>> _pickupFunctions;
 };
 
