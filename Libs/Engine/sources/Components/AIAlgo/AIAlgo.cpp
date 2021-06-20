@@ -195,8 +195,8 @@ namespace Component
             searchRadius= RayLib::Vector2<int>(static_cast<int>(map[0].size()/ 2), static_cast<int>(map[0].size() / 2));
         float closest = std::numeric_limits<float>::max();
 
-        maxPoint += (searchRadius * 0.5f);
-        minPoint -= (searchRadius * 0.5f);
+        maxPoint += (searchRadius);
+        minPoint -= (searchRadius);
 
         if (maxPoint.y > static_cast<int>(map.size()))
             maxPoint.y = static_cast<int>(map.size());
