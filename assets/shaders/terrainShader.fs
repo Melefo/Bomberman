@@ -4,6 +4,7 @@ in vec2 fragTexCoord;
 in vec4 fragColor;
 
 uniform sampler2D texture0;
+uniform vec4 colDiffuse;
 uniform vec2 mapSize;
 
 out vec4 finalColor;
@@ -12,10 +13,10 @@ void main()
 {
     vec4 texelColor = texture(texture0, fragTexCoord)*fragColor;
     vec2 posOnMap = vec2((fragTexCoord.x * mapSize.x), (fragTexCoord.y * mapSize.y));
-    vec4 brightColor = vec4(texelColor.r + 0.2,
-                        texelColor.g + 0.2,
-                        texelColor.b + 0.2,
-                        255);
+    vec4 brightColor = vec4(texelColor.r + 0.1,
+                        texelColor.g + 0.1,
+                        texelColor.b + 0.1,
+                        1.0);
     finalColor = texelColor;
 
     if (mod(posOnMap.x, 20.0) > 10.0

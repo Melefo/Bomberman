@@ -163,6 +163,8 @@ class EntityFactory {
         ECS::Entity& createParticle(const std::string& texturePath, RayLib::Vector2<float> minMaxSize,
                                     RayLib::Vector2<int> minMaxSides, float startSpeed=2.0f,
                                     float lifeTime=1.5f);
+  
+        ECS::Entity& createFloor(RayLib::Vector2<float> mapSize);
 
     protected:
     private:
