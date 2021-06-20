@@ -11,6 +11,7 @@
 #include <cmath>
 #include "IUIObject.hpp"
 #include "Drawable3D.hpp"
+#include "ModelShader.hpp"
 
 namespace Component
 {
@@ -49,6 +50,10 @@ namespace Component
         if (entity.HasComponent<Animator>()) {
             Animator& animator = entity.GetComponent<Animator>();
             animator.PlayCurrentState(drawable.GetModel());
+        }
+        if (entity.HasComponent<ModelShader>()) {
+            ModelShader& modelShader = entity.GetComponent<ModelShader>();
+            modelShader.Update();
         }
         drawable.Draw(transform.position, transform.scale, WHITE);
     }

@@ -92,6 +92,7 @@ namespace Component
         coordinatorRef->RemoveEntities("PickUp");
         coordinatorRef->RemoveEntities("Bomb");
         coordinatorRef->RemoveEntities("HUD");
+        coordinatorRef->RemoveEntities("MapFloor");
 
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
