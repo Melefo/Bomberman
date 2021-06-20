@@ -98,6 +98,7 @@ namespace Component
             std::unique_ptr<ECS::Coordinator>& _coordinator;
 
             int _nbrPlayersAlive;
+            int _nbrIAsAlive;
     };
 }
 
