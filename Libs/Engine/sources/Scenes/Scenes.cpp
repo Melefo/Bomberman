@@ -210,7 +210,7 @@ void Scenes::InitPause(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     entityPauseText.SetTag("PauseText");
     entityPauseText.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.35f, 0.0f);
 
-    ECS::Entity& entityContinue = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
+    ECS::Entity& entityContinue = entityFactory.createButton("../assets/buttons/ContinueBtnStd_texture.png");
     entityContinue.SetTag("ContinuePauseButton");
     entityContinue.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.6f, 0.0f);
     entityContinue.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Continue));
