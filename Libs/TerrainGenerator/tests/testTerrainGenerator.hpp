@@ -18,7 +18,7 @@ class TestTerrainGenerator : public TerrainGenerator {
         void trimMap() {TerrainGenerator::trimMap();};
         std::vector<std::string> rotateTile(std::vector<std::string> tile) const {return TerrainGenerator::rotateTile(tile);};
         std::string generateMapLine(int hPos) {return TerrainGenerator::generateMapLine(hPos);};
-        void generateBaseMap() {TerrainGenerator::generateBaseMap();};
+        void generateBaseMap(int seed) {TerrainGenerator::generateBaseMap(seed);};
         void removeBoxes() {
             for (auto &it : _map)
                 for (auto &c : it)
