@@ -60,17 +60,21 @@ namespace Component
         std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*_coordinator.get(), areaOfEffect);
 
         // ! j'ai pas trouvé mieux pour que la box soit récupérée
-        for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get().HasComponent<Destructible>()) {
-                Destructible& destructible = it->get().GetComponent<Destructible>();
+        for (auto it = entities.begin(); it != entities.end();) {
+
+            auto& entity = it->get();
+            it++;
+
+            if (entity.HasComponent<Destructible>()) {
+                Destructible& destructible = entity.GetComponent<Destructible>();
                 destructible.TakeDamage(power);
-            } else if (it->get().HasComponent<Box>()) {
-                Box& destructible = it->get().GetComponent<Box>();
+            } else if (entity.HasComponent<Box>()) {
+                Box& destructible = entity.GetComponent<Box>();
                 destructible.TakeDamage(power);
             }
 
-            if (it->get().HasComponent<Explosion>() && it->get().GetId() != _myEntity.GetId()) {
-                it->get().GetComponent<Explosion>().Explode();
+            if (entity.HasComponent<Explosion>() && entity.GetId() != _myEntity.GetId()) {
+                entity.GetComponent<Explosion>().Explode();
             }
         }
         _myEntity.Dispose();
