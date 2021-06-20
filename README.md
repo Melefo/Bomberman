@@ -13,6 +13,8 @@ Bomberman is a project where we try to do an Bomberman-like game with a homemade
 ## Screenshots
 
 <p align="center"><img src="./assets/screenshots/MainMenu.png"></p>
+<p align="center"><img src="./assets/screenshots/EditorMenu.png"></p>
+<p align="center"><img src="./assets/screenshots/Game.png"></p>
 
 ***
 
