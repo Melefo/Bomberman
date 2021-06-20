@@ -68,13 +68,16 @@ namespace Component
             if (entity.HasComponent<Destructible>()) {
                 Destructible& destructible = entity.GetComponent<Destructible>();
                 destructible.TakeDamage(power);
+                continue;
             } else if (entity.HasComponent<Box>()) {
                 Box& destructible = entity.GetComponent<Box>();
                 destructible.TakeDamage(power);
+                continue;
             }
 
             if (entity.HasComponent<Explosion>() && entity.GetId() != _myEntity.GetId()) {
                 entity.GetComponent<Explosion>().Explode();
+                continue;
             }
         }
         _myEntity.Dispose();
