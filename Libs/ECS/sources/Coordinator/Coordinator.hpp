@@ -216,6 +216,11 @@ namespace ECS
              * @param sceneName 
              */
             void setCurrentScene(const std::string& sceneName);
+            /**
+             * @brief Delete the scene given
+             * 
+             * @param const std::string& sceneName 
+             */
             void DeleteScene(const std::string& sceneName);
 
             /**
