@@ -457,23 +457,25 @@ void Scenes::InitGame(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
 void Scenes::InitGameOver(ECS::Coordinator& coordinator, Component::Camera& camera, const std::string &endingMessage)
 {
     std::unique_ptr<RayLib::Window>& windowRef = RayLib::Window::GetInstance(0, "");
+    RayLib::Vector2<float> scale = windowRef->GetScale();
+    RayLib::Vector2<int> size = windowRef->GetSize();
     EntityFactory entityFactory(coordinator);
 
     camera.getEntity().GetComponent<Component::Transform>().position.z += -180;
 
     ECS::Entity& entityTitle = entityFactory.createText(endingMessage, "../assets/pixelplay.png", 200.0f, 4.0f);
     Component::TextUI& text = entityTitle.GetComponent<Component::TextUI>();
-    RayLib::Vector3 center = RayLib::Vector3(windowRef->GetSize().x / 2.0f - (text.MeasureText().x / 2.0f),
-                                             windowRef->GetSize().y / 2.0f - 350.0f, 0.0f);
+    RayLib::Vector3 center = RayLib::Vector3(0.5f - (text.MeasureText().x * scale.x / size.x / 2),
+                                             0.25f, 0.0f);
     entityTitle.GetComponent<Component::Transform>().position = center;
 
     ECS::Entity &entityReplay = entityFactory.createButton("../assets/buttons/ReplayBtnStd_texture.png");
-    entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f,
-                                                                               windowRef->GetSize().y / 2.0f + 150.0f, 0.0f);
+    entityReplay.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x / 2,
+                                                                               0.5f, 0.0f);
     entityReplay.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::Replay));
 
     ECS::Entity &entityMainMenu = entityFactory.createButton("../assets/buttons/MainMenuBtnStd_texture.png");
-    entityMainMenu.GetComponent<Component::Transform>().position = RayLib::Vector3(windowRef->GetSize().x / 2.0f - 200.0f,
-                                                                                   windowRef->GetSize().y / 2.0f + 300.0f, 0.0f);
+    entityMainMenu.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x / 2,
+                                                                                   0.65f, 0.0f);
     entityMainMenu.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ExitGameToMainMenu));
 }
