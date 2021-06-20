@@ -362,8 +362,6 @@ int skyboxShader()
 
     const int screenWidth = 1920;
     const int screenHeight = 1080;
-    
-    const int boxSize = 10;
 
     RayLib::Vector2<float> mapSize(10000, 10000);
 
