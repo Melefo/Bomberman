@@ -96,6 +96,8 @@ void Scenes::InitMap(ECS::Coordinator& coordinator, RayLib::Camera3D&, const boo
             }
         }
     }
+    ECS::Entity& mapFloor = entityFactory.createFloor(RayLib::Vector2<float>(static_cast<float>(map[0].size()), static_cast<float>(map.size())));
+    mapFloor.SetTag("MapFloor");
 }
 
 void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)

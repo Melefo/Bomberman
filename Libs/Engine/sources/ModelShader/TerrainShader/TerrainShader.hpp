@@ -8,13 +8,15 @@
 #ifndef TERRAINSHADER_HPP_
 #define TERRAINSHADER_HPP_
 
-#include "Shader.hpp"
+#include "ModelShader.hpp"
 #include "Vector2.hpp"
 
-class TerrainShader : public RayLib::Shader {
+class TerrainShader : public Component::ModelShader {
     public:
-        TerrainShader(const std::string& ShaderPath, RayLib::Vector2<float> mapSize);
+        TerrainShader(const std::string& shaderFolderPath, RayLib::Vector2<float> mapSize);
         ~TerrainShader() = default;
+
+        void Update();
 
     protected:
     private:

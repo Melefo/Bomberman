@@ -12,7 +12,6 @@
 #include "Entity.hpp"
 #include "PhysicsSystem.hpp"
 #include "Collider.hpp"
-#include "SphereCollider.hpp"
 #include "DropBomb.hpp"
 #include "Model.hpp"
 #include "BehaviourSystem.hpp"
@@ -35,18 +34,23 @@ int applyShaderToCube(void)
 
     coordinator->AddSystem<Component::RenderSystem>();
 
+    std::shared_ptr<RayLib::Texture> boxTexture = AssetCache::GetAsset<RayLib::Texture>("../Prototype/sources/Shaders/resources/cube_texture.png");
+    std::shared_ptr<RayLib::Shader> boxShader = AssetCache::GetAsset<RayLib::Shader>("../Prototype/sources/Shaders/resources/glsl/grayscale");
+
+    RayLib::Mesh cubeMesh = RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f));
+
     ECS::Entity& box = coordinator->CreateEntity();
     box.AddComponent<Component::Transform>();
-    box.AddComponent<Component::Drawable3D>(RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f)),
-                                            "../Prototype/sources/Shaders/resources/cube_texture.png",
-                                            "../Prototype/sources/Shaders/resources/glsl/grayscale");
+    box.AddComponent<Component::Drawable3D>(cubeMesh);
     box.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
+    box.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, *boxTexture);
+    box.GetComponent<Component::Drawable3D>().SetMaterialShader(0, *boxShader);
 
     ECS::Entity& box2 = coordinator->CreateEntity();
     box2.AddComponent<Component::Transform>();
-    box2.AddComponent<Component::Drawable3D>(RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f)),
-                                            "../Prototype/sources/Shaders/resources/cube_texture.png");
+    box2.AddComponent<Component::Drawable3D>(cubeMesh);
     box2.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 0.0f);
+    box2.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, *boxTexture);
 
     //RayLib::Texture texture("../Prototype/sources/Shaders/resources/cube_texture.png");
 
@@ -88,21 +92,19 @@ int allBlue(void)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(screenWidth, screenHeight), "Prototype");
 
     coordinator->AddSystem<Component::RenderSystem>();
+    RayLib::Mesh cube(RayLib::Vector3(10.0f, 10.0f, 10.0f));
 
     ECS::Entity& box = coordinator->CreateEntity();
     box.AddComponent<Component::Transform>();
-    box.AddComponent<Component::Drawable3D>(RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f)),
-                                            "../Prototype/sources/Shaders/resources/cube_texture.png");
+    box.AddComponent<Component::Drawable3D>(cube);
+    box.GetComponent<Component::Drawable3D>().SetTexture("../Prototype/sources/Shaders/resources/cube_texture.png");
     box.GetComponent<Component::Transform>().position = RayLib::Vector3(-20.0f, 0.0f, 0.0f);
 
     ECS::Entity& box2 = coordinator->CreateEntity();
     box2.AddComponent<Component::Transform>();
-    box2.AddComponent<Component::Drawable3D>(RayLib::Mesh(RayLib::Vector3(10.0f, 10.0f, 10.0f)),
-                                            "../Prototype/sources/Shaders/resources/cube_texture.png");
+    box2.AddComponent<Component::Drawable3D>(cube);
+    box2.GetComponent<Component::Drawable3D>().SetTexture("../Prototype/sources/Shaders/resources/cube_texture.png");
     box2.GetComponent<Component::Transform>().position = RayLib::Vector3(20.0f, 0.0f, 0.0f);
-
-    Component::Drawable3D& boxDrawable = box.GetComponent<Component::Drawable3D>();
-    Component::Drawable3D& box2Drawable = box2.GetComponent<Component::Drawable3D>();
 
     //RayLib::Texture texture("../Prototype/sources/Shaders/resources/cube_texture.png");
     // RayLib::Color color(216, 240, 240, 255);
@@ -129,10 +131,10 @@ int allBlue(void)
             window->ClearBackground(RAYWHITE);
             target.BeginMode();
                 window->ClearBackground(RAYWHITE);
-            target.EndMode();
                 camera.BeginMode();
                     coordinator->Run();
                 camera.EndMode();
+            target.EndMode();
             ambientShader.BeginMode();
                 target.DrawTexture();
             ambientShader.EndMode();
@@ -272,33 +274,29 @@ int floorShader()
     RayLib::Vector2<float> mapSize(13*boxSize, 17*boxSize);
 
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-    //std::unique_ptr<AssetManager>& assetManagerRef = AssetManager::GetInstance();
 
     RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(screenWidth, screenHeight), "Prototype");
 
     coordinator->AddSystem<Component::RenderSystem>();
+    
+    RayLib::Mesh planeMesh(mapSize.x, mapSize.y, 1, 1);
 
-    ECS::Entity& box = coordinator->CreateEntity();
-    box.AddComponent<Component::Transform>();
-    box.AddComponent<Component::Renderer>();
-    box.GetComponent<Component::Transform>().scale = RayLib::Vector3(130.0f, 0.0f, 170.0f);
-    box.GetComponent<Component::Transform>().position = RayLib::Vector3(0.0f, 0.0f, 0.0f);
+    RayLib::Color floorColor(68, 194, 64, 255);
+    RayLib::Texture texture(RayLib::Image(RayLib::Vector2<int>(static_cast<int>(mapSize.x), static_cast<int>(mapSize.y)), floorColor.getColor()));
 
-    Component::Drawable3D& boxDrawable = box.GetComponent<Component::Drawable3D>();
+    std::shared_ptr<RayLib::Shader> shader = AssetCache::GetAsset<RayLib::Shader>("../assets/shaders/terrainShader");
+    
+    ECS::Entity& plane = coordinator->CreateEntity();
+    plane.AddComponent<Component::Transform>();
+    plane.AddComponent<Component::ModelShader, TerrainShader>("../assets/shaders/terrainShader", mapSize);
+    plane.AddComponent<Component::Drawable3D>(planeMesh);
+    Component::Drawable3D& planeDrawable = plane.GetComponent<Component::Drawable3D>();
+    planeDrawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
+    planeDrawable.SetMaterialShader(0, *shader);
 
     window->SetTargetFPS(60);
     camera.SetCameraMode(CAMERA_FREE);
-
-    TerrainShader terrainShader(protoShadersPath, RayLib::Vector2<float>(mapSize.x, mapSize.y));
-
-    RayLib::Color floorColor(68, 194, 64, 255);
-
-    RayLib::Texture texture(RayLib::Image(RayLib::Vector2<int>(static_cast<int>(mapSize.x), static_cast<int>(mapSize.y)), floorColor.getColor()));
-    boxDrawable.SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
-    boxDrawable.SetMaterialShader(0, terrainShader);
-    //assetManagerRef->getAssetFromName("floor").getModel().SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, texture);
-    //assetManagerRef->getAssetFromName("floor").getModel().SetMaterialShader(0, terrainShader);
 
     while (!window->WindowShouldClose())
     {
@@ -309,9 +307,7 @@ int floorShader()
             window->ClearBackground(RAYWHITE);
             camera.BeginMode();
             window->DrawGrid(20, 10.0f);
-            terrainShader.BeginMode();
             coordinator->Run();
-            terrainShader.EndMode();
             camera.EndMode();
 
         window->EndDrawing();
@@ -319,10 +315,51 @@ int floorShader()
     return (0);
 }
 
+int glowShader()
+{
+    std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 10.0f, 0.0f), RayLib::Vector3(), RayLib::Vector3(0.0f, 1.0f, 0.0f));
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(1920, 1080), "Bomberman");
+
+    coordinator->AddSystem<Component::RenderSystem>();
+
+    // sphere mesh
+    RayLib::Mesh sphereMesh(1.0f, 20, 20);
+    // drawable
+    ECS::Entity& sphereEntity = coordinator->CreateEntity();
+    sphereEntity.AddComponent<Component::Transform>();
+    sphereEntity.AddComponent<Component::Drawable3D>(sphereMesh);
+    Component::Drawable3D& drawable = sphereEntity.GetComponent<Component::Drawable3D>();
+
+    std::shared_ptr<RayLib::Shader> shader = AssetCache::GetAsset<RayLib::Shader>("../assets/shaders/glow");
+    drawable.SetMaterialShader(0, *shader);
+
+    window->SetTargetFPS(60);
+    window->SetExitKey(KEY_ESCAPE);
+    camera.SetCameraMode(CAMERA_FREE);
+    while (!window->WindowShouldClose() && !coordinator->CloseWindow)
+    {
+        camera.Update();
+        window->BeginDrawing();
+        window->ClearBackground(RAYWHITE);
+        camera.BeginMode();
+
+        coordinator->Run();
+
+        window->DrawGrid(10, 1.0f);
+
+        camera.EndMode();
+        window->EndDrawing();
+    }
+
+    return (0);
+}
+
 int main(void)
 {
     // applyShaderToCube();
-    // allBlue();
+    allBlue();
     // basic_lighting_remastered();
-    floorShader();
+    // floorShader();
+    // glowShader();
 }

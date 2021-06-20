@@ -34,6 +34,7 @@
 #include "HUDBonusBar.hpp"
 #include "Drawable3D.hpp"
 #include "AssetCache.hpp"
+#include "TerrainShader.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator)
     : _coordinator(coordinator)
@@ -335,5 +336,22 @@ ECS::Entity& EntityFactory::createCamera(RayLib::Camera3D &camera, const std::st
         entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera, musicPath);
     else
         entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createFloor(RayLib::Vector2<float> mapSize)
+{
+    RayLib::Vector2<float> planeSize(mapSize.x*BOX_SIZE, mapSize.y*BOX_SIZE);
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    RayLib::Vector3 position(planeSize.x/2-BOX_SIZE/2, -BOX_SIZE/2+1, planeSize.y/2-BOX_SIZE/2);
+    RayLib::Mesh planeMesh(planeSize.x, planeSize.y, 1, 1);
+
+    entity.AddComponent<Component::Transform>(position);
+    entity.AddComponent<Component::ModelShader, TerrainShader>("../assets/shaders/terrainShader", planeSize);
+    entity.AddComponent<Component::Drawable3D>(planeMesh);
+    entity.GetComponent<Component::Drawable3D>().SetTexture("../assets/floor.png");
+    entity.GetComponent<Component::Drawable3D>().SetShader("../assets/shaders/terrainShader");
+
     return (entity);
 }

@@ -160,6 +160,8 @@ class EntityFactory {
 
         ECS::Entity& createCamera(RayLib::Camera3D &camera, const std::string& musicPath = "");
 
+        ECS::Entity& createFloor(RayLib::Vector2<float> mapSize);
+
     protected:
     private:
         ECS::Coordinator& _coordinator;
