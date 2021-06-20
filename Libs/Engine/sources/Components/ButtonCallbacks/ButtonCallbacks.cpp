@@ -218,6 +218,38 @@ namespace Component
         TextInterfaceLoader("TextMapWidth", Engine::GameConfiguration::GetMapSize().x);
     }
 
+    void ButtonCallbacks::IncrementVolume(void)
+    {
+        float volume = Engine::GameConfiguration::GetVolume();
+        float add = 0.01f;
+        RayLib::Input input;
+
+        if (volume >= 1.0f)
+            return;
+        if (input.IsKeyDown(KEY_LEFT_CONTROL) || input.IsKeyDown(KEY_RIGHT_CONTROL))
+            add = 0.05f;
+        if (volume + add > 1.0f)
+            add = 1.0f - volume;
+        Engine::GameConfiguration::SetVolume(volume + add);
+        TextInterfaceLoader("TextVolumeNbr", std::to_string(static_cast<int>(Engine::GameConfiguration::GetVolume() * 100)) + "%");
+    }
+
+    void ButtonCallbacks::DecrementVolume(void)
+    {
+        float volume = Engine::GameConfiguration::GetVolume();
+        float rem = 0.01f;
+        RayLib::Input input;
+
+        if (volume <= 0.0f)
+            return;
+        if (input.IsKeyDown(KEY_LEFT_CONTROL) || input.IsKeyDown(KEY_RIGHT_CONTROL))
+            rem = 0.05f;
+        if (volume - rem < 0.0f)
+            rem = volume;
+        Engine::GameConfiguration::SetVolume(volume - rem);
+        TextInterfaceLoader("TextVolumeNbr", std::to_string(static_cast<int>(Engine::GameConfiguration::GetVolume() * 100)) + "%");
+    }
+
     void ButtonCallbacks::QuitWindow(void)
     {
         ECS::Coordinator::GetInstance()->CloseWindow = true;

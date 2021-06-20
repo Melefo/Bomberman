@@ -66,12 +66,12 @@ ECS::Entity& EntityFactory::createTextBox(int maxLength, const std::string& font
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createText(const std::string& content, const std::string& fontPath, float size, float spacing)
+ECS::Entity& EntityFactory::createText(const std::string& content, const std::string& fontPath, float size, float spacing, RayLib::Color color)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
 
     entity.SetTag(content);
-    entity.AddComponent<Component::IUIObject, Component::TextUI>(content, fontPath, size, spacing);
+    entity.AddComponent<Component::IUIObject, Component::TextUI>(content, fontPath, size, spacing, color);
     entity.AddComponent<Component::Transform>(RayLib::Vector3(0.0f, 0.0f, 0.0f), 0.0f, RayLib::Vector3(1.0f, 1.0f, 1.0f));
     return (entity);
 }

@@ -23,6 +23,7 @@ namespace Engine
     TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA(),
                                                                              Engine::GameConfiguration::GetMapSize().x, Engine::GameConfiguration::GetMapSize().y);
     bool GameConfiguration::_droppedMap = false;
+    float GameConfiguration::_volume = 0.4f;
 
     playerkeys::playerkeys(RayLib::Input input, int key) :
     movementInput(input), actionKey(key)
@@ -184,4 +185,13 @@ namespace Engine
         file.close();
     }
 
+    float GameConfiguration::GetVolume(void)
+    {
+        return (_volume);
+    }
+
+    void GameConfiguration::SetVolume(float volume)
+    {
+        _volume = volume;
+    }
 }

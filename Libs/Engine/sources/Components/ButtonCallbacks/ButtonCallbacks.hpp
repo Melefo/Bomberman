@@ -147,6 +147,19 @@ namespace Component
 
             static void ToggleFullScreen(void);
 
+
+            /**
+             * @brief Increment the volume of the music
+             *
+             */
+            static void IncrementVolume(void);
+
+            /**
+             * @brief Decrement the value of the music
+             *
+             */
+            static void DecrementVolume(void);
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 

@@ -63,5 +63,10 @@ namespace Component
             callback();
         }
     }
+
+    ::Texture2D Button::GetTexture() const
+    {
+        return this->_texture->GetTexture();
+    }
 }
 

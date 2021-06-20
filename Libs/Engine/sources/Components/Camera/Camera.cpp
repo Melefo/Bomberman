@@ -10,6 +10,7 @@
 #include "Window.hpp"
 #include "Exceptions.hpp"
 #include "AssetCache.hpp"
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
@@ -23,7 +24,7 @@ namespace Component
     : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y),
     _music(AssetCache::GetAsset<RayLib::Sound>(musicPath))
     {
-        _music->SetVolume(0.5f);
+        _music->SetVolume(Engine::GameConfiguration::GetVolume());
         _music->Play();
     }
 

@@ -108,9 +108,12 @@ void Scenes::InitMainMenu(ECS::Coordinator& coordinator, RayLib::Camera3D& camer
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
     RayLib::Vector2<float> scale = window->GetScale();
     RayLib::Vector2<int> size = window->GetSize();
+    RayLib::Vector2<int> max = window->GetMaxSize();
 
     ECS::Entity& background = entityFactory.createButton("../assets/backgrounds/MainMenu.png", false);
-    background.GetComponent<Component::Transform>().scale = RayLib::Vector3(0.38f, 0.38f, 0);
+    ::Texture2D texture = background.GetComponent<Component::Button>().GetTexture();
+    background.GetComponent<Component::Transform>().scale = RayLib::Vector3(static_cast<float>(max.x) / texture.width,
+        static_cast<float>(max.y) / texture.height, 0);
 
     ECS::Entity& entityTitle = entityFactory.createButton("../assets/Logo.png", false);
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(0.175f, 0.075f, 0.0f);
@@ -138,20 +141,50 @@ void Scenes::InitOptions(ECS::Coordinator& coordinator, RayLib::Camera3D& camera
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
     RayLib::Vector2<float> scale = window->GetScale();
     RayLib::Vector2<int> size = window->GetSize();
+    RayLib::Vector2<int> max = window->GetMaxSize();
 
     entityFactory.createCamera(camera);
+
+    ECS::Entity& background = entityFactory.createButton("../assets/backgrounds/Options.png", false);
+    ::Texture2D texture = background.GetComponent<Component::Button>().GetTexture();
+    background.GetComponent<Component::Transform>().scale = RayLib::Vector3(static_cast<float>(max.x) / texture.width,
+        static_cast<float>(max.y) / texture.height, 0);
 
     ECS::Entity& entityTitle = entityFactory.createButton("../assets/Logo.png", false);
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(0.175f, 0.075f, 0.0f);
 
-    ECS::Entity& fullscreenButton = entityFactory.createButton();
+    ECS::Entity& fullscreenButton = entityFactory.createButton("../assets/buttons/FullscreenBtnStd_texture.png");
     fullscreenButton.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x,
-        0.25f - 50.0f * scale.y / size.y, 0.0f);
+        0.35f - 50.0f * scale.y / size.y, 0.0f);
     fullscreenButton.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ToggleFullScreen));
 
     ECS::Entity& mainMenuButt = entityFactory.createButton("../assets/buttons/MainMenuBtnStd_texture.png");
-    mainMenuButt.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.5f + 300.0f * scale.y / size.y, -0.0f);
+    mainMenuButt.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x,
+        0.5f + 300.0f * scale.y / size.y, -0.0f);
     mainMenuButt.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::ExitGameToMainMenu));
+
+    ECS::Entity& nbrVolume = entityFactory.createText("Volume", "../assets/pixelplay.png", 50.0f, 4.0f, WHITE);
+    Component::TextUI& nbrVolumeText = nbrVolume.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> nbrVolumeTextSize = nbrVolumeText.MeasureText();
+    nbrVolume.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - (nbrVolumeTextSize.x * scale.x / size.x / 2),
+        0.45f, 0.0f);
+
+    ECS::Entity& plus = entityFactory.createButton("../assets/buttons/Plus_texture.png");
+    plus.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f + (nbrVolumeTextSize.x * scale.x / size.x) - 50 * scale.x / size.x,
+        0.5f, 0.0f);
+    plus.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::IncrementVolume));
+
+    ECS::Entity& minus = entityFactory.createButton("../assets/buttons/Minus_texture.png");
+    minus.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - (nbrVolumeTextSize.x * scale.x / size.x) - 50 * scale.x / size.x,
+        0.5f, 0.0f);
+    minus.GetComponent<Component::Button>().AddCallback(std::bind(Component::ButtonCallbacks::DecrementVolume));
+
+    ECS::Entity& number = entityFactory.createText(std::to_string(static_cast<int>(Engine::GameConfiguration::GetVolume() * 100)) + "%", "../assets/pixelplay.png", 50.0f, 4.0f, WHITE);
+    number.SetTag("TextVolumeNbr");
+    Component::TextUI& numberText = number.GetComponent<Component::TextUI>();
+    RayLib::Vector2<float> numberTextSize = numberText.MeasureText();
+    number.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - (numberTextSize.x * scale.x / size.x / 2),
+        0.525f, 0.0f);
 }
 
 void Scenes::InitPause(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
@@ -160,14 +193,20 @@ void Scenes::InitPause(ECS::Coordinator& coordinator, RayLib::Camera3D& camera)
     std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(0, "");
     RayLib::Vector2<float> scale = window->GetScale();
     RayLib::Vector2<int> size = window->GetSize();
+    RayLib::Vector2<int> max = window->GetMaxSize();
 
     entityFactory.createCamera(camera);
+
+    ECS::Entity& background = entityFactory.createButton("../assets/backgrounds/Pause.png", false);
+    ::Texture2D texture = background.GetComponent<Component::Button>().GetTexture();
+    background.GetComponent<Component::Transform>().scale = RayLib::Vector3(static_cast<float>(max.x) / texture.width,
+        static_cast<float>(max.y) / texture.height, 0);
 
     ECS::Entity& entityTitle = entityFactory.createButton("../assets/Logo.png", false);
     entityTitle.GetComponent<Component::Transform>().position = RayLib::Vector3(0.175f, 0.075f, 0.0f);
 
 
-    ECS::Entity& entityPauseText = entityFactory.createText("Pause", "../assets/pixelplay.png", 200.0f, 4.0f);
+    ECS::Entity& entityPauseText = entityFactory.createText("Pause", "../assets/pixelplay.png", 200.0f, 4.0f, WHITE);
     entityPauseText.SetTag("PauseText");
     entityPauseText.GetComponent<Component::Transform>().position = RayLib::Vector3(0.5f - 200.0f * scale.x / size.x, 0.35f, 0.0f);
 
