@@ -32,7 +32,7 @@ jobs:
       - name: CMake
         run: mkdir build &&
           cd build &&
-          cmake ..
+          cmake .. -DUnitTests=On
       - name: Makefile
         run: make -C build ray_unit_tests ecs_unit_tests bomberman_unit_tests xmlGen_unit_tests engine_unit_tests terrainGen_unit_tests
       - name: Run unit tests

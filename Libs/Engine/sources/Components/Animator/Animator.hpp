@@ -46,14 +46,25 @@ namespace Component
             Animator& operator=(const Animator& other) = default;
 
             /**
-             * @brief Set the State
+             * @brief Set the current State
              * 
              * @param state 
              */
             void SetState(const std::string& state);
 
+            /**
+             * @brief Add a state
+             * 
+             * @param path 
+             * @param state 
+             */
             void AddState(const std::string& path, std::string state);
 
+            /**
+             * @brief Get the State object
+             * 
+             * @return const std::string& 
+             */
             const std::string& GetState(void) const;
 
             /**
@@ -68,8 +79,20 @@ namespace Component
 
         protected:
         private:
+            /**
+             * @brief List of states
+             * 
+             */
             std::map<std::string, std::shared_ptr<RayLib::ModelAnimation>> _stateMachine;
+            /**
+             * @brief current State of animation
+             * 
+             */
             std::string _currentState;
+            /**
+             * @brief Assoiciated animation
+             * 
+             */
             ECS::Entity& _entity;
     };
 }

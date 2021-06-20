@@ -46,17 +46,23 @@ namespace Component
             Box& operator=(const Box& other) = default;
 
             /**
-             * @brief 
+             * @brief Remove resistance from the damage
              * 
              * @param damage 
              */
             void TakeDamage(int damage) override;
 
             /**
-             * @brief 
+             * @brief Spawn an object from the Box
              * 
              */
             void SpawnLoot(void);
+
+            /**
+             * @brief Spawn particles from the Box
+             * 
+             */
+            void SpawnParticles(void);
 
             std::ostream &operator<<(std::ostream &os) override;
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;

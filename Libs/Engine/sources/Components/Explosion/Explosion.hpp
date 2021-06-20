@@ -97,14 +97,32 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
+            /**
+             * @brief Get the Explosion Timer object
+             * 
+             * @return float 
+             */
             float GetExplosionTimer() const;
+            /**
+             * @brief Check if the parent is in the radius
+             * 
+             */
             void CheckParentLeftRadius(void);
 
+            /**
+             * @brief Destruct itself and colliding objects
+             * 
+             */
             void Explode(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
+            /**
+             * @brief Add an explosion linked to this one
+             * 
+             * @param childExplo 
+             */
             void AddChildExplosion(Explosion& childExplo);
 
             /**
@@ -117,6 +135,13 @@ namespace Component
              * 
              */
             unsigned int power;
+
+            /**
+             * @brief Spawn bomb particles
+             * 
+             */
+            void SpawnParticles(void);
+
         protected:
         private:
             /**
@@ -162,6 +187,8 @@ namespace Component
             std::shared_ptr<RayLib::Sound> _explosionSound;
 
             std::vector<std::reference_wrapper<Explosion>> _childExplosions;
+
+            bool _exploding;
 
     };
 }

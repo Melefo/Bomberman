@@ -29,8 +29,6 @@
 #include "Image.hpp"
 #include "PauseSystem.hpp"
 
-#define BOX_SIZE 10
-
 int main(int ac, char **av)
 {
     std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
@@ -45,19 +43,16 @@ int main(int ac, char **av)
 
     RayLib::AudioDevice::InitAudioDevice();
 
-    //! game manager for drag and drop
-
-
     Engine::GameConfiguration::SetPlayers(3);
-    RayLib::Input player1Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT), RayLib::Vector2<int>(KEY_DOWN, KEY_UP));
 
-    Engine::GameConfiguration::SetPlayerKeys(1, player1Input, KEY_ENTER);
+    RayLib::Input player1Input;
+    Engine::GameConfiguration::SetPlayerKeys(1, player1Input, KEY_E);
 
-    RayLib::Input player2Input(RayLib::Vector2<int>(KEY_J, KEY_G), RayLib::Vector2<int>(KEY_H, KEY_Y));
-    Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_SPACE);
+    RayLib::Input player2Input(RayLib::Vector2<int>(KEY_RIGHT, KEY_LEFT), RayLib::Vector2<int>(KEY_DOWN, KEY_UP));
+    Engine::GameConfiguration::SetPlayerKeys(2, player2Input, KEY_ENTER);
 
-    RayLib::Input player3Input;
-    Engine::GameConfiguration::SetPlayerKeys(3, player3Input, KEY_E);
+    RayLib::Input player3Input(RayLib::Vector2<int>(KEY_J, KEY_G), RayLib::Vector2<int>(KEY_H, KEY_Y));
+    Engine::GameConfiguration::SetPlayerKeys(3, player3Input, KEY_SPACE);
 
     if (ac == 2 && std::string(av[1]) == "-d")
         Engine::GameConfiguration::SetDebugMode(true);
@@ -73,27 +68,20 @@ int main(int ac, char **av)
     coordinator->AddSystem<Component::PauseSystem>();
 
     window->SetTargetFPS(60);
-    window->SetExitKey(KEY_PAUSE);
+    window->SetExitKey(KEY_END);
     window->SetIcon(RayLib::Image("../assets/Icon.png"));
     window->SetWindowState(FLAG_WINDOW_RESIZABLE);
     while (!window->WindowShouldClose() && !coordinator->CloseWindow)
     {
-        if (coordinator->GetEntities().size() == 0 && Scenes::scenesCtor.find(coordinator->getCurrentScene()) != Scenes::scenesCtor.end()) {
+        if (coordinator->GetEntities().size() == 0 && Scenes::scenesCtor.find(coordinator->getCurrentScene()) != Scenes::scenesCtor.end())
             Scenes::scenesCtor[coordinator->getCurrentScene()](*coordinator.get(), camera);
-        }
 
         window->BeginDrawing();
-        window->ClearBackground(RAYWHITE);
+        window->ClearBackground(RayLib::Color(20, 20, 20, 255));
 
         camera.BeginMode();
 
-        //assetManagerRef->lock();
-        //bool isLoaded = assetManagerRef->getLoadStatus().isReady;
-        //assetManagerRef->unlock();
-        //if (isLoaded)
         coordinator->Run();
-        //else
-        //    Display the loading screen scene
 
         camera.EndMode();
         window->EndDrawing();

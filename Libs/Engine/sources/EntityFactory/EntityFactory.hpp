@@ -17,8 +17,30 @@
 
 class EntityFactory {
     public:
+        /**
+         * @brief Construct a new Entity Factory object
+         * 
+         * @param coordinator 
+         */
         EntityFactory(ECS::Coordinator& coordinator);
+        /**
+         * @brief Destroy the Entity Factory object
+         * 
+         */
         ~EntityFactory() = default;
+        /**
+         * @brief Construct a new Entity Factory object
+         * 
+         * @param other 
+         */
+        EntityFactory(const EntityFactory& other) = default;
+        /**
+         * @brief Assignment operator
+         * 
+         * @param other 
+         * @return EntityFactor& 
+         */
+        EntityFactory& operator=(const EntityFactory& other) = default;
 
         /**
          * @brief Create a new Entity object
@@ -92,11 +114,20 @@ class EntityFactory {
         ECS::Entity& createHUDText(Component::AController &controller, int nbrOfThePlayer);
 
         /**
+         * @brief Create a HUD part for the background
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createHUDBackground(int nbrOfThePlayer);
+
+        /**
          * @brief Create a AI object
          * 
          * @return ECS::Entity& 
          */
-        ECS::Entity& createAI();
+        ECS::Entity& createAI(int nbrAI);
 
         /**
          * @brief Create a HUD part with a bonus icon
@@ -158,8 +189,35 @@ class EntityFactory {
          */
         ECS::Entity& createBomb(float radius, Component::Explosion::ExplosionType type);
 
+        /**
+         * @brief Create a Camera object
+         * 
+         * @param camera 
+         * @param musicPath 
+         * @return ECS::Entity& 
+         */
         ECS::Entity& createCamera(RayLib::Camera3D &camera, const std::string& musicPath = "");
 
+        /**
+         * @brief Create a Particle object
+         * 
+         * @param texturePath 
+         * @param minMaxSize 
+         * @param minMaxSides 
+         * @param startSpeed 
+         * @param lifeTime 
+         * @return ECS::Entity& 
+         */
+        ECS::Entity& createParticle(const std::string& texturePath, RayLib::Vector2<float> minMaxSize,
+                                    RayLib::Vector2<int> minMaxSides, float startSpeed=2.0f,
+                                    float lifeTime=1.5f);
+
+        /**
+         * @brief Create a Floor object
+         * 
+         * @param mapSize 
+         * @return ECS::Entity& 
+         */
         ECS::Entity& createFloor(RayLib::Vector2<float> mapSize);
 
     protected:

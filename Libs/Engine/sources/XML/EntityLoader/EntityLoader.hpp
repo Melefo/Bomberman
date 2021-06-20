@@ -30,6 +30,19 @@ namespace Serialization
              * 
              */
             ~EntityLoader() = default;
+            /**
+             * @brief Construct a new Entity Loader object
+             * 
+             * @param other 
+             */
+            EntityLoader(const EntityLoader& other) = default;
+            /**
+             * @brief Assignement operator
+             * 
+             * @param other 
+             * @return EntityLoader& 
+             */
+            EntityLoader& operator=(const EntityLoader& other) = default;
 
             /**
              * @brief Load an entity from istream

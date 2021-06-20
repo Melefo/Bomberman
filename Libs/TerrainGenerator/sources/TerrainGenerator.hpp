@@ -55,6 +55,19 @@ class TerrainGenerator {
          * 
          */
         ~TerrainGenerator() = default;
+        /**
+         * @brief Construct a new Terrain Generator object
+         * 
+         * @param other 
+         */
+        TerrainGenerator(const TerrainGenerator& other) = default;
+        /**
+         * @brief Assignment operator
+         * 
+         * @param other 
+         * @return TerrainGenerator& 
+         */
+        TerrainGenerator& operator=(const TerrainGenerator& other) = default;
 
         /**
          * @brief Get the Map object

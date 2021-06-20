@@ -52,16 +52,58 @@ namespace Component
              */
             Collider& operator=(const Collider& other) = default;
 
+            /**
+             * @brief Check if the entity collide with another
+             * 
+             * @return true 
+             * @return false 
+             */
             virtual bool IsColliding(void) = 0;
 
+            /**
+             * @brief Check if the entity collide at a specific position
+             * 
+             * @param pos 
+             * @return true 
+             * @return false 
+             */
             virtual bool IsCollidingAtPosition(RayLib::Vector2<float> pos) = 0;
 
+            /**
+             * @brief Check a circle collision
+             * 
+             * @param circle 
+             * @return true 
+             * @return false 
+             */
             virtual bool CheckCollision(RayLib::Circle& circle) = 0;
+            /**
+             * @brief Check a rectangle collision
+             * 
+             * @param rec 
+             * @return true 
+             * @return false 
+             */
             virtual bool CheckCollision(RayLib::Rectangle& rec) = 0;
 
+            /**
+             * @brief Draw collision lines
+             * 
+             */
             virtual void DrawLines() = 0;
 
+            /**
+             * @brief Get the Collision object
+             * 
+             * @return ECS::Entity& 
+             */
             virtual ECS::Entity& GetCollision(void) = 0;
+            /**
+             * @brief Get the Collision Position object
+             * 
+             * @param pos 
+             * @return ECS::Entity& 
+             */
             virtual ECS::Entity& GetCollisionPosition(RayLib::Vector2<float> pos) = 0;
 
             // virtual RayLib::PhysacBody& GetPhysacBody() = 0;

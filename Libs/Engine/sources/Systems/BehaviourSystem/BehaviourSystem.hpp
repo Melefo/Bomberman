@@ -17,8 +17,29 @@ namespace Component
 {
     class BehaviourSystem : public ECS::ASystem {
         public:
+            /**
+             * @brief Construct a new Behaviour System object
+             * 
+             */
             BehaviourSystem();
+            /**
+             * @brief Destroy the Behaviour System object
+             * 
+             */
             ~BehaviourSystem() override = default;
+            /**
+             * @brief Construct a new Behaviour System object
+             * 
+             * @param other 
+             */
+            BehaviourSystem(const BehaviourSystem& other) = default;
+            /**
+             * @brief 
+             * 
+             * @param other 
+             * @return BehaviourSystem& 
+             */
+            BehaviourSystem& operator=(const BehaviourSystem& other) = default;
 
             void Update(double dt, ECS::Entity &entity) override;
             void FixedUpdate(ECS::Entity &entity) override;

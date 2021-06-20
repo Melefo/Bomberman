@@ -21,6 +21,11 @@ namespace RayLib
     {
     }
 
+    Mesh::Mesh(int sides, float radius) : _mesh(::GenMeshPoly(sides, radius))
+    {
+
+    }
+
     Mesh::Mesh(float radius, int rings, int slices) : _mesh(::GenMeshSphere(radius, rings, slices)), _loaded(true)
     {
 

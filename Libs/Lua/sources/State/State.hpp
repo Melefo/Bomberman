@@ -248,14 +248,35 @@ namespace Lua
             template<typename T>
             void Push(RayLib::Vector2<T> vec);
 
+            /**
+             * @brief Pop a vector from Lua
+             * 
+             * @tparam T 
+             * @param index 
+             * @return std::enable_if<is_vector<T>::value, T>::type 
+             */
             template <typename T>
             typename std::enable_if<is_vector<T>::value, T>::type
                 Pop(int index);
 
+            /**
+             * @brief Pop a map from Lua
+             * 
+             * @tparam T 
+             * @param index 
+             * @return std::enable_if<is_map<T>::value, T>::type 
+             */
             template <typename T>
             typename std::enable_if<is_map<T>::value, T>::type
                 Pop(int index);
 
+            /**
+             * @brief Pop a RayLib Vector from Lua
+             * 
+             * @tparam T 
+             * @param index 
+             * @return std::enable_if<is_rayvector<T>::value, T>::type 
+             */
             template <typename T>
             typename std::enable_if<is_rayvector<T>::value, T>::type
                 Pop(int index);
@@ -310,6 +331,12 @@ namespace Lua
                 return lua_tocfunction(this->_ls.get(), index);
             }
 
+            /**
+             * @brief Pop nothing, fallback pop if void
+             * 
+             * @tparam T 
+             * @return std::enable_if<std::is_same<T, void>::value, T>::type 
+             */
             template<typename T>
             typename std::enable_if<std::is_same<T, void>::value, T>::type
             Pop(int)
@@ -390,6 +417,12 @@ namespace Lua
                 return *this;
             }
 
+            /**
+             * @brief Cast Lua Table Value to a cpp object
+             * 
+             * @tparam U 
+             * @return U 
+             */
             template<typename U>
             U Cast() const;
 
@@ -500,6 +533,12 @@ namespace Lua
              */
             int Length() const;
 
+            /**
+             * @brief Cast a Lua Object to a cpp Object
+             * 
+             * @tparam T 
+             * @return T 
+             */
             template<typename T>
             T Cast() const;
 

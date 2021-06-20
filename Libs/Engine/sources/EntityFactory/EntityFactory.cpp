@@ -34,6 +34,7 @@
 #include "HUDBonusBar.hpp"
 #include "Drawable3D.hpp"
 #include "AssetCache.hpp"
+#include "Particle.hpp"
 #include "TerrainShader.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator)
@@ -144,7 +145,7 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys, int nbrOfTheP
 
     entity.AddComponent<Component::IBehaviour, Component::PlayerInputs>(entity, keys.movementInput, keys.actionKey);
 
-    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture.png");
+    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture_" + std::to_string(nbrOfThePlayer) + ".png");
 
     entity.AddComponent<Component::Animator>(entity, "../assets/Player/Player_anim_Idle.glb", "Idle");
     entity.GetComponent<Component::Animator>().AddState("../assets/Player/Player_anim_Run.glb", "Run");
@@ -154,14 +155,14 @@ ECS::Entity& EntityFactory::createPlayer(Engine::playerkeys& keys, int nbrOfTheP
     return (entity);
 }
 
-ECS::Entity& EntityFactory::createAI()
+ECS::Entity& EntityFactory::createAI(int nbrAI)
 {
     ECS::Entity &entity = _coordinator.CreateEntity();
     entity.SetTag("AI");
     entity.AddComponent<Component::Transform>(RayLib::Vector3(), RayLib::Vector3(), RayLib::Vector3(6, 6, 6));
     entity.AddComponent<Component::PhysicsBody>();
 
-    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture.png");
+    entity.AddComponent<Component::Drawable3D>("../assets/Player/Player_model.glb", "../assets/Player/Player_texture_" + std::to_string(nbrAI) + ".png");
     entity.AddComponent<Component::Animator>(entity, "../assets/Player/Player_anim_Idle.glb", "Idle");
     entity.GetComponent<Component::Animator>().AddState("../assets/Player/Player_anim_Run.glb", "Run");
 
@@ -180,6 +181,18 @@ ECS::Entity& EntityFactory::createAI()
     return (entity);
 }
 
+ECS::Entity& EntityFactory::createHUDBackground(int nbrOfThePlayer)
+{
+    ECS::Entity &bg = createBaseHUD(nbrOfThePlayer);
+
+    bg.SetTag(bg.GetTag() + "_background");
+    bg.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/HUD_background.png", false);
+    bg.GetComponent<Component::Transform>().position += RayLib::Vector3(-0.01f, -0.01f, 0);
+    bg.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
+    
+    return (bg);
+}
+
 ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controller, int nbrOfThePlayer, const std::string &path, float &timer)
 {
     ECS::Entity &icon = createBaseHUD(nbrOfThePlayer);
@@ -187,13 +200,13 @@ ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controlle
     icon.SetTag(icon.GetTag() + "_bonusIcon");
     icon.AddComponent<Component::IUIObject, Component::Button>(path);
     if (path.find("Range") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 0.04f, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0, 0.05f, 0);
         icon.SetTag(icon.GetTag() + "_Range");
     } else if (path.find("Speed") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.04f, 0.04f, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.04f, 0.05f, 0);
         icon.SetTag(icon.GetTag() + "_Speed");
     } else if (path.find("CoolDown") != std::string::npos) {
-        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.08f, 0.04f, 0);
+        icon.GetComponent<Component::Transform>().position += RayLib::Vector3(0.08f, 0.05f, 0);
         icon.SetTag(icon.GetTag() + "_CoolDown");
     }
     icon.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
@@ -205,28 +218,30 @@ ECS::Entity& EntityFactory::createHUDBonusIcon(Component::AController &controlle
 ECS::Entity& EntityFactory::createHUDBonusBar(Component::AController &controller, int nbrOfThePlayer, const std::string &type, float &timer)
 {
     ECS::Entity &bar_bg = createBaseHUD(nbrOfThePlayer);
-
-    bar_bg.SetTag(bar_bg.GetTag() + "_bonusBar_bg");
-    bar_bg.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarBackground.png");
+    ECS::Entity &bar_front = createBaseHUD(nbrOfThePlayer);
     RayLib::Vector3 pos;
+
+    bar_front.SetTag(bar_front.GetTag() + "_bonusBar_front");
+    bar_bg.SetTag(bar_bg.GetTag() + "_bonusBar_bg");
     if (type.find("RangeUp") != std::string::npos) {
-        pos = RayLib::Vector3(0, 0.09f, 0);
+        pos = RayLib::Vector3(0, 0.125f, 0);
+        bar_front.SetTag(bar_front.GetTag() + "_Range");
         bar_bg.SetTag(bar_bg.GetTag() + "_Range");
     } else if (type.find("SpeedBoost") != std::string::npos) {
-        pos = RayLib::Vector3(0.04f, 0.09f, 0);
+        pos = RayLib::Vector3(0.04f, 0.125f, 0);
+        bar_front.SetTag(bar_front.GetTag() + "_Speed");
         bar_bg.SetTag(bar_bg.GetTag() + "_Speed");
     } else if (type.find("CoolDown") != std::string::npos) {
-        pos = RayLib::Vector3(0.08f, 0.09f, 0);
+        pos = RayLib::Vector3(0.08f, 0.125f, 0);
+        bar_front.SetTag(bar_front.GetTag() + "_CoolDown");
         bar_bg.SetTag(bar_bg.GetTag() + "_CoolDown");
     }
+
+    bar_bg.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarBackground.png");
     bar_bg.GetComponent<Component::Transform>().position += pos;
     bar_bg.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
     bar_bg.AddComponent<Component::IBehaviour, Component::HUDBonusBar>(controller, nbrOfThePlayer, timer, true, bar_bg.GetTag());
 
-
-    ECS::Entity &bar_front = createBaseHUD(nbrOfThePlayer);
-
-    bar_front.SetTag(bar_front.GetTag() + "_bonusBar_front");
     bar_front.AddComponent<Component::IUIObject, Component::Button>("../assets/HUD/iconBarFront.png");
     bar_front.GetComponent<Component::Transform>().position += pos;
     bar_front.GetComponent<Component::Transform>().scale = RayLib::Vector3(1.0f, 1.0f, 1.0f);
@@ -306,7 +321,7 @@ ECS::Entity& EntityFactory::createSpeedPickUp(void)
 
 ECS::Entity& EntityFactory::createPickUp(void)
 {
-    int index = rand() % (_pickupFunctions.size());
+    int index = std::rand() % (_pickupFunctions.size());
     ECS::Entity &entity = _pickupFunctions[index]();
     return (entity);
 }
@@ -336,6 +351,32 @@ ECS::Entity& EntityFactory::createCamera(RayLib::Camera3D &camera, const std::st
         entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera, musicPath);
     else
         entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createParticle(const std::string& texturePath, RayLib::Vector2<float> minMaxSize, RayLib::Vector2<int> minMaxSides,
+                                           float startSpeed, float lifeTime)
+{
+    static int i = 0;
+
+    std::srand(static_cast<unsigned int>(time(NULL)) + i);
+
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    entity.SetTag("Particle");
+    float radius = RayLib::Physics2D::RandomFloat(minMaxSize.x, minMaxSize.y);
+    int sides = minMaxSides.x + std::rand() % ((minMaxSides.y + 1) - minMaxSides.x);
+
+    RayLib::Mesh polyGon(sides, radius);
+
+    entity.AddComponent<Component::Transform>();
+    entity.AddComponent<Component::Drawable3D>(polyGon);
+    entity.GetComponent<Component::Drawable3D>().SetTexture(texturePath);
+
+    entity.AddComponent<Component::PhysicsBody>();
+
+    entity.AddComponent<Component::IBehaviour, Component::Particle>(startSpeed, lifeTime);
+    i++;
     return (entity);
 }
 

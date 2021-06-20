@@ -48,7 +48,12 @@ namespace Component
                 _coordinator->SetGameIsRunning(false);
                 _coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(false);
                 ResetPlayersAnimations();
-                Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), _nbrPlayersAlive == 0? "TIE": "YOU WON, CONGRATS!");
+                if (_nbrPlayersAlive == 0 && _nbrIAsAlive == 0)
+                    Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), "TIE");
+                else if (_nbrPlayersAlive == 0 && _nbrIAsAlive == 1)
+                    Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), "YOU LOSE");
+                else if (_nbrPlayersAlive == 1 && _nbrIAsAlive == 0)
+                    Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), "YOU WON, CONGRATS");
                 //_coordinator->GetSystem<Component::BehaviourSystem>().ToggleStatus();
             }
         }
@@ -112,7 +117,7 @@ namespace Component
         // terrain.setmap (lines)
         terrainGeneratorRef.SetMap(lines);
         Scenes::InitMap(*_coordinator, cameraRef.camera, false);
-        cameraRef.getEntity().GetComponent<Component::Transform>().position.z = -200;
+        cameraRef.GetEntity().GetComponent<Component::Transform>().position.z = -200;
         infile.close();
     }
 
@@ -128,19 +133,19 @@ namespace Component
     {
         const std::list<std::unique_ptr<ECS::Entity>>& entities = _coordinator->GetEntities();
         int remainingPlayers = 0;
+        int remainingIAs = 0;
         std::string tag = "";
 
         for (auto &entity : entities) {
             if (entity->GetTag().find("PlayerEntity") != std::string::npos)
                 remainingPlayers++;
             if (entity->GetTag().find("AI") != std::string::npos)
-                remainingPlayers++;
+                remainingIAs++;
         }
         _nbrPlayersAlive = remainingPlayers;
-        if (_nbrPlayersAlive <= 1) {
-            //std::cout << "Game is over! GG!" << std::endl;
+        _nbrIAsAlive = remainingIAs;
+        if (_nbrPlayersAlive + _nbrIAsAlive <= 1)
             return (true);
-        }
         return (false);
     }
 

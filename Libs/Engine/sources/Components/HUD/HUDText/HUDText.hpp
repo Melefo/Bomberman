@@ -25,6 +25,19 @@ namespace Component {
              * 
              */
             ~HUDText();
+            /**
+             * @brief Construct a new HUDText object
+             * 
+             * @param other 
+             */
+            HUDText(const HUDText& other) = default;
+            /**
+             * @brief Assignement operator
+             * 
+             * @param other 
+             * @return HUDText& 
+             */
+            HUDText& operator=(const HUDText& other) = default;
 
             /**
              * @brief Called every frame

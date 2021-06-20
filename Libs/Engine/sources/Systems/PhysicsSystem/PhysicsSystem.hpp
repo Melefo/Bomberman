@@ -16,8 +16,29 @@ namespace Component
 {
     class PhysicsSystem : public ECS::ASystem {
         public:
+            /**
+             * @brief Construct a new Physics System object
+             * 
+             */
             PhysicsSystem();
+            /**
+             * @brief Destroy the Physics System object
+             * 
+             */
             ~PhysicsSystem() override = default;
+            /**
+             * @brief Construct a new Physics System object
+             * 
+             * @param other 
+             */
+            PhysicsSystem(const PhysicsSystem& other) = default;
+            /**
+             * @brief Assignment operator
+             * 
+             * @param other 
+             * @return PhysicsSystem& 
+             */
+            PhysicsSystem& operator=(const PhysicsSystem& other) = default;
 
             void FixedUpdate(ECS::Entity &entity) override;
             void Update(double dt, ECS::Entity &entity) override;

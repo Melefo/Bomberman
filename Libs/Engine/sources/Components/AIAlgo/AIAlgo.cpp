@@ -93,7 +93,7 @@ namespace Component
 
             _movement.direction = _direction * (_speed);
 
-            _timeToStateChange = 0.60f + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.90f-0.60f)));;
+            _timeToStateChange = 0.60f + static_cast <float> (std::rand()) /( static_cast <float> (RAND_MAX/(0.90f-0.60f)));;
         } else {
             _timeToStateChange -= _window->GetFrameTime();
         }
@@ -195,8 +195,8 @@ namespace Component
             searchRadius= RayLib::Vector2<int>(static_cast<int>(map[0].size()/ 2), static_cast<int>(map[0].size() / 2));
         float closest = std::numeric_limits<float>::max();
 
-        maxPoint += (searchRadius * 0.5f);
-        minPoint -= (searchRadius * 0.5f);
+        maxPoint += (searchRadius);
+        minPoint -= (searchRadius);
 
         if (maxPoint.y > static_cast<int>(map.size()))
             maxPoint.y = static_cast<int>(map.size());

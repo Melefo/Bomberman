@@ -43,19 +43,90 @@ enum PlayerMapValues {
 
 class AIMapsGenerator : public ECS::ASystem {
     public:
+        /**
+         * @brief Construct a new AIMapsGenerator object
+         * 
+         * @param boxmap 
+         */
         AIMapsGenerator(std::vector<std::string>& boxmap);
-        ~AIMapsGenerator() = default;;
+        /**
+         * @brief Destroy the AIMapsGenerator object
+         * 
+         */
+        ~AIMapsGenerator() = default;
+        /**
+         * @brief Construct a new AIMapsGenerator object
+         * 
+         * @param other 
+         */
+        AIMapsGenerator(const AIMapsGenerator& other) = default;
+        /**
+         * @brief Assignement operator
+         * 
+         * @param other 
+         * @return AIMapsGenerator& 
+         */
+        AIMapsGenerator& operator=(const AIMapsGenerator& other) = default;
 
+        /**
+         * @brief Update an entity
+         * 
+         * @param dt 
+         * @param entity 
+         */
         void Update(double dt, ECS::Entity& entity) override;
+        /**
+         * @brief Update an entity at a fixed time
+         * 
+         * @param entity 
+         */
         void FixedUpdate(ECS::Entity& entity) override;
+        /**
+         * @brief Update an entity after the others
+         * 
+         * @param dt 
+         * @param entity 
+         */
         void LateUpdate(double dt, ECS::Entity& entity) override;
+        /**
+         * @brief Update AI maps
+         * 
+         * @param entity 
+         */
         void UpdateMaps(ECS::Entity& entity);
+        /**
+         * @brief Initialize AI maps
+         * 
+         * @param entity 
+         */
         void InitMaps(ECS::Entity& entity);
+        /**
+         * @brief Initialize all maps from a another map type
+         * 
+         * @param boxmap 
+         * @return std::vector<std::vector<int>> 
+         */
         std::vector<std::vector<int>> InitMaps(std::vector<std::string>& boxmap);
+        /**
+         * @brief remove unwanted char from the map
+         * 
+         * @param map 
+         * @param chars 
+         * @return std::vector<std::vector<int>>& 
+         */
         std::vector<std::vector<int>>& RemoveCharsFromMap(std::vector<std::vector<int>>& map, std::vector<int> chars);
+        /**
+         * @brief Get the Box Map object
+         * 
+         * @return const std::vector<std::vector<int>>& 
+         */
         const std::vector<std::vector<int>>& GetBoxMap() const;
+        /**
+         * @brief Get the Players Map object
+         * 
+         * @return const std::vector<std::vector<int>>& 
+         */
         const std::vector<std::vector<int>>& GetPlayersMap() const;
-        const std::vector<std::vector<int>>& GetBombMap() const;
     protected:
     private:
         std::vector<std::vector<int>> _boxmap;
