@@ -83,7 +83,7 @@ int main(int ac, char **av)
         }
 
         window->BeginDrawing();
-        window->ClearBackground(RAYWHITE);
+        window->ClearBackground(RayLib::Color(20, 20, 20, 255));
 
         camera.BeginMode();
 
