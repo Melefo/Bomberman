@@ -16,6 +16,7 @@
 #include "Camera3D.hpp"
 #include "Rectangle.hpp"
 #include "IAsset.hpp"
+#include "Shader.hpp"
 
 namespace RayLib
 {
@@ -42,8 +43,26 @@ namespace RayLib
              * @brief Construct a new Texture from an existing image
              *
              * @param image
+             * @param isCubemap Is the image a cubemap
              */
-            Texture(Image image);
+            Texture(Image image, bool isCubemap = false);
+
+            /**
+             * @brief Construct a new Texture object used in cubemap backgrounds
+             * 
+             * @param shader
+             * @param texture
+             * @param size 
+             * @param format 
+             */
+            Texture(RayLib::Shader& shader, RayLib::Texture& texture, int size, float format);
+
+            /**
+             * @brief Construct a new Texture object
+             * 
+             * @param texture 
+             */
+            Texture(::Texture texture);
 
             /**
              * @brief Draw texture on screen
