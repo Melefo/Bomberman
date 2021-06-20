@@ -50,5 +50,19 @@ namespace RayLib
         return (::CheckCollisionPointRec(point.getVector2(), rec));
     }
 
+
+    float Physics2D::RandomFloat(float a, float b)
+    {
+        static int i = 0;
+        std::srand(static_cast<unsigned int>(time(NULL)) + i);
+
+        float random = (static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX));
+        float diff = b - a;
+        float r = random * diff;
+        i++;
+        return (a + r);
+    }
+
+
 }
 

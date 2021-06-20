@@ -34,6 +34,7 @@
 #include "HUDBonusBar.hpp"
 #include "Drawable3D.hpp"
 #include "AssetCache.hpp"
+#include "Particle.hpp"
 
 EntityFactory::EntityFactory(ECS::Coordinator& coordinator)
     : _coordinator(coordinator)
@@ -305,7 +306,7 @@ ECS::Entity& EntityFactory::createSpeedPickUp(void)
 
 ECS::Entity& EntityFactory::createPickUp(void)
 {
-    int index = rand() % (_pickupFunctions.size());
+    int index = std::rand() % (_pickupFunctions.size());
     ECS::Entity &entity = _pickupFunctions[index]();
     return (entity);
 }
@@ -335,5 +336,31 @@ ECS::Entity& EntityFactory::createCamera(RayLib::Camera3D &camera, const std::st
         entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera, musicPath);
     else
         entity.AddComponent<Component::IBehaviour, Component::Camera>(entity, camera);
+    return (entity);
+}
+
+ECS::Entity& EntityFactory::createParticle(const std::string& texturePath, RayLib::Vector2<float> minMaxSize, RayLib::Vector2<int> minMaxSides,
+                                           float startSpeed, float lifeTime)
+{
+    static int i = 0;
+
+    std::srand(static_cast<unsigned int>(time(NULL)) + i);
+
+    ECS::Entity& entity = _coordinator.CreateEntity();
+
+    entity.SetTag("Particle");
+    float radius = RayLib::Physics2D::RandomFloat(minMaxSize.x, minMaxSize.y);
+    int sides = minMaxSides.x + std::rand() % ((minMaxSides.y + 1) - minMaxSides.x);
+
+    RayLib::Mesh polyGon(sides, radius);
+
+    entity.AddComponent<Component::Transform>();
+    entity.AddComponent<Component::Drawable3D>(polyGon);
+    entity.GetComponent<Component::Drawable3D>().SetTexture(texturePath);
+
+    entity.AddComponent<Component::PhysicsBody>();
+
+    entity.AddComponent<Component::IBehaviour, Component::Particle>(startSpeed, lifeTime);
+    i++;
     return (entity);
 }

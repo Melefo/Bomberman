@@ -11,18 +11,18 @@
 namespace Component
 {
     Drawable3D::Drawable3D(RayLib::Mesh& mesh) : 
-    _model(std::make_shared<RayLib::Model>(mesh)), _texture(nullptr), _shader(nullptr)
+    _model(std::make_shared<RayLib::Model>(mesh)), _texture(nullptr), _shader(nullptr), _color(WHITE)
     {
     }
 
     Drawable3D::Drawable3D(const std::string& modelPath) :
-    _model(AssetCache::GetAsset<RayLib::Model>(modelPath)), _texture(nullptr), _shader(nullptr)
+    _model(AssetCache::GetAsset<RayLib::Model>(modelPath)), _texture(nullptr), _shader(nullptr), _color(WHITE)
     {
     }
 
     Drawable3D::Drawable3D(const std::string& modelPath, const std::string& texturePath) :
     _model(AssetCache::GetAsset<RayLib::Model>(modelPath)),
-    _texture(AssetCache::GetAsset<RayLib::Texture>(texturePath)), _shader(nullptr)
+    _texture(AssetCache::GetAsset<RayLib::Texture>(texturePath)), _shader(nullptr), _color(WHITE)
     {
         SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, *_texture);
     }
@@ -30,13 +30,13 @@ namespace Component
     Drawable3D::Drawable3D(const std::string& modelPath, const std::string& texturePath, const std::string& shaderPath) :
     _model(AssetCache::GetAsset<RayLib::Model>(modelPath)),
     _texture(AssetCache::GetAsset<RayLib::Texture>(texturePath)),
-    _shader(AssetCache::GetAsset<RayLib::Shader>(shaderPath))
+    _shader(AssetCache::GetAsset<RayLib::Shader>(shaderPath)), _color(WHITE)
     {
         SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, *_texture);
         SetMaterialShader(0, *_shader);
     }
 
-    void Drawable3D::Draw(RayLib::Vector3 position, RayLib::Vector3 scale, RayLib::Color tint)
+    void Drawable3D::Draw(RayLib::Vector3 position, RayLib::Vector3 scale, RayLib::Color)
     {
         // rotation and angle are taken from the transform
         //_model.Draw(position, scale, tint);
@@ -44,7 +44,7 @@ namespace Component
             SetMaterialTexture(0, MATERIAL_MAP_DIFFUSE, *_texture);
         if (_shader)
             SetMaterialShader(0, *_shader);
-        _model->DrawEx(position, RayLib::Vector3(0.0f, 1.0f, 0.0f), 0.0f, scale, tint);
+        _model->DrawEx(position, RayLib::Vector3(0.0f, 1.0f, 0.0f), 0.0f, scale, _color);
     }
 
     void Drawable3D::SetMaterialTexture(int matIndex, int mapType, RayLib::Texture& text)
@@ -127,5 +127,13 @@ namespace Component
         return (ptree);
     }
 
+    void Drawable3D::SetColor(RayLib::Color color)
+    {
+        _color = color;
+    }
 
+    RayLib::Color& Drawable3D::GetColor(void)
+    {
+        return (_color);
+    }
 }

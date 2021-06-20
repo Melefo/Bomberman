@@ -93,7 +93,7 @@ namespace Component
 
             _movement.direction = _direction * (_speed);
 
-            _timeToStateChange = 0.60f + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.90f-0.60f)));;
+            _timeToStateChange = 0.60f + static_cast <float> (std::rand()) /( static_cast <float> (RAND_MAX/(0.90f-0.60f)));;
         } else {
             _timeToStateChange -= _window->GetFrameTime();
         }

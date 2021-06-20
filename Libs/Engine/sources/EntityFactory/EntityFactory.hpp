@@ -160,6 +160,10 @@ class EntityFactory {
 
         ECS::Entity& createCamera(RayLib::Camera3D &camera, const std::string& musicPath = "");
 
+        ECS::Entity& createParticle(const std::string& texturePath, RayLib::Vector2<float> minMaxSize,
+                                    RayLib::Vector2<int> minMaxSides, float startSpeed=2.0f,
+                                    float lifeTime=1.5f);
+
     protected:
     private:
         ECS::Coordinator& _coordinator;

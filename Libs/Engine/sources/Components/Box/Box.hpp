@@ -58,6 +58,8 @@ namespace Component
              */
             void SpawnLoot(void);
 
+            void SpawnParticles(void);
+
             std::ostream &operator<<(std::ostream &os) override;
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 

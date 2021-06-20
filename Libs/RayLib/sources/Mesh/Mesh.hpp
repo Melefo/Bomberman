@@ -23,6 +23,15 @@ namespace RayLib
 
             Mesh(const std::string& path);
 
+
+            /**
+             * @brief Construct a new polygon
+             * 
+             * @param sides
+             * @param radius
+             */
+            Mesh(int sides, float radius);
+
             /**
              * @brief Construct a new Mesh object
              * Generates a cube with given scale

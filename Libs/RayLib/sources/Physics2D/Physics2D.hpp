@@ -27,6 +27,9 @@ namespace RayLib
             static bool CheckCollision(const Circle& circle1, const Circle& circle2);
             static bool CheckCollision(const Rectangle& rec, const Circle& circle);
 
+            static float RandomFloat(float a, float b);
+
+
         protected:
         private:
     };

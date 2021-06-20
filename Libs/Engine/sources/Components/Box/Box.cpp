@@ -21,8 +21,10 @@ namespace Component
 
         if (_resistance <= 0) {
             _resistance = 0;
-            if (static_cast<float>(rand()) / static_cast<float>(RAND_MAX) <= _lootChance)
+            if (static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX) <= _lootChance)
                 SpawnLoot();
+
+            SpawnParticles();
             _myEntity.Dispose();
         }
     }
@@ -37,6 +39,23 @@ namespace Component
         ECS::Entity& pickup = factory.createPickUp();
         Transform& myTransform = _myEntity.GetComponent<Transform>();
         pickup.GetComponent<Transform>().position = myTransform.position;
+    }
+
+    void Box::SpawnParticles(void)
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+
+        // create a factory
+        EntityFactory factory(*coordinator.get());
+
+        for (int i = 0; i < 100; i++) {
+            ECS::Entity& particle = factory.createParticle("../assets/Box/Box_texture.png",
+                                                           RayLib::Vector2<float>(1.0f, 1.5f),
+                                                           RayLib::Vector2<int>(5, 6), 2.0f);
+            Transform& myTransform = _myEntity.GetComponent<Transform>();
+            particle.GetComponent<Transform>().position = myTransform.position;
+        }
+
     }
 
     std::ostream &Box::operator<<(std::ostream &os)
