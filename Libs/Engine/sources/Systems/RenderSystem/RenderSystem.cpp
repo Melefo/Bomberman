@@ -28,17 +28,29 @@ namespace Component
     {
         if (entity.OfType<IUIObject>().size() > 0)
             return;
-        if (entity.HasComponent<Animator>())
-            return;
-
         Transform& transform = entity.GetComponent<Transform>();
-        entity.GetComponent<Drawable3D>().Draw(transform.position, transform.scale, WHITE);
+        Drawable3D& drawable = entity.GetComponent<Drawable3D>();
 
+        //if (entity.HasComponent<Animator>())
+        //    return;
+
+        drawable.RotateModel(transform.rotation);
+
+        if (entity.HasComponent<Animator>()) {
+            Animator& animator = entity.GetComponent<Animator>();
+            animator.PlayCurrentState(drawable.GetModel());
+        }
+        if (entity.HasComponent<ModelShader>()) {
+            ModelShader& modelShader = entity.GetComponent<ModelShader>();
+            modelShader.Update();
+        }
+
+        entity.GetComponent<Drawable3D>().Draw(transform.position, transform.scale, WHITE);
     }
 
-    void RenderSystem::FixedUpdate(ECS::Entity &entity)
+    void RenderSystem::FixedUpdate(ECS::Entity &)
     {
-        Transform& transform = entity.GetComponent<Transform>();
+        /*Transform& transform = entity.GetComponent<Transform>();
         Drawable3D& drawable = entity.GetComponent<Drawable3D>();
 
         //! on ne render pas ici les UI, pour le moment...
@@ -55,6 +67,6 @@ namespace Component
             ModelShader& modelShader = entity.GetComponent<ModelShader>();
             modelShader.Update();
         }
-        drawable.Draw(transform.position, transform.scale, WHITE);
+        drawable.Draw(transform.position, transform.scale, WHITE);*/
     }
 }

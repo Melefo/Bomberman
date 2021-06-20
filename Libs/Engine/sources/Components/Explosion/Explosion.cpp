@@ -8,6 +8,7 @@
 #include "Explosion.hpp"
 #include "Drawable3D.hpp"
 #include <iostream>
+#include "EntityFactory.hpp"
 #include "GameConfiguration.hpp"
 
 namespace Component
@@ -80,7 +81,26 @@ namespace Component
                 continue;
             }
         }
+
+        SpawnParticles();
+
         _myEntity.Dispose();
+    }
+
+    void Explosion::SpawnParticles(void)
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+
+        // create a factory
+        EntityFactory factory(*coordinator.get());
+
+        for (int i = 0; i < 10; i++) {
+            ECS::Entity& particle = factory.createParticle("../assets/bomb/Bomb_texture.png",
+                                                           RayLib::Vector2<float>(1.0f, 1.5f),
+                                                           RayLib::Vector2<int>(4, 5), 4.0f, 0.5f);
+            Transform& myTransform = _myEntity.GetComponent<Transform>();
+            particle.GetComponent<Transform>().position = myTransform.position;
+        }
     }
 
     void Explosion::AddChildExplosion(Explosion& childExplo)

@@ -48,14 +48,13 @@ namespace Component
         // create a factory
         EntityFactory factory(*coordinator.get());
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             ECS::Entity& particle = factory.createParticle("../assets/Box/Box_texture.png",
                                                            RayLib::Vector2<float>(1.0f, 1.5f),
-                                                           RayLib::Vector2<int>(5, 6), 2.0f);
+                                                           RayLib::Vector2<int>(4, 5), 4.0f, 0.5f);
             Transform& myTransform = _myEntity.GetComponent<Transform>();
             particle.GetComponent<Transform>().position = myTransform.position;
         }
-
     }
 
     std::ostream &Box::operator<<(std::ostream &os)
