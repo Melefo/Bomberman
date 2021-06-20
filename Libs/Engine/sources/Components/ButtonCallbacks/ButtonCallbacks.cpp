@@ -95,7 +95,7 @@ namespace Component
         coordinatorRef->RemoveEntities("MapFloor");
 
         terrainGeneratorRef.clearMap();
-        terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
+        terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());
         terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA());
         if (seed != -1) {
             Engine::GameConfiguration::SetSeed(seed);
