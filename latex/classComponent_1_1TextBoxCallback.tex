@@ -1,0 +1,270 @@
+\hypertarget{classComponent_1_1TextBoxCallback}{}\doxysection{Component\+::Text\+Box\+Callback Class Reference}
+\label{classComponent_1_1TextBoxCallback}\index{Component::TextBoxCallback@{Component::TextBoxCallback}}
+
+
+Behaviour of the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}.  
+
+
+
+
+{\ttfamily \#include $<$Text\+Box\+Callback.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Text\+Box\+Callback\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1TextBoxCallback__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Text\+Box\+Callback\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComponent_1_1TextBoxCallback__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1TextBoxCallback_a2a5e620fb4973923a0d54e0a638acc8a}{Text\+Box\+Callback}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Construct a new Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} Callback object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextBoxCallback_aa1bc6e265d92d8b4ad3b1a38f1187655}{$\sim$\+Text\+Box\+Callback}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} Callback object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextBoxCallback_a92a88df0b048ade09f1ddadd8430628a}{Text\+Box\+Callback}} (const \mbox{\hyperlink{classComponent_1_1TextBoxCallback}{Text\+Box\+Callback}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new copy Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} Callback object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextBoxCallback}{Text\+Box\+Callback}} \& \mbox{\hyperlink{classComponent_1_1TextBoxCallback_afd7bdb98fef477343661f2835c7632e6}{operator=}} (const \mbox{\hyperlink{classComponent_1_1TextBoxCallback}{Text\+Box\+Callback}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new assigned Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} Callback object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextBoxCallback_a8d2b56c001f17d4ea2a74ae1a2e9299a}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Checking if a key is pressed to set its value inside the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextBoxCallback_ab5f322adc13a1677d71341c77f4685bd}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Late update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextBoxCallback_ac14f8cea36ba25ed94c434f0766ca16e}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called every fixed seconds (CF coordinator) \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1TextBoxCallback_a6e4c2897e18e30c0d071d4ca23d79766}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1TextBoxCallback_a89f5b247be58055936982b2942164748}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classComponent_1_1TextBoxCallback_a1991e44281124892f2e7decf46b3464d}{Is\+Mouse\+Over}} (void)
+\begin{DoxyCompactList}\small\item\em Check if the mouse is over the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} to get keys pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1TextBoxCallback_aa815e5400eb8a1c7b2f82adc395bbe4a}{\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Associated entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} \& \mbox{\hyperlink{classComponent_1_1TextBoxCallback_a377b4c48d4b6e612c2e8811d9efbea0e}{\+\_\+text\+Box}}
+\begin{DoxyCompactList}\small\item\em Associated \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}} \mbox{\hyperlink{classComponent_1_1TextBoxCallback_a80868df88b5c2e29ea09f838d8332839}{\+\_\+input}}
+\begin{DoxyCompactList}\small\item\em Intput Manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Behaviour of the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_a2a5e620fb4973923a0d54e0a638acc8a}\label{classComponent_1_1TextBoxCallback_a2a5e620fb4973923a0d54e0a638acc8a}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!TextBoxCallback@{TextBoxCallback}}
+\index{TextBoxCallback@{TextBoxCallback}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{TextBoxCallback()}{TextBoxCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Text\+Box\+Callback\+::\+Text\+Box\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})}
+
+
+
+Construct a new Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} Callback object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_aa1bc6e265d92d8b4ad3b1a38f1187655}\label{classComponent_1_1TextBoxCallback_aa1bc6e265d92d8b4ad3b1a38f1187655}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!````~TextBoxCallback@{$\sim$TextBoxCallback}}
+\index{````~TextBoxCallback@{$\sim$TextBoxCallback}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{$\sim$TextBoxCallback()}{~TextBoxCallback()}}
+{\footnotesize\ttfamily Component\+::\+Text\+Box\+Callback\+::$\sim$\+Text\+Box\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} Callback object. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_a92a88df0b048ade09f1ddadd8430628a}\label{classComponent_1_1TextBoxCallback_a92a88df0b048ade09f1ddadd8430628a}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!TextBoxCallback@{TextBoxCallback}}
+\index{TextBoxCallback@{TextBoxCallback}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{TextBoxCallback()}{TextBoxCallback()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Text\+Box\+Callback\+::\+Text\+Box\+Callback (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1TextBoxCallback}{Text\+Box\+Callback}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new copy Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} Callback object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_ac14f8cea36ba25ed94c434f0766ca16e}\label{classComponent_1_1TextBoxCallback_ac14f8cea36ba25ed94c434f0766ca16e}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+Box\+Callback\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called every fixed seconds (CF coordinator) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_a1991e44281124892f2e7decf46b3464d}\label{classComponent_1_1TextBoxCallback_a1991e44281124892f2e7decf46b3464d}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!IsMouseOver@{IsMouseOver}}
+\index{IsMouseOver@{IsMouseOver}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{IsMouseOver()}{IsMouseOver()}}
+{\footnotesize\ttfamily bool Component\+::\+Text\+Box\+Callback\+::\+Is\+Mouse\+Over (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if the mouse is over the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} to get keys pressed. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_ab5f322adc13a1677d71341c77f4685bd}\label{classComponent_1_1TextBoxCallback_ab5f322adc13a1677d71341c77f4685bd}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+Box\+Callback\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Late update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_a89f5b247be58055936982b2942164748}\label{classComponent_1_1TextBoxCallback_a89f5b247be58055936982b2942164748}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Text\+Box\+Callback\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_a6e4c2897e18e30c0d071d4ca23d79766}\label{classComponent_1_1TextBoxCallback_a6e4c2897e18e30c0d071d4ca23d79766}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Text\+Box\+Callback\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_afd7bdb98fef477343661f2835c7632e6}\label{classComponent_1_1TextBoxCallback_afd7bdb98fef477343661f2835c7632e6}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1TextBoxCallback}{Text\+Box\+Callback}}\& Component\+::\+Text\+Box\+Callback\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1TextBoxCallback}{Text\+Box\+Callback}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new assigned Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} Callback object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1TextBoxCallback}{Text\+Box\+Callback}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_a8d2b56c001f17d4ea2a74ae1a2e9299a}\label{classComponent_1_1TextBoxCallback_a8d2b56c001f17d4ea2a74ae1a2e9299a}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!Update@{Update}}
+\index{Update@{Update}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+Box\+Callback\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checking if a key is pressed to set its value inside the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_aa815e5400eb8a1c7b2f82adc395bbe4a}\label{classComponent_1_1TextBoxCallback_aa815e5400eb8a1c7b2f82adc395bbe4a}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!\_entity@{\_entity}}
+\index{\_entity@{\_entity}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{\_entity}{\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Text\+Box\+Callback\+::\+\_\+entity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Associated entity. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_a80868df88b5c2e29ea09f838d8332839}\label{classComponent_1_1TextBoxCallback_a80868df88b5c2e29ea09f838d8332839}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!\_input@{\_input}}
+\index{\_input@{\_input}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{\_input}{\_input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}} Component\+::\+Text\+Box\+Callback\+::\+\_\+input\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Intput Manager. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBoxCallback_a377b4c48d4b6e612c2e8811d9efbea0e}\label{classComponent_1_1TextBoxCallback_a377b4c48d4b6e612c2e8811d9efbea0e}} 
+\index{Component::TextBoxCallback@{Component::TextBoxCallback}!\_textBox@{\_textBox}}
+\index{\_textBox@{\_textBox}!Component::TextBoxCallback@{Component::TextBoxCallback}}
+\doxysubsubsection{\texorpdfstring{\_textBox}{\_textBox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}\& Component\+::\+Text\+Box\+Callback\+::\+\_\+text\+Box\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Associated \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Text\+Box\+Callback/\mbox{\hyperlink{TextBoxCallback_8hpp}{Text\+Box\+Callback.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Text\+Box\+Callback/\mbox{\hyperlink{TextBoxCallback_8cpp}{Text\+Box\+Callback.\+cpp}}\end{DoxyCompactItemize}

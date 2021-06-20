@@ -1,0 +1,224 @@
+\hypertarget{classRayLib_1_1Mesh}{}\doxysection{Ray\+Lib\+::Mesh Class Reference}
+\label{classRayLib_1_1Mesh}\index{RayLib::Mesh@{RayLib::Mesh}}
+
+
+\mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Mesh.\+hpp$>$}
+
+
+
+Inheritance diagram for Ray\+Lib\+::Mesh\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classRayLib_1_1Mesh__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ray\+Lib\+::Mesh\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classRayLib_1_1Mesh__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Mesh_ac72bd9db21871cdf378fe47d65359b1a}{Mesh}} (const std\+::string \&path)
+\item 
+\mbox{\hyperlink{classRayLib_1_1Mesh_a1624831423e20ee7ab8a309ed5ca48e3}{Mesh}} (int sides, float radius)
+\begin{DoxyCompactList}\small\item\em Construct a new polygon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Mesh_a64339dc731d4b04fd92af9e245ff7f80}{Mesh}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} scale=\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}(1.\+0f, 1.\+0f, 1.\+0f))
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object Generates a cube with given scale. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Mesh_af68d67a131f380a55ddee1710abc4b49}{Mesh}} (float radius, int rings, int slices)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object Generates a sphere with given scale. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Mesh_a8e8a1e7de1415bf485cf269b5b58fa21}{Mesh}} (float width, float length, int resX, int resZ)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object Generates a plane with given scale. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Mesh_aec56e96ae61317b2b6fe3623d06a698c}{Mesh}} (\mbox{\hyperlink{classRayLib_1_1Image}{Image}} image, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} scale=\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}(1.\+0f, 1.\+0f, 1.\+0f))
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object Generate a mesh based on the given image cf example\+: \href{https://www.raylib.com/examples/web/models/loader.html?name=models_cubicmap}{\texttt{ https\+://www.\+raylib.\+com/examples/web/models/loader.\+html?name=models\+\_\+cubicmap}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Mesh_acb2e1633220031c339111917c2a25480}{$\sim$\+Mesh}} () override
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object. \end{DoxyCompactList}\item 
+\+::\mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} \mbox{\hyperlink{classRayLib_1_1Mesh_a40e77992483a6ebeaea5415b937b3aa2}{Get\+Mesh}} (void)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object as a raylib structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Mesh_a0d6317ed8fc83b90fe471202e35031c3}{Set\+Loaded}} (bool loaded)
+\begin{DoxyCompactList}\small\item\em Set the Loaded boolean If the mesh is part of a model, it should not be unloaded a second time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\+::\mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} \mbox{\hyperlink{classRayLib_1_1Mesh_a9e6d73ec3691dfcb5ca99c2ce0e7ab25}{\+\_\+mesh}}
+\item 
+bool \mbox{\hyperlink{classRayLib_1_1Mesh_a809464c237698c36a9d7963532c9a524}{\+\_\+loaded}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} encapsulation. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_ac72bd9db21871cdf378fe47d65359b1a}\label{classRayLib_1_1Mesh_ac72bd9db21871cdf378fe47d65359b1a}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRayLib_1_1Mesh_a1624831423e20ee7ab8a309ed5ca48e3}\label{classRayLib_1_1Mesh_a1624831423e20ee7ab8a309ed5ca48e3}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{int}]{sides,  }\item[{float}]{radius }\end{DoxyParamCaption})}
+
+
+
+Construct a new polygon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sides} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_a64339dc731d4b04fd92af9e245ff7f80}\label{classRayLib_1_1Mesh_a64339dc731d4b04fd92af9e245ff7f80}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{scale = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}(1.0f,~1.0f,~1.0f)} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object Generates a cube with given scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_af68d67a131f380a55ddee1710abc4b49}\label{classRayLib_1_1Mesh_af68d67a131f380a55ddee1710abc4b49}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{float}]{radius,  }\item[{int}]{rings,  }\item[{int}]{slices }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object Generates a sphere with given scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & \\
+\hline
+{\em rings} & \\
+\hline
+{\em slices} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_a8e8a1e7de1415bf485cf269b5b58fa21}\label{classRayLib_1_1Mesh_a8e8a1e7de1415bf485cf269b5b58fa21}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{float}]{width,  }\item[{float}]{length,  }\item[{int}]{resX,  }\item[{int}]{resZ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object Generates a plane with given scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & \\
+\hline
+{\em length} & \\
+\hline
+{\em resX} & \\
+\hline
+{\em resZ} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_aec56e96ae61317b2b6fe3623d06a698c}\label{classRayLib_1_1Mesh_aec56e96ae61317b2b6fe3623d06a698c}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Image}{Image}}}]{image,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{scale = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}(1.0f,~1.0f,~1.0f)} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object Generate a mesh based on the given image cf example\+: \href{https://www.raylib.com/examples/web/models/loader.html?name=models_cubicmap}{\texttt{ https\+://www.\+raylib.\+com/examples/web/models/loader.\+html?name=models\+\_\+cubicmap}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & \\
+\hline
+{\em scale} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_acb2e1633220031c339111917c2a25480}\label{classRayLib_1_1Mesh_acb2e1633220031c339111917c2a25480}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!````~Mesh@{$\sim$Mesh}}
+\index{````~Mesh@{$\sim$Mesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{$\sim$Mesh()}{~Mesh()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Mesh\+::$\sim$\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_a40e77992483a6ebeaea5415b937b3aa2}\label{classRayLib_1_1Mesh_a40e77992483a6ebeaea5415b937b3aa2}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!GetMesh@{GetMesh}}
+\index{GetMesh@{GetMesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{GetMesh()}{GetMesh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} Ray\+Lib\+::\+Mesh\+::\+Get\+Mesh (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} object as a raylib structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Mesh 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_a0d6317ed8fc83b90fe471202e35031c3}\label{classRayLib_1_1Mesh_a0d6317ed8fc83b90fe471202e35031c3}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!SetLoaded@{SetLoaded}}
+\index{SetLoaded@{SetLoaded}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{SetLoaded()}{SetLoaded()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Mesh\+::\+Set\+Loaded (\begin{DoxyParamCaption}\item[{bool}]{loaded }\end{DoxyParamCaption})}
+
+
+
+Set the Loaded boolean If the mesh is part of a model, it should not be unloaded a second time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loaded} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Mesh_a809464c237698c36a9d7963532c9a524}\label{classRayLib_1_1Mesh_a809464c237698c36a9d7963532c9a524}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!\_loaded@{\_loaded}}
+\index{\_loaded@{\_loaded}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{\_loaded}{\_loaded}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Mesh\+::\+\_\+loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Mesh_a9e6d73ec3691dfcb5ca99c2ce0e7ab25}\label{classRayLib_1_1Mesh_a9e6d73ec3691dfcb5ca99c2ce0e7ab25}} 
+\index{RayLib::Mesh@{RayLib::Mesh}!\_mesh@{\_mesh}}
+\index{\_mesh@{\_mesh}!RayLib::Mesh@{RayLib::Mesh}}
+\doxysubsubsection{\texorpdfstring{\_mesh}{\_mesh}}
+{\footnotesize\ttfamily \+::\mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} Ray\+Lib\+::\+Mesh\+::\+\_\+mesh\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Mesh/\mbox{\hyperlink{Mesh_8hpp}{Mesh.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Mesh/\mbox{\hyperlink{Mesh_8cpp}{Mesh.\+cpp}}\end{DoxyCompactItemize}

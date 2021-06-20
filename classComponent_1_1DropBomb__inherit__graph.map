@@ -1,0 +1,5 @@
+<map id="Component::DropBomb" name="Component::DropBomb">
+<area shape="rect" id="node1" title="Behaviour for players or AI allowing to drop a bomb upon pressing a key." alt="" coords="5,373,215,759"/>
+<area shape="rect" id="node2" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="41,204,179,325"/>
+<area shape="rect" id="node3" href="$classIXMLSerializable.html" title=" " alt="" coords="27,5,193,156"/>
+</map>

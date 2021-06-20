@@ -1,0 +1,237 @@
+\hypertarget{classBasicLight}{}\doxysection{Basic\+Light Class Reference}
+\label{classBasicLight}\index{BasicLight@{BasicLight}}
+
+
+{\ttfamily \#include $<$Basic\+Light.\+hpp$>$}
+
+
+
+Inheritance diagram for Basic\+Light\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classBasicLight__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Basic\+Light\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classBasicLight__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classBasicLight_aedd852ffb478601494526b49eb029e78}{Light\+Type}} \{ \mbox{\hyperlink{classBasicLight_aedd852ffb478601494526b49eb029e78a487bb0e0a96bd0dbf53df8293ad5e6f5}{Light\+Type\+::\+L\+I\+G\+H\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+AL}}, 
+\mbox{\hyperlink{classBasicLight_aedd852ffb478601494526b49eb029e78a37a615c3a40ff1b09eee9a9bb10fbac9}{Light\+Type\+::\+L\+I\+G\+H\+T\+\_\+\+P\+O\+I\+NT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBasicLight_a43cce125594b0480bcad0eabc5e66e6a}{Basic\+Light}} (\mbox{\hyperlink{classBasicLight_aedd852ffb478601494526b49eb029e78}{Light\+Type}} type, \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} position, \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} \&color, const std\+::string \&Shader\+Path)
+\begin{DoxyCompactList}\small\item\em Construct a new Basic Light object and get linked shader locations. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBasicLight_a5e5cdfed7339ce66cfb0aa6068079e06}{$\sim$\+Basic\+Light}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classBasicLight}{Basic\+Light}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBasicLight_a3d5d9971355802cdc6f0f0ae182781b6}{Basic\+Light}} (const \mbox{\hyperlink{classBasicLight}{Basic\+Light}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classBasicLight}{Basic\+Light}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBasicLight}{Basic\+Light}} \& \mbox{\hyperlink{classBasicLight_aa79adab4026f5db9d425f4e92e86c947}{operator=}} (const \mbox{\hyperlink{classBasicLight}{Basic\+Light}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBasicLight_ae73215170df0ad3253fe1a254c55eb29}{Update\+Values}} ()
+\begin{DoxyCompactList}\small\item\em Update shader\textquotesingle{}s light properties. \end{DoxyCompactList}\item 
+\+::Vector3 \& \mbox{\hyperlink{classBasicLight_a812f2bed078367a25dd7386b0b0477a6}{Get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Get light source position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classBasicLight_af77ab77526785d09cc431514c4afe2cd}{\+\_\+type}}
+\item 
+\+::Vector3 \mbox{\hyperlink{classBasicLight_a2892db763f9388a3006765dee2267a99}{\+\_\+position}}
+\item 
+\+::Vector3 \mbox{\hyperlink{classBasicLight_aa4265b04df99d6f53b8b984ee30dd7ef}{\+\_\+target}}
+\item 
+\+::Color \mbox{\hyperlink{classBasicLight_ab8262404645e69f932520b596838b136}{\+\_\+color}}
+\item 
+int \mbox{\hyperlink{classBasicLight_a31cfd860f91d6cd147f81cd5b81181f3}{\+\_\+type\+Loc}}
+\item 
+int \mbox{\hyperlink{classBasicLight_a959f657709cf4186289c68f4d39d48ab}{\+\_\+pos\+Loc}}
+\item 
+int \mbox{\hyperlink{classBasicLight_ad32313f960d7043d9de87b1b41e73689}{\+\_\+target\+Loc}}
+\item 
+int \mbox{\hyperlink{classBasicLight_a1351a74aab7a9fd087351a0576409b34}{\+\_\+color\+Loc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classBasicLight_aedd852ffb478601494526b49eb029e78}\label{classBasicLight_aedd852ffb478601494526b49eb029e78}} 
+\index{BasicLight@{BasicLight}!LightType@{LightType}}
+\index{LightType@{LightType}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{LightType}{LightType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classBasicLight_aedd852ffb478601494526b49eb029e78}{Basic\+Light\+::\+Light\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIGHT\_DIRECTIONAL@{LIGHT\_DIRECTIONAL}!BasicLight@{BasicLight}}\index{BasicLight@{BasicLight}!LIGHT\_DIRECTIONAL@{LIGHT\_DIRECTIONAL}}}\mbox{\Hypertarget{classBasicLight_aedd852ffb478601494526b49eb029e78a487bb0e0a96bd0dbf53df8293ad5e6f5}\label{classBasicLight_aedd852ffb478601494526b49eb029e78a487bb0e0a96bd0dbf53df8293ad5e6f5}} 
+L\+I\+G\+H\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIGHT\_POINT@{LIGHT\_POINT}!BasicLight@{BasicLight}}\index{BasicLight@{BasicLight}!LIGHT\_POINT@{LIGHT\_POINT}}}\mbox{\Hypertarget{classBasicLight_aedd852ffb478601494526b49eb029e78a37a615c3a40ff1b09eee9a9bb10fbac9}\label{classBasicLight_aedd852ffb478601494526b49eb029e78a37a615c3a40ff1b09eee9a9bb10fbac9}} 
+L\+I\+G\+H\+T\+\_\+\+P\+O\+I\+NT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBasicLight_a43cce125594b0480bcad0eabc5e66e6a}\label{classBasicLight_a43cce125594b0480bcad0eabc5e66e6a}} 
+\index{BasicLight@{BasicLight}!BasicLight@{BasicLight}}
+\index{BasicLight@{BasicLight}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{BasicLight()}{BasicLight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Basic\+Light\+::\+Basic\+Light (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBasicLight_aedd852ffb478601494526b49eb029e78}{Light\+Type}}}]{type,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} \&}]{color,  }\item[{const std\+::string \&}]{Shader\+Path }\end{DoxyParamCaption})}
+
+
+
+Construct a new Basic Light object and get linked shader locations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+{\em position} & \\
+\hline
+{\em color} & \\
+\hline
+{\em Shader\+Path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBasicLight_a5e5cdfed7339ce66cfb0aa6068079e06}\label{classBasicLight_a5e5cdfed7339ce66cfb0aa6068079e06}} 
+\index{BasicLight@{BasicLight}!````~BasicLight@{$\sim$BasicLight}}
+\index{````~BasicLight@{$\sim$BasicLight}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{$\sim$BasicLight()}{~BasicLight()}}
+{\footnotesize\ttfamily Basic\+Light\+::$\sim$\+Basic\+Light (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classBasicLight}{Basic\+Light}} object. 
+
+\mbox{\Hypertarget{classBasicLight_a3d5d9971355802cdc6f0f0ae182781b6}\label{classBasicLight_a3d5d9971355802cdc6f0f0ae182781b6}} 
+\index{BasicLight@{BasicLight}!BasicLight@{BasicLight}}
+\index{BasicLight@{BasicLight}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{BasicLight()}{BasicLight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Basic\+Light\+::\+Basic\+Light (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBasicLight}{Basic\+Light}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classBasicLight}{Basic\+Light}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBasicLight_a812f2bed078367a25dd7386b0b0477a6}\label{classBasicLight_a812f2bed078367a25dd7386b0b0477a6}} 
+\index{BasicLight@{BasicLight}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily Vector3 \& Basic\+Light\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get light source position. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Vector3\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBasicLight_aa79adab4026f5db9d425f4e92e86c947}\label{classBasicLight_aa79adab4026f5db9d425f4e92e86c947}} 
+\index{BasicLight@{BasicLight}!operator=@{operator=}}
+\index{operator=@{operator=}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBasicLight}{Basic\+Light}}\& Basic\+Light\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBasicLight}{Basic\+Light}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classBasicLight}{Basic\+Light}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBasicLight_ae73215170df0ad3253fe1a254c55eb29}\label{classBasicLight_ae73215170df0ad3253fe1a254c55eb29}} 
+\index{BasicLight@{BasicLight}!UpdateValues@{UpdateValues}}
+\index{UpdateValues@{UpdateValues}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{UpdateValues()}{UpdateValues()}}
+{\footnotesize\ttfamily void Basic\+Light\+::\+Update\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update shader\textquotesingle{}s light properties. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBasicLight_ab8262404645e69f932520b596838b136}\label{classBasicLight_ab8262404645e69f932520b596838b136}} 
+\index{BasicLight@{BasicLight}!\_color@{\_color}}
+\index{\_color@{\_color}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{\_color}{\_color}}
+{\footnotesize\ttfamily \+::Color Basic\+Light\+::\+\_\+color\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classBasicLight_a1351a74aab7a9fd087351a0576409b34}\label{classBasicLight_a1351a74aab7a9fd087351a0576409b34}} 
+\index{BasicLight@{BasicLight}!\_colorLoc@{\_colorLoc}}
+\index{\_colorLoc@{\_colorLoc}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{\_colorLoc}{\_colorLoc}}
+{\footnotesize\ttfamily int Basic\+Light\+::\+\_\+color\+Loc\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classBasicLight_a2892db763f9388a3006765dee2267a99}\label{classBasicLight_a2892db763f9388a3006765dee2267a99}} 
+\index{BasicLight@{BasicLight}!\_position@{\_position}}
+\index{\_position@{\_position}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{\_position}{\_position}}
+{\footnotesize\ttfamily \+::Vector3 Basic\+Light\+::\+\_\+position\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classBasicLight_a959f657709cf4186289c68f4d39d48ab}\label{classBasicLight_a959f657709cf4186289c68f4d39d48ab}} 
+\index{BasicLight@{BasicLight}!\_posLoc@{\_posLoc}}
+\index{\_posLoc@{\_posLoc}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{\_posLoc}{\_posLoc}}
+{\footnotesize\ttfamily int Basic\+Light\+::\+\_\+pos\+Loc\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classBasicLight_aa4265b04df99d6f53b8b984ee30dd7ef}\label{classBasicLight_aa4265b04df99d6f53b8b984ee30dd7ef}} 
+\index{BasicLight@{BasicLight}!\_target@{\_target}}
+\index{\_target@{\_target}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{\_target}{\_target}}
+{\footnotesize\ttfamily \+::Vector3 Basic\+Light\+::\+\_\+target\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classBasicLight_ad32313f960d7043d9de87b1b41e73689}\label{classBasicLight_ad32313f960d7043d9de87b1b41e73689}} 
+\index{BasicLight@{BasicLight}!\_targetLoc@{\_targetLoc}}
+\index{\_targetLoc@{\_targetLoc}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{\_targetLoc}{\_targetLoc}}
+{\footnotesize\ttfamily int Basic\+Light\+::\+\_\+target\+Loc\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classBasicLight_af77ab77526785d09cc431514c4afe2cd}\label{classBasicLight_af77ab77526785d09cc431514c4afe2cd}} 
+\index{BasicLight@{BasicLight}!\_type@{\_type}}
+\index{\_type@{\_type}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{\_type}{\_type}}
+{\footnotesize\ttfamily int Basic\+Light\+::\+\_\+type\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classBasicLight_a31cfd860f91d6cd147f81cd5b81181f3}\label{classBasicLight_a31cfd860f91d6cd147f81cd5b81181f3}} 
+\index{BasicLight@{BasicLight}!\_typeLoc@{\_typeLoc}}
+\index{\_typeLoc@{\_typeLoc}!BasicLight@{BasicLight}}
+\doxysubsubsection{\texorpdfstring{\_typeLoc}{\_typeLoc}}
+{\footnotesize\ttfamily int Basic\+Light\+::\+\_\+type\+Loc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Model\+Shader/\+Basic\+Light/\mbox{\hyperlink{BasicLight_8hpp}{Basic\+Light.\+hpp}}\item 
+Libs/\+Engine/sources/\+Model\+Shader/\+Basic\+Light/\mbox{\hyperlink{BasicLight_8cpp}{Basic\+Light.\+cpp}}\end{DoxyCompactItemize}

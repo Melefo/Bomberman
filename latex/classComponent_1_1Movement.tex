@@ -1,0 +1,373 @@
+\hypertarget{classComponent_1_1Movement}{}\doxysection{Component\+::Movement Class Reference}
+\label{classComponent_1_1Movement}\index{Component::Movement@{Component::Movement}}
+
+
+Behaviour script responsible for moving an entity.  
+
+
+
+
+{\ttfamily \#include $<$Movement.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Movement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Movement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Movement\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Movement__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Movement_a759d79074a0b629718f0a9c4f4aecda6}{Movement}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched\+Entity, float move\+Speed=0.\+5f, float max\+Speed=1.\+0f)
+\begin{DoxyCompactList}\small\item\em Construct a new Player \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Movement_ad2133202949821254f1581aca4e5258c}{$\sim$\+Movement}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Player \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Movement_a3ad2fcf13791a162496f4470872fc1e6}{Movement}} (const \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Player \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Movement}{Movement}} \& \mbox{\hyperlink{classComponent_1_1Movement_a6e8fd00d0519b45de3d0c18c73a7fb53}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignement operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Movement_a7d8c150a205045cd9361c6128acfd175}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Used to sample the input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Movement_a87918dc11ffafdb45e4a63d0f5e0c281}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Used to modify the velocity regularly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Movement_a1852158d20a29e23a764222646248b68}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\item 
+float \& \mbox{\hyperlink{classComponent_1_1Movement_ab4137cb8c7a218e2b798ea399871297f}{Get\+Bonus\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Get the time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Movement_a42dbeea0cf465dc68d7c86116f7a26ff}{Slippery\+Collisions}} ()
+\begin{DoxyCompactList}\small\item\em Try to keep volucity if the angle of a collision is triggered. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1Movement_a8112a083cf2ae41170ab4be5e3cadef7}{Check\+Colliders\+Pos}} (std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} $>$$>$ colliders, \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} position, std\+::vector$<$ std\+::string $>$ col\+Mask=\{\})
+\begin{DoxyCompactList}\small\item\em Check if the entity is colliding. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Movement_a23ef1c35b8e9a5b48491b45a3ff67d80}{Boost\+Speed}} (float bonus\+Speed=3.\+0f, float time=20.\+0f)
+\begin{DoxyCompactList}\small\item\em Add a speed boost to entity. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Movement_a9bbd6e44c3abb726e69c102a0ad25aa9}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Movement_ab31c86f65ad5c123c04e8aa869e3954a}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Movement_a6a49906de33bad07ef1affe1a703137e}{direction}}
+\begin{DoxyCompactList}\small\item\em Direction used to direct velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1Movement_a5fa2529d69c4536453af23b9f18e05b5}{\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Ref to entity for transform/physics. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1Movement_aad7a0bc7b2896b200d4fa0fedf911b93}{\+\_\+colliding}}
+\begin{DoxyCompactList}\small\item\em Is the entity colliding or not (i.\+e. can it move) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1Movement_a4a244dffb09c8f60acce93c4dad0fef1}{\+\_\+speed}}
+\begin{DoxyCompactList}\small\item\em Speed multiplier. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1Movement_a4ebe31ca1e06962f5303de2f5e3f8407}{\+\_\+start\+Speed}}
+\begin{DoxyCompactList}\small\item\em starting speed \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1Movement_a5681506f211cd0676e8b90fc69ee4731}{\+\_\+bonus\+Time}}
+\begin{DoxyCompactList}\small\item\em Time for which a boost is applied. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1Movement_a56f00c59b260c1c8d4877ed8bfa140aa}{\+\_\+max\+Speed}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classComponent_1_1Movement_ab8d2b6a9f76d269ecc8843d356d79fac}{\+\_\+collision\+Mask}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Behaviour script responsible for moving an entity. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Movement_a759d79074a0b629718f0a9c4f4aecda6}\label{classComponent_1_1Movement_a759d79074a0b629718f0a9c4f4aecda6}} 
+\index{Component::Movement@{Component::Movement}!Movement@{Movement}}
+\index{Movement@{Movement}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{Movement()}{Movement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Movement\+::\+Movement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched\+Entity,  }\item[{float}]{move\+Speed = {\ttfamily 0.5f},  }\item[{float}]{max\+Speed = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Player \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & \\
+\hline
+{\em move\+Speed} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Movement_ad2133202949821254f1581aca4e5258c}\label{classComponent_1_1Movement_ad2133202949821254f1581aca4e5258c}} 
+\index{Component::Movement@{Component::Movement}!````~Movement@{$\sim$Movement}}
+\index{````~Movement@{$\sim$Movement}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{$\sim$Movement()}{~Movement()}}
+{\footnotesize\ttfamily Component\+::\+Movement\+::$\sim$\+Movement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Player \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a3ad2fcf13791a162496f4470872fc1e6}\label{classComponent_1_1Movement_a3ad2fcf13791a162496f4470872fc1e6}} 
+\index{Component::Movement@{Component::Movement}!Movement@{Movement}}
+\index{Movement@{Movement}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{Movement()}{Movement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Movement\+::\+Movement (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Player \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Movement_a23ef1c35b8e9a5b48491b45a3ff67d80}\label{classComponent_1_1Movement_a23ef1c35b8e9a5b48491b45a3ff67d80}} 
+\index{Component::Movement@{Component::Movement}!BoostSpeed@{BoostSpeed}}
+\index{BoostSpeed@{BoostSpeed}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{BoostSpeed()}{BoostSpeed()}}
+{\footnotesize\ttfamily void Component\+::\+Movement\+::\+Boost\+Speed (\begin{DoxyParamCaption}\item[{float}]{bonus\+Speed = {\ttfamily 3.0f},  }\item[{float}]{time = {\ttfamily 20.0f} }\end{DoxyParamCaption})}
+
+
+
+Add a speed boost to entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bonus\+Speed} & \\
+\hline
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Movement_a8112a083cf2ae41170ab4be5e3cadef7}\label{classComponent_1_1Movement_a8112a083cf2ae41170ab4be5e3cadef7}} 
+\index{Component::Movement@{Component::Movement}!CheckCollidersPos@{CheckCollidersPos}}
+\index{CheckCollidersPos@{CheckCollidersPos}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{CheckCollidersPos()}{CheckCollidersPos()}}
+{\footnotesize\ttfamily bool Component\+::\+Movement\+::\+Check\+Colliders\+Pos (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} $>$$>$}]{colliders,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{position,  }\item[{std\+::vector$<$ std\+::string $>$}]{col\+Mask = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+Check if the entity is colliding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colliders} & \\
+\hline
+{\em position} & \\
+\hline
+{\em col\+Mask} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Movement_a87918dc11ffafdb45e4a63d0f5e0c281}\label{classComponent_1_1Movement_a87918dc11ffafdb45e4a63d0f5e0c281}} 
+\index{Component::Movement@{Component::Movement}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Movement\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to modify the velocity regularly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Movement_ab4137cb8c7a218e2b798ea399871297f}\label{classComponent_1_1Movement_ab4137cb8c7a218e2b798ea399871297f}} 
+\index{Component::Movement@{Component::Movement}!GetBonusTime@{GetBonusTime}}
+\index{GetBonusTime@{GetBonusTime}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{GetBonusTime()}{GetBonusTime()}}
+{\footnotesize\ttfamily float \& Component\+::\+Movement\+::\+Get\+Bonus\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the time. 
+
+\begin{DoxyReturn}{Returns}
+float\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Movement_a1852158d20a29e23a764222646248b68}\label{classComponent_1_1Movement_a1852158d20a29e23a764222646248b68}} 
+\index{Component::Movement@{Component::Movement}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Movement\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Movement_ab31c86f65ad5c123c04e8aa869e3954a}\label{classComponent_1_1Movement_ab31c86f65ad5c123c04e8aa869e3954a}} 
+\index{Component::Movement@{Component::Movement}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Movement\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a9bbd6e44c3abb726e69c102a0ad25aa9}\label{classComponent_1_1Movement_a9bbd6e44c3abb726e69c102a0ad25aa9}} 
+\index{Component::Movement@{Component::Movement}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Movement\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a6e8fd00d0519b45de3d0c18c73a7fb53}\label{classComponent_1_1Movement_a6e8fd00d0519b45de3d0c18c73a7fb53}} 
+\index{Component::Movement@{Component::Movement}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Movement}{Movement}}\& Component\+::\+Movement\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignement operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Movement}{Movement}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Movement_a42dbeea0cf465dc68d7c86116f7a26ff}\label{classComponent_1_1Movement_a42dbeea0cf465dc68d7c86116f7a26ff}} 
+\index{Component::Movement@{Component::Movement}!SlipperyCollisions@{SlipperyCollisions}}
+\index{SlipperyCollisions@{SlipperyCollisions}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{SlipperyCollisions()}{SlipperyCollisions()}}
+{\footnotesize\ttfamily void Component\+::\+Movement\+::\+Slippery\+Collisions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Try to keep volucity if the angle of a collision is triggered. 
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a7d8c150a205045cd9361c6128acfd175}\label{classComponent_1_1Movement_a7d8c150a205045cd9361c6128acfd175}} 
+\index{Component::Movement@{Component::Movement}!Update@{Update}}
+\index{Update@{Update}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Movement\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to sample the input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Movement_a5681506f211cd0676e8b90fc69ee4731}\label{classComponent_1_1Movement_a5681506f211cd0676e8b90fc69ee4731}} 
+\index{Component::Movement@{Component::Movement}!\_bonusTime@{\_bonusTime}}
+\index{\_bonusTime@{\_bonusTime}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{\_bonusTime}{\_bonusTime}}
+{\footnotesize\ttfamily float Component\+::\+Movement\+::\+\_\+bonus\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Time for which a boost is applied. 
+
+\mbox{\Hypertarget{classComponent_1_1Movement_aad7a0bc7b2896b200d4fa0fedf911b93}\label{classComponent_1_1Movement_aad7a0bc7b2896b200d4fa0fedf911b93}} 
+\index{Component::Movement@{Component::Movement}!\_colliding@{\_colliding}}
+\index{\_colliding@{\_colliding}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{\_colliding}{\_colliding}}
+{\footnotesize\ttfamily bool Component\+::\+Movement\+::\+\_\+colliding\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Is the entity colliding or not (i.\+e. can it move) 
+
+\mbox{\Hypertarget{classComponent_1_1Movement_ab8d2b6a9f76d269ecc8843d356d79fac}\label{classComponent_1_1Movement_ab8d2b6a9f76d269ecc8843d356d79fac}} 
+\index{Component::Movement@{Component::Movement}!\_collisionMask@{\_collisionMask}}
+\index{\_collisionMask@{\_collisionMask}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{\_collisionMask}{\_collisionMask}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Component\+::\+Movement\+::\+\_\+collision\+Mask\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a5fa2529d69c4536453af23b9f18e05b5}\label{classComponent_1_1Movement_a5fa2529d69c4536453af23b9f18e05b5}} 
+\index{Component::Movement@{Component::Movement}!\_entity@{\_entity}}
+\index{\_entity@{\_entity}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{\_entity}{\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Movement\+::\+\_\+entity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ref to entity for transform/physics. 
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a56f00c59b260c1c8d4877ed8bfa140aa}\label{classComponent_1_1Movement_a56f00c59b260c1c8d4877ed8bfa140aa}} 
+\index{Component::Movement@{Component::Movement}!\_maxSpeed@{\_maxSpeed}}
+\index{\_maxSpeed@{\_maxSpeed}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{\_maxSpeed}{\_maxSpeed}}
+{\footnotesize\ttfamily float Component\+::\+Movement\+::\+\_\+max\+Speed\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a4a244dffb09c8f60acce93c4dad0fef1}\label{classComponent_1_1Movement_a4a244dffb09c8f60acce93c4dad0fef1}} 
+\index{Component::Movement@{Component::Movement}!\_speed@{\_speed}}
+\index{\_speed@{\_speed}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{\_speed}{\_speed}}
+{\footnotesize\ttfamily float Component\+::\+Movement\+::\+\_\+speed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Speed multiplier. 
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a4ebe31ca1e06962f5303de2f5e3f8407}\label{classComponent_1_1Movement_a4ebe31ca1e06962f5303de2f5e3f8407}} 
+\index{Component::Movement@{Component::Movement}!\_startSpeed@{\_startSpeed}}
+\index{\_startSpeed@{\_startSpeed}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{\_startSpeed}{\_startSpeed}}
+{\footnotesize\ttfamily float Component\+::\+Movement\+::\+\_\+start\+Speed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+starting speed 
+
+\mbox{\Hypertarget{classComponent_1_1Movement_a6a49906de33bad07ef1affe1a703137e}\label{classComponent_1_1Movement_a6a49906de33bad07ef1affe1a703137e}} 
+\index{Component::Movement@{Component::Movement}!direction@{direction}}
+\index{direction@{direction}!Component::Movement@{Component::Movement}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+Movement\+::direction}
+
+
+
+Direction used to direct velocity. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Movement/\mbox{\hyperlink{Movement_8hpp}{Movement.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Movement/\mbox{\hyperlink{Movement_8cpp}{Movement.\+cpp}}\end{DoxyCompactItemize}

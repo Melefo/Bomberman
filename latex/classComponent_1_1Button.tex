@@ -1,0 +1,270 @@
+\hypertarget{classComponent_1_1Button}{}\doxysection{Component\+::Button Class Reference}
+\label{classComponent_1_1Button}\index{Component::Button@{Component::Button}}
+
+
+\mbox{\hyperlink{classComponent_1_1Button}{Button}} class.  
+
+
+
+
+{\ttfamily \#include $<$Button.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Button\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Button__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Button\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Button__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Button_a3eacdafd819f73d7464de8485224b50c}{Button}} (const std\+::string \&path, bool lerp=true)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Button}{Button}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Button_a7f6be2ce0acff89d11c30d2efd687482}{$\sim$\+Button}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Button}{Button}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Button_a7fbc7ecdf080ba90f16716154375caff}{Button}} (const \mbox{\hyperlink{classComponent_1_1Button}{Button}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Button}{Button}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Button}{Button}} \& \mbox{\hyperlink{classComponent_1_1Button_a4c1c5319e273abc7e031277b2487c215}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Button}{Button}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1Button_a541f3f9dfc37dbf098d24d758b9f378b}{Draw}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ position, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ scale=\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$(1.\+0f, 1.\+0f)) override
+\begin{DoxyCompactList}\small\item\em Draw the texture at given position and scale. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1Button_a54abe8b47f72c9c82653d359e543662e}{Is\+Mouse\+Over}} (void)
+\begin{DoxyCompactList}\small\item\em Returns true if the mouse is in button bounds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Button_ad82fa69579b17498545be5d0961ff909}{Add\+Callback}} (std\+::function$<$ void()$>$ call\+Back)
+\begin{DoxyCompactList}\small\item\em Add a function with the form void() to the list of callbacks Use std\+::bind to send a function (static or other) If it is a non-\/static member function, pass this as the second argument \+\_\+button.\+Add\+Callback(std\+::bind(\&\+Button\+Callbacks\+::\+Say\+Hello, this)); button.\+Add\+Callback(std\+::bind(\&\+Component\+::\+Button\+Callbacks\+::\+Static\+Callback));. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Button_a8ed30f618773e9356c7605891923f89f}{On\+Click}} (void)
+\begin{DoxyCompactList}\small\item\em Execute all the \+\_\+callbacks. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Button_adf7752ca30dc40beaac024ad7affd6c3}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Button_a67a057f39f0bacc21b5612ab906e0da3}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\item 
+\+::Texture2D \mbox{\hyperlink{classComponent_1_1Button_a2496342a9b7a935afbf692bc355d7fa7}{Get\+Texture}} () const
+\begin{DoxyCompactList}\small\item\em Get the Texture object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} \mbox{\hyperlink{classComponent_1_1Button_a8a4aafa5faea9ccbff01a119755f524e}{\+\_\+rect}}
+\begin{DoxyCompactList}\small\item\em rectangle containing size and position \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::function$<$ void()$>$ $>$ \mbox{\hyperlink{classComponent_1_1Button_a186443b1e48ce2f57b6bffa2afc6fb36}{\+\_\+callbacks}}
+\begin{DoxyCompactList}\small\item\em Functions to call onclick. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} \mbox{\hyperlink{classComponent_1_1Button_a55eb31909127792d4810d1c3774b0949}{\+\_\+tint}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}} $>$ \mbox{\hyperlink{classComponent_1_1Button_a7c90815a51955ca334b6fe5793ff517e}{\+\_\+texture}}
+\item 
+bool \mbox{\hyperlink{classComponent_1_1Button_af8e64f3dd989b9b41f13b6e7c704bd80}{\+\_\+lerp}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComponent_1_1Button}{Button}} class. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Button_a3eacdafd819f73d7464de8485224b50c}\label{classComponent_1_1Button_a3eacdafd819f73d7464de8485224b50c}} 
+\index{Component::Button@{Component::Button}!Button@{Button}}
+\index{Button@{Button}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{Button()}{Button()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Button\+::\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{bool}]{lerp = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Button}{Button}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Button_a7f6be2ce0acff89d11c30d2efd687482}\label{classComponent_1_1Button_a7f6be2ce0acff89d11c30d2efd687482}} 
+\index{Component::Button@{Component::Button}!````~Button@{$\sim$Button}}
+\index{````~Button@{$\sim$Button}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{$\sim$Button()}{~Button()}}
+{\footnotesize\ttfamily Component\+::\+Button\+::$\sim$\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Button}{Button}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Button_a7fbc7ecdf080ba90f16716154375caff}\label{classComponent_1_1Button_a7fbc7ecdf080ba90f16716154375caff}} 
+\index{Component::Button@{Component::Button}!Button@{Button}}
+\index{Button@{Button}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{Button()}{Button()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Button\+::\+Button (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Button}{Button}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Button}{Button}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Button_ad82fa69579b17498545be5d0961ff909}\label{classComponent_1_1Button_ad82fa69579b17498545be5d0961ff909}} 
+\index{Component::Button@{Component::Button}!AddCallback@{AddCallback}}
+\index{AddCallback@{AddCallback}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{AddCallback()}{AddCallback()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+::\+Add\+Callback (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{call\+Back }\end{DoxyParamCaption})}
+
+
+
+Add a function with the form void() to the list of callbacks Use std\+::bind to send a function (static or other) If it is a non-\/static member function, pass this as the second argument \+\_\+button.\+Add\+Callback(std\+::bind(\&\+Button\+Callbacks\+::\+Say\+Hello, this)); button.\+Add\+Callback(std\+::bind(\&\+Component\+::\+Button\+Callbacks\+::\+Static\+Callback));. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em call\+Back} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Button_a541f3f9dfc37dbf098d24d758b9f378b}\label{classComponent_1_1Button_a541f3f9dfc37dbf098d24d758b9f378b}} 
+\index{Component::Button@{Component::Button}!Draw@{Draw}}
+\index{Draw@{Draw}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{scale = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$float$>$(1.0f,~1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw the texture at given position and scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em scale} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IUIObject_ae7abd923511d9f9a6dc4a4b2b3ea56c7}{Component\+::\+I\+U\+I\+Object}}.
+
+\mbox{\Hypertarget{classComponent_1_1Button_a2496342a9b7a935afbf692bc355d7fa7}\label{classComponent_1_1Button_a2496342a9b7a935afbf692bc355d7fa7}} 
+\index{Component::Button@{Component::Button}!GetTexture@{GetTexture}}
+\index{GetTexture@{GetTexture}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{GetTexture()}{GetTexture()}}
+{\footnotesize\ttfamily Texture2D Component\+::\+Button\+::\+Get\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Texture object. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Texture2D 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Button_a54abe8b47f72c9c82653d359e543662e}\label{classComponent_1_1Button_a54abe8b47f72c9c82653d359e543662e}} 
+\index{Component::Button@{Component::Button}!IsMouseOver@{IsMouseOver}}
+\index{IsMouseOver@{IsMouseOver}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{IsMouseOver()}{IsMouseOver()}}
+{\footnotesize\ttfamily bool Component\+::\+Button\+::\+Is\+Mouse\+Over (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns true if the mouse is in button bounds. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Button_a8ed30f618773e9356c7605891923f89f}\label{classComponent_1_1Button_a8ed30f618773e9356c7605891923f89f}} 
+\index{Component::Button@{Component::Button}!OnClick@{OnClick}}
+\index{OnClick@{OnClick}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{OnClick()}{OnClick()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+::\+On\+Click (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Execute all the \+\_\+callbacks. 
+
+\mbox{\Hypertarget{classComponent_1_1Button_a67a057f39f0bacc21b5612ab906e0da3}\label{classComponent_1_1Button_a67a057f39f0bacc21b5612ab906e0da3}} 
+\index{Component::Button@{Component::Button}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Button\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Button_adf7752ca30dc40beaac024ad7affd6c3}\label{classComponent_1_1Button_adf7752ca30dc40beaac024ad7affd6c3}} 
+\index{Component::Button@{Component::Button}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Button\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Button_a4c1c5319e273abc7e031277b2487c215}\label{classComponent_1_1Button_a4c1c5319e273abc7e031277b2487c215}} 
+\index{Component::Button@{Component::Button}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Button}{Button}}\& Component\+::\+Button\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Button}{Button}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Button}{Button}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Button_a186443b1e48ce2f57b6bffa2afc6fb36}\label{classComponent_1_1Button_a186443b1e48ce2f57b6bffa2afc6fb36}} 
+\index{Component::Button@{Component::Button}!\_callbacks@{\_callbacks}}
+\index{\_callbacks@{\_callbacks}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{\_callbacks}{\_callbacks}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::function$<$void()$>$ $>$ Component\+::\+Button\+::\+\_\+callbacks\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Functions to call onclick. 
+
+\mbox{\Hypertarget{classComponent_1_1Button_af8e64f3dd989b9b41f13b6e7c704bd80}\label{classComponent_1_1Button_af8e64f3dd989b9b41f13b6e7c704bd80}} 
+\index{Component::Button@{Component::Button}!\_lerp@{\_lerp}}
+\index{\_lerp@{\_lerp}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{\_lerp}{\_lerp}}
+{\footnotesize\ttfamily bool Component\+::\+Button\+::\+\_\+lerp\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Button_a8a4aafa5faea9ccbff01a119755f524e}\label{classComponent_1_1Button_a8a4aafa5faea9ccbff01a119755f524e}} 
+\index{Component::Button@{Component::Button}!\_rect@{\_rect}}
+\index{\_rect@{\_rect}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{\_rect}{\_rect}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} Component\+::\+Button\+::\+\_\+rect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+rectangle containing size and position 
+
+\mbox{\Hypertarget{classComponent_1_1Button_a7c90815a51955ca334b6fe5793ff517e}\label{classComponent_1_1Button_a7c90815a51955ca334b6fe5793ff517e}} 
+\index{Component::Button@{Component::Button}!\_texture@{\_texture}}
+\index{\_texture@{\_texture}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{\_texture}{\_texture}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}}$>$ Component\+::\+Button\+::\+\_\+texture\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Button_a55eb31909127792d4810d1c3774b0949}\label{classComponent_1_1Button_a55eb31909127792d4810d1c3774b0949}} 
+\index{Component::Button@{Component::Button}!\_tint@{\_tint}}
+\index{\_tint@{\_tint}!Component::Button@{Component::Button}}
+\doxysubsubsection{\texorpdfstring{\_tint}{\_tint}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} Component\+::\+Button\+::\+\_\+tint\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Button/\mbox{\hyperlink{Button_8hpp}{Button.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Button/\mbox{\hyperlink{Button_8cpp}{Button.\+cpp}}\end{DoxyCompactItemize}

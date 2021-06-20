@@ -1,0 +1,544 @@
+\hypertarget{classComponent_1_1AIAlgo}{}\doxysection{Component\+::A\+I\+Algo Class Reference}
+\label{classComponent_1_1AIAlgo}\index{Component::AIAlgo@{Component::AIAlgo}}
+
+
+{\ttfamily \#include $<$A\+I\+Algo.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::A\+I\+Algo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1AIAlgo__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::A\+I\+Algo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1AIAlgo__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1AIAlgo_a14714a5a73aecc790a6888e3ea5be325}{A\+I\+Algo}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&player, float move\+Speed, float drop\+Delay=2.\+5f)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1AIAlgo_a33246c4ce9230f7f64603e98b92e14b2}{$\sim$\+A\+I\+Algo}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1AIAlgo_a2ab569675e7dfbd054a7bdcd95a43fcc}{A\+I\+Algo}} (const \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} \&)=default
+\begin{DoxyCompactList}\small\item\em Copy a new \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} \& \mbox{\hyperlink{classComponent_1_1AIAlgo_a0d2bf07ca5c22d40b69facc8ce059e2d}{operator=}} (const \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} \&)=default
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1AIAlgo_a5bd67a56e39c5660df366ce4a4683140}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Updates the ai algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1AIAlgo_a28cc7d721b5d155d917244d99c366060}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Fixed Update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1AIAlgo_aa21d6f60e762640e2fb9f8e1f24bbab2}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Late\+Update. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1AIAlgo_ab4dd052c6c814ba5cfadd336fecb8198}{operator$<$$<$}} (std\+::ostream \&os) override
+\begin{DoxyCompactList}\small\item\em Send \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} to a stream. \end{DoxyCompactList}\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1AIAlgo_a85496f6a0364436fece129db51d7f323}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\begin{DoxyCompactList}\small\item\em Send \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} to a Boost ptree. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ \mbox{\hyperlink{classComponent_1_1AIAlgo_a7938c87719fdb12c6dc46ae640ab72f8}{Get\+Closest\+Symbol\+Pos}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ agent\+Pos, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&map, int symbol)
+\begin{DoxyCompactList}\small\item\em Get the Closest Symbol Pos object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ \mbox{\hyperlink{classComponent_1_1AIAlgo_a5c6059d31bfcc060a8df7d9a0d239f74}{Get\+Best\+Safe\+Pos}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ agent\+Pos, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&map, const std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ \&map\+Positions)
+\begin{DoxyCompactList}\small\item\em Get the Best Safe Pos object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ \mbox{\hyperlink{classComponent_1_1AIAlgo_ac8807882a45e451f40d06cdcf468b80a}{Get\+Best\+Box\+Pos}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ agent\+Pos, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&map, const std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ \&map\+Positions)
+\begin{DoxyCompactList}\small\item\em Get the Best \mbox{\hyperlink{classComponent_1_1Box}{Box}} Pos object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ \mbox{\hyperlink{classComponent_1_1AIAlgo_aa2b5649b9722d3e16cb6b221fed29a5b}{Get\+Best\+Pos}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ agent\+Pos, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&map, const std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ \&map\+Positions, int value)
+\begin{DoxyCompactList}\small\item\em Get the Best Pos object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ \mbox{\hyperlink{classComponent_1_1AIAlgo_ab67b8cb681783a53e079a8e586299fa9}{Get\+Agent\+Pos}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Agent Pos object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1AIAlgo_a429211880002ca48ea15503aa1e1f7d4}{Get\+Directions\+List}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ ai\+Pos, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ target\+Pos, const std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ \&map\+Positions, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&map)
+\begin{DoxyCompactList}\small\item\em Get the Directions List object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1AIAlgo_a1e62b17093e1936c5726ff3341d0fd96}{Debug\+Path}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} start\+Pos)
+\begin{DoxyCompactList}\small\item\em Print the path generated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1AIAlgo_a63f18c2dcd523e6f3b64ed11d4aef70f}{Debug\+Path}} (std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ path, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ target\+Pos)
+\begin{DoxyCompactList}\small\item\em Print a path to a target. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ $>$ \mbox{\hyperlink{classComponent_1_1AIAlgo_ad3a35c9dcf988cb0a99be79921f0ecc1}{Get\+Map\+As\+Positions}} (const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&map)
+\begin{DoxyCompactList}\small\item\em Get the Map As Positions object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1AIAlgo_ab36c8e278182c316da13a4d9c2c49fa0}{\+\_\+ai\+\_\+player}}
+\begin{DoxyCompactList}\small\item\em refence to self in order to dispose after exploding \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1State}{Lua\+::\+State}} \mbox{\hyperlink{classComponent_1_1AIAlgo_a6c905e06f9011f7be954bf13f23dbb22}{\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespaceLua}{Lua}} state. \end{DoxyCompactList}\item 
+const std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} $>$ $>$ \& \mbox{\hyperlink{classComponent_1_1AIAlgo_a1e367f003a1c15c9889bf9ab03914a0f}{\+\_\+entities}}
+\begin{DoxyCompactList}\small\item\em list of all entities \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1AIAlgo_abdbf56320e0f9a47fbe5fadd948039f0}{\+\_\+speed}}
+\begin{DoxyCompactList}\small\item\em Speed of the AI. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1AIAlgo_aa0202075f3204c9decb5c04d07c34d52}{\+\_\+direction}}
+\begin{DoxyCompactList}\small\item\em Direction of the AI. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}} $>$ \& \mbox{\hyperlink{classComponent_1_1AIAlgo_af6782e2713684e5cb08b40d5870413d6}{\+\_\+window}}
+\begin{DoxyCompactList}\small\item\em Pointer to the current window. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} $>$ \mbox{\hyperlink{classComponent_1_1AIAlgo_aa4942aaef2a83bad86aca402c3ac9c7b}{\+\_\+direction\+Path}}
+\begin{DoxyCompactList}\small\item\em List of direction to a target. \end{DoxyCompactList}\item 
+\+::\mbox{\hyperlink{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4}{A\+I\+State}} \mbox{\hyperlink{classComponent_1_1AIAlgo_a9ea98894201239059955cd2161ce9a70}{\+\_\+current\+State}}
+\begin{DoxyCompactList}\small\item\em Current State of the AI. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1AIAlgo_aefbabf8c2a0bc516164def784ce99136}{\+\_\+enabled}}
+\begin{DoxyCompactList}\small\item\em Is the IA enabled. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1AIAlgo_a0390e388b270ab297cd297abf6ea1205}{\+\_\+state\+Duration}}
+\begin{DoxyCompactList}\small\item\em Duration of the current state. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1AIAlgo_add0f73a5eaa754bea83baff922286334}{\+\_\+time\+To\+State\+Change}}
+\begin{DoxyCompactList}\small\item\em Duration needed before switching state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a14714a5a73aecc790a6888e3ea5be325}\label{classComponent_1_1AIAlgo_a14714a5a73aecc790a6888e3ea5be325}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!AIAlgo@{AIAlgo}}
+\index{AIAlgo@{AIAlgo}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{AIAlgo()}{AIAlgo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+A\+I\+Algo\+::\+A\+I\+Algo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{player,  }\item[{float}]{move\+Speed,  }\item[{float}]{drop\+Delay = {\ttfamily 2.5f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & \\
+\hline
+{\em aimapgen} & \\
+\hline
+{\em move\+Speed} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a33246c4ce9230f7f64603e98b92e14b2}\label{classComponent_1_1AIAlgo_a33246c4ce9230f7f64603e98b92e14b2}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!````~AIAlgo@{$\sim$AIAlgo}}
+\index{````~AIAlgo@{$\sim$AIAlgo}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{$\sim$AIAlgo()}{~AIAlgo()}}
+{\footnotesize\ttfamily Component\+::\+A\+I\+Algo\+::$\sim$\+A\+I\+Algo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a2ab569675e7dfbd054a7bdcd95a43fcc}\label{classComponent_1_1AIAlgo_a2ab569675e7dfbd054a7bdcd95a43fcc}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!AIAlgo@{AIAlgo}}
+\index{AIAlgo@{AIAlgo}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{AIAlgo()}{AIAlgo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+A\+I\+Algo\+::\+A\+I\+Algo (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Copy a new \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a1e62b17093e1936c5726ff3341d0fd96}\label{classComponent_1_1AIAlgo_a1e62b17093e1936c5726ff3341d0fd96}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!DebugPath@{DebugPath}}
+\index{DebugPath@{DebugPath}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{DebugPath()}{DebugPath()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Component\+::\+A\+I\+Algo\+::\+Debug\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{start\+Pos }\end{DoxyParamCaption})}
+
+
+
+Print the path generated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a63f18c2dcd523e6f3b64ed11d4aef70f}\label{classComponent_1_1AIAlgo_a63f18c2dcd523e6f3b64ed11d4aef70f}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!DebugPath@{DebugPath}}
+\index{DebugPath@{DebugPath}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{DebugPath()}{DebugPath()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Component\+::\+A\+I\+Algo\+::\+Debug\+Path (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$}]{path,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{target\+Pos }\end{DoxyParamCaption})}
+
+
+
+Print a path to a target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+{\em target\+Pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a28cc7d721b5d155d917244d99c366060}\label{classComponent_1_1AIAlgo_a28cc7d721b5d155d917244d99c366060}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+A\+I\+Algo\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Fixed Update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1AController_a122421aac4fa4b0f18a48f7d51f2035c}{Component\+::\+A\+Controller}}.
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_ab67b8cb681783a53e079a8e586299fa9}\label{classComponent_1_1AIAlgo_ab67b8cb681783a53e079a8e586299fa9}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!GetAgentPos@{GetAgentPos}}
+\index{GetAgentPos@{GetAgentPos}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{GetAgentPos()}{GetAgentPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ Component\+::\+A\+I\+Algo\+::\+Get\+Agent\+Pos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Agent Pos object. 
+
+\begin{DoxyReturn}{Returns}
+Ray\+Lib\+::\+Vector2$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_ac8807882a45e451f40d06cdcf468b80a}\label{classComponent_1_1AIAlgo_ac8807882a45e451f40d06cdcf468b80a}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!GetBestBoxPos@{GetBestBoxPos}}
+\index{GetBestBoxPos@{GetBestBoxPos}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{GetBestBoxPos()}{GetBestBoxPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$int$>$ Component\+::\+A\+I\+Algo\+::\+Get\+Best\+Box\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{agent\+Pos,  }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{map,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ \&}]{map\+Positions }\end{DoxyParamCaption})}
+
+
+
+Get the Best \mbox{\hyperlink{classComponent_1_1Box}{Box}} Pos object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent\+Pos} & \\
+\hline
+{\em map} & \\
+\hline
+{\em map\+Positions} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ray\+Lib\+::\+Vector2$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_aa2b5649b9722d3e16cb6b221fed29a5b}\label{classComponent_1_1AIAlgo_aa2b5649b9722d3e16cb6b221fed29a5b}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!GetBestPos@{GetBestPos}}
+\index{GetBestPos@{GetBestPos}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{GetBestPos()}{GetBestPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ Component\+::\+A\+I\+Algo\+::\+Get\+Best\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{agent\+Pos,  }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{map,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ \&}]{map\+Positions,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Get the Best Pos object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent\+Pos} & \\
+\hline
+{\em map} & \\
+\hline
+{\em map\+Positions} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ray\+Lib\+::\+Vector2$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a5c6059d31bfcc060a8df7d9a0d239f74}\label{classComponent_1_1AIAlgo_a5c6059d31bfcc060a8df7d9a0d239f74}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!GetBestSafePos@{GetBestSafePos}}
+\index{GetBestSafePos@{GetBestSafePos}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{GetBestSafePos()}{GetBestSafePos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$int$>$ Component\+::\+A\+I\+Algo\+::\+Get\+Best\+Safe\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{agent\+Pos,  }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{map,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ \&}]{map\+Positions }\end{DoxyParamCaption})}
+
+
+
+Get the Best Safe Pos object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent\+Pos} & \\
+\hline
+{\em map} & \\
+\hline
+{\em map\+Positions} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ray\+Lib\+::\+Vector2$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a7938c87719fdb12c6dc46ae640ab72f8}\label{classComponent_1_1AIAlgo_a7938c87719fdb12c6dc46ae640ab72f8}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!GetClosestSymbolPos@{GetClosestSymbolPos}}
+\index{GetClosestSymbolPos@{GetClosestSymbolPos}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{GetClosestSymbolPos()}{GetClosestSymbolPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$int$>$ Component\+::\+A\+I\+Algo\+::\+Get\+Closest\+Symbol\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{agent\+Pos,  }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{map,  }\item[{int}]{symbol }\end{DoxyParamCaption})}
+
+
+
+Get the Closest Symbol Pos object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent\+Pos} & \\
+\hline
+{\em map} & \\
+\hline
+{\em symbol} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ray\+Lib\+::\+Vector2$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a429211880002ca48ea15503aa1e1f7d4}\label{classComponent_1_1AIAlgo_a429211880002ca48ea15503aa1e1f7d4}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!GetDirectionsList@{GetDirectionsList}}
+\index{GetDirectionsList@{GetDirectionsList}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{GetDirectionsList()}{GetDirectionsList()}}
+{\footnotesize\ttfamily void Component\+::\+A\+I\+Algo\+::\+Get\+Directions\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{ai\+Pos,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{target\+Pos,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$$>$ \&}]{map\+Positions,  }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{map }\end{DoxyParamCaption})}
+
+
+
+Get the Directions List object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ai\+Pos} & \\
+\hline
+{\em target\+Pos} & \\
+\hline
+{\em map\+Positions} & \\
+\hline
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_ad3a35c9dcf988cb0a99be79921f0ecc1}\label{classComponent_1_1AIAlgo_ad3a35c9dcf988cb0a99be79921f0ecc1}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!GetMapAsPositions@{GetMapAsPositions}}
+\index{GetMapAsPositions@{GetMapAsPositions}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{GetMapAsPositions()}{GetMapAsPositions()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ $>$ Component\+::\+A\+I\+Algo\+::\+Get\+Map\+As\+Positions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{map }\end{DoxyParamCaption})}
+
+
+
+Get the Map As Positions object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$Ray\+Lib\+::\+Vector2$<$int$>$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_aa21d6f60e762640e2fb9f8e1f24bbab2}\label{classComponent_1_1AIAlgo_aa21d6f60e762640e2fb9f8e1f24bbab2}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+A\+I\+Algo\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Late\+Update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1AController_adbc9caa500563bf2de00dc74ef91f6bf}{Component\+::\+A\+Controller}}.
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a85496f6a0364436fece129db51d7f323}\label{classComponent_1_1AIAlgo_a85496f6a0364436fece129db51d7f323}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree \& Component\+::\+A\+I\+Algo\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Send \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} to a Boost ptree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptree} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boost\+::property\+\_\+tree\+::ptree\& 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_ab4dd052c6c814ba5cfadd336fecb8198}\label{classComponent_1_1AIAlgo_ab4dd052c6c814ba5cfadd336fecb8198}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& Component\+::\+A\+I\+Algo\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Send \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} to a stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a0d2bf07ca5c22d40b69facc8ce059e2d}\label{classComponent_1_1AIAlgo_a0d2bf07ca5c22d40b69facc8ce059e2d}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}}\& Component\+::\+A\+I\+Algo\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assign a new \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}}\& assigned \mbox{\hyperlink{classComponent_1_1AIAlgo}{A\+I\+Algo}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a5bd67a56e39c5660df366ce4a4683140}\label{classComponent_1_1AIAlgo_a5bd67a56e39c5660df366ce4a4683140}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!Update@{Update}}
+\index{Update@{Update}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+A\+I\+Algo\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the ai algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1AController_ae68422ab18b849558f42f6f3c2b1e735}{Component\+::\+A\+Controller}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_ab36c8e278182c316da13a4d9c2c49fa0}\label{classComponent_1_1AIAlgo_ab36c8e278182c316da13a4d9c2c49fa0}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_ai\_player@{\_ai\_player}}
+\index{\_ai\_player@{\_ai\_player}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_ai\_player}{\_ai\_player}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+A\+I\+Algo\+::\+\_\+ai\+\_\+player\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+refence to self in order to dispose after exploding 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a9ea98894201239059955cd2161ce9a70}\label{classComponent_1_1AIAlgo_a9ea98894201239059955cd2161ce9a70}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_currentState@{\_currentState}}
+\index{\_currentState@{\_currentState}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_currentState}{\_currentState}}
+{\footnotesize\ttfamily \+::\mbox{\hyperlink{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4}{A\+I\+State}} Component\+::\+A\+I\+Algo\+::\+\_\+current\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current State of the AI. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_aa0202075f3204c9decb5c04d07c34d52}\label{classComponent_1_1AIAlgo_aa0202075f3204c9decb5c04d07c34d52}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_direction@{\_direction}}
+\index{\_direction@{\_direction}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_direction}{\_direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+A\+I\+Algo\+::\+\_\+direction\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Direction of the AI. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_aa4942aaef2a83bad86aca402c3ac9c7b}\label{classComponent_1_1AIAlgo_aa4942aaef2a83bad86aca402c3ac9c7b}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_directionPath@{\_directionPath}}
+\index{\_directionPath@{\_directionPath}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_directionPath}{\_directionPath}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}$>$ Component\+::\+A\+I\+Algo\+::\+\_\+direction\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of direction to a target. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_aefbabf8c2a0bc516164def784ce99136}\label{classComponent_1_1AIAlgo_aefbabf8c2a0bc516164def784ce99136}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_enabled@{\_enabled}}
+\index{\_enabled@{\_enabled}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_enabled}{\_enabled}}
+{\footnotesize\ttfamily bool Component\+::\+A\+I\+Algo\+::\+\_\+enabled\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Is the IA enabled. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a1e367f003a1c15c9889bf9ab03914a0f}\label{classComponent_1_1AIAlgo_a1e367f003a1c15c9889bf9ab03914a0f}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_entities@{\_entities}}
+\index{\_entities@{\_entities}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_entities}{\_entities}}
+{\footnotesize\ttfamily const std\+::list$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}$>$ $>$\& Component\+::\+A\+I\+Algo\+::\+\_\+entities\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+list of all entities 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_abdbf56320e0f9a47fbe5fadd948039f0}\label{classComponent_1_1AIAlgo_abdbf56320e0f9a47fbe5fadd948039f0}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_speed@{\_speed}}
+\index{\_speed@{\_speed}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_speed}{\_speed}}
+{\footnotesize\ttfamily float Component\+::\+A\+I\+Algo\+::\+\_\+speed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Speed of the AI. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a6c905e06f9011f7be954bf13f23dbb22}\label{classComponent_1_1AIAlgo_a6c905e06f9011f7be954bf13f23dbb22}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_state@{\_state}}
+\index{\_state@{\_state}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_state}{\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLua_1_1State}{Lua\+::\+State}} Component\+::\+A\+I\+Algo\+::\+\_\+state\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{namespaceLua}{Lua}} state. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_a0390e388b270ab297cd297abf6ea1205}\label{classComponent_1_1AIAlgo_a0390e388b270ab297cd297abf6ea1205}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_stateDuration@{\_stateDuration}}
+\index{\_stateDuration@{\_stateDuration}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_stateDuration}{\_stateDuration}}
+{\footnotesize\ttfamily float Component\+::\+A\+I\+Algo\+::\+\_\+state\+Duration\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Duration of the current state. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_add0f73a5eaa754bea83baff922286334}\label{classComponent_1_1AIAlgo_add0f73a5eaa754bea83baff922286334}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_timeToStateChange@{\_timeToStateChange}}
+\index{\_timeToStateChange@{\_timeToStateChange}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_timeToStateChange}{\_timeToStateChange}}
+{\footnotesize\ttfamily float Component\+::\+A\+I\+Algo\+::\+\_\+time\+To\+State\+Change\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Duration needed before switching state. 
+
+\mbox{\Hypertarget{classComponent_1_1AIAlgo_af6782e2713684e5cb08b40d5870413d6}\label{classComponent_1_1AIAlgo_af6782e2713684e5cb08b40d5870413d6}} 
+\index{Component::AIAlgo@{Component::AIAlgo}!\_window@{\_window}}
+\index{\_window@{\_window}!Component::AIAlgo@{Component::AIAlgo}}
+\doxysubsubsection{\texorpdfstring{\_window}{\_window}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}}$>$\& Component\+::\+A\+I\+Algo\+::\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pointer to the current window. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+A\+I\+Algo/\mbox{\hyperlink{AIAlgo_8hpp}{A\+I\+Algo.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+A\+I\+Algo/\mbox{\hyperlink{AIAlgo_8cpp}{A\+I\+Algo.\+cpp}}\end{DoxyCompactItemize}

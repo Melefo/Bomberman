@@ -1,0 +1,201 @@
+\hypertarget{classComponent_1_1HUDText}{}\doxysection{Component\+::H\+U\+D\+Text Class Reference}
+\label{classComponent_1_1HUDText}\index{Component::HUDText@{Component::HUDText}}
+
+
+{\ttfamily \#include $<$H\+U\+D\+Text.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::H\+U\+D\+Text\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1HUDText__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::H\+U\+D\+Text\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1HUDText__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1HUDText_a3e892601e39e006c0b6a954c97bcc72b}{H\+U\+D\+Text}} (\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&attatched\+Controller, int player\+Nbr)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1HUDText_a5817c6f4a993993c3be6bb8d891a3791}{$\sim$\+H\+U\+D\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1HUDText_a4d1d2a5f21b5ac02c86e8b8cee3d4ccc}{H\+U\+D\+Text}} (const \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} \& \mbox{\hyperlink{classComponent_1_1HUDText_a383044aea7b1f20465e156da4e4de4cc}{operator=}} (const \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignement operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1HUDText_a5319aed4567423dc9ef1c9a7e0e780c0}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Called every frame To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1HUDText_a2c4fd5b1e82d402cbe9d01dd8720c32c}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Called every $\sim$0.02 seconds To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1HUDText_a5d3f469e783c0bc0049630527717df35}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Called after update To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1HUDText_a6fb80cc8e76ded924cc643f14dbf6252}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1HUDText_a306ea3ed6c2f3e96dde8b5418524724e}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1HUDText_a3e892601e39e006c0b6a954c97bcc72b}\label{classComponent_1_1HUDText_a3e892601e39e006c0b6a954c97bcc72b}} 
+\index{Component::HUDText@{Component::HUDText}!HUDText@{HUDText}}
+\index{HUDText@{HUDText}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{HUDText()}{HUDText()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+H\+U\+D\+Text\+::\+H\+U\+D\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&}]{attatched\+Controller,  }\item[{int}]{player\+Nbr }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & \\
+\hline
+{\em player\+Nbr} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1HUDText_a5817c6f4a993993c3be6bb8d891a3791}\label{classComponent_1_1HUDText_a5817c6f4a993993c3be6bb8d891a3791}} 
+\index{Component::HUDText@{Component::HUDText}!````~HUDText@{$\sim$HUDText}}
+\index{````~HUDText@{$\sim$HUDText}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{$\sim$HUDText()}{~HUDText()}}
+{\footnotesize\ttfamily Component\+::\+H\+U\+D\+Text\+::$\sim$\+H\+U\+D\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1HUDText_a4d1d2a5f21b5ac02c86e8b8cee3d4ccc}\label{classComponent_1_1HUDText_a4d1d2a5f21b5ac02c86e8b8cee3d4ccc}} 
+\index{Component::HUDText@{Component::HUDText}!HUDText@{HUDText}}
+\index{HUDText@{HUDText}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{HUDText()}{HUDText()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+H\+U\+D\+Text\+::\+H\+U\+D\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1HUDText_a2c4fd5b1e82d402cbe9d01dd8720c32c}\label{classComponent_1_1HUDText_a2c4fd5b1e82d402cbe9d01dd8720c32c}} 
+\index{Component::HUDText@{Component::HUDText}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+H\+U\+D\+Text\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called every $\sim$0.02 seconds To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1HUD_a6d19b6c89332d9594c8f03d5e205d6ee}{Component\+::\+H\+UD}}.
+
+\mbox{\Hypertarget{classComponent_1_1HUDText_a5d3f469e783c0bc0049630527717df35}\label{classComponent_1_1HUDText_a5d3f469e783c0bc0049630527717df35}} 
+\index{Component::HUDText@{Component::HUDText}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+H\+U\+D\+Text\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called after update To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1HUD_a6753584b442a085f3d95a669c2ec26e0}{Component\+::\+H\+UD}}.
+
+\mbox{\Hypertarget{classComponent_1_1HUDText_a306ea3ed6c2f3e96dde8b5418524724e}\label{classComponent_1_1HUDText_a306ea3ed6c2f3e96dde8b5418524724e}} 
+\index{Component::HUDText@{Component::HUDText}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+H\+U\+D\+Text\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1HUDText_a6fb80cc8e76ded924cc643f14dbf6252}\label{classComponent_1_1HUDText_a6fb80cc8e76ded924cc643f14dbf6252}} 
+\index{Component::HUDText@{Component::HUDText}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+H\+U\+D\+Text\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1HUDText_a383044aea7b1f20465e156da4e4de4cc}\label{classComponent_1_1HUDText_a383044aea7b1f20465e156da4e4de4cc}} 
+\index{Component::HUDText@{Component::HUDText}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}}\& Component\+::\+H\+U\+D\+Text\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignement operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1HUDText}{H\+U\+D\+Text}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1HUDText_a5319aed4567423dc9ef1c9a7e0e780c0}\label{classComponent_1_1HUDText_a5319aed4567423dc9ef1c9a7e0e780c0}} 
+\index{Component::HUDText@{Component::HUDText}!Update@{Update}}
+\index{Update@{Update}!Component::HUDText@{Component::HUDText}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+H\+U\+D\+Text\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called every frame To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1HUD_aaa7932c6e1b30fd8513eb04d9f62fe68}{Component\+::\+H\+UD}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+H\+U\+D/\+H\+U\+D\+Text/\mbox{\hyperlink{HUDText_8hpp}{H\+U\+D\+Text.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+H\+U\+D/\+H\+U\+D\+Text/\mbox{\hyperlink{HUDText_8cpp}{H\+U\+D\+Text.\+cpp}}\end{DoxyCompactItemize}

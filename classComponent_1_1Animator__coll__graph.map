@@ -1,0 +1,8 @@
+<map id="Component::Animator" name="Component::Animator">
+<area shape="rect" id="node1" title=" " alt="" coords="98,652,263,876"/>
+<area shape="rect" id="node2" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="28,409,165,531"/>
+<area shape="rect" id="node3" href="$classIXMLSerializable.html" title=" " alt="" coords="5,71,172,222"/>
+<area shape="rect" id="node4" href="$classECS_1_1Entity.html" title="Scene object containing components and an ID." alt="" coords="197,351,349,589"/>
+<area shape="rect" id="node5" href="$classECS_1_1EntityManager.html" title="Class used to manipulate Entities (a.k.a A Scene)" alt="" coords="196,49,349,244"/>
+<area shape="rect" id="node6" href="$classECS_1_1ComponentManager.html" title="Class used to manipulate Components." alt="" coords="373,5,575,288"/>
+</map>

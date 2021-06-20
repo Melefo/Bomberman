@@ -1,0 +1,174 @@
+\hypertarget{classRayLib_1_1ModelAnimation}{}\doxysection{Ray\+Lib\+::Model\+Animation Class Reference}
+\label{classRayLib_1_1ModelAnimation}\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+
+
+Encapsulation for \mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}} struct.  
+
+
+
+
+{\ttfamily \#include $<$Model\+Animation.\+hpp$>$}
+
+
+
+Inheritance diagram for Ray\+Lib\+::Model\+Animation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classRayLib_1_1ModelAnimation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ray\+Lib\+::Model\+Animation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classRayLib_1_1ModelAnimation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1ModelAnimation_a81b0290cadeb21233f6d6037aa46b5a7}{Model\+Animation}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} Animation object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1ModelAnimation_ac0c6f6f010f71080c0a25a14e7224a31}{$\sim$\+Model\+Animation}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Model}{Model}} Animation object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1ModelAnimation_abfe70ae592e930b49f3d7e94187190fe}{Model\+Animation}} (const \mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} Animation object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}} \& \mbox{\hyperlink{classRayLib_1_1ModelAnimation_aa7f794e856e92ffbe9740fd6a835984b}{operator=}} (const \mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}} \&other)=default
+\item 
+void \mbox{\hyperlink{classRayLib_1_1ModelAnimation_a757c4839d8d443e992c05ae73cd123ab}{Play}} (\mbox{\hyperlink{classRayLib_1_1Model}{Model}} \&model, int anim\+Index=0)
+\begin{DoxyCompactList}\small\item\em Play the animation at index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$\+::\mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}} $>$ \mbox{\hyperlink{classRayLib_1_1ModelAnimation_a741cc136f71c04e569758107f118c2f7}{\+\_\+model\+Animations}}
+\begin{DoxyCompactList}\small\item\em Vector of model\+Animations, converted from C array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRayLib_1_1ModelAnimation_a8716871652215f04bdfa736c13016b26}{\+\_\+anims\+Count}}
+\begin{DoxyCompactList}\small\item\em Total animations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRayLib_1_1ModelAnimation_a97b8c85f85f3df15ebb8519ad3eb8549}{\+\_\+frame}}
+\begin{DoxyCompactList}\small\item\em Current frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsulation for \mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}} struct. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1ModelAnimation_a81b0290cadeb21233f6d6037aa46b5a7}\label{classRayLib_1_1ModelAnimation_a81b0290cadeb21233f6d6037aa46b5a7}} 
+\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}!ModelAnimation@{ModelAnimation}}
+\index{ModelAnimation@{ModelAnimation}!RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+\doxysubsubsection{\texorpdfstring{ModelAnimation()}{ModelAnimation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Model\+Animation\+::\+Model\+Animation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} Animation object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1ModelAnimation_ac0c6f6f010f71080c0a25a14e7224a31}\label{classRayLib_1_1ModelAnimation_ac0c6f6f010f71080c0a25a14e7224a31}} 
+\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}!````~ModelAnimation@{$\sim$ModelAnimation}}
+\index{````~ModelAnimation@{$\sim$ModelAnimation}!RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+\doxysubsubsection{\texorpdfstring{$\sim$ModelAnimation()}{~ModelAnimation()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Model\+Animation\+::$\sim$\+Model\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Model}{Model}} Animation object. 
+
+ceci fait crash tout\mbox{\Hypertarget{classRayLib_1_1ModelAnimation_abfe70ae592e930b49f3d7e94187190fe}\label{classRayLib_1_1ModelAnimation_abfe70ae592e930b49f3d7e94187190fe}} 
+\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}!ModelAnimation@{ModelAnimation}}
+\index{ModelAnimation@{ModelAnimation}!RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+\doxysubsubsection{\texorpdfstring{ModelAnimation()}{ModelAnimation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Model\+Animation\+::\+Model\+Animation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} Animation object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1ModelAnimation_aa7f794e856e92ffbe9740fd6a835984b}\label{classRayLib_1_1ModelAnimation_aa7f794e856e92ffbe9740fd6a835984b}} 
+\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}!operator=@{operator=}}
+\index{operator=@{operator=}!RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}}\& Ray\+Lib\+::\+Model\+Animation\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1ModelAnimation_a757c4839d8d443e992c05ae73cd123ab}\label{classRayLib_1_1ModelAnimation_a757c4839d8d443e992c05ae73cd123ab}} 
+\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}!Play@{Play}}
+\index{Play@{Play}!RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Model\+Animation\+::\+Play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Model}{Model}} \&}]{model,  }\item[{int}]{anim\+Index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Play the animation at index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+{\em anim\+Index} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1ModelAnimation_a8716871652215f04bdfa736c13016b26}\label{classRayLib_1_1ModelAnimation_a8716871652215f04bdfa736c13016b26}} 
+\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}!\_animsCount@{\_animsCount}}
+\index{\_animsCount@{\_animsCount}!RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+\doxysubsubsection{\texorpdfstring{\_animsCount}{\_animsCount}}
+{\footnotesize\ttfamily int Ray\+Lib\+::\+Model\+Animation\+::\+\_\+anims\+Count\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Total animations. 
+
+\mbox{\Hypertarget{classRayLib_1_1ModelAnimation_a97b8c85f85f3df15ebb8519ad3eb8549}\label{classRayLib_1_1ModelAnimation_a97b8c85f85f3df15ebb8519ad3eb8549}} 
+\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}!\_frame@{\_frame}}
+\index{\_frame@{\_frame}!RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+\doxysubsubsection{\texorpdfstring{\_frame}{\_frame}}
+{\footnotesize\ttfamily int Ray\+Lib\+::\+Model\+Animation\+::\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current frame. 
+
+\mbox{\Hypertarget{classRayLib_1_1ModelAnimation_a741cc136f71c04e569758107f118c2f7}\label{classRayLib_1_1ModelAnimation_a741cc136f71c04e569758107f118c2f7}} 
+\index{RayLib::ModelAnimation@{RayLib::ModelAnimation}!\_modelAnimations@{\_modelAnimations}}
+\index{\_modelAnimations@{\_modelAnimations}!RayLib::ModelAnimation@{RayLib::ModelAnimation}}
+\doxysubsubsection{\texorpdfstring{\_modelAnimations}{\_modelAnimations}}
+{\footnotesize\ttfamily std\+::vector$<$\+::\mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Model\+Animation}}$>$ Ray\+Lib\+::\+Model\+Animation\+::\+\_\+model\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vector of model\+Animations, converted from C array. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Model\+Animation/\mbox{\hyperlink{ModelAnimation_8hpp}{Model\+Animation.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Model\+Animation/\mbox{\hyperlink{ModelAnimation_8cpp}{Model\+Animation.\+cpp}}\end{DoxyCompactItemize}

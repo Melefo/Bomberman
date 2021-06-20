@@ -1,0 +1,83 @@
+\hypertarget{AIAlgo_8hpp}{}\doxysection{Libs/\+Engine/sources/\+Components/\+A\+I\+Algo/\+A\+I\+Algo.hpp File Reference}
+\label{AIAlgo_8hpp}\index{Libs/Engine/sources/Components/AIAlgo/AIAlgo.hpp@{Libs/Engine/sources/Components/AIAlgo/AIAlgo.hpp}}
+{\ttfamily \#include \char`\"{}I\+Component.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$cinttypes$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Vector3.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I\+Behaviour.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Window.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collision\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Transform.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Destructible.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Exceptions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Explosion.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Physics\+Body.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collider.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Drop\+Bomb.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}State.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+I\+Maps\+Generator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Movement.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+Controller.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game\+Configuration.\+hpp\char`\"{}}\newline
+Include dependency graph for A\+I\+Algo.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AIAlgo_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AIAlgo_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classComponent_1_1AIAlgo}{Component\+::\+A\+I\+Algo}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceComponent}{Component}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4}{A\+I\+State}} \{ \mbox{\hyperlink{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4aa5daf7f2ebbba4975d61dab1c40188c7}{A\+I\+State\+::\+I\+D\+LE}}, 
+\mbox{\hyperlink{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4a2f0492938095f67d986cf0fb13f02385}{A\+I\+State\+::\+C\+H\+A\+SE}}, 
+\mbox{\hyperlink{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4a1e50e487f8672658546e3609404b53df}{A\+I\+State\+::\+H\+I\+DE}}, 
+\mbox{\hyperlink{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4ac6ddd0f72ff2fd344693b9ca8d483871}{A\+I\+State\+::\+A\+T\+T\+A\+CK}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4}\label{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4}} 
+\index{AIAlgo.hpp@{AIAlgo.hpp}!AIState@{AIState}}
+\index{AIState@{AIState}!AIAlgo.hpp@{AIAlgo.hpp}}
+\doxysubsubsection{\texorpdfstring{AIState}{AIState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4}{A\+I\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IDLE@{IDLE}!AIAlgo.hpp@{AIAlgo.hpp}}\index{AIAlgo.hpp@{AIAlgo.hpp}!IDLE@{IDLE}}}\mbox{\Hypertarget{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4aa5daf7f2ebbba4975d61dab1c40188c7}\label{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4aa5daf7f2ebbba4975d61dab1c40188c7}} 
+I\+D\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHASE@{CHASE}!AIAlgo.hpp@{AIAlgo.hpp}}\index{AIAlgo.hpp@{AIAlgo.hpp}!CHASE@{CHASE}}}\mbox{\Hypertarget{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4a2f0492938095f67d986cf0fb13f02385}\label{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4a2f0492938095f67d986cf0fb13f02385}} 
+C\+H\+A\+SE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HIDE@{HIDE}!AIAlgo.hpp@{AIAlgo.hpp}}\index{AIAlgo.hpp@{AIAlgo.hpp}!HIDE@{HIDE}}}\mbox{\Hypertarget{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4a1e50e487f8672658546e3609404b53df}\label{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4a1e50e487f8672658546e3609404b53df}} 
+H\+I\+DE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ATTACK@{ATTACK}!AIAlgo.hpp@{AIAlgo.hpp}}\index{AIAlgo.hpp@{AIAlgo.hpp}!ATTACK@{ATTACK}}}\mbox{\Hypertarget{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4ac6ddd0f72ff2fd344693b9ca8d483871}\label{AIAlgo_8hpp_a7034c24b8fc04c729093feee13a17fb4ac6ddd0f72ff2fd344693b9ca8d483871}} 
+A\+T\+T\+A\+CK&\\
+\hline
+
+\end{DoxyEnumFields}

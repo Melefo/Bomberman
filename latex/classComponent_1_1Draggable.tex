@@ -1,0 +1,262 @@
+\hypertarget{classComponent_1_1Draggable}{}\doxysection{Component\+::Draggable Class Reference}
+\label{classComponent_1_1Draggable}\index{Component::Draggable@{Component::Draggable}}
+
+
+\mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} component (allows for objects to be selected and dragged with the mouse)  
+
+
+
+
+{\ttfamily \#include $<$Draggable.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Draggable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Draggable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Draggable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComponent_1_1Draggable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Draggable_a5d60b9b4431e1265fc99d20f66f6cf7b}{Draggable}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched\+Entity, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Draggable_a7a940b12103954f316e4de8b6b7406ec}{$\sim$\+Draggable}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Draggable_a11d60a00078df3887448d7777b85b802}{Draggable}} (const \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} \& \mbox{\hyperlink{classComponent_1_1Draggable_a18b0b75c163db7323715a220ce86009c}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1Draggable_a470a5a99c164abb6f908c447acf28510}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Checks if the mouse ray collides with colliders, selects/moves the transform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Draggable_aa5d9b5eb2e127533f8d3a3ff4074721c}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\item 
+void \mbox{\hyperlink{classComponent_1_1Draggable_acdb12b7b9509ce951c8d60a1164904ce}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Draggable_acd5985b88a8b88b1a758c3d869eaff29}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Draggable_a652ff33d6c7650ab637a8dd10ddd19c8}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} $>$ $>$ \mbox{\hyperlink{classComponent_1_1Draggable_addfd21e87bcbc450d516d401838d71f7}{\+\_\+colliders}}
+\begin{DoxyCompactList}\small\item\em vector of colliders to test mouse selection \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1Draggable_a81a24564add8d33388fac7150878c496}{\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Attatched entity to modify transform position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \& \mbox{\hyperlink{classComponent_1_1Draggable_a1b2381a7140bb4049ba6a2b91a5c4898}{\+\_\+camera}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} to get the mouse raycast. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1Draggable_a2e4e93c6efd044f79b46427d2e3cf873}{\+\_\+selected}}
+\begin{DoxyCompactList}\small\item\em If selected -\/$>$ move with mouse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Transform}{Transform}} \& \mbox{\hyperlink{classComponent_1_1Draggable_a25301ba7da5535c38387825c86c89a67}{\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em Reference to transform component, to avoid constant get calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} component (allows for objects to be selected and dragged with the mouse) 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Draggable_a5d60b9b4431e1265fc99d20f66f6cf7b}\label{classComponent_1_1Draggable_a5d60b9b4431e1265fc99d20f66f6cf7b}} 
+\index{Component::Draggable@{Component::Draggable}!Draggable@{Draggable}}
+\index{Draggable@{Draggable}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{Draggable()}{Draggable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Draggable\+::\+Draggable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched\+Entity,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & required to get a list of attatched colliders \\
+\hline
+{\em camera} & required to construct a mouse raycast \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Draggable_a7a940b12103954f316e4de8b6b7406ec}\label{classComponent_1_1Draggable_a7a940b12103954f316e4de8b6b7406ec}} 
+\index{Component::Draggable@{Component::Draggable}!````~Draggable@{$\sim$Draggable}}
+\index{````~Draggable@{$\sim$Draggable}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{$\sim$Draggable()}{~Draggable()}}
+{\footnotesize\ttfamily Component\+::\+Draggable\+::$\sim$\+Draggable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_a11d60a00078df3887448d7777b85b802}\label{classComponent_1_1Draggable_a11d60a00078df3887448d7777b85b802}} 
+\index{Component::Draggable@{Component::Draggable}!Draggable@{Draggable}}
+\index{Draggable@{Draggable}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{Draggable()}{Draggable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Draggable\+::\+Draggable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Draggable_aa5d9b5eb2e127533f8d3a3ff4074721c}\label{classComponent_1_1Draggable_aa5d9b5eb2e127533f8d3a3ff4074721c}} 
+\index{Component::Draggable@{Component::Draggable}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Draggable\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_acdb12b7b9509ce951c8d60a1164904ce}\label{classComponent_1_1Draggable_acdb12b7b9509ce951c8d60a1164904ce}} 
+\index{Component::Draggable@{Component::Draggable}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Draggable\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_a652ff33d6c7650ab637a8dd10ddd19c8}\label{classComponent_1_1Draggable_a652ff33d6c7650ab637a8dd10ddd19c8}} 
+\index{Component::Draggable@{Component::Draggable}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Draggable\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_acd5985b88a8b88b1a758c3d869eaff29}\label{classComponent_1_1Draggable_acd5985b88a8b88b1a758c3d869eaff29}} 
+\index{Component::Draggable@{Component::Draggable}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Draggable\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_a18b0b75c163db7323715a220ce86009c}\label{classComponent_1_1Draggable_a18b0b75c163db7323715a220ce86009c}} 
+\index{Component::Draggable@{Component::Draggable}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}}\& Component\+::\+Draggable\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Draggable}{Draggable}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Draggable_a470a5a99c164abb6f908c447acf28510}\label{classComponent_1_1Draggable_a470a5a99c164abb6f908c447acf28510}} 
+\index{Component::Draggable@{Component::Draggable}!Update@{Update}}
+\index{Update@{Update}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Draggable\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the mouse ray collides with colliders, selects/moves the transform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Draggable_a1b2381a7140bb4049ba6a2b91a5c4898}\label{classComponent_1_1Draggable_a1b2381a7140bb4049ba6a2b91a5c4898}} 
+\index{Component::Draggable@{Component::Draggable}!\_camera@{\_camera}}
+\index{\_camera@{\_camera}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{\_camera}{\_camera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}}\& Component\+::\+Draggable\+::\+\_\+camera\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classComponent_1_1Camera}{Camera}} to get the mouse raycast. 
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_addfd21e87bcbc450d516d401838d71f7}\label{classComponent_1_1Draggable_addfd21e87bcbc450d516d401838d71f7}} 
+\index{Component::Draggable@{Component::Draggable}!\_colliders@{\_colliders}}
+\index{\_colliders@{\_colliders}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{\_colliders}{\_colliders}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::reference\+\_\+wrapper$<$\mbox{\hyperlink{classComponent_1_1Collider}{Collider}}$>$ $>$ Component\+::\+Draggable\+::\+\_\+colliders\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vector of colliders to test mouse selection 
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_a81a24564add8d33388fac7150878c496}\label{classComponent_1_1Draggable_a81a24564add8d33388fac7150878c496}} 
+\index{Component::Draggable@{Component::Draggable}!\_entity@{\_entity}}
+\index{\_entity@{\_entity}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{\_entity}{\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Draggable\+::\+\_\+entity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attatched entity to modify transform position. 
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_a2e4e93c6efd044f79b46427d2e3cf873}\label{classComponent_1_1Draggable_a2e4e93c6efd044f79b46427d2e3cf873}} 
+\index{Component::Draggable@{Component::Draggable}!\_selected@{\_selected}}
+\index{\_selected@{\_selected}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{\_selected}{\_selected}}
+{\footnotesize\ttfamily bool Component\+::\+Draggable\+::\+\_\+selected\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+If selected -\/$>$ move with mouse. 
+
+\mbox{\Hypertarget{classComponent_1_1Draggable_a25301ba7da5535c38387825c86c89a67}\label{classComponent_1_1Draggable_a25301ba7da5535c38387825c86c89a67}} 
+\index{Component::Draggable@{Component::Draggable}!\_transform@{\_transform}}
+\index{\_transform@{\_transform}!Component::Draggable@{Component::Draggable}}
+\doxysubsubsection{\texorpdfstring{\_transform}{\_transform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Transform}{Transform}}\& Component\+::\+Draggable\+::\+\_\+transform\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to transform component, to avoid constant get calls. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Draggable/\mbox{\hyperlink{Draggable_8hpp}{Draggable.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Draggable/\mbox{\hyperlink{Draggable_8cpp}{Draggable.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,328 @@
+\hypertarget{classECS_1_1ComponentManager}{}\doxysection{E\+CS\+::Component\+Manager Class Reference}
+\label{classECS_1_1ComponentManager}\index{ECS::ComponentManager@{ECS::ComponentManager}}
+
+
+Class used to manipulate Components.  
+
+
+
+
+{\ttfamily \#include $<$Component\+Manager.\+hpp$>$}
+
+
+
+Collaboration diagram for E\+CS\+::Component\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classECS_1_1ComponentManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1ComponentManager_afe20d36b22199321ad3eed7cf17c24bd}{Component\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{namespaceComponent}{Component}} Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1ComponentManager_a92d5e435b2d6919c371833cbb1746d6d}{$\sim$\+Component\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{namespaceComponent}{Component}} Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1ComponentManager_ac6fa6c0e65feb1435ca71957b241d40f}{Component\+Manager}} (const \mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new \mbox{\hyperlink{namespaceComponent}{Component}} Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} \& \mbox{\hyperlink{classECS_1_1ComponentManager_a03da814d095f757f325127a07f550b39}{operator=}} (const \mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} Object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \& \mbox{\hyperlink{classECS_1_1ComponentManager_a182655437ae5f5ec91e05967f220cb5b}{Get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{namespaceComponent}{Component}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ T $>$ $>$ \mbox{\hyperlink{classECS_1_1ComponentManager_ace57f21755f448e6e72613e3bc0ccd3b}{Of\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get every \mbox{\hyperlink{namespaceComponent}{Component}} derivating from T. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} $>$ $>$ $>$ \mbox{\hyperlink{classECS_1_1ComponentManager_a50f55499e46c61598d8ad445aead3580}{Get\+Components}} ()
+\begin{DoxyCompactList}\small\item\em Get the Components. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... T\+Args$>$ }\\void \mbox{\hyperlink{classECS_1_1ComponentManager_a891c0afdb4f427d0d893d5eacc854e9a}{Add\+Component}} (T\+Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Add a new \mbox{\hyperlink{namespaceComponent}{Component}} to the current \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base , typename T , typename... T\+Args$>$ }\\void \mbox{\hyperlink{classECS_1_1ComponentManager_abbb0979aaf2a2b85cd9c8fc5f87d250f}{Add\+Component}} (T\+Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Add a new derived \mbox{\hyperlink{namespaceComponent}{Component}} to the current \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classECS_1_1ComponentManager_aaa6490274111af16a32978c747c59c12}{Remove\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Remove a \mbox{\hyperlink{namespaceComponent}{Component}} from the \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{classECS_1_1ComponentManager_aa406d56d8303dd00bd86b4521725a01a}{Has\+Component}} () const
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a given \mbox{\hyperlink{namespaceComponent}{Component}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1ComponentManager_a5e3048690b8fdbea23f05dfbf12e3ec6}{Has\+Component}} (std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a given \mbox{\hyperlink{namespaceComponent}{Component}} based on its name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1ComponentManager_ab1175962001d3d750f402a800f70516c}{Has\+Components}} (std\+::vector$<$ std\+::string $>$ \&names) const
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a list of given \mbox{\hyperlink{namespaceComponent}{Component}} based on teirs names. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} \& \mbox{\hyperlink{classECS_1_1ComponentManager_a0a334a82497bef863a3a2e26267af5be}{Get\+Component\+By\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em If exists, return component with name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{classECS_1_1ComponentManager_af3aaf911aad633ce47ff19c69cc69a2d}{\+\_\+bases}}
+\begin{DoxyCompactList}\small\item\em Map associating a base component with its derived. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} $>$ $>$ \mbox{\hyperlink{classECS_1_1ComponentManager_ae159f8cc16747837d271fd73544ebb5b}{\+\_\+components}}
+\begin{DoxyCompactList}\small\item\em List of currently created Components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class used to manipulate Components. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_afe20d36b22199321ad3eed7cf17c24bd}\label{classECS_1_1ComponentManager_afe20d36b22199321ad3eed7cf17c24bd}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!ComponentManager@{ComponentManager}}
+\index{ComponentManager@{ComponentManager}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{ComponentManager()}{ComponentManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Component\+Manager\+::\+Component\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{namespaceComponent}{Component}} Manager object. 
+
+\mbox{\Hypertarget{classECS_1_1ComponentManager_a92d5e435b2d6919c371833cbb1746d6d}\label{classECS_1_1ComponentManager_a92d5e435b2d6919c371833cbb1746d6d}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!````~ComponentManager@{$\sim$ComponentManager}}
+\index{````~ComponentManager@{$\sim$ComponentManager}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$ComponentManager()}{~ComponentManager()}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Component\+Manager\+::$\sim$\+Component\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{namespaceComponent}{Component}} Manager object. 
+
+\mbox{\Hypertarget{classECS_1_1ComponentManager_ac6fa6c0e65feb1435ca71957b241d40f}\label{classECS_1_1ComponentManager_ac6fa6c0e65feb1435ca71957b241d40f}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!ComponentManager@{ComponentManager}}
+\index{ComponentManager@{ComponentManager}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{ComponentManager()}{ComponentManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Component\+Manager\+::\+Component\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new \mbox{\hyperlink{namespaceComponent}{Component}} Manager object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_a891c0afdb4f427d0d893d5eacc854e9a}\label{classECS_1_1ComponentManager_a891c0afdb4f427d0d893d5eacc854e9a}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... T\+Args$>$ \\
+void E\+C\+S\+::\+Component\+Manager\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{T\+Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new \mbox{\hyperlink{namespaceComponent}{Component}} to the current \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+{\em T\+Args} & Types of the constructor arguments of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Constructor arguments of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_abbb0979aaf2a2b85cd9c8fc5f87d250f}\label{classECS_1_1ComponentManager_abbb0979aaf2a2b85cd9c8fc5f87d250f}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Base , typename T , typename... T\+Args$>$ \\
+void E\+C\+S\+::\+Component\+Manager\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{T\+Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new derived \mbox{\hyperlink{namespaceComponent}{Component}} to the current \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Base} & Base class of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+{\em T} & Derived class of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+{\em T\+Args} & Types of the constructor arguments of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Constructor arguments of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_a182655437ae5f5ec91e05967f220cb5b}\label{classECS_1_1ComponentManager_a182655437ae5f5ec91e05967f220cb5b}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T\& E\+C\+S\+::\+Component\+Manager\+::\+Get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the \mbox{\hyperlink{namespaceComponent}{Component}} object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+T\& Reference to the \mbox{\hyperlink{namespaceComponent}{Component}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_a0a334a82497bef863a3a2e26267af5be}\label{classECS_1_1ComponentManager_a0a334a82497bef863a3a2e26267af5be}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!GetComponentByName@{GetComponentByName}}
+\index{GetComponentByName@{GetComponentByName}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{GetComponentByName()}{GetComponentByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} \& E\+C\+S\+::\+Component\+Manager\+::\+Get\+Component\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+If exists, return component with name. 
+
+\mbox{\Hypertarget{classECS_1_1ComponentManager_a50f55499e46c61598d8ad445aead3580}\label{classECS_1_1ComponentManager_a50f55499e46c61598d8ad445aead3580}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} $>$ $>$ $>$ E\+C\+S\+::\+Component\+Manager\+::\+Get\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Components. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::unique\+\_\+ptr$<$\+I\+Component$>$\&$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_aa406d56d8303dd00bd86b4521725a01a}\label{classECS_1_1ComponentManager_aa406d56d8303dd00bd86b4521725a01a}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool E\+C\+S\+::\+Component\+Manager\+::\+Has\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a given \mbox{\hyperlink{namespaceComponent}{Component}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true The \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains the component 
+
+false The \mbox{\hyperlink{classECS_1_1Entity}{Entity}} doesn\textquotesingle{}t contains the component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_a5e3048690b8fdbea23f05dfbf12e3ec6}\label{classECS_1_1ComponentManager_a5e3048690b8fdbea23f05dfbf12e3ec6}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+Component\+Manager\+::\+Has\+Component (\begin{DoxyParamCaption}\item[{std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a given \mbox{\hyperlink{namespaceComponent}{Component}} based on its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the component \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true The \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains the component 
+
+false The \mbox{\hyperlink{classECS_1_1Entity}{Entity}} doesn\textquotesingle{}t Contains the component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_ab1175962001d3d750f402a800f70516c}\label{classECS_1_1ComponentManager_ab1175962001d3d750f402a800f70516c}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!HasComponents@{HasComponents}}
+\index{HasComponents@{HasComponents}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{HasComponents()}{HasComponents()}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+Component\+Manager\+::\+Has\+Components (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{names }\end{DoxyParamCaption}) const}
+
+
+
+Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a list of given \mbox{\hyperlink{namespaceComponent}{Component}} based on teirs names. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em names} & List of \mbox{\hyperlink{namespaceComponent}{Component}} names \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true The entity contains every Components 
+
+false The entity is missing at least \mbox{\hyperlink{namespaceComponent}{Component}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_ace57f21755f448e6e72613e3bc0ccd3b}\label{classECS_1_1ComponentManager_ace57f21755f448e6e72613e3bc0ccd3b}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!OfType@{OfType}}
+\index{OfType@{OfType}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{OfType()}{OfType()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$std\+::reference\+\_\+wrapper$<$T$>$ $>$ E\+C\+S\+::\+Component\+Manager\+::\+Of\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get every \mbox{\hyperlink{namespaceComponent}{Component}} derivating from T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & base class of the Components \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::reference\+\_\+wrapper$<$\+T$>$$>$ List of references to Components 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_a03da814d095f757f325127a07f550b39}\label{classECS_1_1ComponentManager_a03da814d095f757f325127a07f550b39}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!operator=@{operator=}}
+\index{operator=@{operator=}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}}\& E\+C\+S\+::\+Component\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} Object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}}\& Assigned \mbox{\hyperlink{classECS_1_1Entity}{Entity}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_aaa6490274111af16a32978c747c59c12}\label{classECS_1_1ComponentManager_aaa6490274111af16a32978c747c59c12}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void E\+C\+S\+::\+Component\+Manager\+::\+Remove\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a \mbox{\hyperlink{namespaceComponent}{Component}} from the \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classECS_1_1ComponentManager_af3aaf911aad633ce47ff19c69cc69a2d}\label{classECS_1_1ComponentManager_af3aaf911aad633ce47ff19c69cc69a2d}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!\_bases@{\_bases}}
+\index{\_bases@{\_bases}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{\_bases}{\_bases}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, std\+::vector$<$std\+::string$>$ $>$ E\+C\+S\+::\+Component\+Manager\+::\+\_\+bases\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Map associating a base component with its derived. 
+
+\mbox{\Hypertarget{classECS_1_1ComponentManager_ae159f8cc16747837d271fd73544ebb5b}\label{classECS_1_1ComponentManager_ae159f8cc16747837d271fd73544ebb5b}} 
+\index{ECS::ComponentManager@{ECS::ComponentManager}!\_components@{\_components}}
+\index{\_components@{\_components}!ECS::ComponentManager@{ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{\_components}{\_components}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}}$>$ $>$ E\+C\+S\+::\+Component\+Manager\+::\+\_\+components\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of currently created Components. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+E\+C\+S/sources/\+Managers/\+Component\+Manager/\mbox{\hyperlink{ComponentManager_8hpp}{Component\+Manager.\+hpp}}\item 
+Libs/\+E\+C\+S/sources/\+Managers/\+Component\+Manager/\mbox{\hyperlink{ComponentManager_8cpp}{Component\+Manager.\+cpp}}\end{DoxyCompactItemize}

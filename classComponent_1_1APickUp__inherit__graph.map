@@ -1,0 +1,9 @@
+<map id="Component::APickUp" name="Component::APickUp">
+<area shape="rect" id="node1" title=" " alt="" coords="250,587,409,811"/>
+<area shape="rect" id="node5" href="$classComponent_1_1CoolDownBoost.html" title=" " alt="" coords="5,859,213,1053"/>
+<area shape="rect" id="node6" href="$classComponent_1_1RangeBoost.html" title=" " alt="" coords="238,859,421,1053"/>
+<area shape="rect" id="node7" href="$classComponent_1_1SpeedBoost.html" title=" " alt="" coords="445,859,627,1053"/>
+<area shape="rect" id="node2" href="$classComponent_1_1IBehaviour.html" title="IBehaviour base component (CF Monobehaviour class in Unity)" alt="" coords="242,373,417,539"/>
+<area shape="rect" id="node3" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="261,204,398,325"/>
+<area shape="rect" id="node4" href="$classIXMLSerializable.html" title=" " alt="" coords="246,5,413,156"/>
+</map>

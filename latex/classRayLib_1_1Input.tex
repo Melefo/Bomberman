@@ -1,0 +1,299 @@
+\hypertarget{classRayLib_1_1Input}{}\doxysection{Ray\+Lib\+::Input Class Reference}
+\label{classRayLib_1_1Input}\index{RayLib::Input@{RayLib::Input}}
+
+
+\mbox{\hyperlink{classRayLib_1_1Input}{Input}} encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Input.\+hpp$>$}
+
+
+
+Collaboration diagram for Ray\+Lib\+::Input\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classRayLib_1_1Input__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Input_af4b3dc7452677e185bde8a9c99efc554}{Input}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ horizontal\+Keys=\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$(K\+E\+Y\+\_\+D, K\+E\+Y\+\_\+A), \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ vertical\+Keys=\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$(K\+E\+Y\+\_\+S, K\+E\+Y\+\_\+W))
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Input}{Input}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Input_a81c23025d6ac4233213b7d30b70197c5}{Input}} (const \mbox{\hyperlink{classRayLib_1_1Input}{Input}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Input}{Input}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Input_a61db348ddb7a1f06c0f9ccfc014211ad}{$\sim$\+Input}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Input}{Input}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Input}{Input}} \& \mbox{\hyperlink{classRayLib_1_1Input_aa0d01841789389daabf5a00626b27450}{operator=}} (const \mbox{\hyperlink{classRayLib_1_1Input}{Input}} \&other)
+\item 
+float \mbox{\hyperlink{classRayLib_1_1Input_aff8612a6307a8e93995832c1d80c523c}{Get\+Horizontal\+Axis}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Horizontal Axis object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classRayLib_1_1Input_a993f4371892700ce4ca501fecfd70574}{Get\+Vertical\+Axis}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Vertical Axis object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRayLib_1_1Input_a3b82a20b6ad0db2aaa1f17089aa6c6ba}{Get\+Key\+Pressed}} (void)
+\begin{DoxyCompactList}\small\item\em returns true if key parameter is pressed during frame \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRayLib_1_1Input_a9d8c33fe030225c9fddb7554a38dd807}{Is\+Key\+Down}} (int key)
+\begin{DoxyCompactList}\small\item\em returns if the key is down \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRayLib_1_1Input_ae1bd0cfe286840dfa28b149a2930d002}{Get\+Char\+Pressed}} (void)
+\begin{DoxyCompactList}\small\item\em returns the last char pressed \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRayLib_1_1Input_ac27c92eb2897a47ff2105d9ebc3616a4}{Is\+Key\+Pressed}} (int key)
+\begin{DoxyCompactList}\small\item\em returns if the key is currently pressed \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRayLib_1_1Input_ad4414802a7bb01c5dec36a0231bc371e}{Is\+Key\+Released}} (int key)
+\begin{DoxyCompactList}\small\item\em returns if the key is currently released \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ \mbox{\hyperlink{classRayLib_1_1Input_a13146c3e531a2bf66f6955a771215361}{Get\+Horizontal\+Keys}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Horizontal Keys. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ \mbox{\hyperlink{classRayLib_1_1Input_a7201b9e7bdeea743f91a619de16f23a6}{Get\+Vertical\+Keys}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Vertical Keys. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ \mbox{\hyperlink{classRayLib_1_1Input_a51c4a32bdce4b18e6a9777801a962e64}{\+\_\+horizontal\+Axis}}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ \mbox{\hyperlink{classRayLib_1_1Input_a56588ed17dba5635ed05d9796f02017c}{\+\_\+vertical\+Axis}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1Input}{Input}} encapsulation. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Input_af4b3dc7452677e185bde8a9c99efc554}\label{classRayLib_1_1Input_af4b3dc7452677e185bde8a9c99efc554}} 
+\index{RayLib::Input@{RayLib::Input}!Input@{Input}}
+\index{Input@{Input}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{Input()}{Input()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Input\+::\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$}]{horizontal\+Keys = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$int$>$(KEY\+\_\+D,~KEY\+\_\+A)},  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$}]{vertical\+Keys = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$int$>$(KEY\+\_\+S,~KEY\+\_\+W)} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Input}{Input}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em horizontal\+Keys} & macros for horizontal axis (x = negative, y = positive) \\
+\hline
+{\em vertical\+Keys} & macros for vertical axis (x = negative, y = positive) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Input_a81c23025d6ac4233213b7d30b70197c5}\label{classRayLib_1_1Input_a81c23025d6ac4233213b7d30b70197c5}} 
+\index{RayLib::Input@{RayLib::Input}!Input@{Input}}
+\index{Input@{Input}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{Input()}{Input()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Input\+::\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Input}{Input}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Input}{Input}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Input_a61db348ddb7a1f06c0f9ccfc014211ad}\label{classRayLib_1_1Input_a61db348ddb7a1f06c0f9ccfc014211ad}} 
+\index{RayLib::Input@{RayLib::Input}!````~Input@{$\sim$Input}}
+\index{````~Input@{$\sim$Input}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{$\sim$Input()}{~Input()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Input\+::$\sim$\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Input}{Input}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Input_ae1bd0cfe286840dfa28b149a2930d002}\label{classRayLib_1_1Input_ae1bd0cfe286840dfa28b149a2930d002}} 
+\index{RayLib::Input@{RayLib::Input}!GetCharPressed@{GetCharPressed}}
+\index{GetCharPressed@{GetCharPressed}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{GetCharPressed()}{GetCharPressed()}}
+{\footnotesize\ttfamily int Ray\+Lib\+::\+Input\+::\+Get\+Char\+Pressed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+returns the last char pressed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_aff8612a6307a8e93995832c1d80c523c}\label{classRayLib_1_1Input_aff8612a6307a8e93995832c1d80c523c}} 
+\index{RayLib::Input@{RayLib::Input}!GetHorizontalAxis@{GetHorizontalAxis}}
+\index{GetHorizontalAxis@{GetHorizontalAxis}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{GetHorizontalAxis()}{GetHorizontalAxis()}}
+{\footnotesize\ttfamily float Ray\+Lib\+::\+Input\+::\+Get\+Horizontal\+Axis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Horizontal Axis object. 
+
+\begin{DoxyReturn}{Returns}
+float Negative for left, positive for right 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_a13146c3e531a2bf66f6955a771215361}\label{classRayLib_1_1Input_a13146c3e531a2bf66f6955a771215361}} 
+\index{RayLib::Input@{RayLib::Input}!GetHorizontalKeys@{GetHorizontalKeys}}
+\index{GetHorizontalKeys@{GetHorizontalKeys}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{GetHorizontalKeys()}{GetHorizontalKeys()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ Ray\+Lib\+::\+Input\+::\+Get\+Horizontal\+Keys (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Horizontal Keys. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2$<$int$>$}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_a3b82a20b6ad0db2aaa1f17089aa6c6ba}\label{classRayLib_1_1Input_a3b82a20b6ad0db2aaa1f17089aa6c6ba}} 
+\index{RayLib::Input@{RayLib::Input}!GetKeyPressed@{GetKeyPressed}}
+\index{GetKeyPressed@{GetKeyPressed}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{GetKeyPressed()}{GetKeyPressed()}}
+{\footnotesize\ttfamily int Ray\+Lib\+::\+Input\+::\+Get\+Key\+Pressed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+returns true if key parameter is pressed during frame 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false
+\end{DoxyReturn}
+returns the last key pressed 
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_a993f4371892700ce4ca501fecfd70574}\label{classRayLib_1_1Input_a993f4371892700ce4ca501fecfd70574}} 
+\index{RayLib::Input@{RayLib::Input}!GetVerticalAxis@{GetVerticalAxis}}
+\index{GetVerticalAxis@{GetVerticalAxis}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{GetVerticalAxis()}{GetVerticalAxis()}}
+{\footnotesize\ttfamily float Ray\+Lib\+::\+Input\+::\+Get\+Vertical\+Axis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Vertical Axis object. 
+
+\begin{DoxyReturn}{Returns}
+float Negative for down, positive for up 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_a7201b9e7bdeea743f91a619de16f23a6}\label{classRayLib_1_1Input_a7201b9e7bdeea743f91a619de16f23a6}} 
+\index{RayLib::Input@{RayLib::Input}!GetVerticalKeys@{GetVerticalKeys}}
+\index{GetVerticalKeys@{GetVerticalKeys}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{GetVerticalKeys()}{GetVerticalKeys()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ Ray\+Lib\+::\+Input\+::\+Get\+Vertical\+Keys (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Vertical Keys. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2$<$int$>$}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_a9d8c33fe030225c9fddb7554a38dd807}\label{classRayLib_1_1Input_a9d8c33fe030225c9fddb7554a38dd807}} 
+\index{RayLib::Input@{RayLib::Input}!IsKeyDown@{IsKeyDown}}
+\index{IsKeyDown@{IsKeyDown}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{IsKeyDown()}{IsKeyDown()}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Input\+::\+Is\+Key\+Down (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+returns if the key is down 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_ac27c92eb2897a47ff2105d9ebc3616a4}\label{classRayLib_1_1Input_ac27c92eb2897a47ff2105d9ebc3616a4}} 
+\index{RayLib::Input@{RayLib::Input}!IsKeyPressed@{IsKeyPressed}}
+\index{IsKeyPressed@{IsKeyPressed}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{IsKeyPressed()}{IsKeyPressed()}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Input\+::\+Is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+returns if the key is currently pressed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_ad4414802a7bb01c5dec36a0231bc371e}\label{classRayLib_1_1Input_ad4414802a7bb01c5dec36a0231bc371e}} 
+\index{RayLib::Input@{RayLib::Input}!IsKeyReleased@{IsKeyReleased}}
+\index{IsKeyReleased@{IsKeyReleased}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{IsKeyReleased()}{IsKeyReleased()}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Input\+::\+Is\+Key\+Released (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+returns if the key is currently released 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Input_aa0d01841789389daabf5a00626b27450}\label{classRayLib_1_1Input_aa0d01841789389daabf5a00626b27450}} 
+\index{RayLib::Input@{RayLib::Input}!operator=@{operator=}}
+\index{operator=@{operator=}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Input}{Input}} \& Ray\+Lib\+::\+Input\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Input}{Input}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Input_a51c4a32bdce4b18e6a9777801a962e64}\label{classRayLib_1_1Input_a51c4a32bdce4b18e6a9777801a962e64}} 
+\index{RayLib::Input@{RayLib::Input}!\_horizontalAxis@{\_horizontalAxis}}
+\index{\_horizontalAxis@{\_horizontalAxis}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{\_horizontalAxis}{\_horizontalAxis}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$int$>$ Ray\+Lib\+::\+Input\+::\+\_\+horizontal\+Axis\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Input_a56588ed17dba5635ed05d9796f02017c}\label{classRayLib_1_1Input_a56588ed17dba5635ed05d9796f02017c}} 
+\index{RayLib::Input@{RayLib::Input}!\_verticalAxis@{\_verticalAxis}}
+\index{\_verticalAxis@{\_verticalAxis}!RayLib::Input@{RayLib::Input}}
+\doxysubsubsection{\texorpdfstring{\_verticalAxis}{\_verticalAxis}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$int$>$ Ray\+Lib\+::\+Input\+::\+\_\+vertical\+Axis\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Input/\mbox{\hyperlink{Input_8hpp}{Input.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Input/\mbox{\hyperlink{Input_8cpp}{Input.\+cpp}}\end{DoxyCompactItemize}

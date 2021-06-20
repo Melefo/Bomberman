@@ -1,0 +1,6 @@
+<map id="Component::ModelShader" name="Component::ModelShader">
+<area shape="rect" id="node1" title=" " alt="" coords="5,373,196,553"/>
+<area shape="rect" id="node4" href="$classTerrainShader.html" title=" " alt="" coords="27,601,174,737"/>
+<area shape="rect" id="node2" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="32,204,169,325"/>
+<area shape="rect" id="node3" href="$classIXMLSerializable.html" title=" " alt="" coords="17,5,184,156"/>
+</map>

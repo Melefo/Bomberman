@@ -1,0 +1,6 @@
+<map id="Component::Collider" name="Component::Collider">
+<area shape="rect" id="node1" title="Collider base component class." alt="" coords="15,373,196,627"/>
+<area shape="rect" id="node4" href="$classComponent_1_1SquareCollider.html" title=" " alt="" coords="5,675,205,899"/>
+<area shape="rect" id="node2" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="37,204,174,325"/>
+<area shape="rect" id="node3" href="$classIXMLSerializable.html" title=" " alt="" coords="22,5,189,156"/>
+</map>

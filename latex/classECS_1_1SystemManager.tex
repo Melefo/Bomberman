@@ -1,0 +1,210 @@
+\hypertarget{classECS_1_1SystemManager}{}\doxysection{E\+CS\+::System\+Manager Class Reference}
+\label{classECS_1_1SystemManager}\index{ECS::SystemManager@{ECS::SystemManager}}
+
+
+Class used to manipulate Systems.  
+
+
+
+
+{\ttfamily \#include $<$System\+Manager.\+hpp$>$}
+
+
+
+Collaboration diagram for E\+CS\+::System\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classECS_1_1SystemManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1SystemManager_a0bd6cb15f4fc815013b2bfb4bb49a172}{System\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new System Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1SystemManager_a60d9aa4ede8064b3f98b038e34ab48ae}{$\sim$\+System\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the System Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1SystemManager_a4c0a1088d328a2d3b3bf2480b68b1c0e}{System\+Manager}} (const \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new System Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} \& \mbox{\hyperlink{classECS_1_1SystemManager_aba15cefffc04fc82df15891ad14ad1c7}{operator=}} (const \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} Object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... T\+Args$>$ }\\T \& \mbox{\hyperlink{classECS_1_1SystemManager_a0228630973401ed48c18bffc66206e12}{Add\+System}} (T\+Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Add a system to update entities. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classECS_1_1SystemManager_a070619e94f2bb1ac4f97d4a4a088e0f5}{Remove\+System}} ()
+\begin{DoxyCompactList}\small\item\em Remove a system from the list which updates entities. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{classECS_1_1SystemManager_a525337935a2fc084286eec3b0f00b10d}{Has\+System}} ()
+\begin{DoxyCompactList}\small\item\em Check if the Manager contains a system. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \& \mbox{\hyperlink{classECS_1_1SystemManager_a3da69b5d013f68ce86957b9f393cf317}{Get\+System}} ()
+\begin{DoxyCompactList}\small\item\em Get a System from Manager. \end{DoxyCompactList}\item 
+const std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} $>$ $>$ \& \mbox{\hyperlink{classECS_1_1SystemManager_a12d7c616a14761313f4bfcdad1b55fee}{Get\+Systems}} () const
+\begin{DoxyCompactList}\small\item\em Get the Systems object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} $>$ $>$ \mbox{\hyperlink{classECS_1_1SystemManager_a2e58f7329feff1feea65af122553a4e1}{\+\_\+systems}}
+\begin{DoxyCompactList}\small\item\em List of currently created Systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class used to manipulate Systems. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classECS_1_1SystemManager_a0bd6cb15f4fc815013b2bfb4bb49a172}\label{classECS_1_1SystemManager_a0bd6cb15f4fc815013b2bfb4bb49a172}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!SystemManager@{SystemManager}}
+\index{SystemManager@{SystemManager}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{SystemManager()}{SystemManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+System\+Manager\+::\+System\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new System Manager object. 
+
+\mbox{\Hypertarget{classECS_1_1SystemManager_a60d9aa4ede8064b3f98b038e34ab48ae}\label{classECS_1_1SystemManager_a60d9aa4ede8064b3f98b038e34ab48ae}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!````~SystemManager@{$\sim$SystemManager}}
+\index{````~SystemManager@{$\sim$SystemManager}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$SystemManager()}{~SystemManager()}}
+{\footnotesize\ttfamily E\+C\+S\+::\+System\+Manager\+::$\sim$\+System\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the System Manager object. 
+
+\mbox{\Hypertarget{classECS_1_1SystemManager_a4c0a1088d328a2d3b3bf2480b68b1c0e}\label{classECS_1_1SystemManager_a4c0a1088d328a2d3b3bf2480b68b1c0e}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!SystemManager@{SystemManager}}
+\index{SystemManager@{SystemManager}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{SystemManager()}{SystemManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+System\+Manager\+::\+System\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new System Manager object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classECS_1_1SystemManager_a0228630973401ed48c18bffc66206e12}\label{classECS_1_1SystemManager_a0228630973401ed48c18bffc66206e12}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!AddSystem@{AddSystem}}
+\index{AddSystem@{AddSystem}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{AddSystem()}{AddSystem()}}
+{\footnotesize\ttfamily template$<$typename T , typename... T\+Args$>$ \\
+T\& E\+C\+S\+::\+System\+Manager\+::\+Add\+System (\begin{DoxyParamCaption}\item[{T\+Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a system to update entities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the system to add \\
+\hline
+{\em T\+Args} & Types of constructor arguments of T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Constructor arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& Newly added System 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1SystemManager_a3da69b5d013f68ce86957b9f393cf317}\label{classECS_1_1SystemManager_a3da69b5d013f68ce86957b9f393cf317}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!GetSystem@{GetSystem}}
+\index{GetSystem@{GetSystem}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{GetSystem()}{GetSystem()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T\& E\+C\+S\+::\+System\+Manager\+::\+Get\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a System from Manager. 
+
+\begin{DoxyReturn}{Returns}
+T\& The System 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1SystemManager_a12d7c616a14761313f4bfcdad1b55fee}\label{classECS_1_1SystemManager_a12d7c616a14761313f4bfcdad1b55fee}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!GetSystems@{GetSystems}}
+\index{GetSystems@{GetSystems}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{GetSystems()}{GetSystems()}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} $>$ $>$ \& E\+C\+S\+::\+System\+Manager\+::\+Get\+Systems (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Systems object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::unordered\+\_\+map$<$std\+::string, std\+::unique\+\_\+ptr$<$\+A\+System$>$$>$\& List of added Systems 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1SystemManager_a525337935a2fc084286eec3b0f00b10d}\label{classECS_1_1SystemManager_a525337935a2fc084286eec3b0f00b10d}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!HasSystem@{HasSystem}}
+\index{HasSystem@{HasSystem}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{HasSystem()}{HasSystem()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool E\+C\+S\+::\+System\+Manager\+::\+Has\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the Manager contains a system. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the System \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true The Manager contains the system 
+
+false The Manager doesn\textquotesingle{}t contains the system 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1SystemManager_aba15cefffc04fc82df15891ad14ad1c7}\label{classECS_1_1SystemManager_aba15cefffc04fc82df15891ad14ad1c7}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!operator=@{operator=}}
+\index{operator=@{operator=}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}}\& E\+C\+S\+::\+System\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} Object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}}\& Assigned \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1SystemManager_a070619e94f2bb1ac4f97d4a4a088e0f5}\label{classECS_1_1SystemManager_a070619e94f2bb1ac4f97d4a4a088e0f5}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!RemoveSystem@{RemoveSystem}}
+\index{RemoveSystem@{RemoveSystem}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{RemoveSystem()}{RemoveSystem()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void E\+C\+S\+::\+System\+Manager\+::\+Remove\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a system from the list which updates entities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the system to remove \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classECS_1_1SystemManager_a2e58f7329feff1feea65af122553a4e1}\label{classECS_1_1SystemManager_a2e58f7329feff1feea65af122553a4e1}} 
+\index{ECS::SystemManager@{ECS::SystemManager}!\_systems@{\_systems}}
+\index{\_systems@{\_systems}!ECS::SystemManager@{ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{\_systems}{\_systems}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classECS_1_1ASystem}{A\+System}}$>$ $>$ E\+C\+S\+::\+System\+Manager\+::\+\_\+systems\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of currently created Systems. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+E\+C\+S/sources/\+Managers/\+System\+Manager/\mbox{\hyperlink{SystemManager_8hpp}{System\+Manager.\+hpp}}\item 
+Libs/\+E\+C\+S/sources/\+Managers/\+System\+Manager/\mbox{\hyperlink{SystemManager_8cpp}{System\+Manager.\+cpp}}\end{DoxyCompactItemize}

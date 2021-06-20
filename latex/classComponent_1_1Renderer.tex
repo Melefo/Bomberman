@@ -1,0 +1,170 @@
+\hypertarget{classComponent_1_1Renderer}{}\doxysection{Component\+::Renderer Class Reference}
+\label{classComponent_1_1Renderer}\index{Component::Renderer@{Component::Renderer}}
+
+
+\mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} component.  
+
+
+
+
+{\ttfamily \#include $<$Renderer.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Renderer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classComponent_1_1Renderer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Renderer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classComponent_1_1Renderer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Renderer_a8ab145bb37f31ef867c1c140dd4a59ba}{Renderer}} (const std\+::string \&asset\+Name=\char`\"{}Default\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Renderer_a4695623e69adba8fae53c93b2d0b2d23}{$\sim$\+Renderer}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Renderer_a895277f652f74d367c6dba8bcbf97def}{Renderer}} (const \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} \& \mbox{\hyperlink{classComponent_1_1Renderer_a91d5f09b915f31d5b92a00847cf91b3e}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classComponent_1_1Renderer_a1cd8c22d01fe4d125f8776930092c389}{Get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the Name object. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Renderer_adb5df4d0493073dd3a0a17bc8677a220}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Renderer_ae8f6b8fab35b6a45d81d06075fe57be2}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classComponent_1_1Renderer_ab0c878b4543a7b6fe337015395da8255}{\+\_\+name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} component. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Renderer_a8ab145bb37f31ef867c1c140dd4a59ba}\label{classComponent_1_1Renderer_a8ab145bb37f31ef867c1c140dd4a59ba}} 
+\index{Component::Renderer@{Component::Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Component::Renderer@{Component::Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{asset\+Name = {\ttfamily \char`\"{}Default\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em asset\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Renderer_a4695623e69adba8fae53c93b2d0b2d23}\label{classComponent_1_1Renderer_a4695623e69adba8fae53c93b2d0b2d23}} 
+\index{Component::Renderer@{Component::Renderer}!````~Renderer@{$\sim$Renderer}}
+\index{````~Renderer@{$\sim$Renderer}!Component::Renderer@{Component::Renderer}}
+\doxysubsubsection{\texorpdfstring{$\sim$Renderer()}{~Renderer()}}
+{\footnotesize\ttfamily Component\+::\+Renderer\+::$\sim$\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Renderer_a895277f652f74d367c6dba8bcbf97def}\label{classComponent_1_1Renderer_a895277f652f74d367c6dba8bcbf97def}} 
+\index{Component::Renderer@{Component::Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Component::Renderer@{Component::Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Renderer_a1cd8c22d01fe4d125f8776930092c389}\label{classComponent_1_1Renderer_a1cd8c22d01fe4d125f8776930092c389}} 
+\index{Component::Renderer@{Component::Renderer}!GetName@{GetName}}
+\index{GetName@{GetName}!Component::Renderer@{Component::Renderer}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily const std\+::string \& Component\+::\+Renderer\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Name object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Renderer_ae8f6b8fab35b6a45d81d06075fe57be2}\label{classComponent_1_1Renderer_ae8f6b8fab35b6a45d81d06075fe57be2}} 
+\index{Component::Renderer@{Component::Renderer}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Renderer@{Component::Renderer}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree \& Component\+::\+Renderer\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Renderer_adb5df4d0493073dd3a0a17bc8677a220}\label{classComponent_1_1Renderer_adb5df4d0493073dd3a0a17bc8677a220}} 
+\index{Component::Renderer@{Component::Renderer}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Renderer@{Component::Renderer}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& Component\+::\+Renderer\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Renderer_a91d5f09b915f31d5b92a00847cf91b3e}\label{classComponent_1_1Renderer_a91d5f09b915f31d5b92a00847cf91b3e}} 
+\index{Component::Renderer@{Component::Renderer}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Renderer@{Component::Renderer}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}}\& Component\+::\+Renderer\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Renderer_ab0c878b4543a7b6fe337015395da8255}\label{classComponent_1_1Renderer_ab0c878b4543a7b6fe337015395da8255}} 
+\index{Component::Renderer@{Component::Renderer}!\_name@{\_name}}
+\index{\_name@{\_name}!Component::Renderer@{Component::Renderer}}
+\doxysubsubsection{\texorpdfstring{\_name}{\_name}}
+{\footnotesize\ttfamily std\+::string Component\+::\+Renderer\+::\+\_\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Renderer/\mbox{\hyperlink{Renderer_8hpp}{Renderer.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Renderer/\mbox{\hyperlink{Renderer_8cpp}{Renderer.\+cpp}}\end{DoxyCompactItemize}

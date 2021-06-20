@@ -1,0 +1,8 @@
+<map id="Component::IUIObject" name="Component::IUIObject">
+<area shape="rect" id="node1" title="Base class for UI objects." alt="" coords="174,373,339,509"/>
+<area shape="rect" id="node4" href="$classComponent_1_1Button.html" title="Button class." alt="" coords="5,609,153,891"/>
+<area shape="rect" id="node5" href="$classComponent_1_1TextBox.html" title="Component where it&#39;s possible to enter text and show it." alt="" coords="178,557,335,943"/>
+<area shape="rect" id="node6" href="$classComponent_1_1TextUI.html" title=" " alt="" coords="359,587,506,913"/>
+<area shape="rect" id="node2" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="188,204,325,325"/>
+<area shape="rect" id="node3" href="$classIXMLSerializable.html" title=" " alt="" coords="173,5,340,156"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="ECS::Coordinator" name="ECS::Coordinator">
+<area shape="rect" id="node1" title="Public class used to manipulates scenes and theirs entities and systems." alt="" coords="12,263,163,663"/>
+<area shape="rect" id="node2" href="$classECS_1_1SystemManager.html" title="Class used to manipulate Systems." alt="" coords="5,5,169,200"/>
+</map>

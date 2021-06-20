@@ -1,0 +1,363 @@
+\hypertarget{classComponent_1_1SquareCollider}{}\doxysection{Component\+::Square\+Collider Class Reference}
+\label{classComponent_1_1SquareCollider}\index{Component::SquareCollider@{Component::SquareCollider}}
+
+
+{\ttfamily \#include $<$Square\+Collider.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Square\+Collider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1SquareCollider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Square\+Collider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1SquareCollider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1SquareCollider_a99336ac6bb898075607be606b4088029}{Square\+Collider}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched\+Entity, std\+::vector$<$ std\+::string $>$ collision\+Mask, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ pos, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ scale)
+\begin{DoxyCompactList}\small\item\em Construct a new Square \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1SquareCollider_aed08fc93e4a42f02cc900fb376eabf06}{$\sim$\+Square\+Collider}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Square \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1SquareCollider_a4412b3affca43a80e2abf7c66d710f65}{Square\+Collider}} (const \mbox{\hyperlink{classComponent_1_1SquareCollider}{Square\+Collider}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Square \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1SquareCollider}{Square\+Collider}} \& \mbox{\hyperlink{classComponent_1_1SquareCollider_a0010ef3525d4b49fc16eca39356f8e02}{operator=}} (const \mbox{\hyperlink{classComponent_1_1SquareCollider}{Square\+Collider}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1SquareCollider_a52f1133441da90bcc5704c33941c6312}{Is\+Colliding}} (void) override
+\begin{DoxyCompactList}\small\item\em Check if colliding with another entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1SquareCollider_aa5f74092e01e13fc6da24d052157d500}{Is\+Colliding\+At\+Position}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ pos) override
+\begin{DoxyCompactList}\small\item\em Check if colliding at a specific position. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1SquareCollider_a3861496a68a467787e7780792f88d0c7}{Check\+Collision}} (\mbox{\hyperlink{classRayLib_1_1Circle}{Ray\+Lib\+::\+Circle}} \&circle) override
+\begin{DoxyCompactList}\small\item\em Check with a circle collision. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1SquareCollider_a8c3b610c3830d5e2605d08d8f4549b72}{Check\+Collision}} (\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} \&rec) override
+\begin{DoxyCompactList}\small\item\em Check with a rectangle collision. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1SquareCollider_a7c36b663f17cfd2ac6777069fec81262}{Draw\+Lines}} () override
+\begin{DoxyCompactList}\small\item\em Draw collision lines. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1SquareCollider_a163c84c6f5caff524e157e75e648d06b}{Get\+Collision}} (void) override
+\begin{DoxyCompactList}\small\item\em Get the Collision object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1SquareCollider_a42b288247e8437cfb4ccafdf9426c79a}{Get\+Collision\+Position}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ pos) override
+\begin{DoxyCompactList}\small\item\em Get the Collision Position object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1SquareCollider_ad2edb3985709272d076380167f9592bd}{Update\+Square}} (void)
+\begin{DoxyCompactList}\small\item\em Update current collider with entity position. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1SquareCollider_ad59035698a5646ee5fc9a0547f296f4f}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1SquareCollider_ad264c8242368163e9d24a619c486d41e}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\item 
+bool \mbox{\hyperlink{classComponent_1_1SquareCollider_a15ea56622e764e65c745fc8c5cb7f196}{Check\+Collision\+Mask}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Check if its an entity to collide with. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} \& \mbox{\hyperlink{classComponent_1_1SquareCollider_afceb121aede2b9b023c539bf4f385b56}{Get\+Rectangle}} () const
+\begin{DoxyCompactList}\small\item\em Get the Rectangle object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} \mbox{\hyperlink{classComponent_1_1SquareCollider_a327a86ac6374f08b6f4bbfa20dc9c645}{\+\_\+rect}}
+\begin{DoxyCompactList}\small\item\em Raylib Rectangle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a99336ac6bb898075607be606b4088029}\label{classComponent_1_1SquareCollider_a99336ac6bb898075607be606b4088029}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!SquareCollider@{SquareCollider}}
+\index{SquareCollider@{SquareCollider}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{SquareCollider()}{SquareCollider()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Square\+Collider\+::\+Square\+Collider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched\+Entity,  }\item[{std\+::vector$<$ std\+::string $>$}]{collision\+Mask,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{pos,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{scale }\end{DoxyParamCaption})}
+
+
+
+Construct a new Square \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & \\
+\hline
+{\em collision\+Mask} & \\
+\hline
+{\em pos} & \\
+\hline
+{\em scale} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_aed08fc93e4a42f02cc900fb376eabf06}\label{classComponent_1_1SquareCollider_aed08fc93e4a42f02cc900fb376eabf06}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!````~SquareCollider@{$\sim$SquareCollider}}
+\index{````~SquareCollider@{$\sim$SquareCollider}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{$\sim$SquareCollider()}{~SquareCollider()}}
+{\footnotesize\ttfamily Component\+::\+Square\+Collider\+::$\sim$\+Square\+Collider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Square \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a4412b3affca43a80e2abf7c66d710f65}\label{classComponent_1_1SquareCollider_a4412b3affca43a80e2abf7c66d710f65}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!SquareCollider@{SquareCollider}}
+\index{SquareCollider@{SquareCollider}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{SquareCollider()}{SquareCollider()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Square\+Collider\+::\+Square\+Collider (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1SquareCollider}{Square\+Collider}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Square \mbox{\hyperlink{classComponent_1_1Collider}{Collider}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a3861496a68a467787e7780792f88d0c7}\label{classComponent_1_1SquareCollider_a3861496a68a467787e7780792f88d0c7}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!CheckCollision@{CheckCollision}}
+\index{CheckCollision@{CheckCollision}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{CheckCollision()}{CheckCollision()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Component\+::\+Square\+Collider\+::\+Check\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Circle}{Ray\+Lib\+::\+Circle}} \&}]{circle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check with a circle collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em circle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1Collider_a8687f9a56d420c811a3e653d6986dd2a}{Component\+::\+Collider}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a8c3b610c3830d5e2605d08d8f4549b72}\label{classComponent_1_1SquareCollider_a8c3b610c3830d5e2605d08d8f4549b72}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!CheckCollision@{CheckCollision}}
+\index{CheckCollision@{CheckCollision}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{CheckCollision()}{CheckCollision()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Component\+::\+Square\+Collider\+::\+Check\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} \&}]{rec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check with a rectangle collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rec} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1Collider_a3eee437cbf0faa4d910801914c0af6c2}{Component\+::\+Collider}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a15ea56622e764e65c745fc8c5cb7f196}\label{classComponent_1_1SquareCollider_a15ea56622e764e65c745fc8c5cb7f196}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!CheckCollisionMask@{CheckCollisionMask}}
+\index{CheckCollisionMask@{CheckCollisionMask}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{CheckCollisionMask()}{CheckCollisionMask()}}
+{\footnotesize\ttfamily bool Component\+::\+Square\+Collider\+::\+Check\+Collision\+Mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})}
+
+
+
+Check if its an entity to collide with. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a7c36b663f17cfd2ac6777069fec81262}\label{classComponent_1_1SquareCollider_a7c36b663f17cfd2ac6777069fec81262}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!DrawLines@{DrawLines}}
+\index{DrawLines@{DrawLines}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{DrawLines()}{DrawLines()}}
+{\footnotesize\ttfamily void Component\+::\+Square\+Collider\+::\+Draw\+Lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw collision lines. 
+
+
+
+Implements \mbox{\hyperlink{classComponent_1_1Collider_a6eafd5339eb12a89d4cd0bf5fc175c54}{Component\+::\+Collider}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a163c84c6f5caff524e157e75e648d06b}\label{classComponent_1_1SquareCollider_a163c84c6f5caff524e157e75e648d06b}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!GetCollision@{GetCollision}}
+\index{GetCollision@{GetCollision}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{GetCollision()}{GetCollision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Component\+::\+Square\+Collider\+::\+Get\+Collision (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Collision object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1Collider_a5d009a6e176f1c057aeca24d1b5fa44e}{Component\+::\+Collider}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a42b288247e8437cfb4ccafdf9426c79a}\label{classComponent_1_1SquareCollider_a42b288247e8437cfb4ccafdf9426c79a}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!GetCollisionPosition@{GetCollisionPosition}}
+\index{GetCollisionPosition@{GetCollisionPosition}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{GetCollisionPosition()}{GetCollisionPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Component\+::\+Square\+Collider\+::\+Get\+Collision\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the Collision Position object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1Collider_a0ad8ebb3b3ee9942367fe0c5baccf278}{Component\+::\+Collider}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_afceb121aede2b9b023c539bf4f385b56}\label{classComponent_1_1SquareCollider_afceb121aede2b9b023c539bf4f385b56}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!GetRectangle@{GetRectangle}}
+\index{GetRectangle@{GetRectangle}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{GetRectangle()}{GetRectangle()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} \& Component\+::\+Square\+Collider\+::\+Get\+Rectangle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Rectangle object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a52f1133441da90bcc5704c33941c6312}\label{classComponent_1_1SquareCollider_a52f1133441da90bcc5704c33941c6312}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!IsColliding@{IsColliding}}
+\index{IsColliding@{IsColliding}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{IsColliding()}{IsColliding()}}
+{\footnotesize\ttfamily bool Component\+::\+Square\+Collider\+::\+Is\+Colliding (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if colliding with another entity. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1Collider_a103a02dc8faff13a894b17c9687eb625}{Component\+::\+Collider}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_aa5f74092e01e13fc6da24d052157d500}\label{classComponent_1_1SquareCollider_aa5f74092e01e13fc6da24d052157d500}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!IsCollidingAtPosition@{IsCollidingAtPosition}}
+\index{IsCollidingAtPosition@{IsCollidingAtPosition}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{IsCollidingAtPosition()}{IsCollidingAtPosition()}}
+{\footnotesize\ttfamily bool Component\+::\+Square\+Collider\+::\+Is\+Colliding\+At\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check if colliding at a specific position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1Collider_ad3b466d338702cf1066c31b1d935fbb8}{Component\+::\+Collider}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_ad264c8242368163e9d24a619c486d41e}\label{classComponent_1_1SquareCollider_ad264c8242368163e9d24a619c486d41e}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Square\+Collider\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_ad59035698a5646ee5fc9a0547f296f4f}\label{classComponent_1_1SquareCollider_ad59035698a5646ee5fc9a0547f296f4f}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Square\+Collider\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a0010ef3525d4b49fc16eca39356f8e02}\label{classComponent_1_1SquareCollider_a0010ef3525d4b49fc16eca39356f8e02}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1SquareCollider}{Square\+Collider}}\& Component\+::\+Square\+Collider\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1SquareCollider}{Square\+Collider}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1SquareCollider}{Square\+Collider}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_ad2edb3985709272d076380167f9592bd}\label{classComponent_1_1SquareCollider_ad2edb3985709272d076380167f9592bd}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!UpdateSquare@{UpdateSquare}}
+\index{UpdateSquare@{UpdateSquare}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{UpdateSquare()}{UpdateSquare()}}
+{\footnotesize\ttfamily void Component\+::\+Square\+Collider\+::\+Update\+Square (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Update current collider with entity position. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1SquareCollider_a327a86ac6374f08b6f4bbfa20dc9c645}\label{classComponent_1_1SquareCollider_a327a86ac6374f08b6f4bbfa20dc9c645}} 
+\index{Component::SquareCollider@{Component::SquareCollider}!\_rect@{\_rect}}
+\index{\_rect@{\_rect}!Component::SquareCollider@{Component::SquareCollider}}
+\doxysubsubsection{\texorpdfstring{\_rect}{\_rect}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} Component\+::\+Square\+Collider\+::\+\_\+rect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Raylib Rectangle. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Square\+Collider/\mbox{\hyperlink{SquareCollider_8hpp}{Square\+Collider.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Square\+Collider/\mbox{\hyperlink{SquareCollider_8cpp}{Square\+Collider.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,276 @@
+\hypertarget{classSerialization_1_1EntityLoader}{}\doxysection{Serialization\+::Entity\+Loader Class Reference}
+\label{classSerialization_1_1EntityLoader}\index{Serialization::EntityLoader@{Serialization::EntityLoader}}
+
+
+{\ttfamily \#include $<$Entity\+Loader.\+hpp$>$}
+
+
+
+Collaboration diagram for Serialization\+::Entity\+Loader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{classSerialization_1_1EntityLoader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSerialization_1_1EntityLoader_a1fc25b23bfd92adefca234f5b8eff77c}{Entity\+Loader}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new Entity Loader object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSerialization_1_1EntityLoader_a737bec4b84fd2fa380a2735f2a69822e}{$\sim$\+Entity\+Loader}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Entity Loader object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSerialization_1_1EntityLoader_a3ff18b40c6f86465dbe33a6459f44655}{Entity\+Loader}} (const \mbox{\hyperlink{classSerialization_1_1EntityLoader}{Entity\+Loader}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Entity Loader object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSerialization_1_1EntityLoader}{Entity\+Loader}} \& \mbox{\hyperlink{classSerialization_1_1EntityLoader_accb9794f0c781455f857995a3d281bc3}{operator=}} (const \mbox{\hyperlink{classSerialization_1_1EntityLoader}{Entity\+Loader}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignement operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classSerialization_1_1EntityLoader_ae51688cffe8e03562c2bd64ceb7a5efb}{Load\+Entity}} (std\+::istream \&is)
+\begin{DoxyCompactList}\small\item\em Load an entity from istream. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classSerialization_1_1EntityLoader_a3f6c1b84e8c09c5232745eb2ace917a6}{Load\+Entity}} (boost\+::property\+\_\+tree\+::ptree \&ptree)
+\begin{DoxyCompactList}\small\item\em Load an entity from property tree. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classSerialization_1_1EntityLoader_a249394339522e35d61748e2e08b44759}{Load\+Entities}} (std\+::istream \&is)
+\begin{DoxyCompactList}\small\item\em Load multiple entities from istream. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classSerialization_1_1EntityLoader_a5c5378fdc51e2c75c184035d35ca3ae8}{Load\+Entities}} (boost\+::property\+\_\+tree\+::ptree \&ptree)
+\begin{DoxyCompactList}\small\item\em Load multiple entities from property tree. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classSerialization_1_1EntityLoader_a2d0c5891a5de63db63e7d71b0f04a817}{Load\+Transform}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, boost\+::property\+\_\+tree\+::ptree \&ptree)
+\begin{DoxyCompactList}\small\item\em Add a transform component and populate it. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classSerialization_1_1EntityLoader_a3c0172d73acd344b6ad7c67666443ef6}{Load\+Renderer}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, boost\+::property\+\_\+tree\+::ptree \&ptree)
+\begin{DoxyCompactList}\small\item\em Add a renderer component and fill its info. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classSerialization_1_1EntityLoader_af3f833ad12f06fb9fd706a30c311cbb7}{Load\+Box\+Collider}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, boost\+::property\+\_\+tree\+::ptree \&ptree)
+\begin{DoxyCompactList}\small\item\em Add a box collider and fill info. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classSerialization_1_1EntityLoader_ab1812ed1b6b91cb825758c14b1ae1245}{Load\+Destructible}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, boost\+::property\+\_\+tree\+::ptree \&ptree)
+\begin{DoxyCompactList}\small\item\em Add destructible component and fill info. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classSerialization_1_1EntityLoader_a13323d0b8aadc367b54b8c6f70bbce13}{Load\+Box}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, boost\+::property\+\_\+tree\+::ptree \&ptree)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, std\+::function$<$ void(\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&, boost\+::property\+\_\+tree\+::ptree \&)$>$ $>$ \mbox{\hyperlink{classSerialization_1_1EntityLoader_a60dd29624d3f22002e56e479cd630682}{\+\_\+load\+Able\+Components}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a1fc25b23bfd92adefca234f5b8eff77c}\label{classSerialization_1_1EntityLoader_a1fc25b23bfd92adefca234f5b8eff77c}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!EntityLoader@{EntityLoader}}
+\index{EntityLoader@{EntityLoader}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{EntityLoader()}{EntityLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Serialization\+::\+Entity\+Loader\+::\+Entity\+Loader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Entity Loader object. 
+
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a737bec4b84fd2fa380a2735f2a69822e}\label{classSerialization_1_1EntityLoader_a737bec4b84fd2fa380a2735f2a69822e}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!````~EntityLoader@{$\sim$EntityLoader}}
+\index{````~EntityLoader@{$\sim$EntityLoader}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{$\sim$EntityLoader()}{~EntityLoader()}}
+{\footnotesize\ttfamily Serialization\+::\+Entity\+Loader\+::$\sim$\+Entity\+Loader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the Entity Loader object. 
+
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a3ff18b40c6f86465dbe33a6459f44655}\label{classSerialization_1_1EntityLoader_a3ff18b40c6f86465dbe33a6459f44655}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!EntityLoader@{EntityLoader}}
+\index{EntityLoader@{EntityLoader}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{EntityLoader()}{EntityLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Serialization\+::\+Entity\+Loader\+::\+Entity\+Loader (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSerialization_1_1EntityLoader}{Entity\+Loader}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Entity Loader object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a13323d0b8aadc367b54b8c6f70bbce13}\label{classSerialization_1_1EntityLoader_a13323d0b8aadc367b54b8c6f70bbce13}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadBox@{LoadBox}}
+\index{LoadBox@{LoadBox}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadBox()}{LoadBox()}}
+{\footnotesize\ttfamily void Serialization\+::\+Entity\+Loader\+::\+Load\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_af3f833ad12f06fb9fd706a30c311cbb7}\label{classSerialization_1_1EntityLoader_af3f833ad12f06fb9fd706a30c311cbb7}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadBoxCollider@{LoadBoxCollider}}
+\index{LoadBoxCollider@{LoadBoxCollider}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadBoxCollider()}{LoadBoxCollider()}}
+{\footnotesize\ttfamily static void Serialization\+::\+Entity\+Loader\+::\+Load\+Box\+Collider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add a box collider and fill info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em ptree} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_ab1812ed1b6b91cb825758c14b1ae1245}\label{classSerialization_1_1EntityLoader_ab1812ed1b6b91cb825758c14b1ae1245}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadDestructible@{LoadDestructible}}
+\index{LoadDestructible@{LoadDestructible}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadDestructible()}{LoadDestructible()}}
+{\footnotesize\ttfamily void Serialization\+::\+Entity\+Loader\+::\+Load\+Destructible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add destructible component and fill info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em ptree} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a5c5378fdc51e2c75c184035d35ca3ae8}\label{classSerialization_1_1EntityLoader_a5c5378fdc51e2c75c184035d35ca3ae8}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadEntities@{LoadEntities}}
+\index{LoadEntities@{LoadEntities}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadEntities()}{LoadEntities()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Serialization\+::\+Entity\+Loader\+::\+Load\+Entities (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load multiple entities from property tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptree} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a249394339522e35d61748e2e08b44759}\label{classSerialization_1_1EntityLoader_a249394339522e35d61748e2e08b44759}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadEntities@{LoadEntities}}
+\index{LoadEntities@{LoadEntities}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadEntities()}{LoadEntities()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Serialization\+::\+Entity\+Loader\+::\+Load\+Entities (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load multiple entities from istream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a3f6c1b84e8c09c5232745eb2ace917a6}\label{classSerialization_1_1EntityLoader_a3f6c1b84e8c09c5232745eb2ace917a6}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadEntity@{LoadEntity}}
+\index{LoadEntity@{LoadEntity}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadEntity()}{LoadEntity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Serialization\+::\+Entity\+Loader\+::\+Load\+Entity (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load an entity from property tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptree} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_ae51688cffe8e03562c2bd64ceb7a5efb}\label{classSerialization_1_1EntityLoader_ae51688cffe8e03562c2bd64ceb7a5efb}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadEntity@{LoadEntity}}
+\index{LoadEntity@{LoadEntity}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadEntity()}{LoadEntity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Serialization\+::\+Entity\+Loader\+::\+Load\+Entity (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load an entity from istream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a3c0172d73acd344b6ad7c67666443ef6}\label{classSerialization_1_1EntityLoader_a3c0172d73acd344b6ad7c67666443ef6}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadRenderer@{LoadRenderer}}
+\index{LoadRenderer@{LoadRenderer}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadRenderer()}{LoadRenderer()}}
+{\footnotesize\ttfamily static void Serialization\+::\+Entity\+Loader\+::\+Load\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add a renderer component and fill its info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em ptree} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a2d0c5891a5de63db63e7d71b0f04a817}\label{classSerialization_1_1EntityLoader_a2d0c5891a5de63db63e7d71b0f04a817}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!LoadTransform@{LoadTransform}}
+\index{LoadTransform@{LoadTransform}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{LoadTransform()}{LoadTransform()}}
+{\footnotesize\ttfamily void Serialization\+::\+Entity\+Loader\+::\+Load\+Transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add a transform component and populate it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em ptree} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_accb9794f0c781455f857995a3d281bc3}\label{classSerialization_1_1EntityLoader_accb9794f0c781455f857995a3d281bc3}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!operator=@{operator=}}
+\index{operator=@{operator=}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSerialization_1_1EntityLoader}{Entity\+Loader}}\& Serialization\+::\+Entity\+Loader\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSerialization_1_1EntityLoader}{Entity\+Loader}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignement operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classSerialization_1_1EntityLoader}{Entity\+Loader}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSerialization_1_1EntityLoader_a60dd29624d3f22002e56e479cd630682}\label{classSerialization_1_1EntityLoader_a60dd29624d3f22002e56e479cd630682}} 
+\index{Serialization::EntityLoader@{Serialization::EntityLoader}!\_loadAbleComponents@{\_loadAbleComponents}}
+\index{\_loadAbleComponents@{\_loadAbleComponents}!Serialization::EntityLoader@{Serialization::EntityLoader}}
+\doxysubsubsection{\texorpdfstring{\_loadAbleComponents}{\_loadAbleComponents}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::function$<$ void(\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&, boost\+::property\+\_\+tree\+::ptree \&)$>$ $>$ Serialization\+::\+Entity\+Loader\+::\+\_\+load\+Able\+Components\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        std::pair<std::string, std::function<void(\mbox{\hyperlink{classECS_1_1Entity}{ECS::Entity}}\&, boost::property\_tree::ptree\&)>>(\textcolor{stringliteral}{"Transform"}, \&\mbox{\hyperlink{classSerialization_1_1EntityLoader_a2d0c5891a5de63db63e7d71b0f04a817}{EntityLoader::LoadTransform}}),}
+\DoxyCodeLine{        std::pair<std::string, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classECS_1_1Entity}{ECS::Entity}}\&, boost::property\_tree::ptree\&)>>(\textcolor{stringliteral}{"Destructible"}, \&\mbox{\hyperlink{classSerialization_1_1EntityLoader_ab1812ed1b6b91cb825758c14b1ae1245}{EntityLoader::LoadDestructible}}),}
+\DoxyCodeLine{        std::pair<std::string, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classECS_1_1Entity}{ECS::Entity}}\&, boost::property\_tree::ptree\&)>>(\textcolor{stringliteral}{"Box"}, \&\mbox{\hyperlink{classSerialization_1_1EntityLoader_a13323d0b8aadc367b54b8c6f70bbce13}{EntityLoader::LoadBox}})}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+X\+M\+L/\+Entity\+Loader/\mbox{\hyperlink{EntityLoader_8hpp}{Entity\+Loader.\+hpp}}\item 
+Libs/\+Engine/sources/\+X\+M\+L/\+Entity\+Loader/\mbox{\hyperlink{EntityLoader_8cpp}{Entity\+Loader.\+cpp}}\end{DoxyCompactItemize}

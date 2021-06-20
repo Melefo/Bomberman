@@ -1,0 +1,15 @@
+<map id="Component::ButtonCallbacks" name="Component::ButtonCallbacks">
+<area shape="rect" id="node1" title="Button wrapper class." alt="" coords="441,1188,653,1588"/>
+<area shape="rect" id="node2" href="$classComponent_1_1IBehaviour.html" title="IBehaviour base component (CF Monobehaviour class in Unity)" alt="" coords="460,683,635,848"/>
+<area shape="rect" id="node3" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="421,205,559,327"/>
+<area shape="rect" id="node6" href="$classComponent_1_1IUIObject.html" title="Base class for UI objects." alt="" coords="347,449,513,585"/>
+<area shape="rect" id="node4" href="$classIXMLSerializable.html" title=" " alt="" coords="407,5,573,156"/>
+<area shape="rect" id="node5" href="$classComponent_1_1Button.html" title="Button class." alt="" coords="267,872,415,1125"/>
+<area shape="rect" id="node7" href="$classRayLib_1_1Rectangle.html" title="Rectangle encapsulation." alt="" coords="143,420,323,615"/>
+<area shape="rect" id="node8" title=" " alt="" coords="189,227,276,305"/>
+<area shape="rect" id="node9" href="$classRayLib_1_1Color.html" title="RayLib Color encapsulation." alt="" coords="5,420,119,615"/>
+<area shape="rect" id="node10" title=" " alt="" coords="34,227,90,305"/>
+<area shape="rect" id="node11" href="$classECS_1_1Entity.html" title="Scene object containing components and an ID." alt="" coords="590,879,742,1118"/>
+<area shape="rect" id="node12" href="$classECS_1_1EntityManager.html" title="Class used to manipulate Entities (a.k.a A Scene)" alt="" coords="589,420,743,615"/>
+<area shape="rect" id="node13" href="$classECS_1_1ComponentManager.html" title="Class used to manipulate Components." alt="" coords="767,376,968,659"/>
+</map>

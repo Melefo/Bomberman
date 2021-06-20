@@ -1,0 +1,322 @@
+\hypertarget{classECS_1_1ASystem}{}\doxysection{E\+CS\+::A\+System Class Reference}
+\label{classECS_1_1ASystem}\index{ECS::ASystem@{ECS::ASystem}}
+
+
+Base Abstract class to create a new System.  
+
+
+
+
+{\ttfamily \#include $<$A\+System.\+hpp$>$}
+
+
+
+Inheritance diagram for E\+CS\+::A\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classECS_1_1ASystem__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for E\+CS\+::A\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classECS_1_1ASystem__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1ASystem_a5ed3ab18b7dda21812ffc60404960397}{A\+System}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1ASystem_a0201110ce20efd16b8d121d9535517ba}{A\+System}} (bool enabled)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classECS_1_1ASystem_a1da16271555706909e0bf0f11174c820}{$\sim$\+A\+System}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1ASystem_a05732b031a8ff95050cc89cacbe0e607}{A\+System}} (const \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} \& \mbox{\hyperlink{classECS_1_1ASystem_a166b1bf85e5496d6af5e5e7147bcd792}{operator=}} (const \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} Object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classECS_1_1ASystem_aa286ca0bdb06a0ad0fd66915d9192266}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Update an \mbox{\hyperlink{classECS_1_1Entity}{Entity}} and its components. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classECS_1_1ASystem_a3940112a5a64fcbd84215c7669b416ea}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Update an \mbox{\hyperlink{classECS_1_1Entity}{Entity}} and its components at a fixed time. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classECS_1_1ASystem_a8b86083ca0b66e7c905d4aba5ddb82ab}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Update an \mbox{\hyperlink{classECS_1_1Entity}{Entity}} and its components after the others. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classECS_1_1ASystem_af3e5dd08f23a97d7eda91023f64705a9}{On\+Disable}} ()
+\begin{DoxyCompactList}\small\item\em Event launched when the system is disabled. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classECS_1_1ASystem_a5bb01c7669999641a4c397e53411be90}{On\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em Event launched when the system is enabled. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classECS_1_1ASystem_a7fff5be5c02a75d60570acfd2fb3b195}{Get\+Dependencies}} () const
+\begin{DoxyCompactList}\small\item\em Get the Dependencies object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1ASystem_a77ea722017f84ebe43cf3fc42b7eee99}{Get\+Status}} () const
+\begin{DoxyCompactList}\small\item\em Get the Status object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1ASystem_af6d1ec657dfd99c2c1e8b439ff62f98e}{Set\+Status}} (bool new\+Status)
+\begin{DoxyCompactList}\small\item\em Set the Status object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1ASystem_a3138628f9e038a4da942a2b21793ba55}{Toggle\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classECS_1_1ASystem_a697233152321e682dc75b95952400dd1}{Add\+Dependency}} ()
+\begin{DoxyCompactList}\small\item\em Add a component to list of dependencies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classECS_1_1ASystem_ae52c5077b2b9653a8a9975c4c218151e}{\+\_\+dependencies}}
+\begin{DoxyCompactList}\small\item\em List of Components on which the System is dependent. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1ASystem_a03d32e9c8b19b183a944e7e31e34639a}{\+\_\+enabled}}
+\begin{DoxyCompactList}\small\item\em Toggle if the system must be updated or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base Abstract class to create a new System. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classECS_1_1ASystem_a5ed3ab18b7dda21812ffc60404960397}\label{classECS_1_1ASystem_a5ed3ab18b7dda21812ffc60404960397}} 
+\index{ECS::ASystem@{ECS::ASystem}!ASystem@{ASystem}}
+\index{ASystem@{ASystem}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{ASystem()}{ASystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+A\+System\+::\+A\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} object. 
+
+\mbox{\Hypertarget{classECS_1_1ASystem_a0201110ce20efd16b8d121d9535517ba}\label{classECS_1_1ASystem_a0201110ce20efd16b8d121d9535517ba}} 
+\index{ECS::ASystem@{ECS::ASystem}!ASystem@{ASystem}}
+\index{ASystem@{ASystem}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{ASystem()}{ASystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+A\+System\+::\+A\+System (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & Default value if the System is enabled or not \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1ASystem_a1da16271555706909e0bf0f11174c820}\label{classECS_1_1ASystem_a1da16271555706909e0bf0f11174c820}} 
+\index{ECS::ASystem@{ECS::ASystem}!````~ASystem@{$\sim$ASystem}}
+\index{````~ASystem@{$\sim$ASystem}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{$\sim$ASystem()}{~ASystem()}}
+{\footnotesize\ttfamily virtual E\+C\+S\+::\+A\+System\+::$\sim$\+A\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} object. 
+
+\mbox{\Hypertarget{classECS_1_1ASystem_a05732b031a8ff95050cc89cacbe0e607}\label{classECS_1_1ASystem_a05732b031a8ff95050cc89cacbe0e607}} 
+\index{ECS::ASystem@{ECS::ASystem}!ASystem@{ASystem}}
+\index{ASystem@{ASystem}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{ASystem()}{ASystem()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+A\+System\+::\+A\+System (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classECS_1_1ASystem_a697233152321e682dc75b95952400dd1}\label{classECS_1_1ASystem_a697233152321e682dc75b95952400dd1}} 
+\index{ECS::ASystem@{ECS::ASystem}!AddDependency@{AddDependency}}
+\index{AddDependency@{AddDependency}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{AddDependency()}{AddDependency()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void E\+C\+S\+::\+A\+System\+::\+Add\+Dependency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Add a component to list of dependencies. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the component \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classECS_1_1ASystem_a3940112a5a64fcbd84215c7669b416ea}\label{classECS_1_1ASystem_a3940112a5a64fcbd84215c7669b416ea}} 
+\index{ECS::ASystem@{ECS::ASystem}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+A\+System\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update an \mbox{\hyperlink{classECS_1_1Entity}{Entity}} and its components at a fixed time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \mbox{\hyperlink{classECS_1_1Entity}{Entity}} to update \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classAIMapsGenerator_a21ab3dd33ef6e4927ccd9a8c51a6662f}{A\+I\+Maps\+Generator}}, \mbox{\hyperlink{classComponent_1_1RenderSystem_af127b6cd5c1d88737636bfb72a8003f2}{Component\+::\+Render\+System}}, \mbox{\hyperlink{classComponent_1_1PauseSystem_acb1c3fcf4b455038a82c380d4cd0e28c}{Component\+::\+Pause\+System}}, \mbox{\hyperlink{classComponent_1_1BehaviourSystem_addcbb0e65393290b199051b00f81da88}{Component\+::\+Behaviour\+System}}, and \mbox{\hyperlink{classComponent_1_1PhysicsSystem_a30bcc1ca21cbe0711406de73d67e48de}{Component\+::\+Physics\+System}}.
+
+\mbox{\Hypertarget{classECS_1_1ASystem_a7fff5be5c02a75d60570acfd2fb3b195}\label{classECS_1_1ASystem_a7fff5be5c02a75d60570acfd2fb3b195}} 
+\index{ECS::ASystem@{ECS::ASystem}!GetDependencies@{GetDependencies}}
+\index{GetDependencies@{GetDependencies}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{GetDependencies()}{GetDependencies()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::string $>$ \& E\+C\+S\+::\+A\+System\+::\+Get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Dependencies object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::vector$<$std\+::string$>$\& List of components dependencies of the system 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ASystem_a77ea722017f84ebe43cf3fc42b7eee99}\label{classECS_1_1ASystem_a77ea722017f84ebe43cf3fc42b7eee99}} 
+\index{ECS::ASystem@{ECS::ASystem}!GetStatus@{GetStatus}}
+\index{GetStatus@{GetStatus}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{GetStatus()}{GetStatus()}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+A\+System\+::\+Get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Status object. 
+
+\begin{DoxyReturn}{Returns}
+true The sysetm is enabled 
+
+false The system is disabled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ASystem_a8b86083ca0b66e7c905d4aba5ddb82ab}\label{classECS_1_1ASystem_a8b86083ca0b66e7c905d4aba5ddb82ab}} 
+\index{ECS::ASystem@{ECS::ASystem}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+A\+System\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update an \mbox{\hyperlink{classECS_1_1Entity}{Entity}} and its components after the others. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta\+Time since the last Update \\
+\hline
+{\em entity} & \mbox{\hyperlink{classECS_1_1Entity}{Entity}} to update \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classAIMapsGenerator_a9e1b35d44e072c4cb9cca2f0d8ed8c5b}{A\+I\+Maps\+Generator}}, \mbox{\hyperlink{classComponent_1_1UISystem_ac30e3cb38fcc3eb8ed8892c69564b8f0}{Component\+::\+U\+I\+System}}, \mbox{\hyperlink{classComponent_1_1PauseSystem_a4e3ef6bc3d353cb7aefe315b4f03f961}{Component\+::\+Pause\+System}}, and \mbox{\hyperlink{classComponent_1_1BehaviourSystem_ae103cdc27adf83e6e09af66b86f4cc77}{Component\+::\+Behaviour\+System}}.
+
+\mbox{\Hypertarget{classECS_1_1ASystem_af3e5dd08f23a97d7eda91023f64705a9}\label{classECS_1_1ASystem_af3e5dd08f23a97d7eda91023f64705a9}} 
+\index{ECS::ASystem@{ECS::ASystem}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+A\+System\+::\+On\+Disable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Event launched when the system is disabled. 
+
+\mbox{\Hypertarget{classECS_1_1ASystem_a5bb01c7669999641a4c397e53411be90}\label{classECS_1_1ASystem_a5bb01c7669999641a4c397e53411be90}} 
+\index{ECS::ASystem@{ECS::ASystem}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+A\+System\+::\+On\+Enable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Event launched when the system is enabled. 
+
+\mbox{\Hypertarget{classECS_1_1ASystem_a166b1bf85e5496d6af5e5e7147bcd792}\label{classECS_1_1ASystem_a166b1bf85e5496d6af5e5e7147bcd792}} 
+\index{ECS::ASystem@{ECS::ASystem}!operator=@{operator=}}
+\index{operator=@{operator=}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}}\& E\+C\+S\+::\+A\+System\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} Object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1ASystem}{A\+System}}\& Assigned \mbox{\hyperlink{classECS_1_1ASystem}{A\+System}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1ASystem_af6d1ec657dfd99c2c1e8b439ff62f98e}\label{classECS_1_1ASystem_af6d1ec657dfd99c2c1e8b439ff62f98e}} 
+\index{ECS::ASystem@{ECS::ASystem}!SetStatus@{SetStatus}}
+\index{SetStatus@{SetStatus}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{SetStatus()}{SetStatus()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+A\+System\+::\+Set\+Status (\begin{DoxyParamCaption}\item[{bool}]{new\+Status }\end{DoxyParamCaption})}
+
+
+
+Set the Status object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & new status \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1ASystem_a3138628f9e038a4da942a2b21793ba55}\label{classECS_1_1ASystem_a3138628f9e038a4da942a2b21793ba55}} 
+\index{ECS::ASystem@{ECS::ASystem}!ToggleStatus@{ToggleStatus}}
+\index{ToggleStatus@{ToggleStatus}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{ToggleStatus()}{ToggleStatus()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+A\+System\+::\+Toggle\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enable/\+Disable the system. 
+
+\mbox{\Hypertarget{classECS_1_1ASystem_aa286ca0bdb06a0ad0fd66915d9192266}\label{classECS_1_1ASystem_aa286ca0bdb06a0ad0fd66915d9192266}} 
+\index{ECS::ASystem@{ECS::ASystem}!Update@{Update}}
+\index{Update@{Update}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+A\+System\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update an \mbox{\hyperlink{classECS_1_1Entity}{Entity}} and its components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta\+Time since the last Update \\
+\hline
+{\em entity} & \mbox{\hyperlink{classECS_1_1Entity}{Entity}} to update \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classAIMapsGenerator_a1a5533e77bedbe6fec9f90a0cf60f264}{A\+I\+Maps\+Generator}}, \mbox{\hyperlink{classComponent_1_1RenderSystem_a6676dd5a7d2fd30aa9332516211dcee7}{Component\+::\+Render\+System}}, \mbox{\hyperlink{classComponent_1_1PauseSystem_ace6a7b0915c7c051201af6d25b391217}{Component\+::\+Pause\+System}}, \mbox{\hyperlink{classComponent_1_1BehaviourSystem_a18e2c5d96ccf16cccbefd7fc44647285}{Component\+::\+Behaviour\+System}}, \mbox{\hyperlink{classComponent_1_1PhysicsSystem_a6f8e19e1f696b13149a498b2fa76b697}{Component\+::\+Physics\+System}}, \mbox{\hyperlink{classAddSystem_a139b932f1608503639b4181c7096af0a}{Add\+System}}, and \mbox{\hyperlink{classMoveSystem_ab6dc823aa660fa24501bc5e16e653ff8}{Move\+System}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classECS_1_1ASystem_ae52c5077b2b9653a8a9975c4c218151e}\label{classECS_1_1ASystem_ae52c5077b2b9653a8a9975c4c218151e}} 
+\index{ECS::ASystem@{ECS::ASystem}!\_dependencies@{\_dependencies}}
+\index{\_dependencies@{\_dependencies}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{\_dependencies}{\_dependencies}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ E\+C\+S\+::\+A\+System\+::\+\_\+dependencies\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of Components on which the System is dependent. 
+
+\mbox{\Hypertarget{classECS_1_1ASystem_a03d32e9c8b19b183a944e7e31e34639a}\label{classECS_1_1ASystem_a03d32e9c8b19b183a944e7e31e34639a}} 
+\index{ECS::ASystem@{ECS::ASystem}!\_enabled@{\_enabled}}
+\index{\_enabled@{\_enabled}!ECS::ASystem@{ECS::ASystem}}
+\doxysubsubsection{\texorpdfstring{\_enabled}{\_enabled}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+A\+System\+::\+\_\+enabled\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Toggle if the system must be updated or not. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+E\+C\+S/sources/\+Systems/\mbox{\hyperlink{ASystem_8hpp}{A\+System.\+hpp}}\item 
+Libs/\+E\+C\+S/sources/\+Systems/\mbox{\hyperlink{ASystem_8cpp}{A\+System.\+cpp}}\end{DoxyCompactItemize}

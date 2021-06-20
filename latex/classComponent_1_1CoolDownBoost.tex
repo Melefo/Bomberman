@@ -1,0 +1,191 @@
+\hypertarget{classComponent_1_1CoolDownBoost}{}\doxysection{Component\+::Cool\+Down\+Boost Class Reference}
+\label{classComponent_1_1CoolDownBoost}\index{Component::CoolDownBoost@{Component::CoolDownBoost}}
+
+
+{\ttfamily \#include $<$Cool\+Down\+Boost.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Cool\+Down\+Boost\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1CoolDownBoost__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Cool\+Down\+Boost\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1CoolDownBoost__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1CoolDownBoost_a8d665cf8b972779ec79a856ddba53236}{Cool\+Down\+Boost}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, float pick\+Up\+Radius=2.\+0f)
+\begin{DoxyCompactList}\small\item\em Construct a new Cool Down Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1CoolDownBoost_a75b02ad8a62fb2883d4d1916d4541cfc}{$\sim$\+Cool\+Down\+Boost}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Cool Down Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1CoolDownBoost_aee895d88967d530b8a49541ce1d9a260}{Cool\+Down\+Boost}} (const \mbox{\hyperlink{classComponent_1_1CoolDownBoost}{Cool\+Down\+Boost}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Cool Down Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1CoolDownBoost}{Cool\+Down\+Boost}} \& \mbox{\hyperlink{classComponent_1_1CoolDownBoost_ac9d387159f8e632f09dfc2eab8cea7dd}{operator=}} (const \mbox{\hyperlink{classComponent_1_1CoolDownBoost}{Cool\+Down\+Boost}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1CoolDownBoost_ae8a891cc606f2fba326985e568be683b}{On\+Pickup}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&collision) override
+\begin{DoxyCompactList}\small\item\em Pickup effect, called when someone walks on me. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1CoolDownBoost_af17ee5a1c78feb89523b243c1d2c9f65}{Decrement\+Cooldown}} (\mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&acontroller)
+\begin{DoxyCompactList}\small\item\em Applies a speed boost to Acontroller component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1CoolDownBoost_a47290efe5eaeeffa284103c4944b4319}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called after update. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1CoolDownBoost_a881d728a5903f8ed396ab29106730f20}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1CoolDownBoost_af81ea50114b6de59592f4404e7fbc827}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_a8d665cf8b972779ec79a856ddba53236}\label{classComponent_1_1CoolDownBoost_a8d665cf8b972779ec79a856ddba53236}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!CoolDownBoost@{CoolDownBoost}}
+\index{CoolDownBoost@{CoolDownBoost}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{CoolDownBoost()}{CoolDownBoost()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Cool\+Down\+Boost\+::\+Cool\+Down\+Boost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{float}]{pick\+Up\+Radius = {\ttfamily 2.0f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Cool Down Boost object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em pick\+Up\+Radius} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_a75b02ad8a62fb2883d4d1916d4541cfc}\label{classComponent_1_1CoolDownBoost_a75b02ad8a62fb2883d4d1916d4541cfc}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!````~CoolDownBoost@{$\sim$CoolDownBoost}}
+\index{````~CoolDownBoost@{$\sim$CoolDownBoost}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{$\sim$CoolDownBoost()}{~CoolDownBoost()}}
+{\footnotesize\ttfamily Component\+::\+Cool\+Down\+Boost\+::$\sim$\+Cool\+Down\+Boost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Cool Down Boost object. 
+
+\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_aee895d88967d530b8a49541ce1d9a260}\label{classComponent_1_1CoolDownBoost_aee895d88967d530b8a49541ce1d9a260}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!CoolDownBoost@{CoolDownBoost}}
+\index{CoolDownBoost@{CoolDownBoost}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{CoolDownBoost()}{CoolDownBoost()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Cool\+Down\+Boost\+::\+Cool\+Down\+Boost (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1CoolDownBoost}{Cool\+Down\+Boost}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Cool Down Boost object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_af17ee5a1c78feb89523b243c1d2c9f65}\label{classComponent_1_1CoolDownBoost_af17ee5a1c78feb89523b243c1d2c9f65}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!DecrementCooldown@{DecrementCooldown}}
+\index{DecrementCooldown@{DecrementCooldown}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{DecrementCooldown()}{DecrementCooldown()}}
+{\footnotesize\ttfamily void Component\+::\+Cool\+Down\+Boost\+::\+Decrement\+Cooldown (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&}]{acontroller }\end{DoxyParamCaption})}
+
+
+
+Applies a speed boost to Acontroller component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em acontroller} & \\
+\hline
+\end{DoxyParams}
+soit nombre fixe, soit get delay -\/ 1\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_a47290efe5eaeeffa284103c4944b4319}\label{classComponent_1_1CoolDownBoost_a47290efe5eaeeffa284103c4944b4319}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Cool\+Down\+Boost\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1APickUp_a25a07df814a209e880fba530a61b5644}{Component\+::\+A\+Pick\+Up}}.
+
+\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_ae8a891cc606f2fba326985e568be683b}\label{classComponent_1_1CoolDownBoost_ae8a891cc606f2fba326985e568be683b}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!OnPickup@{OnPickup}}
+\index{OnPickup@{OnPickup}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{OnPickup()}{OnPickup()}}
+{\footnotesize\ttfamily void Component\+::\+Cool\+Down\+Boost\+::\+On\+Pickup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pickup effect, called when someone walks on me. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collision} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1APickUp_ad6a5824686f8a7ac85ef4dc5fab134b9}{Component\+::\+A\+Pick\+Up}}.
+
+\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_af81ea50114b6de59592f4404e7fbc827}\label{classComponent_1_1CoolDownBoost_af81ea50114b6de59592f4404e7fbc827}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Cool\+Down\+Boost\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_a881d728a5903f8ed396ab29106730f20}\label{classComponent_1_1CoolDownBoost_a881d728a5903f8ed396ab29106730f20}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Cool\+Down\+Boost\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1CoolDownBoost_ac9d387159f8e632f09dfc2eab8cea7dd}\label{classComponent_1_1CoolDownBoost_ac9d387159f8e632f09dfc2eab8cea7dd}} 
+\index{Component::CoolDownBoost@{Component::CoolDownBoost}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::CoolDownBoost@{Component::CoolDownBoost}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1CoolDownBoost}{Cool\+Down\+Boost}}\& Component\+::\+Cool\+Down\+Boost\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1CoolDownBoost}{Cool\+Down\+Boost}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1CoolDownBoost}{Cool\+Down\+Boost}}\& 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Cool\+Down\+Boost/\mbox{\hyperlink{CoolDownBoost_8hpp}{Cool\+Down\+Boost.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Cool\+Down\+Boost/\mbox{\hyperlink{CoolDownBoost_8cpp}{Cool\+Down\+Boost.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="ECS::Entity" name="ECS::Entity">
+<area shape="rect" id="node1" title="Scene object containing components and an ID." alt="" coords="106,351,258,589"/>
+<area shape="rect" id="node2" href="$classECS_1_1EntityManager.html" title="Class used to manipulate Entities (a.k.a A Scene)" alt="" coords="5,49,159,244"/>
+<area shape="rect" id="node3" href="$classECS_1_1ComponentManager.html" title="Class used to manipulate Components." alt="" coords="183,5,384,288"/>
+</map>

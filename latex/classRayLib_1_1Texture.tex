@@ -1,0 +1,236 @@
+\hypertarget{classRayLib_1_1Texture}{}\doxysection{Ray\+Lib\+::Texture Class Reference}
+\label{classRayLib_1_1Texture}\index{RayLib::Texture@{RayLib::Texture}}
+
+
+\mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Texture.\+hpp$>$}
+
+
+
+Inheritance diagram for Ray\+Lib\+::Texture\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classRayLib_1_1Texture__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ray\+Lib\+::Texture\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classRayLib_1_1Texture__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Texture_af71b75f0031cf2020c0a9dc05190be8f}{$\sim$\+Texture}} () override
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Texture_a8fa409847881d681e2e393dbd0628b79}{Texture}} (const std\+::string \&filename=\char`\"{}../assets/Default\+\_\+texture.\+png\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object from a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Texture_a1e03f1f979657e4108c92827d7edf596}{Texture}} (\mbox{\hyperlink{classRayLib_1_1Image}{Image}} image)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} from an existing image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Texture_af96076985bc79e7bead60ef686e23df2}{Draw\+Texture}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$ position, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} tint)
+\begin{DoxyCompactList}\small\item\em Draw texture on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Texture_a093aae8d06502818dd30ef1690e85abd}{Draw\+Texture\+Ex}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$ position, float rotation, float scale, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} tint)
+\begin{DoxyCompactList}\small\item\em Draw texture on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Texture_abccfa83b4ba2d7607a0559bba4d8c805}{Draw\+Texture\+Rec}} (\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} source, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ position=\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$(), \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} col=W\+H\+I\+TE)
+\begin{DoxyCompactList}\small\item\em Draw texture on screen using rectangle\textquotesingle{}s dimensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Texture_a50074b8cfff9c3540cce2e994f4e9167}{Draw\+Billboard}} (\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} camera, \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} center=\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}(), float size=1.\+0f, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} tint=W\+H\+I\+TE)
+\begin{DoxyCompactList}\small\item\em Draw billboard cf\+: \href{https://www.raylib.com/examples/web/models/loader.html?name=models_billboard}{\texttt{ https\+://www.\+raylib.\+com/examples/web/models/loader.\+html?name=models\+\_\+billboard}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Texture_a185472627f5d1c78cc8b8132064b87c1}{Draw\+Texture\+N\+Patch}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$ position, float rotation, \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$ scale, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} tint)
+\item 
+\+::Texture2D \mbox{\hyperlink{classRayLib_1_1Texture_abe764b3261aeb1ede32089abae0e28d3}{Get\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} as a raylib structure. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classRayLib_1_1Texture_a0992e785b42f180a8db812aacb6b659b}{Get\+File\+Name}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\+::Texture2D \mbox{\hyperlink{classRayLib_1_1Texture_aef559bccb4d7a7de8903a7723a0abfa6}{\+\_\+texture}}
+\item 
+std\+::string \mbox{\hyperlink{classRayLib_1_1Texture_a92c421d563914f62afc2069e4612a8bf}{\+\_\+file\+Name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} encapsulation. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Texture_af71b75f0031cf2020c0a9dc05190be8f}\label{classRayLib_1_1Texture_af71b75f0031cf2020c0a9dc05190be8f}} 
+\index{RayLib::Texture@{RayLib::Texture}!````~Texture@{$\sim$Texture}}
+\index{````~Texture@{$\sim$Texture}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{$\sim$Texture()}{~Texture()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Texture\+::$\sim$\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object. 
+
+\mbox{\Hypertarget{classRayLib_1_1Texture_a8fa409847881d681e2e393dbd0628b79}\label{classRayLib_1_1Texture_a8fa409847881d681e2e393dbd0628b79}} 
+\index{RayLib::Texture@{RayLib::Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Texture\+::\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename = {\ttfamily \char`\"{}../assets/Default\+\_\+texture.png\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Texture_a1e03f1f979657e4108c92827d7edf596}\label{classRayLib_1_1Texture_a1e03f1f979657e4108c92827d7edf596}} 
+\index{RayLib::Texture@{RayLib::Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Texture\+::\+Texture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Image}{Image}}}]{image }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} from an existing image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Texture_a50074b8cfff9c3540cce2e994f4e9167}\label{classRayLib_1_1Texture_a50074b8cfff9c3540cce2e994f4e9167}} 
+\index{RayLib::Texture@{RayLib::Texture}!DrawBillboard@{DrawBillboard}}
+\index{DrawBillboard@{DrawBillboard}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{DrawBillboard()}{DrawBillboard()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Texture\+::\+Draw\+Billboard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}}}]{camera,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{center = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}()},  }\item[{float}]{size = {\ttfamily 1.0f},  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{tint = {\ttfamily WHITE} }\end{DoxyParamCaption})}
+
+
+
+Draw billboard cf\+: \href{https://www.raylib.com/examples/web/models/loader.html?name=models_billboard}{\texttt{ https\+://www.\+raylib.\+com/examples/web/models/loader.\+html?name=models\+\_\+billboard}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & \\
+\hline
+{\em center} & \\
+\hline
+{\em size} & \\
+\hline
+{\em tint} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Texture_af96076985bc79e7bead60ef686e23df2}\label{classRayLib_1_1Texture_af96076985bc79e7bead60ef686e23df2}} 
+\index{RayLib::Texture@{RayLib::Texture}!DrawTexture@{DrawTexture}}
+\index{DrawTexture@{DrawTexture}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{DrawTexture()}{DrawTexture()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Texture\+::\+Draw\+Texture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{tint }\end{DoxyParamCaption})}
+
+
+
+Draw texture on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em tint} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Texture_a093aae8d06502818dd30ef1690e85abd}\label{classRayLib_1_1Texture_a093aae8d06502818dd30ef1690e85abd}} 
+\index{RayLib::Texture@{RayLib::Texture}!DrawTextureEx@{DrawTextureEx}}
+\index{DrawTextureEx@{DrawTextureEx}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{DrawTextureEx()}{DrawTextureEx()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Texture\+::\+Draw\+Texture\+Ex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$}]{position,  }\item[{float}]{rotation,  }\item[{float}]{scale,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{tint }\end{DoxyParamCaption})}
+
+
+
+Draw texture on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em rotation} & \\
+\hline
+{\em scale} & \\
+\hline
+{\em tint} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Texture_a185472627f5d1c78cc8b8132064b87c1}\label{classRayLib_1_1Texture_a185472627f5d1c78cc8b8132064b87c1}} 
+\index{RayLib::Texture@{RayLib::Texture}!DrawTextureNPatch@{DrawTextureNPatch}}
+\index{DrawTextureNPatch@{DrawTextureNPatch}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{DrawTextureNPatch()}{DrawTextureNPatch()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Texture\+::\+Draw\+Texture\+N\+Patch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$}]{position,  }\item[{float}]{rotation,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$}]{scale,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{tint }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRayLib_1_1Texture_abccfa83b4ba2d7607a0559bba4d8c805}\label{classRayLib_1_1Texture_abccfa83b4ba2d7607a0559bba4d8c805}} 
+\index{RayLib::Texture@{RayLib::Texture}!DrawTextureRec@{DrawTextureRec}}
+\index{DrawTextureRec@{DrawTextureRec}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{DrawTextureRec()}{DrawTextureRec()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Texture\+::\+Draw\+Texture\+Rec (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}}}]{source,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{position = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$float$>$()},  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}}}]{col = {\ttfamily WHITE} }\end{DoxyParamCaption})}
+
+
+
+Draw texture on screen using rectangle\textquotesingle{}s dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em position} & \\
+\hline
+{\em col} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Texture_a0992e785b42f180a8db812aacb6b659b}\label{classRayLib_1_1Texture_a0992e785b42f180a8db812aacb6b659b}} 
+\index{RayLib::Texture@{RayLib::Texture}!GetFileName@{GetFileName}}
+\index{GetFileName@{GetFileName}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{GetFileName()}{GetFileName()}}
+{\footnotesize\ttfamily const std\+::string \& Ray\+Lib\+::\+Texture\+::\+Get\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classRayLib_1_1Texture_abe764b3261aeb1ede32089abae0e28d3}\label{classRayLib_1_1Texture_abe764b3261aeb1ede32089abae0e28d3}} 
+\index{RayLib::Texture@{RayLib::Texture}!GetTexture@{GetTexture}}
+\index{GetTexture@{GetTexture}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{GetTexture()}{GetTexture()}}
+{\footnotesize\ttfamily Texture2D Ray\+Lib\+::\+Texture\+::\+Get\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} as a raylib structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Texture2D 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Texture_a92c421d563914f62afc2069e4612a8bf}\label{classRayLib_1_1Texture_a92c421d563914f62afc2069e4612a8bf}} 
+\index{RayLib::Texture@{RayLib::Texture}!\_fileName@{\_fileName}}
+\index{\_fileName@{\_fileName}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{\_fileName}{\_fileName}}
+{\footnotesize\ttfamily std\+::string Ray\+Lib\+::\+Texture\+::\+\_\+file\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Texture_aef559bccb4d7a7de8903a7723a0abfa6}\label{classRayLib_1_1Texture_aef559bccb4d7a7de8903a7723a0abfa6}} 
+\index{RayLib::Texture@{RayLib::Texture}!\_texture@{\_texture}}
+\index{\_texture@{\_texture}!RayLib::Texture@{RayLib::Texture}}
+\doxysubsubsection{\texorpdfstring{\_texture}{\_texture}}
+{\footnotesize\ttfamily \+::Texture2D Ray\+Lib\+::\+Texture\+::\+\_\+texture\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Texture/\mbox{\hyperlink{Texture_8hpp}{Texture.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Texture/\mbox{\hyperlink{Texture_8cpp}{Texture.\+cpp}}\end{DoxyCompactItemize}

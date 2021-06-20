@@ -1,0 +1,530 @@
+\hypertarget{classRayLib_1_1Window}{}\doxysection{Ray\+Lib\+::Window Class Reference}
+\label{classRayLib_1_1Window}\index{RayLib::Window@{RayLib::Window}}
+
+
+\mbox{\hyperlink{classRayLib_1_1Window}{Window}} encapsulation (Singleton)  
+
+
+
+
+{\ttfamily \#include $<$Window.\+hpp$>$}
+
+
+
+Collaboration diagram for Ray\+Lib\+::Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classRayLib_1_1Window__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Window_ab7494788aad03cdebe901c6d1ed04624}{$\sim$\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Window}{Window}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_a7e2e67fe5c18a497d5e7076a20d5b2bf}{Clear\+Background}} (\mbox{\hyperlink{classRayLib_1_1Color}{Color}} color=B\+L\+A\+CK)
+\begin{DoxyCompactList}\small\item\em Set window background to color. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ \mbox{\hyperlink{classRayLib_1_1Window_aef873efb197d8da8072d39e4562ca741}{Get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Get the window\textquotesingle{}s size as a vector2$<$int$>$ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_a9ea0158a9977e7cc67454c8742b6af33}{Set\+Size}} (const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ \&size)
+\begin{DoxyCompactList}\small\item\em Set the window\textquotesingle{}s size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ \mbox{\hyperlink{classRayLib_1_1Window_aa332111172eca53bc2e99888a6e6436d}{Get\+Max\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Get the monitor\textquotesingle{}s size as a vector2$<$int$>$ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$ \mbox{\hyperlink{classRayLib_1_1Window_ab3dbdf4051a23cb7abddf4766aa4ca20}{Get\+Scale}} ()
+\begin{DoxyCompactList}\small\item\em Get the Scale between monitor size and window size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_a6397587555f5b0bd175aae9869aeed8a}{Toggle\+Full\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em Change \mbox{\hyperlink{classRayLib_1_1Window}{Window}} State mode. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRayLib_1_1Window_a7c4316b87b5e2548123221af98ce30dc}{Is\+Full\+Screen}} () const
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classRayLib_1_1Window}{Window}} State mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_af2b860de263a9a6d697ccbb4cbe11b23}{Set\+Icon}} (const \mbox{\hyperlink{classRayLib_1_1Image}{Image}} \&image)
+\begin{DoxyCompactList}\small\item\em Set the window\textquotesingle{}s Icon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_ad688e3080d452db982b990e34d79298b}{Set\+Title}} (const std\+::string \&title)
+\begin{DoxyCompactList}\small\item\em Set the window\textquotesingle{}s title. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_a5d517754a4a6e797817655f4c98b325a}{Set\+Target\+F\+PS}} (int target)
+\begin{DoxyCompactList}\small\item\em Set the target F\+PS. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRayLib_1_1Window_ae868e41f46671d40589010ab874f84c7}{Window\+Should\+Close}} (void)
+\begin{DoxyCompactList}\small\item\em Returns true if you press E\+SC or close button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_a0dade9d1b7b7e0f6df4dc0b8fbde8dc3}{Close\+Window}} (void)
+\begin{DoxyCompactList}\small\item\em Close the window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_aab8fc89e0d8d4b77630c6ea341fc6a50}{Begin\+Drawing}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize canvas for drawing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_ad9931d214e92cddb70e8b7118b93a32d}{End\+Drawing}} (void)
+\begin{DoxyCompactList}\small\item\em Stop drawing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_ad2b72f4bc0d52f253eab73551868a8cf}{Draw\+Cube}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} position, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} scale, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} color)
+\begin{DoxyCompactList}\small\item\em Draw a cube at position, with scale, and color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_ad0b29acd5b0004e08dd50a448b7c6192}{Draw\+Cube\+Wires}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} position, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} scale, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} color)
+\begin{DoxyCompactList}\small\item\em Draw a cube\textquotesingle{}s outline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_aa64b948486ff5b406a543a62d496dffc}{Draw\+Sphere\+Wires}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} center\+Pos, float radius, int rings=20, int slices=20, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} color=R\+ED)
+\begin{DoxyCompactList}\small\item\em Draw sphere wires. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_a74314c98b52107d9ec6ee669d5afe988}{Draw\+Bounding\+Box}} (\mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} box, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} color)
+\begin{DoxyCompactList}\small\item\em Draw bounding box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_acfdf23bfaf8b46fe4894f0d16b649e46}{Draw\+Grid}} (int slices, float spacing)
+\begin{DoxyCompactList}\small\item\em Draw a grid with slices squares with spacing spaces. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classRayLib_1_1Window_a13c136897a616cf90bc883b2d7550717}{Get\+Frame\+Time}} (void)
+\begin{DoxyCompactList}\small\item\em Returns delta time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_a2afabef147ba02f8dcbf133e187b2013}{Set\+Window\+State}} (unsigned int flags)
+\begin{DoxyCompactList}\small\item\em Set window configuration state using flags. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_adaf309def9f458b0519d570667df632b}{Set\+Exit\+Key}} (int key)
+\begin{DoxyCompactList}\small\item\em set the key given as the exit key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Window_a02a2c15fa2e00f80ec8c1893cd5cf207}{Window}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ size=\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$(800, 450), const std\+::string \&title=\char`\"{}raylib\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Window}{Window}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRayLib_1_1Window_ab595e6b222153e90a80d796b511a5669}{Is\+File\+Dropped}} (void)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classRayLib_1_1Window_a59506938c0d50031e7565290925d5eb9}{Get\+Dropped\+Files}} (int $\ast$count)
+\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_afa609036bb301f996fcb916a8224f111}{Clear\+Dropped\+Files}} (void)
+\item 
+void \mbox{\hyperlink{classRayLib_1_1Window_a86baa3f256fc48e661029ff07ffc1aee}{Draw\+F\+PS}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ pos)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Window}} $>$ \& \mbox{\hyperlink{classRayLib_1_1Window_a636790ea94056f3dee6686803841f031}{Get\+Instance}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ size, const std\+::string \&title)
+\begin{DoxyCompactList}\small\item\em Function that returns the singleton. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classRayLib_1_1Window_afd9c68a070bbe5d0ff188881e2fe08e2}{Set\+Trace\+Log\+Level}} (int log\+Level)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classRayLib_1_1Window_a9fe576702b6d6b266fd01b775109aaff}{\+\_\+fullscreen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Window}} $>$ \mbox{\hyperlink{classRayLib_1_1Window_a466b4ad9f6589413254b17d4bb950274}{\+\_\+window}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1Window}{Window}} encapsulation (Singleton) 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Window_ab7494788aad03cdebe901c6d1ed04624}\label{classRayLib_1_1Window_ab7494788aad03cdebe901c6d1ed04624}} 
+\index{RayLib::Window@{RayLib::Window}!````~Window@{$\sim$Window}}
+\index{````~Window@{$\sim$Window}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{$\sim$Window()}{~Window()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Window\+::$\sim$\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Window}{Window}} object. 
+
+\mbox{\Hypertarget{classRayLib_1_1Window_a02a2c15fa2e00f80ec8c1893cd5cf207}\label{classRayLib_1_1Window_a02a2c15fa2e00f80ec8c1893cd5cf207}} 
+\index{RayLib::Window@{RayLib::Window}!Window@{Window}}
+\index{Window@{Window}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{Window()}{Window()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Window\+::\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$}]{size = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$int$>$(800,~450)},  }\item[{const std\+::string \&}]{title = {\ttfamily \char`\"{}raylib\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Window}{Window}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+{\em title} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Window_aab8fc89e0d8d4b77630c6ea341fc6a50}\label{classRayLib_1_1Window_aab8fc89e0d8d4b77630c6ea341fc6a50}} 
+\index{RayLib::Window@{RayLib::Window}!BeginDrawing@{BeginDrawing}}
+\index{BeginDrawing@{BeginDrawing}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{BeginDrawing()}{BeginDrawing()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Begin\+Drawing (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize canvas for drawing. 
+
+\mbox{\Hypertarget{classRayLib_1_1Window_a7e2e67fe5c18a497d5e7076a20d5b2bf}\label{classRayLib_1_1Window_a7e2e67fe5c18a497d5e7076a20d5b2bf}} 
+\index{RayLib::Window@{RayLib::Window}!ClearBackground@{ClearBackground}}
+\index{ClearBackground@{ClearBackground}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{ClearBackground()}{ClearBackground()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Clear\+Background (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{color = {\ttfamily BLACK} }\end{DoxyParamCaption})}
+
+
+
+Set window background to color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_afa609036bb301f996fcb916a8224f111}\label{classRayLib_1_1Window_afa609036bb301f996fcb916a8224f111}} 
+\index{RayLib::Window@{RayLib::Window}!ClearDroppedFiles@{ClearDroppedFiles}}
+\index{ClearDroppedFiles@{ClearDroppedFiles}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{ClearDroppedFiles()}{ClearDroppedFiles()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Clear\+Dropped\+Files (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRayLib_1_1Window_a0dade9d1b7b7e0f6df4dc0b8fbde8dc3}\label{classRayLib_1_1Window_a0dade9d1b7b7e0f6df4dc0b8fbde8dc3}} 
+\index{RayLib::Window@{RayLib::Window}!CloseWindow@{CloseWindow}}
+\index{CloseWindow@{CloseWindow}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{CloseWindow()}{CloseWindow()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Close\+Window (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Close the window. 
+
+\begin{DoxyReturn}{Returns}
+vois 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Window_a74314c98b52107d9ec6ee669d5afe988}\label{classRayLib_1_1Window_a74314c98b52107d9ec6ee669d5afe988}} 
+\index{RayLib::Window@{RayLib::Window}!DrawBoundingBox@{DrawBoundingBox}}
+\index{DrawBoundingBox@{DrawBoundingBox}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{DrawBoundingBox()}{DrawBoundingBox()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Draw\+Bounding\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}}}]{box,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw bounding box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_ad2b72f4bc0d52f253eab73551868a8cf}\label{classRayLib_1_1Window_ad2b72f4bc0d52f253eab73551868a8cf}} 
+\index{RayLib::Window@{RayLib::Window}!DrawCube@{DrawCube}}
+\index{DrawCube@{DrawCube}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{DrawCube()}{DrawCube()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Draw\+Cube (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{scale,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a cube at position, with scale, and color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em scale} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_ad0b29acd5b0004e08dd50a448b7c6192}\label{classRayLib_1_1Window_ad0b29acd5b0004e08dd50a448b7c6192}} 
+\index{RayLib::Window@{RayLib::Window}!DrawCubeWires@{DrawCubeWires}}
+\index{DrawCubeWires@{DrawCubeWires}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{DrawCubeWires()}{DrawCubeWires()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Draw\+Cube\+Wires (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{scale,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a cube\textquotesingle{}s outline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em scale} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_a86baa3f256fc48e661029ff07ffc1aee}\label{classRayLib_1_1Window_a86baa3f256fc48e661029ff07ffc1aee}} 
+\index{RayLib::Window@{RayLib::Window}!DrawFPS@{DrawFPS}}
+\index{DrawFPS@{DrawFPS}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{DrawFPS()}{DrawFPS()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Draw\+F\+PS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRayLib_1_1Window_acfdf23bfaf8b46fe4894f0d16b649e46}\label{classRayLib_1_1Window_acfdf23bfaf8b46fe4894f0d16b649e46}} 
+\index{RayLib::Window@{RayLib::Window}!DrawGrid@{DrawGrid}}
+\index{DrawGrid@{DrawGrid}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{DrawGrid()}{DrawGrid()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Draw\+Grid (\begin{DoxyParamCaption}\item[{int}]{slices,  }\item[{float}]{spacing }\end{DoxyParamCaption})}
+
+
+
+Draw a grid with slices squares with spacing spaces. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em slices} & \\
+\hline
+{\em spacing} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_aa64b948486ff5b406a543a62d496dffc}\label{classRayLib_1_1Window_aa64b948486ff5b406a543a62d496dffc}} 
+\index{RayLib::Window@{RayLib::Window}!DrawSphereWires@{DrawSphereWires}}
+\index{DrawSphereWires@{DrawSphereWires}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{DrawSphereWires()}{DrawSphereWires()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Draw\+Sphere\+Wires (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{center\+Pos,  }\item[{float}]{radius,  }\item[{int}]{rings = {\ttfamily 20},  }\item[{int}]{slices = {\ttfamily 20},  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{color = {\ttfamily RED} }\end{DoxyParamCaption})}
+
+
+
+Draw sphere wires. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em scale} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_ad9931d214e92cddb70e8b7118b93a32d}\label{classRayLib_1_1Window_ad9931d214e92cddb70e8b7118b93a32d}} 
+\index{RayLib::Window@{RayLib::Window}!EndDrawing@{EndDrawing}}
+\index{EndDrawing@{EndDrawing}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{EndDrawing()}{EndDrawing()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+End\+Drawing (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Stop drawing. 
+
+\mbox{\Hypertarget{classRayLib_1_1Window_a59506938c0d50031e7565290925d5eb9}\label{classRayLib_1_1Window_a59506938c0d50031e7565290925d5eb9}} 
+\index{RayLib::Window@{RayLib::Window}!GetDroppedFiles@{GetDroppedFiles}}
+\index{GetDroppedFiles@{GetDroppedFiles}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{GetDroppedFiles()}{GetDroppedFiles()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Ray\+Lib\+::\+Window\+::\+Get\+Dropped\+Files (\begin{DoxyParamCaption}\item[{int $\ast$}]{count }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRayLib_1_1Window_a13c136897a616cf90bc883b2d7550717}\label{classRayLib_1_1Window_a13c136897a616cf90bc883b2d7550717}} 
+\index{RayLib::Window@{RayLib::Window}!GetFrameTime@{GetFrameTime}}
+\index{GetFrameTime@{GetFrameTime}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{GetFrameTime()}{GetFrameTime()}}
+{\footnotesize\ttfamily float Ray\+Lib\+::\+Window\+::\+Get\+Frame\+Time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns delta time. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Window_a636790ea94056f3dee6686803841f031}\label{classRayLib_1_1Window_a636790ea94056f3dee6686803841f031}} 
+\index{RayLib::Window@{RayLib::Window}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Window}} $>$ \& Ray\+Lib\+::\+Window\+::\+Get\+Instance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$}]{size,  }\item[{const std\+::string \&}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function that returns the singleton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+{\em title} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::unique\+\_\+ptr$<$\+Window$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Window_aa332111172eca53bc2e99888a6e6436d}\label{classRayLib_1_1Window_aa332111172eca53bc2e99888a6e6436d}} 
+\index{RayLib::Window@{RayLib::Window}!GetMaxSize@{GetMaxSize}}
+\index{GetMaxSize@{GetMaxSize}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{GetMaxSize()}{GetMaxSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ Ray\+Lib\+::\+Window\+::\+Get\+Max\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the monitor\textquotesingle{}s size as a vector2$<$int$>$ 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2$<$int$>$}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Window_ab3dbdf4051a23cb7abddf4766aa4ca20}\label{classRayLib_1_1Window_ab3dbdf4051a23cb7abddf4766aa4ca20}} 
+\index{RayLib::Window@{RayLib::Window}!GetScale@{GetScale}}
+\index{GetScale@{GetScale}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{GetScale()}{GetScale()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ float $>$ Ray\+Lib\+::\+Window\+::\+Get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Scale between monitor size and window size. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2$<$float$>$}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Window_aef873efb197d8da8072d39e4562ca741}\label{classRayLib_1_1Window_aef873efb197d8da8072d39e4562ca741}} 
+\index{RayLib::Window@{RayLib::Window}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ Ray\+Lib\+::\+Window\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the window\textquotesingle{}s size as a vector2$<$int$>$ 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2$<$int$>$}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Window_ab595e6b222153e90a80d796b511a5669}\label{classRayLib_1_1Window_ab595e6b222153e90a80d796b511a5669}} 
+\index{RayLib::Window@{RayLib::Window}!IsFileDropped@{IsFileDropped}}
+\index{IsFileDropped@{IsFileDropped}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{IsFileDropped()}{IsFileDropped()}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Window\+::\+Is\+File\+Dropped (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRayLib_1_1Window_a7c4316b87b5e2548123221af98ce30dc}\label{classRayLib_1_1Window_a7c4316b87b5e2548123221af98ce30dc}} 
+\index{RayLib::Window@{RayLib::Window}!IsFullScreen@{IsFullScreen}}
+\index{IsFullScreen@{IsFullScreen}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{IsFullScreen()}{IsFullScreen()}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Window\+::\+Is\+Full\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get \mbox{\hyperlink{classRayLib_1_1Window}{Window}} State mode. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Window_adaf309def9f458b0519d570667df632b}\label{classRayLib_1_1Window_adaf309def9f458b0519d570667df632b}} 
+\index{RayLib::Window@{RayLib::Window}!SetExitKey@{SetExitKey}}
+\index{SetExitKey@{SetExitKey}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{SetExitKey()}{SetExitKey()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Set\+Exit\+Key (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+
+
+set the key given as the exit key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_af2b860de263a9a6d697ccbb4cbe11b23}\label{classRayLib_1_1Window_af2b860de263a9a6d697ccbb4cbe11b23}} 
+\index{RayLib::Window@{RayLib::Window}!SetIcon@{SetIcon}}
+\index{SetIcon@{SetIcon}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{SetIcon()}{SetIcon()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Set\+Icon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Image}{Image}} \&}]{image }\end{DoxyParamCaption})}
+
+
+
+Set the window\textquotesingle{}s Icon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_a9ea0158a9977e7cc67454c8742b6af33}\label{classRayLib_1_1Window_a9ea0158a9977e7cc67454c8742b6af33}} 
+\index{RayLib::Window@{RayLib::Window}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Set\+Size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ int $>$ \&}]{size }\end{DoxyParamCaption})}
+
+
+
+Set the window\textquotesingle{}s size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_a5d517754a4a6e797817655f4c98b325a}\label{classRayLib_1_1Window_a5d517754a4a6e797817655f4c98b325a}} 
+\index{RayLib::Window@{RayLib::Window}!SetTargetFPS@{SetTargetFPS}}
+\index{SetTargetFPS@{SetTargetFPS}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{SetTargetFPS()}{SetTargetFPS()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Set\+Target\+F\+PS (\begin{DoxyParamCaption}\item[{int}]{target }\end{DoxyParamCaption})}
+
+
+
+Set the target F\+PS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_ad688e3080d452db982b990e34d79298b}\label{classRayLib_1_1Window_ad688e3080d452db982b990e34d79298b}} 
+\index{RayLib::Window@{RayLib::Window}!SetTitle@{SetTitle}}
+\index{SetTitle@{SetTitle}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{SetTitle()}{SetTitle()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Set\+Title (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title }\end{DoxyParamCaption})}
+
+
+
+Set the window\textquotesingle{}s title. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_afd9c68a070bbe5d0ff188881e2fe08e2}\label{classRayLib_1_1Window_afd9c68a070bbe5d0ff188881e2fe08e2}} 
+\index{RayLib::Window@{RayLib::Window}!SetTraceLogLevel@{SetTraceLogLevel}}
+\index{SetTraceLogLevel@{SetTraceLogLevel}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{SetTraceLogLevel()}{SetTraceLogLevel()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Set\+Trace\+Log\+Level (\begin{DoxyParamCaption}\item[{int}]{log\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Window_a2afabef147ba02f8dcbf133e187b2013}\label{classRayLib_1_1Window_a2afabef147ba02f8dcbf133e187b2013}} 
+\index{RayLib::Window@{RayLib::Window}!SetWindowState@{SetWindowState}}
+\index{SetWindowState@{SetWindowState}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{SetWindowState()}{SetWindowState()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Set\+Window\+State (\begin{DoxyParamCaption}\item[{unsigned int}]{flags }\end{DoxyParamCaption})}
+
+
+
+Set window configuration state using flags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flags} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_a6397587555f5b0bd175aae9869aeed8a}\label{classRayLib_1_1Window_a6397587555f5b0bd175aae9869aeed8a}} 
+\index{RayLib::Window@{RayLib::Window}!ToggleFullScreen@{ToggleFullScreen}}
+\index{ToggleFullScreen@{ToggleFullScreen}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{ToggleFullScreen()}{ToggleFullScreen()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Window\+::\+Toggle\+Full\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Change \mbox{\hyperlink{classRayLib_1_1Window}{Window}} State mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Window_ae868e41f46671d40589010ab874f84c7}\label{classRayLib_1_1Window_ae868e41f46671d40589010ab874f84c7}} 
+\index{RayLib::Window@{RayLib::Window}!WindowShouldClose@{WindowShouldClose}}
+\index{WindowShouldClose@{WindowShouldClose}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{WindowShouldClose()}{WindowShouldClose()}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Window\+::\+Window\+Should\+Close (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns true if you press E\+SC or close button. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Window_a9fe576702b6d6b266fd01b775109aaff}\label{classRayLib_1_1Window_a9fe576702b6d6b266fd01b775109aaff}} 
+\index{RayLib::Window@{RayLib::Window}!\_fullscreen@{\_fullscreen}}
+\index{\_fullscreen@{\_fullscreen}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{\_fullscreen}{\_fullscreen}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Window\+::\+\_\+fullscreen\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Window_a466b4ad9f6589413254b17d4bb950274}\label{classRayLib_1_1Window_a466b4ad9f6589413254b17d4bb950274}} 
+\index{RayLib::Window@{RayLib::Window}!\_window@{\_window}}
+\index{\_window@{\_window}!RayLib::Window@{RayLib::Window}}
+\doxysubsubsection{\texorpdfstring{\_window}{\_window}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Window}} $>$ Ray\+Lib\+::\+Window\+::\+\_\+window = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Window/\mbox{\hyperlink{Window_8hpp}{Window.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Window/\mbox{\hyperlink{Window_8cpp}{Window.\+cpp}}\end{DoxyCompactItemize}

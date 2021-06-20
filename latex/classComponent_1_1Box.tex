@@ -1,0 +1,191 @@
+\hypertarget{classComponent_1_1Box}{}\doxysection{Component\+::Box Class Reference}
+\label{classComponent_1_1Box}\index{Component::Box@{Component::Box}}
+
+
+{\ttfamily \#include $<$Box.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Box__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Box__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Box_a4fa7569d259c385e1543ff82376943a5}{Box}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, int resistance=1, float loot\+Chance=0.\+1f)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Box_acf33fbd2e259577979fd4c7113513dea}{$\sim$\+Box}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Box_aed8c05b309143ac3297b6f76e9902261}{Box}} (const \mbox{\hyperlink{classComponent_1_1Box}{Box}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Box}{Box}} \& \mbox{\hyperlink{classComponent_1_1Box_a4953047699c99b3ec4d9259c4a13fa39}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Box}{Box}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1Box_a79f5d5370c410a71399940ad03be6e84}{Take\+Damage}} (int damage) override
+\begin{DoxyCompactList}\small\item\em Remove resistance from the damage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Box_a6e598a2df7bd472cedab9125297b8715}{Spawn\+Loot}} (void)
+\begin{DoxyCompactList}\small\item\em Spawn an object from the \mbox{\hyperlink{classComponent_1_1Box}{Box}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Box_ab1a3f89c0a9a330e3160f806da18b509}{Spawn\+Particles}} (void)
+\begin{DoxyCompactList}\small\item\em Spawn particles from the \mbox{\hyperlink{classComponent_1_1Box}{Box}}. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Box_a2c9f2765504a9fa74db45642d9fd1295}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Box_a6a02a4c564d0bad1871dfa467d6c8381}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classComponent_1_1Box_a38afc85e572d3942834138f61b3e0d95}{\+\_\+loot\+Chance}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Box_a4fa7569d259c385e1543ff82376943a5}\label{classComponent_1_1Box_a4fa7569d259c385e1543ff82376943a5}} 
+\index{Component::Box@{Component::Box}!Box@{Box}}
+\index{Box@{Box}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{Box()}{Box()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Box\+::\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{int}]{resistance = {\ttfamily 1},  }\item[{float}]{loot\+Chance = {\ttfamily 0.1f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em resistance} & \\
+\hline
+{\em loot\+Chance} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Box_acf33fbd2e259577979fd4c7113513dea}\label{classComponent_1_1Box_acf33fbd2e259577979fd4c7113513dea}} 
+\index{Component::Box@{Component::Box}!````~Box@{$\sim$Box}}
+\index{````~Box@{$\sim$Box}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{$\sim$Box()}{~Box()}}
+{\footnotesize\ttfamily Component\+::\+Box\+::$\sim$\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Box_aed8c05b309143ac3297b6f76e9902261}\label{classComponent_1_1Box_aed8c05b309143ac3297b6f76e9902261}} 
+\index{Component::Box@{Component::Box}!Box@{Box}}
+\index{Box@{Box}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{Box()}{Box()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Box\+::\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Box}{Box}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Box_a6a02a4c564d0bad1871dfa467d6c8381}\label{classComponent_1_1Box_a6a02a4c564d0bad1871dfa467d6c8381}} 
+\index{Component::Box@{Component::Box}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree \& Component\+::\+Box\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Box_a2c9f2765504a9fa74db45642d9fd1295}\label{classComponent_1_1Box_a2c9f2765504a9fa74db45642d9fd1295}} 
+\index{Component::Box@{Component::Box}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& Component\+::\+Box\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Box_a4953047699c99b3ec4d9259c4a13fa39}\label{classComponent_1_1Box_a4953047699c99b3ec4d9259c4a13fa39}} 
+\index{Component::Box@{Component::Box}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Box}{Box}}\& Component\+::\+Box\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Box}{Box}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Box}{Box}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Box_a6e598a2df7bd472cedab9125297b8715}\label{classComponent_1_1Box_a6e598a2df7bd472cedab9125297b8715}} 
+\index{Component::Box@{Component::Box}!SpawnLoot@{SpawnLoot}}
+\index{SpawnLoot@{SpawnLoot}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{SpawnLoot()}{SpawnLoot()}}
+{\footnotesize\ttfamily void Component\+::\+Box\+::\+Spawn\+Loot (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Spawn an object from the \mbox{\hyperlink{classComponent_1_1Box}{Box}}. 
+
+\mbox{\Hypertarget{classComponent_1_1Box_ab1a3f89c0a9a330e3160f806da18b509}\label{classComponent_1_1Box_ab1a3f89c0a9a330e3160f806da18b509}} 
+\index{Component::Box@{Component::Box}!SpawnParticles@{SpawnParticles}}
+\index{SpawnParticles@{SpawnParticles}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{SpawnParticles()}{SpawnParticles()}}
+{\footnotesize\ttfamily void Component\+::\+Box\+::\+Spawn\+Particles (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Spawn particles from the \mbox{\hyperlink{classComponent_1_1Box}{Box}}. 
+
+\mbox{\Hypertarget{classComponent_1_1Box_a79f5d5370c410a71399940ad03be6e84}\label{classComponent_1_1Box_a79f5d5370c410a71399940ad03be6e84}} 
+\index{Component::Box@{Component::Box}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily void Component\+::\+Box\+::\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Remove resistance from the damage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_1_1Destructible_a1f5adccada003e0dc6f9b49116bd0100}{Component\+::\+Destructible}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Box_a38afc85e572d3942834138f61b3e0d95}\label{classComponent_1_1Box_a38afc85e572d3942834138f61b3e0d95}} 
+\index{Component::Box@{Component::Box}!\_lootChance@{\_lootChance}}
+\index{\_lootChance@{\_lootChance}!Component::Box@{Component::Box}}
+\doxysubsubsection{\texorpdfstring{\_lootChance}{\_lootChance}}
+{\footnotesize\ttfamily float Component\+::\+Box\+::\+\_\+loot\+Chance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Box/\mbox{\hyperlink{Box_8hpp}{Box.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Box/\mbox{\hyperlink{Box_8cpp}{Box.\+cpp}}\end{DoxyCompactItemize}

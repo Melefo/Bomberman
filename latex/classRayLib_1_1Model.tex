@@ -1,0 +1,252 @@
+\hypertarget{classRayLib_1_1Model}{}\doxysection{Ray\+Lib\+::Model Class Reference}
+\label{classRayLib_1_1Model}\index{RayLib::Model@{RayLib::Model}}
+
+
+\mbox{\hyperlink{classRayLib_1_1Model}{Model}} encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Model.\+hpp$>$}
+
+
+
+Inheritance diagram for Ray\+Lib\+::Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classRayLib_1_1Model__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ray\+Lib\+::Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{classRayLib_1_1Model__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Model_af205844c34de2c7091f47334d8506351}{Model}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object based on given file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Model_a4899b6579adcf9a73c169e140d4b655b}{Model}} (\mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} \&mesh)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object based on mesh. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Model_af331ff83c711d80909fca041b67e1962}{Model}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object Create a cube mesh and create from there. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Model_ae4695ee2aa8bc4a1f43059faa2447f63}{$\sim$\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Model_ad2e33f7ff71398ffcd6f2b346c9a5c88}{Draw}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} position, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} scale, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} tint)
+\begin{DoxyCompactList}\small\item\em Draw model at position, with scale, and tint. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Model_a54936709a8e28e5292038ef6cc0dcc45}{Draw\+Ex}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} position, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} rotation\+Axis, float rotation\+Angle, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} scale, \mbox{\hyperlink{classRayLib_1_1Color}{Color}} tint)
+\begin{DoxyCompactList}\small\item\em Draw model, with rotation parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Model_ad3fd107a70f7eceb3a54e41b042a85eb}{Set\+Material\+Texture}} (int mat\+Index, int map\+Type, \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} \&text)
+\begin{DoxyCompactList}\small\item\em Set the Material\textquotesingle{}s \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Model_aa97891b6b7cfc6e32a58d0db12cb0bad}{Set\+Material\+Shader}} (int mat\+Index, \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \&shader)
+\begin{DoxyCompactList}\small\item\em Set the Material\textquotesingle{}s \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}}. \end{DoxyCompactList}\item 
+const \+::\mbox{\hyperlink{classRayLib_1_1Model}{Model}} \mbox{\hyperlink{classRayLib_1_1Model_abd676771212eecbaeb445c6a29f510dc}{Get\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object as a raylib structure. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classRayLib_1_1Model_a3fed6ade5715ca86a4091f9c9b9015d6}{Get\+File\+Name}} () const
+\item 
+void \mbox{\hyperlink{classRayLib_1_1Model_adfe6b2201cb2203eca3bfe46de4be0dd}{Rotate\+Model}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} rotation)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\+::\mbox{\hyperlink{classRayLib_1_1Model}{Model}} \mbox{\hyperlink{classRayLib_1_1Model_a5eaefb5891648b651f0aa812af2d8c1f}{\+\_\+model}}
+\begin{DoxyCompactList}\small\item\em The C raylib\textquotesingle{}s \mbox{\hyperlink{classRayLib_1_1Model}{Model}} structure. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRayLib_1_1Model_a1dbc2168bc392dbffe4d272df2d29eec}{\+\_\+file\+Name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1Model}{Model}} encapsulation. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Model_af205844c34de2c7091f47334d8506351}\label{classRayLib_1_1Model_af205844c34de2c7091f47334d8506351}} 
+\index{RayLib::Model@{RayLib::Model}!Model@{Model}}
+\index{Model@{Model}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Model\+::\+Model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object based on given file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Model_a4899b6579adcf9a73c169e140d4b655b}\label{classRayLib_1_1Model_a4899b6579adcf9a73c169e140d4b655b}} 
+\index{RayLib::Model@{RayLib::Model}!Model@{Model}}
+\index{Model@{Model}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Model\+::\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Mesh}{Mesh}} \&}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object based on mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Model_af331ff83c711d80909fca041b67e1962}\label{classRayLib_1_1Model_af331ff83c711d80909fca041b67e1962}} 
+\index{RayLib::Model@{RayLib::Model}!Model@{Model}}
+\index{Model@{Model}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Model\+::\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object Create a cube mesh and create from there. 
+
+\mbox{\Hypertarget{classRayLib_1_1Model_ae4695ee2aa8bc4a1f43059faa2447f63}\label{classRayLib_1_1Model_ae4695ee2aa8bc4a1f43059faa2447f63}} 
+\index{RayLib::Model@{RayLib::Model}!````~Model@{$\sim$Model}}
+\index{````~Model@{$\sim$Model}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{$\sim$Model()}{~Model()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Model\+::$\sim$\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Model_ad2e33f7ff71398ffcd6f2b346c9a5c88}\label{classRayLib_1_1Model_ad2e33f7ff71398ffcd6f2b346c9a5c88}} 
+\index{RayLib::Model@{RayLib::Model}!Draw@{Draw}}
+\index{Draw@{Draw}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Model\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{scale,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{tint }\end{DoxyParamCaption})}
+
+
+
+Draw model at position, with scale, and tint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em scale} & \\
+\hline
+{\em tint} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Model_a54936709a8e28e5292038ef6cc0dcc45}\label{classRayLib_1_1Model_a54936709a8e28e5292038ef6cc0dcc45}} 
+\index{RayLib::Model@{RayLib::Model}!DrawEx@{DrawEx}}
+\index{DrawEx@{DrawEx}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{DrawEx()}{DrawEx()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Model\+::\+Draw\+Ex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{rotation\+Axis,  }\item[{float}]{rotation\+Angle,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{scale,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{tint }\end{DoxyParamCaption})}
+
+
+
+Draw model, with rotation parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em rotation\+Axis} & \\
+\hline
+{\em rotation\+Angle} & \\
+\hline
+{\em scale} & \\
+\hline
+{\em tint} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Model_a3fed6ade5715ca86a4091f9c9b9015d6}\label{classRayLib_1_1Model_a3fed6ade5715ca86a4091f9c9b9015d6}} 
+\index{RayLib::Model@{RayLib::Model}!GetFileName@{GetFileName}}
+\index{GetFileName@{GetFileName}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{GetFileName()}{GetFileName()}}
+{\footnotesize\ttfamily const std\+::string \& Ray\+Lib\+::\+Model\+::\+Get\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classRayLib_1_1Model_abd676771212eecbaeb445c6a29f510dc}\label{classRayLib_1_1Model_abd676771212eecbaeb445c6a29f510dc}} 
+\index{RayLib::Model@{RayLib::Model}!GetModel@{GetModel}}
+\index{GetModel@{GetModel}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{GetModel()}{GetModel()}}
+{\footnotesize\ttfamily const \+::\mbox{\hyperlink{classRayLib_1_1Model}{Model}} Ray\+Lib\+::\+Model\+::\+Get\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classRayLib_1_1Model}{Model}} object as a raylib structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Model 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Model_adfe6b2201cb2203eca3bfe46de4be0dd}\label{classRayLib_1_1Model_adfe6b2201cb2203eca3bfe46de4be0dd}} 
+\index{RayLib::Model@{RayLib::Model}!RotateModel@{RotateModel}}
+\index{RotateModel@{RotateModel}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{RotateModel()}{RotateModel()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Model\+::\+Rotate\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{rotation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRayLib_1_1Model_aa97891b6b7cfc6e32a58d0db12cb0bad}\label{classRayLib_1_1Model_aa97891b6b7cfc6e32a58d0db12cb0bad}} 
+\index{RayLib::Model@{RayLib::Model}!SetMaterialShader@{SetMaterialShader}}
+\index{SetMaterialShader@{SetMaterialShader}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{SetMaterialShader()}{SetMaterialShader()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Model\+::\+Set\+Material\+Shader (\begin{DoxyParamCaption}\item[{int}]{mat\+Index,  }\item[{\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \&}]{shader }\end{DoxyParamCaption})}
+
+
+
+Set the Material\textquotesingle{}s \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat\+Index} & default 0 \\
+\hline
+{\em shader} & The \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} to assign \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Model_ad3fd107a70f7eceb3a54e41b042a85eb}\label{classRayLib_1_1Model_ad3fd107a70f7eceb3a54e41b042a85eb}} 
+\index{RayLib::Model@{RayLib::Model}!SetMaterialTexture@{SetMaterialTexture}}
+\index{SetMaterialTexture@{SetMaterialTexture}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{SetMaterialTexture()}{SetMaterialTexture()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Model\+::\+Set\+Material\+Texture (\begin{DoxyParamCaption}\item[{int}]{mat\+Index,  }\item[{int}]{map\+Type,  }\item[{\mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Set the Material\textquotesingle{}s \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat\+Index} & default 0 \\
+\hline
+{\em map\+Type} & default M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+M\+A\+P\+\_\+\+D\+I\+F\+F\+U\+SE \\
+\hline
+{\em text} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Model_a1dbc2168bc392dbffe4d272df2d29eec}\label{classRayLib_1_1Model_a1dbc2168bc392dbffe4d272df2d29eec}} 
+\index{RayLib::Model@{RayLib::Model}!\_fileName@{\_fileName}}
+\index{\_fileName@{\_fileName}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{\_fileName}{\_fileName}}
+{\footnotesize\ttfamily std\+::string Ray\+Lib\+::\+Model\+::\+\_\+file\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Model_a5eaefb5891648b651f0aa812af2d8c1f}\label{classRayLib_1_1Model_a5eaefb5891648b651f0aa812af2d8c1f}} 
+\index{RayLib::Model@{RayLib::Model}!\_model@{\_model}}
+\index{\_model@{\_model}!RayLib::Model@{RayLib::Model}}
+\doxysubsubsection{\texorpdfstring{\_model}{\_model}}
+{\footnotesize\ttfamily \+::\mbox{\hyperlink{classRayLib_1_1Model}{Model}} Ray\+Lib\+::\+Model\+::\+\_\+model\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The C raylib\textquotesingle{}s \mbox{\hyperlink{classRayLib_1_1Model}{Model}} structure. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Model/\mbox{\hyperlink{Model_8hpp}{Model.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Model/\mbox{\hyperlink{Model_8cpp}{Model.\+cpp}}\end{DoxyCompactItemize}

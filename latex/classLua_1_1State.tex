@@ -1,0 +1,626 @@
+\hypertarget{classLua_1_1State}{}\doxysection{Lua\+::State Class Reference}
+\label{classLua_1_1State}\index{Lua::State@{Lua::State}}
+
+
+\mbox{\hyperlink{namespaceLua}{Lua}} Stack \mbox{\hyperlink{classLua_1_1State}{State}}.  
+
+
+
+
+{\ttfamily \#include $<$State.\+hpp$>$}
+
+
+
+Collaboration diagram for Lua\+::State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{classLua_1_1State__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLua_1_1State_a288428f06f8d394736affe24440af0da}{State}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classLua_1_1State}{State}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1State_a3f3c276a698ffc6c505253b988336345}{$\sim$\+State}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classLua_1_1State}{State}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1State_a9a6ddeb8a1a11f4dd4964a9a394f6359}{State}} (const \mbox{\hyperlink{classLua_1_1State}{State}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new \mbox{\hyperlink{classLua_1_1State}{State}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1State}{State}} \& \mbox{\hyperlink{classLua_1_1State_a0db1481656112d9079f2738066bccd94}{operator=}} (const \mbox{\hyperlink{classLua_1_1State}{State}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classLua_1_1State}{State}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLua_1_1State_ae4cc2fb0092ed79c2f13f4c0369fd3c5}{Run\+Script}} (std\+::string filepath)
+\begin{DoxyCompactList}\small\item\em Run a .lua script. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{classLua_1_1State_a8672c9591d1552d464c392b96c0fa459}{Get\+Global}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Get a \mbox{\hyperlink{namespaceLua}{Lua}} Global variable. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classLua_1_1State_a1647d22b19d293502831091318490ef0}{Set\+Global}} (std\+::string name, T value)
+\begin{DoxyCompactList}\small\item\em Set a \mbox{\hyperlink{namespaceLua}{Lua}} Global variable. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T  = void, typename... Args$>$ }\\T \mbox{\hyperlink{classLua_1_1State_a7bbfeffacc4e7b696b28a59ae32c258f}{Call}} (std\+::string name, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Call a \mbox{\hyperlink{namespaceLua}{Lua}} function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLua_1_1State_a8ce1d1d618494572dc47813909a6931f}{Push}} (lua\+\_\+\+C\+Function f)
+\begin{DoxyCompactList}\small\item\em Push a C-\/like Function to \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLua_1_1State_a829576e171bc42f1ca4b560c68b83209}{Push}} (bool b)
+\begin{DoxyCompactList}\small\item\em Push a boolean to \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLua_1_1State_aaa49f7921a4cf5241e5741cf6c1dc634}{Push}} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Push a string to \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLua_1_1State_a75a1f04250faf99040eb18bb1fca1ff6}{Push}} (\mbox{\hyperlink{classLua_1_1Nil}{Nil}})
+\begin{DoxyCompactList}\small\item\em Push a Null to \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ std\+::is\+\_\+arithmetic$<$ T $>$\+::value $>$\+::type \mbox{\hyperlink{classLua_1_1State_a3b4a76e0cc9cdabce5aa5d170f363911}{Push}} (T t)
+\begin{DoxyCompactList}\small\item\em Push a number to \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classLua_1_1State_a86a78c0da905eed54830f0dce9c6f4b0}{Push}} (std\+::vector$<$ T $>$ vec)
+\begin{DoxyCompactList}\small\item\em Push a vector to \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classLua_1_1State_a781b16d716607ae52d0703492a55636d}{Push}} (std\+::map$<$ std\+::string, T $>$ map)
+\begin{DoxyCompactList}\small\item\em Push a map to \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classLua_1_1State_abed3b25962db5478b01c1ca45d264557}{Push}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$ vec)
+\begin{DoxyCompactList}\small\item\em Push a map to \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ \mbox{\hyperlink{structLua_1_1is__vector}{is\+\_\+vector}}$<$ T $>$\+::value, T $>$\+::type \mbox{\hyperlink{classLua_1_1State_a27dca00843ede63ff24ce86c74766cde}{Pop}} (int index)
+\begin{DoxyCompactList}\small\item\em Pop a vector from \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ \mbox{\hyperlink{structLua_1_1is__map}{is\+\_\+map}}$<$ T $>$\+::value, T $>$\+::type \mbox{\hyperlink{classLua_1_1State_a5250f04846405dde94b98c00e5d0dd38}{Pop}} (int index)
+\begin{DoxyCompactList}\small\item\em Pop a map from \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ \mbox{\hyperlink{structLua_1_1is__rayvector}{is\+\_\+rayvector}}$<$ T $>$\+::value, T $>$\+::type \mbox{\hyperlink{classLua_1_1State_acac4d1a544b7eca7d8fb3c323e114588}{Pop}} (int index)
+\begin{DoxyCompactList}\small\item\em Pop a \mbox{\hyperlink{namespaceRayLib}{Ray\+Lib}} Vector from \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ std\+::is\+\_\+same$<$ T, bool $>$\+::value, T $>$\+::type \mbox{\hyperlink{classLua_1_1State_a56c8f2514eed6023df5a86dc1aafa499}{Pop}} (int index)
+\begin{DoxyCompactList}\small\item\em Pop a bool from \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ std\+::is\+\_\+arithmetic$<$ T $>$\+::value \&\&!std\+::is\+\_\+same$<$ T, bool $>$\+::value, T $>$\+::type \mbox{\hyperlink{classLua_1_1State_aeb11c22e71621309e95a5b71f0ee34a2}{Pop}} (int index)
+\begin{DoxyCompactList}\small\item\em Pop a number from \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ std\+::is\+\_\+same$<$ T, std\+::string $>$\+::value, T $>$\+::type \mbox{\hyperlink{classLua_1_1State_aeff4d6f946e1e87880388719b782d474}{Pop}} (int index)
+\begin{DoxyCompactList}\small\item\em Pop a string from \mbox{\hyperlink{namespaceLua}{Lua}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ std\+::is\+\_\+same$<$ T, lua\+\_\+\+C\+Function $>$\+::value, T $>$\+::type \mbox{\hyperlink{classLua_1_1State_af497a5b75516b2e86f852c72fe62a829}{Pop}} (int index)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if$<$ std\+::is\+\_\+same$<$ T, void $>$\+::value, T $>$\+::type \mbox{\hyperlink{classLua_1_1State_a5c8bc73e565c72b4d78fa5a25952f280}{Pop}} (int)
+\begin{DoxyCompactList}\small\item\em Pop nothing, fallback pop if void. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ lua\+\_\+\+State, \mbox{\hyperlink{structLua_1_1close}{close}} $>$ \& \mbox{\hyperlink{classLua_1_1State_a70ba35bbac85827a5635a19850a22b86}{Get\+Lua\+State}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{namespaceLua}{Lua}} \mbox{\hyperlink{classLua_1_1State}{State}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLua_1_1State_a47a156ae5ab7f579d994391ef321516d}{Push\+Many}} ()
+\begin{DoxyCompactList}\small\item\em End of Templated Push\+Many. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename A1 , typename... A$>$ }\\void \mbox{\hyperlink{classLua_1_1State_a21d5c4c581340cebb9b9d7e546750727}{Push\+Many}} (A1 \&\&first, A \&\&... params)
+\begin{DoxyCompactList}\small\item\em Push to \mbox{\hyperlink{namespaceLua}{Lua}} a C\+PP variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLua_1_1State_a15492eb94c52344b47db2fc26e2353ee}{Create\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Create a Table object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ lua\+\_\+\+State, \mbox{\hyperlink{structLua_1_1close}{close}} $>$ \mbox{\hyperlink{classLua_1_1State_a829ebf59d129746956835c49c1ffa0b7}{\+\_\+ls}}
+\begin{DoxyCompactList}\small\item\em Current state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespaceLua}{Lua}} Stack \mbox{\hyperlink{classLua_1_1State}{State}}. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLua_1_1State_a288428f06f8d394736affe24440af0da}\label{classLua_1_1State_a288428f06f8d394736affe24440af0da}} 
+\index{Lua::State@{Lua::State}!State@{State}}
+\index{State@{State}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{State()}{State()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Lua\+::\+State\+::\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classLua_1_1State}{State}} object. 
+
+\mbox{\Hypertarget{classLua_1_1State_a3f3c276a698ffc6c505253b988336345}\label{classLua_1_1State_a3f3c276a698ffc6c505253b988336345}} 
+\index{Lua::State@{Lua::State}!````~State@{$\sim$State}}
+\index{````~State@{$\sim$State}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{$\sim$State()}{~State()}}
+{\footnotesize\ttfamily Lua\+::\+State\+::$\sim$\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classLua_1_1State}{State}} object. 
+
+\mbox{\Hypertarget{classLua_1_1State_a9a6ddeb8a1a11f4dd4964a9a394f6359}\label{classLua_1_1State_a9a6ddeb8a1a11f4dd4964a9a394f6359}} 
+\index{Lua::State@{Lua::State}!State@{State}}
+\index{State@{State}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{State()}{State()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Lua\+::\+State\+::\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLua_1_1State}{State}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new \mbox{\hyperlink{classLua_1_1State}{State}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLua_1_1State_a7bbfeffacc4e7b696b28a59ae32c258f}\label{classLua_1_1State_a7bbfeffacc4e7b696b28a59ae32c258f}} 
+\index{Lua::State@{Lua::State}!Call@{Call}}
+\index{Call@{Call}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Call()}{Call()}}
+{\footnotesize\ttfamily template$<$typename T  = void, typename... Args$>$ \\
+T Lua\+::\+State\+::\+Call (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Call a \mbox{\hyperlink{namespaceLua}{Lua}} function. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a15492eb94c52344b47db2fc26e2353ee}\label{classLua_1_1State_a15492eb94c52344b47db2fc26e2353ee}} 
+\index{Lua::State@{Lua::State}!CreateTable@{CreateTable}}
+\index{CreateTable@{CreateTable}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{CreateTable()}{CreateTable()}}
+{\footnotesize\ttfamily void Lua\+::\+State\+::\+Create\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Create a Table object. 
+
+\mbox{\Hypertarget{classLua_1_1State_a8672c9591d1552d464c392b96c0fa459}\label{classLua_1_1State_a8672c9591d1552d464c392b96c0fa459}} 
+\index{Lua::State@{Lua::State}!GetGlobal@{GetGlobal}}
+\index{GetGlobal@{GetGlobal}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{GetGlobal()}{GetGlobal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T Lua\+::\+State\+::\+Get\+Global (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a \mbox{\hyperlink{namespaceLua}{Lua}} Global variable. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a70ba35bbac85827a5635a19850a22b86}\label{classLua_1_1State_a70ba35bbac85827a5635a19850a22b86}} 
+\index{Lua::State@{Lua::State}!GetLuaState@{GetLuaState}}
+\index{GetLuaState@{GetLuaState}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{GetLuaState()}{GetLuaState()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ lua\+\_\+\+State, \mbox{\hyperlink{structLua_1_1close}{close}} $>$ \& Lua\+::\+State\+::\+Get\+Lua\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{namespaceLua}{Lua}} \mbox{\hyperlink{classLua_1_1State}{State}} object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::unique\+\_\+ptr$<$lua\+\_\+\+State, close$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a0db1481656112d9079f2738066bccd94}\label{classLua_1_1State_a0db1481656112d9079f2738066bccd94}} 
+\index{Lua::State@{Lua::State}!operator=@{operator=}}
+\index{operator=@{operator=}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLua_1_1State}{State}}\& Lua\+::\+State\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLua_1_1State}{State}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classLua_1_1State}{State}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLua_1_1State}{State}}\& assgigned \mbox{\hyperlink{classLua_1_1State}{State}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a27dca00843ede63ff24ce86c74766cde}\label{classLua_1_1State_a27dca00843ede63ff24ce86c74766cde}} 
+\index{Lua::State@{Lua::State}!Pop@{Pop}}
+\index{Pop@{Pop}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$ \mbox{\hyperlink{structLua_1_1is__rayvector}{Lua\+::is\+\_\+rayvector}}$<$ T $>$\+::value, T $>$\+::type Lua\+::\+State\+::\+Pop (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Pop a vector from \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::enable\+\_\+if$<$\mbox{\hyperlink{structLua_1_1is__vector_a2de81cce0f8366783f6aadb77dd6e15d}{is\+\_\+vector$<$\+T$>$\+::value}}, T$>$\+::type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a5250f04846405dde94b98c00e5d0dd38}\label{classLua_1_1State_a5250f04846405dde94b98c00e5d0dd38}} 
+\index{Lua::State@{Lua::State}!Pop@{Pop}}
+\index{Pop@{Pop}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$\mbox{\hyperlink{structLua_1_1is__map}{is\+\_\+map}}$<$T$>$\+::value, T$>$\+::type Lua\+::\+State\+::\+Pop (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Pop a map from \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::enable\+\_\+if$<$\mbox{\hyperlink{structLua_1_1is__map_ae643163e69eef98911c7dcb355132cd6}{is\+\_\+map$<$\+T$>$\+::value}}, T$>$\+::type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_acac4d1a544b7eca7d8fb3c323e114588}\label{classLua_1_1State_acac4d1a544b7eca7d8fb3c323e114588}} 
+\index{Lua::State@{Lua::State}!Pop@{Pop}}
+\index{Pop@{Pop}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$\mbox{\hyperlink{structLua_1_1is__rayvector}{is\+\_\+rayvector}}$<$T$>$\+::value, T$>$\+::type Lua\+::\+State\+::\+Pop (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Pop a \mbox{\hyperlink{namespaceRayLib}{Ray\+Lib}} Vector from \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::enable\+\_\+if$<$\mbox{\hyperlink{structLua_1_1is__rayvector_a857145ef70bcd1063fcb75f66dbe266b}{is\+\_\+rayvector$<$\+T$>$\+::value}}, T$>$\+::type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a56c8f2514eed6023df5a86dc1aafa499}\label{classLua_1_1State_a56c8f2514eed6023df5a86dc1aafa499}} 
+\index{Lua::State@{Lua::State}!Pop@{Pop}}
+\index{Pop@{Pop}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$std\+::is\+\_\+same$<$T, bool$>$\+::value, T$>$\+::type Lua\+::\+State\+::\+Pop (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pop a bool from \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em ool} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_aeb11c22e71621309e95a5b71f0ee34a2}\label{classLua_1_1State_aeb11c22e71621309e95a5b71f0ee34a2}} 
+\index{Lua::State@{Lua::State}!Pop@{Pop}}
+\index{Pop@{Pop}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$T$>$\+::value \&\& !std\+::is\+\_\+same$<$T, bool$>$\+::value, T$>$\+::type Lua\+::\+State\+::\+Pop (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pop a number from \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value, T$>$\+::type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_aeff4d6f946e1e87880388719b782d474}\label{classLua_1_1State_aeff4d6f946e1e87880388719b782d474}} 
+\index{Lua::State@{Lua::State}!Pop@{Pop}}
+\index{Pop@{Pop}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$std\+::is\+\_\+same$<$T, std\+::string$>$\+::value, T$>$\+::type Lua\+::\+State\+::\+Pop (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pop a string from \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::enable\+\_\+if$<$std\+::is\+\_\+same$<$\+T, std\+::string$>$\+::value, T$>$\+::type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_af497a5b75516b2e86f852c72fe62a829}\label{classLua_1_1State_af497a5b75516b2e86f852c72fe62a829}} 
+\index{Lua::State@{Lua::State}!Pop@{Pop}}
+\index{Pop@{Pop}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$std\+::is\+\_\+same$<$T, lua\+\_\+\+C\+Function$>$\+::value, T$>$\+::type Lua\+::\+State\+::\+Pop (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classLua_1_1State_a5c8bc73e565c72b4d78fa5a25952f280}\label{classLua_1_1State_a5c8bc73e565c72b4d78fa5a25952f280}} 
+\index{Lua::State@{Lua::State}!Pop@{Pop}}
+\index{Pop@{Pop}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$std\+::is\+\_\+same$<$T, void$>$\+::value, T$>$\+::type Lua\+::\+State\+::\+Pop (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pop nothing, fallback pop if void. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+std\+::enable\+\_\+if$<$std\+::is\+\_\+same$<$\+T, void$>$\+::value, T$>$\+::type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a829576e171bc42f1ca4b560c68b83209}\label{classLua_1_1State_a829576e171bc42f1ca4b560c68b83209}} 
+\index{Lua::State@{Lua::State}!Push@{Push}}
+\index{Push@{Push}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily void Lua\+::\+State\+::\+Push (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})}
+
+
+
+Push a boolean to \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1State_a8ce1d1d618494572dc47813909a6931f}\label{classLua_1_1State_a8ce1d1d618494572dc47813909a6931f}} 
+\index{Lua::State@{Lua::State}!Push@{Push}}
+\index{Push@{Push}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily void Lua\+::\+State\+::\+Push (\begin{DoxyParamCaption}\item[{lua\+\_\+\+C\+Function}]{f }\end{DoxyParamCaption})}
+
+
+
+Push a C-\/like Function to \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1State_a75a1f04250faf99040eb18bb1fca1ff6}\label{classLua_1_1State_a75a1f04250faf99040eb18bb1fca1ff6}} 
+\index{Lua::State@{Lua::State}!Push@{Push}}
+\index{Push@{Push}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily void Lua\+::\+State\+::\+Push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLua_1_1Nil}{Nil}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Push a Null to \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+\mbox{\Hypertarget{classLua_1_1State_abed3b25962db5478b01c1ca45d264557}\label{classLua_1_1State_abed3b25962db5478b01c1ca45d264557}} 
+\index{Lua::State@{Lua::State}!Push@{Push}}
+\index{Push@{Push}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Lua\+::\+State\+::\+Push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$}]{vec }\end{DoxyParamCaption})}
+
+
+
+Push a map to \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1State_a781b16d716607ae52d0703492a55636d}\label{classLua_1_1State_a781b16d716607ae52d0703492a55636d}} 
+\index{Lua::State@{Lua::State}!Push@{Push}}
+\index{Push@{Push}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Lua\+::\+State\+::\+Push (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, T $>$}]{map }\end{DoxyParamCaption})}
+
+
+
+Push a map to \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1State_aaa49f7921a4cf5241e5741cf6c1dc634}\label{classLua_1_1State_aaa49f7921a4cf5241e5741cf6c1dc634}} 
+\index{Lua::State@{Lua::State}!Push@{Push}}
+\index{Push@{Push}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily void Lua\+::\+State\+::\+Push (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Push a string to \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1State_a86a78c0da905eed54830f0dce9c6f4b0}\label{classLua_1_1State_a86a78c0da905eed54830f0dce9c6f4b0}} 
+\index{Lua::State@{Lua::State}!Push@{Push}}
+\index{Push@{Push}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Lua\+::\+State\+::\+Push (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{vec }\end{DoxyParamCaption})}
+
+
+
+Push a vector to \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1State_a3b4a76e0cc9cdabce5aa5d170f363911}\label{classLua_1_1State_a3b4a76e0cc9cdabce5aa5d170f363911}} 
+\index{Lua::State@{Lua::State}!Push@{Push}}
+\index{Push@{Push}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$T$>$\+::value$>$\+::type Lua\+::\+State\+::\+Push (\begin{DoxyParamCaption}\item[{T}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Push a number to \mbox{\hyperlink{namespaceLua}{Lua}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::enable\+\_\+if$<$std\+::is\+\_\+arithmetic$<$\+T$>$\+::value$>$\+::type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a47a156ae5ab7f579d994391ef321516d}\label{classLua_1_1State_a47a156ae5ab7f579d994391ef321516d}} 
+\index{Lua::State@{Lua::State}!PushMany@{PushMany}}
+\index{PushMany@{PushMany}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{PushMany()}{PushMany()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Lua\+::\+State\+::\+Push\+Many (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+End of Templated Push\+Many. 
+
+\mbox{\Hypertarget{classLua_1_1State_a21d5c4c581340cebb9b9d7e546750727}\label{classLua_1_1State_a21d5c4c581340cebb9b9d7e546750727}} 
+\index{Lua::State@{Lua::State}!PushMany@{PushMany}}
+\index{PushMany@{PushMany}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{PushMany()}{PushMany()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename A1 , typename... A$>$ \\
+void Lua\+::\+State\+::\+Push\+Many (\begin{DoxyParamCaption}\item[{A1 \&\&}]{first,  }\item[{A \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Push to \mbox{\hyperlink{namespaceLua}{Lua}} a C\+PP variable. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em A1} & \\
+\hline
+{\em A} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em first} & \\
+\hline
+{\em params} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1State_ae4cc2fb0092ed79c2f13f4c0369fd3c5}\label{classLua_1_1State_ae4cc2fb0092ed79c2f13f4c0369fd3c5}} 
+\index{Lua::State@{Lua::State}!RunScript@{RunScript}}
+\index{RunScript@{RunScript}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{RunScript()}{RunScript()}}
+{\footnotesize\ttfamily int Lua\+::\+State\+::\+Run\+Script (\begin{DoxyParamCaption}\item[{std\+::string}]{filepath }\end{DoxyParamCaption})}
+
+
+
+Run a .lua script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1State_a1647d22b19d293502831091318490ef0}\label{classLua_1_1State_a1647d22b19d293502831091318490ef0}} 
+\index{Lua::State@{Lua::State}!SetGlobal@{SetGlobal}}
+\index{SetGlobal@{SetGlobal}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{SetGlobal()}{SetGlobal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Lua\+::\+State\+::\+Set\+Global (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{T}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set a \mbox{\hyperlink{namespaceLua}{Lua}} Global variable. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLua_1_1State_a829ebf59d129746956835c49c1ffa0b7}\label{classLua_1_1State_a829ebf59d129746956835c49c1ffa0b7}} 
+\index{Lua::State@{Lua::State}!\_ls@{\_ls}}
+\index{\_ls@{\_ls}!Lua::State@{Lua::State}}
+\doxysubsubsection{\texorpdfstring{\_ls}{\_ls}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$lua\+\_\+\+State, \mbox{\hyperlink{structLua_1_1close}{close}}$>$ Lua\+::\+State\+::\+\_\+ls\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current state. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Lua/sources/\+State/\mbox{\hyperlink{State_8hpp}{State.\+hpp}}\item 
+Libs/\+Lua/sources/\+State/\mbox{\hyperlink{State_8cpp}{State.\+cpp}}\end{DoxyCompactItemize}

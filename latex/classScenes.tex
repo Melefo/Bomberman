@@ -1,0 +1,341 @@
+\hypertarget{classScenes}{}\doxysection{Scenes Class Reference}
+\label{classScenes}\index{Scenes@{Scenes}}
+
+
+{\ttfamily \#include $<$Scenes.\+hpp$>$}
+
+
+
+Collaboration diagram for Scenes\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classScenes__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classScenes_ab56e26276c7b3d516c4f7c99bd5c8f12}{Scenes}} ()=delete
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classScenes}{Scenes}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classScenes_acea5e5315357c009af2646c2fafda999}{$\sim$\+Scenes}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classScenes}{Scenes}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classScenes_a9c003bf06a3c93d3e725c33a144441e1}{Scenes}} (const \mbox{\hyperlink{classScenes}{Scenes}} \&other)=delete
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classScenes}{Scenes}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classScenes}{Scenes}} \& \mbox{\hyperlink{classScenes_a4f5b3a46c61fe055dbaec4f224e499de}{operator=}} (const \mbox{\hyperlink{classScenes}{Scenes}} \&other)=delete
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classScenes_aed452e8bef367444c56bd25fc409f24f}{Init\+Nbr\+Players}} (\mbox{\hyperlink{classEntityFactory}{Entity\+Factory}} \&entity\+Factory, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}} $>$ \&window)
+\begin{DoxyCompactList}\small\item\em Initialize the nbr of players of the game. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_a8006735cf379c71f32bf01910129a131}{Init\+Map}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera, const bool is\+Editor, int deepness=1)
+\begin{DoxyCompactList}\small\item\em Initialize map game. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_a4c14ed9ee70be001fcd5419f1517fbed}{Init\+Main\+Menu}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\begin{DoxyCompactList}\small\item\em Initialize Main Menu. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_aabcef2f680696b4aad2075ab0c040c0f}{Init\+Editor\+Menu}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\begin{DoxyCompactList}\small\item\em Initialize Editor Menu. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_a16aa5264a44c92f2ad1afb6a3892079f}{Init\+Editor}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\begin{DoxyCompactList}\small\item\em Initialize Editor. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_ae3f10871ff8b188f593ce9b40f24a9f3}{Init\+Game}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\begin{DoxyCompactList}\small\item\em Initialize Game. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_a771b6e21dda2fa9cdf0a573fd3863ecd}{Init\+Game\+Over}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classComponent_1_1Camera}{Component\+::\+Camera}} \&camera, const std\+::string \&ending\+Message)
+\begin{DoxyCompactList}\small\item\em Initialize Game Over screen. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_aa77250054c4581d906497272cfc73bd7}{Init\+Loading\+Screen}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\begin{DoxyCompactList}\small\item\em Initialize Loading Screen. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_ab3c423092a2e3b11e72b718f13e78355}{Init\+Pause}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\begin{DoxyCompactList}\small\item\em Initialize Pause screen. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_a73955d4125580a5c1dabcb0c86827cd3}{Init\+Options}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\begin{DoxyCompactList}\small\item\em Initialize Options screen. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classScenes_ad27b2c8efaa5bd07ba309c2bf1b603c1}{switch\+Scene}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, std\+::string \&new\+Scene)
+\begin{DoxyCompactList}\small\item\em switch current scene to another \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, std\+::function$<$ void(\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&)$>$ $>$ \mbox{\hyperlink{classScenes_a5caad0824167da23f442cbb1950d5d2f}{scenes\+Ctor}}
+\begin{DoxyCompactList}\small\item\em Map to initialize a scene by its name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classScenes_ab56e26276c7b3d516c4f7c99bd5c8f12}\label{classScenes_ab56e26276c7b3d516c4f7c99bd5c8f12}} 
+\index{Scenes@{Scenes}!Scenes@{Scenes}}
+\index{Scenes@{Scenes}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{Scenes()}{Scenes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Scenes\+::\+Scenes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Construct a new \mbox{\hyperlink{classScenes}{Scenes}} object. 
+
+\mbox{\Hypertarget{classScenes_acea5e5315357c009af2646c2fafda999}\label{classScenes_acea5e5315357c009af2646c2fafda999}} 
+\index{Scenes@{Scenes}!````~Scenes@{$\sim$Scenes}}
+\index{````~Scenes@{$\sim$Scenes}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{$\sim$Scenes()}{~Scenes()}}
+{\footnotesize\ttfamily Scenes\+::$\sim$\+Scenes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classScenes}{Scenes}} object. 
+
+\mbox{\Hypertarget{classScenes_a9c003bf06a3c93d3e725c33a144441e1}\label{classScenes_a9c003bf06a3c93d3e725c33a144441e1}} 
+\index{Scenes@{Scenes}!Scenes@{Scenes}}
+\index{Scenes@{Scenes}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{Scenes()}{Scenes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Scenes\+::\+Scenes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classScenes}{Scenes}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Construct a new \mbox{\hyperlink{classScenes}{Scenes}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classScenes_a16aa5264a44c92f2ad1afb6a3892079f}\label{classScenes_a16aa5264a44c92f2ad1afb6a3892079f}} 
+\index{Scenes@{Scenes}!InitEditor@{InitEditor}}
+\index{InitEditor@{InitEditor}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitEditor()}{InitEditor()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Editor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize Editor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_aabcef2f680696b4aad2075ab0c040c0f}\label{classScenes_aabcef2f680696b4aad2075ab0c040c0f}} 
+\index{Scenes@{Scenes}!InitEditorMenu@{InitEditorMenu}}
+\index{InitEditorMenu@{InitEditorMenu}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitEditorMenu()}{InitEditorMenu()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Editor\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize Editor Menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_ae3f10871ff8b188f593ce9b40f24a9f3}\label{classScenes_ae3f10871ff8b188f593ce9b40f24a9f3}} 
+\index{Scenes@{Scenes}!InitGame@{InitGame}}
+\index{InitGame@{InitGame}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitGame()}{InitGame()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize Game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_a771b6e21dda2fa9cdf0a573fd3863ecd}\label{classScenes_a771b6e21dda2fa9cdf0a573fd3863ecd}} 
+\index{Scenes@{Scenes}!InitGameOver@{InitGameOver}}
+\index{InitGameOver@{InitGameOver}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitGameOver()}{InitGameOver()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Game\+Over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classComponent_1_1Camera}{Component\+::\+Camera}} \&}]{camera,  }\item[{const std\+::string \&}]{ending\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize Game Over screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+{\em ending\+Message} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_aa77250054c4581d906497272cfc73bd7}\label{classScenes_aa77250054c4581d906497272cfc73bd7}} 
+\index{Scenes@{Scenes}!InitLoadingScreen@{InitLoadingScreen}}
+\index{InitLoadingScreen@{InitLoadingScreen}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitLoadingScreen()}{InitLoadingScreen()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Loading\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize Loading Screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_a4c14ed9ee70be001fcd5419f1517fbed}\label{classScenes_a4c14ed9ee70be001fcd5419f1517fbed}} 
+\index{Scenes@{Scenes}!InitMainMenu@{InitMainMenu}}
+\index{InitMainMenu@{InitMainMenu}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitMainMenu()}{InitMainMenu()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Main\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize Main Menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_a8006735cf379c71f32bf01910129a131}\label{classScenes_a8006735cf379c71f32bf01910129a131}} 
+\index{Scenes@{Scenes}!InitMap@{InitMap}}
+\index{InitMap@{InitMap}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitMap()}{InitMap()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera,  }\item[{const bool}]{is\+Editor,  }\item[{int}]{deepness = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize map game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+{\em is\+Editor} & \\
+\hline
+{\em deepness} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_aed452e8bef367444c56bd25fc409f24f}\label{classScenes_aed452e8bef367444c56bd25fc409f24f}} 
+\index{Scenes@{Scenes}!InitNbrPlayers@{InitNbrPlayers}}
+\index{InitNbrPlayers@{InitNbrPlayers}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitNbrPlayers()}{InitNbrPlayers()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Nbr\+Players (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntityFactory}{Entity\+Factory}} \&}]{entity\+Factory,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}} $>$ \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize the nbr of players of the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity\+Factory} & \\
+\hline
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_a73955d4125580a5c1dabcb0c86827cd3}\label{classScenes_a73955d4125580a5c1dabcb0c86827cd3}} 
+\index{Scenes@{Scenes}!InitOptions@{InitOptions}}
+\index{InitOptions@{InitOptions}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitOptions()}{InitOptions()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize Options screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_ab3c423092a2e3b11e72b718f13e78355}\label{classScenes_ab3c423092a2e3b11e72b718f13e78355}} 
+\index{Scenes@{Scenes}!InitPause@{InitPause}}
+\index{InitPause@{InitPause}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{InitPause()}{InitPause()}}
+{\footnotesize\ttfamily void Scenes\+::\+Init\+Pause (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize Pause screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenes_a4f5b3a46c61fe055dbaec4f224e499de}\label{classScenes_a4f5b3a46c61fe055dbaec4f224e499de}} 
+\index{Scenes@{Scenes}!operator=@{operator=}}
+\index{operator=@{operator=}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classScenes}{Scenes}}\& Scenes\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classScenes}{Scenes}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classScenes}{Scenes}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenes_ad27b2c8efaa5bd07ba309c2bf1b603c1}\label{classScenes_ad27b2c8efaa5bd07ba309c2bf1b603c1}} 
+\index{Scenes@{Scenes}!switchScene@{switchScene}}
+\index{switchScene@{switchScene}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{switchScene()}{switchScene()}}
+{\footnotesize\ttfamily void Scenes\+::switch\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{std\+::string \&}]{new\+Scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+switch current scene to another 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+{\em new\+Scene} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classScenes_a5caad0824167da23f442cbb1950d5d2f}\label{classScenes_a5caad0824167da23f442cbb1950d5d2f}} 
+\index{Scenes@{Scenes}!scenesCtor@{scenesCtor}}
+\index{scenesCtor@{scenesCtor}!Scenes@{Scenes}}
+\doxysubsubsection{\texorpdfstring{scenesCtor}{scenesCtor}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::function$<$ void(\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&)$>$ $>$ Scenes\+::scenes\+Ctor\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{    \{std::pair<std::string, std::function<void(\mbox{\hyperlink{classECS_1_1Coordinator}{ECS::Coordinator}}\&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{RayLib::Camera3D}}\&)>>(\textcolor{stringliteral}{"MainMenu"}, \&\mbox{\hyperlink{classScenes_a4c14ed9ee70be001fcd5419f1517fbed}{InitMainMenu}}),}
+\DoxyCodeLine{     std::pair<std::string, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classECS_1_1Coordinator}{ECS::Coordinator}}\&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{RayLib::Camera3D}}\&)>>(\textcolor{stringliteral}{"EditorMenu"}, \&\mbox{\hyperlink{classScenes_aabcef2f680696b4aad2075ab0c040c0f}{InitEditorMenu}}),}
+\DoxyCodeLine{     std::pair<std::string, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classECS_1_1Coordinator}{ECS::Coordinator}}\&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{RayLib::Camera3D}}\&)>>(\textcolor{stringliteral}{"Editor"}, \&\mbox{\hyperlink{classScenes_a16aa5264a44c92f2ad1afb6a3892079f}{InitEditor}}),}
+\DoxyCodeLine{     std::pair<std::string, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classECS_1_1Coordinator}{ECS::Coordinator}}\&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{RayLib::Camera3D}}\&)>>(\textcolor{stringliteral}{"Game"}, \&\mbox{\hyperlink{classScenes_ae3f10871ff8b188f593ce9b40f24a9f3}{InitGame}}),}
+\DoxyCodeLine{     std::pair<std::string, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classECS_1_1Coordinator}{ECS::Coordinator}}\&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{RayLib::Camera3D}}\&)>>(\textcolor{stringliteral}{"LoadingScreen"}, \&\mbox{\hyperlink{classScenes_aa77250054c4581d906497272cfc73bd7}{InitLoadingScreen}}),}
+\DoxyCodeLine{     std::pair<std::string, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classECS_1_1Coordinator}{ECS::Coordinator}}\&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{RayLib::Camera3D}}\&)>>(\textcolor{stringliteral}{"Pause"}, \&\mbox{\hyperlink{classScenes_ab3c423092a2e3b11e72b718f13e78355}{InitPause}}),}
+\DoxyCodeLine{     std::pair<std::string, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classECS_1_1Coordinator}{ECS::Coordinator}}\&, \mbox{\hyperlink{classRayLib_1_1Camera3D}{RayLib::Camera3D}}\&)>>(\textcolor{stringliteral}{"OptionsMenu"}, \&\mbox{\hyperlink{classScenes_a73955d4125580a5c1dabcb0c86827cd3}{InitOptions}}),}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Map to initialize a scene by its name. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Scenes/\mbox{\hyperlink{Scenes_8hpp}{Scenes.\+hpp}}\item 
+Libs/\+Engine/sources/\+Scenes/\mbox{\hyperlink{Scenes_8cpp}{Scenes.\+cpp}}\end{DoxyCompactItemize}

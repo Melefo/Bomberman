@@ -1,0 +1,205 @@
+\hypertarget{classRayLib_1_1Ray}{}\doxysection{Ray\+Lib\+::Ray Class Reference}
+\label{classRayLib_1_1Ray}\index{RayLib::Ray@{RayLib::Ray}}
+
+
+\mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Ray.\+hpp$>$}
+
+
+
+Collaboration diagram for Ray\+Lib\+::Ray\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classRayLib_1_1Ray__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Ray_aac99761514dff3db828834310ad376f1}{Ray}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object Sets position and direction to 0.\+0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Ray_a103186d66fa3979189b7dfb0f388fdea}{Ray}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} position, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} direction)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Ray_a0a8ee99e236241d2a2bbac6091b5c36a}{Ray}} (const \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Ray_a2e91c52369e37bb4cb6bd69126980438}{Ray}} (const \+::\mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \& \mbox{\hyperlink{classRayLib_1_1Ray_a720b190824192e6319f1943924d1ba7c}{operator=}} (const \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \&other)
+\begin{DoxyCompactList}\small\item\em assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Ray_ac6879b580067efe2019e1d6aa9063063}{$\sim$\+Ray}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \& \mbox{\hyperlink{classRayLib_1_1Ray_a905adf215ee4f9531c8e066766bf42d2}{Get\+Position}} (void)
+\begin{DoxyCompactList}\small\item\em Get ray\textquotesingle{}s starting position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \& \mbox{\hyperlink{classRayLib_1_1Ray_a38cb65159adb5a238d0d58eda7ea3f65}{Get\+Direction}} (void)
+\begin{DoxyCompactList}\small\item\em Get the ray\textquotesingle{}s direction. \end{DoxyCompactList}\item 
+\+::\mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \mbox{\hyperlink{classRayLib_1_1Ray_ad220326162cd4c6acdabeb1189079f9b}{Get\+Ray}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} as a raylib structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \mbox{\hyperlink{classRayLib_1_1Ray_a80bfaaa02df08605da10bca38a0ef041}{\+\_\+position}}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \mbox{\hyperlink{classRayLib_1_1Ray_a61073408e468a654d7391abe6a718c79}{\+\_\+direction}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} encapsulation. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Ray_aac99761514dff3db828834310ad376f1}\label{classRayLib_1_1Ray_aac99761514dff3db828834310ad376f1}} 
+\index{RayLib::Ray@{RayLib::Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{Ray()}{Ray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+::\+Ray (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object Sets position and direction to 0.\+0. 
+
+\mbox{\Hypertarget{classRayLib_1_1Ray_a103186d66fa3979189b7dfb0f388fdea}\label{classRayLib_1_1Ray_a103186d66fa3979189b7dfb0f388fdea}} 
+\index{RayLib::Ray@{RayLib::Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{Ray()}{Ray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+::\+Ray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{direction }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em direction} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Ray_a0a8ee99e236241d2a2bbac6091b5c36a}\label{classRayLib_1_1Ray_a0a8ee99e236241d2a2bbac6091b5c36a}} 
+\index{RayLib::Ray@{RayLib::Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{Ray()}{Ray()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+::\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Ray_a2e91c52369e37bb4cb6bd69126980438}\label{classRayLib_1_1Ray_a2e91c52369e37bb4cb6bd69126980438}} 
+\index{RayLib::Ray@{RayLib::Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{Ray()}{Ray()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+::\+Ray (\begin{DoxyParamCaption}\item[{const \+::\mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Ray_ac6879b580067efe2019e1d6aa9063063}\label{classRayLib_1_1Ray_ac6879b580067efe2019e1d6aa9063063}} 
+\index{RayLib::Ray@{RayLib::Ray}!````~Ray@{$\sim$Ray}}
+\index{````~Ray@{$\sim$Ray}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{$\sim$Ray()}{~Ray()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+::$\sim$\+Ray (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Ray_a38cb65159adb5a238d0d58eda7ea3f65}\label{classRayLib_1_1Ray_a38cb65159adb5a238d0d58eda7ea3f65}} 
+\index{RayLib::Ray@{RayLib::Ray}!GetDirection@{GetDirection}}
+\index{GetDirection@{GetDirection}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{GetDirection()}{GetDirection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \& Ray\+Lib\+::\+Ray\+::\+Get\+Direction (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the ray\textquotesingle{}s direction. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Ray_a905adf215ee4f9531c8e066766bf42d2}\label{classRayLib_1_1Ray_a905adf215ee4f9531c8e066766bf42d2}} 
+\index{RayLib::Ray@{RayLib::Ray}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \& Ray\+Lib\+::\+Ray\+::\+Get\+Position (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get ray\textquotesingle{}s starting position. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Ray_ad220326162cd4c6acdabeb1189079f9b}\label{classRayLib_1_1Ray_ad220326162cd4c6acdabeb1189079f9b}} 
+\index{RayLib::Ray@{RayLib::Ray}!GetRay@{GetRay}}
+\index{GetRay@{GetRay}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{GetRay()}{GetRay()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Ray\+Lib\+::\+Ray\+::\+Get\+Ray (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} as a raylib structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Ray 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Ray_a720b190824192e6319f1943924d1ba7c}\label{classRayLib_1_1Ray_a720b190824192e6319f1943924d1ba7c}} 
+\index{RayLib::Ray@{RayLib::Ray}!operator=@{operator=}}
+\index{operator=@{operator=}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \& Ray\+Lib\+::\+Ray\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+assignment operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Ray}{Ray}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Ray_a61073408e468a654d7391abe6a718c79}\label{classRayLib_1_1Ray_a61073408e468a654d7391abe6a718c79}} 
+\index{RayLib::Ray@{RayLib::Ray}!\_direction@{\_direction}}
+\index{\_direction@{\_direction}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{\_direction}{\_direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} Ray\+Lib\+::\+Ray\+::\+\_\+direction\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Ray_a80bfaaa02df08605da10bca38a0ef041}\label{classRayLib_1_1Ray_a80bfaaa02df08605da10bca38a0ef041}} 
+\index{RayLib::Ray@{RayLib::Ray}!\_position@{\_position}}
+\index{\_position@{\_position}!RayLib::Ray@{RayLib::Ray}}
+\doxysubsubsection{\texorpdfstring{\_position}{\_position}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} Ray\+Lib\+::\+Ray\+::\+\_\+position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Ray/\mbox{\hyperlink{Ray_8hpp}{Ray.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Ray/\mbox{\hyperlink{Ray_8cpp}{Ray.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,395 @@
+\hypertarget{classComponent_1_1Camera}{}\doxysection{Component\+::Camera Class Reference}
+\label{classComponent_1_1Camera}\index{Component::Camera@{Component::Camera}}
+
+
+\mbox{\hyperlink{classComponent_1_1Camera}{Camera}} component.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Camera\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Camera__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Camera\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComponent_1_1Camera__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Camera_aa40e9a27b31c8a8dcda0de9298017712}{Camera}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&\mbox{\hyperlink{classComponent_1_1Camera_a1449726fb7aaa795c927d1f7ca6a8ddc}{camera}}, float lerp\+Time=0.\+1f)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Camera_ad3ca6c6815c57f9aea6aaf483e857cad}{Camera}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&\mbox{\hyperlink{classComponent_1_1Camera_a1449726fb7aaa795c927d1f7ca6a8ddc}{camera}}, const std\+::string \&music\+Path, float lerp\+Time=0.\+1f)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Camera_affc8feefc63e93d345e811b52809dcd7}{$\sim$\+Camera}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Camera_a34ebd3e9c4a3861fab1d69eeda9b9af2}{Camera}} (const \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Camera}{Camera}} \& \mbox{\hyperlink{classComponent_1_1Camera_aa323342d55672f0feadb6f539c145885}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1Camera_a854a519c619acc719626ab14f7602d39}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called once per cpu update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Camera_ae98106fabd8853f8168dbfba6b29632e}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called every fixed seconds (CF coordinator) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Camera_a3db737b47f5fbb53371ebf976cc1f093}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Late update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Camera_a67b9b88102e59a03168937509284e1ce}{Lerp\+To\+Pos}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} position, float lerp=0.\+1f)
+\begin{DoxyCompactList}\small\item\em Set target position and lerpspeed. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Camera_aafee475fbab9b39c5fa184bf6ac6ab1e}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Camera_aa1353cbf3db3d101dda1a79ea2071f94}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Camera_a8b4cebc0eb0575fc7f5d2343546804fb}{Get\+Average\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Get the Average Position of all players/\+AI. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1Camera_a22a4076ca57e017d67714d5a66fce80d}{Is\+Position\+Off\+Screen}} (Vector3 position, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ margin, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ window\+Size)
+\begin{DoxyCompactList}\small\item\em Returns true if the position is beyond window size -\/ margin. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1Camera_ae0c74659bd671a4c508076302751655a}{Get\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Get the Entity object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} \& \mbox{\hyperlink{classComponent_1_1Camera_aedd0175a409c0049505570464d158519}{Get\+Main\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em Get the Main \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \& \mbox{\hyperlink{classComponent_1_1Camera_a1449726fb7aaa795c927d1f7ca6a8ddc}{camera}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classComponent_1_1Camera}{Camera}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1Camera_a26f88eb2c8330356fb6a787c3562f360}{\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Attatched entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Transform}{Transform}} \& \mbox{\hyperlink{classComponent_1_1Camera_a411ea5bbeb4498994035e8b7dc2d519c}{\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classComponent_1_1Camera}{Camera}}\textquotesingle{}s transform. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1Camera_aaf1ad9ed9f3639e99db7002017e14a81}{\+\_\+lerp\+Time}}
+\begin{DoxyCompactList}\small\item\em time variable for interpolation \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1Camera_a3056f0ea488c97263787a3d6d77610c8}{\+\_\+min\+Height}}
+\begin{DoxyCompactList}\small\item\em Minimum height for zoom/dezoom. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Sound}{Ray\+Lib\+::\+Sound}} $>$ \mbox{\hyperlink{classComponent_1_1Camera_a0efc68744f961d076b7bae9a17ebdff9}{\+\_\+music}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComponent_1_1Camera}{Camera}} component. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Camera_aa40e9a27b31c8a8dcda0de9298017712}\label{classComponent_1_1Camera_aa40e9a27b31c8a8dcda0de9298017712}} 
+\index{Component::Camera@{Component::Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Component\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera,  }\item[{float}]{lerp\+Time = {\ttfamily 0.1f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Camera_ad3ca6c6815c57f9aea6aaf483e857cad}\label{classComponent_1_1Camera_ad3ca6c6815c57f9aea6aaf483e857cad}} 
+\index{Component::Camera@{Component::Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Component\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera,  }\item[{const std\+::string \&}]{music\+Path,  }\item[{float}]{lerp\+Time = {\ttfamily 0.1f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched} & \\
+\hline
+{\em camera} & \\
+\hline
+{\em music\+Path} & \\
+\hline
+{\em lerp\+Time} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Camera_affc8feefc63e93d345e811b52809dcd7}\label{classComponent_1_1Camera_affc8feefc63e93d345e811b52809dcd7}} 
+\index{Component::Camera@{Component::Camera}!````~Camera@{$\sim$Camera}}
+\index{````~Camera@{$\sim$Camera}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{$\sim$Camera()}{~Camera()}}
+{\footnotesize\ttfamily Component\+::\+Camera\+::$\sim$\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Camera_a34ebd3e9c4a3861fab1d69eeda9b9af2}\label{classComponent_1_1Camera_a34ebd3e9c4a3861fab1d69eeda9b9af2}} 
+\index{Component::Camera@{Component::Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Component\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Camera_ae98106fabd8853f8168dbfba6b29632e}\label{classComponent_1_1Camera_ae98106fabd8853f8168dbfba6b29632e}} 
+\index{Component::Camera@{Component::Camera}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Camera\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called every fixed seconds (CF coordinator) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Camera_a8b4cebc0eb0575fc7f5d2343546804fb}\label{classComponent_1_1Camera_a8b4cebc0eb0575fc7f5d2343546804fb}} 
+\index{Component::Camera@{Component::Camera}!GetAveragePosition@{GetAveragePosition}}
+\index{GetAveragePosition@{GetAveragePosition}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{GetAveragePosition()}{GetAveragePosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+Camera\+::\+Get\+Average\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Average Position of all players/\+AI. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} 
+\end{DoxyReturn}
+mettre à jour la liste des players si yen a qui perd\mbox{\Hypertarget{classComponent_1_1Camera_ae0c74659bd671a4c508076302751655a}\label{classComponent_1_1Camera_ae0c74659bd671a4c508076302751655a}} 
+\index{Component::Camera@{Component::Camera}!GetEntity@{GetEntity}}
+\index{GetEntity@{GetEntity}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{GetEntity()}{GetEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Component\+::\+Camera\+::\+Get\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Entity object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Camera_aedd0175a409c0049505570464d158519}\label{classComponent_1_1Camera_aedd0175a409c0049505570464d158519}} 
+\index{Component::Camera@{Component::Camera}!GetMainCamera@{GetMainCamera}}
+\index{GetMainCamera@{GetMainCamera}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{GetMainCamera()}{GetMainCamera()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} \& Component\+::\+Camera\+::\+Get\+Main\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the Main \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Camera}{Camera}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Camera_a22a4076ca57e017d67714d5a66fce80d}\label{classComponent_1_1Camera_a22a4076ca57e017d67714d5a66fce80d}} 
+\index{Component::Camera@{Component::Camera}!IsPositionOffScreen@{IsPositionOffScreen}}
+\index{IsPositionOffScreen@{IsPositionOffScreen}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{IsPositionOffScreen()}{IsPositionOffScreen()}}
+{\footnotesize\ttfamily bool Component\+::\+Camera\+::\+Is\+Position\+Off\+Screen (\begin{DoxyParamCaption}\item[{Vector3}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{margin,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{window\+Size }\end{DoxyParamCaption})}
+
+
+
+Returns true if the position is beyond window size -\/ margin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em margin} & \\
+\hline
+{\em window\+Size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Camera_a3db737b47f5fbb53371ebf976cc1f093}\label{classComponent_1_1Camera_a3db737b47f5fbb53371ebf976cc1f093}} 
+\index{Component::Camera@{Component::Camera}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Camera\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Late update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Camera_a67b9b88102e59a03168937509284e1ce}\label{classComponent_1_1Camera_a67b9b88102e59a03168937509284e1ce}} 
+\index{Component::Camera@{Component::Camera}!LerpToPos@{LerpToPos}}
+\index{LerpToPos@{LerpToPos}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{LerpToPos()}{LerpToPos()}}
+{\footnotesize\ttfamily void Component\+::\+Camera\+::\+Lerp\+To\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{position,  }\item[{float}]{lerp = {\ttfamily 0.1f} }\end{DoxyParamCaption})}
+
+
+
+Set target position and lerpspeed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em lerp} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Camera_aa1353cbf3db3d101dda1a79ea2071f94}\label{classComponent_1_1Camera_aa1353cbf3db3d101dda1a79ea2071f94}} 
+\index{Component::Camera@{Component::Camera}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Camera\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Camera_aafee475fbab9b39c5fa184bf6ac6ab1e}\label{classComponent_1_1Camera_aafee475fbab9b39c5fa184bf6ac6ab1e}} 
+\index{Component::Camera@{Component::Camera}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Camera\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Camera_aa323342d55672f0feadb6f539c145885}\label{classComponent_1_1Camera_aa323342d55672f0feadb6f539c145885}} 
+\index{Component::Camera@{Component::Camera}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Camera}{Camera}}\& Component\+::\+Camera\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Camera}{Camera}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Camera}{Camera}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Camera_a854a519c619acc719626ab14f7602d39}\label{classComponent_1_1Camera_a854a519c619acc719626ab14f7602d39}} 
+\index{Component::Camera@{Component::Camera}!Update@{Update}}
+\index{Update@{Update}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Camera\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called once per cpu update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time since last call to update \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Camera_a26f88eb2c8330356fb6a787c3562f360}\label{classComponent_1_1Camera_a26f88eb2c8330356fb6a787c3562f360}} 
+\index{Component::Camera@{Component::Camera}!\_entity@{\_entity}}
+\index{\_entity@{\_entity}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{\_entity}{\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Camera\+::\+\_\+entity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attatched entity. 
+
+\mbox{\Hypertarget{classComponent_1_1Camera_aaf1ad9ed9f3639e99db7002017e14a81}\label{classComponent_1_1Camera_aaf1ad9ed9f3639e99db7002017e14a81}} 
+\index{Component::Camera@{Component::Camera}!\_lerpTime@{\_lerpTime}}
+\index{\_lerpTime@{\_lerpTime}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{\_lerpTime}{\_lerpTime}}
+{\footnotesize\ttfamily float Component\+::\+Camera\+::\+\_\+lerp\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+time variable for interpolation 
+
+\mbox{\Hypertarget{classComponent_1_1Camera_a3056f0ea488c97263787a3d6d77610c8}\label{classComponent_1_1Camera_a3056f0ea488c97263787a3d6d77610c8}} 
+\index{Component::Camera@{Component::Camera}!\_minHeight@{\_minHeight}}
+\index{\_minHeight@{\_minHeight}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{\_minHeight}{\_minHeight}}
+{\footnotesize\ttfamily float Component\+::\+Camera\+::\+\_\+min\+Height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Minimum height for zoom/dezoom. 
+
+\mbox{\Hypertarget{classComponent_1_1Camera_a0efc68744f961d076b7bae9a17ebdff9}\label{classComponent_1_1Camera_a0efc68744f961d076b7bae9a17ebdff9}} 
+\index{Component::Camera@{Component::Camera}!\_music@{\_music}}
+\index{\_music@{\_music}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{\_music}{\_music}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Sound}{Ray\+Lib\+::\+Sound}}$>$ Component\+::\+Camera\+::\+\_\+music\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Camera_a411ea5bbeb4498994035e8b7dc2d519c}\label{classComponent_1_1Camera_a411ea5bbeb4498994035e8b7dc2d519c}} 
+\index{Component::Camera@{Component::Camera}!\_transform@{\_transform}}
+\index{\_transform@{\_transform}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{\_transform}{\_transform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Transform}{Transform}}\& Component\+::\+Camera\+::\+\_\+transform\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classComponent_1_1Camera}{Camera}}\textquotesingle{}s transform. 
+
+\mbox{\Hypertarget{classComponent_1_1Camera_a1449726fb7aaa795c927d1f7ca6a8ddc}\label{classComponent_1_1Camera_a1449726fb7aaa795c927d1f7ca6a8ddc}} 
+\index{Component::Camera@{Component::Camera}!camera@{camera}}
+\index{camera@{camera}!Component::Camera@{Component::Camera}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}}\& Component\+::\+Camera\+::camera}
+
+
+
+\mbox{\hyperlink{classComponent_1_1Camera}{Camera}}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Camera/\mbox{\hyperlink{Camera_8hpp}{Camera.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Camera/\mbox{\hyperlink{Camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

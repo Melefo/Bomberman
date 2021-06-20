@@ -1,0 +1,9 @@
+<map id="Component::HUD" name="Component::HUD">
+<area shape="rect" id="node1" title="HUD base component class." alt="" coords="225,587,431,811"/>
+<area shape="rect" id="node5" href="$classComponent_1_1HUDBonusBar.html" title=" " alt="" coords="5,859,203,1097"/>
+<area shape="rect" id="node6" href="$classComponent_1_1HUDBonusIcon.html" title=" " alt="" coords="227,873,429,1083"/>
+<area shape="rect" id="node7" href="$classComponent_1_1HUDText.html" title=" " alt="" coords="453,881,616,1075"/>
+<area shape="rect" id="node2" href="$classComponent_1_1IBehaviour.html" title="IBehaviour base component (CF Monobehaviour class in Unity)" alt="" coords="241,373,415,539"/>
+<area shape="rect" id="node3" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="259,204,397,325"/>
+<area shape="rect" id="node4" href="$classIXMLSerializable.html" title=" " alt="" coords="245,5,411,156"/>
+</map>

@@ -1,0 +1,151 @@
+\hypertarget{classRayLib_1_1RenderTexture}{}\doxysection{Ray\+Lib\+::Render\+Texture Class Reference}
+\label{classRayLib_1_1RenderTexture}\index{RayLib::RenderTexture@{RayLib::RenderTexture}}
+
+
+\mbox{\hyperlink{classRayLib_1_1RenderTexture}{Render\+Texture}} encapsulation Generates a framebuffer for shader use.  
+
+
+
+
+{\ttfamily \#include $<$Render\+Texture.\+hpp$>$}
+
+
+
+Collaboration diagram for Ray\+Lib\+::Render\+Texture\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classRayLib_1_1RenderTexture__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1RenderTexture_a8c45db9460987b5f2b23da253ed473f3}{Render\+Texture}} (int width, int height)
+\begin{DoxyCompactList}\small\item\em Construct a new Render \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1RenderTexture_a0ef39d08f7148a1e84f2cc0c395427bb}{$\sim$\+Render\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Render \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1RenderTexture_a1016ed0b20c161071cbb5429893d4c31}{Unload}} ()
+\begin{DoxyCompactList}\small\item\em Unload the loaded framebuffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1RenderTexture_a05752d136d2d8aadbd1bfb48b432345c}{Begin\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Initialize framebuffer for drawing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1RenderTexture_a10906dbae0d6d162c075237f6ea4eab1}{End\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em End framebuffer drawing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1RenderTexture_a184ecbe501897bfd0d10bd6334a11569}{Draw\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em Draw loaded framebuffer. \end{DoxyCompactList}\item 
+\+::Render\+Texture2D \& \mbox{\hyperlink{classRayLib_1_1RenderTexture_a567eb63cb4baafffdb03d953fa7306f0}{Get\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object (framebuffer) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\+::Render\+Texture2D \mbox{\hyperlink{classRayLib_1_1RenderTexture_a70cd7720563dc4991826d2d1f6f0635d}{\+\_\+texture}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classRayLib_1_1RenderTexture}{Render\+Texture}} framebuffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1RenderTexture}{Render\+Texture}} encapsulation Generates a framebuffer for shader use. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1RenderTexture_a8c45db9460987b5f2b23da253ed473f3}\label{classRayLib_1_1RenderTexture_a8c45db9460987b5f2b23da253ed473f3}} 
+\index{RayLib::RenderTexture@{RayLib::RenderTexture}!RenderTexture@{RenderTexture}}
+\index{RenderTexture@{RenderTexture}!RayLib::RenderTexture@{RayLib::RenderTexture}}
+\doxysubsubsection{\texorpdfstring{RenderTexture()}{RenderTexture()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Render\+Texture\+::\+Render\+Texture (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Construct a new Render \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Buffer screen width \\
+\hline
+{\em height} & Buffer screen height \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1RenderTexture_a0ef39d08f7148a1e84f2cc0c395427bb}\label{classRayLib_1_1RenderTexture_a0ef39d08f7148a1e84f2cc0c395427bb}} 
+\index{RayLib::RenderTexture@{RayLib::RenderTexture}!````~RenderTexture@{$\sim$RenderTexture}}
+\index{````~RenderTexture@{$\sim$RenderTexture}!RayLib::RenderTexture@{RayLib::RenderTexture}}
+\doxysubsubsection{\texorpdfstring{$\sim$RenderTexture()}{~RenderTexture()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Render\+Texture\+::$\sim$\+Render\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Render \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1RenderTexture_a05752d136d2d8aadbd1bfb48b432345c}\label{classRayLib_1_1RenderTexture_a05752d136d2d8aadbd1bfb48b432345c}} 
+\index{RayLib::RenderTexture@{RayLib::RenderTexture}!BeginMode@{BeginMode}}
+\index{BeginMode@{BeginMode}!RayLib::RenderTexture@{RayLib::RenderTexture}}
+\doxysubsubsection{\texorpdfstring{BeginMode()}{BeginMode()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Render\+Texture\+::\+Begin\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize framebuffer for drawing. 
+
+\mbox{\Hypertarget{classRayLib_1_1RenderTexture_a184ecbe501897bfd0d10bd6334a11569}\label{classRayLib_1_1RenderTexture_a184ecbe501897bfd0d10bd6334a11569}} 
+\index{RayLib::RenderTexture@{RayLib::RenderTexture}!DrawTexture@{DrawTexture}}
+\index{DrawTexture@{DrawTexture}!RayLib::RenderTexture@{RayLib::RenderTexture}}
+\doxysubsubsection{\texorpdfstring{DrawTexture()}{DrawTexture()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Render\+Texture\+::\+Draw\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draw loaded framebuffer. 
+
+\mbox{\Hypertarget{classRayLib_1_1RenderTexture_a10906dbae0d6d162c075237f6ea4eab1}\label{classRayLib_1_1RenderTexture_a10906dbae0d6d162c075237f6ea4eab1}} 
+\index{RayLib::RenderTexture@{RayLib::RenderTexture}!EndMode@{EndMode}}
+\index{EndMode@{EndMode}!RayLib::RenderTexture@{RayLib::RenderTexture}}
+\doxysubsubsection{\texorpdfstring{EndMode()}{EndMode()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Render\+Texture\+::\+End\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+End framebuffer drawing. 
+
+\mbox{\Hypertarget{classRayLib_1_1RenderTexture_a567eb63cb4baafffdb03d953fa7306f0}\label{classRayLib_1_1RenderTexture_a567eb63cb4baafffdb03d953fa7306f0}} 
+\index{RayLib::RenderTexture@{RayLib::RenderTexture}!GetTexture@{GetTexture}}
+\index{GetTexture@{GetTexture}!RayLib::RenderTexture@{RayLib::RenderTexture}}
+\doxysubsubsection{\texorpdfstring{GetTexture()}{GetTexture()}}
+{\footnotesize\ttfamily Render\+Texture2D \& Ray\+Lib\+::\+Render\+Texture\+::\+Get\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classRayLib_1_1Texture}{Texture}} object (framebuffer) 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Render\+Texture2D\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1RenderTexture_a1016ed0b20c161071cbb5429893d4c31}\label{classRayLib_1_1RenderTexture_a1016ed0b20c161071cbb5429893d4c31}} 
+\index{RayLib::RenderTexture@{RayLib::RenderTexture}!Unload@{Unload}}
+\index{Unload@{Unload}!RayLib::RenderTexture@{RayLib::RenderTexture}}
+\doxysubsubsection{\texorpdfstring{Unload()}{Unload()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Render\+Texture\+::\+Unload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unload the loaded framebuffer. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1RenderTexture_a70cd7720563dc4991826d2d1f6f0635d}\label{classRayLib_1_1RenderTexture_a70cd7720563dc4991826d2d1f6f0635d}} 
+\index{RayLib::RenderTexture@{RayLib::RenderTexture}!\_texture@{\_texture}}
+\index{\_texture@{\_texture}!RayLib::RenderTexture@{RayLib::RenderTexture}}
+\doxysubsubsection{\texorpdfstring{\_texture}{\_texture}}
+{\footnotesize\ttfamily \+::Render\+Texture2D Ray\+Lib\+::\+Render\+Texture\+::\+\_\+texture\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classRayLib_1_1RenderTexture}{Render\+Texture}} framebuffer. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Render\+Texture/\mbox{\hyperlink{RenderTexture_8hpp}{Render\+Texture.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Render\+Texture/\mbox{\hyperlink{RenderTexture_8cpp}{Render\+Texture.\+cpp}}\end{DoxyCompactItemize}

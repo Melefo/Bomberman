@@ -1,0 +1,267 @@
+\hypertarget{classLua_1_1TableValue}{}\doxysection{Lua\+::Table\+Value$<$ T $>$ Class Template Reference}
+\label{classLua_1_1TableValue}\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+
+
+Value from \mbox{\hyperlink{namespaceLua}{Lua}} Table.  
+
+
+
+
+{\ttfamily \#include $<$State.\+hpp$>$}
+
+
+
+Collaboration diagram for Lua\+::Table\+Value$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{classLua_1_1TableValue__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLua_1_1TableValue_acf3d887539459c529d4c41d8d9a1307c}{Table\+Value}} (\mbox{\hyperlink{classLua_1_1State}{State}} \&state, int pos, T key)
+\begin{DoxyCompactList}\small\item\em Construct a new Table Value object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1TableValue_afdc92f10191939dd0abb725b087de653}{$\sim$\+Table\+Value}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Table Value object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1TableValue_a954b21ab307c2f5d0d15bb358ed26ebb}{Table\+Value}} (const \mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new Table Value object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} \& \mbox{\hyperlink{classLua_1_1TableValue_a8f86b04b30ad6e0c4de0ad37e1cdc770}{operator=}} (const \mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} \& \mbox{\hyperlink{classLua_1_1TableValue_a4dd1b07fbbbd5ba7c9b52204f423e113}{operator=}} (U \&\&value)
+\begin{DoxyCompactList}\small\item\em Set value inside Table child. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} \& \mbox{\hyperlink{classLua_1_1TableValue_a3cf1f5f7ffd9e8cc76eaa706d5f4e5b7}{Set}} (U \&\&value)
+\begin{DoxyCompactList}\small\item\em Set key \& value to lua Table child. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\U \mbox{\hyperlink{classLua_1_1TableValue_ad11ff2a20ad824c351d576ace22c3fae}{Cast}} () const
+\begin{DoxyCompactList}\small\item\em Cast \mbox{\hyperlink{namespaceLua}{Lua}} Table Value to a cpp object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1Object}{Object}} \mbox{\hyperlink{classLua_1_1TableValue_af71e51239ee647017eb5906c88f1d4f1}{Get}} () const
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{namespaceLua}{Lua}} \mbox{\hyperlink{classLua_1_1Object}{Object}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLua_1_1TableValue_ac59cb12b266088b27d597ef5b5396291}{Exists}} () const
+\begin{DoxyCompactList}\small\item\em Check if value is Null. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLua_1_1State}{State}} \& \mbox{\hyperlink{classLua_1_1TableValue_ae07f4a8b9d3c94b4a62ac1711e96e701}{\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Reference to \mbox{\hyperlink{namespaceLua}{Lua}} Stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLua_1_1TableValue_a83bdeaa4bd3fa2e7382ac276c338479f}{\+\_\+pos}}
+\begin{DoxyCompactList}\small\item\em Position of the value inside the table. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classLua_1_1TableValue_a20744b2d1377343ba8e22de821816e0e}{\+\_\+key}}
+\begin{DoxyCompactList}\small\item\em Key associated with the value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Lua\+::\+Table\+Value$<$ T $>$}
+
+Value from \mbox{\hyperlink{namespaceLua}{Lua}} Table. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLua_1_1TableValue_acf3d887539459c529d4c41d8d9a1307c}\label{classLua_1_1TableValue_acf3d887539459c529d4c41d8d9a1307c}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!TableValue@{TableValue}}
+\index{TableValue@{TableValue}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TableValue()}{TableValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLua_1_1State}{State}} \&}]{state,  }\item[{int}]{pos,  }\item[{T}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Table Value object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+{\em pos} & \\
+\hline
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1TableValue_afdc92f10191939dd0abb725b087de653}\label{classLua_1_1TableValue_afdc92f10191939dd0abb725b087de653}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!````~TableValue@{$\sim$TableValue}}
+\index{````~TableValue@{$\sim$TableValue}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$TableValue()}{~TableValue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the Table Value object. 
+
+\mbox{\Hypertarget{classLua_1_1TableValue_a954b21ab307c2f5d0d15bb358ed26ebb}\label{classLua_1_1TableValue_a954b21ab307c2f5d0d15bb358ed26ebb}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!TableValue@{TableValue}}
+\index{TableValue@{TableValue}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TableValue()}{TableValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}$<$ T $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new Table Value object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLua_1_1TableValue_ad11ff2a20ad824c351d576ace22c3fae}\label{classLua_1_1TableValue_ad11ff2a20ad824c351d576ace22c3fae}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!Cast@{Cast}}
+\index{Cast@{Cast}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Cast()}{Cast()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename U $>$ \\
+U \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::Cast}
+
+
+
+Cast \mbox{\hyperlink{namespaceLua}{Lua}} Table Value to a cpp object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+U 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1TableValue_ac59cb12b266088b27d597ef5b5396291}\label{classLua_1_1TableValue_ac59cb12b266088b27d597ef5b5396291}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!Exists@{Exists}}
+\index{Exists@{Exists}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Exists()}{Exists()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::Exists}
+
+
+
+Check if value is Null. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1TableValue_af71e51239ee647017eb5906c88f1d4f1}\label{classLua_1_1TableValue_af71e51239ee647017eb5906c88f1d4f1}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!Get@{Get}}
+\index{Get@{Get}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classLua_1_1Object}{Lua\+::\+Object}} \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::Get}
+
+
+
+Get \mbox{\hyperlink{namespaceLua}{Lua}} \mbox{\hyperlink{classLua_1_1Object}{Object}}. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLua_1_1Object}{Object}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1TableValue_a8f86b04b30ad6e0c4de0ad37e1cdc770}\label{classLua_1_1TableValue_a8f86b04b30ad6e0c4de0ad37e1cdc770}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}\& \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}$<$ T $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}\& assigned \mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1TableValue_a4dd1b07fbbbd5ba7c9b52204f423e113}\label{classLua_1_1TableValue_a4dd1b07fbbbd5ba7c9b52204f423e113}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}\& \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{U \&\&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set value inside Table child. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1TableValue_a3cf1f5f7ffd9e8cc76eaa706d5f4e5b7}\label{classLua_1_1TableValue_a3cf1f5f7ffd9e8cc76eaa706d5f4e5b7}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!Set@{Set}}
+\index{Set@{Set}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}\& \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::Set (\begin{DoxyParamCaption}\item[{U \&\&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set key \& value to lua Table child. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLua_1_1TableValue}{Table\+Value}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLua_1_1TableValue_a20744b2d1377343ba8e22de821816e0e}\label{classLua_1_1TableValue_a20744b2d1377343ba8e22de821816e0e}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!\_key@{\_key}}
+\index{\_key@{\_key}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_key}{\_key}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::\+\_\+key\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Key associated with the value. 
+
+\mbox{\Hypertarget{classLua_1_1TableValue_a83bdeaa4bd3fa2e7382ac276c338479f}\label{classLua_1_1TableValue_a83bdeaa4bd3fa2e7382ac276c338479f}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!\_pos@{\_pos}}
+\index{\_pos@{\_pos}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_pos}{\_pos}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::\+\_\+pos\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Position of the value inside the table. 
+
+\mbox{\Hypertarget{classLua_1_1TableValue_ae07f4a8b9d3c94b4a62ac1711e96e701}\label{classLua_1_1TableValue_ae07f4a8b9d3c94b4a62ac1711e96e701}} 
+\index{Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}!\_state@{\_state}}
+\index{\_state@{\_state}!Lua::TableValue$<$ T $>$@{Lua::TableValue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_state}{\_state}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classLua_1_1State}{State}}\& \mbox{\hyperlink{classLua_1_1TableValue}{Lua\+::\+Table\+Value}}$<$ T $>$\+::\+\_\+state\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to \mbox{\hyperlink{namespaceLua}{Lua}} Stack. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Lua/sources/\+State/\mbox{\hyperlink{State_8hpp}{State.\+hpp}}\end{DoxyCompactItemize}

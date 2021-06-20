@@ -1,0 +1,159 @@
+\hypertarget{classAssetCache}{}\doxysection{Asset\+Cache Class Reference}
+\label{classAssetCache}\index{AssetCache@{AssetCache}}
+
+
+Manages game assets Makes sure every asset is loaded once.  
+
+
+
+
+{\ttfamily \#include $<$Asset\+Cache.\+hpp$>$}
+
+
+
+Collaboration diagram for Asset\+Cache\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classAssetCache__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAssetCache_aa47e19e9e0dbe1041a07abcbe1dab305}{Asset\+Cache}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new Asset Cache object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAssetCache_a597a0552d37f97e6a22fdbfc445a7732}{$\sim$\+Asset\+Cache}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Asset Cache object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAssetCache_a64b5daff0a5a2c822b54d9f14ec1198d}{Asset\+Cache}} (const \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAssetCache}{Asset\+Cache}} \& \mbox{\hyperlink{classAssetCache_a66027817365c9c2775754d784778ef30}{operator=}} (const \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\static std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classAssetCache_ae36a094d9e9e87edba1ea945ad9305d4}{Get\+Asset}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Get the Asset object When getting Shaders, extention must not be provided (.vs/.fs) \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classAssetCache_afa617b6a4fb7bf5622d477ccb0475b9d}{Get\+Asset\+Name}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1IAsset}{Ray\+Lib\+::\+I\+Asset}} $>$ asset\+Ptr)
+\begin{DoxyCompactList}\small\item\em Get the Asset\+Name object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1IAsset}{Ray\+Lib\+::\+I\+Asset}} $>$ $>$ \mbox{\hyperlink{classAssetCache_a87bb27ac80087d92718cf9089f715a68}{\+\_\+assets}}
+\begin{DoxyCompactList}\small\item\em Loaded assets String for the path, I\+Asset for the asset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages game assets Makes sure every asset is loaded once. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAssetCache_aa47e19e9e0dbe1041a07abcbe1dab305}\label{classAssetCache_aa47e19e9e0dbe1041a07abcbe1dab305}} 
+\index{AssetCache@{AssetCache}!AssetCache@{AssetCache}}
+\index{AssetCache@{AssetCache}!AssetCache@{AssetCache}}
+\doxysubsubsection{\texorpdfstring{AssetCache()}{AssetCache()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Asset\+Cache\+::\+Asset\+Cache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Asset Cache object. 
+
+\mbox{\Hypertarget{classAssetCache_a597a0552d37f97e6a22fdbfc445a7732}\label{classAssetCache_a597a0552d37f97e6a22fdbfc445a7732}} 
+\index{AssetCache@{AssetCache}!````~AssetCache@{$\sim$AssetCache}}
+\index{````~AssetCache@{$\sim$AssetCache}!AssetCache@{AssetCache}}
+\doxysubsubsection{\texorpdfstring{$\sim$AssetCache()}{~AssetCache()}}
+{\footnotesize\ttfamily Asset\+Cache\+::$\sim$\+Asset\+Cache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the Asset Cache object. 
+
+\mbox{\Hypertarget{classAssetCache_a64b5daff0a5a2c822b54d9f14ec1198d}\label{classAssetCache_a64b5daff0a5a2c822b54d9f14ec1198d}} 
+\index{AssetCache@{AssetCache}!AssetCache@{AssetCache}}
+\index{AssetCache@{AssetCache}!AssetCache@{AssetCache}}
+\doxysubsubsection{\texorpdfstring{AssetCache()}{AssetCache()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Asset\+Cache\+::\+Asset\+Cache (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAssetCache_ae36a094d9e9e87edba1ea945ad9305d4}\label{classAssetCache_ae36a094d9e9e87edba1ea945ad9305d4}} 
+\index{AssetCache@{AssetCache}!GetAsset@{GetAsset}}
+\index{GetAsset@{GetAsset}!AssetCache@{AssetCache}}
+\doxysubsubsection{\texorpdfstring{GetAsset()}{GetAsset()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static std\+::shared\+\_\+ptr$<$T$>$ Asset\+Cache\+::\+Get\+Asset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the Asset object When getting Shaders, extention must not be provided (.vs/.fs) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Mesh/\+Texture/\+Shader \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the asset \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAssetCache_afa617b6a4fb7bf5622d477ccb0475b9d}\label{classAssetCache_afa617b6a4fb7bf5622d477ccb0475b9d}} 
+\index{AssetCache@{AssetCache}!GetAssetName@{GetAssetName}}
+\index{GetAssetName@{GetAssetName}!AssetCache@{AssetCache}}
+\doxysubsubsection{\texorpdfstring{GetAssetName()}{GetAssetName()}}
+{\footnotesize\ttfamily static std\+::string Asset\+Cache\+::\+Get\+Asset\+Name (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1IAsset}{Ray\+Lib\+::\+I\+Asset}} $>$}]{asset\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the Asset\+Name object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em asset\+Ptr} & asset \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string the name of the asset 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAssetCache_a66027817365c9c2775754d784778ef30}\label{classAssetCache_a66027817365c9c2775754d784778ef30}} 
+\index{AssetCache@{AssetCache}!operator=@{operator=}}
+\index{operator=@{operator=}!AssetCache@{AssetCache}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAssetCache}{Asset\+Cache}}\& Asset\+Cache\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classAssetCache}{Asset\+Cache}}\& assigned \mbox{\hyperlink{classAssetCache}{Asset\+Cache}} 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAssetCache_a87bb27ac80087d92718cf9089f715a68}\label{classAssetCache_a87bb27ac80087d92718cf9089f715a68}} 
+\index{AssetCache@{AssetCache}!\_assets@{\_assets}}
+\index{\_assets@{\_assets}!AssetCache@{AssetCache}}
+\doxysubsubsection{\texorpdfstring{\_assets}{\_assets}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1IAsset}{Ray\+Lib\+::\+I\+Asset}} $>$ $>$ Asset\+Cache\+::\+\_\+assets\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Loaded assets String for the path, I\+Asset for the asset. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Asset\+Manager/\+Asset\+Cache/\mbox{\hyperlink{AssetCache_8hpp}{Asset\+Cache.\+hpp}}\item 
+Libs/\+Engine/sources/\+Asset\+Manager/\+Asset\+Cache/\mbox{\hyperlink{AssetCache_8cpp}{Asset\+Cache.\+cpp}}\end{DoxyCompactItemize}

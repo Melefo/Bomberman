@@ -1,0 +1,11 @@
+<map id="ECS::ASystem" name="ECS::ASystem">
+<area shape="rect" id="node1" title="Base Abstract class to create a new System." alt="" coords="754,5,917,303"/>
+<area shape="rect" id="node2" href="$classAddSystem.html" title=" " alt="" coords="5,439,137,545"/>
+<area shape="rect" id="node3" href="$classAIMapsGenerator.html" title=" " alt="" coords="161,351,360,633"/>
+<area shape="rect" id="node4" href="$classComponent_1_1BehaviourSystem.html" title=" " alt="" coords="384,409,604,575"/>
+<area shape="rect" id="node5" href="$classComponent_1_1PauseSystem.html" title=" " alt="" coords="629,409,821,575"/>
+<area shape="rect" id="node6" href="$classComponent_1_1PhysicsSystem.html" title=" " alt="" coords="845,417,1047,567"/>
+<area shape="rect" id="node7" href="$classComponent_1_1RenderSystem.html" title="Renderer system." alt="" coords="1071,417,1271,567"/>
+<area shape="rect" id="node8" href="$classComponent_1_1UISystem.html" title="UI System." alt="" coords="1295,424,1463,560"/>
+<area shape="rect" id="node9" href="$classMoveSystem.html" title=" " alt="" coords="1488,439,1631,545"/>
+</map>

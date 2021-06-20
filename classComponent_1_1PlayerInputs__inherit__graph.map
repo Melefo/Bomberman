@@ -1,0 +1,7 @@
+<map id="Component::PlayerInputs" name="Component::PlayerInputs">
+<area shape="rect" id="node1" title=" " alt="" coords="5,859,192,1097"/>
+<area shape="rect" id="node2" href="$classComponent_1_1AController.html" title=" " alt="" coords="9,587,188,811"/>
+<area shape="rect" id="node3" href="$classComponent_1_1IBehaviour.html" title="IBehaviour base component (CF Monobehaviour class in Unity)" alt="" coords="11,373,186,539"/>
+<area shape="rect" id="node4" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="30,204,167,325"/>
+<area shape="rect" id="node5" href="$classIXMLSerializable.html" title=" " alt="" coords="15,5,182,156"/>
+</map>

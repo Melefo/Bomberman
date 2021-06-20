@@ -1,0 +1,578 @@
+\hypertarget{classEngine_1_1GameConfiguration}{}\doxysection{Engine\+::Game\+Configuration Class Reference}
+\label{classEngine_1_1GameConfiguration}\index{Engine::GameConfiguration@{Engine::GameConfiguration}}
+
+
+{\ttfamily \#include $<$Game\+Configuration.\+hpp$>$}
+
+
+
+Collaboration diagram for Engine\+::Game\+Configuration\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classEngine_1_1GameConfiguration__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEngine_1_1GameConfiguration_a6a3ec34e61349b083012e63dde595c13}{Game\+Configuration}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new Game Configuration object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEngine_1_1GameConfiguration_a57bfe5ad2648f27036a432b5150e4466}{$\sim$\+Game\+Configuration}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Game Configuration object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEngine_1_1GameConfiguration_a64705bd0444aefd4d1e5424a9a99d94a}{Game\+Configuration}} (const \mbox{\hyperlink{classEngine_1_1GameConfiguration}{Game\+Configuration}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Game Configuration object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEngine_1_1GameConfiguration}{Game\+Configuration}} \& \mbox{\hyperlink{classEngine_1_1GameConfiguration_a71d8d1fc8a41325c844697bef73d1424}{operator=}} (const \mbox{\hyperlink{classEngine_1_1GameConfiguration}{Game\+Configuration}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structEngine_1_1playerkeys}{playerkeys}} \& \mbox{\hyperlink{classEngine_1_1GameConfiguration_a461628d379a7f85e40f7cb7b392950c5}{Get\+Player\+Keys}} (int player)
+\begin{DoxyCompactList}\small\item\em Get the Player Keys object. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEngine_1_1GameConfiguration_a3b133ce69363fb93826b634261474d65}{Get\+Players}} (void)
+\begin{DoxyCompactList}\small\item\em Get the nbr of players. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEngine_1_1GameConfiguration_ae9084c06c29fe2c431ad8ea535beaeb5}{Get\+IA}} (void)
+\begin{DoxyCompactList}\small\item\em Get the nbr of I\+As. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a811f9c34f7b8b0fd7ad69c18ab924c2a}{Set\+IA}} (int total)
+\begin{DoxyCompactList}\small\item\em Set the nbr of I\+As. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a6a46faac71fa18097de9e3eb0095a662}{Set\+Players}} (int players\+Total)
+\begin{DoxyCompactList}\small\item\em Set the nbr of players. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a7a894455c1379c4a887dca42d17debb6}{Set\+Player\+Keys}} (int player, \mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}} \&input, int action\+Key)
+\begin{DoxyCompactList}\small\item\em Set the Player Keys for the player nbr given. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ \mbox{\hyperlink{classEngine_1_1GameConfiguration_a513c7f2cddbb4a132de78d48c4562a07}{Get\+Map\+Size}} (void)
+\begin{DoxyCompactList}\small\item\em Get the size of the map. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a728edf3688c0bec02a3a245b9e9bf309}{Set\+Map\+Size}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Set the size of the map. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEngine_1_1GameConfiguration_a81bc7570f4d6d67800486adcd84b9275}{Get\+Is\+Map\+Basic}} (void)
+\begin{DoxyCompactList}\small\item\em Is the map basic ? \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a1e26bb2bd02e10c3004a4d43601a5aae}{Set\+Is\+Map\+Basic}} (bool value)
+\begin{DoxyCompactList}\small\item\em Set if the map is basic or not. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEngine_1_1GameConfiguration_af2f5a3327cf5540e1d4b880793b2a933}{Get\+Debug\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Is the mode debug enabled. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a93702cf0b489bf915952c5cff9d740ef}{Set\+Debug\+Mode}} (bool mode)
+\begin{DoxyCompactList}\small\item\em Set the mode to debug. \end{DoxyCompactList}\item 
+static unsigned int \mbox{\hyperlink{classEngine_1_1GameConfiguration_a84681c6ea6798b200e4c140db098e9e6}{Get\+Seed}} (void)
+\begin{DoxyCompactList}\small\item\em Get the seed. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a6a2ff56d9b502b779fc8a90df993952f}{Set\+Seed}} (unsigned int seed)
+\begin{DoxyCompactList}\small\item\em Set the seed. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEngine_1_1GameConfiguration_abeca66e8d1105f3a6c9356092cb77a6c}{Get\+Game\+Over}} (void)
+\begin{DoxyCompactList}\small\item\em Is the Game over. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a2ec08543316eb21690eb9f7ecf690268}{Set\+Game\+Over}} (bool game\+Over)
+\begin{DoxyCompactList}\small\item\em Set the the game over. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a177212475818cc32b166f353ec3bb5af}{Save\+Map}} (void)
+\begin{DoxyCompactList}\small\item\em Save the current map in .xml. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a25ad062bc037bd9658d660c62af7f4e4}{Save\+Map}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Save the current map with at the filepath. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a6e0681876f6ede7160ed138020911d2a}{Set\+Dropped\+Map}} (bool is\+Dropped)
+\begin{DoxyCompactList}\small\item\em Set the \+\_\+dropped\+Map. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEngine_1_1GameConfiguration_a33c9024eaad4b857d0fe58072c4b550c}{Get\+Dropped\+Map}} (void)
+\begin{DoxyCompactList}\small\item\em Get the \+\_\+dropped\+Map. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classEngine_1_1GameConfiguration_a6cb0ab5ce33252b607cb2751ebd99f6e}{Set\+Volume}} (float volume)
+\begin{DoxyCompactList}\small\item\em Set the volume. \end{DoxyCompactList}\item 
+static float \mbox{\hyperlink{classEngine_1_1GameConfiguration_aaaa86f233189dc130d7a4935083e93e5}{Get\+Volume}} (void)
+\begin{DoxyCompactList}\small\item\em Get the volume. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} \& \mbox{\hyperlink{classEngine_1_1GameConfiguration_a279ffe80b69934fb00cdea31439137be}{Get\+Terrain\+Generator}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Terrain Generator object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ \mbox{\hyperlink{classEngine_1_1GameConfiguration_a9ea130b865273507eed0c2fcf2d1d817}{\+\_\+map\+Size}} = \{15, 15\}
+\item 
+static int \mbox{\hyperlink{classEngine_1_1GameConfiguration_a03b48ea1179678ebc82c4ab93c4386b4}{\+\_\+players}} = 2
+\item 
+static int \mbox{\hyperlink{classEngine_1_1GameConfiguration_abbb249525f8ba01ab1d892c13752d6d4}{\+\_\+\+IA}} = 0
+\item 
+static unsigned int \mbox{\hyperlink{classEngine_1_1GameConfiguration_af0551c3f7ee774797a6e4ee134a527de}{\+\_\+seed}} = 0
+\item 
+static bool \mbox{\hyperlink{classEngine_1_1GameConfiguration_a0dbff099e91ce7f6072d5c8ea0b3f9e4}{\+\_\+debug\+Mode}} = false
+\item 
+static bool \mbox{\hyperlink{classEngine_1_1GameConfiguration_a4facdaae318d0f3bee59efbb9413cb19}{\+\_\+is\+Map\+Basic}} = true
+\item 
+static bool \mbox{\hyperlink{classEngine_1_1GameConfiguration_a8ee7b355bcb5a50cb4cdc4fb86ec641c}{\+\_\+game\+Over}} = false
+\item 
+static \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} \mbox{\hyperlink{classEngine_1_1GameConfiguration_aaa688323af6be3f117706a2f08923062}{\+\_\+terrain\+Generator}}
+\item 
+static std\+::map$<$ int, \mbox{\hyperlink{structEngine_1_1playerkeys}{playerkeys}} $>$ \mbox{\hyperlink{classEngine_1_1GameConfiguration_a7c963c930f442ffa89ba9c9ee193ad35}{\+\_\+player\+Keys}} = \{\}
+\item 
+static bool \mbox{\hyperlink{classEngine_1_1GameConfiguration_aa48c3f5b2b220262a0c56198db8276a6}{\+\_\+dropped\+Map}} = false
+\item 
+static float \mbox{\hyperlink{classEngine_1_1GameConfiguration_a79f55a3e88282cfa07707d78043fbd52}{\+\_\+volume}} = 0.\+4f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a6a3ec34e61349b083012e63dde595c13}\label{classEngine_1_1GameConfiguration_a6a3ec34e61349b083012e63dde595c13}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GameConfiguration@{GameConfiguration}}
+\index{GameConfiguration@{GameConfiguration}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GameConfiguration()}{GameConfiguration()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Engine\+::\+Game\+Configuration\+::\+Game\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Game Configuration object. 
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a57bfe5ad2648f27036a432b5150e4466}\label{classEngine_1_1GameConfiguration_a57bfe5ad2648f27036a432b5150e4466}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!````~GameConfiguration@{$\sim$GameConfiguration}}
+\index{````~GameConfiguration@{$\sim$GameConfiguration}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{$\sim$GameConfiguration()}{~GameConfiguration()}}
+{\footnotesize\ttfamily Engine\+::\+Game\+Configuration\+::$\sim$\+Game\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the Game Configuration object. 
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a64705bd0444aefd4d1e5424a9a99d94a}\label{classEngine_1_1GameConfiguration_a64705bd0444aefd4d1e5424a9a99d94a}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GameConfiguration@{GameConfiguration}}
+\index{GameConfiguration@{GameConfiguration}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GameConfiguration()}{GameConfiguration()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Engine\+::\+Game\+Configuration\+::\+Game\+Configuration (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEngine_1_1GameConfiguration}{Game\+Configuration}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Game Configuration object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_af2f5a3327cf5540e1d4b880793b2a933}\label{classEngine_1_1GameConfiguration_af2f5a3327cf5540e1d4b880793b2a933}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetDebugMode@{GetDebugMode}}
+\index{GetDebugMode@{GetDebugMode}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetDebugMode()}{GetDebugMode()}}
+{\footnotesize\ttfamily bool Engine\+::\+Game\+Configuration\+::\+Get\+Debug\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Is the mode debug enabled. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a33c9024eaad4b857d0fe58072c4b550c}\label{classEngine_1_1GameConfiguration_a33c9024eaad4b857d0fe58072c4b550c}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetDroppedMap@{GetDroppedMap}}
+\index{GetDroppedMap@{GetDroppedMap}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetDroppedMap()}{GetDroppedMap()}}
+{\footnotesize\ttfamily bool Engine\+::\+Game\+Configuration\+::\+Get\+Dropped\+Map (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the \+\_\+dropped\+Map. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_abeca66e8d1105f3a6c9356092cb77a6c}\label{classEngine_1_1GameConfiguration_abeca66e8d1105f3a6c9356092cb77a6c}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetGameOver@{GetGameOver}}
+\index{GetGameOver@{GetGameOver}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetGameOver()}{GetGameOver()}}
+{\footnotesize\ttfamily bool Engine\+::\+Game\+Configuration\+::\+Get\+Game\+Over (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Is the Game over. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_ae9084c06c29fe2c431ad8ea535beaeb5}\label{classEngine_1_1GameConfiguration_ae9084c06c29fe2c431ad8ea535beaeb5}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetIA@{GetIA}}
+\index{GetIA@{GetIA}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetIA()}{GetIA()}}
+{\footnotesize\ttfamily int Engine\+::\+Game\+Configuration\+::\+Get\+IA (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the nbr of I\+As. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a81bc7570f4d6d67800486adcd84b9275}\label{classEngine_1_1GameConfiguration_a81bc7570f4d6d67800486adcd84b9275}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetIsMapBasic@{GetIsMapBasic}}
+\index{GetIsMapBasic@{GetIsMapBasic}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetIsMapBasic()}{GetIsMapBasic()}}
+{\footnotesize\ttfamily bool Engine\+::\+Game\+Configuration\+::\+Get\+Is\+Map\+Basic (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Is the map basic ? 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a513c7f2cddbb4a132de78d48c4562a07}\label{classEngine_1_1GameConfiguration_a513c7f2cddbb4a132de78d48c4562a07}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetMapSize@{GetMapSize}}
+\index{GetMapSize@{GetMapSize}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetMapSize()}{GetMapSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ Engine\+::\+Game\+Configuration\+::\+Get\+Map\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the size of the map. 
+
+\begin{DoxyReturn}{Returns}
+Ray\+Lib\+::\+Vector2$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a461628d379a7f85e40f7cb7b392950c5}\label{classEngine_1_1GameConfiguration_a461628d379a7f85e40f7cb7b392950c5}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetPlayerKeys@{GetPlayerKeys}}
+\index{GetPlayerKeys@{GetPlayerKeys}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetPlayerKeys()}{GetPlayerKeys()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEngine_1_1playerkeys}{playerkeys}} \& Engine\+::\+Game\+Configuration\+::\+Get\+Player\+Keys (\begin{DoxyParamCaption}\item[{int}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the Player Keys object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+playerkeys\& playerkeys 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a3b133ce69363fb93826b634261474d65}\label{classEngine_1_1GameConfiguration_a3b133ce69363fb93826b634261474d65}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetPlayers@{GetPlayers}}
+\index{GetPlayers@{GetPlayers}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetPlayers()}{GetPlayers()}}
+{\footnotesize\ttfamily int Engine\+::\+Game\+Configuration\+::\+Get\+Players (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the nbr of players. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a84681c6ea6798b200e4c140db098e9e6}\label{classEngine_1_1GameConfiguration_a84681c6ea6798b200e4c140db098e9e6}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetSeed@{GetSeed}}
+\index{GetSeed@{GetSeed}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetSeed()}{GetSeed()}}
+{\footnotesize\ttfamily unsigned int Engine\+::\+Game\+Configuration\+::\+Get\+Seed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the seed. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a279ffe80b69934fb00cdea31439137be}\label{classEngine_1_1GameConfiguration_a279ffe80b69934fb00cdea31439137be}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetTerrainGenerator@{GetTerrainGenerator}}
+\index{GetTerrainGenerator@{GetTerrainGenerator}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetTerrainGenerator()}{GetTerrainGenerator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} \& Engine\+::\+Game\+Configuration\+::\+Get\+Terrain\+Generator (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the Terrain Generator object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_aaaa86f233189dc130d7a4935083e93e5}\label{classEngine_1_1GameConfiguration_aaaa86f233189dc130d7a4935083e93e5}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!GetVolume@{GetVolume}}
+\index{GetVolume@{GetVolume}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{GetVolume()}{GetVolume()}}
+{\footnotesize\ttfamily float Engine\+::\+Game\+Configuration\+::\+Get\+Volume (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the volume. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a71d8d1fc8a41325c844697bef73d1424}\label{classEngine_1_1GameConfiguration_a71d8d1fc8a41325c844697bef73d1424}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!operator=@{operator=}}
+\index{operator=@{operator=}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEngine_1_1GameConfiguration}{Game\+Configuration}}\& Engine\+::\+Game\+Configuration\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEngine_1_1GameConfiguration}{Game\+Configuration}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classEngine_1_1GameConfiguration}{Game\+Configuration}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a25ad062bc037bd9658d660c62af7f4e4}\label{classEngine_1_1GameConfiguration_a25ad062bc037bd9658d660c62af7f4e4}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SaveMap@{SaveMap}}
+\index{SaveMap@{SaveMap}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SaveMap()}{SaveMap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Save\+Map (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Save the current map with at the filepath. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & std\+::string\& path \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a177212475818cc32b166f353ec3bb5af}\label{classEngine_1_1GameConfiguration_a177212475818cc32b166f353ec3bb5af}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SaveMap@{SaveMap}}
+\index{SaveMap@{SaveMap}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SaveMap()}{SaveMap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Save\+Map (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Save the current map in .xml. 
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a93702cf0b489bf915952c5cff9d740ef}\label{classEngine_1_1GameConfiguration_a93702cf0b489bf915952c5cff9d740ef}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetDebugMode@{SetDebugMode}}
+\index{SetDebugMode@{SetDebugMode}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetDebugMode()}{SetDebugMode()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Debug\+Mode (\begin{DoxyParamCaption}\item[{bool}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the mode to debug. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & mode \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a6e0681876f6ede7160ed138020911d2a}\label{classEngine_1_1GameConfiguration_a6e0681876f6ede7160ed138020911d2a}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetDroppedMap@{SetDroppedMap}}
+\index{SetDroppedMap@{SetDroppedMap}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetDroppedMap()}{SetDroppedMap()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Dropped\+Map (\begin{DoxyParamCaption}\item[{bool}]{is\+Dropped }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the \+\_\+dropped\+Map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & is\+Dropped \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a2ec08543316eb21690eb9f7ecf690268}\label{classEngine_1_1GameConfiguration_a2ec08543316eb21690eb9f7ecf690268}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetGameOver@{SetGameOver}}
+\index{SetGameOver@{SetGameOver}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetGameOver()}{SetGameOver()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Game\+Over (\begin{DoxyParamCaption}\item[{bool}]{game\+Over }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the the game over. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & game\+Over \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a811f9c34f7b8b0fd7ad69c18ab924c2a}\label{classEngine_1_1GameConfiguration_a811f9c34f7b8b0fd7ad69c18ab924c2a}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetIA@{SetIA}}
+\index{SetIA@{SetIA}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetIA()}{SetIA()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+IA (\begin{DoxyParamCaption}\item[{int}]{total }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the nbr of I\+As. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & total \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a1e26bb2bd02e10c3004a4d43601a5aae}\label{classEngine_1_1GameConfiguration_a1e26bb2bd02e10c3004a4d43601a5aae}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetIsMapBasic@{SetIsMapBasic}}
+\index{SetIsMapBasic@{SetIsMapBasic}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetIsMapBasic()}{SetIsMapBasic()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Is\+Map\+Basic (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set if the map is basic or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a728edf3688c0bec02a3a245b9e9bf309}\label{classEngine_1_1GameConfiguration_a728edf3688c0bec02a3a245b9e9bf309}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetMapSize@{SetMapSize}}
+\index{SetMapSize@{SetMapSize}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetMapSize()}{SetMapSize()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Map\+Size (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the size of the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & x \\
+\hline
+{\em int} & y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a7a894455c1379c4a887dca42d17debb6}\label{classEngine_1_1GameConfiguration_a7a894455c1379c4a887dca42d17debb6}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetPlayerKeys@{SetPlayerKeys}}
+\index{SetPlayerKeys@{SetPlayerKeys}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetPlayerKeys()}{SetPlayerKeys()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Player\+Keys (\begin{DoxyParamCaption}\item[{int}]{player,  }\item[{\mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}} \&}]{input,  }\item[{int}]{action\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the Player Keys for the player nbr given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & player \\
+\hline
+{\em Ray\+Lib\+::\+Input\&} & input \\
+\hline
+{\em int} & action\+Key \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a6a46faac71fa18097de9e3eb0095a662}\label{classEngine_1_1GameConfiguration_a6a46faac71fa18097de9e3eb0095a662}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetPlayers@{SetPlayers}}
+\index{SetPlayers@{SetPlayers}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetPlayers()}{SetPlayers()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Players (\begin{DoxyParamCaption}\item[{int}]{players\+Total }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the nbr of players. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & players\+Total \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a6a2ff56d9b502b779fc8a90df993952f}\label{classEngine_1_1GameConfiguration_a6a2ff56d9b502b779fc8a90df993952f}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetSeed@{SetSeed}}
+\index{SetSeed@{SetSeed}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetSeed()}{SetSeed()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Seed (\begin{DoxyParamCaption}\item[{unsigned int}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the seed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em unsigned} & int seed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a6cb0ab5ce33252b607cb2751ebd99f6e}\label{classEngine_1_1GameConfiguration_a6cb0ab5ce33252b607cb2751ebd99f6e}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!SetVolume@{SetVolume}}
+\index{SetVolume@{SetVolume}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{SetVolume()}{SetVolume()}}
+{\footnotesize\ttfamily void Engine\+::\+Game\+Configuration\+::\+Set\+Volume (\begin{DoxyParamCaption}\item[{float}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set the volume. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em float} & volume \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a0dbff099e91ce7f6072d5c8ea0b3f9e4}\label{classEngine_1_1GameConfiguration_a0dbff099e91ce7f6072d5c8ea0b3f9e4}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_debugMode@{\_debugMode}}
+\index{\_debugMode@{\_debugMode}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_debugMode}{\_debugMode}}
+{\footnotesize\ttfamily bool Engine\+::\+Game\+Configuration\+::\+\_\+debug\+Mode = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_aa48c3f5b2b220262a0c56198db8276a6}\label{classEngine_1_1GameConfiguration_aa48c3f5b2b220262a0c56198db8276a6}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_droppedMap@{\_droppedMap}}
+\index{\_droppedMap@{\_droppedMap}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_droppedMap}{\_droppedMap}}
+{\footnotesize\ttfamily bool Engine\+::\+Game\+Configuration\+::\+\_\+dropped\+Map = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a8ee7b355bcb5a50cb4cdc4fb86ec641c}\label{classEngine_1_1GameConfiguration_a8ee7b355bcb5a50cb4cdc4fb86ec641c}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_gameOver@{\_gameOver}}
+\index{\_gameOver@{\_gameOver}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_gameOver}{\_gameOver}}
+{\footnotesize\ttfamily bool Engine\+::\+Game\+Configuration\+::\+\_\+game\+Over = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_abbb249525f8ba01ab1d892c13752d6d4}\label{classEngine_1_1GameConfiguration_abbb249525f8ba01ab1d892c13752d6d4}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_IA@{\_IA}}
+\index{\_IA@{\_IA}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_IA}{\_IA}}
+{\footnotesize\ttfamily int Engine\+::\+Game\+Configuration\+::\+\_\+\+IA = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a4facdaae318d0f3bee59efbb9413cb19}\label{classEngine_1_1GameConfiguration_a4facdaae318d0f3bee59efbb9413cb19}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_isMapBasic@{\_isMapBasic}}
+\index{\_isMapBasic@{\_isMapBasic}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_isMapBasic}{\_isMapBasic}}
+{\footnotesize\ttfamily bool Engine\+::\+Game\+Configuration\+::\+\_\+is\+Map\+Basic = true\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a9ea130b865273507eed0c2fcf2d1d817}\label{classEngine_1_1GameConfiguration_a9ea130b865273507eed0c2fcf2d1d817}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_mapSize@{\_mapSize}}
+\index{\_mapSize@{\_mapSize}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_mapSize}{\_mapSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ Engine\+::\+Game\+Configuration\+::\+\_\+map\+Size = \{15, 15\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a7c963c930f442ffa89ba9c9ee193ad35}\label{classEngine_1_1GameConfiguration_a7c963c930f442ffa89ba9c9ee193ad35}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_playerKeys@{\_playerKeys}}
+\index{\_playerKeys@{\_playerKeys}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_playerKeys}{\_playerKeys}}
+{\footnotesize\ttfamily std\+::map$<$ int, \mbox{\hyperlink{structEngine_1_1playerkeys}{playerkeys}} $>$ Engine\+::\+Game\+Configuration\+::\+\_\+player\+Keys = \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a03b48ea1179678ebc82c4ab93c4386b4}\label{classEngine_1_1GameConfiguration_a03b48ea1179678ebc82c4ab93c4386b4}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_players@{\_players}}
+\index{\_players@{\_players}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_players}{\_players}}
+{\footnotesize\ttfamily int Engine\+::\+Game\+Configuration\+::\+\_\+players = 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_af0551c3f7ee774797a6e4ee134a527de}\label{classEngine_1_1GameConfiguration_af0551c3f7ee774797a6e4ee134a527de}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_seed@{\_seed}}
+\index{\_seed@{\_seed}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_seed}{\_seed}}
+{\footnotesize\ttfamily unsigned int Engine\+::\+Game\+Configuration\+::\+\_\+seed = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_aaa688323af6be3f117706a2f08923062}\label{classEngine_1_1GameConfiguration_aaa688323af6be3f117706a2f08923062}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_terrainGenerator@{\_terrainGenerator}}
+\index{\_terrainGenerator@{\_terrainGenerator}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_terrainGenerator}{\_terrainGenerator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} Engine\+::\+Game\+Configuration\+::\+\_\+terrain\+Generator\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \mbox{\hyperlink{classTerrainGenerator}{TerrainGenerator}}(\mbox{\hyperlink{classEngine_1_1GameConfiguration_a3b133ce69363fb93826b634261474d65}{Engine::GameConfiguration::GetPlayers}}() + \mbox{\hyperlink{classEngine_1_1GameConfiguration_ae9084c06c29fe2c431ad8ea535beaeb5}{Engine::GameConfiguration::GetIA}}(),}
+\DoxyCodeLine{                                                                             \mbox{\hyperlink{classEngine_1_1GameConfiguration_a513c7f2cddbb4a132de78d48c4562a07}{Engine::GameConfiguration::GetMapSize}}().x, \mbox{\hyperlink{classEngine_1_1GameConfiguration_a513c7f2cddbb4a132de78d48c4562a07}{Engine::GameConfiguration::GetMapSize}}().y)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEngine_1_1GameConfiguration_a79f55a3e88282cfa07707d78043fbd52}\label{classEngine_1_1GameConfiguration_a79f55a3e88282cfa07707d78043fbd52}} 
+\index{Engine::GameConfiguration@{Engine::GameConfiguration}!\_volume@{\_volume}}
+\index{\_volume@{\_volume}!Engine::GameConfiguration@{Engine::GameConfiguration}}
+\doxysubsubsection{\texorpdfstring{\_volume}{\_volume}}
+{\footnotesize\ttfamily float Engine\+::\+Game\+Configuration\+::\+\_\+volume = 0.\+4f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Game\+Configuration/\mbox{\hyperlink{GameConfiguration_8hpp}{Game\+Configuration.\+hpp}}\item 
+Libs/\+Engine/sources/\+Game\+Configuration/\mbox{\hyperlink{GameConfiguration_8cpp}{Game\+Configuration.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,414 @@
+\hypertarget{classECS_1_1Entity}{}\doxysection{E\+CS\+::Entity Class Reference}
+\label{classECS_1_1Entity}\index{ECS::Entity@{ECS::Entity}}
+
+
+Scene object containing components and an ID.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+hpp$>$}
+
+
+
+Collaboration diagram for E\+CS\+::Entity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classECS_1_1Entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity_ac588f6c4a11da3a9216b2187101bc1a4}{Entity}} ()=delete
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity_ad7be47ddbf88444848d18ec4e422edaa}{Entity}} (uint32\+\_\+t id, \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} \&entity\+Manager, const std\+::string \&tag=\char`\"{}Untagged\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity_aca7bf3d2b128204e96eb5203691bb69e}{$\sim$\+Entity}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity_a1ad8918bdf52cbc2a3407807f0ff8598}{Entity}} (const \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \& \mbox{\hyperlink{classECS_1_1Entity_a8d7601860dc1d836e34b1a7e9dbce9c8}{operator=}} (const \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} Object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \& \mbox{\hyperlink{classECS_1_1Entity_acd55ea7730800137180c06df6384e187}{Get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{namespaceComponent}{Component}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ T $>$ $>$ \mbox{\hyperlink{classECS_1_1Entity_a224c9e782bc131eb5f9fd4368ad5a97e}{Of\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Get every \mbox{\hyperlink{namespaceComponent}{Component}} derivating from T. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} $>$ $>$ $>$ \mbox{\hyperlink{classECS_1_1Entity_aca599df7ab006563c2c76d5e584a0647}{Get\+Components}} ()
+\begin{DoxyCompactList}\small\item\em Get the Components object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... T\+Args$>$ }\\void \mbox{\hyperlink{classECS_1_1Entity_a6e0d5d96b13f1b84b519c80b8599390e}{Add\+Component}} (T\+Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Add a new \mbox{\hyperlink{namespaceComponent}{Component}} to the current \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base , typename T , typename... T\+Args$>$ }\\void \mbox{\hyperlink{classECS_1_1Entity_a630bc5dfc9039a5aef174201a44d981b}{Add\+Component}} (T\+Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Add a new derived \mbox{\hyperlink{namespaceComponent}{Component}} to the current \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classECS_1_1Entity_a6905d6f2d5b6bd311bbded0ead1a6319}{Remove\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Remove a \mbox{\hyperlink{namespaceComponent}{Component}} from the \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{classECS_1_1Entity_ad9a535122649c1b1b4584b632069bd13}{Has\+Component}} () const
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a given \mbox{\hyperlink{namespaceComponent}{Component}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1Entity_ae3da186490da88a5485576f537a74c2d}{Has\+Component}} (std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a given \mbox{\hyperlink{namespaceComponent}{Component}} based on its name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1Entity_a2d4ffd4c88cca4e843cdc3c910ce67f9}{Has\+Components}} (std\+::vector$<$ std\+::string $>$ \&names) const
+\begin{DoxyCompactList}\small\item\em Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a list of given \mbox{\hyperlink{namespaceComponent}{Component}} based on teirs names. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classECS_1_1Entity_a5242e415a4975316110a352422e87eee}{Get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the Id object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Entity_ac2918c5470d1227d1b9ea0aeeebd334b}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Remove the \mbox{\hyperlink{namespaceComponent}{Component}} from the scene and so destroy itself. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} \& \mbox{\hyperlink{classECS_1_1Entity_a26a34940a443fcd3fa7fd72900e2163a}{Get\+Component\+By\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{namespaceComponent}{Component}} by name, if exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Entity_a042545a36258e64fbf6815c718b29ded}{Set\+Tag}} (const std\+::string \&tag)
+\item 
+const std\+::string \& \mbox{\hyperlink{classECS_1_1Entity_a8bb955657cded83bda200b9894811913}{Get\+Tag}} (void) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classECS_1_1Entity_a18f76940fa57a1953ee2d88dead06a51}{\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em ID of the \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} \mbox{\hyperlink{classECS_1_1Entity_a499723cdaef5e3ceeb327c57d2016fd4}{\+\_\+component\+Manager}}
+\begin{DoxyCompactList}\small\item\em Manage components inside the \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} \& \mbox{\hyperlink{classECS_1_1Entity_a4ad8cbb963028eeab22385f6ff8f9528}{\+\_\+entity\+Manager}}
+\begin{DoxyCompactList}\small\item\em Reference to the Scene in which it has been created. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classECS_1_1Entity_a4616aea7e2b2af838b75fdcde276517c}{\+\_\+tag}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classECS_1_1Entity}{Entity}}\textquotesingle{}s tag Equal to \char`\"{}\+Untagged\char`\"{} by default. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scene object containing components and an ID. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classECS_1_1Entity_ac588f6c4a11da3a9216b2187101bc1a4}\label{classECS_1_1Entity_ac588f6c4a11da3a9216b2187101bc1a4}} 
+\index{ECS::Entity@{ECS::Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Construct a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. 
+
+\mbox{\Hypertarget{classECS_1_1Entity_ad7be47ddbf88444848d18ec4e422edaa}\label{classECS_1_1Entity_ad7be47ddbf88444848d18ec4e422edaa}} 
+\index{ECS::Entity@{ECS::Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} \&}]{entity\+Manager,  }\item[{const std\+::string \&}]{tag = {\ttfamily \char`\"{}Untagged\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & ID for the new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \\
+\hline
+{\em entity\+Manager} & Reference to the scene \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1Entity_aca7bf3d2b128204e96eb5203691bb69e}\label{classECS_1_1Entity_aca7bf3d2b128204e96eb5203691bb69e}} 
+\index{ECS::Entity@{ECS::Entity}!````~Entity@{$\sim$Entity}}
+\index{````~Entity@{$\sim$Entity}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{$\sim$Entity()}{~Entity()}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Entity\+::$\sim$\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. 
+
+\mbox{\Hypertarget{classECS_1_1Entity_a1ad8918bdf52cbc2a3407807f0ff8598}\label{classECS_1_1Entity_a1ad8918bdf52cbc2a3407807f0ff8598}} 
+\index{ECS::Entity@{ECS::Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classECS_1_1Entity_a6e0d5d96b13f1b84b519c80b8599390e}\label{classECS_1_1Entity_a6e0d5d96b13f1b84b519c80b8599390e}} 
+\index{ECS::Entity@{ECS::Entity}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... T\+Args$>$ \\
+void E\+C\+S\+::\+Entity\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{T\+Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new \mbox{\hyperlink{namespaceComponent}{Component}} to the current \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+{\em T\+Args} & Types of the constructor arguments of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Constructor arguments of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1Entity_a630bc5dfc9039a5aef174201a44d981b}\label{classECS_1_1Entity_a630bc5dfc9039a5aef174201a44d981b}} 
+\index{ECS::Entity@{ECS::Entity}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Base , typename T , typename... T\+Args$>$ \\
+void E\+C\+S\+::\+Entity\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{T\+Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new derived \mbox{\hyperlink{namespaceComponent}{Component}} to the current \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Base} & Base class of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+{\em T} & Derived class of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+{\em T\+Args} & Types of the constructor arguments of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Constructor arguments of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1Entity_ac2918c5470d1227d1b9ea0aeeebd334b}\label{classECS_1_1Entity_ac2918c5470d1227d1b9ea0aeeebd334b}} 
+\index{ECS::Entity@{ECS::Entity}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Entity\+::\+Dispose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove the \mbox{\hyperlink{namespaceComponent}{Component}} from the scene and so destroy itself. 
+
+\mbox{\Hypertarget{classECS_1_1Entity_acd55ea7730800137180c06df6384e187}\label{classECS_1_1Entity_acd55ea7730800137180c06df6384e187}} 
+\index{ECS::Entity@{ECS::Entity}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T\& E\+C\+S\+::\+Entity\+::\+Get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the \mbox{\hyperlink{namespaceComponent}{Component}} object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+T\& reference to the \mbox{\hyperlink{namespaceComponent}{Component}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Entity_a26a34940a443fcd3fa7fd72900e2163a}\label{classECS_1_1Entity_a26a34940a443fcd3fa7fd72900e2163a}} 
+\index{ECS::Entity@{ECS::Entity}!GetComponentByName@{GetComponentByName}}
+\index{GetComponentByName@{GetComponentByName}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{GetComponentByName()}{GetComponentByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} \& E\+C\+S\+::\+Entity\+::\+Get\+Component\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Get \mbox{\hyperlink{namespaceComponent}{Component}} by name, if exists. 
+
+\mbox{\Hypertarget{classECS_1_1Entity_aca599df7ab006563c2c76d5e584a0647}\label{classECS_1_1Entity_aca599df7ab006563c2c76d5e584a0647}} 
+\index{ECS::Entity@{ECS::Entity}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1IComponent}{I\+Component}} $>$ $>$ $>$ E\+C\+S\+::\+Entity\+::\+Get\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Components object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::unique\+\_\+ptr$<$\+I\+Component$>$\&$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Entity_a5242e415a4975316110a352422e87eee}\label{classECS_1_1Entity_a5242e415a4975316110a352422e87eee}} 
+\index{ECS::Entity@{ECS::Entity}!GetId@{GetId}}
+\index{GetId@{GetId}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+C\+S\+::\+Entity\+::\+Get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Id object. 
+
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t Current ID of the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Entity_a8bb955657cded83bda200b9894811913}\label{classECS_1_1Entity_a8bb955657cded83bda200b9894811913}} 
+\index{ECS::Entity@{ECS::Entity}!GetTag@{GetTag}}
+\index{GetTag@{GetTag}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{GetTag()}{GetTag()}}
+{\footnotesize\ttfamily const std\+::string \& E\+C\+S\+::\+Entity\+::\+Get\+Tag (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classECS_1_1Entity_ad9a535122649c1b1b4584b632069bd13}\label{classECS_1_1Entity_ad9a535122649c1b1b4584b632069bd13}} 
+\index{ECS::Entity@{ECS::Entity}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool E\+C\+S\+::\+Entity\+::\+Has\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a given \mbox{\hyperlink{namespaceComponent}{Component}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true The \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains the component 
+
+false The \mbox{\hyperlink{classECS_1_1Entity}{Entity}} doesn\textquotesingle{}t contains the component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Entity_ae3da186490da88a5485576f537a74c2d}\label{classECS_1_1Entity_ae3da186490da88a5485576f537a74c2d}} 
+\index{ECS::Entity@{ECS::Entity}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+Entity\+::\+Has\+Component (\begin{DoxyParamCaption}\item[{std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a given \mbox{\hyperlink{namespaceComponent}{Component}} based on its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the component \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true The \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains the component 
+
+false The \mbox{\hyperlink{classECS_1_1Entity}{Entity}} doesn\textquotesingle{}t Contains the component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Entity_a2d4ffd4c88cca4e843cdc3c910ce67f9}\label{classECS_1_1Entity_a2d4ffd4c88cca4e843cdc3c910ce67f9}} 
+\index{ECS::Entity@{ECS::Entity}!HasComponents@{HasComponents}}
+\index{HasComponents@{HasComponents}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{HasComponents()}{HasComponents()}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+Entity\+::\+Has\+Components (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{names }\end{DoxyParamCaption}) const}
+
+
+
+Check if the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} contains a list of given \mbox{\hyperlink{namespaceComponent}{Component}} based on teirs names. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em names} & List of \mbox{\hyperlink{namespaceComponent}{Component}} names \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true The entity contains every Components 
+
+false The entity is missing at least \mbox{\hyperlink{namespaceComponent}{Component}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Entity_a224c9e782bc131eb5f9fd4368ad5a97e}\label{classECS_1_1Entity_a224c9e782bc131eb5f9fd4368ad5a97e}} 
+\index{ECS::Entity@{ECS::Entity}!OfType@{OfType}}
+\index{OfType@{OfType}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{OfType()}{OfType()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$std\+::reference\+\_\+wrapper$<$T$>$ $>$ E\+C\+S\+::\+Entity\+::\+Of\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get every \mbox{\hyperlink{namespaceComponent}{Component}} derivating from T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & base class of the Components \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::reference\+\_\+wrapper$<$\+T$>$$>$ List of references to Components 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Entity_a8d7601860dc1d836e34b1a7e9dbce9c8}\label{classECS_1_1Entity_a8d7601860dc1d836e34b1a7e9dbce9c8}} 
+\index{ECS::Entity@{ECS::Entity}!operator=@{operator=}}
+\index{operator=@{operator=}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{Entity}}\& E\+C\+S\+::\+Entity\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} Object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{Entity}}\& assigned \mbox{\hyperlink{classECS_1_1Entity}{Entity}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Entity_a6905d6f2d5b6bd311bbded0ead1a6319}\label{classECS_1_1Entity_a6905d6f2d5b6bd311bbded0ead1a6319}} 
+\index{ECS::Entity@{ECS::Entity}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void E\+C\+S\+::\+Entity\+::\+Remove\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a \mbox{\hyperlink{namespaceComponent}{Component}} from the \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{namespaceComponent}{Component}} \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classECS_1_1Entity_a042545a36258e64fbf6815c718b29ded}\label{classECS_1_1Entity_a042545a36258e64fbf6815c718b29ded}} 
+\index{ECS::Entity@{ECS::Entity}!SetTag@{SetTag}}
+\index{SetTag@{SetTag}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{SetTag()}{SetTag()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Entity\+::\+Set\+Tag (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tag }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classECS_1_1Entity_a499723cdaef5e3ceeb327c57d2016fd4}\label{classECS_1_1Entity_a499723cdaef5e3ceeb327c57d2016fd4}} 
+\index{ECS::Entity@{ECS::Entity}!\_componentManager@{\_componentManager}}
+\index{\_componentManager@{\_componentManager}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{\_componentManager}{\_componentManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1ComponentManager}{Component\+Manager}} E\+C\+S\+::\+Entity\+::\+\_\+component\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Manage components inside the \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+\mbox{\Hypertarget{classECS_1_1Entity_a4ad8cbb963028eeab22385f6ff8f9528}\label{classECS_1_1Entity_a4ad8cbb963028eeab22385f6ff8f9528}} 
+\index{ECS::Entity@{ECS::Entity}!\_entityManager@{\_entityManager}}
+\index{\_entityManager@{\_entityManager}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{\_entityManager}{\_entityManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}}\& E\+C\+S\+::\+Entity\+::\+\_\+entity\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the Scene in which it has been created. 
+
+\mbox{\Hypertarget{classECS_1_1Entity_a18f76940fa57a1953ee2d88dead06a51}\label{classECS_1_1Entity_a18f76940fa57a1953ee2d88dead06a51}} 
+\index{ECS::Entity@{ECS::Entity}!\_id@{\_id}}
+\index{\_id@{\_id}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{\_id}{\_id}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+C\+S\+::\+Entity\+::\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ID of the \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+\mbox{\Hypertarget{classECS_1_1Entity_a4616aea7e2b2af838b75fdcde276517c}\label{classECS_1_1Entity_a4616aea7e2b2af838b75fdcde276517c}} 
+\index{ECS::Entity@{ECS::Entity}!\_tag@{\_tag}}
+\index{\_tag@{\_tag}!ECS::Entity@{ECS::Entity}}
+\doxysubsubsection{\texorpdfstring{\_tag}{\_tag}}
+{\footnotesize\ttfamily std\+::string E\+C\+S\+::\+Entity\+::\+\_\+tag\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classECS_1_1Entity}{Entity}}\textquotesingle{}s tag Equal to \char`\"{}\+Untagged\char`\"{} by default. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+E\+C\+S/sources/\+Entity/\mbox{\hyperlink{Entity_8hpp}{Entity.\+hpp}}\item 
+Libs/\+E\+C\+S/sources/\+Entity/\mbox{\hyperlink{Entity_8cpp}{Entity.\+cpp}}\end{DoxyCompactItemize}

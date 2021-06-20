@@ -1,0 +1,427 @@
+\hypertarget{classComponent_1_1DropBomb}{}\doxysection{Component\+::Drop\+Bomb Class Reference}
+\label{classComponent_1_1DropBomb}\index{Component::DropBomb@{Component::DropBomb}}
+
+
+Behaviour for players or AI allowing to drop a bomb upon pressing a key.  
+
+
+
+
+{\ttfamily \#include $<$Drop\+Bomb.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Drop\+Bomb\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1DropBomb__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Drop\+Bomb\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1DropBomb__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1DropBomb_a43bc7f56ddd9e6423d51959bfba0af1c}{Drop\+Bomb}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&self, float drop\+Delay=2.\+5f, float min\+Delay=1.\+0f, float max\+Bombs=5.\+0f)
+\begin{DoxyCompactList}\small\item\em Construct a new Drop Bomb object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1DropBomb_ab0d1219cb96ed34f7ff13ebf824b48c2}{$\sim$\+Drop\+Bomb}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Drop Bomb object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1DropBomb_a3554cc9cc50bb967b5294c6c6021c575}{Drop\+Bomb}} (const \mbox{\hyperlink{classComponent_1_1DropBomb}{Drop\+Bomb}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Drop Bomb object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1DropBomb}{Drop\+Bomb}} \& \mbox{\hyperlink{classComponent_1_1DropBomb_ae0be8c2bfdaa1796f2c227ddb5b02c14}{operator=}} (const \mbox{\hyperlink{classComponent_1_1DropBomb}{Drop\+Bomb}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1DropBomb_a5aa4c9bb57ee320105cca34166adaf8d}{Instantiate\+Bomb}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} position, \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+::\+Explosion\+Type}} explosion\+Type=\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a0af50777920c1401ab975cab64c4d491}{Explosion\+::\+Explosion\+Type\+::\+C\+I\+R\+C\+LE}})
+\begin{DoxyCompactList}\small\item\em Function to create a bomb, belongs in an entity factory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1DropBomb_ae1410e597e0195203f7a61742c894f6c}{Create\+Bomb}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, float radius, \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+::\+Explosion\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Create a bomb. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classComponent_1_1DropBomb_a64bcee9b7f1ccae70f9c34db0713f643}{Get\+Bomb\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Get the cross size. \end{DoxyCompactList}\item 
+float \& \mbox{\hyperlink{classComponent_1_1DropBomb_ab9c511e2bbf4b87b555838c84027c0ae}{Get\+Bonus\+Time\+Range}} ()
+\begin{DoxyCompactList}\small\item\em Get the time of the range bonus. \end{DoxyCompactList}\item 
+float \& \mbox{\hyperlink{classComponent_1_1DropBomb_af2acff8e37fe56a54000453800a45cce}{Get\+Bonus\+Time\+Cool\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Get the time of the cooldown bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1DropBomb_a57a110877e38f13964d4a59d842c88cf}{Boost\+Bomb\+Number}} (int bonus\+Bombs, float duration)
+\begin{DoxyCompactList}\small\item\em Add bonus\+Bombs to be dropped, for duration seconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1DropBomb_a067a746afa220054ead56669b19e67fe}{Boost\+Bomb\+Cooldown}} (float bonus\+Time, float duration)
+\begin{DoxyCompactList}\small\item\em Set\+Bomb\+Cooldown to bonus\+Time, for duration seconds. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1DropBomb_a25a7ece2914a2691cf9b3cd764ea9165}{Get\+Drop\+Delay}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Drop Delay object. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1DropBomb_a1d3712f5010b9916a4915f732dc3a109}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1DropBomb_a1499b1617210772f26fa8d07a97b6069}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\item 
+void \mbox{\hyperlink{classComponent_1_1DropBomb_ac75e1505034fd3c27b17e843c5a36149}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Called to regulate bonus time. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classComponent_1_1DropBomb_a123721b2334b7361468ff0b1c4d8623a}{Round\+To\+Nearest10}} (float num)
+\begin{DoxyCompactList}\small\item\em Round a float to a multiple of 10. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classComponent_1_1DropBomb_a2101febc25e6536e4135199faaef6c6f}{time\+To\+Drop}}
+\begin{DoxyCompactList}\small\item\em Cooldown timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} $>$ \& \mbox{\hyperlink{classComponent_1_1DropBomb_a9d283612c0ecf1263896bd9b218561d5}{\+\_\+coordinator}}
+\begin{DoxyCompactList}\small\item\em Singleton coordinator reference (instantiation) \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}} $>$ \& \mbox{\hyperlink{classComponent_1_1DropBomb_ac767c268ddb33139585161c9d6c04c1f}{\+\_\+window}}
+\begin{DoxyCompactList}\small\item\em Reference to window singleton to get frametime. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classComponent_1_1DropBomb_ac137bd7adf5ce530ae57611e65abc6a9}{\+\_\+bomb\+Number}}
+\item 
+int \mbox{\hyperlink{classComponent_1_1DropBomb_ad67211d017a375eb5e5018d0448372a3}{\+\_\+default\+Bomb\+Number}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1DropBomb_a5d330bef785680294b21d096aa033e00}{\+\_\+bonus\+Time\+Range}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1DropBomb_a05e153786c8e835bb51e610c62256583}{\+\_\+bonus\+Time\+Cool\+Down}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1DropBomb_a0db68bd8abd88410fde3964ff780f7e6}{\+\_\+default\+Drop\+Delay}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1DropBomb_a488eda1660d9cf1faadab6df2efc3266}{\+\_\+drop\+Delay}}
+\begin{DoxyCompactList}\small\item\em Bomb cooldown. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1DropBomb_a7110dd954cbd835124a2137177b2b5ed}{\+\_\+min\+Delay}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1DropBomb_adb8394ca725077447e4955c551ef5e78}{\+\_\+max\+Bombs}}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1DropBomb_a0a5200737987743a46377af350c2b7af}{\+\_\+self}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Behaviour for players or AI allowing to drop a bomb upon pressing a key. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a43bc7f56ddd9e6423d51959bfba0af1c}\label{classComponent_1_1DropBomb_a43bc7f56ddd9e6423d51959bfba0af1c}} 
+\index{Component::DropBomb@{Component::DropBomb}!DropBomb@{DropBomb}}
+\index{DropBomb@{DropBomb}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{DropBomb()}{DropBomb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Drop\+Bomb\+::\+Drop\+Bomb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{self,  }\item[{float}]{drop\+Delay = {\ttfamily 2.5f},  }\item[{float}]{min\+Delay = {\ttfamily 1.0f},  }\item[{float}]{max\+Bombs = {\ttfamily 5.0f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Drop Bomb object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & \\
+\hline
+{\em coordinator} & \\
+\hline
+{\em drop\+Bomb\+Key} & Key to press \\
+\hline
+{\em drop\+Delay} & Cooldown for bomb-\/dropping \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_ab0d1219cb96ed34f7ff13ebf824b48c2}\label{classComponent_1_1DropBomb_ab0d1219cb96ed34f7ff13ebf824b48c2}} 
+\index{Component::DropBomb@{Component::DropBomb}!````~DropBomb@{$\sim$DropBomb}}
+\index{````~DropBomb@{$\sim$DropBomb}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{$\sim$DropBomb()}{~DropBomb()}}
+{\footnotesize\ttfamily Component\+::\+Drop\+Bomb\+::$\sim$\+Drop\+Bomb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Drop Bomb object. 
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a3554cc9cc50bb967b5294c6c6021c575}\label{classComponent_1_1DropBomb_a3554cc9cc50bb967b5294c6c6021c575}} 
+\index{Component::DropBomb@{Component::DropBomb}!DropBomb@{DropBomb}}
+\index{DropBomb@{DropBomb}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{DropBomb()}{DropBomb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Drop\+Bomb\+::\+Drop\+Bomb (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1DropBomb}{Drop\+Bomb}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Drop Bomb object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a067a746afa220054ead56669b19e67fe}\label{classComponent_1_1DropBomb_a067a746afa220054ead56669b19e67fe}} 
+\index{Component::DropBomb@{Component::DropBomb}!BoostBombCooldown@{BoostBombCooldown}}
+\index{BoostBombCooldown@{BoostBombCooldown}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{BoostBombCooldown()}{BoostBombCooldown()}}
+{\footnotesize\ttfamily void Component\+::\+Drop\+Bomb\+::\+Boost\+Bomb\+Cooldown (\begin{DoxyParamCaption}\item[{float}]{bonus\+Time,  }\item[{float}]{duration }\end{DoxyParamCaption})}
+
+
+
+Set\+Bomb\+Cooldown to bonus\+Time, for duration seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bonus\+Time} & \\
+\hline
+{\em duration} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a57a110877e38f13964d4a59d842c88cf}\label{classComponent_1_1DropBomb_a57a110877e38f13964d4a59d842c88cf}} 
+\index{Component::DropBomb@{Component::DropBomb}!BoostBombNumber@{BoostBombNumber}}
+\index{BoostBombNumber@{BoostBombNumber}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{BoostBombNumber()}{BoostBombNumber()}}
+{\footnotesize\ttfamily void Component\+::\+Drop\+Bomb\+::\+Boost\+Bomb\+Number (\begin{DoxyParamCaption}\item[{int}]{bonus\+Bombs,  }\item[{float}]{duration }\end{DoxyParamCaption})}
+
+
+
+Add bonus\+Bombs to be dropped, for duration seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bonus\+Bombs} & \\
+\hline
+{\em duration} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_ae1410e597e0195203f7a61742c894f6c}\label{classComponent_1_1DropBomb_ae1410e597e0195203f7a61742c894f6c}} 
+\index{Component::DropBomb@{Component::DropBomb}!CreateBomb@{CreateBomb}}
+\index{CreateBomb@{CreateBomb}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{CreateBomb()}{CreateBomb()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Component\+::\+Drop\+Bomb\+::\+Create\+Bomb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{float}]{radius,  }\item[{\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+::\+Explosion\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Create a bomb. 
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a64bcee9b7f1ccae70f9c34db0713f643}\label{classComponent_1_1DropBomb_a64bcee9b7f1ccae70f9c34db0713f643}} 
+\index{Component::DropBomb@{Component::DropBomb}!GetBombNumber@{GetBombNumber}}
+\index{GetBombNumber@{GetBombNumber}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{GetBombNumber()}{GetBombNumber()}}
+{\footnotesize\ttfamily int Component\+::\+Drop\+Bomb\+::\+Get\+Bomb\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the cross size. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_af2acff8e37fe56a54000453800a45cce}\label{classComponent_1_1DropBomb_af2acff8e37fe56a54000453800a45cce}} 
+\index{Component::DropBomb@{Component::DropBomb}!GetBonusTimeCoolDown@{GetBonusTimeCoolDown}}
+\index{GetBonusTimeCoolDown@{GetBonusTimeCoolDown}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{GetBonusTimeCoolDown()}{GetBonusTimeCoolDown()}}
+{\footnotesize\ttfamily float \& Component\+::\+Drop\+Bomb\+::\+Get\+Bonus\+Time\+Cool\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the time of the cooldown bonus. 
+
+\begin{DoxyReturn}{Returns}
+float\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_ab9c511e2bbf4b87b555838c84027c0ae}\label{classComponent_1_1DropBomb_ab9c511e2bbf4b87b555838c84027c0ae}} 
+\index{Component::DropBomb@{Component::DropBomb}!GetBonusTimeRange@{GetBonusTimeRange}}
+\index{GetBonusTimeRange@{GetBonusTimeRange}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{GetBonusTimeRange()}{GetBonusTimeRange()}}
+{\footnotesize\ttfamily float \& Component\+::\+Drop\+Bomb\+::\+Get\+Bonus\+Time\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the time of the range bonus. 
+
+\begin{DoxyReturn}{Returns}
+float\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a25a7ece2914a2691cf9b3cd764ea9165}\label{classComponent_1_1DropBomb_a25a7ece2914a2691cf9b3cd764ea9165}} 
+\index{Component::DropBomb@{Component::DropBomb}!GetDropDelay@{GetDropDelay}}
+\index{GetDropDelay@{GetDropDelay}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{GetDropDelay()}{GetDropDelay()}}
+{\footnotesize\ttfamily float Component\+::\+Drop\+Bomb\+::\+Get\+Drop\+Delay (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Drop Delay object. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a5aa4c9bb57ee320105cca34166adaf8d}\label{classComponent_1_1DropBomb_a5aa4c9bb57ee320105cca34166adaf8d}} 
+\index{Component::DropBomb@{Component::DropBomb}!InstantiateBomb@{InstantiateBomb}}
+\index{InstantiateBomb@{InstantiateBomb}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{InstantiateBomb()}{InstantiateBomb()}}
+{\footnotesize\ttfamily void Component\+::\+Drop\+Bomb\+::\+Instantiate\+Bomb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{position,  }\item[{\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+::\+Explosion\+Type}}}]{explosion\+Type = {\ttfamily \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a0af50777920c1401ab975cab64c4d491}{Explosion\+::\+Explosion\+Type\+::\+C\+I\+R\+C\+LE}}} }\end{DoxyParamCaption})}
+
+
+
+Function to create a bomb, belongs in an entity factory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em explosion\+Type} & \\
+\hline
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a1499b1617210772f26fa8d07a97b6069}\label{classComponent_1_1DropBomb_a1499b1617210772f26fa8d07a97b6069}} 
+\index{Component::DropBomb@{Component::DropBomb}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Drop\+Bomb\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a1d3712f5010b9916a4915f732dc3a109}\label{classComponent_1_1DropBomb_a1d3712f5010b9916a4915f732dc3a109}} 
+\index{Component::DropBomb@{Component::DropBomb}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Drop\+Bomb\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_ae0be8c2bfdaa1796f2c227ddb5b02c14}\label{classComponent_1_1DropBomb_ae0be8c2bfdaa1796f2c227ddb5b02c14}} 
+\index{Component::DropBomb@{Component::DropBomb}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1DropBomb}{Drop\+Bomb}}\& Component\+::\+Drop\+Bomb\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1DropBomb}{Drop\+Bomb}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1DropBomb}{Drop\+Bomb}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a123721b2334b7361468ff0b1c4d8623a}\label{classComponent_1_1DropBomb_a123721b2334b7361468ff0b1c4d8623a}} 
+\index{Component::DropBomb@{Component::DropBomb}!RoundToNearest10@{RoundToNearest10}}
+\index{RoundToNearest10@{RoundToNearest10}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{RoundToNearest10()}{RoundToNearest10()}}
+{\footnotesize\ttfamily int Component\+::\+Drop\+Bomb\+::\+Round\+To\+Nearest10 (\begin{DoxyParamCaption}\item[{float}]{num }\end{DoxyParamCaption})}
+
+
+
+Round a float to a multiple of 10. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_ac75e1505034fd3c27b17e843c5a36149}\label{classComponent_1_1DropBomb_ac75e1505034fd3c27b17e843c5a36149}} 
+\index{Component::DropBomb@{Component::DropBomb}!Update@{Update}}
+\index{Update@{Update}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Drop\+Bomb\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Called to regulate bonus time. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1DropBomb_ac137bd7adf5ce530ae57611e65abc6a9}\label{classComponent_1_1DropBomb_ac137bd7adf5ce530ae57611e65abc6a9}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_bombNumber@{\_bombNumber}}
+\index{\_bombNumber@{\_bombNumber}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_bombNumber}{\_bombNumber}}
+{\footnotesize\ttfamily int Component\+::\+Drop\+Bomb\+::\+\_\+bomb\+Number\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a05e153786c8e835bb51e610c62256583}\label{classComponent_1_1DropBomb_a05e153786c8e835bb51e610c62256583}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_bonusTimeCoolDown@{\_bonusTimeCoolDown}}
+\index{\_bonusTimeCoolDown@{\_bonusTimeCoolDown}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_bonusTimeCoolDown}{\_bonusTimeCoolDown}}
+{\footnotesize\ttfamily float Component\+::\+Drop\+Bomb\+::\+\_\+bonus\+Time\+Cool\+Down\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a5d330bef785680294b21d096aa033e00}\label{classComponent_1_1DropBomb_a5d330bef785680294b21d096aa033e00}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_bonusTimeRange@{\_bonusTimeRange}}
+\index{\_bonusTimeRange@{\_bonusTimeRange}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_bonusTimeRange}{\_bonusTimeRange}}
+{\footnotesize\ttfamily float Component\+::\+Drop\+Bomb\+::\+\_\+bonus\+Time\+Range\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a9d283612c0ecf1263896bd9b218561d5}\label{classComponent_1_1DropBomb_a9d283612c0ecf1263896bd9b218561d5}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_coordinator@{\_coordinator}}
+\index{\_coordinator@{\_coordinator}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_coordinator}{\_coordinator}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}}$>$\& Component\+::\+Drop\+Bomb\+::\+\_\+coordinator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Singleton coordinator reference (instantiation) 
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_ad67211d017a375eb5e5018d0448372a3}\label{classComponent_1_1DropBomb_ad67211d017a375eb5e5018d0448372a3}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_defaultBombNumber@{\_defaultBombNumber}}
+\index{\_defaultBombNumber@{\_defaultBombNumber}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_defaultBombNumber}{\_defaultBombNumber}}
+{\footnotesize\ttfamily int Component\+::\+Drop\+Bomb\+::\+\_\+default\+Bomb\+Number\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a0db68bd8abd88410fde3964ff780f7e6}\label{classComponent_1_1DropBomb_a0db68bd8abd88410fde3964ff780f7e6}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_defaultDropDelay@{\_defaultDropDelay}}
+\index{\_defaultDropDelay@{\_defaultDropDelay}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_defaultDropDelay}{\_defaultDropDelay}}
+{\footnotesize\ttfamily float Component\+::\+Drop\+Bomb\+::\+\_\+default\+Drop\+Delay\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a488eda1660d9cf1faadab6df2efc3266}\label{classComponent_1_1DropBomb_a488eda1660d9cf1faadab6df2efc3266}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_dropDelay@{\_dropDelay}}
+\index{\_dropDelay@{\_dropDelay}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_dropDelay}{\_dropDelay}}
+{\footnotesize\ttfamily float Component\+::\+Drop\+Bomb\+::\+\_\+drop\+Delay\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bomb cooldown. 
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_adb8394ca725077447e4955c551ef5e78}\label{classComponent_1_1DropBomb_adb8394ca725077447e4955c551ef5e78}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_maxBombs@{\_maxBombs}}
+\index{\_maxBombs@{\_maxBombs}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_maxBombs}{\_maxBombs}}
+{\footnotesize\ttfamily float Component\+::\+Drop\+Bomb\+::\+\_\+max\+Bombs\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a7110dd954cbd835124a2137177b2b5ed}\label{classComponent_1_1DropBomb_a7110dd954cbd835124a2137177b2b5ed}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_minDelay@{\_minDelay}}
+\index{\_minDelay@{\_minDelay}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_minDelay}{\_minDelay}}
+{\footnotesize\ttfamily float Component\+::\+Drop\+Bomb\+::\+\_\+min\+Delay\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a0a5200737987743a46377af350c2b7af}\label{classComponent_1_1DropBomb_a0a5200737987743a46377af350c2b7af}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_self@{\_self}}
+\index{\_self@{\_self}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_self}{\_self}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Drop\+Bomb\+::\+\_\+self\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_ac767c268ddb33139585161c9d6c04c1f}\label{classComponent_1_1DropBomb_ac767c268ddb33139585161c9d6c04c1f}} 
+\index{Component::DropBomb@{Component::DropBomb}!\_window@{\_window}}
+\index{\_window@{\_window}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{\_window}{\_window}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}}$>$\& Component\+::\+Drop\+Bomb\+::\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to window singleton to get frametime. 
+
+\mbox{\Hypertarget{classComponent_1_1DropBomb_a2101febc25e6536e4135199faaef6c6f}\label{classComponent_1_1DropBomb_a2101febc25e6536e4135199faaef6c6f}} 
+\index{Component::DropBomb@{Component::DropBomb}!timeToDrop@{timeToDrop}}
+\index{timeToDrop@{timeToDrop}!Component::DropBomb@{Component::DropBomb}}
+\doxysubsubsection{\texorpdfstring{timeToDrop}{timeToDrop}}
+{\footnotesize\ttfamily float Component\+::\+Drop\+Bomb\+::time\+To\+Drop}
+
+
+
+Cooldown timer. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Drop\+Bomb/\mbox{\hyperlink{DropBomb_8hpp}{Drop\+Bomb.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Drop\+Bomb/\mbox{\hyperlink{DropBomb_8cpp}{Drop\+Bomb.\+cpp}}\end{DoxyCompactItemize}

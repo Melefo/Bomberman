@@ -1,0 +1,193 @@
+\hypertarget{classTestTerrainGenerator}{}\doxysection{Test\+Terrain\+Generator Class Reference}
+\label{classTestTerrainGenerator}\index{TestTerrainGenerator@{TestTerrainGenerator}}
+
+
+{\ttfamily \#include $<$test\+Terrain\+Generator.\+hpp$>$}
+
+
+
+Inheritance diagram for Test\+Terrain\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classTestTerrainGenerator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Test\+Terrain\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classTestTerrainGenerator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTestTerrainGenerator_a446cf78ec848668276156647364c08bc}{Test\+Terrain\+Generator}} (int players\+Nbr, const \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}} map\+Type=\mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}{Terrain\+Generator\+::\+Map\+Type\+::\+Default}})
+\item 
+\mbox{\hyperlink{classTestTerrainGenerator_a11463ee2ffd88f806f482371ab2a2c9f}{$\sim$\+Test\+Terrain\+Generator}} ()=default
+\item 
+void \mbox{\hyperlink{classTestTerrainGenerator_a039eec05b7e1c62bfab251e976eeaf72}{trim\+Map}} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classTestTerrainGenerator_a6d507c0f422fe7ef67631c2e429203fd}{rotate\+Tile}} (std\+::vector$<$ std\+::string $>$ tile) const
+\item 
+std\+::string \mbox{\hyperlink{classTestTerrainGenerator_a79fc981eecf0784426ebd403bc9dac06}{generate\+Map\+Line}} (int h\+Pos)
+\item 
+void \mbox{\hyperlink{classTestTerrainGenerator_a45e7c6bf0617ad4a93b8dc30a91d1de7}{generate\+Base\+Map}} (int seed)
+\item 
+void \mbox{\hyperlink{classTestTerrainGenerator_a62c38d2839fdab976f27725dda50f6fb}{remove\+Boxes}} ()
+\item 
+bool \mbox{\hyperlink{classTestTerrainGenerator_a8cfe7486b1cdcaa69083b7850d6e078f}{add\+Tetr\+On\+Map}} (const std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ \&tiles)
+\item 
+bool \mbox{\hyperlink{classTestTerrainGenerator_ab5d4f07c0fba78c6545ca21f514b3562}{try\+Placing\+Tile}} (const std\+::vector$<$ std\+::string $>$ \&tile, int map\+Pos)
+\item 
+bool \mbox{\hyperlink{classTestTerrainGenerator_a379692f569f9b335bdf3545317acb8b4}{try\+Tetr\+Positions}} (const std\+::vector$<$ std\+::string $>$ \&chosen\+Tile)
+\item 
+bool \mbox{\hyperlink{classTestTerrainGenerator_ad2122a36c6050b1e614254f7d335c6af}{blocks\+Path}} (int y, int x)
+\item 
+void \mbox{\hyperlink{classTestTerrainGenerator_a0e4cc8de300358f472a21d8e525af841}{add\+Tile\+On\+Map}} (int y, int x)
+\item 
+void \mbox{\hyperlink{classTestTerrainGenerator_a27e7d0b01acc612fe505c572adb5f791}{place\+Players}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classTestTerrainGenerator_a26a6eed0f84554e119618af9b83d5862}{line\+Get\+Width}} (int line\+Pos)
+\item 
+void \mbox{\hyperlink{classTestTerrainGenerator_adb130a3fa487b611f71cee57b217523b}{fill\+Holes}} ()
+\item 
+bool \mbox{\hyperlink{classTestTerrainGenerator_ab89d429d644701fb98e4a89d21b521fa}{is\+Map\+Full}} ()
+\item 
+void \mbox{\hyperlink{classTestTerrainGenerator_a6452de55cd2bd7f168d315c273ef3227}{modify\+Map}} (std\+::string line, int pos)
+\item 
+int \mbox{\hyperlink{classTestTerrainGenerator_a7752fd2ad3e4a66b1a4dc32df4d8da9b}{get\+Players\+Nbr}} ()
+\item 
+void \mbox{\hyperlink{classTestTerrainGenerator_a9fef7e400a44a0a5702884e735f5ce07}{make\+Space\+For\+Players}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTestTerrainGenerator_a446cf78ec848668276156647364c08bc}\label{classTestTerrainGenerator_a446cf78ec848668276156647364c08bc}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!TestTerrainGenerator@{TestTerrainGenerator}}
+\index{TestTerrainGenerator@{TestTerrainGenerator}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{TestTerrainGenerator()}{TestTerrainGenerator()}}
+{\footnotesize\ttfamily Test\+Terrain\+Generator\+::\+Test\+Terrain\+Generator (\begin{DoxyParamCaption}\item[{int}]{players\+Nbr,  }\item[{const \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}}}]{map\+Type = {\ttfamily \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}{Terrain\+Generator\+::\+Map\+Type\+::\+Default}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a11463ee2ffd88f806f482371ab2a2c9f}\label{classTestTerrainGenerator_a11463ee2ffd88f806f482371ab2a2c9f}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!````~TestTerrainGenerator@{$\sim$TestTerrainGenerator}}
+\index{````~TestTerrainGenerator@{$\sim$TestTerrainGenerator}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{$\sim$TestTerrainGenerator()}{~TestTerrainGenerator()}}
+{\footnotesize\ttfamily Test\+Terrain\+Generator\+::$\sim$\+Test\+Terrain\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTestTerrainGenerator_a8cfe7486b1cdcaa69083b7850d6e078f}\label{classTestTerrainGenerator_a8cfe7486b1cdcaa69083b7850d6e078f}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!addTetrOnMap@{addTetrOnMap}}
+\index{addTetrOnMap@{addTetrOnMap}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{addTetrOnMap()}{addTetrOnMap()}}
+{\footnotesize\ttfamily bool Test\+Terrain\+Generator\+::add\+Tetr\+On\+Map (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ \&}]{tiles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a0e4cc8de300358f472a21d8e525af841}\label{classTestTerrainGenerator_a0e4cc8de300358f472a21d8e525af841}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!addTileOnMap@{addTileOnMap}}
+\index{addTileOnMap@{addTileOnMap}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{addTileOnMap()}{addTileOnMap()}}
+{\footnotesize\ttfamily void Test\+Terrain\+Generator\+::add\+Tile\+On\+Map (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_ad2122a36c6050b1e614254f7d335c6af}\label{classTestTerrainGenerator_ad2122a36c6050b1e614254f7d335c6af}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!blocksPath@{blocksPath}}
+\index{blocksPath@{blocksPath}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{blocksPath()}{blocksPath()}}
+{\footnotesize\ttfamily bool Test\+Terrain\+Generator\+::blocks\+Path (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_adb130a3fa487b611f71cee57b217523b}\label{classTestTerrainGenerator_adb130a3fa487b611f71cee57b217523b}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!fillHoles@{fillHoles}}
+\index{fillHoles@{fillHoles}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{fillHoles()}{fillHoles()}}
+{\footnotesize\ttfamily void Test\+Terrain\+Generator\+::fill\+Holes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a45e7c6bf0617ad4a93b8dc30a91d1de7}\label{classTestTerrainGenerator_a45e7c6bf0617ad4a93b8dc30a91d1de7}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!generateBaseMap@{generateBaseMap}}
+\index{generateBaseMap@{generateBaseMap}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateBaseMap()}{generateBaseMap()}}
+{\footnotesize\ttfamily void Test\+Terrain\+Generator\+::generate\+Base\+Map (\begin{DoxyParamCaption}\item[{int}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a79fc981eecf0784426ebd403bc9dac06}\label{classTestTerrainGenerator_a79fc981eecf0784426ebd403bc9dac06}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!generateMapLine@{generateMapLine}}
+\index{generateMapLine@{generateMapLine}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateMapLine()}{generateMapLine()}}
+{\footnotesize\ttfamily std\+::string Test\+Terrain\+Generator\+::generate\+Map\+Line (\begin{DoxyParamCaption}\item[{int}]{h\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a7752fd2ad3e4a66b1a4dc32df4d8da9b}\label{classTestTerrainGenerator_a7752fd2ad3e4a66b1a4dc32df4d8da9b}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!getPlayersNbr@{getPlayersNbr}}
+\index{getPlayersNbr@{getPlayersNbr}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{getPlayersNbr()}{getPlayersNbr()}}
+{\footnotesize\ttfamily int Test\+Terrain\+Generator\+::get\+Players\+Nbr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_ab89d429d644701fb98e4a89d21b521fa}\label{classTestTerrainGenerator_ab89d429d644701fb98e4a89d21b521fa}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!isMapFull@{isMapFull}}
+\index{isMapFull@{isMapFull}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{isMapFull()}{isMapFull()}}
+{\footnotesize\ttfamily bool Test\+Terrain\+Generator\+::is\+Map\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a26a6eed0f84554e119618af9b83d5862}\label{classTestTerrainGenerator_a26a6eed0f84554e119618af9b83d5862}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!lineGetWidth@{lineGetWidth}}
+\index{lineGetWidth@{lineGetWidth}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{lineGetWidth()}{lineGetWidth()}}
+{\footnotesize\ttfamily size\+\_\+t Test\+Terrain\+Generator\+::line\+Get\+Width (\begin{DoxyParamCaption}\item[{int}]{line\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a9fef7e400a44a0a5702884e735f5ce07}\label{classTestTerrainGenerator_a9fef7e400a44a0a5702884e735f5ce07}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!makeSpaceForPlayers@{makeSpaceForPlayers}}
+\index{makeSpaceForPlayers@{makeSpaceForPlayers}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{makeSpaceForPlayers()}{makeSpaceForPlayers()}}
+{\footnotesize\ttfamily void Test\+Terrain\+Generator\+::make\+Space\+For\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a6452de55cd2bd7f168d315c273ef3227}\label{classTestTerrainGenerator_a6452de55cd2bd7f168d315c273ef3227}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!modifyMap@{modifyMap}}
+\index{modifyMap@{modifyMap}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{modifyMap()}{modifyMap()}}
+{\footnotesize\ttfamily void Test\+Terrain\+Generator\+::modify\+Map (\begin{DoxyParamCaption}\item[{std\+::string}]{line,  }\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a27e7d0b01acc612fe505c572adb5f791}\label{classTestTerrainGenerator_a27e7d0b01acc612fe505c572adb5f791}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!placePlayers@{placePlayers}}
+\index{placePlayers@{placePlayers}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{placePlayers()}{placePlayers()}}
+{\footnotesize\ttfamily void Test\+Terrain\+Generator\+::place\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a62c38d2839fdab976f27725dda50f6fb}\label{classTestTerrainGenerator_a62c38d2839fdab976f27725dda50f6fb}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!removeBoxes@{removeBoxes}}
+\index{removeBoxes@{removeBoxes}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{removeBoxes()}{removeBoxes()}}
+{\footnotesize\ttfamily void Test\+Terrain\+Generator\+::remove\+Boxes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a6d507c0f422fe7ef67631c2e429203fd}\label{classTestTerrainGenerator_a6d507c0f422fe7ef67631c2e429203fd}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!rotateTile@{rotateTile}}
+\index{rotateTile@{rotateTile}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{rotateTile()}{rotateTile()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Test\+Terrain\+Generator\+::rotate\+Tile (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{tile }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a039eec05b7e1c62bfab251e976eeaf72}\label{classTestTerrainGenerator_a039eec05b7e1c62bfab251e976eeaf72}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!trimMap@{trimMap}}
+\index{trimMap@{trimMap}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{trimMap()}{trimMap()}}
+{\footnotesize\ttfamily void Test\+Terrain\+Generator\+::trim\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_ab5d4f07c0fba78c6545ca21f514b3562}\label{classTestTerrainGenerator_ab5d4f07c0fba78c6545ca21f514b3562}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!tryPlacingTile@{tryPlacingTile}}
+\index{tryPlacingTile@{tryPlacingTile}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{tryPlacingTile()}{tryPlacingTile()}}
+{\footnotesize\ttfamily bool Test\+Terrain\+Generator\+::try\+Placing\+Tile (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{tile,  }\item[{int}]{map\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classTestTerrainGenerator_a379692f569f9b335bdf3545317acb8b4}\label{classTestTerrainGenerator_a379692f569f9b335bdf3545317acb8b4}} 
+\index{TestTerrainGenerator@{TestTerrainGenerator}!tryTetrPositions@{tryTetrPositions}}
+\index{tryTetrPositions@{tryTetrPositions}!TestTerrainGenerator@{TestTerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{tryTetrPositions()}{tryTetrPositions()}}
+{\footnotesize\ttfamily bool Test\+Terrain\+Generator\+::try\+Tetr\+Positions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{chosen\+Tile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Terrain\+Generator/tests/\mbox{\hyperlink{testTerrainGenerator_8hpp}{test\+Terrain\+Generator.\+hpp}}\end{DoxyCompactItemize}

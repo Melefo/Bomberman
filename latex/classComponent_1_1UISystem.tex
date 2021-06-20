@@ -1,0 +1,151 @@
+\hypertarget{classComponent_1_1UISystem}{}\doxysection{Component\+::U\+I\+System Class Reference}
+\label{classComponent_1_1UISystem}\index{Component::UISystem@{Component::UISystem}}
+
+
+UI System.  
+
+
+
+
+{\ttfamily \#include $<$U\+I\+System.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::U\+I\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classComponent_1_1UISystem__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::U\+I\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classComponent_1_1UISystem__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1UISystem_ad753d8b00bd0a404cfd992c97de996e9}{U\+I\+System}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1UISystem_a03a652194015f722a445b9ab18f149be}{$\sim$\+U\+I\+System}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1UISystem_a7072856990683d8043f8564fcf6d5a32}{U\+I\+System}} (const \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} \& \mbox{\hyperlink{classComponent_1_1UISystem_ab087732116fb461d3efbb3e7b762b8ac}{operator=}} (const \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1UISystem_ac30e3cb38fcc3eb8ed8892c69564b8f0}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Call UI object draw function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}} $>$ \& \mbox{\hyperlink{classComponent_1_1UISystem_a99826ca01b1bf8cb72d5a46cc9dc4e5c}{\+\_\+window}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+UI System. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1UISystem_ad753d8b00bd0a404cfd992c97de996e9}\label{classComponent_1_1UISystem_ad753d8b00bd0a404cfd992c97de996e9}} 
+\index{Component::UISystem@{Component::UISystem}!UISystem@{UISystem}}
+\index{UISystem@{UISystem}!Component::UISystem@{Component::UISystem}}
+\doxysubsubsection{\texorpdfstring{UISystem()}{UISystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+U\+I\+System\+::\+U\+I\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1UISystem_a03a652194015f722a445b9ab18f149be}\label{classComponent_1_1UISystem_a03a652194015f722a445b9ab18f149be}} 
+\index{Component::UISystem@{Component::UISystem}!````~UISystem@{$\sim$UISystem}}
+\index{````~UISystem@{$\sim$UISystem}!Component::UISystem@{Component::UISystem}}
+\doxysubsubsection{\texorpdfstring{$\sim$UISystem()}{~UISystem()}}
+{\footnotesize\ttfamily Component\+::\+U\+I\+System\+::$\sim$\+U\+I\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1UISystem_a7072856990683d8043f8564fcf6d5a32}\label{classComponent_1_1UISystem_a7072856990683d8043f8564fcf6d5a32}} 
+\index{Component::UISystem@{Component::UISystem}!UISystem@{UISystem}}
+\index{UISystem@{UISystem}!Component::UISystem@{Component::UISystem}}
+\doxysubsubsection{\texorpdfstring{UISystem()}{UISystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+U\+I\+System\+::\+U\+I\+System (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1UISystem_ac30e3cb38fcc3eb8ed8892c69564b8f0}\label{classComponent_1_1UISystem_ac30e3cb38fcc3eb8ed8892c69564b8f0}} 
+\index{Component::UISystem@{Component::UISystem}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::UISystem@{Component::UISystem}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+U\+I\+System\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Call UI object draw function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classECS_1_1ASystem_a8b86083ca0b66e7c905d4aba5ddb82ab}{E\+C\+S\+::\+A\+System}}.
+
+\mbox{\Hypertarget{classComponent_1_1UISystem_ab087732116fb461d3efbb3e7b762b8ac}\label{classComponent_1_1UISystem_ab087732116fb461d3efbb3e7b762b8ac}} 
+\index{Component::UISystem@{Component::UISystem}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::UISystem@{Component::UISystem}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}}\& Component\+::\+U\+I\+System\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1UISystem}{U\+I\+System}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1UISystem_a99826ca01b1bf8cb72d5a46cc9dc4e5c}\label{classComponent_1_1UISystem_a99826ca01b1bf8cb72d5a46cc9dc4e5c}} 
+\index{Component::UISystem@{Component::UISystem}!\_window@{\_window}}
+\index{\_window@{\_window}!Component::UISystem@{Component::UISystem}}
+\doxysubsubsection{\texorpdfstring{\_window}{\_window}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}}$>$\& Component\+::\+U\+I\+System\+::\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Systems/\+U\+I\+System/\mbox{\hyperlink{UISystem_8hpp}{U\+I\+System.\+hpp}}\item 
+Libs/\+Engine/sources/\+Systems/\+U\+I\+System/\mbox{\hyperlink{UISystem_8cpp}{U\+I\+System.\+cpp}}\end{DoxyCompactItemize}

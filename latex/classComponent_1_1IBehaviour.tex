@@ -1,0 +1,176 @@
+\hypertarget{classComponent_1_1IBehaviour}{}\doxysection{Component\+::I\+Behaviour Class Reference}
+\label{classComponent_1_1IBehaviour}\index{Component::IBehaviour@{Component::IBehaviour}}
+
+
+\mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} base component (CF Monobehaviour class in Unity)  
+
+
+
+
+{\ttfamily \#include $<$I\+Behaviour.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::I\+Behaviour\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComponent_1_1IBehaviour__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::I\+Behaviour\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classComponent_1_1IBehaviour__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1IBehaviour_af0aaf2fb324495e80bd0589fdee772b1}{I\+Behaviour}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classComponent_1_1IBehaviour_a99cf5a0b5268168127903cf5b78a7c1f}{$\sim$\+I\+Behaviour}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1IBehaviour_a177a2cce296624b92d949761b7dd8057}{I\+Behaviour}} (const \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} \& \mbox{\hyperlink{classComponent_1_1IBehaviour_acfedcace22cab0c6527e01f5e8073f1c}{operator=}} (const \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Called once per cpu update. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Called every fixed seconds (CF coordinator) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Late update. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} base component (CF Monobehaviour class in Unity) 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1IBehaviour_af0aaf2fb324495e80bd0589fdee772b1}\label{classComponent_1_1IBehaviour_af0aaf2fb324495e80bd0589fdee772b1}} 
+\index{Component::IBehaviour@{Component::IBehaviour}!IBehaviour@{IBehaviour}}
+\index{IBehaviour@{IBehaviour}!Component::IBehaviour@{Component::IBehaviour}}
+\doxysubsubsection{\texorpdfstring{IBehaviour()}{IBehaviour()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+I\+Behaviour\+::\+I\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1IBehaviour_a99cf5a0b5268168127903cf5b78a7c1f}\label{classComponent_1_1IBehaviour_a99cf5a0b5268168127903cf5b78a7c1f}} 
+\index{Component::IBehaviour@{Component::IBehaviour}!````~IBehaviour@{$\sim$IBehaviour}}
+\index{````~IBehaviour@{$\sim$IBehaviour}!Component::IBehaviour@{Component::IBehaviour}}
+\doxysubsubsection{\texorpdfstring{$\sim$IBehaviour()}{~IBehaviour()}}
+{\footnotesize\ttfamily virtual Component\+::\+I\+Behaviour\+::$\sim$\+I\+Behaviour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1IBehaviour_a177a2cce296624b92d949761b7dd8057}\label{classComponent_1_1IBehaviour_a177a2cce296624b92d949761b7dd8057}} 
+\index{Component::IBehaviour@{Component::IBehaviour}!IBehaviour@{IBehaviour}}
+\index{IBehaviour@{IBehaviour}!Component::IBehaviour@{Component::IBehaviour}}
+\doxysubsubsection{\texorpdfstring{IBehaviour()}{IBehaviour()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+I\+Behaviour\+::\+I\+Behaviour (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}\label{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}} 
+\index{Component::IBehaviour@{Component::IBehaviour}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::IBehaviour@{Component::IBehaviour}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily virtual void Component\+::\+I\+Behaviour\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called every fixed seconds (CF coordinator) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1HUD_a6d19b6c89332d9594c8f03d5e205d6ee}{Component\+::\+H\+UD}}, \mbox{\hyperlink{classComponent_1_1AController_a122421aac4fa4b0f18a48f7d51f2035c}{Component\+::\+A\+Controller}}, \mbox{\hyperlink{classComponent_1_1Explosion_ae7826a3796ee3d63835de47fe1d2b929}{Component\+::\+Explosion}}, \mbox{\hyperlink{classComponent_1_1AIAlgo_a28cc7d721b5d155d917244d99c366060}{Component\+::\+A\+I\+Algo}}, \mbox{\hyperlink{classComponent_1_1Movement_a87918dc11ffafdb45e4a63d0f5e0c281}{Component\+::\+Movement}}, \mbox{\hyperlink{classComponent_1_1APickUp_a47dda2d9055615e59f654af17174c9ad}{Component\+::\+A\+Pick\+Up}}, \mbox{\hyperlink{classComponent_1_1Draggable_aa5d9b5eb2e127533f8d3a3ff4074721c}{Component\+::\+Draggable}}, \mbox{\hyperlink{classComponent_1_1Camera_ae98106fabd8853f8168dbfba6b29632e}{Component\+::\+Camera}}, \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_ac9cf8434ffce8185a2d7abaa3477ce34}{Component\+::\+Button\+Callbacks}}, \mbox{\hyperlink{classComponent_1_1TextBoxCallback_ac14f8cea36ba25ed94c434f0766ca16e}{Component\+::\+Text\+Box\+Callback}}, \mbox{\hyperlink{classComponent_1_1Particle_a9305b9c23903d5079287ce6ab38252be}{Component\+::\+Particle}}, \mbox{\hyperlink{classComponent_1_1GameConfigurator_a75845155f2bce3155b68105802352c96}{Component\+::\+Game\+Configurator}}, \mbox{\hyperlink{classComponent_1_1HUDBonusBar_a64301c297ef8cb3602c0c95a88c9a749}{Component\+::\+H\+U\+D\+Bonus\+Bar}}, \mbox{\hyperlink{classComponent_1_1HUDBonusIcon_acb8e6a0df902dd66507ed9c21521d7e0}{Component\+::\+H\+U\+D\+Bonus\+Icon}}, \mbox{\hyperlink{classComponent_1_1HUDText_a2c4fd5b1e82d402cbe9d01dd8720c32c}{Component\+::\+H\+U\+D\+Text}}, and \mbox{\hyperlink{classComponent_1_1PlayerInputs_a50407f6b4c5dd0bf08ef58e7c917c39e}{Component\+::\+Player\+Inputs}}.
+
+\mbox{\Hypertarget{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}\label{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}} 
+\index{Component::IBehaviour@{Component::IBehaviour}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::IBehaviour@{Component::IBehaviour}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily virtual void Component\+::\+I\+Behaviour\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Late update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1PlayerInputs_a2ecf2075143bc834a52c926facabf43f}{Component\+::\+Player\+Inputs}}, \mbox{\hyperlink{classComponent_1_1HUD_a6753584b442a085f3d95a669c2ec26e0}{Component\+::\+H\+UD}}, \mbox{\hyperlink{classComponent_1_1AController_adbc9caa500563bf2de00dc74ef91f6bf}{Component\+::\+A\+Controller}}, \mbox{\hyperlink{classComponent_1_1APickUp_a25a07df814a209e880fba530a61b5644}{Component\+::\+A\+Pick\+Up}}, \mbox{\hyperlink{classComponent_1_1Explosion_a95ec1a59ba4ba3e12f5ccc31edc7ecfe}{Component\+::\+Explosion}}, \mbox{\hyperlink{classComponent_1_1AIAlgo_aa21d6f60e762640e2fb9f8e1f24bbab2}{Component\+::\+A\+I\+Algo}}, \mbox{\hyperlink{classComponent_1_1Movement_a1852158d20a29e23a764222646248b68}{Component\+::\+Movement}}, \mbox{\hyperlink{classComponent_1_1Draggable_acdb12b7b9509ce951c8d60a1164904ce}{Component\+::\+Draggable}}, \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_af2b3dc7698dfa0c5cccf3bc5bf6a2370}{Component\+::\+Button\+Callbacks}}, \mbox{\hyperlink{classComponent_1_1CoolDownBoost_a47290efe5eaeeffa284103c4944b4319}{Component\+::\+Cool\+Down\+Boost}}, \mbox{\hyperlink{classComponent_1_1RangeBoost_a1e6e1c513b29c9c6b929252829015485}{Component\+::\+Range\+Boost}}, \mbox{\hyperlink{classComponent_1_1Camera_a3db737b47f5fbb53371ebf976cc1f093}{Component\+::\+Camera}}, \mbox{\hyperlink{classComponent_1_1SpeedBoost_ac92819c55e65899268c282e517c1db51}{Component\+::\+Speed\+Boost}}, \mbox{\hyperlink{classComponent_1_1Particle_a831b1792906afa818eb1ccaa099fbec7}{Component\+::\+Particle}}, \mbox{\hyperlink{classComponent_1_1GameConfigurator_aba4c351c59de29fd53b979041933ed36}{Component\+::\+Game\+Configurator}}, \mbox{\hyperlink{classComponent_1_1TextBoxCallback_ab5f322adc13a1677d71341c77f4685bd}{Component\+::\+Text\+Box\+Callback}}, \mbox{\hyperlink{classComponent_1_1HUDBonusBar_a9f7792de0afa9b6d5457f56a49a5df4e}{Component\+::\+H\+U\+D\+Bonus\+Bar}}, \mbox{\hyperlink{classComponent_1_1HUDBonusIcon_a759fc0ede8a234c87ac72d1a5db584ff}{Component\+::\+H\+U\+D\+Bonus\+Icon}}, and \mbox{\hyperlink{classComponent_1_1HUDText_a5d3f469e783c0bc0049630527717df35}{Component\+::\+H\+U\+D\+Text}}.
+
+\mbox{\Hypertarget{classComponent_1_1IBehaviour_acfedcace22cab0c6527e01f5e8073f1c}\label{classComponent_1_1IBehaviour_acfedcace22cab0c6527e01f5e8073f1c}} 
+\index{Component::IBehaviour@{Component::IBehaviour}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::IBehaviour@{Component::IBehaviour}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}}\& Component\+::\+I\+Behaviour\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1IBehaviour}{I\+Behaviour}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}\label{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}} 
+\index{Component::IBehaviour@{Component::IBehaviour}!Update@{Update}}
+\index{Update@{Update}!Component::IBehaviour@{Component::IBehaviour}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Component\+::\+I\+Behaviour\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called once per cpu update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time since last call to update \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1HUD_aaa7932c6e1b30fd8513eb04d9f62fe68}{Component\+::\+H\+UD}}, \mbox{\hyperlink{classComponent_1_1AController_ae68422ab18b849558f42f6f3c2b1e735}{Component\+::\+A\+Controller}}, \mbox{\hyperlink{classComponent_1_1Explosion_a2ea6310ed551b4b4642ea249069db169}{Component\+::\+Explosion}}, \mbox{\hyperlink{classComponent_1_1AIAlgo_a5bd67a56e39c5660df366ce4a4683140}{Component\+::\+A\+I\+Algo}}, \mbox{\hyperlink{classComponent_1_1Camera_a854a519c619acc719626ab14f7602d39}{Component\+::\+Camera}}, \mbox{\hyperlink{classComponent_1_1Movement_a7d8c150a205045cd9361c6128acfd175}{Component\+::\+Movement}}, \mbox{\hyperlink{classComponent_1_1APickUp_a6ca3d31d9779a4a26e59043524185cb8}{Component\+::\+A\+Pick\+Up}}, \mbox{\hyperlink{classComponent_1_1Draggable_a470a5a99c164abb6f908c447acf28510}{Component\+::\+Draggable}}, \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a5fec42e3fd748e32ed1cfabcf630c335}{Component\+::\+Button\+Callbacks}}, \mbox{\hyperlink{classComponent_1_1PlayerInputs_addfc71cd51ec4a0310a341235ecc6af9}{Component\+::\+Player\+Inputs}}, \mbox{\hyperlink{classComponent_1_1TextBoxCallback_a8d2b56c001f17d4ea2a74ae1a2e9299a}{Component\+::\+Text\+Box\+Callback}}, \mbox{\hyperlink{classComponent_1_1Particle_a5135b508b584ecc1b6af5f95095cc266}{Component\+::\+Particle}}, \mbox{\hyperlink{classComponent_1_1GameConfigurator_afa0344d23c2419dfe10a212d6ea4ea20}{Component\+::\+Game\+Configurator}}, \mbox{\hyperlink{classComponent_1_1HUDBonusBar_a28aaa0d6c42158650e20def40f3e9f98}{Component\+::\+H\+U\+D\+Bonus\+Bar}}, \mbox{\hyperlink{classComponent_1_1HUDBonusIcon_a0b9cffdba530418043ac37b954382839}{Component\+::\+H\+U\+D\+Bonus\+Icon}}, and \mbox{\hyperlink{classComponent_1_1HUDText_a5319aed4567423dc9ef1c9a7e0e780c0}{Component\+::\+H\+U\+D\+Text}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+I\+Behaviour/\mbox{\hyperlink{IBehaviour_8hpp}{I\+Behaviour.\+hpp}}\end{DoxyCompactItemize}

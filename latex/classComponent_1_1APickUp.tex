@@ -1,0 +1,238 @@
+\hypertarget{classComponent_1_1APickUp}{}\doxysection{Component\+::A\+Pick\+Up Class Reference}
+\label{classComponent_1_1APickUp}\index{Component::APickUp@{Component::APickUp}}
+
+
+{\ttfamily \#include $<$A\+Pick\+Up.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::A\+Pick\+Up\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1APickUp__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::A\+Pick\+Up\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComponent_1_1APickUp__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1APickUp_ae84d7e5e0ecdcbea0f214ec213b04fba}{A\+Pick\+Up}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, float pickup\+Radius=2.\+0f)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1APickUp_addb0e11ab6d97ea84cad8b6f0b3e7eb7}{$\sim$\+A\+Pick\+Up}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1APickUp_a63e6659086341d262bb3c24d1d2188ce}{A\+Pick\+Up}} (const \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} \& \mbox{\hyperlink{classComponent_1_1APickUp_a232408fe71299433d8d6b9c0ecad315e}{operator=}} (const \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignement operator. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1APickUp_ad6a5824686f8a7ac85ef4dc5fab134b9}{On\+Pickup}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&collision)=0
+\begin{DoxyCompactList}\small\item\em Function called when the pickup detects a player or AI in its pickupradius. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1APickUp_a6ca3d31d9779a4a26e59043524185cb8}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called every frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1APickUp_a47dda2d9055615e59f654af17174c9ad}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Check collision, call On\+Pickup. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1APickUp_a25a07df814a209e880fba530a61b5644}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classComponent_1_1APickUp_a11e4839fa4997fc83f13cf806a44e5af}{get\+Player\+Nbr}} (const std\+::string \&tag)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1APickUp_a5bff761c7a7a3e8f91535d8161738380}{\+\_\+entity}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1APickUp_a853851502dd0844efa92461e07ac3ad9}{\+\_\+pickup\+Radius}}
+\item 
+\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \& \mbox{\hyperlink{classComponent_1_1APickUp_a662d59e21fcbb7d47904dbc349e91c91}{\+\_\+coordinator}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1APickUp_ae84d7e5e0ecdcbea0f214ec213b04fba}\label{classComponent_1_1APickUp_ae84d7e5e0ecdcbea0f214ec213b04fba}} 
+\index{Component::APickUp@{Component::APickUp}!APickUp@{APickUp}}
+\index{APickUp@{APickUp}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{APickUp()}{APickUp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+A\+Pick\+Up\+::\+A\+Pick\+Up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{float}]{pickup\+Radius = {\ttfamily 2.0f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em pickup\+Radius} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1APickUp_addb0e11ab6d97ea84cad8b6f0b3e7eb7}\label{classComponent_1_1APickUp_addb0e11ab6d97ea84cad8b6f0b3e7eb7}} 
+\index{Component::APickUp@{Component::APickUp}!````~APickUp@{$\sim$APickUp}}
+\index{````~APickUp@{$\sim$APickUp}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{$\sim$APickUp()}{~APickUp()}}
+{\footnotesize\ttfamily Component\+::\+A\+Pick\+Up\+::$\sim$\+A\+Pick\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1APickUp_a63e6659086341d262bb3c24d1d2188ce}\label{classComponent_1_1APickUp_a63e6659086341d262bb3c24d1d2188ce}} 
+\index{Component::APickUp@{Component::APickUp}!APickUp@{APickUp}}
+\index{APickUp@{APickUp}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{APickUp()}{APickUp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+A\+Pick\+Up\+::\+A\+Pick\+Up (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1APickUp_a47dda2d9055615e59f654af17174c9ad}\label{classComponent_1_1APickUp_a47dda2d9055615e59f654af17174c9ad}} 
+\index{Component::APickUp@{Component::APickUp}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+A\+Pick\+Up\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Check collision, call On\+Pickup. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1APickUp_a11e4839fa4997fc83f13cf806a44e5af}\label{classComponent_1_1APickUp_a11e4839fa4997fc83f13cf806a44e5af}} 
+\index{Component::APickUp@{Component::APickUp}!getPlayerNbr@{getPlayerNbr}}
+\index{getPlayerNbr@{getPlayerNbr}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{getPlayerNbr()}{getPlayerNbr()}}
+{\footnotesize\ttfamily int Component\+::\+A\+Pick\+Up\+::get\+Player\+Nbr (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classComponent_1_1APickUp_a25a07df814a209e880fba530a61b5644}\label{classComponent_1_1APickUp_a25a07df814a209e880fba530a61b5644}} 
+\index{Component::APickUp@{Component::APickUp}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily virtual void Component\+::\+A\+Pick\+Up\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1CoolDownBoost_a47290efe5eaeeffa284103c4944b4319}{Component\+::\+Cool\+Down\+Boost}}, \mbox{\hyperlink{classComponent_1_1RangeBoost_a1e6e1c513b29c9c6b929252829015485}{Component\+::\+Range\+Boost}}, and \mbox{\hyperlink{classComponent_1_1SpeedBoost_ac92819c55e65899268c282e517c1db51}{Component\+::\+Speed\+Boost}}.
+
+\mbox{\Hypertarget{classComponent_1_1APickUp_ad6a5824686f8a7ac85ef4dc5fab134b9}\label{classComponent_1_1APickUp_ad6a5824686f8a7ac85ef4dc5fab134b9}} 
+\index{Component::APickUp@{Component::APickUp}!OnPickup@{OnPickup}}
+\index{OnPickup@{OnPickup}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{OnPickup()}{OnPickup()}}
+{\footnotesize\ttfamily virtual void Component\+::\+A\+Pick\+Up\+::\+On\+Pickup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function called when the pickup detects a player or AI in its pickupradius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collision} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1CoolDownBoost_ae8a891cc606f2fba326985e568be683b}{Component\+::\+Cool\+Down\+Boost}}, \mbox{\hyperlink{classComponent_1_1RangeBoost_a3f4147109371258bd5eda9c0b8af6351}{Component\+::\+Range\+Boost}}, and \mbox{\hyperlink{classComponent_1_1SpeedBoost_a3a33cb4c142064eaf6a8f0549facb7b0}{Component\+::\+Speed\+Boost}}.
+
+\mbox{\Hypertarget{classComponent_1_1APickUp_a232408fe71299433d8d6b9c0ecad315e}\label{classComponent_1_1APickUp_a232408fe71299433d8d6b9c0ecad315e}} 
+\index{Component::APickUp@{Component::APickUp}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}}\& Component\+::\+A\+Pick\+Up\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignement operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1APickUp}{A\+Pick\+Up}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1APickUp_a6ca3d31d9779a4a26e59043524185cb8}\label{classComponent_1_1APickUp_a6ca3d31d9779a4a26e59043524185cb8}} 
+\index{Component::APickUp@{Component::APickUp}!Update@{Update}}
+\index{Update@{Update}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+A\+Pick\+Up\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called every frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1APickUp_a662d59e21fcbb7d47904dbc349e91c91}\label{classComponent_1_1APickUp_a662d59e21fcbb7d47904dbc349e91c91}} 
+\index{Component::APickUp@{Component::APickUp}!\_coordinator@{\_coordinator}}
+\index{\_coordinator@{\_coordinator}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{\_coordinator}{\_coordinator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}}\& Component\+::\+A\+Pick\+Up\+::\+\_\+coordinator\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classComponent_1_1APickUp_a5bff761c7a7a3e8f91535d8161738380}\label{classComponent_1_1APickUp_a5bff761c7a7a3e8f91535d8161738380}} 
+\index{Component::APickUp@{Component::APickUp}!\_entity@{\_entity}}
+\index{\_entity@{\_entity}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{\_entity}{\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+A\+Pick\+Up\+::\+\_\+entity\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classComponent_1_1APickUp_a853851502dd0844efa92461e07ac3ad9}\label{classComponent_1_1APickUp_a853851502dd0844efa92461e07ac3ad9}} 
+\index{Component::APickUp@{Component::APickUp}!\_pickupRadius@{\_pickupRadius}}
+\index{\_pickupRadius@{\_pickupRadius}!Component::APickUp@{Component::APickUp}}
+\doxysubsubsection{\texorpdfstring{\_pickupRadius}{\_pickupRadius}}
+{\footnotesize\ttfamily float Component\+::\+A\+Pick\+Up\+::\+\_\+pickup\+Radius\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+A\+Pick\+Up/\mbox{\hyperlink{APickUp_8hpp}{A\+Pick\+Up.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+A\+Pick\+Up/\mbox{\hyperlink{APickUp_8cpp}{A\+Pick\+Up.\+cpp}}\end{DoxyCompactItemize}

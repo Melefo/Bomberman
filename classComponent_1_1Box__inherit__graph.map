@@ -1,0 +1,6 @@
+<map id="Component::Box" name="Component::Box">
+<area shape="rect" id="node1" title=" " alt="" coords="25,616,170,811"/>
+<area shape="rect" id="node2" href="$classComponent_1_1Destructible.html" title="Component allowing for entities to be destructible." alt="" coords="5,373,189,568"/>
+<area shape="rect" id="node3" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="29,204,166,325"/>
+<area shape="rect" id="node4" href="$classIXMLSerializable.html" title=" " alt="" coords="14,5,181,156"/>
+</map>

@@ -1,0 +1,289 @@
+\hypertarget{classComponent_1_1GameConfigurator}{}\doxysection{Component\+::Game\+Configurator Class Reference}
+\label{classComponent_1_1GameConfigurator}\index{Component::GameConfigurator@{Component::GameConfigurator}}
+
+
+{\ttfamily \#include $<$Game\+Configurator.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Game\+Configurator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1GameConfigurator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Game\+Configurator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1GameConfigurator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1GameConfigurator_afec73f3fd0429b52b643176d0cf1f0e5}{Game\+Configurator}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Game Configurator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1GameConfigurator_a35a156ca2df0b5dbd006b0777c93b0ac}{$\sim$\+Game\+Configurator}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Game Configurator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1GameConfigurator_afc3cb400433dd2c6d7554457bfa1266a}{Game\+Configurator}} (const \mbox{\hyperlink{classComponent_1_1GameConfigurator}{Game\+Configurator}} \&)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Game Configurator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1GameConfigurator}{Game\+Configurator}} \& \mbox{\hyperlink{classComponent_1_1GameConfigurator_a873b029f62af4b475db40c59a623a5b8}{operator=}} (const \mbox{\hyperlink{classComponent_1_1GameConfigurator}{Game\+Configurator}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1GameConfigurator_afa0344d23c2419dfe10a212d6ea4ea20}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called once per cpu update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1GameConfigurator_a75845155f2bce3155b68105802352c96}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called every fixed seconds (CF coordinator) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1GameConfigurator_aba4c351c59de29fd53b979041933ed36}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Late update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1GameConfigurator_a40a64e3fc77189d996352492bd9defc6}{Parse\+X\+M\+L\+Entities}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Remove old entities, and parse the file into entities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1GameConfigurator_a6e7d47a165afce8091e77ecb074c6857}{Parse\+Terrain}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Remove old entities, use the map given to create entities. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1GameConfigurator_ac1c30af61a7fce0f4ae6b8c020325c8d}{Check\+Game\+Over}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the game is over. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1GameConfigurator_a3c095a8ac59bf8d83b34c79d8a32c156}{Reset\+Players\+Animations}} ()
+\begin{DoxyCompactList}\small\item\em Reset all Player\+Entyties animation to \char`\"{}\+Idle\char`\"{}. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1GameConfigurator_af04cf3673d7f565d22a77f7da360ec7c}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1GameConfigurator_aeb7ea7c81552d9f0be2bf7a8656cc703}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}} $>$ \& \mbox{\hyperlink{classComponent_1_1GameConfigurator_a4db0dded4dd0452a8e2a73841743dda1}{\+\_\+window}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} $>$ \& \mbox{\hyperlink{classComponent_1_1GameConfigurator_a0bc6b9729f60064d985e13ed4ded7fae}{\+\_\+coordinator}}
+\item 
+int \mbox{\hyperlink{classComponent_1_1GameConfigurator_a3207085680383d039c4965d6f3f3363a}{\+\_\+nbr\+Players\+Alive}}
+\item 
+int \mbox{\hyperlink{classComponent_1_1GameConfigurator_a9851778163e10c0a84de8119f9e9016b}{\+\_\+nbr\+I\+As\+Alive}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_afec73f3fd0429b52b643176d0cf1f0e5}\label{classComponent_1_1GameConfigurator_afec73f3fd0429b52b643176d0cf1f0e5}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!GameConfigurator@{GameConfigurator}}
+\index{GameConfigurator@{GameConfigurator}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{GameConfigurator()}{GameConfigurator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Game\+Configurator\+::\+Game\+Configurator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Game Configurator object. 
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a35a156ca2df0b5dbd006b0777c93b0ac}\label{classComponent_1_1GameConfigurator_a35a156ca2df0b5dbd006b0777c93b0ac}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!````~GameConfigurator@{$\sim$GameConfigurator}}
+\index{````~GameConfigurator@{$\sim$GameConfigurator}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{$\sim$GameConfigurator()}{~GameConfigurator()}}
+{\footnotesize\ttfamily Component\+::\+Game\+Configurator\+::$\sim$\+Game\+Configurator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Game Configurator object. 
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_afc3cb400433dd2c6d7554457bfa1266a}\label{classComponent_1_1GameConfigurator_afc3cb400433dd2c6d7554457bfa1266a}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!GameConfigurator@{GameConfigurator}}
+\index{GameConfigurator@{GameConfigurator}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{GameConfigurator()}{GameConfigurator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Game\+Configurator\+::\+Game\+Configurator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1GameConfigurator}{Game\+Configurator}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Game Configurator object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_ac1c30af61a7fce0f4ae6b8c020325c8d}\label{classComponent_1_1GameConfigurator_ac1c30af61a7fce0f4ae6b8c020325c8d}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!CheckGameOver@{CheckGameOver}}
+\index{CheckGameOver@{CheckGameOver}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{CheckGameOver()}{CheckGameOver()}}
+{\footnotesize\ttfamily bool Component\+::\+Game\+Configurator\+::\+Check\+Game\+Over (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the game is over. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a75845155f2bce3155b68105802352c96}\label{classComponent_1_1GameConfigurator_a75845155f2bce3155b68105802352c96}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Game\+Configurator\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called every fixed seconds (CF coordinator) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_aba4c351c59de29fd53b979041933ed36}\label{classComponent_1_1GameConfigurator_aba4c351c59de29fd53b979041933ed36}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Game\+Configurator\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Late update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_aeb7ea7c81552d9f0be2bf7a8656cc703}\label{classComponent_1_1GameConfigurator_aeb7ea7c81552d9f0be2bf7a8656cc703}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Game\+Configurator\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_af04cf3673d7f565d22a77f7da360ec7c}\label{classComponent_1_1GameConfigurator_af04cf3673d7f565d22a77f7da360ec7c}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Game\+Configurator\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a873b029f62af4b475db40c59a623a5b8}\label{classComponent_1_1GameConfigurator_a873b029f62af4b475db40c59a623a5b8}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1GameConfigurator}{Game\+Configurator}}\& Component\+::\+Game\+Configurator\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1GameConfigurator}{Game\+Configurator}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1GameConfigurator}{Game\+Configurator}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a6e7d47a165afce8091e77ecb074c6857}\label{classComponent_1_1GameConfigurator_a6e7d47a165afce8091e77ecb074c6857}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!ParseTerrain@{ParseTerrain}}
+\index{ParseTerrain@{ParseTerrain}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{ParseTerrain()}{ParseTerrain()}}
+{\footnotesize\ttfamily void Component\+::\+Game\+Configurator\+::\+Parse\+Terrain (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Remove old entities, use the map given to create entities. 
+
+gestion d\textquotesingle{}erreur
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a40a64e3fc77189d996352492bd9defc6}\label{classComponent_1_1GameConfigurator_a40a64e3fc77189d996352492bd9defc6}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!ParseXMLEntities@{ParseXMLEntities}}
+\index{ParseXMLEntities@{ParseXMLEntities}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{ParseXMLEntities()}{ParseXMLEntities()}}
+{\footnotesize\ttfamily void Component\+::\+Game\+Configurator\+::\+Parse\+X\+M\+L\+Entities (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Remove old entities, and parse the file into entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a3c095a8ac59bf8d83b34c79d8a32c156}\label{classComponent_1_1GameConfigurator_a3c095a8ac59bf8d83b34c79d8a32c156}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!ResetPlayersAnimations@{ResetPlayersAnimations}}
+\index{ResetPlayersAnimations@{ResetPlayersAnimations}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{ResetPlayersAnimations()}{ResetPlayersAnimations()}}
+{\footnotesize\ttfamily void Component\+::\+Game\+Configurator\+::\+Reset\+Players\+Animations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset all Player\+Entyties animation to \char`\"{}\+Idle\char`\"{}. 
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_afa0344d23c2419dfe10a212d6ea4ea20}\label{classComponent_1_1GameConfigurator_afa0344d23c2419dfe10a212d6ea4ea20}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!Update@{Update}}
+\index{Update@{Update}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Game\+Configurator\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called once per cpu update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time since last call to update \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a0bc6b9729f60064d985e13ed4ded7fae}\label{classComponent_1_1GameConfigurator_a0bc6b9729f60064d985e13ed4ded7fae}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!\_coordinator@{\_coordinator}}
+\index{\_coordinator@{\_coordinator}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{\_coordinator}{\_coordinator}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}}$>$\& Component\+::\+Game\+Configurator\+::\+\_\+coordinator\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a9851778163e10c0a84de8119f9e9016b}\label{classComponent_1_1GameConfigurator_a9851778163e10c0a84de8119f9e9016b}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!\_nbrIAsAlive@{\_nbrIAsAlive}}
+\index{\_nbrIAsAlive@{\_nbrIAsAlive}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{\_nbrIAsAlive}{\_nbrIAsAlive}}
+{\footnotesize\ttfamily int Component\+::\+Game\+Configurator\+::\+\_\+nbr\+I\+As\+Alive\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a3207085680383d039c4965d6f3f3363a}\label{classComponent_1_1GameConfigurator_a3207085680383d039c4965d6f3f3363a}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!\_nbrPlayersAlive@{\_nbrPlayersAlive}}
+\index{\_nbrPlayersAlive@{\_nbrPlayersAlive}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{\_nbrPlayersAlive}{\_nbrPlayersAlive}}
+{\footnotesize\ttfamily int Component\+::\+Game\+Configurator\+::\+\_\+nbr\+Players\+Alive\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1GameConfigurator_a4db0dded4dd0452a8e2a73841743dda1}\label{classComponent_1_1GameConfigurator_a4db0dded4dd0452a8e2a73841743dda1}} 
+\index{Component::GameConfigurator@{Component::GameConfigurator}!\_window@{\_window}}
+\index{\_window@{\_window}!Component::GameConfigurator@{Component::GameConfigurator}}
+\doxysubsubsection{\texorpdfstring{\_window}{\_window}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}}$>$\& Component\+::\+Game\+Configurator\+::\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Game\+Configurator/\mbox{\hyperlink{GameConfigurator_8hpp}{Game\+Configurator.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Game\+Configurator/\mbox{\hyperlink{GameConfigurator_8cpp}{Game\+Configurator.\+cpp}}\end{DoxyCompactItemize}

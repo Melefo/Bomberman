@@ -1,0 +1,16 @@
+<map id="Component::PlayerInputs" name="Component::PlayerInputs">
+<area shape="rect" id="node1" title=" " alt="" coords="483,1797,669,2007"/>
+<area shape="rect" id="node2" href="$classComponent_1_1AController.html" title=" " alt="" coords="248,1539,427,1748"/>
+<area shape="rect" id="node3" href="$classComponent_1_1IBehaviour.html" title="IBehaviour base component (CF Monobehaviour class in Unity)" alt="" coords="149,602,323,767"/>
+<area shape="rect" id="node10" href="$classComponent_1_1Movement.html" title="Behaviour script responsible for moving an entity." alt="" coords="78,1127,253,1454"/>
+<area shape="rect" id="node4" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="167,286,305,407"/>
+<area shape="rect" id="node6" href="$classComponent_1_1DropBomb.html" title="Behaviour for players or AI allowing to drop a bomb upon pressing a key." alt="" coords="329,1105,538,1476"/>
+<area shape="rect" id="node5" href="$classIXMLSerializable.html" title=" " alt="" coords="153,5,319,156"/>
+<area shape="rect" id="node11" href="$classRayLib_1_1Vector3.html" title="Vector3 encapsulation." alt="" coords="5,235,128,459"/>
+<area shape="rect" id="node14" href="$classRayLib_1_1Vector2.html" title=" " alt="" coords="732,227,903,466"/>
+<area shape="rect" id="node7" href="$classECS_1_1Entity.html" title="Scene object containing components and an ID." alt="" coords="415,565,567,804"/>
+<area shape="rect" id="node8" href="$classECS_1_1EntityManager.html" title="Class used to manipulate Entities (a.k.a A Scene)" alt="" coords="329,249,482,444"/>
+<area shape="rect" id="node9" href="$classECS_1_1ComponentManager.html" title="Class used to manipulate Components." alt="" coords="506,205,707,488"/>
+<area shape="rect" id="node12" title=" " alt="" coords="31,42,102,119"/>
+<area shape="rect" id="node13" href="$classRayLib_1_1Input.html" title="Input encapsulation." alt="" coords="656,828,824,1081"/>
+</map>

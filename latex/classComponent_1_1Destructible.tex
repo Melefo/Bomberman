@@ -1,0 +1,201 @@
+\hypertarget{classComponent_1_1Destructible}{}\doxysection{Component\+::Destructible Class Reference}
+\label{classComponent_1_1Destructible}\index{Component::Destructible@{Component::Destructible}}
+
+
+\mbox{\hyperlink{namespaceComponent}{Component}} allowing for entities to be destructible.  
+
+
+
+
+{\ttfamily \#include $<$Destructible.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Destructible\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Destructible__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Destructible\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComponent_1_1Destructible__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Destructible_aa14727b59b8c96e814f0a7f30430a2ec}{Destructible}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, int resistance=1)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} component. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Destructible_a0f414898c3901feb944d944d36baa4f7}{$\sim$\+Destructible}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} component. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Destructible_ad694552b1dc8e9299e3fad32faf71f52}{Destructible}} (const \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} \& \mbox{\hyperlink{classComponent_1_1Destructible_a6ba2c4029a4b214f958b23d7466e509b}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assigment operator. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classComponent_1_1Destructible_a05ac8da0691e4043b464ccbf8ba3c2d3}{Get\+Resistance}} ()
+\begin{DoxyCompactList}\small\item\em Get the Resistance. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1Destructible_a1f5adccada003e0dc6f9b49116bd0100}{Take\+Damage}} (int damage)
+\begin{DoxyCompactList}\small\item\em Inflict some damage. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Destructible_adb7b198b85486eacfa176dafa40caf50}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Destructible_a3682c701cb4a3e3a005a5a3f5f9718ad}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1Destructible_a98632cad64e69cf1338293baef70fc68}{\+\_\+my\+Entity}}
+\item 
+int \mbox{\hyperlink{classComponent_1_1Destructible_a76de8f54f82570103847b7f1c5221843}{\+\_\+resistance}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespaceComponent}{Component}} allowing for entities to be destructible. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Destructible_aa14727b59b8c96e814f0a7f30430a2ec}\label{classComponent_1_1Destructible_aa14727b59b8c96e814f0a7f30430a2ec}} 
+\index{Component::Destructible@{Component::Destructible}!Destructible@{Destructible}}
+\index{Destructible@{Destructible}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{Destructible()}{Destructible()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Destructible\+::\+Destructible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{int}]{resistance = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & ref to attatched Entity \\
+\hline
+{\em resistance} & amount of damage sustained before destruction \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Destructible_a0f414898c3901feb944d944d36baa4f7}\label{classComponent_1_1Destructible_a0f414898c3901feb944d944d36baa4f7}} 
+\index{Component::Destructible@{Component::Destructible}!````~Destructible@{$\sim$Destructible}}
+\index{````~Destructible@{$\sim$Destructible}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{$\sim$Destructible()}{~Destructible()}}
+{\footnotesize\ttfamily Component\+::\+Destructible\+::$\sim$\+Destructible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} component. 
+
+\mbox{\Hypertarget{classComponent_1_1Destructible_ad694552b1dc8e9299e3fad32faf71f52}\label{classComponent_1_1Destructible_ad694552b1dc8e9299e3fad32faf71f52}} 
+\index{Component::Destructible@{Component::Destructible}!Destructible@{Destructible}}
+\index{Destructible@{Destructible}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{Destructible()}{Destructible()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Destructible\+::\+Destructible (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Destructible_a05ac8da0691e4043b464ccbf8ba3c2d3}\label{classComponent_1_1Destructible_a05ac8da0691e4043b464ccbf8ba3c2d3}} 
+\index{Component::Destructible@{Component::Destructible}!GetResistance@{GetResistance}}
+\index{GetResistance@{GetResistance}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{GetResistance()}{GetResistance()}}
+{\footnotesize\ttfamily int Component\+::\+Destructible\+::\+Get\+Resistance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Resistance. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Destructible_a3682c701cb4a3e3a005a5a3f5f9718ad}\label{classComponent_1_1Destructible_a3682c701cb4a3e3a005a5a3f5f9718ad}} 
+\index{Component::Destructible@{Component::Destructible}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree \& Component\+::\+Destructible\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Destructible_adb7b198b85486eacfa176dafa40caf50}\label{classComponent_1_1Destructible_adb7b198b85486eacfa176dafa40caf50}} 
+\index{Component::Destructible@{Component::Destructible}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& Component\+::\+Destructible\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Destructible_a6ba2c4029a4b214f958b23d7466e509b}\label{classComponent_1_1Destructible_a6ba2c4029a4b214f958b23d7466e509b}} 
+\index{Component::Destructible@{Component::Destructible}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}}\& Component\+::\+Destructible\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assigment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Destructible}{Destructible}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Destructible_a1f5adccada003e0dc6f9b49116bd0100}\label{classComponent_1_1Destructible_a1f5adccada003e0dc6f9b49116bd0100}} 
+\index{Component::Destructible@{Component::Destructible}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily void Component\+::\+Destructible\+::\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Inflict some damage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classComponent_1_1Box_a79f5d5370c410a71399940ad03be6e84}{Component\+::\+Box}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Destructible_a98632cad64e69cf1338293baef70fc68}\label{classComponent_1_1Destructible_a98632cad64e69cf1338293baef70fc68}} 
+\index{Component::Destructible@{Component::Destructible}!\_myEntity@{\_myEntity}}
+\index{\_myEntity@{\_myEntity}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{\_myEntity}{\_myEntity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Destructible\+::\+\_\+my\+Entity\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classComponent_1_1Destructible_a76de8f54f82570103847b7f1c5221843}\label{classComponent_1_1Destructible_a76de8f54f82570103847b7f1c5221843}} 
+\index{Component::Destructible@{Component::Destructible}!\_resistance@{\_resistance}}
+\index{\_resistance@{\_resistance}!Component::Destructible@{Component::Destructible}}
+\doxysubsubsection{\texorpdfstring{\_resistance}{\_resistance}}
+{\footnotesize\ttfamily int Component\+::\+Destructible\+::\+\_\+resistance\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Destructible/\mbox{\hyperlink{Destructible_8hpp}{Destructible.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Destructible/\mbox{\hyperlink{Destructible_8cpp}{Destructible.\+cpp}}\end{DoxyCompactItemize}

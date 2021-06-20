@@ -1,0 +1,24 @@
+<map id="Libs/Engine/sources/Components/Draggable" name="Libs/Engine/sources/Components/Draggable">
+<area shape="rect" id="node1" href="dir_1263645f47f5f77656cc75595da2cfd3.html" title="Draggable" alt="" coords="169,52,258,100"/>
+<area shape="rect" id="node2" href="dir_551d1ed5bb1af47eeab160358667c755.html" title="Collider" alt="" coords="51,148,123,196"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000049_000046.html" title="1" alt="" coords="133,137,142,151"/>
+<area shape="rect" id="node3" href="dir_2e574b6382041dc2a136b1675bed65ad.html" title="RayLib" alt="" coords="5,340,77,388"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000049_000005.html" title="3" alt="" coords="27,312,36,327"/>
+<area shape="rect" id="node4" href="dir_4a120dbb11348b2823d2a12dcab2f1e3.html" title="ECS" alt="" coords="216,340,288,388"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000049_000002.html" title="1" alt="" coords="295,326,304,340"/>
+<area shape="rect" id="node5" href="dir_750ba15ba58b6b3310460b01ffa6b161.html" title="PhysicsBody" alt="" coords="200,244,304,292"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000049_000062.html" title="1" alt="" coords="247,217,257,232"/>
+<area shape="rect" id="node6" href="dir_d415c0d599231354676ceb56dc96abfc.html" title="IBehaviour" alt="" coords="379,148,471,196"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000049_000058.html" title="1" alt="" coords="361,128,371,143"/>
+<area shape="rect" id="node7" href="dir_9c1a1c874c5316598fbf40a566ddc437.html" title="Transform" alt="" coords="38,244,125,292"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000049_000071.html" title="1" alt="" coords="113,227,122,241"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000046_000005.html" title="3" alt="" coords="30,312,39,327"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000046_000002.html" title="3" alt="" coords="221,313,230,328"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000046_000071.html" title="1" alt="" coords="88,219,97,234"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000062_000005.html" title="1" alt="" coords="93,340,103,354"/>
+<area shape="rect" id="edge11-headlabel" href="dir_000062_000002.html" title="1" alt="" coords="256,314,265,329"/>
+<area shape="rect" id="edge12-headlabel" href="dir_000058_000002.html" title="2" alt="" coords="304,336,313,351"/>
+<area shape="rect" id="edge13-headlabel" href="dir_000071_000005.html" title="1" alt="" coords="61,319,71,334"/>
+<area shape="rect" id="edge14-headlabel" href="dir_000071_000002.html" title="1" alt="" coords="199,319,209,334"/>
+<area shape="rect" id="clust1" href="dir_e1b125331ccfd7597fbda9d04ae41b2d.html" title="Components" alt="" coords="157,16,269,111"/>
+</map>

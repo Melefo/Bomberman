@@ -1,0 +1,181 @@
+\hypertarget{classECS_1_1EntityManager}{}\doxysection{E\+CS\+::Entity\+Manager Class Reference}
+\label{classECS_1_1EntityManager}\index{ECS::EntityManager@{ECS::EntityManager}}
+
+
+Class used to manipulate Entities (a.\+k.\+a A Scene)  
+
+
+
+
+{\ttfamily \#include $<$Entity\+Manager.\+hpp$>$}
+
+
+
+Collaboration diagram for E\+CS\+::Entity\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{classECS_1_1EntityManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1EntityManager_a0e1e098ad1f46753535b257042b6fa8d}{Entity\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1EntityManager_ac13e02adbfb78a6a05a67b6ebd14752e}{$\sim$\+Entity\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1EntityManager_a876d9c707c2a2e67cc49ce88e2ae61db}{Entity\+Manager}} (const \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} \& \mbox{\hyperlink{classECS_1_1EntityManager_ae51b54bfacc67f51b373a47ba02676da}{operator=}} (const \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} Object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \& \mbox{\hyperlink{classECS_1_1EntityManager_a4ed3a6549fd85c081fae10f807274098}{Create\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1EntityManager_aab0666567aa2c1ce48639052eea36aa1}{Delete\+Entity}} (\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&entity)
+\begin{DoxyCompactList}\small\item\em Delete an \mbox{\hyperlink{classECS_1_1Entity}{Entity}} from the scene. \end{DoxyCompactList}\item 
+const std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Entity}{Entity}} $>$ $>$ \& \mbox{\hyperlink{classECS_1_1EntityManager_af9fecb1bdf254268e0103444f97c4bd3}{Get\+Entities}} () const
+\begin{DoxyCompactList}\small\item\em Get the Entities object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{classECS_1_1EntityManager_ab37f6db3b2e5a5915d89f9b49c4ab6bb}{\+\_\+available}}
+\begin{DoxyCompactList}\small\item\em List of ID detroyed and available to new Entities. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classECS_1_1EntityManager_a125a4ddd24b4782821621091cb460551}{\+\_\+max}}
+\begin{DoxyCompactList}\small\item\em Last ID given to an \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Entity}{Entity}} $>$ $>$ \mbox{\hyperlink{classECS_1_1EntityManager_a59f7cb34fd8ddb49f81b623afea868a5}{\+\_\+entities}}
+\begin{DoxyCompactList}\small\item\em List of currently created Entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class used to manipulate Entities (a.\+k.\+a A Scene) 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classECS_1_1EntityManager_a0e1e098ad1f46753535b257042b6fa8d}\label{classECS_1_1EntityManager_a0e1e098ad1f46753535b257042b6fa8d}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!EntityManager@{EntityManager}}
+\index{EntityManager@{EntityManager}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{EntityManager()}{EntityManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Entity\+Manager\+::\+Entity\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} Manager object. 
+
+\mbox{\Hypertarget{classECS_1_1EntityManager_ac13e02adbfb78a6a05a67b6ebd14752e}\label{classECS_1_1EntityManager_ac13e02adbfb78a6a05a67b6ebd14752e}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!````~EntityManager@{$\sim$EntityManager}}
+\index{````~EntityManager@{$\sim$EntityManager}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$EntityManager()}{~EntityManager()}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Entity\+Manager\+::$\sim$\+Entity\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classECS_1_1Entity}{Entity}} Manager object. 
+
+\mbox{\Hypertarget{classECS_1_1EntityManager_a876d9c707c2a2e67cc49ce88e2ae61db}\label{classECS_1_1EntityManager_a876d9c707c2a2e67cc49ce88e2ae61db}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!EntityManager@{EntityManager}}
+\index{EntityManager@{EntityManager}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{EntityManager()}{EntityManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Entity\+Manager\+::\+Entity\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new \mbox{\hyperlink{classECS_1_1Entity}{Entity}} Manager object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classECS_1_1EntityManager_a4ed3a6549fd85c081fae10f807274098}\label{classECS_1_1EntityManager_a4ed3a6549fd85c081fae10f807274098}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!CreateEntity@{CreateEntity}}
+\index{CreateEntity@{CreateEntity}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{CreateEntity()}{CreateEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \& E\+C\+S\+::\+Entity\+Manager\+::\+Create\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{Entity}}\& newly created entity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1EntityManager_aab0666567aa2c1ce48639052eea36aa1}\label{classECS_1_1EntityManager_aab0666567aa2c1ce48639052eea36aa1}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!DeleteEntity@{DeleteEntity}}
+\index{DeleteEntity@{DeleteEntity}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{DeleteEntity()}{DeleteEntity()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Entity\+Manager\+::\+Delete\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \&}]{entity }\end{DoxyParamCaption})}
+
+
+
+Delete an \mbox{\hyperlink{classECS_1_1Entity}{Entity}} from the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \mbox{\hyperlink{classECS_1_1Entity}{Entity}} to destroy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1EntityManager_af9fecb1bdf254268e0103444f97c4bd3}\label{classECS_1_1EntityManager_af9fecb1bdf254268e0103444f97c4bd3}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!GetEntities@{GetEntities}}
+\index{GetEntities@{GetEntities}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{GetEntities()}{GetEntities()}}
+{\footnotesize\ttfamily const std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Entity}{Entity}} $>$ $>$ \& E\+C\+S\+::\+Entity\+Manager\+::\+Get\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Entities object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::vector$<$std\+::unique\+\_\+ptr$<$\+Entity$>$$>$\& list of the entities created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1EntityManager_ae51b54bfacc67f51b373a47ba02676da}\label{classECS_1_1EntityManager_ae51b54bfacc67f51b373a47ba02676da}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!operator=@{operator=}}
+\index{operator=@{operator=}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}}\& E\+C\+S\+::\+Entity\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} Object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}}\& assigned \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classECS_1_1EntityManager_ab37f6db3b2e5a5915d89f9b49c4ab6bb}\label{classECS_1_1EntityManager_ab37f6db3b2e5a5915d89f9b49c4ab6bb}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!\_available@{\_available}}
+\index{\_available@{\_available}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{\_available}{\_available}}
+{\footnotesize\ttfamily std\+::vector$<$uint32\+\_\+t$>$ E\+C\+S\+::\+Entity\+Manager\+::\+\_\+available\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of ID detroyed and available to new Entities. 
+
+\mbox{\Hypertarget{classECS_1_1EntityManager_a59f7cb34fd8ddb49f81b623afea868a5}\label{classECS_1_1EntityManager_a59f7cb34fd8ddb49f81b623afea868a5}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!\_entities@{\_entities}}
+\index{\_entities@{\_entities}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{\_entities}{\_entities}}
+{\footnotesize\ttfamily std\+::list$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classECS_1_1Entity}{Entity}}$>$ $>$ E\+C\+S\+::\+Entity\+Manager\+::\+\_\+entities\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of currently created Entities. 
+
+\mbox{\Hypertarget{classECS_1_1EntityManager_a125a4ddd24b4782821621091cb460551}\label{classECS_1_1EntityManager_a125a4ddd24b4782821621091cb460551}} 
+\index{ECS::EntityManager@{ECS::EntityManager}!\_max@{\_max}}
+\index{\_max@{\_max}!ECS::EntityManager@{ECS::EntityManager}}
+\doxysubsubsection{\texorpdfstring{\_max}{\_max}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+C\+S\+::\+Entity\+Manager\+::\+\_\+max\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Last ID given to an \mbox{\hyperlink{classECS_1_1Entity}{Entity}}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+E\+C\+S/sources/\+Managers/\+Entity\+Manager/\mbox{\hyperlink{EntityManager_8hpp}{Entity\+Manager.\+hpp}}\item 
+Libs/\+E\+C\+S/sources/\+Managers/\+Entity\+Manager/\mbox{\hyperlink{EntityManager_8cpp}{Entity\+Manager.\+cpp}}\end{DoxyCompactItemize}

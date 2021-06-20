@@ -1,0 +1,5 @@
+<map id="Component::PhysicsBody" name="Component::PhysicsBody">
+<area shape="rect" id="node1" title="Physicsbody class (CF Unity&#39;s rigidbody)" alt="" coords="5,373,192,524"/>
+<area shape="rect" id="node2" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="30,204,167,325"/>
+<area shape="rect" id="node3" href="$classIXMLSerializable.html" title=" " alt="" coords="15,5,182,156"/>
+</map>

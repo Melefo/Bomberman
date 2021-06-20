@@ -1,0 +1,6 @@
+<map id="Component::Camera" name="Component::Camera">
+<area shape="rect" id="node1" title="Camera component." alt="" coords="5,587,180,943"/>
+<area shape="rect" id="node2" href="$classComponent_1_1IBehaviour.html" title="IBehaviour base component (CF Monobehaviour class in Unity)" alt="" coords="5,373,180,539"/>
+<area shape="rect" id="node3" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="24,204,161,325"/>
+<area shape="rect" id="node4" href="$classIXMLSerializable.html" title=" " alt="" coords="9,5,176,156"/>
+</map>

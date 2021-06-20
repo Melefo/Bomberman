@@ -1,0 +1,557 @@
+\hypertarget{classECS_1_1Coordinator}{}\doxysection{E\+CS\+::Coordinator Class Reference}
+\label{classECS_1_1Coordinator}\index{ECS::Coordinator@{ECS::Coordinator}}
+
+
+Public class used to manipulates scenes and theirs entities and systems.  
+
+
+
+
+{\ttfamily \#include $<$Coordinator.\+hpp$>$}
+
+
+
+Collaboration diagram for E\+CS\+::Coordinator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classECS_1_1Coordinator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Coordinator_a5fdc534714a236ec7d7cc79771720ec6}{Coordinator}} (std\+::string default\+Scene=\char`\"{}Main\+Menu\char`\"{}, double fixed\+Delta\+Time=0.\+02)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Coordinator_a41a8010f81e4f49f5bf23fe7c45de243}{$\sim$\+Coordinator}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Coordinator_a743e13e39226f9e30cf2f7a7a93f46fa}{Coordinator}} (const \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} \& \mbox{\hyperlink{classECS_1_1Coordinator_a2c8658e603a17d5b0f593487f5016a17}{operator=}} (const \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... T\+Args$>$ }\\T \& \mbox{\hyperlink{classECS_1_1Coordinator_a515e15ddfb63ec5588ca29f61da4a4c2}{Add\+System}} (T\+Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Add a system to update entities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{Entity}} \& \mbox{\hyperlink{classECS_1_1Coordinator_a16f02d35e6556cdcd2133291be2ef069}{Create\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classECS_1_1Coordinator_a2383c0e4a3888c80bb97daba2290e96b}{Remove\+System}} ()
+\begin{DoxyCompactList}\small\item\em Remove a system from the list which updates entities. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \& \mbox{\hyperlink{classECS_1_1Coordinator_abcdf0f6b69b69f9576a46d6a346237a2}{Get\+System}} ()
+\begin{DoxyCompactList}\small\item\em Get a system from the list which updates entities. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{classECS_1_1Coordinator_af50c679f882f938ed8c9ed74dda5390b}{Has\+System}} ()
+\begin{DoxyCompactList}\small\item\em Find if a system is in the list which updates entities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Coordinator_a44881025b901f12294c185e215e83441}{Run}} ()
+\begin{DoxyCompactList}\small\item\em Execute Fixed\+Update, Update \& Late\+Update. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classECS_1_1Coordinator_aa6d2b62dabcb26c92643b261bae73788}{get\+Fixed\+Delta\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Get the Fixed Delta Time object. \end{DoxyCompactList}\item 
+const std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Entity}{Entity}} $>$ $>$ \& \mbox{\hyperlink{classECS_1_1Coordinator_a447c069749d6084d189787c8caed00fa}{Get\+Entities}} ()
+\begin{DoxyCompactList}\small\item\em Get a list of the entities in the current scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Coordinator_a3f201a8cdf52d1aae095550285b7efdc}{Remove\+Entities}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Remove components of renderer\textquotesingle{}s name given. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1Coordinator_acc326d550ebff5a69db2e80dd7b40ab6}{Is\+Game\+Running}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the game is running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Coordinator_a312b531fc927c7518c603b2f5864cd26}{Set\+Game\+Is\+Running}} (bool is\+Running)
+\begin{DoxyCompactList}\small\item\em set the \+\_\+game\+Is\+Runnning variable \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classECS_1_1Coordinator_aae67e0657d8cd9ebc1a8232203f509ed}{get\+Current\+Scene}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Current Scene object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Coordinator_adb13586909b2e3530a5bb48339dfa055}{set\+Current\+Scene}} (const std\+::string \&scene\+Name)
+\begin{DoxyCompactList}\small\item\em Set the Current Scene object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Coordinator_adf55454fbe3c5eecfaf7837b92961e28}{Delete\+Scene}} (const std\+::string \&scene\+Name)
+\begin{DoxyCompactList}\small\item\em Delete the scene given. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classECS_1_1EntityManager}{E\+C\+S\+::\+Entity\+Manager}} \& \mbox{\hyperlink{classECS_1_1Coordinator_a589ec688621cea60e09774393c10d953}{get\+Scene}} (const std\+::string \&scene\+Name) const
+\begin{DoxyCompactList}\small\item\em Get a Scene object from a name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} $>$ \& \mbox{\hyperlink{classECS_1_1Coordinator_a343f4acc55c074141fe8e3b8c721abd0}{Get\+Instance}} (std\+::string default\+Scene=\char`\"{}Main\+Menu\char`\"{}, double fixed\+Delta\+Time=0.\+02)
+\begin{DoxyCompactList}\small\item\em Get a unique\+\_\+ptr to the coordinator Singleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classECS_1_1Coordinator_a4d9d420442b341b0efc8c034805751fa}{Close\+Window}}
+\begin{DoxyCompactList}\small\item\em Close Window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classECS_1_1Coordinator_ac4fd65e9e46e69c2691e67dd40f41ee3}{Update}} (double dt)
+\begin{DoxyCompactList}\small\item\em Update all entities from the current scene with the actived systems. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Coordinator_a9ef56cf8c2b077133dfd4529bc5b6bd6}{Fixed\+Update}} ()
+\begin{DoxyCompactList}\small\item\em Update all entities from the current scene with the actived systems at a specific time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classECS_1_1Coordinator_a965f34acebf5b10a09d28454858f0fd3}{Late\+Update}} (double dt)
+\begin{DoxyCompactList}\small\item\em Update all entities from the current scene after the call of Update. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} \mbox{\hyperlink{classECS_1_1Coordinator_aafe7e4b973d88576b9e4ad3b4e5e68f3}{\+\_\+system\+Manager}}
+\begin{DoxyCompactList}\small\item\em Where all systems are stores. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}} $>$ \mbox{\hyperlink{classECS_1_1Coordinator_af726acf6e0e9a6289860894076fb23d5}{\+\_\+scenes}}
+\begin{DoxyCompactList}\small\item\em List of scenes to store theirs entities. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classECS_1_1Coordinator_a1dd7db6e53cebb395a6e14b9f8b5a484}{\+\_\+current\+Scene}}
+\begin{DoxyCompactList}\small\item\em Name of the current loaded scene. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classECS_1_1Coordinator_a6f86eab0b9723da732e2770b2334806b}{\+\_\+fixed\+Delta\+Time}}
+\begin{DoxyCompactList}\small\item\em Time between each call of Fixed\+Update. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classECS_1_1Coordinator_ad4d853c73be378e4d0c51bf0575fd812}{\+\_\+duration}}
+\begin{DoxyCompactList}\small\item\em Total of time since the last call of Fixed\+Update. \end{DoxyCompactList}\item 
+std\+::chrono\+::high\+\_\+resolution\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{classECS_1_1Coordinator_ab02c17f24f5be725022e406770222ce3}{\+\_\+last\+Run}}
+\begin{DoxyCompactList}\small\item\em Time of last call of Run. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1Coordinator_a8927cb54689f2fcba149b60168474ecf}{\+\_\+first\+Run}}
+\begin{DoxyCompactList}\small\item\em Check if Run has been call at least one time. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classECS_1_1Coordinator_a3f88f4acc58d0bff05b17e642f55bb5c}{\+\_\+game\+Is\+Running}}
+\begin{DoxyCompactList}\small\item\em If the game is running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} $>$ \mbox{\hyperlink{classECS_1_1Coordinator_ade7410f11f58bda6cb94968d5784f1b1}{\+\_\+coordinator}} = nullptr
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} singleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Public class used to manipulates scenes and theirs entities and systems. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a5fdc534714a236ec7d7cc79771720ec6}\label{classECS_1_1Coordinator_a5fdc534714a236ec7d7cc79771720ec6}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!Coordinator@{Coordinator}}
+\index{Coordinator@{Coordinator}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{Coordinator()}{Coordinator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Coordinator\+::\+Coordinator (\begin{DoxyParamCaption}\item[{std\+::string}]{default\+Scene = {\ttfamily \char`\"{}MainMenu\char`\"{}},  }\item[{double}]{fixed\+Delta\+Time = {\ttfamily 0.02} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em default\+Scene} & Name of the default scene loaded \\
+\hline
+{\em fixed\+Delta\+Time} & Time between each call of Fixed\+Update \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a41a8010f81e4f49f5bf23fe7c45de243}\label{classECS_1_1Coordinator_a41a8010f81e4f49f5bf23fe7c45de243}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!````~Coordinator@{$\sim$Coordinator}}
+\index{````~Coordinator@{$\sim$Coordinator}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{$\sim$Coordinator()}{~Coordinator()}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Coordinator\+::$\sim$\+Coordinator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} object. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_a743e13e39226f9e30cf2f7a7a93f46fa}\label{classECS_1_1Coordinator_a743e13e39226f9e30cf2f7a7a93f46fa}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!Coordinator@{Coordinator}}
+\index{Coordinator@{Coordinator}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{Coordinator()}{Coordinator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily E\+C\+S\+::\+Coordinator\+::\+Coordinator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a515e15ddfb63ec5588ca29f61da4a4c2}\label{classECS_1_1Coordinator_a515e15ddfb63ec5588ca29f61da4a4c2}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!AddSystem@{AddSystem}}
+\index{AddSystem@{AddSystem}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{AddSystem()}{AddSystem()}}
+{\footnotesize\ttfamily template$<$typename T , typename... T\+Args$>$ \\
+T\& E\+C\+S\+::\+Coordinator\+::\+Add\+System (\begin{DoxyParamCaption}\item[{T\+Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a system to update entities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the system to add \\
+\hline
+{\em T\+Args} & Types of constructor arguments of T \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Constructor arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& Newly added System 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a16f02d35e6556cdcd2133291be2ef069}\label{classECS_1_1Coordinator_a16f02d35e6556cdcd2133291be2ef069}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!CreateEntity@{CreateEntity}}
+\index{CreateEntity@{CreateEntity}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{CreateEntity()}{CreateEntity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{Entity}} \& E\+C\+S\+::\+Coordinator\+::\+Create\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{classECS_1_1Entity}{Entity}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{Entity}}\& newly create entity inside current scene 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_adf55454fbe3c5eecfaf7837b92961e28}\label{classECS_1_1Coordinator_adf55454fbe3c5eecfaf7837b92961e28}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!DeleteScene@{DeleteScene}}
+\index{DeleteScene@{DeleteScene}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{DeleteScene()}{DeleteScene()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Coordinator\+::\+Delete\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scene\+Name }\end{DoxyParamCaption})}
+
+
+
+Delete the scene given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & std\+::string\& scene\+Name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a9ef56cf8c2b077133dfd4529bc5b6bd6}\label{classECS_1_1Coordinator_a9ef56cf8c2b077133dfd4529bc5b6bd6}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Coordinator\+::\+Fixed\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Update all entities from the current scene with the actived systems at a specific time. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_aae67e0657d8cd9ebc1a8232203f509ed}\label{classECS_1_1Coordinator_aae67e0657d8cd9ebc1a8232203f509ed}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!getCurrentScene@{getCurrentScene}}
+\index{getCurrentScene@{getCurrentScene}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{getCurrentScene()}{getCurrentScene()}}
+{\footnotesize\ttfamily const std\+::string \& E\+C\+S\+::\+Coordinator\+::get\+Current\+Scene (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Current Scene object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a447c069749d6084d189787c8caed00fa}\label{classECS_1_1Coordinator_a447c069749d6084d189787c8caed00fa}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!GetEntities@{GetEntities}}
+\index{GetEntities@{GetEntities}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{GetEntities()}{GetEntities()}}
+{\footnotesize\ttfamily const std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Entity}{Entity}} $>$ $>$ \& E\+C\+S\+::\+Coordinator\+::\+Get\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a list of the entities in the current scene. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::list$<$std\+::unique\+\_\+ptr$<$\+Entity$>$$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_aa6d2b62dabcb26c92643b261bae73788}\label{classECS_1_1Coordinator_aa6d2b62dabcb26c92643b261bae73788}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!getFixedDeltaTime@{getFixedDeltaTime}}
+\index{getFixedDeltaTime@{getFixedDeltaTime}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{getFixedDeltaTime()}{getFixedDeltaTime()}}
+{\footnotesize\ttfamily double E\+C\+S\+::\+Coordinator\+::get\+Fixed\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Fixed Delta Time object. 
+
+\begin{DoxyReturn}{Returns}
+double current time in seconds between each call of Fixed\+Update 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a343f4acc55c074141fe8e3b8c721abd0}\label{classECS_1_1Coordinator_a343f4acc55c074141fe8e3b8c721abd0}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} $>$ \& E\+C\+S\+::\+Coordinator\+::\+Get\+Instance (\begin{DoxyParamCaption}\item[{std\+::string}]{default\+Scene = {\ttfamily \char`\"{}MainMenu\char`\"{}},  }\item[{double}]{fixed\+Delta\+Time = {\ttfamily 0.02} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get a unique\+\_\+ptr to the coordinator Singleton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em default\+Scene} & \\
+\hline
+{\em fixed\+Delta\+Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::unique\+\_\+ptr$<$\+Coordinator$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a589ec688621cea60e09774393c10d953}\label{classECS_1_1Coordinator_a589ec688621cea60e09774393c10d953}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!getScene@{getScene}}
+\index{getScene@{getScene}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{getScene()}{getScene()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classECS_1_1EntityManager}{E\+C\+S\+::\+Entity\+Manager}} \& E\+C\+S\+::\+Coordinator\+::get\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scene\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Get a Scene object from a name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1EntityManager}{E\+C\+S\+::\+Entity\+Manager}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_abcdf0f6b69b69f9576a46d6a346237a2}\label{classECS_1_1Coordinator_abcdf0f6b69b69f9576a46d6a346237a2}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!GetSystem@{GetSystem}}
+\index{GetSystem@{GetSystem}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{GetSystem()}{GetSystem()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T\& E\+C\+S\+::\+Coordinator\+::\+Get\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a system from the list which updates entities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the system to get \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classECS_1_1Coordinator_af50c679f882f938ed8c9ed74dda5390b}\label{classECS_1_1Coordinator_af50c679f882f938ed8c9ed74dda5390b}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!HasSystem@{HasSystem}}
+\index{HasSystem@{HasSystem}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{HasSystem()}{HasSystem()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool E\+C\+S\+::\+Coordinator\+::\+Has\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find if a system is in the list which updates entities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the system to check \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classECS_1_1Coordinator_acc326d550ebff5a69db2e80dd7b40ab6}\label{classECS_1_1Coordinator_acc326d550ebff5a69db2e80dd7b40ab6}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!IsGameRunning@{IsGameRunning}}
+\index{IsGameRunning@{IsGameRunning}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{IsGameRunning()}{IsGameRunning()}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+Coordinator\+::\+Is\+Game\+Running (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the game is running. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a965f34acebf5b10a09d28454858f0fd3}\label{classECS_1_1Coordinator_a965f34acebf5b10a09d28454858f0fd3}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Coordinator\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Update all entities from the current scene after the call of Update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & The inverval in seconds from the last update \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a2c8658e603a17d5b0f593487f5016a17}\label{classECS_1_1Coordinator_a2c8658e603a17d5b0f593487f5016a17}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!operator=@{operator=}}
+\index{operator=@{operator=}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}}\& E\+C\+S\+::\+Coordinator\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}}\& assigned \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a3f201a8cdf52d1aae095550285b7efdc}\label{classECS_1_1Coordinator_a3f201a8cdf52d1aae095550285b7efdc}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!RemoveEntities@{RemoveEntities}}
+\index{RemoveEntities@{RemoveEntities}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{RemoveEntities()}{RemoveEntities()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Coordinator\+::\+Remove\+Entities (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Remove components of renderer\textquotesingle{}s name given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & std\+::string\& \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a2383c0e4a3888c80bb97daba2290e96b}\label{classECS_1_1Coordinator_a2383c0e4a3888c80bb97daba2290e96b}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!RemoveSystem@{RemoveSystem}}
+\index{RemoveSystem@{RemoveSystem}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{RemoveSystem()}{RemoveSystem()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void E\+C\+S\+::\+Coordinator\+::\+Remove\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a system from the list which updates entities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the system to remove \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a44881025b901f12294c185e215e83441}\label{classECS_1_1Coordinator_a44881025b901f12294c185e215e83441}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!Run@{Run}}
+\index{Run@{Run}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Coordinator\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Execute Fixed\+Update, Update \& Late\+Update. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_adb13586909b2e3530a5bb48339dfa055}\label{classECS_1_1Coordinator_adb13586909b2e3530a5bb48339dfa055}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!setCurrentScene@{setCurrentScene}}
+\index{setCurrentScene@{setCurrentScene}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{setCurrentScene()}{setCurrentScene()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Coordinator\+::set\+Current\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scene\+Name }\end{DoxyParamCaption})}
+
+
+
+Set the Current Scene object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classECS_1_1Coordinator_a312b531fc927c7518c603b2f5864cd26}\label{classECS_1_1Coordinator_a312b531fc927c7518c603b2f5864cd26}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!SetGameIsRunning@{SetGameIsRunning}}
+\index{SetGameIsRunning@{SetGameIsRunning}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{SetGameIsRunning()}{SetGameIsRunning()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Coordinator\+::\+Set\+Game\+Is\+Running (\begin{DoxyParamCaption}\item[{bool}]{is\+Running }\end{DoxyParamCaption})}
+
+
+
+set the \+\_\+game\+Is\+Runnning variable 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_ac4fd65e9e46e69c2691e67dd40f41ee3}\label{classECS_1_1Coordinator_ac4fd65e9e46e69c2691e67dd40f41ee3}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!Update@{Update}}
+\index{Update@{Update}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void E\+C\+S\+::\+Coordinator\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Update all entities from the current scene with the actived systems. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & The inverval in seconds from the last update \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classECS_1_1Coordinator_ade7410f11f58bda6cb94968d5784f1b1}\label{classECS_1_1Coordinator_ade7410f11f58bda6cb94968d5784f1b1}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_coordinator@{\_coordinator}}
+\index{\_coordinator@{\_coordinator}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_coordinator}{\_coordinator}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} $>$ E\+C\+S\+::\+Coordinator\+::\+\_\+coordinator = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classECS_1_1Coordinator}{Coordinator}} singleton. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_a1dd7db6e53cebb395a6e14b9f8b5a484}\label{classECS_1_1Coordinator_a1dd7db6e53cebb395a6e14b9f8b5a484}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_currentScene@{\_currentScene}}
+\index{\_currentScene@{\_currentScene}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_currentScene}{\_currentScene}}
+{\footnotesize\ttfamily std\+::string E\+C\+S\+::\+Coordinator\+::\+\_\+current\+Scene\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Name of the current loaded scene. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_ad4d853c73be378e4d0c51bf0575fd812}\label{classECS_1_1Coordinator_ad4d853c73be378e4d0c51bf0575fd812}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_duration@{\_duration}}
+\index{\_duration@{\_duration}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_duration}{\_duration}}
+{\footnotesize\ttfamily double E\+C\+S\+::\+Coordinator\+::\+\_\+duration\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Total of time since the last call of Fixed\+Update. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_a8927cb54689f2fcba149b60168474ecf}\label{classECS_1_1Coordinator_a8927cb54689f2fcba149b60168474ecf}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_firstRun@{\_firstRun}}
+\index{\_firstRun@{\_firstRun}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_firstRun}{\_firstRun}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+Coordinator\+::\+\_\+first\+Run\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if Run has been call at least one time. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_a6f86eab0b9723da732e2770b2334806b}\label{classECS_1_1Coordinator_a6f86eab0b9723da732e2770b2334806b}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_fixedDeltaTime@{\_fixedDeltaTime}}
+\index{\_fixedDeltaTime@{\_fixedDeltaTime}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_fixedDeltaTime}{\_fixedDeltaTime}}
+{\footnotesize\ttfamily double E\+C\+S\+::\+Coordinator\+::\+\_\+fixed\+Delta\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Time between each call of Fixed\+Update. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_a3f88f4acc58d0bff05b17e642f55bb5c}\label{classECS_1_1Coordinator_a3f88f4acc58d0bff05b17e642f55bb5c}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_gameIsRunning@{\_gameIsRunning}}
+\index{\_gameIsRunning@{\_gameIsRunning}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_gameIsRunning}{\_gameIsRunning}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+Coordinator\+::\+\_\+game\+Is\+Running\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+If the game is running. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_ab02c17f24f5be725022e406770222ce3}\label{classECS_1_1Coordinator_ab02c17f24f5be725022e406770222ce3}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_lastRun@{\_lastRun}}
+\index{\_lastRun@{\_lastRun}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_lastRun}{\_lastRun}}
+{\footnotesize\ttfamily std\+::chrono\+::high\+\_\+resolution\+\_\+clock\+::time\+\_\+point E\+C\+S\+::\+Coordinator\+::\+\_\+last\+Run\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Time of last call of Run. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_af726acf6e0e9a6289860894076fb23d5}\label{classECS_1_1Coordinator_af726acf6e0e9a6289860894076fb23d5}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_scenes@{\_scenes}}
+\index{\_scenes@{\_scenes}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_scenes}{\_scenes}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, \mbox{\hyperlink{classECS_1_1EntityManager}{Entity\+Manager}}$>$ E\+C\+S\+::\+Coordinator\+::\+\_\+scenes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of scenes to store theirs entities. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_aafe7e4b973d88576b9e4ad3b4e5e68f3}\label{classECS_1_1Coordinator_aafe7e4b973d88576b9e4ad3b4e5e68f3}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!\_systemManager@{\_systemManager}}
+\index{\_systemManager@{\_systemManager}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{\_systemManager}{\_systemManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1SystemManager}{System\+Manager}} E\+C\+S\+::\+Coordinator\+::\+\_\+system\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Where all systems are stores. 
+
+\mbox{\Hypertarget{classECS_1_1Coordinator_a4d9d420442b341b0efc8c034805751fa}\label{classECS_1_1Coordinator_a4d9d420442b341b0efc8c034805751fa}} 
+\index{ECS::Coordinator@{ECS::Coordinator}!CloseWindow@{CloseWindow}}
+\index{CloseWindow@{CloseWindow}!ECS::Coordinator@{ECS::Coordinator}}
+\doxysubsubsection{\texorpdfstring{CloseWindow}{CloseWindow}}
+{\footnotesize\ttfamily bool E\+C\+S\+::\+Coordinator\+::\+Close\+Window}
+
+
+
+Close Window. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+E\+C\+S/sources/\+Coordinator/\mbox{\hyperlink{Coordinator_8hpp}{Coordinator.\+hpp}}\item 
+Libs/\+E\+C\+S/sources/\+Coordinator/\mbox{\hyperlink{Coordinator_8cpp}{Coordinator.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,17 @@
+<map id="Libs/Engine/sources/Systems/UISystem" name="Libs/Engine/sources/Systems/UISystem">
+<area shape="rect" id="node1" href="dir_3e4fa5ebb77107a4f04a6bab76e49648.html" title="UISystem" alt="" coords="105,52,191,100"/>
+<area shape="rect" id="node2" href="dir_236e02cd02223a2412f137d7ad85069e.html" title="GameConfiguration" alt="" coords="130,244,278,292"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000086_000074.html" title="1" alt="" coords="196,217,205,231"/>
+<area shape="rect" id="node3" href="dir_2e574b6382041dc2a136b1675bed65ad.html" title="RayLib" alt="" coords="5,340,77,388"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000086_000005.html" title="2" alt="" coords="31,312,41,327"/>
+<area shape="rect" id="node4" href="dir_e1b125331ccfd7597fbda9d04ae41b2d.html" title="Components" alt="" coords="45,148,149,196"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000086_000037.html" title="4" alt="" coords="121,129,130,143"/>
+<area shape="rect" id="node5" href="dir_4a120dbb11348b2823d2a12dcab2f1e3.html" title="ECS" alt="" coords="168,340,240,388"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000086_000002.html" title="2" alt="" coords="255,332,264,347"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000074_000005.html" title="2" alt="" coords="93,333,102,348"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000074_000002.html" title="2" alt="" coords="208,314,217,329"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000037_000074.html" title="9" alt="" coords="165,218,175,233"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000037_000005.html" title="56" alt="" coords="51,317,68,332"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000037_000002.html" title="33" alt="" coords="149,317,167,332"/>
+<area shape="rect" id="clust1" href="dir_9a9e2b7a8f13e92341bd3030ad46e690.html" title="Systems" alt="" coords="95,16,201,111"/>
+</map>

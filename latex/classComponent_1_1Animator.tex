@@ -1,0 +1,239 @@
+\hypertarget{classComponent_1_1Animator}{}\doxysection{Component\+::Animator Class Reference}
+\label{classComponent_1_1Animator}\index{Component::Animator@{Component::Animator}}
+
+
+{\ttfamily \#include $<$Animator.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Animator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classComponent_1_1Animator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Animator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComponent_1_1Animator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Animator_aeb3349c1a4c1b21a2875169c012a51da}{Animator}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, const std\+::string \&path, std\+::string state\+Name)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Animator_ab3dd5909c71fe03b39f0ebdf5d1fc871}{$\sim$\+Animator}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Animator_a5459a9b634567420abadbb8bb16cbebb}{Animator}} (const \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Animator}{Animator}} \& \mbox{\hyperlink{classComponent_1_1Animator_a27bca241fc859b851878822c6ff45f63}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1Animator_adf5bd881571d55724f1f2666fafc92f4}{Set\+State}} (const std\+::string \&state)
+\begin{DoxyCompactList}\small\item\em Set the current State. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Animator_a4ead150a0016288c2302f158ea53e6a4}{Add\+State}} (const std\+::string \&path, std\+::string state)
+\begin{DoxyCompactList}\small\item\em Add a state. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classComponent_1_1Animator_a325dc01c81e21032be40b9c95d6be503}{Get\+State}} (void) const
+\begin{DoxyCompactList}\small\item\em Get the State object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Animator_aa3aad8271954121fe5c4d9b12c0f544c}{Play\+Current\+State}} (\mbox{\hyperlink{classRayLib_1_1Model}{Ray\+Lib\+::\+Model}} \&model)
+\begin{DoxyCompactList}\small\item\em Play animation at current state of statemachine. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Animator_af1a5a6d0d4ab61c0420bcb4249d7313b}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Animator_ac50190bc3c9def016d165821fcc9f058}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Ray\+Lib\+::\+Model\+Animation}} $>$ $>$ \mbox{\hyperlink{classComponent_1_1Animator_a7eecf1574a0b2d0bc29fdd7dda4189c3}{\+\_\+state\+Machine}}
+\begin{DoxyCompactList}\small\item\em List of states. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classComponent_1_1Animator_a85b3617384ea1ba034961e28f9bdf4df}{\+\_\+current\+State}}
+\begin{DoxyCompactList}\small\item\em current State of animation \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1Animator_a25e6f653e1500e18b3f3677bb3f3c3de}{\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Assoiciated animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Animator_aeb3349c1a4c1b21a2875169c012a51da}\label{classComponent_1_1Animator_aeb3349c1a4c1b21a2875169c012a51da}} 
+\index{Component::Animator@{Component::Animator}!Animator@{Animator}}
+\index{Animator@{Animator}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{Animator()}{Animator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Animator\+::\+Animator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{const std\+::string \&}]{path,  }\item[{std\+::string}]{state\+Name }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em asset\+Name} & \\
+\hline
+{\em state\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Animator_ab3dd5909c71fe03b39f0ebdf5d1fc871}\label{classComponent_1_1Animator_ab3dd5909c71fe03b39f0ebdf5d1fc871}} 
+\index{Component::Animator@{Component::Animator}!````~Animator@{$\sim$Animator}}
+\index{````~Animator@{$\sim$Animator}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{$\sim$Animator()}{~Animator()}}
+{\footnotesize\ttfamily Component\+::\+Animator\+::$\sim$\+Animator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Animator_a5459a9b634567420abadbb8bb16cbebb}\label{classComponent_1_1Animator_a5459a9b634567420abadbb8bb16cbebb}} 
+\index{Component::Animator@{Component::Animator}!Animator@{Animator}}
+\index{Animator@{Animator}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{Animator()}{Animator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Animator\+::\+Animator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Animator_a4ead150a0016288c2302f158ea53e6a4}\label{classComponent_1_1Animator_a4ead150a0016288c2302f158ea53e6a4}} 
+\index{Component::Animator@{Component::Animator}!AddState@{AddState}}
+\index{AddState@{AddState}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{AddState()}{AddState()}}
+{\footnotesize\ttfamily void Component\+::\+Animator\+::\+Add\+State (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{std\+::string}]{state }\end{DoxyParamCaption})}
+
+
+
+Add a state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+{\em state} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Animator_a325dc01c81e21032be40b9c95d6be503}\label{classComponent_1_1Animator_a325dc01c81e21032be40b9c95d6be503}} 
+\index{Component::Animator@{Component::Animator}!GetState@{GetState}}
+\index{GetState@{GetState}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{GetState()}{GetState()}}
+{\footnotesize\ttfamily const std\+::string \& Component\+::\+Animator\+::\+Get\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the State object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Animator_ac50190bc3c9def016d165821fcc9f058}\label{classComponent_1_1Animator_ac50190bc3c9def016d165821fcc9f058}} 
+\index{Component::Animator@{Component::Animator}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Animator\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Animator_af1a5a6d0d4ab61c0420bcb4249d7313b}\label{classComponent_1_1Animator_af1a5a6d0d4ab61c0420bcb4249d7313b}} 
+\index{Component::Animator@{Component::Animator}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Animator\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Animator_a27bca241fc859b851878822c6ff45f63}\label{classComponent_1_1Animator_a27bca241fc859b851878822c6ff45f63}} 
+\index{Component::Animator@{Component::Animator}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Animator}{Animator}}\& Component\+::\+Animator\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Animator}{Animator}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Animator}{Animator}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Animator_aa3aad8271954121fe5c4d9b12c0f544c}\label{classComponent_1_1Animator_aa3aad8271954121fe5c4d9b12c0f544c}} 
+\index{Component::Animator@{Component::Animator}!PlayCurrentState@{PlayCurrentState}}
+\index{PlayCurrentState@{PlayCurrentState}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{PlayCurrentState()}{PlayCurrentState()}}
+{\footnotesize\ttfamily void Component\+::\+Animator\+::\+Play\+Current\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Model}{Ray\+Lib\+::\+Model}} \&}]{model }\end{DoxyParamCaption})}
+
+
+
+Play animation at current state of statemachine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Animator_adf5bd881571d55724f1f2666fafc92f4}\label{classComponent_1_1Animator_adf5bd881571d55724f1f2666fafc92f4}} 
+\index{Component::Animator@{Component::Animator}!SetState@{SetState}}
+\index{SetState@{SetState}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{SetState()}{SetState()}}
+{\footnotesize\ttfamily void Component\+::\+Animator\+::\+Set\+State (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{state }\end{DoxyParamCaption})}
+
+
+
+Set the current State. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Animator_a85b3617384ea1ba034961e28f9bdf4df}\label{classComponent_1_1Animator_a85b3617384ea1ba034961e28f9bdf4df}} 
+\index{Component::Animator@{Component::Animator}!\_currentState@{\_currentState}}
+\index{\_currentState@{\_currentState}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{\_currentState}{\_currentState}}
+{\footnotesize\ttfamily std\+::string Component\+::\+Animator\+::\+\_\+current\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+current State of animation 
+
+\mbox{\Hypertarget{classComponent_1_1Animator_a25e6f653e1500e18b3f3677bb3f3c3de}\label{classComponent_1_1Animator_a25e6f653e1500e18b3f3677bb3f3c3de}} 
+\index{Component::Animator@{Component::Animator}!\_entity@{\_entity}}
+\index{\_entity@{\_entity}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{\_entity}{\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Animator\+::\+\_\+entity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Assoiciated animation. 
+
+\mbox{\Hypertarget{classComponent_1_1Animator_a7eecf1574a0b2d0bc29fdd7dda4189c3}\label{classComponent_1_1Animator_a7eecf1574a0b2d0bc29fdd7dda4189c3}} 
+\index{Component::Animator@{Component::Animator}!\_stateMachine@{\_stateMachine}}
+\index{\_stateMachine@{\_stateMachine}!Component::Animator@{Component::Animator}}
+\doxysubsubsection{\texorpdfstring{\_stateMachine}{\_stateMachine}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1ModelAnimation}{Ray\+Lib\+::\+Model\+Animation}}$>$ $>$ Component\+::\+Animator\+::\+\_\+state\+Machine\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of states. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Animator/\mbox{\hyperlink{Animator_8hpp}{Animator.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Animator/\mbox{\hyperlink{Animator_8cpp}{Animator.\+cpp}}\end{DoxyCompactItemize}

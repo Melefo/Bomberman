@@ -1,0 +1,159 @@
+\hypertarget{classComponent_1_1PhysicsBody}{}\doxysection{Component\+::Physics\+Body Class Reference}
+\label{classComponent_1_1PhysicsBody}\index{Component::PhysicsBody@{Component::PhysicsBody}}
+
+
+Physicsbody class (CF Unity\textquotesingle{}s rigidbody)  
+
+
+
+
+{\ttfamily \#include $<$Physics\+Body.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Physics\+Body\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classComponent_1_1PhysicsBody__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Physics\+Body\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1PhysicsBody__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1PhysicsBody_a34e3735d3d0173634e4d5e2d4b5753b2}{Physics\+Body}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Physics Body object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1PhysicsBody_a32c2ff1cde25b9ac4acdeb0847713ca4}{$\sim$\+Physics\+Body}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Physics Body object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1PhysicsBody_a83e3fca78e846aaf3d9eba60520cf41c}{Physics\+Body}} (const \mbox{\hyperlink{classComponent_1_1PhysicsBody}{Physics\+Body}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Physics Body object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1PhysicsBody}{Physics\+Body}} \& \mbox{\hyperlink{classComponent_1_1PhysicsBody_a58395624709e4c31929a9719f3315bdf}{operator=}} (const \mbox{\hyperlink{classComponent_1_1PhysicsBody}{Physics\+Body}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1PhysicsBody_a6d6872d1c706ffd6e69b1a7413be12d9}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1PhysicsBody_aefb088c2c9a5f1997eb8cb64066afacf}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1PhysicsBody_ada5f5e6f34e1fdd5183c5b4e18c78515}{velocity}}
+\begin{DoxyCompactList}\small\item\em Ultimately used to change the entity\textquotesingle{}s position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Physicsbody class (CF Unity\textquotesingle{}s rigidbody) 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1PhysicsBody_a34e3735d3d0173634e4d5e2d4b5753b2}\label{classComponent_1_1PhysicsBody_a34e3735d3d0173634e4d5e2d4b5753b2}} 
+\index{Component::PhysicsBody@{Component::PhysicsBody}!PhysicsBody@{PhysicsBody}}
+\index{PhysicsBody@{PhysicsBody}!Component::PhysicsBody@{Component::PhysicsBody}}
+\doxysubsubsection{\texorpdfstring{PhysicsBody()}{PhysicsBody()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Physics\+Body\+::\+Physics\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Physics Body object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em velocity} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1PhysicsBody_a32c2ff1cde25b9ac4acdeb0847713ca4}\label{classComponent_1_1PhysicsBody_a32c2ff1cde25b9ac4acdeb0847713ca4}} 
+\index{Component::PhysicsBody@{Component::PhysicsBody}!````~PhysicsBody@{$\sim$PhysicsBody}}
+\index{````~PhysicsBody@{$\sim$PhysicsBody}!Component::PhysicsBody@{Component::PhysicsBody}}
+\doxysubsubsection{\texorpdfstring{$\sim$PhysicsBody()}{~PhysicsBody()}}
+{\footnotesize\ttfamily Component\+::\+Physics\+Body\+::$\sim$\+Physics\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Physics Body object. 
+
+\mbox{\Hypertarget{classComponent_1_1PhysicsBody_a83e3fca78e846aaf3d9eba60520cf41c}\label{classComponent_1_1PhysicsBody_a83e3fca78e846aaf3d9eba60520cf41c}} 
+\index{Component::PhysicsBody@{Component::PhysicsBody}!PhysicsBody@{PhysicsBody}}
+\index{PhysicsBody@{PhysicsBody}!Component::PhysicsBody@{Component::PhysicsBody}}
+\doxysubsubsection{\texorpdfstring{PhysicsBody()}{PhysicsBody()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Physics\+Body\+::\+Physics\+Body (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1PhysicsBody}{Physics\+Body}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Physics Body object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1PhysicsBody_aefb088c2c9a5f1997eb8cb64066afacf}\label{classComponent_1_1PhysicsBody_aefb088c2c9a5f1997eb8cb64066afacf}} 
+\index{Component::PhysicsBody@{Component::PhysicsBody}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::PhysicsBody@{Component::PhysicsBody}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Physics\+Body\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1PhysicsBody_a6d6872d1c706ffd6e69b1a7413be12d9}\label{classComponent_1_1PhysicsBody_a6d6872d1c706ffd6e69b1a7413be12d9}} 
+\index{Component::PhysicsBody@{Component::PhysicsBody}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::PhysicsBody@{Component::PhysicsBody}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Physics\+Body\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1PhysicsBody_a58395624709e4c31929a9719f3315bdf}\label{classComponent_1_1PhysicsBody_a58395624709e4c31929a9719f3315bdf}} 
+\index{Component::PhysicsBody@{Component::PhysicsBody}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::PhysicsBody@{Component::PhysicsBody}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1PhysicsBody}{Physics\+Body}}\& Component\+::\+Physics\+Body\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1PhysicsBody}{Physics\+Body}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1PhysicsBody}{Physics\+Body}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1PhysicsBody_ada5f5e6f34e1fdd5183c5b4e18c78515}\label{classComponent_1_1PhysicsBody_ada5f5e6f34e1fdd5183c5b4e18c78515}} 
+\index{Component::PhysicsBody@{Component::PhysicsBody}!velocity@{velocity}}
+\index{velocity@{velocity}!Component::PhysicsBody@{Component::PhysicsBody}}
+\doxysubsubsection{\texorpdfstring{velocity}{velocity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+Physics\+Body\+::velocity}
+
+
+
+Ultimately used to change the entity\textquotesingle{}s position. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Physics\+Body/\mbox{\hyperlink{PhysicsBody_8hpp}{Physics\+Body.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Physics\+Body/\mbox{\hyperlink{PhysicsBody_8cpp}{Physics\+Body.\+cpp}}\end{DoxyCompactItemize}

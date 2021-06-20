@@ -1,0 +1,319 @@
+\hypertarget{classComponent_1_1TextUI}{}\doxysection{Component\+::Text\+UI Class Reference}
+\label{classComponent_1_1TextUI}\index{Component::TextUI@{Component::TextUI}}
+
+
+{\ttfamily \#include $<$Text\+U\+I.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Text\+UI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1TextUI__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Text\+UI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1TextUI__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1TextUI_a5ec054c88e8d47ac5c5aa06b89508348}{Text\+UI}} (std\+::string str, const std\+::string \&font, float size=10.\+0, float spacing=0.\+0f, \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} color=B\+L\+A\+CK)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextUI_a28735f6059632fcdd870a3b568a72f3a}{$\sim$\+Text\+UI}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextUI_adb541c9067990bc983e770bfcddce8d6}{Text\+UI}} (const \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} \& \mbox{\hyperlink{classComponent_1_1TextUI_a5944178b8b5e5a3ef0aceacfb00f353a}{operator=}} (const \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1TextUI_abbf13dd8906e7f31fc4ccfe688b6f7e2}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1TextUI_a916cb77755cdca57169faccc86e04d7e}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\item 
+void \mbox{\hyperlink{classComponent_1_1TextUI_a6c4f0e39b21cf4726d9046ba0ac724a8}{Draw}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ position, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ scale=\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$(1.\+0f, 1.\+0f)) override
+\begin{DoxyCompactList}\small\item\em Draw text. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{classComponent_1_1TextUI_a7bdaf6f53081fc14cd2a3ebf02680332}{Get\+Content}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Content object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextUI_a119f5f9559bd2a52a84480c1f4065999}{Set\+String}} (const std\+::string \&new\+String)
+\begin{DoxyCompactList}\small\item\em Set the String object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1TextUI_a0982b2c389b494ae1082cdff7cf0b358}{Get\+Spacing}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Spacing object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextUI_a70d3b3eb0f5c3f25492da0e197ca7f7a}{Set\+Spacing}} (float spacing)
+\begin{DoxyCompactList}\small\item\em Set the Spacing object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1TextUI_a168ce9f774d04e48e5ea429f98e83357}{Get\+Size}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Size object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextUI_a2b2b3b9379f829cac0a25079d3891c82}{Set\+Size}} (float size)
+\begin{DoxyCompactList}\small\item\em Set the Size object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ \mbox{\hyperlink{classComponent_1_1TextUI_a716590bc9da2e3d1897436b1dd502aec}{Measure\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Return the size of the text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classComponent_1_1TextUI_a6ab600a598e3f64a9761080caaccdef9}{\+\_\+string}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Font}{Ray\+Lib\+::\+Font}} $>$ \mbox{\hyperlink{classComponent_1_1TextUI_a533cc601d18d942420b04c51e997fb4b}{\+\_\+font}}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} \mbox{\hyperlink{classComponent_1_1TextUI_a6a45c9d503ffbab211302ca6129e4801}{\+\_\+color}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1TextUI_aa0b9046a1686890486b37a86d3036787}{\+\_\+size}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1TextUI_a221a216d8b74a3d62d60068c9a3bcdb8}{\+\_\+spacing}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a5ec054c88e8d47ac5c5aa06b89508348}\label{classComponent_1_1TextUI_a5ec054c88e8d47ac5c5aa06b89508348}} 
+\index{Component::TextUI@{Component::TextUI}!TextUI@{TextUI}}
+\index{TextUI@{TextUI}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{TextUI()}{TextUI()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Text\+U\+I\+::\+Text\+UI (\begin{DoxyParamCaption}\item[{std\+::string}]{str,  }\item[{const std\+::string \&}]{font,  }\item[{float}]{size = {\ttfamily 10.0},  }\item[{float}]{spacing = {\ttfamily 0.0f},  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}}}]{color = {\ttfamily BLACK} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+{\em font} & \\
+\hline
+{\em size} & \\
+\hline
+{\em spacing} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a28735f6059632fcdd870a3b568a72f3a}\label{classComponent_1_1TextUI_a28735f6059632fcdd870a3b568a72f3a}} 
+\index{Component::TextUI@{Component::TextUI}!````~TextUI@{$\sim$TextUI}}
+\index{````~TextUI@{$\sim$TextUI}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{$\sim$TextUI()}{~TextUI()}}
+{\footnotesize\ttfamily Component\+::\+Text\+U\+I\+::$\sim$\+Text\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1TextUI_adb541c9067990bc983e770bfcddce8d6}\label{classComponent_1_1TextUI_adb541c9067990bc983e770bfcddce8d6}} 
+\index{Component::TextUI@{Component::TextUI}!TextUI@{TextUI}}
+\index{TextUI@{TextUI}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{TextUI()}{TextUI()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Text\+U\+I\+::\+Text\+UI (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a6c4f0e39b21cf4726d9046ba0ac724a8}\label{classComponent_1_1TextUI_a6c4f0e39b21cf4726d9046ba0ac724a8}} 
+\index{Component::TextUI@{Component::TextUI}!Draw@{Draw}}
+\index{Draw@{Draw}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+U\+I\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{scale = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$float$>$(1.0f,~1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em scale} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IUIObject_ae7abd923511d9f9a6dc4a4b2b3ea56c7}{Component\+::\+I\+U\+I\+Object}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextUI_a7bdaf6f53081fc14cd2a3ebf02680332}\label{classComponent_1_1TextUI_a7bdaf6f53081fc14cd2a3ebf02680332}} 
+\index{Component::TextUI@{Component::TextUI}!GetContent@{GetContent}}
+\index{GetContent@{GetContent}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{GetContent()}{GetContent()}}
+{\footnotesize\ttfamily std\+::string \& Component\+::\+Text\+U\+I\+::\+Get\+Content (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Content object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a168ce9f774d04e48e5ea429f98e83357}\label{classComponent_1_1TextUI_a168ce9f774d04e48e5ea429f98e83357}} 
+\index{Component::TextUI@{Component::TextUI}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily float Component\+::\+Text\+U\+I\+::\+Get\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Size object. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a0982b2c389b494ae1082cdff7cf0b358}\label{classComponent_1_1TextUI_a0982b2c389b494ae1082cdff7cf0b358}} 
+\index{Component::TextUI@{Component::TextUI}!GetSpacing@{GetSpacing}}
+\index{GetSpacing@{GetSpacing}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{GetSpacing()}{GetSpacing()}}
+{\footnotesize\ttfamily float Component\+::\+Text\+U\+I\+::\+Get\+Spacing (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Spacing object. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a716590bc9da2e3d1897436b1dd502aec}\label{classComponent_1_1TextUI_a716590bc9da2e3d1897436b1dd502aec}} 
+\index{Component::TextUI@{Component::TextUI}!MeasureText@{MeasureText}}
+\index{MeasureText@{MeasureText}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{MeasureText()}{MeasureText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ Component\+::\+Text\+U\+I\+::\+Measure\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the size of the text. 
+
+\begin{DoxyReturn}{Returns}
+Ray\+Lib\+::\+Vector2$<$float$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a916cb77755cdca57169faccc86e04d7e}\label{classComponent_1_1TextUI_a916cb77755cdca57169faccc86e04d7e}} 
+\index{Component::TextUI@{Component::TextUI}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Text\+U\+I\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextUI_abbf13dd8906e7f31fc4ccfe688b6f7e2}\label{classComponent_1_1TextUI_abbf13dd8906e7f31fc4ccfe688b6f7e2}} 
+\index{Component::TextUI@{Component::TextUI}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Text\+U\+I\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextUI_a5944178b8b5e5a3ef0aceacfb00f353a}\label{classComponent_1_1TextUI_a5944178b8b5e5a3ef0aceacfb00f353a}} 
+\index{Component::TextUI@{Component::TextUI}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}}\& Component\+::\+Text\+U\+I\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1TextUI}{Text\+UI}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a2b2b3b9379f829cac0a25079d3891c82}\label{classComponent_1_1TextUI_a2b2b3b9379f829cac0a25079d3891c82}} 
+\index{Component::TextUI@{Component::TextUI}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+U\+I\+::\+Set\+Size (\begin{DoxyParamCaption}\item[{float}]{size }\end{DoxyParamCaption})}
+
+
+
+Set the Size object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a70d3b3eb0f5c3f25492da0e197ca7f7a}\label{classComponent_1_1TextUI_a70d3b3eb0f5c3f25492da0e197ca7f7a}} 
+\index{Component::TextUI@{Component::TextUI}!SetSpacing@{SetSpacing}}
+\index{SetSpacing@{SetSpacing}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{SetSpacing()}{SetSpacing()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+U\+I\+::\+Set\+Spacing (\begin{DoxyParamCaption}\item[{float}]{spacing }\end{DoxyParamCaption})}
+
+
+
+Set the Spacing object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spacing} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a119f5f9559bd2a52a84480c1f4065999}\label{classComponent_1_1TextUI_a119f5f9559bd2a52a84480c1f4065999}} 
+\index{Component::TextUI@{Component::TextUI}!SetString@{SetString}}
+\index{SetString@{SetString}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{SetString()}{SetString()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+U\+I\+::\+Set\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+String }\end{DoxyParamCaption})}
+
+
+
+Set the String object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+String} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextUI_a6a45c9d503ffbab211302ca6129e4801}\label{classComponent_1_1TextUI_a6a45c9d503ffbab211302ca6129e4801}} 
+\index{Component::TextUI@{Component::TextUI}!\_color@{\_color}}
+\index{\_color@{\_color}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{\_color}{\_color}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} Component\+::\+Text\+U\+I\+::\+\_\+color\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1TextUI_a533cc601d18d942420b04c51e997fb4b}\label{classComponent_1_1TextUI_a533cc601d18d942420b04c51e997fb4b}} 
+\index{Component::TextUI@{Component::TextUI}!\_font@{\_font}}
+\index{\_font@{\_font}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{\_font}{\_font}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Font}{Ray\+Lib\+::\+Font}}$>$ Component\+::\+Text\+U\+I\+::\+\_\+font\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1TextUI_aa0b9046a1686890486b37a86d3036787}\label{classComponent_1_1TextUI_aa0b9046a1686890486b37a86d3036787}} 
+\index{Component::TextUI@{Component::TextUI}!\_size@{\_size}}
+\index{\_size@{\_size}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{\_size}{\_size}}
+{\footnotesize\ttfamily float Component\+::\+Text\+U\+I\+::\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1TextUI_a221a216d8b74a3d62d60068c9a3bcdb8}\label{classComponent_1_1TextUI_a221a216d8b74a3d62d60068c9a3bcdb8}} 
+\index{Component::TextUI@{Component::TextUI}!\_spacing@{\_spacing}}
+\index{\_spacing@{\_spacing}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{\_spacing}{\_spacing}}
+{\footnotesize\ttfamily float Component\+::\+Text\+U\+I\+::\+\_\+spacing\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1TextUI_a6ab600a598e3f64a9761080caaccdef9}\label{classComponent_1_1TextUI_a6ab600a598e3f64a9761080caaccdef9}} 
+\index{Component::TextUI@{Component::TextUI}!\_string@{\_string}}
+\index{\_string@{\_string}!Component::TextUI@{Component::TextUI}}
+\doxysubsubsection{\texorpdfstring{\_string}{\_string}}
+{\footnotesize\ttfamily std\+::string Component\+::\+Text\+U\+I\+::\+\_\+string\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Text\+U\+I/\mbox{\hyperlink{TextUI_8hpp}{Text\+U\+I.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Text\+U\+I/\mbox{\hyperlink{TextUI_8cpp}{Text\+U\+I.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,177 @@
+\hypertarget{classComponent_1_1Transform}{}\doxysection{Component\+::Transform Class Reference}
+\label{classComponent_1_1Transform}\index{Component::Transform@{Component::Transform}}
+
+
+{\ttfamily \#include $<$Transform.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Transform\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classComponent_1_1Transform__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Transform\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Transform__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Transform_a3ac4d9995469189a98af7e08bb81342a}{Transform}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Transform_a5e2f20feed3bc319bdac4c28514d01de}{position}}=\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}(), \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Transform_a44a9c1756d896331f0c6fabf89612565}{rotation}}=\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}(), \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Transform_a26c5ed7adf96f06c427a465fac2d677b}{scale}}=\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}(1.\+0f, 1.\+0f, 1.\+0f))
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Transform_a026757b48af945bf13212e6840a54109}{$\sim$\+Transform}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Transform_ab467311cd934170eb38470360e9922fb}{Transform}} (const \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Transform}{Transform}} \& \mbox{\hyperlink{classComponent_1_1Transform_a79e9ba8256f0c97efd6f911633675620}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Transform_af560233e7c3e060374e47ee7fbd44db3}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Transform_af01ce4ad6c7c2acf8c9670f1cc8bbbf4}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Transform_a5e2f20feed3bc319bdac4c28514d01de}{position}}
+\begin{DoxyCompactList}\small\item\em Current position in the world. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Transform_a44a9c1756d896331f0c6fabf89612565}{rotation}}
+\begin{DoxyCompactList}\small\item\em Current rotation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Transform_a26c5ed7adf96f06c427a465fac2d677b}{scale}}
+\begin{DoxyCompactList}\small\item\em Current scale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Transform_a3ac4d9995469189a98af7e08bb81342a}\label{classComponent_1_1Transform_a3ac4d9995469189a98af7e08bb81342a}} 
+\index{Component::Transform@{Component::Transform}!Transform@{Transform}}
+\index{Transform@{Transform}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{Transform()}{Transform()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{position = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}()},  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{rotation = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}()},  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{scale = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}(1.0f,~1.0f,~1.0f)} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em rotation} & \\
+\hline
+{\em scale} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Transform_a026757b48af945bf13212e6840a54109}\label{classComponent_1_1Transform_a026757b48af945bf13212e6840a54109}} 
+\index{Component::Transform@{Component::Transform}!````~Transform@{$\sim$Transform}}
+\index{````~Transform@{$\sim$Transform}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{$\sim$Transform()}{~Transform()}}
+{\footnotesize\ttfamily Component\+::\+Transform\+::$\sim$\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Transform_ab467311cd934170eb38470360e9922fb}\label{classComponent_1_1Transform_ab467311cd934170eb38470360e9922fb}} 
+\index{Component::Transform@{Component::Transform}!Transform@{Transform}}
+\index{Transform@{Transform}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{Transform()}{Transform()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Transform_af01ce4ad6c7c2acf8c9670f1cc8bbbf4}\label{classComponent_1_1Transform_af01ce4ad6c7c2acf8c9670f1cc8bbbf4}} 
+\index{Component::Transform@{Component::Transform}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree \& Component\+::\+Transform\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Transform_af560233e7c3e060374e47ee7fbd44db3}\label{classComponent_1_1Transform_af560233e7c3e060374e47ee7fbd44db3}} 
+\index{Component::Transform@{Component::Transform}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& Component\+::\+Transform\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Transform_a79e9ba8256f0c97efd6f911633675620}\label{classComponent_1_1Transform_a79e9ba8256f0c97efd6f911633675620}} 
+\index{Component::Transform@{Component::Transform}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Transform}{Transform}}\& Component\+::\+Transform\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Transform}{Transform}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Transform_a5e2f20feed3bc319bdac4c28514d01de}\label{classComponent_1_1Transform_a5e2f20feed3bc319bdac4c28514d01de}} 
+\index{Component::Transform@{Component::Transform}!position@{position}}
+\index{position@{position}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+Transform\+::position}
+
+
+
+Current position in the world. 
+
+\mbox{\Hypertarget{classComponent_1_1Transform_a44a9c1756d896331f0c6fabf89612565}\label{classComponent_1_1Transform_a44a9c1756d896331f0c6fabf89612565}} 
+\index{Component::Transform@{Component::Transform}!rotation@{rotation}}
+\index{rotation@{rotation}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+Transform\+::rotation}
+
+
+
+Current rotation. 
+
+\mbox{\Hypertarget{classComponent_1_1Transform_a26c5ed7adf96f06c427a465fac2d677b}\label{classComponent_1_1Transform_a26c5ed7adf96f06c427a465fac2d677b}} 
+\index{Component::Transform@{Component::Transform}!scale@{scale}}
+\index{scale@{scale}!Component::Transform@{Component::Transform}}
+\doxysubsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+Transform\+::scale}
+
+
+
+Current scale. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Transform/\mbox{\hyperlink{Transform_8hpp}{Transform.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Transform/\mbox{\hyperlink{Transform_8cpp}{Transform.\+cpp}}\end{DoxyCompactItemize}

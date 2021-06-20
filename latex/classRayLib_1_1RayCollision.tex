@@ -1,0 +1,246 @@
+\hypertarget{classRayLib_1_1RayCollision}{}\doxysection{Ray\+Lib\+::Ray\+Collision Class Reference}
+\label{classRayLib_1_1RayCollision}\index{RayLib::RayCollision@{RayLib::RayCollision}}
+
+
+\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Ray\+Collision.\+hpp$>$}
+
+
+
+Collaboration diagram for Ray\+Lib\+::Ray\+Collision\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classRayLib_1_1RayCollision__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1RayCollision_acf8dd29ced2a61ae61ad46d9a51fb728}{Ray\+Collision}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Collision object Initializes values to zero and hit to false. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1RayCollision_a03d14e301285d0d60278c9b4828395e6}{$\sim$\+Ray\+Collision}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Collision object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1RayCollision_acff5284f050cfdda22a2ada7738ac08c}{Ray\+Collision}} (const \mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Collision object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1RayCollision_a8b735886cd2d3c1fa4fe576057a6eef5}{Ray\+Collision}} (const \+::\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Collision object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \& \mbox{\hyperlink{classRayLib_1_1RayCollision_a710377c9129cda5a538f9a824b15c15b}{operator=}} (const \mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \&other)
+\item 
+\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \& \mbox{\hyperlink{classRayLib_1_1RayCollision_a39f1ec1eb7dba26ffdb8cb0a4d2fac3c}{operator=}} (const \+::\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \&other)
+\item 
+\+::\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \mbox{\hyperlink{classRayLib_1_1RayCollision_aeb7cac133d9ad5d12d21061996aa1377}{Get\+Hit\+Info}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Hit Info as a raylib structure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRayLib_1_1RayCollision_ae00c3be9dc47d1ca4de1fc01bdb9f90f}{Has\+Hit}} (void)
+\begin{DoxyCompactList}\small\item\em returns hit value of structure \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classRayLib_1_1RayCollision_a95b407ff3becd1c721333b9ade044901}{Get\+Distance}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Distance to collision object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \& \mbox{\hyperlink{classRayLib_1_1RayCollision_a37c3610c346c1da8a262265cc81c963d}{Get\+Position}} (void)
+\begin{DoxyCompactList}\small\item\em Get the position of collision. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \& \mbox{\hyperlink{classRayLib_1_1RayCollision_a7747c5351bc0bbf4cd36ca5894f1c305}{Get\+Normal}} (void)
+\begin{DoxyCompactList}\small\item\em Get the surface normal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classRayLib_1_1RayCollision_af70b7568d26fa518be8314009a0d949a}{\+\_\+hit}}
+\item 
+float \mbox{\hyperlink{classRayLib_1_1RayCollision_a7f34410e3109a6b2f50a063bef1f0a17}{\+\_\+distance}}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \mbox{\hyperlink{classRayLib_1_1RayCollision_a4e5e6c036a9353bcf3f9fec90823b3df}{\+\_\+point}}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \mbox{\hyperlink{classRayLib_1_1RayCollision_af2011e3a95ce352fd6c9151f9bbc32de}{\+\_\+normal}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} encapsulation. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_acf8dd29ced2a61ae61ad46d9a51fb728}\label{classRayLib_1_1RayCollision_acf8dd29ced2a61ae61ad46d9a51fb728}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!RayCollision@{RayCollision}}
+\index{RayCollision@{RayCollision}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{RayCollision()}{RayCollision()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+Collision\+::\+Ray\+Collision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Collision object Initializes values to zero and hit to false. 
+
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a03d14e301285d0d60278c9b4828395e6}\label{classRayLib_1_1RayCollision_a03d14e301285d0d60278c9b4828395e6}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!````~RayCollision@{$\sim$RayCollision}}
+\index{````~RayCollision@{$\sim$RayCollision}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{$\sim$RayCollision()}{~RayCollision()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+Collision\+::$\sim$\+Ray\+Collision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Collision object. 
+
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_acff5284f050cfdda22a2ada7738ac08c}\label{classRayLib_1_1RayCollision_acff5284f050cfdda22a2ada7738ac08c}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!RayCollision@{RayCollision}}
+\index{RayCollision@{RayCollision}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{RayCollision()}{RayCollision()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+Collision\+::\+Ray\+Collision (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Collision object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a8b735886cd2d3c1fa4fe576057a6eef5}\label{classRayLib_1_1RayCollision_a8b735886cd2d3c1fa4fe576057a6eef5}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!RayCollision@{RayCollision}}
+\index{RayCollision@{RayCollision}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{RayCollision()}{RayCollision()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Ray\+Collision\+::\+Ray\+Collision (\begin{DoxyParamCaption}\item[{const \+::\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Ray}{Ray}} Collision object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a95b407ff3becd1c721333b9ade044901}\label{classRayLib_1_1RayCollision_a95b407ff3becd1c721333b9ade044901}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!GetDistance@{GetDistance}}
+\index{GetDistance@{GetDistance}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{GetDistance()}{GetDistance()}}
+{\footnotesize\ttfamily float Ray\+Lib\+::\+Ray\+Collision\+::\+Get\+Distance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Distance to collision object. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_aeb7cac133d9ad5d12d21061996aa1377}\label{classRayLib_1_1RayCollision_aeb7cac133d9ad5d12d21061996aa1377}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!GetHitInfo@{GetHitInfo}}
+\index{GetHitInfo@{GetHitInfo}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{GetHitInfo()}{GetHitInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} Ray\+Lib\+::\+Ray\+Collision\+::\+Get\+Hit\+Info (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Hit Info as a raylib structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Ray\+Collision 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a7747c5351bc0bbf4cd36ca5894f1c305}\label{classRayLib_1_1RayCollision_a7747c5351bc0bbf4cd36ca5894f1c305}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!GetNormal@{GetNormal}}
+\index{GetNormal@{GetNormal}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{GetNormal()}{GetNormal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \& Ray\+Lib\+::\+Ray\+Collision\+::\+Get\+Normal (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the surface normal. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a37c3610c346c1da8a262265cc81c963d}\label{classRayLib_1_1RayCollision_a37c3610c346c1da8a262265cc81c963d}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \& Ray\+Lib\+::\+Ray\+Collision\+::\+Get\+Position (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the position of collision. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_ae00c3be9dc47d1ca4de1fc01bdb9f90f}\label{classRayLib_1_1RayCollision_ae00c3be9dc47d1ca4de1fc01bdb9f90f}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!HasHit@{HasHit}}
+\index{HasHit@{HasHit}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{HasHit()}{HasHit()}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Ray\+Collision\+::\+Has\+Hit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+returns hit value of structure 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a39f1ec1eb7dba26ffdb8cb0a4d2fac3c}\label{classRayLib_1_1RayCollision_a39f1ec1eb7dba26ffdb8cb0a4d2fac3c}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!operator=@{operator=}}
+\index{operator=@{operator=}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \& Ray\+Lib\+::\+Ray\+Collision\+::operator= (\begin{DoxyParamCaption}\item[{const \+::\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \&}]{other }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a710377c9129cda5a538f9a824b15c15b}\label{classRayLib_1_1RayCollision_a710377c9129cda5a538f9a824b15c15b}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!operator=@{operator=}}
+\index{operator=@{operator=}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \& Ray\+Lib\+::\+Ray\+Collision\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}} \&}]{other }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1RayCollision}{Ray\+Collision}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a7f34410e3109a6b2f50a063bef1f0a17}\label{classRayLib_1_1RayCollision_a7f34410e3109a6b2f50a063bef1f0a17}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!\_distance@{\_distance}}
+\index{\_distance@{\_distance}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{\_distance}{\_distance}}
+{\footnotesize\ttfamily float Ray\+Lib\+::\+Ray\+Collision\+::\+\_\+distance\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_af70b7568d26fa518be8314009a0d949a}\label{classRayLib_1_1RayCollision_af70b7568d26fa518be8314009a0d949a}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!\_hit@{\_hit}}
+\index{\_hit@{\_hit}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{\_hit}{\_hit}}
+{\footnotesize\ttfamily bool Ray\+Lib\+::\+Ray\+Collision\+::\+\_\+hit\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_af2011e3a95ce352fd6c9151f9bbc32de}\label{classRayLib_1_1RayCollision_af2011e3a95ce352fd6c9151f9bbc32de}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!\_normal@{\_normal}}
+\index{\_normal@{\_normal}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{\_normal}{\_normal}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} Ray\+Lib\+::\+Ray\+Collision\+::\+\_\+normal\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1RayCollision_a4e5e6c036a9353bcf3f9fec90823b3df}\label{classRayLib_1_1RayCollision_a4e5e6c036a9353bcf3f9fec90823b3df}} 
+\index{RayLib::RayCollision@{RayLib::RayCollision}!\_point@{\_point}}
+\index{\_point@{\_point}!RayLib::RayCollision@{RayLib::RayCollision}}
+\doxysubsubsection{\texorpdfstring{\_point}{\_point}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} Ray\+Lib\+::\+Ray\+Collision\+::\+\_\+point\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Ray\+Collision/\mbox{\hyperlink{RayCollision_8hpp}{Ray\+Collision.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Ray\+Collision/\mbox{\hyperlink{RayCollision_8cpp}{Ray\+Collision.\+cpp}}\end{DoxyCompactItemize}

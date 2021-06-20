@@ -1,0 +1,180 @@
+\hypertarget{classRayLib_1_1BoundingBox}{}\doxysection{Ray\+Lib\+::Bounding\+Box Class Reference}
+\label{classRayLib_1_1BoundingBox}\index{RayLib::BoundingBox@{RayLib::BoundingBox}}
+
+
+Boundingbox encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Bounding\+Box.\+hpp$>$}
+
+
+
+Collaboration diagram for Ray\+Lib\+::Bounding\+Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classRayLib_1_1BoundingBox__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1BoundingBox_a20f1bfb0e877f7ce264ea3b83431776e}{Bounding\+Box}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} min\+Vert, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} max\+Vert)
+\begin{DoxyCompactList}\small\item\em Construct a new Bounding Box object constructs a box from min\+Vertex and max\+Vertex. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1BoundingBox_a75a2785586ca9dccee325c7a933f6784}{Bounding\+Box}} (const \mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new Bounding Box object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1BoundingBox_ab6c2f4f838b00b85a091b864d800aad5}{$\sim$\+Bounding\+Box}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Bounding Box object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1BoundingBox_a3a43317bf0042870629fbf70f98139f5}{Init\+From\+Cube}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} cube\+Pos, \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} cube\+Scale)
+\begin{DoxyCompactList}\small\item\em Create a box from a cube\textquotesingle{}s position and scale Not a constructor, because it has the same parameters (ambiguous reference) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} \& \mbox{\hyperlink{classRayLib_1_1BoundingBox_a2de21fc4f69df9bf515ce9506516d9a4}{operator=}} (const \mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} \&other)
+\begin{DoxyCompactList}\small\item\em Assigment operator. \end{DoxyCompactList}\item 
+\+::\mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} \mbox{\hyperlink{classRayLib_1_1BoundingBox_ac5a2e7e89814ce229f5712ef8b9aa5d3}{Get\+Bounds}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Bounds as a raylib structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \mbox{\hyperlink{classRayLib_1_1BoundingBox_abe34ea06453df157103f5109406fb9ef}{Get\+Center}} (void)
+\begin{DoxyCompactList}\small\item\em Get the box\textquotesingle{}s center position not yet implemented. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \mbox{\hyperlink{classRayLib_1_1BoundingBox_a492c245f2717f14d1d708cf1d42322ff}{\+\_\+min\+Vertex}}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \mbox{\hyperlink{classRayLib_1_1BoundingBox_a6fbd45df32d8319c0f0eeb1a7402c3ba}{\+\_\+max\+Vertex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Boundingbox encapsulation. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1BoundingBox_a20f1bfb0e877f7ce264ea3b83431776e}\label{classRayLib_1_1BoundingBox_a20f1bfb0e877f7ce264ea3b83431776e}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!BoundingBox@{BoundingBox}}
+\index{BoundingBox@{BoundingBox}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{BoundingBox()}{BoundingBox()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Bounding\+Box\+::\+Bounding\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{min\+Vert,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{max\+Vert }\end{DoxyParamCaption})}
+
+
+
+Construct a new Bounding Box object constructs a box from min\+Vertex and max\+Vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Vert} & \\
+\hline
+{\em max\+Vert} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1BoundingBox_a75a2785586ca9dccee325c7a933f6784}\label{classRayLib_1_1BoundingBox_a75a2785586ca9dccee325c7a933f6784}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!BoundingBox@{BoundingBox}}
+\index{BoundingBox@{BoundingBox}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{BoundingBox()}{BoundingBox()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Bounding\+Box\+::\+Bounding\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Construct a new Bounding Box object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1BoundingBox_ab6c2f4f838b00b85a091b864d800aad5}\label{classRayLib_1_1BoundingBox_ab6c2f4f838b00b85a091b864d800aad5}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!````~BoundingBox@{$\sim$BoundingBox}}
+\index{````~BoundingBox@{$\sim$BoundingBox}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{$\sim$BoundingBox()}{~BoundingBox()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Bounding\+Box\+::$\sim$\+Bounding\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the Bounding Box object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1BoundingBox_ac5a2e7e89814ce229f5712ef8b9aa5d3}\label{classRayLib_1_1BoundingBox_ac5a2e7e89814ce229f5712ef8b9aa5d3}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!GetBounds@{GetBounds}}
+\index{GetBounds@{GetBounds}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{GetBounds()}{GetBounds()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} Ray\+Lib\+::\+Bounding\+Box\+::\+Get\+Bounds (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Bounds as a raylib structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Bounding\+Box 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1BoundingBox_abe34ea06453df157103f5109406fb9ef}\label{classRayLib_1_1BoundingBox_abe34ea06453df157103f5109406fb9ef}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!GetCenter@{GetCenter}}
+\index{GetCenter@{GetCenter}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{GetCenter()}{GetCenter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} Ray\+Lib\+::\+Bounding\+Box\+::\+Get\+Center (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the box\textquotesingle{}s center position not yet implemented. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} 
+\end{DoxyReturn}
+jsais pas calculer ça, ni c\textquotesingle{}est vrmt necessaire\mbox{\Hypertarget{classRayLib_1_1BoundingBox_a3a43317bf0042870629fbf70f98139f5}\label{classRayLib_1_1BoundingBox_a3a43317bf0042870629fbf70f98139f5}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!InitFromCube@{InitFromCube}}
+\index{InitFromCube@{InitFromCube}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{InitFromCube()}{InitFromCube()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Bounding\+Box\+::\+Init\+From\+Cube (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{cube\+Pos,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}}}]{cube\+Scale }\end{DoxyParamCaption})}
+
+
+
+Create a box from a cube\textquotesingle{}s position and scale Not a constructor, because it has the same parameters (ambiguous reference) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cube\+Pos} & \\
+\hline
+{\em cube\+Scale} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1BoundingBox_a2de21fc4f69df9bf515ce9506516d9a4}\label{classRayLib_1_1BoundingBox_a2de21fc4f69df9bf515ce9506516d9a4}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!operator=@{operator=}}
+\index{operator=@{operator=}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} \& Ray\+Lib\+::\+Bounding\+Box\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Assigment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1BoundingBox}{Bounding\+Box}}\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1BoundingBox_a6fbd45df32d8319c0f0eeb1a7402c3ba}\label{classRayLib_1_1BoundingBox_a6fbd45df32d8319c0f0eeb1a7402c3ba}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!\_maxVertex@{\_maxVertex}}
+\index{\_maxVertex@{\_maxVertex}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{\_maxVertex}{\_maxVertex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} Ray\+Lib\+::\+Bounding\+Box\+::\+\_\+max\+Vertex\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRayLib_1_1BoundingBox_a492c245f2717f14d1d708cf1d42322ff}\label{classRayLib_1_1BoundingBox_a492c245f2717f14d1d708cf1d42322ff}} 
+\index{RayLib::BoundingBox@{RayLib::BoundingBox}!\_minVertex@{\_minVertex}}
+\index{\_minVertex@{\_minVertex}!RayLib::BoundingBox@{RayLib::BoundingBox}}
+\doxysubsubsection{\texorpdfstring{\_minVertex}{\_minVertex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} Ray\+Lib\+::\+Bounding\+Box\+::\+\_\+min\+Vertex\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Bounding\+Box/\mbox{\hyperlink{BoundingBox_8hpp}{Bounding\+Box.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Bounding\+Box/\mbox{\hyperlink{BoundingBox_8cpp}{Bounding\+Box.\+cpp}}\end{DoxyCompactItemize}

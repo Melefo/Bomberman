@@ -1,0 +1,728 @@
+\hypertarget{classTerrainGenerator}{}\doxysection{Terrain\+Generator Class Reference}
+\label{classTerrainGenerator}\index{TerrainGenerator@{TerrainGenerator}}
+
+
+{\ttfamily \#include $<$Terrain\+Generator.\+hpp$>$}
+
+
+
+Inheritance diagram for Terrain\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classTerrainGenerator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Terrain\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classTerrainGenerator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2ce}{map\+Texture}} \{ \newline
+\mbox{\hyperlink{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2ceac2f639cf4295ee7e40eb49862802a884}{map\+Texture\+::\+O\+W\+A\+LL}} = \textquotesingle{}X\textquotesingle{}, 
+\mbox{\hyperlink{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea17c1472b5a278a8b0f38a265dcf4ef81}{map\+Texture\+::\+I\+N\+W\+A\+LL}} = \textquotesingle{}o\textquotesingle{}, 
+\mbox{\hyperlink{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea4e1ee76d819d85cac1de326449382ae6}{map\+Texture\+::\+W\+E\+A\+K\+B\+OX}} = \textquotesingle{}1\textquotesingle{}, 
+\mbox{\hyperlink{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea53e7e05aeb354dfa499ac76797bc9d84}{map\+Texture\+::\+M\+E\+D\+I\+U\+M\+B\+OX}} = \textquotesingle{}2\textquotesingle{}, 
+\newline
+\mbox{\hyperlink{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea76ee342b21756fbe42ec6c50b1069002}{map\+Texture\+::\+S\+T\+R\+O\+N\+G\+B\+OX}} = \textquotesingle{}3\textquotesingle{}, 
+\mbox{\hyperlink{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea07c80e2a355d91402a00d82b1fa13855}{map\+Texture\+::\+P\+L\+A\+Y\+ER}} = \textquotesingle{}P\textquotesingle{}
+ \}
+\item 
+enum \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}} \{ \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}{Map\+Type\+::\+Default}}, 
+\mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a972e73b7a882d0802a4e3a16946a2f94}{Map\+Type\+::\+Basic}}, 
+\mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a64663f4646781c9c0110838b905daa23}{Map\+Type\+::\+Random}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTerrainGenerator_ab1b4538d8589058d5a9a5ae633943a09}{Terrain\+Generator}} (int players\+Nbr, const \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}} map\+Type=\mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}{Map\+Type\+::\+Default}}, int box\+Percentage=80)
+\begin{DoxyCompactList}\small\item\em Construct a new Terrain Generator\+:\+: Terrain Generator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTerrainGenerator_a7bb1ad1ef12b2337df65aa27b78708db}{Terrain\+Generator}} (int players\+Nbr, int width, int height, const \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}} map\+Type=\mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}{Map\+Type\+::\+Default}}, int box\+Percentage=80)
+\begin{DoxyCompactList}\small\item\em Construct a new Terrain Generator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTerrainGenerator_a5c214cfb20131079605a38cd34cbec59}{$\sim$\+Terrain\+Generator}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Terrain Generator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTerrainGenerator_acc480abc28dac854cf217c14fca01608}{Terrain\+Generator}} (const \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Terrain Generator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} \& \mbox{\hyperlink{classTerrainGenerator_a9c10bd7386c68f36e9494236aa1a9b3c}{operator=}} (const \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classTerrainGenerator_a89436968b938aacc34068a14fa8504a3}{get\+Map}} () const
+\begin{DoxyCompactList}\small\item\em Get the Map object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_ace749013e335b296607d53d878ad2f5f}{display\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Display the map on standard output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a4754055cd60ac972f2143c6431928884}{generate\+Base\+Map}} (int seed)
+\begin{DoxyCompactList}\small\item\em Generate bomberman\textquotesingle{}s basic map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_af2035adb0211684f021c80db88898f5c}{generate\+Random\+Map}} (int seed)
+\begin{DoxyCompactList}\small\item\em Generate procedurally generated map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a4c3419454c6008f958c893314ea975f6}{clear\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Clear the map objects and only keep outer walls. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a3696744cca583027cc4961ec301cd3ec}{add\+Tile\+On\+Map}} (int y, int x)
+\begin{DoxyCompactList}\small\item\em Add a new wall on the map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_aece032d6e3b30c5139c04e49200df519}{generate\+X\+M\+L\+File}} ()
+\begin{DoxyCompactList}\small\item\em Generate the \+\_\+map object into an \char`\"{}map.\+xml\char`\"{} file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a6a179380aae5a604356d7016fe223ac1}{set\+Players\+Number}} (int new\+Size)
+\begin{DoxyCompactList}\small\item\em Set the Players Number object Resets the map according to players number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_aa71b8b7c5b489e9f5dbf63e63dce5b82}{set\+Map\+Size}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ map\+Size)
+\begin{DoxyCompactList}\small\item\em Set the Map Size object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrainGenerator_a03d8e52c3546a63eced54e9eddb91d35}{is\+Generated}} ()
+\begin{DoxyCompactList}\small\item\em If a map has been generated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_adce525a20bc0eca6c7128e0fbd4ae58f}{generate\+Boxes}} ()
+\begin{DoxyCompactList}\small\item\em Randomly generate boxes for Random and Basic maps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a2e9c5f5fb5b8917d4735704dd96dfc82}{place\+Players}} ()
+\begin{DoxyCompactList}\small\item\em Place players on map based on their number Specific to Random maps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a54b0d06143a8806671697b61d5bfbc75}{Set\+Map}} (std\+::vector$<$ std\+::string $>$ map)
+\item 
+void \mbox{\hyperlink{classTerrainGenerator_a1a10e21338622a3b873c54ee39202414}{Set\+Is\+Generated}} (bool value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classTerrainGenerator_a66d1a225cd627a06f34fcc22fcae085f}{generate\+Map\+Line}} (int h\+Pos)
+\begin{DoxyCompactList}\small\item\em Generate a line based on the actual position Specific to Basic maps. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classTerrainGenerator_a04c982735ba12d4276972204d39ceabe}{generate\+Box\+Level}} ()
+\begin{DoxyCompactList}\small\item\em Generate a random level for a box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_af7df5f82953b1ecc06db1a14cc93ad3b}{clone\+Reverse\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Clone the generated map mirror on the other face Specific to Random maps. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrainGenerator_a7764b8382ae956094556175f717ce520}{blocks\+Path}} (int y, int x)
+\begin{DoxyCompactList}\small\item\em Check if a wall on the current position blocks the map Specific to Random maps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_ae0883edc30d293753ea11d0e32a1abbb}{fill\+Holes}} ()
+\begin{DoxyCompactList}\small\item\em Fill the map holes so that paths are 1 tile wide Specific to Random maps Commented function for now. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrainGenerator_a162fab3303dcafc10ea00d52cb0989c3}{try\+Placing\+Tile}} (const std\+::vector$<$ std\+::string $>$ \&tile, int map\+Pos)
+\begin{DoxyCompactList}\small\item\em Try placing a tile on a map height position Specific to Random maps. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classTerrainGenerator_a5acc94ed06d086b94a5db8e6950b7a99}{rotate\+Tile}} (std\+::vector$<$ std\+::string $>$ tile) const
+\begin{DoxyCompactList}\small\item\em Rotate a tile one tile clockwise Specific to Random maps. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrainGenerator_a656cf2f36da0e54db269a822164f9574}{try\+Tetr\+Positions}} (const std\+::vector$<$ std\+::string $>$ \&chosen\+Tile)
+\begin{DoxyCompactList}\small\item\em Try placing a tile on all map heights Specific to Random maps. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrainGenerator_a8964566facaa600d29853e1b5e300265}{add\+Tetr\+On\+Map}} (const std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ \&tiles)
+\begin{DoxyCompactList}\small\item\em Try placing a new tile on the map Specific to Random maps. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTerrainGenerator_a4a6617ee69c5a3e25ab52feb8095df25}{line\+Get\+Width}} (int line\+Pos)
+\begin{DoxyCompactList}\small\item\em Get the size of a map\textquotesingle{}s line regardless of the outwalls Specific to Random maps. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrainGenerator_aa850cb8b0dceb4420f98b45b5621b2c4}{is\+Map\+Full}} ()
+\begin{DoxyCompactList}\small\item\em Check if the map can accept more tiles Specific to Random maps. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a8c025ba1fd59c0a99ba28a448f05feb8}{generate\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Randomly generates either a Basic map or a Random one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a856eb4bd5b793075f93050c8af8f5a92}{trim\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Cut the map in half. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerrainGenerator_a2ed3f8fb52b3bedea275d8a5f43fc8eb}{make\+Space\+For\+Players}} ()
+\begin{DoxyCompactList}\small\item\em Add holes between player places to place safe bombs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classTerrainGenerator_aeea00c2770c391f4fdb096daaf0d89b8}{\+\_\+players\+Nbr}}
+\begin{DoxyCompactList}\small\item\em Number of players rounded to next pair. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTerrainGenerator_aa9c1c12bcf9aa05d71a533219159d897}{\+\_\+box\+Percentage}}
+\begin{DoxyCompactList}\small\item\em Percentage of box apparition on map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTerrainGenerator_aee236f839df54aed6ac6a6df60c2b315}{\+\_\+height}}
+\begin{DoxyCompactList}\small\item\em Map height. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTerrainGenerator_af3af5007a04ba3d4738d335ab2d7532c}{\+\_\+width}}
+\begin{DoxyCompactList}\small\item\em Map width. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}} \mbox{\hyperlink{classTerrainGenerator_a45aaf7c4a5d0c80354c56c1c8cbd3789}{\+\_\+map\+Type}}
+\begin{DoxyCompactList}\small\item\em Current map type. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classTerrainGenerator_a6614e506dd2e591c48f7d3bad70e2423}{\+\_\+map}}
+\begin{DoxyCompactList}\small\item\em The map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTerrainGenerator_a6dec0bad98313a04a708225e8126b837}{\+\_\+is\+Generated}}
+\begin{DoxyCompactList}\small\item\em If a map has been generated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2ce}\label{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2ce}} 
+\index{TerrainGenerator@{TerrainGenerator}!mapTexture@{mapTexture}}
+\index{mapTexture@{mapTexture}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{mapTexture}{mapTexture}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2ce}{Terrain\+Generator\+::map\+Texture}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OWALL@{OWALL}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!OWALL@{OWALL}}}\mbox{\Hypertarget{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2ceac2f639cf4295ee7e40eb49862802a884}\label{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2ceac2f639cf4295ee7e40eb49862802a884}} 
+O\+W\+A\+LL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INWALL@{INWALL}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!INWALL@{INWALL}}}\mbox{\Hypertarget{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea17c1472b5a278a8b0f38a265dcf4ef81}\label{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea17c1472b5a278a8b0f38a265dcf4ef81}} 
+I\+N\+W\+A\+LL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WEAKBOX@{WEAKBOX}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!WEAKBOX@{WEAKBOX}}}\mbox{\Hypertarget{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea4e1ee76d819d85cac1de326449382ae6}\label{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea4e1ee76d819d85cac1de326449382ae6}} 
+W\+E\+A\+K\+B\+OX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MEDIUMBOX@{MEDIUMBOX}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!MEDIUMBOX@{MEDIUMBOX}}}\mbox{\Hypertarget{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea53e7e05aeb354dfa499ac76797bc9d84}\label{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea53e7e05aeb354dfa499ac76797bc9d84}} 
+M\+E\+D\+I\+U\+M\+B\+OX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRONGBOX@{STRONGBOX}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!STRONGBOX@{STRONGBOX}}}\mbox{\Hypertarget{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea76ee342b21756fbe42ec6c50b1069002}\label{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea76ee342b21756fbe42ec6c50b1069002}} 
+S\+T\+R\+O\+N\+G\+B\+OX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYER@{PLAYER}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!PLAYER@{PLAYER}}}\mbox{\Hypertarget{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea07c80e2a355d91402a00d82b1fa13855}\label{classTerrainGenerator_a87d763d7f1d74565c872c7641e08e2cea07c80e2a355d91402a00d82b1fa13855}} 
+P\+L\+A\+Y\+ER&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}\label{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}} 
+\index{TerrainGenerator@{TerrainGenerator}!MapType@{MapType}}
+\index{MapType@{MapType}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{MapType}{MapType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Terrain\+Generator\+::\+Map\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Default@{Default}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!Default@{Default}}}\mbox{\Hypertarget{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}\label{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}} 
+Default&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Basic@{Basic}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!Basic@{Basic}}}\mbox{\Hypertarget{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a972e73b7a882d0802a4e3a16946a2f94}\label{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a972e73b7a882d0802a4e3a16946a2f94}} 
+Basic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Random@{Random}!TerrainGenerator@{TerrainGenerator}}\index{TerrainGenerator@{TerrainGenerator}!Random@{Random}}}\mbox{\Hypertarget{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a64663f4646781c9c0110838b905daa23}\label{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a64663f4646781c9c0110838b905daa23}} 
+Random&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTerrainGenerator_ab1b4538d8589058d5a9a5ae633943a09}\label{classTerrainGenerator_ab1b4538d8589058d5a9a5ae633943a09}} 
+\index{TerrainGenerator@{TerrainGenerator}!TerrainGenerator@{TerrainGenerator}}
+\index{TerrainGenerator@{TerrainGenerator}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{TerrainGenerator()}{TerrainGenerator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Terrain\+Generator\+::\+Terrain\+Generator (\begin{DoxyParamCaption}\item[{int}]{players\+Nbr,  }\item[{const \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}}}]{map\+Type = {\ttfamily \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}{Map\+Type\+::\+Default}}},  }\item[{int}]{box\+Percentage = {\ttfamily 80} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Terrain Generator\+:\+: Terrain Generator object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em players\+Nbr} & \\
+\hline
+{\em map\+Type} & \\
+\hline
+{\em box\+Percentage} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrainGenerator_a7bb1ad1ef12b2337df65aa27b78708db}\label{classTerrainGenerator_a7bb1ad1ef12b2337df65aa27b78708db}} 
+\index{TerrainGenerator@{TerrainGenerator}!TerrainGenerator@{TerrainGenerator}}
+\index{TerrainGenerator@{TerrainGenerator}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{TerrainGenerator()}{TerrainGenerator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Terrain\+Generator\+::\+Terrain\+Generator (\begin{DoxyParamCaption}\item[{int}]{players\+Nbr,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{const \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}}}]{map\+Type = {\ttfamily \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5a7a1920d61156abc05a60135aefe8bc67}{Map\+Type\+::\+Default}}},  }\item[{int}]{box\+Percentage = {\ttfamily 80} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Terrain Generator object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em players\+Nbr} & Number of players (From 1 to 8) \\
+\hline
+{\em box\+Percentage} & Percentage of box spawning (80 by default) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrainGenerator_a5c214cfb20131079605a38cd34cbec59}\label{classTerrainGenerator_a5c214cfb20131079605a38cd34cbec59}} 
+\index{TerrainGenerator@{TerrainGenerator}!````~TerrainGenerator@{$\sim$TerrainGenerator}}
+\index{````~TerrainGenerator@{$\sim$TerrainGenerator}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{$\sim$TerrainGenerator()}{~TerrainGenerator()}}
+{\footnotesize\ttfamily Terrain\+Generator\+::$\sim$\+Terrain\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the Terrain Generator object. 
+
+\mbox{\Hypertarget{classTerrainGenerator_acc480abc28dac854cf217c14fca01608}\label{classTerrainGenerator_acc480abc28dac854cf217c14fca01608}} 
+\index{TerrainGenerator@{TerrainGenerator}!TerrainGenerator@{TerrainGenerator}}
+\index{TerrainGenerator@{TerrainGenerator}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{TerrainGenerator()}{TerrainGenerator()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Terrain\+Generator\+::\+Terrain\+Generator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Terrain Generator object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTerrainGenerator_a8964566facaa600d29853e1b5e300265}\label{classTerrainGenerator_a8964566facaa600d29853e1b5e300265}} 
+\index{TerrainGenerator@{TerrainGenerator}!addTetrOnMap@{addTetrOnMap}}
+\index{addTetrOnMap@{addTetrOnMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{addTetrOnMap()}{addTetrOnMap()}}
+{\footnotesize\ttfamily bool Terrain\+Generator\+::add\+Tetr\+On\+Map (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ \&}]{tiles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Try placing a new tile on the map Specific to Random maps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tiles} & The available tiles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true The tile has been placed 
+
+false No more tiles can be placed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_a3696744cca583027cc4961ec301cd3ec}\label{classTerrainGenerator_a3696744cca583027cc4961ec301cd3ec}} 
+\index{TerrainGenerator@{TerrainGenerator}!addTileOnMap@{addTileOnMap}}
+\index{addTileOnMap@{addTileOnMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{addTileOnMap()}{addTileOnMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::add\+Tile\+On\+Map (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Add a new wall on the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Height position \\
+\hline
+{\em x} & Width position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrainGenerator_a7764b8382ae956094556175f717ce520}\label{classTerrainGenerator_a7764b8382ae956094556175f717ce520}} 
+\index{TerrainGenerator@{TerrainGenerator}!blocksPath@{blocksPath}}
+\index{blocksPath@{blocksPath}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{blocksPath()}{blocksPath()}}
+{\footnotesize\ttfamily bool Terrain\+Generator\+::blocks\+Path (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Check if a wall on the current position blocks the map Specific to Random maps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Height posiiton \\
+\hline
+{\em x} & Width position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true A wall on this position wouldn\textquotesingle{}t block the path 
+
+false A wall on this position would block the path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_a4c3419454c6008f958c893314ea975f6}\label{classTerrainGenerator_a4c3419454c6008f958c893314ea975f6}} 
+\index{TerrainGenerator@{TerrainGenerator}!clearMap@{clearMap}}
+\index{clearMap@{clearMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{clearMap()}{clearMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::clear\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the map objects and only keep outer walls. 
+
+\mbox{\Hypertarget{classTerrainGenerator_af7df5f82953b1ecc06db1a14cc93ad3b}\label{classTerrainGenerator_af7df5f82953b1ecc06db1a14cc93ad3b}} 
+\index{TerrainGenerator@{TerrainGenerator}!cloneReverseMap@{cloneReverseMap}}
+\index{cloneReverseMap@{cloneReverseMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{cloneReverseMap()}{cloneReverseMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::clone\+Reverse\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Clone the generated map mirror on the other face Specific to Random maps. 
+
+Private -\/ Random Map \mbox{\Hypertarget{classTerrainGenerator_ace749013e335b296607d53d878ad2f5f}\label{classTerrainGenerator_ace749013e335b296607d53d878ad2f5f}} 
+\index{TerrainGenerator@{TerrainGenerator}!displayMap@{displayMap}}
+\index{displayMap@{displayMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{displayMap()}{displayMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::display\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Display the map on standard output. 
+
+Public \mbox{\Hypertarget{classTerrainGenerator_ae0883edc30d293753ea11d0e32a1abbb}\label{classTerrainGenerator_ae0883edc30d293753ea11d0e32a1abbb}} 
+\index{TerrainGenerator@{TerrainGenerator}!fillHoles@{fillHoles}}
+\index{fillHoles@{fillHoles}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{fillHoles()}{fillHoles()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::fill\+Holes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Fill the map holes so that paths are 1 tile wide Specific to Random maps Commented function for now. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a4754055cd60ac972f2143c6431928884}\label{classTerrainGenerator_a4754055cd60ac972f2143c6431928884}} 
+\index{TerrainGenerator@{TerrainGenerator}!generateBaseMap@{generateBaseMap}}
+\index{generateBaseMap@{generateBaseMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateBaseMap()}{generateBaseMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::generate\+Base\+Map (\begin{DoxyParamCaption}\item[{int}]{seed }\end{DoxyParamCaption})}
+
+
+
+Generate bomberman\textquotesingle{}s basic map. 
+
+\mbox{\Hypertarget{classTerrainGenerator_adce525a20bc0eca6c7128e0fbd4ae58f}\label{classTerrainGenerator_adce525a20bc0eca6c7128e0fbd4ae58f}} 
+\index{TerrainGenerator@{TerrainGenerator}!generateBoxes@{generateBoxes}}
+\index{generateBoxes@{generateBoxes}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateBoxes()}{generateBoxes()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::generate\+Boxes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Randomly generate boxes for Random and Basic maps. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a04c982735ba12d4276972204d39ceabe}\label{classTerrainGenerator_a04c982735ba12d4276972204d39ceabe}} 
+\index{TerrainGenerator@{TerrainGenerator}!generateBoxLevel@{generateBoxLevel}}
+\index{generateBoxLevel@{generateBoxLevel}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateBoxLevel()}{generateBoxLevel()}}
+{\footnotesize\ttfamily char Terrain\+Generator\+::generate\+Box\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Generate a random level for a box. 
+
+\begin{DoxyReturn}{Returns}
+char Box level \textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{} or \textquotesingle{}3\textquotesingle{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_a8c025ba1fd59c0a99ba28a448f05feb8}\label{classTerrainGenerator_a8c025ba1fd59c0a99ba28a448f05feb8}} 
+\index{TerrainGenerator@{TerrainGenerator}!generateMap@{generateMap}}
+\index{generateMap@{generateMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateMap()}{generateMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::generate\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Randomly generates either a Basic map or a Random one. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a66d1a225cd627a06f34fcc22fcae085f}\label{classTerrainGenerator_a66d1a225cd627a06f34fcc22fcae085f}} 
+\index{TerrainGenerator@{TerrainGenerator}!generateMapLine@{generateMapLine}}
+\index{generateMapLine@{generateMapLine}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateMapLine()}{generateMapLine()}}
+{\footnotesize\ttfamily std\+::string Terrain\+Generator\+::generate\+Map\+Line (\begin{DoxyParamCaption}\item[{int}]{h\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Generate a line based on the actual position Specific to Basic maps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Pos} & Map position to generate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string The generated line
+\end{DoxyReturn}
+Private -\/ Basic Map \mbox{\Hypertarget{classTerrainGenerator_af2035adb0211684f021c80db88898f5c}\label{classTerrainGenerator_af2035adb0211684f021c80db88898f5c}} 
+\index{TerrainGenerator@{TerrainGenerator}!generateRandomMap@{generateRandomMap}}
+\index{generateRandomMap@{generateRandomMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateRandomMap()}{generateRandomMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::generate\+Random\+Map (\begin{DoxyParamCaption}\item[{int}]{seed }\end{DoxyParamCaption})}
+
+
+
+Generate procedurally generated map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & The seed randomizer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrainGenerator_aece032d6e3b30c5139c04e49200df519}\label{classTerrainGenerator_aece032d6e3b30c5139c04e49200df519}} 
+\index{TerrainGenerator@{TerrainGenerator}!generateXMLFile@{generateXMLFile}}
+\index{generateXMLFile@{generateXMLFile}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{generateXMLFile()}{generateXMLFile()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::generate\+X\+M\+L\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generate the \+\_\+map object into an \char`\"{}map.\+xml\char`\"{} file. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a89436968b938aacc34068a14fa8504a3}\label{classTerrainGenerator_a89436968b938aacc34068a14fa8504a3}} 
+\index{TerrainGenerator@{TerrainGenerator}!getMap@{getMap}}
+\index{getMap@{getMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{getMap()}{getMap()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::string $>$ \& Terrain\+Generator\+::get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Map object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$
+\end{DoxyReturn}
+Getters \mbox{\Hypertarget{classTerrainGenerator_a03d8e52c3546a63eced54e9eddb91d35}\label{classTerrainGenerator_a03d8e52c3546a63eced54e9eddb91d35}} 
+\index{TerrainGenerator@{TerrainGenerator}!isGenerated@{isGenerated}}
+\index{isGenerated@{isGenerated}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{isGenerated()}{isGenerated()}}
+{\footnotesize\ttfamily bool Terrain\+Generator\+::is\+Generated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+If a map has been generated. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_aa850cb8b0dceb4420f98b45b5621b2c4}\label{classTerrainGenerator_aa850cb8b0dceb4420f98b45b5621b2c4}} 
+\index{TerrainGenerator@{TerrainGenerator}!isMapFull@{isMapFull}}
+\index{isMapFull@{isMapFull}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{isMapFull()}{isMapFull()}}
+{\footnotesize\ttfamily bool Terrain\+Generator\+::is\+Map\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Check if the map can accept more tiles Specific to Random maps. 
+
+\begin{DoxyReturn}{Returns}
+true The map can accept more tiles 
+
+false The map cannot accept more tiles 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_a4a6617ee69c5a3e25ab52feb8095df25}\label{classTerrainGenerator_a4a6617ee69c5a3e25ab52feb8095df25}} 
+\index{TerrainGenerator@{TerrainGenerator}!lineGetWidth@{lineGetWidth}}
+\index{lineGetWidth@{lineGetWidth}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{lineGetWidth()}{lineGetWidth()}}
+{\footnotesize\ttfamily size\+\_\+t Terrain\+Generator\+::line\+Get\+Width (\begin{DoxyParamCaption}\item[{int}]{line\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Get the size of a map\textquotesingle{}s line regardless of the outwalls Specific to Random maps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Pos} & Position to check on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The size of the line 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_a2ed3f8fb52b3bedea275d8a5f43fc8eb}\label{classTerrainGenerator_a2ed3f8fb52b3bedea275d8a5f43fc8eb}} 
+\index{TerrainGenerator@{TerrainGenerator}!makeSpaceForPlayers@{makeSpaceForPlayers}}
+\index{makeSpaceForPlayers@{makeSpaceForPlayers}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{makeSpaceForPlayers()}{makeSpaceForPlayers()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::make\+Space\+For\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Add holes between player places to place safe bombs. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a9c10bd7386c68f36e9494236aa1a9b3c}\label{classTerrainGenerator_a9c10bd7386c68f36e9494236aa1a9b3c}} 
+\index{TerrainGenerator@{TerrainGenerator}!operator=@{operator=}}
+\index{operator=@{operator=}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}}\& Terrain\+Generator\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classTerrainGenerator}{Terrain\+Generator}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_a2e9c5f5fb5b8917d4735704dd96dfc82}\label{classTerrainGenerator_a2e9c5f5fb5b8917d4735704dd96dfc82}} 
+\index{TerrainGenerator@{TerrainGenerator}!placePlayers@{placePlayers}}
+\index{placePlayers@{placePlayers}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{placePlayers()}{placePlayers()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::place\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Place players on map based on their number Specific to Random maps. 
+
+Private \mbox{\Hypertarget{classTerrainGenerator_a5acc94ed06d086b94a5db8e6950b7a99}\label{classTerrainGenerator_a5acc94ed06d086b94a5db8e6950b7a99}} 
+\index{TerrainGenerator@{TerrainGenerator}!rotateTile@{rotateTile}}
+\index{rotateTile@{rotateTile}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{rotateTile()}{rotateTile()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Terrain\+Generator\+::rotate\+Tile (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{tile }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Rotate a tile one tile clockwise Specific to Random maps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & The tile to rotate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ The rotated tile 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_a1a10e21338622a3b873c54ee39202414}\label{classTerrainGenerator_a1a10e21338622a3b873c54ee39202414}} 
+\index{TerrainGenerator@{TerrainGenerator}!SetIsGenerated@{SetIsGenerated}}
+\index{SetIsGenerated@{SetIsGenerated}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{SetIsGenerated()}{SetIsGenerated()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::\+Set\+Is\+Generated (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classTerrainGenerator_a54b0d06143a8806671697b61d5bfbc75}\label{classTerrainGenerator_a54b0d06143a8806671697b61d5bfbc75}} 
+\index{TerrainGenerator@{TerrainGenerator}!SetMap@{SetMap}}
+\index{SetMap@{SetMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{SetMap()}{SetMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::\+Set\+Map (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{map }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classTerrainGenerator_aa71b8b7c5b489e9f5dbf63e63dce5b82}\label{classTerrainGenerator_aa71b8b7c5b489e9f5dbf63e63dce5b82}} 
+\index{TerrainGenerator@{TerrainGenerator}!setMapSize@{setMapSize}}
+\index{setMapSize@{setMapSize}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{setMapSize()}{setMapSize()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::set\+Map\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{map\+Size }\end{DoxyParamCaption})}
+
+
+
+Set the Map Size object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+Size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrainGenerator_a6a179380aae5a604356d7016fe223ac1}\label{classTerrainGenerator_a6a179380aae5a604356d7016fe223ac1}} 
+\index{TerrainGenerator@{TerrainGenerator}!setPlayersNumber@{setPlayersNumber}}
+\index{setPlayersNumber@{setPlayersNumber}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{setPlayersNumber()}{setPlayersNumber()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::set\+Players\+Number (\begin{DoxyParamCaption}\item[{int}]{new\+Size }\end{DoxyParamCaption})}
+
+
+
+Set the Players Number object Resets the map according to players number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Size} & The new player numbers \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerrainGenerator_a856eb4bd5b793075f93050c8af8f5a92}\label{classTerrainGenerator_a856eb4bd5b793075f93050c8af8f5a92}} 
+\index{TerrainGenerator@{TerrainGenerator}!trimMap@{trimMap}}
+\index{trimMap@{trimMap}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{trimMap()}{trimMap()}}
+{\footnotesize\ttfamily void Terrain\+Generator\+::trim\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Cut the map in half. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a162fab3303dcafc10ea00d52cb0989c3}\label{classTerrainGenerator_a162fab3303dcafc10ea00d52cb0989c3}} 
+\index{TerrainGenerator@{TerrainGenerator}!tryPlacingTile@{tryPlacingTile}}
+\index{tryPlacingTile@{tryPlacingTile}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{tryPlacingTile()}{tryPlacingTile()}}
+{\footnotesize\ttfamily bool Terrain\+Generator\+::try\+Placing\+Tile (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{tile,  }\item[{int}]{map\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Try placing a tile on a map height position Specific to Random maps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & The tile to place on the map \\
+\hline
+{\em map\+Pos} & The height to test on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true The tile has been placed 
+
+false The tile has not been placed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerrainGenerator_a656cf2f36da0e54db269a822164f9574}\label{classTerrainGenerator_a656cf2f36da0e54db269a822164f9574}} 
+\index{TerrainGenerator@{TerrainGenerator}!tryTetrPositions@{tryTetrPositions}}
+\index{tryTetrPositions@{tryTetrPositions}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{tryTetrPositions()}{tryTetrPositions()}}
+{\footnotesize\ttfamily bool Terrain\+Generator\+::try\+Tetr\+Positions (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{chosen\+Tile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Try placing a tile on all map heights Specific to Random maps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chosen\+Tile} & The tile to place on the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true The tile has been placed 
+
+false The tile has not been placed 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classTerrainGenerator_aa9c1c12bcf9aa05d71a533219159d897}\label{classTerrainGenerator_aa9c1c12bcf9aa05d71a533219159d897}} 
+\index{TerrainGenerator@{TerrainGenerator}!\_boxPercentage@{\_boxPercentage}}
+\index{\_boxPercentage@{\_boxPercentage}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{\_boxPercentage}{\_boxPercentage}}
+{\footnotesize\ttfamily int Terrain\+Generator\+::\+\_\+box\+Percentage\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Percentage of box apparition on map. 
+
+\mbox{\Hypertarget{classTerrainGenerator_aee236f839df54aed6ac6a6df60c2b315}\label{classTerrainGenerator_aee236f839df54aed6ac6a6df60c2b315}} 
+\index{TerrainGenerator@{TerrainGenerator}!\_height@{\_height}}
+\index{\_height@{\_height}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{\_height}{\_height}}
+{\footnotesize\ttfamily int Terrain\+Generator\+::\+\_\+height\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Map height. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a6dec0bad98313a04a708225e8126b837}\label{classTerrainGenerator_a6dec0bad98313a04a708225e8126b837}} 
+\index{TerrainGenerator@{TerrainGenerator}!\_isGenerated@{\_isGenerated}}
+\index{\_isGenerated@{\_isGenerated}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{\_isGenerated}{\_isGenerated}}
+{\footnotesize\ttfamily bool Terrain\+Generator\+::\+\_\+is\+Generated\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+If a map has been generated. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a6614e506dd2e591c48f7d3bad70e2423}\label{classTerrainGenerator_a6614e506dd2e591c48f7d3bad70e2423}} 
+\index{TerrainGenerator@{TerrainGenerator}!\_map@{\_map}}
+\index{\_map@{\_map}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{\_map}{\_map}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Terrain\+Generator\+::\+\_\+map\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The map. 
+
+\mbox{\Hypertarget{classTerrainGenerator_a45aaf7c4a5d0c80354c56c1c8cbd3789}\label{classTerrainGenerator_a45aaf7c4a5d0c80354c56c1c8cbd3789}} 
+\index{TerrainGenerator@{TerrainGenerator}!\_mapType@{\_mapType}}
+\index{\_mapType@{\_mapType}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{\_mapType}{\_mapType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTerrainGenerator_a08cd1e5f6d11e5e5f7eef5533d531cc5}{Map\+Type}} Terrain\+Generator\+::\+\_\+map\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Current map type. 
+
+\mbox{\Hypertarget{classTerrainGenerator_aeea00c2770c391f4fdb096daaf0d89b8}\label{classTerrainGenerator_aeea00c2770c391f4fdb096daaf0d89b8}} 
+\index{TerrainGenerator@{TerrainGenerator}!\_playersNbr@{\_playersNbr}}
+\index{\_playersNbr@{\_playersNbr}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{\_playersNbr}{\_playersNbr}}
+{\footnotesize\ttfamily int Terrain\+Generator\+::\+\_\+players\+Nbr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of players rounded to next pair. 
+
+\mbox{\Hypertarget{classTerrainGenerator_af3af5007a04ba3d4738d335ab2d7532c}\label{classTerrainGenerator_af3af5007a04ba3d4738d335ab2d7532c}} 
+\index{TerrainGenerator@{TerrainGenerator}!\_width@{\_width}}
+\index{\_width@{\_width}!TerrainGenerator@{TerrainGenerator}}
+\doxysubsubsection{\texorpdfstring{\_width}{\_width}}
+{\footnotesize\ttfamily int Terrain\+Generator\+::\+\_\+width\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Map width. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Terrain\+Generator/sources/\mbox{\hyperlink{TerrainGenerator_8hpp}{Terrain\+Generator.\+hpp}}\item 
+Libs/\+Terrain\+Generator/sources/\mbox{\hyperlink{TerrainGenerator_8cpp}{Terrain\+Generator.\+cpp}}\end{DoxyCompactItemize}

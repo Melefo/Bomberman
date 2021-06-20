@@ -1,0 +1,266 @@
+\hypertarget{classRayLib_1_1Shader}{}\doxysection{Ray\+Lib\+::Shader Class Reference}
+\label{classRayLib_1_1Shader}\index{RayLib::Shader@{RayLib::Shader}}
+
+
+\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} Encapsulation of the raylib structure \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}}.  
+
+
+
+
+{\ttfamily \#include $<$Shader.\+hpp$>$}
+
+
+
+Inheritance diagram for Ray\+Lib\+::Shader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classRayLib_1_1Shader__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ray\+Lib\+::Shader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classRayLib_1_1Shader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Shader_aeaaa47639e7631ce1cfa6c0e2ff42218}{Shader}} (const std\+::string \&shaders\+Path)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Shader_a77e11eebe7d9792ee50c7e600165db76}{Shader}} (const std\+::string \&vertex\+Shader\+Path, const std\+::string \&fragment\+Shader\+Path)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Shader_a76a998178179a123eae5215b52bfa0ce}{Shader}} (\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \&shader)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Shader_a794a71e2ab5509fe719b61a45c754609}{Shader}} (\+::\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \&shader)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Shader_add768e2d938c717a85894d04c8939199}{$\sim$\+Shader}} () override
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. \end{DoxyCompactList}\item 
+\+::\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \& \mbox{\hyperlink{classRayLib_1_1Shader_ad991901fe529d48891b70bf57567c4d1}{Get\+Shader}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRayLib_1_1Shader_a7033f04e4ef9f132a5d175cd26c8e50f}{Get\+Location}} (std\+::string location)
+\begin{DoxyCompactList}\small\item\em Get the location of the element in the loaded file. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classRayLib_1_1Shader_ad73f1e3f2af553d0caa06e683e265176}{Set\+Value}} (int location, T value, int uniform\+Type)
+\begin{DoxyCompactList}\small\item\em Set the Value to an element of a shader file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Shader_ac4c510d3d902f10674590bf4ba9d4892}{Set\+Loc}} (int loc\+Id, std\+::string location)
+\begin{DoxyCompactList}\small\item\em Set loc\+Id raylib attribute new location according to the loaded shader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Shader_acb9361f1583c8eb673967375a1f8f0cc}{Unload}} ()
+\begin{DoxyCompactList}\small\item\em Unload the loaded shader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Shader_a042327f068b8f63c42128d6bce2bbf5e}{Begin\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Begin \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} Mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Shader_ab60a4aff5850f1efa0c4cfb3482f1d81}{End\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em End \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} Mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\+::\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \mbox{\hyperlink{classRayLib_1_1Shader_a4e69149dda44a34561aa21e5c18c2955}{\+\_\+shader}}
+\begin{DoxyCompactList}\small\item\em The C raylib\textquotesingle{}s \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} Encapsulation of the raylib structure \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Shader_aeaaa47639e7631ce1cfa6c0e2ff42218}\label{classRayLib_1_1Shader_aeaaa47639e7631ce1cfa6c0e2ff42218}} 
+\index{RayLib::Shader@{RayLib::Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{shaders\+Path }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shaders\+Path} & The path to the vertex and fragment shader \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Shader_a77e11eebe7d9792ee50c7e600165db76}\label{classRayLib_1_1Shader_a77e11eebe7d9792ee50c7e600165db76}} 
+\index{RayLib::Shader@{RayLib::Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{vertex\+Shader\+Path,  }\item[{const std\+::string \&}]{fragment\+Shader\+Path }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+Shader\+Path} & Path to a .vs or .vert file (Vertex shader). \char`\"{}\char`\"{} for no file \\
+\hline
+{\em fragment\+Shader\+Path} & Path to a .fs or .frag file (Fragment shader). \char`\"{}\char`\"{} for no file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Shader_a76a998178179a123eae5215b52bfa0ce}\label{classRayLib_1_1Shader_a76a998178179a123eae5215b52bfa0ce}} 
+\index{RayLib::Shader@{RayLib::Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \&}]{shader }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader} & \mbox{\hyperlink{classRayLib_1_1Shader}{Ray\+Lib\+::\+Shader}} object to copy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Shader_a794a71e2ab5509fe719b61a45c754609}\label{classRayLib_1_1Shader_a794a71e2ab5509fe719b61a45c754609}} 
+\index{RayLib::Shader@{RayLib::Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{\+::\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \&}]{shader }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader} & \+::\+Shader struct to copy \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Shader_add768e2d938c717a85894d04c8939199}\label{classRayLib_1_1Shader_add768e2d938c717a85894d04c8939199}} 
+\index{RayLib::Shader@{RayLib::Shader}!````~Shader@{$\sim$Shader}}
+\index{````~Shader@{$\sim$Shader}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{$\sim$Shader()}{~Shader()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Shader\+::$\sim$\+Shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Shader_a042327f068b8f63c42128d6bce2bbf5e}\label{classRayLib_1_1Shader_a042327f068b8f63c42128d6bce2bbf5e}} 
+\index{RayLib::Shader@{RayLib::Shader}!BeginMode@{BeginMode}}
+\index{BeginMode@{BeginMode}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{BeginMode()}{BeginMode()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Shader\+::\+Begin\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Begin \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} Mode. 
+
+\mbox{\Hypertarget{classRayLib_1_1Shader_ab60a4aff5850f1efa0c4cfb3482f1d81}\label{classRayLib_1_1Shader_ab60a4aff5850f1efa0c4cfb3482f1d81}} 
+\index{RayLib::Shader@{RayLib::Shader}!EndMode@{EndMode}}
+\index{EndMode@{EndMode}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{EndMode()}{EndMode()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Shader\+::\+End\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+End \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} Mode. 
+
+\mbox{\Hypertarget{classRayLib_1_1Shader_a7033f04e4ef9f132a5d175cd26c8e50f}\label{classRayLib_1_1Shader_a7033f04e4ef9f132a5d175cd26c8e50f}} 
+\index{RayLib::Shader@{RayLib::Shader}!GetLocation@{GetLocation}}
+\index{GetLocation@{GetLocation}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{GetLocation()}{GetLocation()}}
+{\footnotesize\ttfamily int Ray\+Lib\+::\+Shader\+::\+Get\+Location (\begin{DoxyParamCaption}\item[{std\+::string}]{location }\end{DoxyParamCaption})}
+
+
+
+Get the location of the element in the loaded file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & Object to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The location of the element
+\end{DoxyReturn}
+Member functions \mbox{\Hypertarget{classRayLib_1_1Shader_ad991901fe529d48891b70bf57567c4d1}\label{classRayLib_1_1Shader_ad991901fe529d48891b70bf57567c4d1}} 
+\index{RayLib::Shader@{RayLib::Shader}!GetShader@{GetShader}}
+\index{GetShader@{GetShader}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{GetShader()}{GetShader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} \& Ray\+Lib\+::\+Shader\+::\+Get\+Shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Shader\& The \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} structure
+\end{DoxyReturn}
+Getters \mbox{\Hypertarget{classRayLib_1_1Shader_ac4c510d3d902f10674590bf4ba9d4892}\label{classRayLib_1_1Shader_ac4c510d3d902f10674590bf4ba9d4892}} 
+\index{RayLib::Shader@{RayLib::Shader}!SetLoc@{SetLoc}}
+\index{SetLoc@{SetLoc}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{SetLoc()}{SetLoc()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Shader\+::\+Set\+Loc (\begin{DoxyParamCaption}\item[{int}]{loc\+Id,  }\item[{std\+::string}]{location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set loc\+Id raylib attribute new location according to the loaded shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loc\+Id} & Id of the location \\
+\hline
+{\em location} & Name of the location to find \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Shader_ad73f1e3f2af553d0caa06e683e265176}\label{classRayLib_1_1Shader_ad73f1e3f2af553d0caa06e683e265176}} 
+\index{RayLib::Shader@{RayLib::Shader}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Ray\+Lib\+::\+Shader\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{int}]{location,  }\item[{T}]{value,  }\item[{int}]{uniform\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the Value to an element of a shader file. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The location in the file. Found with Get\+Location function \\
+\hline
+{\em value} & The value to set \\
+\hline
+{\em uniform\+Type} & The uniform type of the value Uniform types are\+: S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+F\+L\+O\+AT S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C2 S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C3 S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C4 S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+I\+NT S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+I\+V\+E\+C2 S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+I\+V\+E\+C3 S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+I\+V\+E\+C4 S\+H\+A\+D\+E\+R\+\_\+\+U\+N\+I\+F\+O\+R\+M\+\_\+\+S\+A\+M\+P\+L\+E\+R2D \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Shader_acb9361f1583c8eb673967375a1f8f0cc}\label{classRayLib_1_1Shader_acb9361f1583c8eb673967375a1f8f0cc}} 
+\index{RayLib::Shader@{RayLib::Shader}!Unload@{Unload}}
+\index{Unload@{Unload}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{Unload()}{Unload()}}
+{\footnotesize\ttfamily void Ray\+Lib\+::\+Shader\+::\+Unload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unload the loaded shader. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Shader_a4e69149dda44a34561aa21e5c18c2955}\label{classRayLib_1_1Shader_a4e69149dda44a34561aa21e5c18c2955}} 
+\index{RayLib::Shader@{RayLib::Shader}!\_shader@{\_shader}}
+\index{\_shader@{\_shader}!RayLib::Shader@{RayLib::Shader}}
+\doxysubsubsection{\texorpdfstring{\_shader}{\_shader}}
+{\footnotesize\ttfamily \+::\mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} Ray\+Lib\+::\+Shader\+::\+\_\+shader\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The C raylib\textquotesingle{}s \mbox{\hyperlink{classRayLib_1_1Shader}{Shader}} structure. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Shader/\mbox{\hyperlink{Shader_8hpp}{Shader.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Shader/\mbox{\hyperlink{Shader_8cpp}{Shader.\+cpp}}\end{DoxyCompactItemize}

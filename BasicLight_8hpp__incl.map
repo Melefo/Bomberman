@@ -1,0 +1,17 @@
+<map id="Libs/Engine/sources/ModelShader/BasicLight/BasicLight.hpp" name="Libs/Engine/sources/ModelShader/BasicLight/BasicLight.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="139,5,321,61"/>
+<area shape="rect" id="node2" href="$Vector3_8hpp.html" title=" " alt="" coords="165,184,263,211"/>
+<area shape="rect" id="node11" href="$Color_8hpp.html" title=" " alt="" coords="110,109,193,136"/>
+<area shape="rect" id="node12" href="$Shader_8hpp.html" title=" " alt="" coords="285,109,380,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="41,259,112,285"/>
+<area shape="rect" id="node4" href="$IXMLSerializable_8hpp.html" title=" " alt="" coords="136,259,295,285"/>
+<area shape="rect" id="node9" title=" " alt="" coords="319,259,381,285"/>
+<area shape="rect" id="node10" title=" " alt="" coords="406,259,481,285"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,341,81,367"/>
+<area shape="rect" id="node6" title=" " alt="" coords="106,341,186,367"/>
+<area shape="rect" id="node7" title=" " alt="" coords="211,333,361,375"/>
+<area shape="rect" id="node8" title=" " alt="" coords="385,333,536,375"/>
+<area shape="rect" id="node13" href="$IAsset_8hpp.html" title=" " alt="" coords="287,184,378,211"/>
+<area shape="rect" id="node14" title=" " alt="" coords="402,184,461,211"/>
+<area shape="rect" id="node15" title=" " alt="" coords="485,184,548,211"/>
+</map>

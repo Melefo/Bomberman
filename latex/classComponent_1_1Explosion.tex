@@ -1,0 +1,463 @@
+\hypertarget{classComponent_1_1Explosion}{}\doxysection{Component\+::Explosion Class Reference}
+\label{classComponent_1_1Explosion}\index{Component::Explosion@{Component::Explosion}}
+
+
+Explosion/\+Bomb component.  
+
+
+
+
+{\ttfamily \#include $<$Explosion.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Explosion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Explosion__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Explosion\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Explosion__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+Type}} \{ \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a0af50777920c1401ab975cab64c4d491}{Explosion\+Type\+::\+C\+I\+R\+C\+LE}}, 
+\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a04dd53a8e6c2306e9bbf944c1d6047f2}{Explosion\+Type\+::\+C\+R\+O\+SS}}, 
+\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a3e1b74251c07310c5f1b968145bf00dc}{Explosion\+Type\+::\+V\+E\+R\+T\+I\+C\+AL}}, 
+\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a86e5d0d8407ce71f7e2004ef3949894e}{Explosion\+Type\+::\+H\+O\+R\+I\+Z\+O\+N\+T\+AL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum to determine bomb shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Explosion_a136a630a4e37852d5d5b7cd92aeab1f8}{Explosion}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched\+Entity, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&parent, float radius=1.\+0f, \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+::\+Explosion\+Type}} \mbox{\hyperlink{classComponent_1_1Explosion_a0c3ab81e5835ed96c466e7eb25da7fdd}{type}}=\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a04dd53a8e6c2306e9bbf944c1d6047f2}{Explosion\+::\+Explosion\+Type\+::\+C\+R\+O\+SS}}, unsigned int \mbox{\hyperlink{classComponent_1_1Explosion_a27389a654b7e14091e64da902059d95a}{power}}=1, float timer=3.\+0f)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Explosion_af492f1cd686fba3ff1685c9d9c82def7}{$\sim$\+Explosion}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Explosion_ab92f1ace1538401a873bf465c708873c}{Explosion}} (const \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} \& \mbox{\hyperlink{classComponent_1_1Explosion_aa99cb84e1c683f435e12eba32bc52551}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Explosion_a2ea6310ed551b4b4642ea249069db169}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Updates timers and explodes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Explosion_ae7826a3796ee3d63835de47fe1d2b929}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Fixed Update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Explosion_a95ec1a59ba4ba3e12f5ccc31edc7ecfe}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\item 
+float \mbox{\hyperlink{classComponent_1_1Explosion_a72c5ecd271dacfb9bc37cc56660cfa30}{Get\+Explosion\+Timer}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} Timer object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Explosion_a7275caf28237a50ae962effa2669731b}{Check\+Parent\+Left\+Radius}} (void)
+\begin{DoxyCompactList}\small\item\em Check if the parent is in the radius. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Explosion_a960d2e75696c6c106880be33575d0b9a}{Explode}} (void)
+\begin{DoxyCompactList}\small\item\em Destruct itself and colliding objects. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Explosion_afe683c69d0523e604f8759efe3031b4d}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Explosion_a9502b9ef7552c627644e603eb3a45952}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\item 
+void \mbox{\hyperlink{classComponent_1_1Explosion_a8946e6c952240d30876a2183a2669b52}{Add\+Child\+Explosion}} (\mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} \&child\+Explo)
+\begin{DoxyCompactList}\small\item\em Add an explosion linked to this one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Explosion_a23a2e808e7321f494e7fbbd650013586}{Spawn\+Particles}} (void)
+\begin{DoxyCompactList}\small\item\em Spawn bomb particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+::\+Explosion\+Type}} \mbox{\hyperlink{classComponent_1_1Explosion_a0c3ab81e5835ed96c466e7eb25da7fdd}{type}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} type. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classComponent_1_1Explosion_a27389a654b7e14091e64da902059d95a}{power}}
+\begin{DoxyCompactList}\small\item\em Bomb\textquotesingle{}s power (i.\+e. damage) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classComponent_1_1Explosion_aa7cabfcd33f5979f42e8a0eaf58b2188}{\+\_\+radius}}
+\begin{DoxyCompactList}\small\item\em Bomb\textquotesingle{}s area of effect. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1Explosion_ac0f254e7a9488fac53684711fb071bbc}{\+\_\+explosion\+Timer}}
+\begin{DoxyCompactList}\small\item\em Time in seconds before explosion. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}} $>$ \& \mbox{\hyperlink{classComponent_1_1Explosion_a244724467fb5fca0bc357fe9c9a4e62d}{\+\_\+window}}
+\begin{DoxyCompactList}\small\item\em Window reference to debug radius. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1Explosion_a47026dd0c7897ddcf80dd73f7ce7febf}{\+\_\+my\+Entity}}
+\begin{DoxyCompactList}\small\item\em refence to self in order to dispose after exploding \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Transform}{Transform}} \& \mbox{\hyperlink{classComponent_1_1Explosion_afab06700af8c32d4191e7d6527fa46bd}{\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classComponent_1_1Transform}{Transform}} position for collisions. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} $>$ \& \mbox{\hyperlink{classComponent_1_1Explosion_a348f678784199921b57459bbb5df89ae}{\+\_\+coordinator}}
+\begin{DoxyCompactList}\small\item\em Coordinator, to pass to collisionsystem. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1Explosion_aed11f3e686e4961e69d31b184d99b6a7}{\+\_\+parent}}
+\begin{DoxyCompactList}\small\item\em Parent entity, player that spawned it. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Sound}{Ray\+Lib\+::\+Sound}} $>$ \mbox{\hyperlink{classComponent_1_1Explosion_abe3e2264d6b41a89a808ca5daaa38c20}{\+\_\+explosion\+Sound}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} sound. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} $>$ $>$ \mbox{\hyperlink{classComponent_1_1Explosion_ace95dfb5a173148e6aeb4fb441bd9852}{\+\_\+child\+Explosions}}
+\item 
+bool \mbox{\hyperlink{classComponent_1_1Explosion_a27adf3077ae2049361384f2266bccb32}{\+\_\+exploding}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Explosion/\+Bomb component. 
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}\label{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}} 
+\index{Component::Explosion@{Component::Explosion}!ExplosionType@{ExplosionType}}
+\index{ExplosionType@{ExplosionType}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{ExplosionType}{ExplosionType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Component\+::\+Explosion\+::\+Explosion\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum to determine bomb shape. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CIRCLE@{CIRCLE}!Component::Explosion@{Component::Explosion}}\index{Component::Explosion@{Component::Explosion}!CIRCLE@{CIRCLE}}}\mbox{\Hypertarget{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a0af50777920c1401ab975cab64c4d491}\label{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a0af50777920c1401ab975cab64c4d491}} 
+C\+I\+R\+C\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CROSS@{CROSS}!Component::Explosion@{Component::Explosion}}\index{Component::Explosion@{Component::Explosion}!CROSS@{CROSS}}}\mbox{\Hypertarget{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a04dd53a8e6c2306e9bbf944c1d6047f2}\label{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a04dd53a8e6c2306e9bbf944c1d6047f2}} 
+C\+R\+O\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VERTICAL@{VERTICAL}!Component::Explosion@{Component::Explosion}}\index{Component::Explosion@{Component::Explosion}!VERTICAL@{VERTICAL}}}\mbox{\Hypertarget{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a3e1b74251c07310c5f1b968145bf00dc}\label{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a3e1b74251c07310c5f1b968145bf00dc}} 
+V\+E\+R\+T\+I\+C\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HORIZONTAL@{HORIZONTAL}!Component::Explosion@{Component::Explosion}}\index{Component::Explosion@{Component::Explosion}!HORIZONTAL@{HORIZONTAL}}}\mbox{\Hypertarget{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a86e5d0d8407ce71f7e2004ef3949894e}\label{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a86e5d0d8407ce71f7e2004ef3949894e}} 
+H\+O\+R\+I\+Z\+O\+N\+T\+AL&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Explosion_a136a630a4e37852d5d5b7cd92aeab1f8}\label{classComponent_1_1Explosion_a136a630a4e37852d5d5b7cd92aeab1f8}} 
+\index{Component::Explosion@{Component::Explosion}!Explosion@{Explosion}}
+\index{Explosion@{Explosion}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{Explosion()}{Explosion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Explosion\+::\+Explosion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched\+Entity,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{parent,  }\item[{float}]{radius = {\ttfamily 1.0f},  }\item[{\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+::\+Explosion\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71a04dd53a8e6c2306e9bbf944c1d6047f2}{Explosion\+::\+Explosion\+Type\+::\+C\+R\+O\+SS}}},  }\item[{unsigned int}]{power = {\ttfamily 1},  }\item[{float}]{timer = {\ttfamily 3.0f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em radius} & \\
+\hline
+{\em type} & \\
+\hline
+{\em power} & \\
+\hline
+{\em timer} & Time in seconds before the physics check goes out \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Explosion_af492f1cd686fba3ff1685c9d9c82def7}\label{classComponent_1_1Explosion_af492f1cd686fba3ff1685c9d9c82def7}} 
+\index{Component::Explosion@{Component::Explosion}!````~Explosion@{$\sim$Explosion}}
+\index{````~Explosion@{$\sim$Explosion}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{$\sim$Explosion()}{~Explosion()}}
+{\footnotesize\ttfamily Component\+::\+Explosion\+::$\sim$\+Explosion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_ab92f1ace1538401a873bf465c708873c}\label{classComponent_1_1Explosion_ab92f1ace1538401a873bf465c708873c}} 
+\index{Component::Explosion@{Component::Explosion}!Explosion@{Explosion}}
+\index{Explosion@{Explosion}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{Explosion()}{Explosion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Explosion\+::\+Explosion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Explosion_a8946e6c952240d30876a2183a2669b52}\label{classComponent_1_1Explosion_a8946e6c952240d30876a2183a2669b52}} 
+\index{Component::Explosion@{Component::Explosion}!AddChildExplosion@{AddChildExplosion}}
+\index{AddChildExplosion@{AddChildExplosion}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{AddChildExplosion()}{AddChildExplosion()}}
+{\footnotesize\ttfamily void Component\+::\+Explosion\+::\+Add\+Child\+Explosion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} \&}]{child\+Explo }\end{DoxyParamCaption})}
+
+
+
+Add an explosion linked to this one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em child\+Explo} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Explosion_a7275caf28237a50ae962effa2669731b}\label{classComponent_1_1Explosion_a7275caf28237a50ae962effa2669731b}} 
+\index{Component::Explosion@{Component::Explosion}!CheckParentLeftRadius@{CheckParentLeftRadius}}
+\index{CheckParentLeftRadius@{CheckParentLeftRadius}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{CheckParentLeftRadius()}{CheckParentLeftRadius()}}
+{\footnotesize\ttfamily void Component\+::\+Explosion\+::\+Check\+Parent\+Left\+Radius (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check if the parent is in the radius. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a960d2e75696c6c106880be33575d0b9a}\label{classComponent_1_1Explosion_a960d2e75696c6c106880be33575d0b9a}} 
+\index{Component::Explosion@{Component::Explosion}!Explode@{Explode}}
+\index{Explode@{Explode}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{Explode()}{Explode()}}
+{\footnotesize\ttfamily void Component\+::\+Explosion\+::\+Explode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Destruct itself and colliding objects. 
+
+évite les boucles inf de bombes qui s\textquotesingle{}entre-\/explosent\mbox{\Hypertarget{classComponent_1_1Explosion_ae7826a3796ee3d63835de47fe1d2b929}\label{classComponent_1_1Explosion_ae7826a3796ee3d63835de47fe1d2b929}} 
+\index{Component::Explosion@{Component::Explosion}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Explosion\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Fixed Update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a72c5ecd271dacfb9bc37cc56660cfa30}\label{classComponent_1_1Explosion_a72c5ecd271dacfb9bc37cc56660cfa30}} 
+\index{Component::Explosion@{Component::Explosion}!GetExplosionTimer@{GetExplosionTimer}}
+\index{GetExplosionTimer@{GetExplosionTimer}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{GetExplosionTimer()}{GetExplosionTimer()}}
+{\footnotesize\ttfamily float Component\+::\+Explosion\+::\+Get\+Explosion\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} Timer object. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Explosion_a95ec1a59ba4ba3e12f5ccc31edc7ecfe}\label{classComponent_1_1Explosion_a95ec1a59ba4ba3e12f5ccc31edc7ecfe}} 
+\index{Component::Explosion@{Component::Explosion}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Explosion\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a9502b9ef7552c627644e603eb3a45952}\label{classComponent_1_1Explosion_a9502b9ef7552c627644e603eb3a45952}} 
+\index{Component::Explosion@{Component::Explosion}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Explosion\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_afe683c69d0523e604f8759efe3031b4d}\label{classComponent_1_1Explosion_afe683c69d0523e604f8759efe3031b4d}} 
+\index{Component::Explosion@{Component::Explosion}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Explosion\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_aa99cb84e1c683f435e12eba32bc52551}\label{classComponent_1_1Explosion_aa99cb84e1c683f435e12eba32bc52551}} 
+\index{Component::Explosion@{Component::Explosion}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}}\& Component\+::\+Explosion\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Explosion_a23a2e808e7321f494e7fbbd650013586}\label{classComponent_1_1Explosion_a23a2e808e7321f494e7fbbd650013586}} 
+\index{Component::Explosion@{Component::Explosion}!SpawnParticles@{SpawnParticles}}
+\index{SpawnParticles@{SpawnParticles}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{SpawnParticles()}{SpawnParticles()}}
+{\footnotesize\ttfamily void Component\+::\+Explosion\+::\+Spawn\+Particles (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Spawn bomb particles. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a2ea6310ed551b4b4642ea249069db169}\label{classComponent_1_1Explosion_a2ea6310ed551b4b4642ea249069db169}} 
+\index{Component::Explosion@{Component::Explosion}!Update@{Update}}
+\index{Update@{Update}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Explosion\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates timers and explodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Explosion_ace95dfb5a173148e6aeb4fb441bd9852}\label{classComponent_1_1Explosion_ace95dfb5a173148e6aeb4fb441bd9852}} 
+\index{Component::Explosion@{Component::Explosion}!\_childExplosions@{\_childExplosions}}
+\index{\_childExplosions@{\_childExplosions}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_childExplosions}{\_childExplosions}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::reference\+\_\+wrapper$<$\mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}}$>$ $>$ Component\+::\+Explosion\+::\+\_\+child\+Explosions\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a348f678784199921b57459bbb5df89ae}\label{classComponent_1_1Explosion_a348f678784199921b57459bbb5df89ae}} 
+\index{Component::Explosion@{Component::Explosion}!\_coordinator@{\_coordinator}}
+\index{\_coordinator@{\_coordinator}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_coordinator}{\_coordinator}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}}$>$\& Component\+::\+Explosion\+::\+\_\+coordinator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Coordinator, to pass to collisionsystem. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a27adf3077ae2049361384f2266bccb32}\label{classComponent_1_1Explosion_a27adf3077ae2049361384f2266bccb32}} 
+\index{Component::Explosion@{Component::Explosion}!\_exploding@{\_exploding}}
+\index{\_exploding@{\_exploding}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_exploding}{\_exploding}}
+{\footnotesize\ttfamily bool Component\+::\+Explosion\+::\+\_\+exploding\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_abe3e2264d6b41a89a808ca5daaa38c20}\label{classComponent_1_1Explosion_abe3e2264d6b41a89a808ca5daaa38c20}} 
+\index{Component::Explosion@{Component::Explosion}!\_explosionSound@{\_explosionSound}}
+\index{\_explosionSound@{\_explosionSound}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_explosionSound}{\_explosionSound}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Sound}{Ray\+Lib\+::\+Sound}}$>$ Component\+::\+Explosion\+::\+\_\+explosion\+Sound\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} sound. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_ac0f254e7a9488fac53684711fb071bbc}\label{classComponent_1_1Explosion_ac0f254e7a9488fac53684711fb071bbc}} 
+\index{Component::Explosion@{Component::Explosion}!\_explosionTimer@{\_explosionTimer}}
+\index{\_explosionTimer@{\_explosionTimer}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_explosionTimer}{\_explosionTimer}}
+{\footnotesize\ttfamily float Component\+::\+Explosion\+::\+\_\+explosion\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Time in seconds before explosion. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a47026dd0c7897ddcf80dd73f7ce7febf}\label{classComponent_1_1Explosion_a47026dd0c7897ddcf80dd73f7ce7febf}} 
+\index{Component::Explosion@{Component::Explosion}!\_myEntity@{\_myEntity}}
+\index{\_myEntity@{\_myEntity}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_myEntity}{\_myEntity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Explosion\+::\+\_\+my\+Entity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+refence to self in order to dispose after exploding 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_aed11f3e686e4961e69d31b184d99b6a7}\label{classComponent_1_1Explosion_aed11f3e686e4961e69d31b184d99b6a7}} 
+\index{Component::Explosion@{Component::Explosion}!\_parent@{\_parent}}
+\index{\_parent@{\_parent}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_parent}{\_parent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Explosion\+::\+\_\+parent\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parent entity, player that spawned it. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_aa7cabfcd33f5979f42e8a0eaf58b2188}\label{classComponent_1_1Explosion_aa7cabfcd33f5979f42e8a0eaf58b2188}} 
+\index{Component::Explosion@{Component::Explosion}!\_radius@{\_radius}}
+\index{\_radius@{\_radius}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_radius}{\_radius}}
+{\footnotesize\ttfamily float Component\+::\+Explosion\+::\+\_\+radius\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bomb\textquotesingle{}s area of effect. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_afab06700af8c32d4191e7d6527fa46bd}\label{classComponent_1_1Explosion_afab06700af8c32d4191e7d6527fa46bd}} 
+\index{Component::Explosion@{Component::Explosion}!\_transform@{\_transform}}
+\index{\_transform@{\_transform}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_transform}{\_transform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Transform}{Transform}}\& Component\+::\+Explosion\+::\+\_\+transform\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classComponent_1_1Transform}{Transform}} position for collisions. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a244724467fb5fca0bc357fe9c9a4e62d}\label{classComponent_1_1Explosion_a244724467fb5fca0bc357fe9c9a4e62d}} 
+\index{Component::Explosion@{Component::Explosion}!\_window@{\_window}}
+\index{\_window@{\_window}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{\_window}{\_window}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}}$>$\& Component\+::\+Explosion\+::\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Window reference to debug radius. 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a27389a654b7e14091e64da902059d95a}\label{classComponent_1_1Explosion_a27389a654b7e14091e64da902059d95a}} 
+\index{Component::Explosion@{Component::Explosion}!power@{power}}
+\index{power@{power}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{power}{power}}
+{\footnotesize\ttfamily unsigned int Component\+::\+Explosion\+::power}
+
+
+
+Bomb\textquotesingle{}s power (i.\+e. damage) 
+
+\mbox{\Hypertarget{classComponent_1_1Explosion_a0c3ab81e5835ed96c466e7eb25da7fdd}\label{classComponent_1_1Explosion_a0c3ab81e5835ed96c466e7eb25da7fdd}} 
+\index{Component::Explosion@{Component::Explosion}!type@{type}}
+\index{type@{type}!Component::Explosion@{Component::Explosion}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Explosion\+::\+Explosion\+Type}} Component\+::\+Explosion\+::type}
+
+
+
+\mbox{\hyperlink{classComponent_1_1Explosion}{Explosion}} type. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Explosion/\mbox{\hyperlink{Explosion_8hpp}{Explosion.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Explosion/\mbox{\hyperlink{Explosion_8cpp}{Explosion.\+cpp}}\end{DoxyCompactItemize}

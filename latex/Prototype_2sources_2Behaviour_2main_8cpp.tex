@@ -1,0 +1,93 @@
+\hypertarget{Prototype_2sources_2Behaviour_2main_8cpp}{}\doxysection{Prototype/sources/\+Behaviour/main.cpp File Reference}
+\label{Prototype_2sources_2Behaviour_2main_8cpp}\index{Prototype/sources/Behaviour/main.cpp@{Prototype/sources/Behaviour/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Coordinator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Transform.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Physics\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Render\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Behaviour\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}U\+I\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collision\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Movement.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Drop\+Bomb.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Button.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Button\+Callbacks.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Draggable.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Input.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Camera.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game\+Configurator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Scenes.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Terrain\+Generator.\+hpp\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Prototype_2sources_2Behaviour_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Prototype_2sources_2Behaviour_2main_8cpp_a8597c281cebf93733a4e6ac5cf212c19}{B\+O\+X\+\_\+\+S\+I\+ZE}}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{Prototype_2sources_2Behaviour_2main_8cpp_a1b08f6892f64adf8b641b3beb6cf13a0}{Init\+Cat}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator)
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{Prototype_2sources_2Behaviour_2main_8cpp_a1ab33d598a5c86d3ae44c24430d03e95}{Init\+Button}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator)
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{Prototype_2sources_2Behaviour_2main_8cpp_ac0121a254c5020ee7ddbb60f35bf786d}{Init\+Box}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera)
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{Prototype_2sources_2Behaviour_2main_8cpp_a369e4f19e26ee688f27bd98d87d50fab}{Init\+Camera}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator, \mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera, \mbox{\hyperlink{classComponent_1_1Transform}{Component\+::\+Transform}} \&target)
+\item 
+int \mbox{\hyperlink{Prototype_2sources_2Behaviour_2main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Prototype_2sources_2Behaviour_2main_8cpp_a8597c281cebf93733a4e6ac5cf212c19}\label{Prototype_2sources_2Behaviour_2main_8cpp_a8597c281cebf93733a4e6ac5cf212c19}} 
+\index{main.cpp@{main.cpp}!BOX\_SIZE@{BOX\_SIZE}}
+\index{BOX\_SIZE@{BOX\_SIZE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BOX\_SIZE}{BOX\_SIZE}}
+{\footnotesize\ttfamily \#define B\+O\+X\+\_\+\+S\+I\+ZE~10}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Prototype_2sources_2Behaviour_2main_8cpp_ac0121a254c5020ee7ddbb60f35bf786d}\label{Prototype_2sources_2Behaviour_2main_8cpp_ac0121a254c5020ee7ddbb60f35bf786d}} 
+\index{main.cpp@{main.cpp}!InitBox@{InitBox}}
+\index{InitBox@{InitBox}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{InitBox()}{InitBox()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Init\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Prototype_2sources_2Behaviour_2main_8cpp_a1ab33d598a5c86d3ae44c24430d03e95}\label{Prototype_2sources_2Behaviour_2main_8cpp_a1ab33d598a5c86d3ae44c24430d03e95}} 
+\index{main.cpp@{main.cpp}!InitButton@{InitButton}}
+\index{InitButton@{InitButton}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{InitButton()}{InitButton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Init\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Prototype_2sources_2Behaviour_2main_8cpp_a369e4f19e26ee688f27bd98d87d50fab}\label{Prototype_2sources_2Behaviour_2main_8cpp_a369e4f19e26ee688f27bd98d87d50fab}} 
+\index{main.cpp@{main.cpp}!InitCamera@{InitCamera}}
+\index{InitCamera@{InitCamera}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{InitCamera()}{InitCamera()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Init\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator,  }\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera,  }\item[{\mbox{\hyperlink{classComponent_1_1Transform}{Component\+::\+Transform}} \&}]{target }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Prototype_2sources_2Behaviour_2main_8cpp_a1b08f6892f64adf8b641b3beb6cf13a0}\label{Prototype_2sources_2Behaviour_2main_8cpp_a1b08f6892f64adf8b641b3beb6cf13a0}} 
+\index{main.cpp@{main.cpp}!InitCat@{InitCat}}
+\index{InitCat@{InitCat}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{InitCat()}{InitCat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Init\+Cat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Prototype_2sources_2Behaviour_2main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\label{Prototype_2sources_2Behaviour_2main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+camera pos and target determined by component attention le 3e arg\+: world up est important
+
+uncomment to generate a map
+
+game manager for drag and drop

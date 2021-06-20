@@ -1,0 +1,203 @@
+\hypertarget{classRayLib_1_1Color}{}\doxysection{Ray\+Lib\+::Color Class Reference}
+\label{classRayLib_1_1Color}\index{RayLib::Color@{RayLib::Color}}
+
+
+\mbox{\hyperlink{namespaceRayLib}{Ray\+Lib}} \mbox{\hyperlink{classRayLib_1_1Color}{Color}} encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Color.\+hpp$>$}
+
+
+
+Inheritance diagram for Ray\+Lib\+::Color\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classRayLib_1_1Color__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ray\+Lib\+::Color\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classRayLib_1_1Color__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Color_a9a742cbe9f9f4037f5d9f4e81a9b2428}{Color}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object Initialize all values to zero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color_a152e3546b6b515a216f0898b075e13f8}{Color}} (const \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \&vec)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color_aa75ee7239844e740a2a5e9f46fca3981}{Color}} (const \mbox{\hyperlink{classRayLib_1_1Color}{Color}} \&col)
+\begin{DoxyCompactList}\small\item\em Copy constructor from other \mbox{\hyperlink{classRayLib_1_1Color}{Color}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color_ac3d54fc5e981be5b984d372f0f375422}{Color}} (const \+::\mbox{\hyperlink{classRayLib_1_1Color}{Color}} \&col)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object from a raylib color structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color_ac136abb61d2a56cd922d06880f89916d}{Color}} (unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object based on given values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color_a169889637582a21127222b5fc6b5d1f4}{$\sim$\+Color}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object. \end{DoxyCompactList}\item 
+\+::\mbox{\hyperlink{classRayLib_1_1Color}{Color}} \mbox{\hyperlink{classRayLib_1_1Color_a60f44f4aef487a574f7137f36c84d289}{get\+Color}} (void)
+\begin{DoxyCompactList}\small\item\em Get the color as a raylib \mbox{\hyperlink{classRayLib_1_1Color}{Color}} structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color}{Color}} \& \mbox{\hyperlink{classRayLib_1_1Color_af889d40503d849cb196dd7974b5c7f32}{operator=}} (const \mbox{\hyperlink{classRayLib_1_1Color}{Color}} \&col)
+\begin{DoxyCompactList}\small\item\em assignment operator \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRayLib_1_1Color_aeb9b8a67372fbc619fb4c4de83e9d7f9}{Lerp}} (\mbox{\hyperlink{classRayLib_1_1Color}{Color}} target, float t)
+\begin{DoxyCompactList}\small\item\em Linearly interpolate vector3 to target by t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespaceRayLib}{Ray\+Lib}} \mbox{\hyperlink{classRayLib_1_1Color}{Color}} encapsulation. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Color_a9a742cbe9f9f4037f5d9f4e81a9b2428}\label{classRayLib_1_1Color_a9a742cbe9f9f4037f5d9f4e81a9b2428}} 
+\index{RayLib::Color@{RayLib::Color}!Color@{Color}}
+\index{Color@{Color}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{Color()}{Color()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Color\+::\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object Initialize all values to zero. 
+
+\mbox{\Hypertarget{classRayLib_1_1Color_a152e3546b6b515a216f0898b075e13f8}\label{classRayLib_1_1Color_a152e3546b6b515a216f0898b075e13f8}} 
+\index{RayLib::Color@{RayLib::Color}!Color@{Color}}
+\index{Color@{Color}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{Color()}{Color()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Color\+::\+Color (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \&}]{vec }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & based on the values in vector3, alpha is initialized to 0 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Color_aa75ee7239844e740a2a5e9f46fca3981}\label{classRayLib_1_1Color_aa75ee7239844e740a2a5e9f46fca3981}} 
+\index{RayLib::Color@{RayLib::Color}!Color@{Color}}
+\index{Color@{Color}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{Color()}{Color()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Color\+::\+Color (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Color}{Color}} \&}]{col }\end{DoxyParamCaption})}
+
+
+
+Copy constructor from other \mbox{\hyperlink{classRayLib_1_1Color}{Color}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Color_ac3d54fc5e981be5b984d372f0f375422}\label{classRayLib_1_1Color_ac3d54fc5e981be5b984d372f0f375422}} 
+\index{RayLib::Color@{RayLib::Color}!Color@{Color}}
+\index{Color@{Color}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{Color()}{Color()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Color\+::\+Color (\begin{DoxyParamCaption}\item[{const \+::\mbox{\hyperlink{classRayLib_1_1Color}{Color}} \&}]{col }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object from a raylib color structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Color_ac136abb61d2a56cd922d06880f89916d}\label{classRayLib_1_1Color_ac136abb61d2a56cd922d06880f89916d}} 
+\index{RayLib::Color@{RayLib::Color}!Color@{Color}}
+\index{Color@{Color}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{Color()}{Color()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Color\+::\+Color (\begin{DoxyParamCaption}\item[{unsigned char}]{red,  }\item[{unsigned char}]{green,  }\item[{unsigned char}]{blue,  }\item[{unsigned char}]{alpha }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object based on given values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red} & \\
+\hline
+{\em green} & \\
+\hline
+{\em blue} & \\
+\hline
+{\em alpha} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Color_a169889637582a21127222b5fc6b5d1f4}\label{classRayLib_1_1Color_a169889637582a21127222b5fc6b5d1f4}} 
+\index{RayLib::Color@{RayLib::Color}!````~Color@{$\sim$Color}}
+\index{````~Color@{$\sim$Color}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{$\sim$Color()}{~Color()}}
+{\footnotesize\ttfamily Ray\+Lib\+::\+Color\+::$\sim$\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classRayLib_1_1Color}{Color}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Color_a60f44f4aef487a574f7137f36c84d289}\label{classRayLib_1_1Color_a60f44f4aef487a574f7137f36c84d289}} 
+\index{RayLib::Color@{RayLib::Color}!getColor@{getColor}}
+\index{getColor@{getColor}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Color}{Color}} Color\+::get\+Color (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the color as a raylib \mbox{\hyperlink{classRayLib_1_1Color}{Color}} structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Color 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Color_aeb9b8a67372fbc619fb4c4de83e9d7f9}\label{classRayLib_1_1Color_aeb9b8a67372fbc619fb4c4de83e9d7f9}} 
+\index{RayLib::Color@{RayLib::Color}!Lerp@{Lerp}}
+\index{Lerp@{Lerp}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{Lerp()}{Lerp()}}
+{\footnotesize\ttfamily void Color\+::\+Lerp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Color}}}]{target,  }\item[{float}]{t }\end{DoxyParamCaption})}
+
+
+
+Linearly interpolate vector3 to target by t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & \\
+\hline
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Color_af889d40503d849cb196dd7974b5c7f32}\label{classRayLib_1_1Color_af889d40503d849cb196dd7974b5c7f32}} 
+\index{RayLib::Color@{RayLib::Color}!operator=@{operator=}}
+\index{operator=@{operator=}!RayLib::Color@{RayLib::Color}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Color}{Color}} \& Color\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Color}{Color}} \&}]{col }\end{DoxyParamCaption})}
+
+
+
+assignment operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Color}{Color}}\& 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Color/\mbox{\hyperlink{Color_8hpp}{Color.\+hpp}}\item 
+Libs/\+Ray\+Lib/sources/\+Color/\mbox{\hyperlink{Color_8cpp}{Color.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,153 @@
+\hypertarget{classLua_1_1DelayedPop}{}\doxysection{Lua\+::Delayed\+Pop Class Reference}
+\label{classLua_1_1DelayedPop}\index{Lua::DelayedPop@{Lua::DelayedPop}}
+
+
+Popping variable from \mbox{\hyperlink{namespaceLua}{Lua}} Stack at destruction.  
+
+
+
+
+{\ttfamily \#include $<$Delayed\+Pop.\+hpp$>$}
+
+
+
+Collaboration diagram for Lua\+::Delayed\+Pop\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{classLua_1_1DelayedPop__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLua_1_1DelayedPop_af2bd8c47571b95c3ef44c234d082ea37}{Delayed\+Pop}} (\mbox{\hyperlink{classLua_1_1State}{State}} \&state, int nbr)
+\begin{DoxyCompactList}\small\item\em Construct a new Delayed Pop object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1DelayedPop_a7c60cee11f4f91adf41c93a4da78f44a}{$\sim$\+Delayed\+Pop}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Delayed Pop object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1DelayedPop_a6efd6675ad733a0693b1a8ee28c068ba}{Delayed\+Pop}} (const \mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy a new Delayed Pop object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}} \& \mbox{\hyperlink{classLua_1_1DelayedPop_ac7473ec2231660ead7655386f3bcc021}{operator=}} (const \mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Assign a new \mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLua_1_1DelayedPop_ad72791cc13aaed03996e653ec767954c}{Set\+Nbr}} (int nbr)
+\begin{DoxyCompactList}\small\item\em Set the number of variable to pop from stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLua_1_1DelayedPop_acbae7234549d32b5b960d34461bb8297}{Get\+Nbr}} () const
+\begin{DoxyCompactList}\small\item\em Return the number of variable that will be popped from stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLua_1_1State}{State}} \& \mbox{\hyperlink{classLua_1_1DelayedPop_af162152851d3579ac76d85389ea87893}{\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Reference to \mbox{\hyperlink{namespaceLua}{Lua}} stack state. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLua_1_1DelayedPop_ab186b5af17da8b20d94e65a2b0b481b0}{\+\_\+nbr}}
+\begin{DoxyCompactList}\small\item\em Number of variable to pop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Popping variable from \mbox{\hyperlink{namespaceLua}{Lua}} Stack at destruction. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLua_1_1DelayedPop_af2bd8c47571b95c3ef44c234d082ea37}\label{classLua_1_1DelayedPop_af2bd8c47571b95c3ef44c234d082ea37}} 
+\index{Lua::DelayedPop@{Lua::DelayedPop}!DelayedPop@{DelayedPop}}
+\index{DelayedPop@{DelayedPop}!Lua::DelayedPop@{Lua::DelayedPop}}
+\doxysubsubsection{\texorpdfstring{DelayedPop()}{DelayedPop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Lua\+::\+Delayed\+Pop\+::\+Delayed\+Pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLua_1_1State}{State}} \&}]{state,  }\item[{int}]{nbr }\end{DoxyParamCaption})}
+
+
+
+Construct a new Delayed Pop object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+{\em nbr} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLua_1_1DelayedPop_a7c60cee11f4f91adf41c93a4da78f44a}\label{classLua_1_1DelayedPop_a7c60cee11f4f91adf41c93a4da78f44a}} 
+\index{Lua::DelayedPop@{Lua::DelayedPop}!````~DelayedPop@{$\sim$DelayedPop}}
+\index{````~DelayedPop@{$\sim$DelayedPop}!Lua::DelayedPop@{Lua::DelayedPop}}
+\doxysubsubsection{\texorpdfstring{$\sim$DelayedPop()}{~DelayedPop()}}
+{\footnotesize\ttfamily Lua\+::\+Delayed\+Pop\+::$\sim$\+Delayed\+Pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Delayed Pop object. 
+
+\mbox{\Hypertarget{classLua_1_1DelayedPop_a6efd6675ad733a0693b1a8ee28c068ba}\label{classLua_1_1DelayedPop_a6efd6675ad733a0693b1a8ee28c068ba}} 
+\index{Lua::DelayedPop@{Lua::DelayedPop}!DelayedPop@{DelayedPop}}
+\index{DelayedPop@{DelayedPop}!Lua::DelayedPop@{Lua::DelayedPop}}
+\doxysubsubsection{\texorpdfstring{DelayedPop()}{DelayedPop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Lua\+::\+Delayed\+Pop\+::\+Delayed\+Pop (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy a new Delayed Pop object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLua_1_1DelayedPop_acbae7234549d32b5b960d34461bb8297}\label{classLua_1_1DelayedPop_acbae7234549d32b5b960d34461bb8297}} 
+\index{Lua::DelayedPop@{Lua::DelayedPop}!GetNbr@{GetNbr}}
+\index{GetNbr@{GetNbr}!Lua::DelayedPop@{Lua::DelayedPop}}
+\doxysubsubsection{\texorpdfstring{GetNbr()}{GetNbr()}}
+{\footnotesize\ttfamily int Lua\+::\+Delayed\+Pop\+::\+Get\+Nbr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return the number of variable that will be popped from stack. 
+
+\mbox{\Hypertarget{classLua_1_1DelayedPop_ac7473ec2231660ead7655386f3bcc021}\label{classLua_1_1DelayedPop_ac7473ec2231660ead7655386f3bcc021}} 
+\index{Lua::DelayedPop@{Lua::DelayedPop}!operator=@{operator=}}
+\index{operator=@{operator=}!Lua::DelayedPop@{Lua::DelayedPop}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}}\& Lua\+::\+Delayed\+Pop\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Assign a new \mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}}\& asigned \mbox{\hyperlink{classLua_1_1DelayedPop}{Delayed\+Pop}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLua_1_1DelayedPop_ad72791cc13aaed03996e653ec767954c}\label{classLua_1_1DelayedPop_ad72791cc13aaed03996e653ec767954c}} 
+\index{Lua::DelayedPop@{Lua::DelayedPop}!SetNbr@{SetNbr}}
+\index{SetNbr@{SetNbr}!Lua::DelayedPop@{Lua::DelayedPop}}
+\doxysubsubsection{\texorpdfstring{SetNbr()}{SetNbr()}}
+{\footnotesize\ttfamily void Lua\+::\+Delayed\+Pop\+::\+Set\+Nbr (\begin{DoxyParamCaption}\item[{int}]{nbr }\end{DoxyParamCaption})}
+
+
+
+Set the number of variable to pop from stack. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLua_1_1DelayedPop_ab186b5af17da8b20d94e65a2b0b481b0}\label{classLua_1_1DelayedPop_ab186b5af17da8b20d94e65a2b0b481b0}} 
+\index{Lua::DelayedPop@{Lua::DelayedPop}!\_nbr@{\_nbr}}
+\index{\_nbr@{\_nbr}!Lua::DelayedPop@{Lua::DelayedPop}}
+\doxysubsubsection{\texorpdfstring{\_nbr}{\_nbr}}
+{\footnotesize\ttfamily int Lua\+::\+Delayed\+Pop\+::\+\_\+nbr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of variable to pop. 
+
+\mbox{\Hypertarget{classLua_1_1DelayedPop_af162152851d3579ac76d85389ea87893}\label{classLua_1_1DelayedPop_af162152851d3579ac76d85389ea87893}} 
+\index{Lua::DelayedPop@{Lua::DelayedPop}!\_state@{\_state}}
+\index{\_state@{\_state}!Lua::DelayedPop@{Lua::DelayedPop}}
+\doxysubsubsection{\texorpdfstring{\_state}{\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLua_1_1State}{State}}\& Lua\+::\+Delayed\+Pop\+::\+\_\+state\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to \mbox{\hyperlink{namespaceLua}{Lua}} stack state. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Lua/sources/\+Delayed\+Pop/\mbox{\hyperlink{DelayedPop_8hpp}{Delayed\+Pop.\+hpp}}\item 
+Libs/\+Lua/sources/\+Delayed\+Pop/\mbox{\hyperlink{DelayedPop_8cpp}{Delayed\+Pop.\+cpp}}\end{DoxyCompactItemize}

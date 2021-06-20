@@ -1,0 +1,134 @@
+\hypertarget{classComponent_1_1IUIObject}{}\doxysection{Component\+::I\+U\+I\+Object Class Reference}
+\label{classComponent_1_1IUIObject}\index{Component::IUIObject@{Component::IUIObject}}
+
+
+Base class for UI objects.  
+
+
+
+
+{\ttfamily \#include $<$I\+U\+I\+Object.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::I\+U\+I\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1IUIObject__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::I\+U\+I\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classComponent_1_1IUIObject__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1IUIObject_a1f4dce9f239f6b5854a2621aa2819809}{I\+U\+I\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1IUIObject_a9fb843b8529e68629c15997212e185ae}{$\sim$\+I\+U\+I\+Object}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1IUIObject_ad771b1c3f256b4c239f92448f217cf44}{I\+U\+I\+Object}} (const \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} \& \mbox{\hyperlink{classComponent_1_1IUIObject_ae04489fb9e37bffff1550b73d4effd15}{operator=}} (const \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1IUIObject_ae7abd923511d9f9a6dc4a4b2b3ea56c7}{Draw}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ position, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ scale=\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$(1.\+0f, 1.\+0f))=0
+\begin{DoxyCompactList}\small\item\em Draw UI object to window at position and scale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for UI objects. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1IUIObject_a1f4dce9f239f6b5854a2621aa2819809}\label{classComponent_1_1IUIObject_a1f4dce9f239f6b5854a2621aa2819809}} 
+\index{Component::IUIObject@{Component::IUIObject}!IUIObject@{IUIObject}}
+\index{IUIObject@{IUIObject}!Component::IUIObject@{Component::IUIObject}}
+\doxysubsubsection{\texorpdfstring{IUIObject()}{IUIObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+I\+U\+I\+Object\+::\+I\+U\+I\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1IUIObject_a9fb843b8529e68629c15997212e185ae}\label{classComponent_1_1IUIObject_a9fb843b8529e68629c15997212e185ae}} 
+\index{Component::IUIObject@{Component::IUIObject}!````~IUIObject@{$\sim$IUIObject}}
+\index{````~IUIObject@{$\sim$IUIObject}!Component::IUIObject@{Component::IUIObject}}
+\doxysubsubsection{\texorpdfstring{$\sim$IUIObject()}{~IUIObject()}}
+{\footnotesize\ttfamily Component\+::\+I\+U\+I\+Object\+::$\sim$\+I\+U\+I\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1IUIObject_ad771b1c3f256b4c239f92448f217cf44}\label{classComponent_1_1IUIObject_ad771b1c3f256b4c239f92448f217cf44}} 
+\index{Component::IUIObject@{Component::IUIObject}!IUIObject@{IUIObject}}
+\index{IUIObject@{IUIObject}!Component::IUIObject@{Component::IUIObject}}
+\doxysubsubsection{\texorpdfstring{IUIObject()}{IUIObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+I\+U\+I\+Object\+::\+I\+U\+I\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1IUIObject_ae7abd923511d9f9a6dc4a4b2b3ea56c7}\label{classComponent_1_1IUIObject_ae7abd923511d9f9a6dc4a4b2b3ea56c7}} 
+\index{Component::IUIObject@{Component::IUIObject}!Draw@{Draw}}
+\index{Draw@{Draw}!Component::IUIObject@{Component::IUIObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily virtual void Component\+::\+I\+U\+I\+Object\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{scale = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$~float~$>$(1.0f,~1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draw UI object to window at position and scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em scale} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1TextBox_aef0e8ab771fedf2239a6f4a9117d22a8}{Component\+::\+Text\+Box}}, \mbox{\hyperlink{classComponent_1_1TextUI_a6c4f0e39b21cf4726d9046ba0ac724a8}{Component\+::\+Text\+UI}}, and \mbox{\hyperlink{classComponent_1_1Button_a541f3f9dfc37dbf098d24d758b9f378b}{Component\+::\+Button}}.
+
+\mbox{\Hypertarget{classComponent_1_1IUIObject_ae04489fb9e37bffff1550b73d4effd15}\label{classComponent_1_1IUIObject_ae04489fb9e37bffff1550b73d4effd15}} 
+\index{Component::IUIObject@{Component::IUIObject}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::IUIObject@{Component::IUIObject}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}}\& Component\+::\+I\+U\+I\+Object\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1IUIObject}{I\+U\+I\+Object}}\& 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+I\+U\+I\+Object/\mbox{\hyperlink{IUIObject_8hpp}{I\+U\+I\+Object.\+hpp}}\end{DoxyCompactItemize}

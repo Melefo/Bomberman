@@ -1,0 +1,547 @@
+\hypertarget{classComponent_1_1ButtonCallbacks}{}\doxysection{Component\+::Button\+Callbacks Class Reference}
+\label{classComponent_1_1ButtonCallbacks}\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+
+
+\mbox{\hyperlink{classComponent_1_1Button}{Button}} wrapper class.  
+
+
+
+
+{\ttfamily \#include $<$Button\+Callbacks.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Button\+Callbacks\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1ButtonCallbacks__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Button\+Callbacks\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComponent_1_1ButtonCallbacks__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a4506495a16a78a3d9afb4123d194e7c2}{Button\+Callbacks}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched\+Entity)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Button}{Button}} Callbacks object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a12f1c06f96d9f3e727bbf43e692bdf19}{$\sim$\+Button\+Callbacks}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Button}{Button}} Callbacks object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1ButtonCallbacks_abca9ce87bfd0cb39fbdd5cc90ed0cc17}{Button\+Callbacks}} (const \mbox{\hyperlink{classComponent_1_1ButtonCallbacks}{Button\+Callbacks}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Button}{Button}} Callbacks object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1ButtonCallbacks}{Button\+Callbacks}} \& \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_aaf6971ce57f880fd34eb7c635395420a}{operator=}} (const \mbox{\hyperlink{classComponent_1_1ButtonCallbacks}{Button\+Callbacks}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a5fec42e3fd748e32ed1cfabcf630c335}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Update function, used to check if the mouse is over/clicking the button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_ac9cf8434ffce8185a2d7abaa3477ce34}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Fixed\+Update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_af2b3dc7698dfa0c5cccf3bc5bf6a2370}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Late\+Update. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a31f9883f2e04c4bf00627db8657b8952}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_acfb8b5448244583fc3583b5d0e67a49f}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a01764ccc4e3ee49454e63b41eeeaa9ca}{Increment\+Player\+Nbr}} (void)
+\begin{DoxyCompactList}\small\item\em Increment the nbr of users. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a17321485c517c62024c7ef55d60ed824}{Decrement\+Player\+Nbr}} (void)
+\begin{DoxyCompactList}\small\item\em Decrement the nbr of users. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a04e5873114dc8c8eed9ed07e924b530c}{Increment\+I\+A\+Nbr}} (void)
+\begin{DoxyCompactList}\small\item\em Increment the nbr of IA. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_ae0c03a42680b022f539faf3649d5d238}{Decrement\+I\+A\+Nbr}} (void)
+\begin{DoxyCompactList}\small\item\em Decrement the nbr of IA. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a337635c4f2e6ef70ab99e5ca2ea039c3}{Increment\+Map\+Height}} (void)
+\begin{DoxyCompactList}\small\item\em Increment the map of Height. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a17d8e88a19c6ab83e4bef374c0b82006}{Decrement\+Map\+Height}} (void)
+\begin{DoxyCompactList}\small\item\em Decrement the map of Height. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_aea3c47b137aeb98f4e9d893e063fdf3a}{Increment\+Map\+Width}} (void)
+\begin{DoxyCompactList}\small\item\em Increment the map of Width. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_ad6612be887d5cf1e101a692684ffe273}{Decrement\+Map\+Width}} (void)
+\begin{DoxyCompactList}\small\item\em Decrement the map of Width. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_accb2efba361895c01721aed54d9d44bb}{Generate\+Background\+Map}} (void)
+\begin{DoxyCompactList}\small\item\em Generate a map in the background. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_af6412e211e8bb7494c21ed64e0e96b91}{Switch\+Map\+Status}} (void)
+\begin{DoxyCompactList}\small\item\em switch the Is\+Map\+Basic variable \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a6ff506703014f2a53abb06d35ab6d558}{Save\+Map}} (void)
+\begin{DoxyCompactList}\small\item\em save map in xml file \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a9c77050238ef79b4db9166eeaa597c6a}{Clear\+Seed}} (void)
+\begin{DoxyCompactList}\small\item\em Clear the seed. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_ab8a14209a62cb2c73549f4cd312064d3}{Start\+Game}} (void)
+\begin{DoxyCompactList}\small\item\em Start the Game. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a6bd225b48aecc7c5ed964d0ff028c6f4}{Start\+Editor\+Menu}} (void)
+\begin{DoxyCompactList}\small\item\em Start the Editor menu. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a59e52ee89000d91dcd786b21279235a4}{Start\+Option\+Menu}} (void)
+\begin{DoxyCompactList}\small\item\em Start the Options menu. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a51d379421479ff23afee515a4d93e30b}{Exit\+Game\+To\+Main\+Menu}} (void)
+\begin{DoxyCompactList}\small\item\em Return to the Main menu. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_aea2eb46c22776ea4e7714e810df47bf2}{Replay}} (void)
+\begin{DoxyCompactList}\small\item\em Restart the current game. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a54f026d36890570a39de3c9bbfb72287}{Continue}} (void)
+\begin{DoxyCompactList}\small\item\em Continue the paused game. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a44681c6fe47b526371f0bbef81c88d66}{Quit\+Window}} (void)
+\begin{DoxyCompactList}\small\item\em Quit the window. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a561c7fe8c571ff37c68569f6a509bade}{Toggle\+Full\+Screen}} (void)
+\begin{DoxyCompactList}\small\item\em Toggle fullscreen. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a4faf1033300cf0b413305bee0431b76d}{Increment\+Volume}} (void)
+\begin{DoxyCompactList}\small\item\em Increment the volume of the music. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_aaca73c73a1a0d6b4016e287839fea28c}{Decrement\+Volume}} (void)
+\begin{DoxyCompactList}\small\item\em Decrement the value of the music. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a71d1d408168f58ea2a67db54139d4a12}{Text\+Interface\+Loader}} (std\+::string tag\+Name, int nb)
+\begin{DoxyCompactList}\small\item\em Private Method for displaying dynamic text on click with int. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_acc83069da8ca6ed7fbe4130f9237c12f}{Text\+Interface\+Loader}} (std\+::string tag\+Name, std\+::string str)
+\begin{DoxyCompactList}\small\item\em Private Method for displaying dynamic text on click with string. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a1315d7e6f24cf62154aeb5bc85aff32f}{Get\+Seed}} (void)
+\begin{DoxyCompactList}\small\item\em Give seed value in string to int. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a13c7b14b9fe93e62c5f8cf5f428567be}{\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Reference to the entity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Button}{Button}} \& \mbox{\hyperlink{classComponent_1_1ButtonCallbacks_a5ec0f3b7e1f2234930188a25f5dca492}{\+\_\+button}}
+\begin{DoxyCompactList}\small\item\em Reference to button component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComponent_1_1Button}{Button}} wrapper class. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a4506495a16a78a3d9afb4123d194e7c2}\label{classComponent_1_1ButtonCallbacks_a4506495a16a78a3d9afb4123d194e7c2}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!ButtonCallbacks@{ButtonCallbacks}}
+\index{ButtonCallbacks@{ButtonCallbacks}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{ButtonCallbacks()}{ButtonCallbacks()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Button\+Callbacks\+::\+Button\+Callbacks (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched\+Entity }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Button}{Button}} Callbacks object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & get the attatched button from the entity \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a12f1c06f96d9f3e727bbf43e692bdf19}\label{classComponent_1_1ButtonCallbacks_a12f1c06f96d9f3e727bbf43e692bdf19}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!````~ButtonCallbacks@{$\sim$ButtonCallbacks}}
+\index{````~ButtonCallbacks@{$\sim$ButtonCallbacks}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{$\sim$ButtonCallbacks()}{~ButtonCallbacks()}}
+{\footnotesize\ttfamily Component\+::\+Button\+Callbacks\+::$\sim$\+Button\+Callbacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Button}{Button}} Callbacks object. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_abca9ce87bfd0cb39fbdd5cc90ed0cc17}\label{classComponent_1_1ButtonCallbacks_abca9ce87bfd0cb39fbdd5cc90ed0cc17}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!ButtonCallbacks@{ButtonCallbacks}}
+\index{ButtonCallbacks@{ButtonCallbacks}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{ButtonCallbacks()}{ButtonCallbacks()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Button\+Callbacks\+::\+Button\+Callbacks (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1ButtonCallbacks}{Button\+Callbacks}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Button}{Button}} Callbacks object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a9c77050238ef79b4db9166eeaa597c6a}\label{classComponent_1_1ButtonCallbacks_a9c77050238ef79b4db9166eeaa597c6a}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!ClearSeed@{ClearSeed}}
+\index{ClearSeed@{ClearSeed}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{ClearSeed()}{ClearSeed()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Clear\+Seed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Clear the seed. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a54f026d36890570a39de3c9bbfb72287}\label{classComponent_1_1ButtonCallbacks_a54f026d36890570a39de3c9bbfb72287}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!Continue@{Continue}}
+\index{Continue@{Continue}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{Continue()}{Continue()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Continue (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Continue the paused game. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_ae0c03a42680b022f539faf3649d5d238}\label{classComponent_1_1ButtonCallbacks_ae0c03a42680b022f539faf3649d5d238}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!DecrementIANbr@{DecrementIANbr}}
+\index{DecrementIANbr@{DecrementIANbr}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{DecrementIANbr()}{DecrementIANbr()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Decrement\+I\+A\+Nbr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Decrement the nbr of IA. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a17d8e88a19c6ab83e4bef374c0b82006}\label{classComponent_1_1ButtonCallbacks_a17d8e88a19c6ab83e4bef374c0b82006}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!DecrementMapHeight@{DecrementMapHeight}}
+\index{DecrementMapHeight@{DecrementMapHeight}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{DecrementMapHeight()}{DecrementMapHeight()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Decrement\+Map\+Height (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Decrement the map of Height. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_ad6612be887d5cf1e101a692684ffe273}\label{classComponent_1_1ButtonCallbacks_ad6612be887d5cf1e101a692684ffe273}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!DecrementMapWidth@{DecrementMapWidth}}
+\index{DecrementMapWidth@{DecrementMapWidth}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{DecrementMapWidth()}{DecrementMapWidth()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Decrement\+Map\+Width (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Decrement the map of Width. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a17321485c517c62024c7ef55d60ed824}\label{classComponent_1_1ButtonCallbacks_a17321485c517c62024c7ef55d60ed824}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!DecrementPlayerNbr@{DecrementPlayerNbr}}
+\index{DecrementPlayerNbr@{DecrementPlayerNbr}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{DecrementPlayerNbr()}{DecrementPlayerNbr()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Decrement\+Player\+Nbr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Decrement the nbr of users. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_aaca73c73a1a0d6b4016e287839fea28c}\label{classComponent_1_1ButtonCallbacks_aaca73c73a1a0d6b4016e287839fea28c}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!DecrementVolume@{DecrementVolume}}
+\index{DecrementVolume@{DecrementVolume}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{DecrementVolume()}{DecrementVolume()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Decrement\+Volume (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Decrement the value of the music. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a51d379421479ff23afee515a4d93e30b}\label{classComponent_1_1ButtonCallbacks_a51d379421479ff23afee515a4d93e30b}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!ExitGameToMainMenu@{ExitGameToMainMenu}}
+\index{ExitGameToMainMenu@{ExitGameToMainMenu}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{ExitGameToMainMenu()}{ExitGameToMainMenu()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Exit\+Game\+To\+Main\+Menu (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Return to the Main menu. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_ac9cf8434ffce8185a2d7abaa3477ce34}\label{classComponent_1_1ButtonCallbacks_ac9cf8434ffce8185a2d7abaa3477ce34}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Fixed\+Update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_accb2efba361895c01721aed54d9d44bb}\label{classComponent_1_1ButtonCallbacks_accb2efba361895c01721aed54d9d44bb}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!GenerateBackgroundMap@{GenerateBackgroundMap}}
+\index{GenerateBackgroundMap@{GenerateBackgroundMap}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{GenerateBackgroundMap()}{GenerateBackgroundMap()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Generate\+Background\+Map (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a map in the background. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a1315d7e6f24cf62154aeb5bc85aff32f}\label{classComponent_1_1ButtonCallbacks_a1315d7e6f24cf62154aeb5bc85aff32f}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!GetSeed@{GetSeed}}
+\index{GetSeed@{GetSeed}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{GetSeed()}{GetSeed()}}
+{\footnotesize\ttfamily int Component\+::\+Button\+Callbacks\+::\+Get\+Seed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Give seed value in string to int. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a04e5873114dc8c8eed9ed07e924b530c}\label{classComponent_1_1ButtonCallbacks_a04e5873114dc8c8eed9ed07e924b530c}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!IncrementIANbr@{IncrementIANbr}}
+\index{IncrementIANbr@{IncrementIANbr}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{IncrementIANbr()}{IncrementIANbr()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Increment\+I\+A\+Nbr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Increment the nbr of IA. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a337635c4f2e6ef70ab99e5ca2ea039c3}\label{classComponent_1_1ButtonCallbacks_a337635c4f2e6ef70ab99e5ca2ea039c3}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!IncrementMapHeight@{IncrementMapHeight}}
+\index{IncrementMapHeight@{IncrementMapHeight}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{IncrementMapHeight()}{IncrementMapHeight()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Increment\+Map\+Height (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Increment the map of Height. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_aea3c47b137aeb98f4e9d893e063fdf3a}\label{classComponent_1_1ButtonCallbacks_aea3c47b137aeb98f4e9d893e063fdf3a}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!IncrementMapWidth@{IncrementMapWidth}}
+\index{IncrementMapWidth@{IncrementMapWidth}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{IncrementMapWidth()}{IncrementMapWidth()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Increment\+Map\+Width (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Increment the map of Width. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a01764ccc4e3ee49454e63b41eeeaa9ca}\label{classComponent_1_1ButtonCallbacks_a01764ccc4e3ee49454e63b41eeeaa9ca}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!IncrementPlayerNbr@{IncrementPlayerNbr}}
+\index{IncrementPlayerNbr@{IncrementPlayerNbr}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{IncrementPlayerNbr()}{IncrementPlayerNbr()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Increment\+Player\+Nbr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Increment the nbr of users. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a4faf1033300cf0b413305bee0431b76d}\label{classComponent_1_1ButtonCallbacks_a4faf1033300cf0b413305bee0431b76d}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!IncrementVolume@{IncrementVolume}}
+\index{IncrementVolume@{IncrementVolume}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{IncrementVolume()}{IncrementVolume()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Increment\+Volume (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Increment the volume of the music. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_af2b3dc7698dfa0c5cccf3bc5bf6a2370}\label{classComponent_1_1ButtonCallbacks_af2b3dc7698dfa0c5cccf3bc5bf6a2370}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Late\+Update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_acfb8b5448244583fc3583b5d0e67a49f}\label{classComponent_1_1ButtonCallbacks_acfb8b5448244583fc3583b5d0e67a49f}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Button\+Callbacks\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a31f9883f2e04c4bf00627db8657b8952}\label{classComponent_1_1ButtonCallbacks_a31f9883f2e04c4bf00627db8657b8952}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Button\+Callbacks\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_aaf6971ce57f880fd34eb7c635395420a}\label{classComponent_1_1ButtonCallbacks_aaf6971ce57f880fd34eb7c635395420a}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1ButtonCallbacks}{Button\+Callbacks}}\& Component\+::\+Button\+Callbacks\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1ButtonCallbacks}{Button\+Callbacks}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1ButtonCallbacks}{Button\+Callbacks}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a44681c6fe47b526371f0bbef81c88d66}\label{classComponent_1_1ButtonCallbacks_a44681c6fe47b526371f0bbef81c88d66}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!QuitWindow@{QuitWindow}}
+\index{QuitWindow@{QuitWindow}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{QuitWindow()}{QuitWindow()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Quit\+Window (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Quit the window. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_aea2eb46c22776ea4e7714e810df47bf2}\label{classComponent_1_1ButtonCallbacks_aea2eb46c22776ea4e7714e810df47bf2}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!Replay@{Replay}}
+\index{Replay@{Replay}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{Replay()}{Replay()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Replay (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Restart the current game. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a6ff506703014f2a53abb06d35ab6d558}\label{classComponent_1_1ButtonCallbacks_a6ff506703014f2a53abb06d35ab6d558}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!SaveMap@{SaveMap}}
+\index{SaveMap@{SaveMap}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{SaveMap()}{SaveMap()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Save\+Map (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+save map in xml file 
+
+pour le xml (sans arg)
+
+pour le .txt (arg = path)\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a6bd225b48aecc7c5ed964d0ff028c6f4}\label{classComponent_1_1ButtonCallbacks_a6bd225b48aecc7c5ed964d0ff028c6f4}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!StartEditorMenu@{StartEditorMenu}}
+\index{StartEditorMenu@{StartEditorMenu}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{StartEditorMenu()}{StartEditorMenu()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Start\+Editor\+Menu (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Start the Editor menu. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_ab8a14209a62cb2c73549f4cd312064d3}\label{classComponent_1_1ButtonCallbacks_ab8a14209a62cb2c73549f4cd312064d3}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!StartGame@{StartGame}}
+\index{StartGame@{StartGame}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{StartGame()}{StartGame()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Start\+Game (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Start the Game. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a59e52ee89000d91dcd786b21279235a4}\label{classComponent_1_1ButtonCallbacks_a59e52ee89000d91dcd786b21279235a4}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!StartOptionMenu@{StartOptionMenu}}
+\index{StartOptionMenu@{StartOptionMenu}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{StartOptionMenu()}{StartOptionMenu()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Start\+Option\+Menu (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Start the Options menu. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_af6412e211e8bb7494c21ed64e0e96b91}\label{classComponent_1_1ButtonCallbacks_af6412e211e8bb7494c21ed64e0e96b91}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!SwitchMapStatus@{SwitchMapStatus}}
+\index{SwitchMapStatus@{SwitchMapStatus}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{SwitchMapStatus()}{SwitchMapStatus()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Switch\+Map\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+switch the Is\+Map\+Basic variable 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a71d1d408168f58ea2a67db54139d4a12}\label{classComponent_1_1ButtonCallbacks_a71d1d408168f58ea2a67db54139d4a12}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!TextInterfaceLoader@{TextInterfaceLoader}}
+\index{TextInterfaceLoader@{TextInterfaceLoader}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{TextInterfaceLoader()}{TextInterfaceLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Text\+Interface\+Loader (\begin{DoxyParamCaption}\item[{std\+::string}]{tag\+Name,  }\item[{int}]{nb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Private Method for displaying dynamic text on click with int. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_acc83069da8ca6ed7fbe4130f9237c12f}\label{classComponent_1_1ButtonCallbacks_acc83069da8ca6ed7fbe4130f9237c12f}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!TextInterfaceLoader@{TextInterfaceLoader}}
+\index{TextInterfaceLoader@{TextInterfaceLoader}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{TextInterfaceLoader()}{TextInterfaceLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Text\+Interface\+Loader (\begin{DoxyParamCaption}\item[{std\+::string}]{tag\+Name,  }\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Private Method for displaying dynamic text on click with string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tag\+Name} & \\
+\hline
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a561c7fe8c571ff37c68569f6a509bade}\label{classComponent_1_1ButtonCallbacks_a561c7fe8c571ff37c68569f6a509bade}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!ToggleFullScreen@{ToggleFullScreen}}
+\index{ToggleFullScreen@{ToggleFullScreen}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{ToggleFullScreen()}{ToggleFullScreen()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Toggle\+Full\+Screen (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Toggle fullscreen. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a5fec42e3fd748e32ed1cfabcf630c335}\label{classComponent_1_1ButtonCallbacks_a5fec42e3fd748e32ed1cfabcf630c335}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!Update@{Update}}
+\index{Update@{Update}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Button\+Callbacks\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update function, used to check if the mouse is over/clicking the button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a5ec0f3b7e1f2234930188a25f5dca492}\label{classComponent_1_1ButtonCallbacks_a5ec0f3b7e1f2234930188a25f5dca492}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!\_button@{\_button}}
+\index{\_button@{\_button}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{\_button}{\_button}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Button}{Button}}\& Component\+::\+Button\+Callbacks\+::\+\_\+button\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to button component. 
+
+\mbox{\Hypertarget{classComponent_1_1ButtonCallbacks_a13c7b14b9fe93e62c5f8cf5f428567be}\label{classComponent_1_1ButtonCallbacks_a13c7b14b9fe93e62c5f8cf5f428567be}} 
+\index{Component::ButtonCallbacks@{Component::ButtonCallbacks}!\_entity@{\_entity}}
+\index{\_entity@{\_entity}!Component::ButtonCallbacks@{Component::ButtonCallbacks}}
+\doxysubsubsection{\texorpdfstring{\_entity}{\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Button\+Callbacks\+::\+\_\+entity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the entity. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Button\+Callbacks/\mbox{\hyperlink{ButtonCallbacks_8hpp}{Button\+Callbacks.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Button\+Callbacks/\mbox{\hyperlink{ButtonCallbacks_8cpp}{Button\+Callbacks.\+cpp}}\end{DoxyCompactItemize}

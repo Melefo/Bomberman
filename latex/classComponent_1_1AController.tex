@@ -1,0 +1,265 @@
+\hypertarget{classComponent_1_1AController}{}\doxysection{Component\+::A\+Controller Class Reference}
+\label{classComponent_1_1AController}\index{Component::AController@{Component::AController}}
+
+
+{\ttfamily \#include $<$A\+Controller.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::A\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1AController__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::A\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1AController__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1AController_a434efd3b3acc472af8fd04431273a2aa}{A\+Controller}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched\+Entity, float speed=0.\+5f, float drop\+Delay=2.\+5f)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1AController_a95176e68dbe163334b808454c23f22b8}{$\sim$\+A\+Controller}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1AController_adc60af94092e4e7a87d53e62eeb2db85}{A\+Controller}} (const \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \& \mbox{\hyperlink{classComponent_1_1AController_ad31ecf1af7a3d21a0d8c7edf681894fe}{operator=}} (const \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Movement}{Component\+::\+Movement}} \& \mbox{\hyperlink{classComponent_1_1AController_a705dd6cace2c8773a9d2c27e4b6d9ed8}{Get\+Movement}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1DropBomb}{Component\+::\+Drop\+Bomb}} \& \mbox{\hyperlink{classComponent_1_1AController_a207e000b129d7fd607eda372c4429525}{Get\+Drop\+Bomb}} ()
+\begin{DoxyCompactList}\small\item\em Get the Drop Bomb object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \& \mbox{\hyperlink{classComponent_1_1AController_a6a4d45c043c5597fd34b190100005e3e}{Get\+A\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1AController_ae68422ab18b849558f42f6f3c2b1e735}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Called every frame To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1AController_a122421aac4fa4b0f18a48f7d51f2035c}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Called every $\sim$0.02 seconds To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1AController_adbc9caa500563bf2de00dc74ef91f6bf}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Called after update To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Movement}{Component\+::\+Movement}} \mbox{\hyperlink{classComponent_1_1AController_a796bd1d5a8abe75a3f9b8ba655b1ce48}{\+\_\+movement}}
+\begin{DoxyCompactList}\small\item\em movement behaviour \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1DropBomb}{Component\+::\+Drop\+Bomb}} \mbox{\hyperlink{classComponent_1_1AController_ab1fe302d001d9f3dea3e8f11987e22e7}{\+\_\+drop\+Bomb}}
+\begin{DoxyCompactList}\small\item\em Dropbomb component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1AController_a434efd3b3acc472af8fd04431273a2aa}\label{classComponent_1_1AController_a434efd3b3acc472af8fd04431273a2aa}} 
+\index{Component::AController@{Component::AController}!AController@{AController}}
+\index{AController@{AController}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{AController()}{AController()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+A\+Controller\+::\+A\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched\+Entity,  }\item[{float}]{speed = {\ttfamily 0.5f},  }\item[{float}]{drop\+Delay = {\ttfamily 2.5f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & \\
+\hline
+{\em speed} & \\
+\hline
+{\em drop\+Delay} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1AController_a95176e68dbe163334b808454c23f22b8}\label{classComponent_1_1AController_a95176e68dbe163334b808454c23f22b8}} 
+\index{Component::AController@{Component::AController}!````~AController@{$\sim$AController}}
+\index{````~AController@{$\sim$AController}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{$\sim$AController()}{~AController()}}
+{\footnotesize\ttfamily Component\+::\+A\+Controller\+::$\sim$\+A\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1AController_adc60af94092e4e7a87d53e62eeb2db85}\label{classComponent_1_1AController_adc60af94092e4e7a87d53e62eeb2db85}} 
+\index{Component::AController@{Component::AController}!AController@{AController}}
+\index{AController@{AController}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{AController()}{AController()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+A\+Controller\+::\+A\+Controller (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1AController_a122421aac4fa4b0f18a48f7d51f2035c}\label{classComponent_1_1AController_a122421aac4fa4b0f18a48f7d51f2035c}} 
+\index{Component::AController@{Component::AController}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily virtual void Component\+::\+A\+Controller\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called every $\sim$0.02 seconds To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1AIAlgo_a28cc7d721b5d155d917244d99c366060}{Component\+::\+A\+I\+Algo}}, and \mbox{\hyperlink{classComponent_1_1PlayerInputs_a50407f6b4c5dd0bf08ef58e7c917c39e}{Component\+::\+Player\+Inputs}}.
+
+\mbox{\Hypertarget{classComponent_1_1AController_a6a4d45c043c5597fd34b190100005e3e}\label{classComponent_1_1AController_a6a4d45c043c5597fd34b190100005e3e}} 
+\index{Component::AController@{Component::AController}!GetAController@{GetAController}}
+\index{GetAController@{GetAController}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{GetAController()}{GetAController()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \& Component\+::\+A\+Controller\+::\+Get\+A\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AController_a207e000b129d7fd607eda372c4429525}\label{classComponent_1_1AController_a207e000b129d7fd607eda372c4429525}} 
+\index{Component::AController@{Component::AController}!GetDropBomb@{GetDropBomb}}
+\index{GetDropBomb@{GetDropBomb}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{GetDropBomb()}{GetDropBomb()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1DropBomb}{Component\+::\+Drop\+Bomb}} \& Component\+::\+A\+Controller\+::\+Get\+Drop\+Bomb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Drop Bomb object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1DropBomb}{Component\+::\+Drop\+Bomb}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AController_a705dd6cace2c8773a9d2c27e4b6d9ed8}\label{classComponent_1_1AController_a705dd6cace2c8773a9d2c27e4b6d9ed8}} 
+\index{Component::AController@{Component::AController}!GetMovement@{GetMovement}}
+\index{GetMovement@{GetMovement}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{GetMovement()}{GetMovement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Movement}{Component\+::\+Movement}} \& Component\+::\+A\+Controller\+::\+Get\+Movement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classComponent_1_1Movement}{Movement}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Movement}{Component\+::\+Movement}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AController_adbc9caa500563bf2de00dc74ef91f6bf}\label{classComponent_1_1AController_adbc9caa500563bf2de00dc74ef91f6bf}} 
+\index{Component::AController@{Component::AController}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily virtual void Component\+::\+A\+Controller\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called after update To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1PlayerInputs_a2ecf2075143bc834a52c926facabf43f}{Component\+::\+Player\+Inputs}}, and \mbox{\hyperlink{classComponent_1_1AIAlgo_aa21d6f60e762640e2fb9f8e1f24bbab2}{Component\+::\+A\+I\+Algo}}.
+
+\mbox{\Hypertarget{classComponent_1_1AController_ad31ecf1af7a3d21a0d8c7edf681894fe}\label{classComponent_1_1AController_ad31ecf1af7a3d21a0d8c7edf681894fe}} 
+\index{Component::AController@{Component::AController}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}}\& Component\+::\+A\+Controller\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1AController_ae68422ab18b849558f42f6f3c2b1e735}\label{classComponent_1_1AController_ae68422ab18b849558f42f6f3c2b1e735}} 
+\index{Component::AController@{Component::AController}!Update@{Update}}
+\index{Update@{Update}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Component\+::\+A\+Controller\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called every frame To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1AIAlgo_a5bd67a56e39c5660df366ce4a4683140}{Component\+::\+A\+I\+Algo}}, and \mbox{\hyperlink{classComponent_1_1PlayerInputs_addfc71cd51ec4a0310a341235ecc6af9}{Component\+::\+Player\+Inputs}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1AController_ab1fe302d001d9f3dea3e8f11987e22e7}\label{classComponent_1_1AController_ab1fe302d001d9f3dea3e8f11987e22e7}} 
+\index{Component::AController@{Component::AController}!\_dropBomb@{\_dropBomb}}
+\index{\_dropBomb@{\_dropBomb}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{\_dropBomb}{\_dropBomb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1DropBomb}{Component\+::\+Drop\+Bomb}} Component\+::\+A\+Controller\+::\+\_\+drop\+Bomb\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Dropbomb component. 
+
+\mbox{\Hypertarget{classComponent_1_1AController_a796bd1d5a8abe75a3f9b8ba655b1ce48}\label{classComponent_1_1AController_a796bd1d5a8abe75a3f9b8ba655b1ce48}} 
+\index{Component::AController@{Component::AController}!\_movement@{\_movement}}
+\index{\_movement@{\_movement}!Component::AController@{Component::AController}}
+\doxysubsubsection{\texorpdfstring{\_movement}{\_movement}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Movement}{Component\+::\+Movement}} Component\+::\+A\+Controller\+::\+\_\+movement\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+movement behaviour 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+A\+Controller/\mbox{\hyperlink{AController_8hpp}{A\+Controller.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+A\+Controller/\mbox{\hyperlink{AController_8cpp}{A\+Controller.\+cpp}}\end{DoxyCompactItemize}

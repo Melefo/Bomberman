@@ -1,0 +1,6 @@
+<map id="Component::GameConfigurator" name="Component::GameConfigurator">
+<area shape="rect" id="node1" title=" " alt="" coords="5,587,229,884"/>
+<area shape="rect" id="node2" href="$classComponent_1_1IBehaviour.html" title="IBehaviour base component (CF Monobehaviour class in Unity)" alt="" coords="30,373,205,539"/>
+<area shape="rect" id="node3" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="49,204,186,325"/>
+<area shape="rect" id="node4" href="$classIXMLSerializable.html" title=" " alt="" coords="34,5,201,156"/>
+</map>

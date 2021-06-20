@@ -1,0 +1,228 @@
+\hypertarget{classComponent_1_1Particle}{}\doxysection{Component\+::Particle Class Reference}
+\label{classComponent_1_1Particle}\index{Component::Particle@{Component::Particle}}
+
+
+{\ttfamily \#include $<$Particle.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Particle\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Particle__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Particle\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Particle__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Particle_a13fda165a2d5927d3a5b4c182377c19c}{Particle}} (float start\+Speed=2.\+0f, float life\+Time=1.\+5f)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Particle_a21ccf00d0854a0535fc95abdf043f0e2}{$\sim$\+Particle}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Particle_a6284e483d5d96c2d99930d037b5a82cf}{Particle}} (const \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Particle}{Particle}} \& \mbox{\hyperlink{classComponent_1_1Particle_a6d589cdcfe8b310775efd3b89aee3d6d}{operator=}} (const \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Particle_a5135b508b584ecc1b6af5f95095cc266}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called once per cpu update, lerp color to transparent, kill. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Particle_a9305b9c23903d5079287ce6ab38252be}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called every fixed seconds (CF coordinator) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Particle_a831b1792906afa818eb1ccaa099fbec7}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Late update. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Particle_a3c72434b0e03def1b185606d8b550f55}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Particle_a68e52d745bac8f8bdd541da2b6fa4b98}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classComponent_1_1Particle_a37ce580b6bfccb9f405111e54f840e49}{\+\_\+life\+Timer}}
+\item 
+float \mbox{\hyperlink{classComponent_1_1Particle_acfabdab4454feb4d9643e000403bf763}{\+\_\+speed}}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1Particle_ac00a9cc9f8ef4f6543d128438f6933da}{\+\_\+direction}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Particle_a13fda165a2d5927d3a5b4c182377c19c}\label{classComponent_1_1Particle_a13fda165a2d5927d3a5b4c182377c19c}} 
+\index{Component::Particle@{Component::Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Particle\+::\+Particle (\begin{DoxyParamCaption}\item[{float}]{start\+Speed = {\ttfamily 2.0f},  }\item[{float}]{life\+Time = {\ttfamily 1.5f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Speed} & \\
+\hline
+{\em life\+Time} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Particle_a21ccf00d0854a0535fc95abdf043f0e2}\label{classComponent_1_1Particle_a21ccf00d0854a0535fc95abdf043f0e2}} 
+\index{Component::Particle@{Component::Particle}!````~Particle@{$\sim$Particle}}
+\index{````~Particle@{$\sim$Particle}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{$\sim$Particle()}{~Particle()}}
+{\footnotesize\ttfamily Component\+::\+Particle\+::$\sim$\+Particle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1Particle_a6284e483d5d96c2d99930d037b5a82cf}\label{classComponent_1_1Particle_a6284e483d5d96c2d99930d037b5a82cf}} 
+\index{Component::Particle@{Component::Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{Particle()}{Particle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Particle\+::\+Particle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Particle_a9305b9c23903d5079287ce6ab38252be}\label{classComponent_1_1Particle_a9305b9c23903d5079287ce6ab38252be}} 
+\index{Component::Particle@{Component::Particle}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Particle\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called every fixed seconds (CF coordinator) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Particle_a831b1792906afa818eb1ccaa099fbec7}\label{classComponent_1_1Particle_a831b1792906afa818eb1ccaa099fbec7}} 
+\index{Component::Particle@{Component::Particle}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Particle\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Late update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+\mbox{\Hypertarget{classComponent_1_1Particle_a68e52d745bac8f8bdd541da2b6fa4b98}\label{classComponent_1_1Particle_a68e52d745bac8f8bdd541da2b6fa4b98}} 
+\index{Component::Particle@{Component::Particle}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Particle\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Particle_a3c72434b0e03def1b185606d8b550f55}\label{classComponent_1_1Particle_a3c72434b0e03def1b185606d8b550f55}} 
+\index{Component::Particle@{Component::Particle}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Particle\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Particle_a6d589cdcfe8b310775efd3b89aee3d6d}\label{classComponent_1_1Particle_a6d589cdcfe8b310775efd3b89aee3d6d}} 
+\index{Component::Particle@{Component::Particle}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1Particle}{Particle}}\& Component\+::\+Particle\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1Particle}{Particle}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1Particle}{Particle}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Particle_a5135b508b584ecc1b6af5f95095cc266}\label{classComponent_1_1Particle_a5135b508b584ecc1b6af5f95095cc266}} 
+\index{Component::Particle@{Component::Particle}!Update@{Update}}
+\index{Update@{Update}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Particle\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called once per cpu update, lerp color to transparent, kill. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Time since last call to update \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Particle_ac00a9cc9f8ef4f6543d128438f6933da}\label{classComponent_1_1Particle_ac00a9cc9f8ef4f6543d128438f6933da}} 
+\index{Component::Particle@{Component::Particle}!\_direction@{\_direction}}
+\index{\_direction@{\_direction}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{\_direction}{\_direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+Particle\+::\+\_\+direction\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Particle_a37ce580b6bfccb9f405111e54f840e49}\label{classComponent_1_1Particle_a37ce580b6bfccb9f405111e54f840e49}} 
+\index{Component::Particle@{Component::Particle}!\_lifeTimer@{\_lifeTimer}}
+\index{\_lifeTimer@{\_lifeTimer}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{\_lifeTimer}{\_lifeTimer}}
+{\footnotesize\ttfamily float Component\+::\+Particle\+::\+\_\+life\+Timer\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Particle_acfabdab4454feb4d9643e000403bf763}\label{classComponent_1_1Particle_acfabdab4454feb4d9643e000403bf763}} 
+\index{Component::Particle@{Component::Particle}!\_speed@{\_speed}}
+\index{\_speed@{\_speed}!Component::Particle@{Component::Particle}}
+\doxysubsubsection{\texorpdfstring{\_speed}{\_speed}}
+{\footnotesize\ttfamily float Component\+::\+Particle\+::\+\_\+speed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Particle/\mbox{\hyperlink{Particle_8hpp}{Particle.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Particle/\mbox{\hyperlink{Particle_8cpp}{Particle.\+cpp}}\end{DoxyCompactItemize}

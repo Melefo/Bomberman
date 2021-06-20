@@ -1,0 +1,155 @@
+\hypertarget{classComponent_1_1RenderSystem}{}\doxysection{Component\+::Render\+System Class Reference}
+\label{classComponent_1_1RenderSystem}\index{Component::RenderSystem@{Component::RenderSystem}}
+
+
+\mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} system.  
+
+
+
+
+{\ttfamily \#include $<$Render\+System.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Render\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classComponent_1_1RenderSystem__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Render\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classComponent_1_1RenderSystem__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1RenderSystem_a6914e6b13dc6be863ba7fccd4a697070}{Render\+System}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Render System object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1RenderSystem_a04fab5ce3ef67784915c770760620749}{$\sim$\+Render\+System}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Render System object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1RenderSystem_a40fd3805911c1afa31648dfad6ca9a6f}{Render\+System}} (const \mbox{\hyperlink{classComponent_1_1RenderSystem}{Render\+System}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Render System object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1RenderSystem}{Render\+System}} \& \mbox{\hyperlink{classComponent_1_1RenderSystem_aaaeb83bfa7566b3a0abcfaab61643f03}{operator=}} (const \mbox{\hyperlink{classComponent_1_1RenderSystem}{Render\+System}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1RenderSystem_a6676dd5a7d2fd30aa9332516211dcee7}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Draw the renderer model to the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1RenderSystem_af127b6cd5c1d88737636bfb72a8003f2}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Update Animations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComponent_1_1Renderer}{Renderer}} system. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1RenderSystem_a6914e6b13dc6be863ba7fccd4a697070}\label{classComponent_1_1RenderSystem_a6914e6b13dc6be863ba7fccd4a697070}} 
+\index{Component::RenderSystem@{Component::RenderSystem}!RenderSystem@{RenderSystem}}
+\index{RenderSystem@{RenderSystem}!Component::RenderSystem@{Component::RenderSystem}}
+\doxysubsubsection{\texorpdfstring{RenderSystem()}{RenderSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Render\+System\+::\+Render\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Render System object. 
+
+\mbox{\Hypertarget{classComponent_1_1RenderSystem_a04fab5ce3ef67784915c770760620749}\label{classComponent_1_1RenderSystem_a04fab5ce3ef67784915c770760620749}} 
+\index{Component::RenderSystem@{Component::RenderSystem}!````~RenderSystem@{$\sim$RenderSystem}}
+\index{````~RenderSystem@{$\sim$RenderSystem}!Component::RenderSystem@{Component::RenderSystem}}
+\doxysubsubsection{\texorpdfstring{$\sim$RenderSystem()}{~RenderSystem()}}
+{\footnotesize\ttfamily Component\+::\+Render\+System\+::$\sim$\+Render\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Render System object. 
+
+\mbox{\Hypertarget{classComponent_1_1RenderSystem_a40fd3805911c1afa31648dfad6ca9a6f}\label{classComponent_1_1RenderSystem_a40fd3805911c1afa31648dfad6ca9a6f}} 
+\index{Component::RenderSystem@{Component::RenderSystem}!RenderSystem@{RenderSystem}}
+\index{RenderSystem@{RenderSystem}!Component::RenderSystem@{Component::RenderSystem}}
+\doxysubsubsection{\texorpdfstring{RenderSystem()}{RenderSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Render\+System\+::\+Render\+System (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1RenderSystem}{Render\+System}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Render System object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1RenderSystem_af127b6cd5c1d88737636bfb72a8003f2}\label{classComponent_1_1RenderSystem_af127b6cd5c1d88737636bfb72a8003f2}} 
+\index{Component::RenderSystem@{Component::RenderSystem}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::RenderSystem@{Component::RenderSystem}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Render\+System\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update Animations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classECS_1_1ASystem_a3940112a5a64fcbd84215c7669b416ea}{E\+C\+S\+::\+A\+System}}.
+
+\mbox{\Hypertarget{classComponent_1_1RenderSystem_aaaeb83bfa7566b3a0abcfaab61643f03}\label{classComponent_1_1RenderSystem_aaaeb83bfa7566b3a0abcfaab61643f03}} 
+\index{Component::RenderSystem@{Component::RenderSystem}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::RenderSystem@{Component::RenderSystem}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1RenderSystem}{Render\+System}}\& Component\+::\+Render\+System\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1RenderSystem}{Render\+System}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1RenderSystem}{Render\+System}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1RenderSystem_a6676dd5a7d2fd30aa9332516211dcee7}\label{classComponent_1_1RenderSystem_a6676dd5a7d2fd30aa9332516211dcee7}} 
+\index{Component::RenderSystem@{Component::RenderSystem}!Update@{Update}}
+\index{Update@{Update}!Component::RenderSystem@{Component::RenderSystem}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Render\+System\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw the renderer model to the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classECS_1_1ASystem_aa286ca0bdb06a0ad0fd66915d9192266}{E\+C\+S\+::\+A\+System}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Systems/\+Render\+System/\mbox{\hyperlink{RenderSystem_8hpp}{Render\+System.\+hpp}}\item 
+Libs/\+Engine/sources/\+Systems/\+Render\+System/\mbox{\hyperlink{RenderSystem_8cpp}{Render\+System.\+cpp}}\end{DoxyCompactItemize}

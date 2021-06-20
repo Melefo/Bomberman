@@ -1,0 +1,12 @@
+<map id="RayLib::IAsset" name="RayLib::IAsset">
+<area shape="rect" id="node1" title=" " alt="" coords="527,5,641,127"/>
+<area shape="rect" id="node2" href="$classRayLib_1_1Font.html" title="Font encapsulation." alt="" coords="5,204,136,384"/>
+<area shape="rect" id="node3" href="$classRayLib_1_1Mesh.html" title="Mesh encapsulation." alt="" coords="160,189,275,399"/>
+<area shape="rect" id="node4" href="$classRayLib_1_1Model.html" title="Model encapsulation." alt="" coords="299,175,469,413"/>
+<area shape="rect" id="node5" href="$classRayLib_1_1ModelAnimation.html" title="Encapsulation for ModelAnimation struct." alt="" coords="493,211,675,377"/>
+<area shape="rect" id="node6" href="$classRayLib_1_1Shader.html" title="Shader Encapsulation of the raylib structure Shader." alt="" coords="699,175,824,413"/>
+<area shape="rect" id="node9" href="$classRayLib_1_1Sound.html" title=" " alt="" coords="848,182,995,406"/>
+<area shape="rect" id="node10" href="$classRayLib_1_1Texture.html" title="Texture encapsulation." alt="" coords="1019,182,1194,406"/>
+<area shape="rect" id="node7" href="$classAmbientShader.html" title=" " alt="" coords="595,542,754,634"/>
+<area shape="rect" id="node8" href="$classBasicLight.html" title=" " alt="" coords="778,461,915,715"/>
+</map>

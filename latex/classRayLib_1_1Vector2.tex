@@ -1,0 +1,335 @@
+\hypertarget{classRayLib_1_1Vector2}{}\doxysection{Ray\+Lib\+::Vector2$<$ T $>$ Class Template Reference}
+\label{classRayLib_1_1Vector2}\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+
+
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} encapsulation.  
+
+
+
+
+{\ttfamily \#include $<$Vector2.\+hpp$>$}
+
+
+
+Inheritance diagram for Ray\+Lib\+::Vector2$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classRayLib_1_1Vector2__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ray\+Lib\+::Vector2$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classRayLib_1_1Vector2__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classRayLib_1_1Vector2_af646d51920442d265bbd76e8d386a7e0}{value\+\_\+type}} = T
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2_a700eb9f5ea5d9d79964d5bd18c04bd19}{Vector2}} (void)
+\begin{DoxyCompactList}\small\item\em Construct a new Vector 2$<$\+T$>$ object Initialise parameters to zero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2_a7519301fcef914553c8ee779f57f29e5}{$\sim$\+Vector2}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Vector 2$<$\+T$>$ object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2_ac318f31088b8c69cbb17f24621e2bf20}{Vector2}} (T newX)
+\begin{DoxyCompactList}\small\item\em Construct a new Vector 2$<$\+T$>$ object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2_a78247256d78241120ebd01ad73315674}{Vector2}} (T newX, T newY)
+\begin{DoxyCompactList}\small\item\em Construct a new Vector 2$<$\+T$>$ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2_af229b49243c75496f16d037d6f35507a}{Vector2}} (const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Construct a new Vector 2$<$\+T$>$ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2_aa9fc040cf1c55e14f62b7bee0c46fd88}{Vector2}} (const \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \&vec)
+\begin{DoxyCompactList}\small\item\em Construct a new Vector 2$<$\+T$>$ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2_a9cf7c2c7185808dbb162f61a5da82182}{Vector2}} (const \+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} \&vec)
+\begin{DoxyCompactList}\small\item\em Construct a new Vector 2$<$\+T$>$ object. \end{DoxyCompactList}\item 
+\+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} \mbox{\hyperlink{classRayLib_1_1Vector2_a3853b010fb1e017245c925414bc52df1}{get\+Vector2}} (void) const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} raylib structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \& \mbox{\hyperlink{classRayLib_1_1Vector2_a23332aeed52cb2a14f0be20d4ab6fa2a}{operator=}} (const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \& \mbox{\hyperlink{classRayLib_1_1Vector2_aa3aee4f99526943be386874df1e9491e}{operator+=}} (const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \& \mbox{\hyperlink{classRayLib_1_1Vector2_ad65ae258be97bf2fc3bd642bd7376fcf}{operator-\/=}} (const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \mbox{\hyperlink{classRayLib_1_1Vector2_a4aaa3bbe341ccf79230f19d253a57650}{operator-\/}} (const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \& \mbox{\hyperlink{classRayLib_1_1Vector2_a38de2930ddef124c9aed48f8d95b95a8}{operator$\ast$}} (const float \&factor)
+\begin{DoxyCompactList}\small\item\em Multiply vector by factor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classRayLib_1_1Vector2_ada24f8bebb20fcbb47be3b3bbe5c16b7}{Distance}} (const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&other)
+\item 
+std\+::ostream \& \mbox{\hyperlink{classRayLib_1_1Vector2_ae2aafd1c17ecc712d91d4e5cbcff69b2}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classRayLib_1_1Vector2_a46ee10cc1643962c7edec4ce665d624f}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classRayLib_1_1Vector2_aca78a177bfc149213ca47c1815fd2126}{x}}
+\item 
+T \mbox{\hyperlink{classRayLib_1_1Vector2_ae4be864b58481a1dd4b142cee871ecef}{y}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Ray\+Lib\+::\+Vector2$<$ T $>$}
+
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} encapsulation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & typically $<$int$>$ or $<$float$>$ \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_af646d51920442d265bbd76e8d386a7e0}\label{classRayLib_1_1Vector2_af646d51920442d265bbd76e8d386a7e0}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::\mbox{\hyperlink{classRayLib_1_1Vector2_af646d51920442d265bbd76e8d386a7e0}{value\+\_\+type}} =  T}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a700eb9f5ea5d9d79964d5bd18c04bd19}\label{classRayLib_1_1Vector2_a700eb9f5ea5d9d79964d5bd18c04bd19}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Vector 2$<$\+T$>$ object Initialise parameters to zero. 
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a7519301fcef914553c8ee779f57f29e5}\label{classRayLib_1_1Vector2_a7519301fcef914553c8ee779f57f29e5}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!````~Vector2@{$\sim$Vector2}}
+\index{````~Vector2@{$\sim$Vector2}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Vector2()}{~Vector2()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the Vector 2$<$\+T$>$ object. 
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_ac318f31088b8c69cbb17f24621e2bf20}\label{classRayLib_1_1Vector2_ac318f31088b8c69cbb17f24621e2bf20}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} (\begin{DoxyParamCaption}\item[{T}]{newX }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Vector 2$<$\+T$>$ object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & set x parameter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a78247256d78241120ebd01ad73315674}\label{classRayLib_1_1Vector2_a78247256d78241120ebd01ad73315674}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} (\begin{DoxyParamCaption}\item[{T}]{newX,  }\item[{T}]{newY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Vector 2$<$\+T$>$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & set x parameter \\
+\hline
+{\em newY} & set y parameter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_af229b49243c75496f16d037d6f35507a}\label{classRayLib_1_1Vector2_af229b49243c75496f16d037d6f35507a}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Vector 2$<$\+T$>$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_aa9fc040cf1c55e14f62b7bee0c46fd88}\label{classRayLib_1_1Vector2_aa9fc040cf1c55e14f62b7bee0c46fd88}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector3}{Vector3}} \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Vector 2$<$\+T$>$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a9cf7c2c7185808dbb162f61a5da82182}\label{classRayLib_1_1Vector2_a9cf7c2c7185808dbb162f61a5da82182}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} (\begin{DoxyParamCaption}\item[{const \+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Vector 2$<$\+T$>$ object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_ada24f8bebb20fcbb47be3b3bbe5c16b7}\label{classRayLib_1_1Vector2_ada24f8bebb20fcbb47be3b3bbe5c16b7}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!Distance@{Distance}}
+\index{Distance@{Distance}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Distance()}{Distance()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+float \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::Distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a3853b010fb1e017245c925414bc52df1}\label{classRayLib_1_1Vector2_a3853b010fb1e017245c925414bc52df1}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!getVector2@{getVector2}}
+\index{getVector2@{getVector2}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getVector2()}{getVector2()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+::\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::get\+Vector2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}} raylib structure. 
+
+\begin{DoxyReturn}{Returns}
+\+::\+Vector2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a38de2930ddef124c9aed48f8d95b95a8}\label{classRayLib_1_1Vector2_a38de2930ddef124c9aed48f8d95b95a8}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$T$>$\& \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const float \&}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiply vector by factor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em factor} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector2$<$\+T$>$\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_aa3aee4f99526943be386874df1e9491e}\label{classRayLib_1_1Vector2_aa3aee4f99526943be386874df1e9491e}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$T$>$\& \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a4aaa3bbe341ccf79230f19d253a57650}\label{classRayLib_1_1Vector2_a4aaa3bbe341ccf79230f19d253a57650}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$T$>$ \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_ad65ae258be97bf2fc3bd642bd7376fcf}\label{classRayLib_1_1Vector2_ad65ae258be97bf2fc3bd642bd7376fcf}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$T$>$\& \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a46ee10cc1643962c7edec4ce665d624f}\label{classRayLib_1_1Vector2_a46ee10cc1643962c7edec4ce665d624f}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+boost\+::property\+\_\+tree\+::ptree\& \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_ae2aafd1c17ecc712d91d4e5cbcff69b2}\label{classRayLib_1_1Vector2_ae2aafd1c17ecc712d91d4e5cbcff69b2}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_a23332aeed52cb2a14f0be20d4ab6fa2a}\label{classRayLib_1_1Vector2_a23332aeed52cb2a14f0be20d4ab6fa2a}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$T$>$\& \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRayLib_1_1Vector2}{Vector2}}$<$ T $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector2$<$\+T$>$\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRayLib_1_1Vector2_aca78a177bfc149213ca47c1815fd2126}\label{classRayLib_1_1Vector2_aca78a177bfc149213ca47c1815fd2126}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!x@{x}}
+\index{x@{x}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::x}
+
+\mbox{\Hypertarget{classRayLib_1_1Vector2_ae4be864b58481a1dd4b142cee871ecef}\label{classRayLib_1_1Vector2_ae4be864b58481a1dd4b142cee871ecef}} 
+\index{RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}!y@{y}}
+\index{y@{y}!RayLib::Vector2$<$ T $>$@{RayLib::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ T $>$\+::y}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Ray\+Lib/sources/\+Vector2/\mbox{\hyperlink{Vector2_8hpp}{Vector2.\+hpp}}\end{DoxyCompactItemize}

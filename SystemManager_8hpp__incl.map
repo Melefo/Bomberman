@@ -1,0 +1,22 @@
+<map id="Libs/ECS/sources/Managers/SystemManager/SystemManager.hpp" name="Libs/ECS/sources/Managers/SystemManager/SystemManager.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="785,5,1055,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="123,319,200,345"/>
+<area shape="rect" id="node3" title=" " alt="" coords="317,319,403,345"/>
+<area shape="rect" id="node4" title=" " alt="" coords="892,319,951,345"/>
+<area shape="rect" id="node5" title=" " alt="" coords="743,319,867,345"/>
+<area shape="rect" id="node6" href="$ASystem_8hpp.html" title=" " alt="" coords="765,95,873,121"/>
+<area shape="rect" id="node10" title=" " alt="" coords="975,319,1097,345"/>
+<area shape="rect" id="node7" title=" " alt="" coords="657,319,719,345"/>
+<area shape="rect" id="node8" href="$Entity_8hpp.html" title=" " alt="" coords="482,169,569,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="5,319,88,345"/>
+<area shape="rect" id="node11" href="$ComponentManager_8hpp.html" title=" " alt="" coords="499,244,680,271"/>
+<area shape="rect" id="node12" href="$IComponent_8hpp.html" title=" " alt="" coords="427,319,557,345"/>
+<area shape="rect" id="node19" href="$EntityManager_8hpp.html" title=" " alt="" coords="179,244,323,271"/>
+<area shape="rect" id="node18" title=" " alt="" coords="581,319,632,345"/>
+<area shape="rect" id="node13" title=" " alt="" coords="381,475,457,502"/>
+<area shape="rect" id="node14" href="$IXMLSerializable_8hpp.html" title=" " alt="" coords="477,393,635,420"/>
+<area shape="rect" id="node15" title=" " alt="" coords="831,475,911,502"/>
+<area shape="rect" id="node16" title=" " alt="" coords="481,468,631,509"/>
+<area shape="rect" id="node17" title=" " alt="" coords="655,468,806,509"/>
+<area shape="rect" id="node20" title=" " alt="" coords="229,319,272,345"/>
+</map>

@@ -1,0 +1,525 @@
+\hypertarget{classEntityFactory}{}\doxysection{Entity\+Factory Class Reference}
+\label{classEntityFactory}\index{EntityFactory@{EntityFactory}}
+
+
+{\ttfamily \#include $<$Entity\+Factory.\+hpp$>$}
+
+
+
+Collaboration diagram for Entity\+Factory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classEntityFactory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntityFactory_abb541bdfdd0a7e190b31370964993e8a}{Entity\+Factory}} (\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&coordinator)
+\begin{DoxyCompactList}\small\item\em Construct a new Entity Factory object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEntityFactory_a9706764c5a3d628f3c8393b9134d0b7b}{$\sim$\+Entity\+Factory}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the Entity Factory object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEntityFactory_a36c23d144d874e6eb9c32c807ab6fd58}{Entity\+Factory}} (const \mbox{\hyperlink{classEntityFactory}{Entity\+Factory}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Entity Factory object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEntityFactory}{Entity\+Factory}} \& \mbox{\hyperlink{classEntityFactory_a9d78075d12579fcbc6e752bebfba9ae8}{operator=}} (const \mbox{\hyperlink{classEntityFactory}{Entity\+Factory}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename... T\+Args$>$ }\\void \mbox{\hyperlink{classEntityFactory_a7873ae2b590d4bb26bfdea0271b0c315}{create\+Entity}} (T\+Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Create a new Entity object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a4e0cbf0ecb31b13b18c6b28645c9202a}{create\+Button}} (const std\+::string \&texture\+Path=\char`\"{}../assets/Default\+\_\+texture.\+png\char`\"{}, bool lerp=true)
+\begin{DoxyCompactList}\small\item\em Create a Button object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a173768c0dffb9dadcb88ef2b7d037227}{create\+Text\+Box}} (int max\+Length, const std\+::string \&font\+Path, float size, float spacing=0.\+0f, \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} color=B\+L\+A\+CK)
+\begin{DoxyCompactList}\small\item\em Create a Text\+Box object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a419cba7936787be4451112d07289fed7}{create\+Wall}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} pos)
+\begin{DoxyCompactList}\small\item\em Create a Wall object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_acbd161d4f49364d5ce2145868f40a698}{create\+Box}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} pos, const int level, const bool draggable)
+\begin{DoxyCompactList}\small\item\em Create a Box object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_ac6efd5ee55ca8bb1cfc08020b02355f2}{create\+Player}} (\mbox{\hyperlink{structEngine_1_1playerkeys}{Engine\+::playerkeys}} \&keys, int nbr\+Of\+The\+Player)
+\begin{DoxyCompactList}\small\item\em Create a Player object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a05e6e181b77212ed4ba4a577e008003b}{create\+Base\+H\+UD}} (int nbr\+Of\+The\+Player)
+\begin{DoxyCompactList}\small\item\em Create a basic H\+UD part. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_aab102c718b15ecb80121a2629b1efb7d}{create\+H\+U\+D\+Text}} (\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&controller, int nbr\+Of\+The\+Player)
+\begin{DoxyCompactList}\small\item\em Create a H\+UD part with a text. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a0d79e94dd10a4ee677a7615cbd971bf8}{create\+H\+U\+D\+Background}} (int nbr\+Of\+The\+Player)
+\begin{DoxyCompactList}\small\item\em Create a H\+UD part for the background. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a233795b17bb1237bf4aef222e4cc8f8e}{create\+AI}} (int nbr\+AI)
+\begin{DoxyCompactList}\small\item\em Create a AI object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a25a8ccf403488325ac4a5d4ad1ab5cfa}{create\+H\+U\+D\+Bonus\+Icon}} (\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&controller, int nbr\+Of\+The\+Player, const std\+::string \&path, float \&timer)
+\begin{DoxyCompactList}\small\item\em Create a H\+UD part with a bonus icon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a30f194efcbcb2a4e9ae797ca7742eb3e}{create\+H\+U\+D\+Bonus\+Bar}} (\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&controller, int nbr\+Of\+The\+Player, const std\+::string \&type, float \&timer)
+\begin{DoxyCompactList}\small\item\em Create a H\+UD part with a bonus bar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a7a666189d72f47a5cfca9867329cae15}{create\+Text}} (const std\+::string \&content, const std\+::string \&font\+Path, float size, float spacing=0.\+0f, \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} color=B\+L\+A\+CK)
+\begin{DoxyCompactList}\small\item\em Create a Text object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_ae9f3150cfade8501b7961b7058cdc86d}{create\+Pick\+Up}} (void)
+\begin{DoxyCompactList}\small\item\em Create a random Pick Up bonus. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a8e6ccbf9d90b56c5982c214bcf93bb1e}{create\+Speed\+Pick\+Up}} (void)
+\begin{DoxyCompactList}\small\item\em Create a Speed Pick Up object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a10b4cc701b5ccd1a9d9f7b941c5508d3}{create\+Range\+Pick\+Up}} (void)
+\begin{DoxyCompactList}\small\item\em Create a Range Pick Up object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a835cbc6efaa1189c1bac89a22cfd6980}{create\+Cooldown\+Pick\+Up}} (void)
+\begin{DoxyCompactList}\small\item\em Create a Cooldown Pick Up object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_aa872fc6236d12820cb63a09eac09fa9b}{create\+Bomb}} (float radius, \mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Component\+::\+Explosion\+::\+Explosion\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Create a Bomb object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a246e14cc5f0dc4e3f71236cecd08482e}{create\+Camera}} (\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&camera, const std\+::string \&music\+Path=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Create a Camera object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a6084599644e0d2efa4e39a4692f0feda}{create\+Particle}} (const std\+::string \&texture\+Path, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ min\+Max\+Size, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$ min\+Max\+Sides, float start\+Speed=2.\+0f, float life\+Time=1.\+5f)
+\begin{DoxyCompactList}\small\item\em Create a Particle object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classEntityFactory_a380d5a21d47dcfc4e15b93194f94c43a}{create\+Floor}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ map\+Size)
+\begin{DoxyCompactList}\small\item\em Create a Floor object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \& \mbox{\hyperlink{classEntityFactory_a949ff11a2eb369e1e17e117188729ce4}{\+\_\+coordinator}}
+\item 
+std\+::vector$<$ std\+::function$<$ \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&(void)$>$ $>$ \mbox{\hyperlink{classEntityFactory_a8a5e4f147cdf62317c55a520d0af163a}{\+\_\+pickup\+Functions}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEntityFactory_abb541bdfdd0a7e190b31370964993e8a}\label{classEntityFactory_abb541bdfdd0a7e190b31370964993e8a}} 
+\index{EntityFactory@{EntityFactory}!EntityFactory@{EntityFactory}}
+\index{EntityFactory@{EntityFactory}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{EntityFactory()}{EntityFactory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Entity\+Factory\+::\+Entity\+Factory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}} \&}]{coordinator }\end{DoxyParamCaption})}
+
+
+
+Construct a new Entity Factory object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinator} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEntityFactory_a9706764c5a3d628f3c8393b9134d0b7b}\label{classEntityFactory_a9706764c5a3d628f3c8393b9134d0b7b}} 
+\index{EntityFactory@{EntityFactory}!````~EntityFactory@{$\sim$EntityFactory}}
+\index{````~EntityFactory@{$\sim$EntityFactory}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{$\sim$EntityFactory()}{~EntityFactory()}}
+{\footnotesize\ttfamily Entity\+Factory\+::$\sim$\+Entity\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the Entity Factory object. 
+
+\mbox{\Hypertarget{classEntityFactory_a36c23d144d874e6eb9c32c807ab6fd58}\label{classEntityFactory_a36c23d144d874e6eb9c32c807ab6fd58}} 
+\index{EntityFactory@{EntityFactory}!EntityFactory@{EntityFactory}}
+\index{EntityFactory@{EntityFactory}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{EntityFactory()}{EntityFactory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Entity\+Factory\+::\+Entity\+Factory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEntityFactory}{Entity\+Factory}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Entity Factory object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEntityFactory_a233795b17bb1237bf4aef222e4cc8f8e}\label{classEntityFactory_a233795b17bb1237bf4aef222e4cc8f8e}} 
+\index{EntityFactory@{EntityFactory}!createAI@{createAI}}
+\index{createAI@{createAI}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createAI()}{createAI()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+AI (\begin{DoxyParamCaption}\item[{int}]{nbr\+AI }\end{DoxyParamCaption})}
+
+
+
+Create a AI object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a05e6e181b77212ed4ba4a577e008003b}\label{classEntityFactory_a05e6e181b77212ed4ba4a577e008003b}} 
+\index{EntityFactory@{EntityFactory}!createBaseHUD@{createBaseHUD}}
+\index{createBaseHUD@{createBaseHUD}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createBaseHUD()}{createBaseHUD()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Base\+H\+UD (\begin{DoxyParamCaption}\item[{int}]{nbr\+Of\+The\+Player }\end{DoxyParamCaption})}
+
+
+
+Create a basic H\+UD part. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}}} & \& the controller the H\+UD is linked to \\
+\hline
+{\em int} & The n th player. So the function knows where to put the hud \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_aa872fc6236d12820cb63a09eac09fa9b}\label{classEntityFactory_aa872fc6236d12820cb63a09eac09fa9b}} 
+\index{EntityFactory@{EntityFactory}!createBomb@{createBomb}}
+\index{createBomb@{createBomb}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createBomb()}{createBomb()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Bomb (\begin{DoxyParamCaption}\item[{float}]{radius,  }\item[{\mbox{\hyperlink{classComponent_1_1Explosion_ac3a97eec52c0b682298570cd5e21cc71}{Component\+::\+Explosion\+::\+Explosion\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Create a Bomb object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & (how many squares should the explosion span) \\
+\hline
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+si on spawn une bombe sur le joueur, on est bloqués\mbox{\Hypertarget{classEntityFactory_acbd161d4f49364d5ce2145868f40a698}\label{classEntityFactory_acbd161d4f49364d5ce2145868f40a698}} 
+\index{EntityFactory@{EntityFactory}!createBox@{createBox}}
+\index{createBox@{createBox}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createBox()}{createBox()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{pos,  }\item[{const int}]{level,  }\item[{const bool}]{draggable }\end{DoxyParamCaption})}
+
+
+
+Create a Box object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & The level of the box \textquotesingle{}1\textquotesingle{} =$>$ Weak \textquotesingle{}2\textquotesingle{} =$>$ Medium \textquotesingle{}3\textquotesingle{} =$>$ Strong \\
+\hline
+{\em draggable} & Is the box draggable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a4e0cbf0ecb31b13b18c6b28645c9202a}\label{classEntityFactory_a4e0cbf0ecb31b13b18c6b28645c9202a}} 
+\index{EntityFactory@{EntityFactory}!createButton@{createButton}}
+\index{createButton@{createButton}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createButton()}{createButton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Path = {\ttfamily \char`\"{}../assets/Default\+\_\+texture.png\char`\"{}},  }\item[{bool}]{lerp = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Create a Button object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a246e14cc5f0dc4e3f71236cecd08482e}\label{classEntityFactory_a246e14cc5f0dc4e3f71236cecd08482e}} 
+\index{EntityFactory@{EntityFactory}!createCamera@{createCamera}}
+\index{createCamera@{createCamera}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createCamera()}{createCamera()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Camera3D}{Ray\+Lib\+::\+Camera3D}} \&}]{camera,  }\item[{const std\+::string \&}]{music\+Path = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Create a Camera object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & \\
+\hline
+{\em music\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a835cbc6efaa1189c1bac89a22cfd6980}\label{classEntityFactory_a835cbc6efaa1189c1bac89a22cfd6980}} 
+\index{EntityFactory@{EntityFactory}!createCooldownPickUp@{createCooldownPickUp}}
+\index{createCooldownPickUp@{createCooldownPickUp}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createCooldownPickUp()}{createCooldownPickUp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Cooldown\+Pick\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create a Cooldown Pick Up object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a7873ae2b590d4bb26bfdea0271b0c315}\label{classEntityFactory_a7873ae2b590d4bb26bfdea0271b0c315}} 
+\index{EntityFactory@{EntityFactory}!createEntity@{createEntity}}
+\index{createEntity@{createEntity}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createEntity()}{createEntity()}}
+{\footnotesize\ttfamily template$<$typename T , typename... T\+Args$>$ \\
+void Entity\+Factory\+::create\+Entity (\begin{DoxyParamCaption}\item[{T\+Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a new Entity object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em T\+Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEntityFactory_a380d5a21d47dcfc4e15b93194f94c43a}\label{classEntityFactory_a380d5a21d47dcfc4e15b93194f94c43a}} 
+\index{EntityFactory@{EntityFactory}!createFloor@{createFloor}}
+\index{createFloor@{createFloor}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createFloor()}{createFloor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Floor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{map\+Size }\end{DoxyParamCaption})}
+
+
+
+Create a Floor object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map\+Size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a0d79e94dd10a4ee677a7615cbd971bf8}\label{classEntityFactory_a0d79e94dd10a4ee677a7615cbd971bf8}} 
+\index{EntityFactory@{EntityFactory}!createHUDBackground@{createHUDBackground}}
+\index{createHUDBackground@{createHUDBackground}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createHUDBackground()}{createHUDBackground()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+H\+U\+D\+Background (\begin{DoxyParamCaption}\item[{int}]{nbr\+Of\+The\+Player }\end{DoxyParamCaption})}
+
+
+
+Create a H\+UD part for the background. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}}} & \& the controller the H\+UD is linked to \\
+\hline
+{\em int} & The n th player. So the function knows where to put the hud \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a30f194efcbcb2a4e9ae797ca7742eb3e}\label{classEntityFactory_a30f194efcbcb2a4e9ae797ca7742eb3e}} 
+\index{EntityFactory@{EntityFactory}!createHUDBonusBar@{createHUDBonusBar}}
+\index{createHUDBonusBar@{createHUDBonusBar}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createHUDBonusBar()}{createHUDBonusBar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+H\+U\+D\+Bonus\+Bar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&}]{controller,  }\item[{int}]{nbr\+Of\+The\+Player,  }\item[{const std\+::string \&}]{type,  }\item[{float \&}]{timer }\end{DoxyParamCaption})}
+
+
+
+Create a H\+UD part with a bonus bar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}}} & \& the controller the H\+UD is linked to \\
+\hline
+{\em int} & The n th player. So the function knows where to put the hud \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a25a8ccf403488325ac4a5d4ad1ab5cfa}\label{classEntityFactory_a25a8ccf403488325ac4a5d4ad1ab5cfa}} 
+\index{EntityFactory@{EntityFactory}!createHUDBonusIcon@{createHUDBonusIcon}}
+\index{createHUDBonusIcon@{createHUDBonusIcon}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createHUDBonusIcon()}{createHUDBonusIcon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+H\+U\+D\+Bonus\+Icon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&}]{controller,  }\item[{int}]{nbr\+Of\+The\+Player,  }\item[{const std\+::string \&}]{path,  }\item[{float \&}]{timer }\end{DoxyParamCaption})}
+
+
+
+Create a H\+UD part with a bonus icon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}}} & \& the controller the H\+UD is linked to \\
+\hline
+{\em int} & The n th player. So the function knows where to put the hud \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_aab102c718b15ecb80121a2629b1efb7d}\label{classEntityFactory_aab102c718b15ecb80121a2629b1efb7d}} 
+\index{EntityFactory@{EntityFactory}!createHUDText@{createHUDText}}
+\index{createHUDText@{createHUDText}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createHUDText()}{createHUDText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+H\+U\+D\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&}]{controller,  }\item[{int}]{nbr\+Of\+The\+Player }\end{DoxyParamCaption})}
+
+
+
+Create a H\+UD part with a text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}}} & \& the controller the H\+UD is linked to \\
+\hline
+{\em int} & The n th player. So the function knows where to put the hud \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a6084599644e0d2efa4e39a4692f0feda}\label{classEntityFactory_a6084599644e0d2efa4e39a4692f0feda}} 
+\index{EntityFactory@{EntityFactory}!createParticle@{createParticle}}
+\index{createParticle@{createParticle}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createParticle()}{createParticle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Particle (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Path,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{min\+Max\+Size,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ int $>$}]{min\+Max\+Sides,  }\item[{float}]{start\+Speed = {\ttfamily 2.0f},  }\item[{float}]{life\+Time = {\ttfamily 1.5f} }\end{DoxyParamCaption})}
+
+
+
+Create a Particle object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture\+Path} & \\
+\hline
+{\em min\+Max\+Size} & \\
+\hline
+{\em min\+Max\+Sides} & \\
+\hline
+{\em start\+Speed} & \\
+\hline
+{\em life\+Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_ae9f3150cfade8501b7961b7058cdc86d}\label{classEntityFactory_ae9f3150cfade8501b7961b7058cdc86d}} 
+\index{EntityFactory@{EntityFactory}!createPickUp@{createPickUp}}
+\index{createPickUp@{createPickUp}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createPickUp()}{createPickUp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Pick\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create a random Pick Up bonus. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_ac6efd5ee55ca8bb1cfc08020b02355f2}\label{classEntityFactory_ac6efd5ee55ca8bb1cfc08020b02355f2}} 
+\index{EntityFactory@{EntityFactory}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEngine_1_1playerkeys}{Engine\+::playerkeys}} \&}]{keys,  }\item[{int}]{nbr\+Of\+The\+Player }\end{DoxyParamCaption})}
+
+
+
+Create a Player object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Engine\+::playerkeys\&} & keys used to controller the player \\
+\hline
+{\em int} & To set the tag with the nbr of the player (J1, J2, J3...) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a10b4cc701b5ccd1a9d9f7b941c5508d3}\label{classEntityFactory_a10b4cc701b5ccd1a9d9f7b941c5508d3}} 
+\index{EntityFactory@{EntityFactory}!createRangePickUp@{createRangePickUp}}
+\index{createRangePickUp@{createRangePickUp}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createRangePickUp()}{createRangePickUp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Range\+Pick\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create a Range Pick Up object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a8e6ccbf9d90b56c5982c214bcf93bb1e}\label{classEntityFactory_a8e6ccbf9d90b56c5982c214bcf93bb1e}} 
+\index{EntityFactory@{EntityFactory}!createSpeedPickUp@{createSpeedPickUp}}
+\index{createSpeedPickUp@{createSpeedPickUp}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createSpeedPickUp()}{createSpeedPickUp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Speed\+Pick\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create a Speed Pick Up object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a7a666189d72f47a5cfca9867329cae15}\label{classEntityFactory_a7a666189d72f47a5cfca9867329cae15}} 
+\index{EntityFactory@{EntityFactory}!createText@{createText}}
+\index{createText@{createText}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createText()}{createText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{content,  }\item[{const std\+::string \&}]{font\+Path,  }\item[{float}]{size,  }\item[{float}]{spacing = {\ttfamily 0.0f},  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}}}]{color = {\ttfamily BLACK} }\end{DoxyParamCaption})}
+
+
+
+Create a Text object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a173768c0dffb9dadcb88ef2b7d037227}\label{classEntityFactory_a173768c0dffb9dadcb88ef2b7d037227}} 
+\index{EntityFactory@{EntityFactory}!createTextBox@{createTextBox}}
+\index{createTextBox@{createTextBox}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createTextBox()}{createTextBox()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Text\+Box (\begin{DoxyParamCaption}\item[{int}]{max\+Length,  }\item[{const std\+::string \&}]{font\+Path,  }\item[{float}]{size,  }\item[{float}]{spacing = {\ttfamily 0.0f},  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}}}]{color = {\ttfamily BLACK} }\end{DoxyParamCaption})}
+
+
+
+Create a Text\+Box object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a419cba7936787be4451112d07289fed7}\label{classEntityFactory_a419cba7936787be4451112d07289fed7}} 
+\index{EntityFactory@{EntityFactory}!createWall@{createWall}}
+\index{createWall@{createWall}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{createWall()}{createWall()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& Entity\+Factory\+::create\+Wall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{pos }\end{DoxyParamCaption})}
+
+
+
+Create a Wall object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\+:\+:\& The entity created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEntityFactory_a9d78075d12579fcbc6e752bebfba9ae8}\label{classEntityFactory_a9d78075d12579fcbc6e752bebfba9ae8}} 
+\index{EntityFactory@{EntityFactory}!operator=@{operator=}}
+\index{operator=@{operator=}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEntityFactory}{Entity\+Factory}}\& Entity\+Factory\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEntityFactory}{Entity\+Factory}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Entity\+Factor\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEntityFactory_a949ff11a2eb369e1e17e117188729ce4}\label{classEntityFactory_a949ff11a2eb369e1e17e117188729ce4}} 
+\index{EntityFactory@{EntityFactory}!\_coordinator@{\_coordinator}}
+\index{\_coordinator@{\_coordinator}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{\_coordinator}{\_coordinator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Coordinator}{E\+C\+S\+::\+Coordinator}}\& Entity\+Factory\+::\+\_\+coordinator\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classEntityFactory_a8a5e4f147cdf62317c55a520d0af163a}\label{classEntityFactory_a8a5e4f147cdf62317c55a520d0af163a}} 
+\index{EntityFactory@{EntityFactory}!\_pickupFunctions@{\_pickupFunctions}}
+\index{\_pickupFunctions@{\_pickupFunctions}!EntityFactory@{EntityFactory}}
+\doxysubsubsection{\texorpdfstring{\_pickupFunctions}{\_pickupFunctions}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::function$<$\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\&(void)$>$ $>$ Entity\+Factory\+::\+\_\+pickup\+Functions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Entity\+Factory/\mbox{\hyperlink{EntityFactory_8hpp}{Entity\+Factory.\+hpp}}\item 
+Libs/\+Engine/sources/\+Entity\+Factory/\mbox{\hyperlink{EntityFactory_8cpp}{Entity\+Factory.\+cpp}}\end{DoxyCompactItemize}

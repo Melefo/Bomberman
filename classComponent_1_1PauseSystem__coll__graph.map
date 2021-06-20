@@ -1,0 +1,7 @@
+<map id="Component::PauseSystem" name="Component::PauseSystem">
+<area shape="rect" id="node1" title=" " alt="" coords="48,881,240,1047"/>
+<area shape="rect" id="node2" href="$classECS_1_1ASystem.html" title="Base Abstract class to create a new System." alt="" coords="5,521,168,819"/>
+<area shape="rect" id="node3" href="$classRayLib_1_1Input.html" title="Input encapsulation." alt="" coords="192,543,360,797"/>
+<area shape="rect" id="node4" href="$classRayLib_1_1Vector2.html" title=" " alt="" coords="191,205,361,444"/>
+<area shape="rect" id="node5" href="$classIXMLSerializable.html" title=" " alt="" coords="193,5,359,156"/>
+</map>

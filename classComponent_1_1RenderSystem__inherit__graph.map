@@ -1,0 +1,4 @@
+<map id="Component::RenderSystem" name="Component::RenderSystem">
+<area shape="rect" id="node1" title="Renderer system." alt="" coords="5,351,205,501"/>
+<area shape="rect" id="node2" href="$classECS_1_1ASystem.html" title="Base Abstract class to create a new System." alt="" coords="24,5,187,303"/>
+</map>

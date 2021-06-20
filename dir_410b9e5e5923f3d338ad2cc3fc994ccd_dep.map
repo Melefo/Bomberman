@@ -1,0 +1,15 @@
+<map id="Libs/Engine/sources/ModelShader" name="Libs/Engine/sources/ModelShader">
+<area shape="rect" id="node5" href="dir_ba9f96492b222561776079c293f18c0c.html" title="AssetManager" alt="" coords="145,159,260,207"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000075_000035.html" title="2" alt="" coords="162,133,171,148"/>
+<area shape="rect" id="node6" href="dir_4a120dbb11348b2823d2a12dcab2f1e3.html" title="ECS" alt="" coords="49,159,121,207"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000075_000002.html" title="1" alt="" coords="91,134,101,148"/>
+<area shape="rect" id="node2" href="dir_b7b9367eb2b1fa996207797259077e67.html" title="BasicLight" alt="" coords="303,63,393,111"/>
+<area shape="rect" id="node4" href="dir_2e574b6382041dc2a136b1675bed65ad.html" title="RayLib" alt="" coords="261,255,333,303"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000076_000005.html" title="4" alt="" coords="312,232,321,246"/>
+<area shape="rect" id="node3" href="dir_831c0b5d9bc7aa9da0fa880f33b4af3d.html" title="TerrainShader" alt="" coords="169,63,279,111"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000077_000005.html" title="2" alt="" coords="296,228,306,242"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000077_000035.html" title="1" alt="" coords="215,135,225,150"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000035_000005.html" title="1" alt="" coords="263,228,272,243"/>
+<area shape="rect" id="clust2" href="dir_410b9e5e5923f3d338ad2cc3fc994ccd.html" alt="" coords="27,52,404,121"/>
+<area shape="rect" id="clust1" href="dir_12f21af94f7aa2f818b030247191ed7e.html" title="sources" alt="" coords="16,16,415,132"/>
+</map>

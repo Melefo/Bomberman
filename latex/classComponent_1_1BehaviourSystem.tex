@@ -1,0 +1,166 @@
+\hypertarget{classComponent_1_1BehaviourSystem}{}\doxysection{Component\+::Behaviour\+System Class Reference}
+\label{classComponent_1_1BehaviourSystem}\index{Component::BehaviourSystem@{Component::BehaviourSystem}}
+
+
+{\ttfamily \#include $<$Behaviour\+System.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Behaviour\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classComponent_1_1BehaviourSystem__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Behaviour\+System\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{classComponent_1_1BehaviourSystem__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1BehaviourSystem_af7dc082ebfc4b1781978cc8428fce45a}{Behaviour\+System}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Behaviour System object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1BehaviourSystem_afb48f67d6b4e60b7fcb44aa07d3dc6f5}{$\sim$\+Behaviour\+System}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Behaviour System object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1BehaviourSystem_ae1dbbb971dc2e0dc0f310d8a69b039bf}{Behaviour\+System}} (const \mbox{\hyperlink{classComponent_1_1BehaviourSystem}{Behaviour\+System}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Behaviour System object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1BehaviourSystem}{Behaviour\+System}} \& \mbox{\hyperlink{classComponent_1_1BehaviourSystem_a70c7d49c4c21a1628c2df1021c441a09}{operator=}} (const \mbox{\hyperlink{classComponent_1_1BehaviourSystem}{Behaviour\+System}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1BehaviourSystem_a18e2c5d96ccf16cccbefd7fc44647285}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Update an Entity and its components. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1BehaviourSystem_addcbb0e65393290b199051b00f81da88}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Update an Entity and its components at a fixed time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1BehaviourSystem_ae103cdc27adf83e6e09af66b86f4cc77}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Update an Entity and its components after the others. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1BehaviourSystem_af7dc082ebfc4b1781978cc8428fce45a}\label{classComponent_1_1BehaviourSystem_af7dc082ebfc4b1781978cc8428fce45a}} 
+\index{Component::BehaviourSystem@{Component::BehaviourSystem}!BehaviourSystem@{BehaviourSystem}}
+\index{BehaviourSystem@{BehaviourSystem}!Component::BehaviourSystem@{Component::BehaviourSystem}}
+\doxysubsubsection{\texorpdfstring{BehaviourSystem()}{BehaviourSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Behaviour\+System\+::\+Behaviour\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Behaviour System object. 
+
+\mbox{\Hypertarget{classComponent_1_1BehaviourSystem_afb48f67d6b4e60b7fcb44aa07d3dc6f5}\label{classComponent_1_1BehaviourSystem_afb48f67d6b4e60b7fcb44aa07d3dc6f5}} 
+\index{Component::BehaviourSystem@{Component::BehaviourSystem}!````~BehaviourSystem@{$\sim$BehaviourSystem}}
+\index{````~BehaviourSystem@{$\sim$BehaviourSystem}!Component::BehaviourSystem@{Component::BehaviourSystem}}
+\doxysubsubsection{\texorpdfstring{$\sim$BehaviourSystem()}{~BehaviourSystem()}}
+{\footnotesize\ttfamily Component\+::\+Behaviour\+System\+::$\sim$\+Behaviour\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Behaviour System object. 
+
+\mbox{\Hypertarget{classComponent_1_1BehaviourSystem_ae1dbbb971dc2e0dc0f310d8a69b039bf}\label{classComponent_1_1BehaviourSystem_ae1dbbb971dc2e0dc0f310d8a69b039bf}} 
+\index{Component::BehaviourSystem@{Component::BehaviourSystem}!BehaviourSystem@{BehaviourSystem}}
+\index{BehaviourSystem@{BehaviourSystem}!Component::BehaviourSystem@{Component::BehaviourSystem}}
+\doxysubsubsection{\texorpdfstring{BehaviourSystem()}{BehaviourSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Behaviour\+System\+::\+Behaviour\+System (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1BehaviourSystem}{Behaviour\+System}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Behaviour System object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1BehaviourSystem_addcbb0e65393290b199051b00f81da88}\label{classComponent_1_1BehaviourSystem_addcbb0e65393290b199051b00f81da88}} 
+\index{Component::BehaviourSystem@{Component::BehaviourSystem}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::BehaviourSystem@{Component::BehaviourSystem}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Behaviour\+System\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update an Entity and its components at a fixed time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity to update \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classECS_1_1ASystem_a3940112a5a64fcbd84215c7669b416ea}{E\+C\+S\+::\+A\+System}}.
+
+\mbox{\Hypertarget{classComponent_1_1BehaviourSystem_ae103cdc27adf83e6e09af66b86f4cc77}\label{classComponent_1_1BehaviourSystem_ae103cdc27adf83e6e09af66b86f4cc77}} 
+\index{Component::BehaviourSystem@{Component::BehaviourSystem}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::BehaviourSystem@{Component::BehaviourSystem}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Behaviour\+System\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update an Entity and its components after the others. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta\+Time since the last Update \\
+\hline
+{\em entity} & Entity to update \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classECS_1_1ASystem_a8b86083ca0b66e7c905d4aba5ddb82ab}{E\+C\+S\+::\+A\+System}}.
+
+\mbox{\Hypertarget{classComponent_1_1BehaviourSystem_a70c7d49c4c21a1628c2df1021c441a09}\label{classComponent_1_1BehaviourSystem_a70c7d49c4c21a1628c2df1021c441a09}} 
+\index{Component::BehaviourSystem@{Component::BehaviourSystem}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::BehaviourSystem@{Component::BehaviourSystem}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1BehaviourSystem}{Behaviour\+System}}\& Component\+::\+Behaviour\+System\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1BehaviourSystem}{Behaviour\+System}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1BehaviourSystem}{Behaviour\+System}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1BehaviourSystem_a18e2c5d96ccf16cccbefd7fc44647285}\label{classComponent_1_1BehaviourSystem_a18e2c5d96ccf16cccbefd7fc44647285}} 
+\index{Component::BehaviourSystem@{Component::BehaviourSystem}!Update@{Update}}
+\index{Update@{Update}!Component::BehaviourSystem@{Component::BehaviourSystem}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Behaviour\+System\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update an Entity and its components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta\+Time since the last Update \\
+\hline
+{\em entity} & Entity to update \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classECS_1_1ASystem_aa286ca0bdb06a0ad0fd66915d9192266}{E\+C\+S\+::\+A\+System}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Systems/\+Behaviour\+System/\mbox{\hyperlink{BehaviourSystem_8hpp}{Behaviour\+System.\+hpp}}\item 
+Libs/\+Engine/sources/\+Systems/\+Behaviour\+System/\mbox{\hyperlink{BehaviourSystem_8cpp}{Behaviour\+System.\+cpp}}\end{DoxyCompactItemize}

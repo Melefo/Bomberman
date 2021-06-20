@@ -1,0 +1,195 @@
+\hypertarget{classComponent_1_1RangeBoost}{}\doxysection{Component\+::Range\+Boost Class Reference}
+\label{classComponent_1_1RangeBoost}\index{Component::RangeBoost@{Component::RangeBoost}}
+
+
+{\ttfamily \#include $<$Range\+Boost.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Range\+Boost\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1RangeBoost__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Range\+Boost\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1RangeBoost__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1RangeBoost_a7ed4a7acedd568fc944245f72577ee07}{Range\+Boost}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, float pick\+Up\+Radius=2.\+0f)
+\begin{DoxyCompactList}\small\item\em Construct a new Range Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1RangeBoost_a5ca22a9b96e2c0ad2f6f0a562686e11f}{$\sim$\+Range\+Boost}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Range Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1RangeBoost_a29eb68029ef99c6f25c409596364dc2c}{Range\+Boost}} (const \mbox{\hyperlink{classComponent_1_1RangeBoost}{Range\+Boost}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Range Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1RangeBoost}{Range\+Boost}} \& \mbox{\hyperlink{classComponent_1_1RangeBoost_a4dd16a77a56f824623973cf151c3c0dd}{operator=}} (const \mbox{\hyperlink{classComponent_1_1RangeBoost}{Range\+Boost}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1RangeBoost_a3f4147109371258bd5eda9c0b8af6351}{On\+Pickup}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&collision) override
+\begin{DoxyCompactList}\small\item\em Pickup effect, called when someone walks on me. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1RangeBoost_a50cc95c3eacae04e0d4d111e9255ad5e}{Increment\+Range}} (\mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&acontroller)
+\begin{DoxyCompactList}\small\item\em Applies a speed boost to Acontroller component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1RangeBoost_a1e6e1c513b29c9c6b929252829015485}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called after update. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1RangeBoost_a226885da3223cce41a9fa0b006ab19e7}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1RangeBoost_aac29bcbaf3ecff2718bf046fd029bc21}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1RangeBoost_a7ed4a7acedd568fc944245f72577ee07}\label{classComponent_1_1RangeBoost_a7ed4a7acedd568fc944245f72577ee07}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!RangeBoost@{RangeBoost}}
+\index{RangeBoost@{RangeBoost}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{RangeBoost()}{RangeBoost()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Range\+Boost\+::\+Range\+Boost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{float}]{pick\+Up\+Radius = {\ttfamily 2.0f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Range Boost object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em pick\+Up\+Radius} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1RangeBoost_a5ca22a9b96e2c0ad2f6f0a562686e11f}\label{classComponent_1_1RangeBoost_a5ca22a9b96e2c0ad2f6f0a562686e11f}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!````~RangeBoost@{$\sim$RangeBoost}}
+\index{````~RangeBoost@{$\sim$RangeBoost}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{$\sim$RangeBoost()}{~RangeBoost()}}
+{\footnotesize\ttfamily Component\+::\+Range\+Boost\+::$\sim$\+Range\+Boost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Range Boost object. 
+
+\mbox{\Hypertarget{classComponent_1_1RangeBoost_a29eb68029ef99c6f25c409596364dc2c}\label{classComponent_1_1RangeBoost_a29eb68029ef99c6f25c409596364dc2c}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!RangeBoost@{RangeBoost}}
+\index{RangeBoost@{RangeBoost}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{RangeBoost()}{RangeBoost()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Range\+Boost\+::\+Range\+Boost (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1RangeBoost}{Range\+Boost}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Range Boost object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1RangeBoost_a50cc95c3eacae04e0d4d111e9255ad5e}\label{classComponent_1_1RangeBoost_a50cc95c3eacae04e0d4d111e9255ad5e}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!IncrementRange@{IncrementRange}}
+\index{IncrementRange@{IncrementRange}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{IncrementRange()}{IncrementRange()}}
+{\footnotesize\ttfamily void Component\+::\+Range\+Boost\+::\+Increment\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&}]{acontroller }\end{DoxyParamCaption})}
+
+
+
+Applies a speed boost to Acontroller component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em acontroller} & \\
+\hline
+\end{DoxyParams}
+soit nombre fixe, soit get number + 1\mbox{\Hypertarget{classComponent_1_1RangeBoost_a1e6e1c513b29c9c6b929252829015485}\label{classComponent_1_1RangeBoost_a1e6e1c513b29c9c6b929252829015485}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Range\+Boost\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1APickUp_a25a07df814a209e880fba530a61b5644}{Component\+::\+A\+Pick\+Up}}.
+
+\mbox{\Hypertarget{classComponent_1_1RangeBoost_a3f4147109371258bd5eda9c0b8af6351}\label{classComponent_1_1RangeBoost_a3f4147109371258bd5eda9c0b8af6351}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!OnPickup@{OnPickup}}
+\index{OnPickup@{OnPickup}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{OnPickup()}{OnPickup()}}
+{\footnotesize\ttfamily void Component\+::\+Range\+Boost\+::\+On\+Pickup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pickup effect, called when someone walks on me. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collision} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1APickUp_ad6a5824686f8a7ac85ef4dc5fab134b9}{Component\+::\+A\+Pick\+Up}}.
+
+\mbox{\Hypertarget{classComponent_1_1RangeBoost_aac29bcbaf3ecff2718bf046fd029bc21}\label{classComponent_1_1RangeBoost_aac29bcbaf3ecff2718bf046fd029bc21}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Range\+Boost\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1RangeBoost_a226885da3223cce41a9fa0b006ab19e7}\label{classComponent_1_1RangeBoost_a226885da3223cce41a9fa0b006ab19e7}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Range\+Boost\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1RangeBoost_a4dd16a77a56f824623973cf151c3c0dd}\label{classComponent_1_1RangeBoost_a4dd16a77a56f824623973cf151c3c0dd}} 
+\index{Component::RangeBoost@{Component::RangeBoost}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::RangeBoost@{Component::RangeBoost}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1RangeBoost}{Range\+Boost}}\& Component\+::\+Range\+Boost\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1RangeBoost}{Range\+Boost}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1RangeBoost}{Range\+Boost}}\& 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Range\+Boost/\mbox{\hyperlink{RangeBoost_8hpp}{Range\+Boost.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Range\+Boost/\mbox{\hyperlink{RangeBoost_8cpp}{Range\+Boost.\+cpp}}\end{DoxyCompactItemize}

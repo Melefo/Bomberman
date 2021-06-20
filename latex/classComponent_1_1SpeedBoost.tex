@@ -1,0 +1,191 @@
+\hypertarget{classComponent_1_1SpeedBoost}{}\doxysection{Component\+::Speed\+Boost Class Reference}
+\label{classComponent_1_1SpeedBoost}\index{Component::SpeedBoost@{Component::SpeedBoost}}
+
+
+{\ttfamily \#include $<$Speed\+Boost.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Speed\+Boost\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1SpeedBoost__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Speed\+Boost\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1SpeedBoost__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1SpeedBoost_a1c08adee2c51c7bd6a0fd16b516703ba}{Speed\+Boost}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity, float pick\+Up\+Radius=2.\+0f)
+\begin{DoxyCompactList}\small\item\em Construct a new Speed Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1SpeedBoost_a07f6d32a7ac57b0bcb5d88709ab1ee9d}{$\sim$\+Speed\+Boost}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Speed Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1SpeedBoost_a94f4b40f80517148c5f1516de7a4910a}{Speed\+Boost}} (const \mbox{\hyperlink{classComponent_1_1SpeedBoost}{Speed\+Boost}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Speed Boost object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1SpeedBoost}{Speed\+Boost}} \& \mbox{\hyperlink{classComponent_1_1SpeedBoost_a7625618cae9f6de44435c04331b81e06}{operator=}} (const \mbox{\hyperlink{classComponent_1_1SpeedBoost}{Speed\+Boost}} \&other)=default
+\item 
+void \mbox{\hyperlink{classComponent_1_1SpeedBoost_a3a33cb4c142064eaf6a8f0549facb7b0}{On\+Pickup}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&collision) override
+\begin{DoxyCompactList}\small\item\em Pickup effect, called when someone walks on me. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1SpeedBoost_adc0694cafe95211056fbfd5eebb17062}{Apply\+Boost}} (\mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&acontroller)
+\begin{DoxyCompactList}\small\item\em Applies a speed boost to Acontroller component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1SpeedBoost_ac92819c55e65899268c282e517c1db51}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Called after update. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1SpeedBoost_a1bd122bcbd40151dc266643d84902bce}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1SpeedBoost_adedefc7449b26db757f311ee9cd941f0}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_a1c08adee2c51c7bd6a0fd16b516703ba}\label{classComponent_1_1SpeedBoost_a1c08adee2c51c7bd6a0fd16b516703ba}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!SpeedBoost@{SpeedBoost}}
+\index{SpeedBoost@{SpeedBoost}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{SpeedBoost()}{SpeedBoost()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Speed\+Boost\+::\+Speed\+Boost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity,  }\item[{float}]{pick\+Up\+Radius = {\ttfamily 2.0f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Speed Boost object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+{\em pick\+Up\+Radius} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_a07f6d32a7ac57b0bcb5d88709ab1ee9d}\label{classComponent_1_1SpeedBoost_a07f6d32a7ac57b0bcb5d88709ab1ee9d}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!````~SpeedBoost@{$\sim$SpeedBoost}}
+\index{````~SpeedBoost@{$\sim$SpeedBoost}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{$\sim$SpeedBoost()}{~SpeedBoost()}}
+{\footnotesize\ttfamily Component\+::\+Speed\+Boost\+::$\sim$\+Speed\+Boost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Speed Boost object. 
+
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_a94f4b40f80517148c5f1516de7a4910a}\label{classComponent_1_1SpeedBoost_a94f4b40f80517148c5f1516de7a4910a}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!SpeedBoost@{SpeedBoost}}
+\index{SpeedBoost@{SpeedBoost}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{SpeedBoost()}{SpeedBoost()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Speed\+Boost\+::\+Speed\+Boost (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1SpeedBoost}{Speed\+Boost}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Speed Boost object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_adc0694cafe95211056fbfd5eebb17062}\label{classComponent_1_1SpeedBoost_adc0694cafe95211056fbfd5eebb17062}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!ApplyBoost@{ApplyBoost}}
+\index{ApplyBoost@{ApplyBoost}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{ApplyBoost()}{ApplyBoost()}}
+{\footnotesize\ttfamily void Component\+::\+Speed\+Boost\+::\+Apply\+Boost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} \&}]{acontroller }\end{DoxyParamCaption})}
+
+
+
+Applies a speed boost to Acontroller component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em acontroller} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_ac92819c55e65899268c282e517c1db51}\label{classComponent_1_1SpeedBoost_ac92819c55e65899268c282e517c1db51}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Speed\+Boost\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1APickUp_a25a07df814a209e880fba530a61b5644}{Component\+::\+A\+Pick\+Up}}.
+
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_a3a33cb4c142064eaf6a8f0549facb7b0}\label{classComponent_1_1SpeedBoost_a3a33cb4c142064eaf6a8f0549facb7b0}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!OnPickup@{OnPickup}}
+\index{OnPickup@{OnPickup}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{OnPickup()}{OnPickup()}}
+{\footnotesize\ttfamily void Component\+::\+Speed\+Boost\+::\+On\+Pickup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{collision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pickup effect, called when someone walks on me. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em collision} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1APickUp_ad6a5824686f8a7ac85ef4dc5fab134b9}{Component\+::\+A\+Pick\+Up}}.
+
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_adedefc7449b26db757f311ee9cd941f0}\label{classComponent_1_1SpeedBoost_adedefc7449b26db757f311ee9cd941f0}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Speed\+Boost\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_a1bd122bcbd40151dc266643d84902bce}\label{classComponent_1_1SpeedBoost_a1bd122bcbd40151dc266643d84902bce}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Speed\+Boost\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1SpeedBoost_a7625618cae9f6de44435c04331b81e06}\label{classComponent_1_1SpeedBoost_a7625618cae9f6de44435c04331b81e06}} 
+\index{Component::SpeedBoost@{Component::SpeedBoost}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::SpeedBoost@{Component::SpeedBoost}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1SpeedBoost}{Speed\+Boost}}\& Component\+::\+Speed\+Boost\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1SpeedBoost}{Speed\+Boost}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1SpeedBoost}{Speed\+Boost}}\& 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Speed\+Boost/\mbox{\hyperlink{SpeedBoost_8hpp}{Speed\+Boost.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Speed\+Boost/\mbox{\hyperlink{SpeedBoost_8cpp}{Speed\+Boost.\+cpp}}\end{DoxyCompactItemize}

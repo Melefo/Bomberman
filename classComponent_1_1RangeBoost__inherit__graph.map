@@ -1,0 +1,7 @@
+<map id="Component::RangeBoost" name="Component::RangeBoost">
+<area shape="rect" id="node1" title=" " alt="" coords="5,859,188,1053"/>
+<area shape="rect" id="node2" href="$classComponent_1_1APickUp.html" title=" " alt="" coords="17,587,176,811"/>
+<area shape="rect" id="node3" href="$classComponent_1_1IBehaviour.html" title="IBehaviour base component (CF Monobehaviour class in Unity)" alt="" coords="9,373,184,539"/>
+<area shape="rect" id="node4" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="28,204,165,325"/>
+<area shape="rect" id="node5" href="$classIXMLSerializable.html" title=" " alt="" coords="13,5,180,156"/>
+</map>

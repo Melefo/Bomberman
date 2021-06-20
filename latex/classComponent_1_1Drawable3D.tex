@@ -1,0 +1,399 @@
+\hypertarget{classComponent_1_1Drawable3D}{}\doxysection{Component\+::Drawable3D Class Reference}
+\label{classComponent_1_1Drawable3D}\index{Component::Drawable3D@{Component::Drawable3D}}
+
+
+{\ttfamily \#include $<$Drawable3\+D.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Drawable3D\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Drawable3D__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Drawable3D\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1Drawable3D__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1Drawable3D_a6e5293cfbcd1390c9e1cf0989688e098}{Drawable3D}} (\mbox{\hyperlink{classRayLib_1_1Mesh}{Ray\+Lib\+::\+Mesh}} \&mesh)
+\begin{DoxyCompactList}\small\item\em Construct a new Drawable 3D object from mesh. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Drawable3D_a4a0422eb97b1e0aee22fb1e282a2458f}{Drawable3D}} (const std\+::string \&mesh\+Path)
+\begin{DoxyCompactList}\small\item\em Construct a new Drawable 3 D object from path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Drawable3D_afd0cce889ef027450b55caa51d5e7e77}{Drawable3D}} (const std\+::string \&mesh\+Path, const std\+::string \&texture\+Path)
+\begin{DoxyCompactList}\small\item\em Construct a new Drawable 3 D object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Drawable3D_a65a3b2c394a9a3b3544f71f57a205dad}{Drawable3D}} (const std\+::string \&mesh\+Path, const std\+::string \&texture\+Path, const std\+::string \&shader\+Path)
+\begin{DoxyCompactList}\small\item\em Construct a new Drawable 3 D object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1Drawable3D_abfe43be1f2d03ff678ac63ebf3c93e22}{$\sim$\+Drawable3D}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Drawable 3 D object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Drawable3D_aad0912aa616086a51f5613cd683797cc}{Draw}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} position, \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} scale, \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} tint)
+\begin{DoxyCompactList}\small\item\em Draw model at position, axis, angle, scale. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Drawable3D_a76f35576c717b3e427b4340b4dd13f3f}{Set\+Material\+Texture}} (int mat\+Index, int map\+Type, \mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}} \&text)
+\begin{DoxyCompactList}\small\item\em Set the Material Texture object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Drawable3D_a44bf2b180270f1d814066af388dc96c6}{Set\+Material\+Shader}} (int mat\+Index, \mbox{\hyperlink{classRayLib_1_1Shader}{Ray\+Lib\+::\+Shader}} \&shader)
+\begin{DoxyCompactList}\small\item\em Set the Material Shader object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Drawable3D_a5fa31348e137cda16574e19f6741ecbd}{Set\+Texture}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Set the Texture object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Drawable3D_a33182c20aa881bb0f108aa63c75a2a13}{Set\+Model}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Set the Model object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Drawable3D_a561b23160134460f38d426211915ed33}{Set\+Shader}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Set the Shader object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Model}{Ray\+Lib\+::\+Model}} \& \mbox{\hyperlink{classComponent_1_1Drawable3D_a6406d5f5ad0a0d6f3c1ef145c104a56e}{Get\+Model}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Model object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Shader}{Ray\+Lib\+::\+Shader}} \& \mbox{\hyperlink{classComponent_1_1Drawable3D_a8a74e760f43ab1bbb827d48da89e25e2}{Get\+Shader}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Shader object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}} \& \mbox{\hyperlink{classComponent_1_1Drawable3D_ac9343194dad0e6d7b523880a69bdf43e}{Get\+Texture}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Texture object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Drawable3D_a42a017be7927c93dade319047aae6858}{Rotate\+Model}} (\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} rotation)
+\begin{DoxyCompactList}\small\item\em Set the rotation of the model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1Drawable3D_a3fe77209625092f6433857c03774d34e}{Set\+Color}} (\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} color)
+\begin{DoxyCompactList}\small\item\em Set the Color object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} \& \mbox{\hyperlink{classComponent_1_1Drawable3D_a9aee30cf5a7843e617d5990e9b0c65cc}{Get\+Color}} (void)
+\begin{DoxyCompactList}\small\item\em Get the Color object. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1Drawable3D_a7cdd31ed47ded5ea92d4b9fc8776a69e}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1Drawable3D_ac4eac70f123dc39f5eccd77015621348}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Model}{Ray\+Lib\+::\+Model}} $>$ \mbox{\hyperlink{classComponent_1_1Drawable3D_a368787848935e7ce6669cff4156f2e90}{\+\_\+model}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}} $>$ \mbox{\hyperlink{classComponent_1_1Drawable3D_a9c75cec7755a4027629a7bd7cc079fbf}{\+\_\+texture}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Shader}{Ray\+Lib\+::\+Shader}} $>$ \mbox{\hyperlink{classComponent_1_1Drawable3D_aacbba5e528c95d096c8b6d1a238e2208}{\+\_\+shader}}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} \mbox{\hyperlink{classComponent_1_1Drawable3D_ab2d6623bd7bbe23e5f5a92d3e4238431}{\+\_\+color}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a6e5293cfbcd1390c9e1cf0989688e098}\label{classComponent_1_1Drawable3D_a6e5293cfbcd1390c9e1cf0989688e098}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!Drawable3D@{Drawable3D}}
+\index{Drawable3D@{Drawable3D}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{Drawable3D()}{Drawable3D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Component\+::\+Drawable3\+D\+::\+Drawable3D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Mesh}{Ray\+Lib\+::\+Mesh}} \&}]{mesh }\end{DoxyParamCaption})}
+
+
+
+Construct a new Drawable 3D object from mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a4a0422eb97b1e0aee22fb1e282a2458f}\label{classComponent_1_1Drawable3D_a4a0422eb97b1e0aee22fb1e282a2458f}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!Drawable3D@{Drawable3D}}
+\index{Drawable3D@{Drawable3D}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{Drawable3D()}{Drawable3D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Component\+::\+Drawable3\+D\+::\+Drawable3D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mesh\+Path }\end{DoxyParamCaption})}
+
+
+
+Construct a new Drawable 3 D object from path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_afd0cce889ef027450b55caa51d5e7e77}\label{classComponent_1_1Drawable3D_afd0cce889ef027450b55caa51d5e7e77}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!Drawable3D@{Drawable3D}}
+\index{Drawable3D@{Drawable3D}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{Drawable3D()}{Drawable3D()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Component\+::\+Drawable3\+D\+::\+Drawable3D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mesh\+Path,  }\item[{const std\+::string \&}]{texture\+Path }\end{DoxyParamCaption})}
+
+
+
+Construct a new Drawable 3 D object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh\+Path} & \\
+\hline
+{\em texture\+Path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a65a3b2c394a9a3b3544f71f57a205dad}\label{classComponent_1_1Drawable3D_a65a3b2c394a9a3b3544f71f57a205dad}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!Drawable3D@{Drawable3D}}
+\index{Drawable3D@{Drawable3D}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{Drawable3D()}{Drawable3D()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Component\+::\+Drawable3\+D\+::\+Drawable3D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mesh\+Path,  }\item[{const std\+::string \&}]{texture\+Path,  }\item[{const std\+::string \&}]{shader\+Path }\end{DoxyParamCaption})}
+
+
+
+Construct a new Drawable 3 D object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh\+Path} & \\
+\hline
+{\em texture\+Path} & \\
+\hline
+{\em shader\+Path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_abfe43be1f2d03ff678ac63ebf3c93e22}\label{classComponent_1_1Drawable3D_abfe43be1f2d03ff678ac63ebf3c93e22}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!````~Drawable3D@{$\sim$Drawable3D}}
+\index{````~Drawable3D@{$\sim$Drawable3D}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{$\sim$Drawable3D()}{~Drawable3D()}}
+{\footnotesize\ttfamily Component\+::\+Drawable3\+D\+::$\sim$\+Drawable3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Drawable 3 D object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_aad0912aa616086a51f5613cd683797cc}\label{classComponent_1_1Drawable3D_aad0912aa616086a51f5613cd683797cc}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!Draw@{Draw}}
+\index{Draw@{Draw}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Component\+::\+Drawable3\+D\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{scale,  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}}}]{tint }\end{DoxyParamCaption})}
+
+
+
+Draw model at position, axis, angle, scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em rotation\+Axis} & \\
+\hline
+{\em rotation\+Angle} & \\
+\hline
+{\em scale} & \\
+\hline
+{\em tint} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a9aee30cf5a7843e617d5990e9b0c65cc}\label{classComponent_1_1Drawable3D_a9aee30cf5a7843e617d5990e9b0c65cc}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!GetColor@{GetColor}}
+\index{GetColor@{GetColor}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{GetColor()}{GetColor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} \& Component\+::\+Drawable3\+D\+::\+Get\+Color (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Color object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a6406d5f5ad0a0d6f3c1ef145c104a56e}\label{classComponent_1_1Drawable3D_a6406d5f5ad0a0d6f3c1ef145c104a56e}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!GetModel@{GetModel}}
+\index{GetModel@{GetModel}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{GetModel()}{GetModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Model}{Ray\+Lib\+::\+Model}} \& Component\+::\+Drawable3\+D\+::\+Get\+Model (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Model object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Model}{Ray\+Lib\+::\+Model}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a8a74e760f43ab1bbb827d48da89e25e2}\label{classComponent_1_1Drawable3D_a8a74e760f43ab1bbb827d48da89e25e2}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!GetShader@{GetShader}}
+\index{GetShader@{GetShader}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{GetShader()}{GetShader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Shader}{Ray\+Lib\+::\+Shader}} \& Component\+::\+Drawable3\+D\+::\+Get\+Shader (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Shader object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Shader}{Ray\+Lib\+::\+Shader}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_ac9343194dad0e6d7b523880a69bdf43e}\label{classComponent_1_1Drawable3D_ac9343194dad0e6d7b523880a69bdf43e}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!GetTexture@{GetTexture}}
+\index{GetTexture@{GetTexture}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{GetTexture()}{GetTexture()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}} \& Component\+::\+Drawable3\+D\+::\+Get\+Texture (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the Texture object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_ac4eac70f123dc39f5eccd77015621348}\label{classComponent_1_1Drawable3D_ac4eac70f123dc39f5eccd77015621348}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree \& Component\+::\+Drawable3\+D\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a7cdd31ed47ded5ea92d4b9fc8776a69e}\label{classComponent_1_1Drawable3D_a7cdd31ed47ded5ea92d4b9fc8776a69e}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& Component\+::\+Drawable3\+D\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a42a017be7927c93dade319047aae6858}\label{classComponent_1_1Drawable3D_a42a017be7927c93dade319047aae6858}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!RotateModel@{RotateModel}}
+\index{RotateModel@{RotateModel}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{RotateModel()}{RotateModel()}}
+{\footnotesize\ttfamily void Component\+::\+Drawable3\+D\+::\+Rotate\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}}]{rotation }\end{DoxyParamCaption})}
+
+
+
+Set the rotation of the model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a3fe77209625092f6433857c03774d34e}\label{classComponent_1_1Drawable3D_a3fe77209625092f6433857c03774d34e}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{SetColor()}{SetColor()}}
+{\footnotesize\ttfamily void Component\+::\+Drawable3\+D\+::\+Set\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Set the Color object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a44bf2b180270f1d814066af388dc96c6}\label{classComponent_1_1Drawable3D_a44bf2b180270f1d814066af388dc96c6}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!SetMaterialShader@{SetMaterialShader}}
+\index{SetMaterialShader@{SetMaterialShader}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{SetMaterialShader()}{SetMaterialShader()}}
+{\footnotesize\ttfamily void Component\+::\+Drawable3\+D\+::\+Set\+Material\+Shader (\begin{DoxyParamCaption}\item[{int}]{mat\+Index,  }\item[{\mbox{\hyperlink{classRayLib_1_1Shader}{Ray\+Lib\+::\+Shader}} \&}]{shader }\end{DoxyParamCaption})}
+
+
+
+Set the Material Shader object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat\+Index} & \\
+\hline
+{\em shader} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a76f35576c717b3e427b4340b4dd13f3f}\label{classComponent_1_1Drawable3D_a76f35576c717b3e427b4340b4dd13f3f}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!SetMaterialTexture@{SetMaterialTexture}}
+\index{SetMaterialTexture@{SetMaterialTexture}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{SetMaterialTexture()}{SetMaterialTexture()}}
+{\footnotesize\ttfamily void Component\+::\+Drawable3\+D\+::\+Set\+Material\+Texture (\begin{DoxyParamCaption}\item[{int}]{mat\+Index,  }\item[{int}]{map\+Type,  }\item[{\mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}} \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Set the Material Texture object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat\+Index} & \\
+\hline
+{\em map\+Type} & \\
+\hline
+{\em text} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a33182c20aa881bb0f108aa63c75a2a13}\label{classComponent_1_1Drawable3D_a33182c20aa881bb0f108aa63c75a2a13}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!SetModel@{SetModel}}
+\index{SetModel@{SetModel}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{SetModel()}{SetModel()}}
+{\footnotesize\ttfamily void Component\+::\+Drawable3\+D\+::\+Set\+Model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Set the Model object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a561b23160134460f38d426211915ed33}\label{classComponent_1_1Drawable3D_a561b23160134460f38d426211915ed33}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!SetShader@{SetShader}}
+\index{SetShader@{SetShader}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{SetShader()}{SetShader()}}
+{\footnotesize\ttfamily void Component\+::\+Drawable3\+D\+::\+Set\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Set the Shader object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a5fa31348e137cda16574e19f6741ecbd}\label{classComponent_1_1Drawable3D_a5fa31348e137cda16574e19f6741ecbd}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!SetTexture@{SetTexture}}
+\index{SetTexture@{SetTexture}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{SetTexture()}{SetTexture()}}
+{\footnotesize\ttfamily void Component\+::\+Drawable3\+D\+::\+Set\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Set the Texture object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_ab2d6623bd7bbe23e5f5a92d3e4238431}\label{classComponent_1_1Drawable3D_ab2d6623bd7bbe23e5f5a92d3e4238431}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!\_color@{\_color}}
+\index{\_color@{\_color}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{\_color}{\_color}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} Component\+::\+Drawable3\+D\+::\+\_\+color\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a368787848935e7ce6669cff4156f2e90}\label{classComponent_1_1Drawable3D_a368787848935e7ce6669cff4156f2e90}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!\_model@{\_model}}
+\index{\_model@{\_model}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{\_model}{\_model}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Model}{Ray\+Lib\+::\+Model}}$>$ Component\+::\+Drawable3\+D\+::\+\_\+model\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_aacbba5e528c95d096c8b6d1a238e2208}\label{classComponent_1_1Drawable3D_aacbba5e528c95d096c8b6d1a238e2208}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!\_shader@{\_shader}}
+\index{\_shader@{\_shader}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{\_shader}{\_shader}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Shader}{Ray\+Lib\+::\+Shader}}$>$ Component\+::\+Drawable3\+D\+::\+\_\+shader\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classComponent_1_1Drawable3D_a9c75cec7755a4027629a7bd7cc079fbf}\label{classComponent_1_1Drawable3D_a9c75cec7755a4027629a7bd7cc079fbf}} 
+\index{Component::Drawable3D@{Component::Drawable3D}!\_texture@{\_texture}}
+\index{\_texture@{\_texture}!Component::Drawable3D@{Component::Drawable3D}}
+\doxysubsubsection{\texorpdfstring{\_texture}{\_texture}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Texture}{Ray\+Lib\+::\+Texture}}$>$ Component\+::\+Drawable3\+D\+::\+\_\+texture\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Drawable3\+D/\mbox{\hyperlink{Drawable3D_8hpp}{Drawable3\+D.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Drawable3\+D/\mbox{\hyperlink{Drawable3D_8cpp}{Drawable3\+D.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,75 @@
+
+
+
+
+
+
+\href{https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/build.yml}{\texttt{ }} \href{https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/buildwin.yml}{\texttt{ }} \href{https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/test.yml}{\texttt{ }} 
+
+Bomberman is a project where we try to do an Bomberman-\/like game with a homemade \mbox{\hyperlink{namespaceECS}{E\+CS}} and a Raylib encapsulation
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md0}{}\doxysubsection{Screenshots}\label{md_README_autotoc_md0}
+
+
+
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md1}{}\doxysubsection{Players Keys}\label{md_README_autotoc_md1}
+Player 1 will use zqsd to move \& E to drop a bomb
+
+Player 2 will use arrows to move \& enter to drop a bomb
+
+Player 3 will use yghj to move \& space to drop a bomb
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md2}{}\doxysubsection{Installation}\label{md_README_autotoc_md2}
+You can build the project yourself!
+
+\begin{quote}
+Requirements \end{quote}
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{namespaceLua}{Lua}}
+\item Boost
+\item $\ast$(Criterion built from its master branch if you want to compile unit tests)$\ast$
+\end{DoxyItemize}
+
+Clone the repository 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://github.com/EpitechIT2020/B-\/YEP-\/400-\/NAN-\/4-\/1-\/indiestudio-\/victor.trencic.git}
+\end{DoxyCode}
+
+
+Go inside the repository and create a build folder 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir build}
+\DoxyCodeLine{cd build}
+\end{DoxyCode}
+
+
+Generate using C\+Make 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake ..}
+\end{DoxyCode}
+
+
+Compile according to your platform \begin{quote}
+Linux \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make -\/j bomberman}
+\end{DoxyCode}
+
+
+\begin{quote}
+Windows \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake -\/-\/build . -\/-\/target bomberman -\/-\/config release}
+\end{DoxyCode}
+
+
+If you\textquotesingle{}ve done nothing wrong, you should have the program compiled! 

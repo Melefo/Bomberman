@@ -1,0 +1,10 @@
+<map id="Component::TextBox" name="Component::TextBox">
+<area shape="rect" id="node1" title="Component where it&#39;s possible to enter text and show it." alt="" coords="207,633,365,989"/>
+<area shape="rect" id="node2" href="$classComponent_1_1IUIObject.html" title="Base class for UI objects." alt="" coords="6,405,171,541"/>
+<area shape="rect" id="node3" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="20,205,157,327"/>
+<area shape="rect" id="node4" href="$classIXMLSerializable.html" title=" " alt="" coords="5,5,172,156"/>
+<area shape="rect" id="node5" href="$classRayLib_1_1Rectangle.html" title="Rectangle encapsulation." alt="" coords="196,376,376,571"/>
+<area shape="rect" id="node6" title=" " alt="" coords="243,227,329,305"/>
+<area shape="rect" id="node7" href="$classRayLib_1_1Color.html" title="RayLib Color encapsulation." alt="" coords="400,376,513,571"/>
+<area shape="rect" id="node8" title=" " alt="" coords="429,227,485,305"/>
+</map>

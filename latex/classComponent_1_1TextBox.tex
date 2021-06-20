@@ -1,0 +1,403 @@
+\hypertarget{classComponent_1_1TextBox}{}\doxysection{Component\+::Text\+Box Class Reference}
+\label{classComponent_1_1TextBox}\index{Component::TextBox@{Component::TextBox}}
+
+
+\mbox{\hyperlink{namespaceComponent}{Component}} where it\textquotesingle{}s possible to enter text and show it.  
+
+
+
+
+{\ttfamily \#include $<$Text\+Box.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Text\+Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1TextBox__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Text\+Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1TextBox__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1TextBox_a9e923b58f2d9f344af9faeb8f318fe66}{Text\+Box}} (int length\+Max, const std\+::string \&font, float size=10.\+0, float spacing=0.\+0f, \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} color=B\+L\+A\+CK, bool is\+Alpha=true, bool is\+Num=true)
+\begin{DoxyCompactList}\small\item\em Construct a new Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextBox_aa408cd4972895031646f54671eb61de7}{$\sim$\+Text\+Box}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextBox_a2732d539b94a4d68617710d4daee007b}{Text\+Box}} (const \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new copy Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} \& \mbox{\hyperlink{classComponent_1_1TextBox_a79c166ce50697ae6f5e1cfedb12851de}{operator=}} (const \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new assigned Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextBox_aef0e8ab771fedf2239a6f4a9117d22a8}{Draw}} (\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ position, \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$ scale=\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$(1.\+0f, 1.\+0f)) override
+\begin{DoxyCompactList}\small\item\em Draw the texture at given position and scale. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1TextBox_ae4157f1ef406b403b819b630a344be21}{Get\+Is\+Alpha}} () const
+\begin{DoxyCompactList}\small\item\em Get the Is\+Alpha object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1TextBox_aac08ae545c2eca5b44021e19c44f04c2}{Get\+Is\+Num}} () const
+\begin{DoxyCompactList}\small\item\em Get the Is\+Num object. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classComponent_1_1TextBox_ae90b047fb2c57b6ca77c75bd9c7771ff}{Get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Get the Value object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextBox_a23dbf3d19730a2e41c12babf8a88900a}{Set\+Value}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Set the Value object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} \mbox{\hyperlink{classComponent_1_1TextBox_a6b6b7789590320d4cc32d98718a1ffa3}{Get\+Rectangle}} () const
+\begin{DoxyCompactList}\small\item\em Get the Rectangle object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextBox_a93aa5bd2250dafbf2ba7d1308e68aeec}{Remove\+Char}} ()
+\begin{DoxyCompactList}\small\item\em Remove a char from the current value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1TextBox_a7d0f940034256cc5e986a1bf892f4968}{Append\+Char}} (char value)
+\begin{DoxyCompactList}\small\item\em Append a char to the current value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1TextBox_aae1e64a6f394a0a90de67a417a95dc80}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1TextBox_a834a3197b71d0d46ea1c964344369945}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classComponent_1_1TextBox_a50342645cb8bff2fc01d2cd2e76b766a}{\+\_\+max}}
+\begin{DoxyCompactList}\small\item\em Length maximum of the value. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Font}{Ray\+Lib\+::\+Font}} $>$ \mbox{\hyperlink{classComponent_1_1TextBox_a1902e98e00d01da486432add9f20c578}{\+\_\+font}}
+\begin{DoxyCompactList}\small\item\em Font used to display the value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} \mbox{\hyperlink{classComponent_1_1TextBox_a2c4c1f4b9c51b3c2d08ee05e0b358ea4}{\+\_\+color}}
+\begin{DoxyCompactList}\small\item\em Color used to display the value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1TextBox_afa90ad26edfcffd8ad19e653a3bd2730}{\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em Size of the font. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classComponent_1_1TextBox_a895135e4aecd484a10da4297660b51ee}{\+\_\+spacing}}
+\begin{DoxyCompactList}\small\item\em Spacing of the chars. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classComponent_1_1TextBox_afea3204fd900bef4e44d9e2502e9e455}{\+\_\+value}}
+\begin{DoxyCompactList}\small\item\em Current value of the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1TextBox_a4369fbd0b2f58fd3e9dfa36039ebbdfe}{\+\_\+is\+Alpha}}
+\begin{DoxyCompactList}\small\item\em Is the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} accepting Alpha chars. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classComponent_1_1TextBox_a1858b7b3c1d950a4020f77e6d86f279b}{\+\_\+is\+Num}}
+\begin{DoxyCompactList}\small\item\em Is the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} acceptins Numerical chars. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} \mbox{\hyperlink{classComponent_1_1TextBox_ad60f2cb2f7b49430c6b8ccf532ccf097}{\+\_\+rect}}
+\begin{DoxyCompactList}\small\item\em Rectangle used to delimit the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespaceComponent}{Component}} where it\textquotesingle{}s possible to enter text and show it. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextBox_a9e923b58f2d9f344af9faeb8f318fe66}\label{classComponent_1_1TextBox_a9e923b58f2d9f344af9faeb8f318fe66}} 
+\index{Component::TextBox@{Component::TextBox}!TextBox@{TextBox}}
+\index{TextBox@{TextBox}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{TextBox()}{TextBox()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Text\+Box\+::\+Text\+Box (\begin{DoxyParamCaption}\item[{int}]{length\+Max,  }\item[{const std\+::string \&}]{font,  }\item[{float}]{size = {\ttfamily 10.0},  }\item[{float}]{spacing = {\ttfamily 0.0f},  }\item[{\mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}}}]{color = {\ttfamily BLACK},  }\item[{bool}]{is\+Alpha = {\ttfamily true},  }\item[{bool}]{is\+Num = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length\+Max} & \\
+\hline
+{\em font} & \\
+\hline
+{\em size} & \\
+\hline
+{\em spacing} & \\
+\hline
+{\em color} & \\
+\hline
+{\em is\+Alpha} & \\
+\hline
+{\em is\+Num} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1TextBox_aa408cd4972895031646f54671eb61de7}\label{classComponent_1_1TextBox_aa408cd4972895031646f54671eb61de7}} 
+\index{Component::TextBox@{Component::TextBox}!````~TextBox@{$\sim$TextBox}}
+\index{````~TextBox@{$\sim$TextBox}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{$\sim$TextBox()}{~TextBox()}}
+{\footnotesize\ttfamily Component\+::\+Text\+Box\+::$\sim$\+Text\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_a2732d539b94a4d68617710d4daee007b}\label{classComponent_1_1TextBox_a2732d539b94a4d68617710d4daee007b}} 
+\index{Component::TextBox@{Component::TextBox}!TextBox@{TextBox}}
+\index{TextBox@{TextBox}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{TextBox()}{TextBox()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Text\+Box\+::\+Text\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new copy Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextBox_a7d0f940034256cc5e986a1bf892f4968}\label{classComponent_1_1TextBox_a7d0f940034256cc5e986a1bf892f4968}} 
+\index{Component::TextBox@{Component::TextBox}!AppendChar@{AppendChar}}
+\index{AppendChar@{AppendChar}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{AppendChar()}{AppendChar()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+Box\+::\+Append\+Char (\begin{DoxyParamCaption}\item[{char}]{value }\end{DoxyParamCaption})}
+
+
+
+Append a char to the current value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1TextBox_aef0e8ab771fedf2239a6f4a9117d22a8}\label{classComponent_1_1TextBox_aef0e8ab771fedf2239a6f4a9117d22a8}} 
+\index{Component::TextBox@{Component::TextBox}!Draw@{Draw}}
+\index{Draw@{Draw}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+Box\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{position,  }\item[{\mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$ float $>$}]{scale = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector2}{Ray\+Lib\+::\+Vector2}}$<$float$>$(1.0f,~1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draw the texture at given position and scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em scale} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IUIObject_ae7abd923511d9f9a6dc4a4b2b3ea56c7}{Component\+::\+I\+U\+I\+Object}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_ae4157f1ef406b403b819b630a344be21}\label{classComponent_1_1TextBox_ae4157f1ef406b403b819b630a344be21}} 
+\index{Component::TextBox@{Component::TextBox}!GetIsAlpha@{GetIsAlpha}}
+\index{GetIsAlpha@{GetIsAlpha}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{GetIsAlpha()}{GetIsAlpha()}}
+{\footnotesize\ttfamily bool Component\+::\+Text\+Box\+::\+Get\+Is\+Alpha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Is\+Alpha object. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextBox_aac08ae545c2eca5b44021e19c44f04c2}\label{classComponent_1_1TextBox_aac08ae545c2eca5b44021e19c44f04c2}} 
+\index{Component::TextBox@{Component::TextBox}!GetIsNum@{GetIsNum}}
+\index{GetIsNum@{GetIsNum}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{GetIsNum()}{GetIsNum()}}
+{\footnotesize\ttfamily bool Component\+::\+Text\+Box\+::\+Get\+Is\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Is\+Num object. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextBox_a6b6b7789590320d4cc32d98718a1ffa3}\label{classComponent_1_1TextBox_a6b6b7789590320d4cc32d98718a1ffa3}} 
+\index{Component::TextBox@{Component::TextBox}!GetRectangle@{GetRectangle}}
+\index{GetRectangle@{GetRectangle}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{GetRectangle()}{GetRectangle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} Component\+::\+Text\+Box\+::\+Get\+Rectangle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Rectangle object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextBox_ae90b047fb2c57b6ca77c75bd9c7771ff}\label{classComponent_1_1TextBox_ae90b047fb2c57b6ca77c75bd9c7771ff}} 
+\index{Component::TextBox@{Component::TextBox}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily const std\+::string \& Component\+::\+Text\+Box\+::\+Get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Value object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextBox_a834a3197b71d0d46ea1c964344369945}\label{classComponent_1_1TextBox_a834a3197b71d0d46ea1c964344369945}} 
+\index{Component::TextBox@{Component::TextBox}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Text\+Box\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_aae1e64a6f394a0a90de67a417a95dc80}\label{classComponent_1_1TextBox_aae1e64a6f394a0a90de67a417a95dc80}} 
+\index{Component::TextBox@{Component::TextBox}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Text\+Box\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_a79c166ce50697ae6f5e1cfedb12851de}\label{classComponent_1_1TextBox_a79c166ce50697ae6f5e1cfedb12851de}} 
+\index{Component::TextBox@{Component::TextBox}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}\& Component\+::\+Text\+Box\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new assigned Text \mbox{\hyperlink{classComponent_1_1Box}{Box}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1TextBox_a93aa5bd2250dafbf2ba7d1308e68aeec}\label{classComponent_1_1TextBox_a93aa5bd2250dafbf2ba7d1308e68aeec}} 
+\index{Component::TextBox@{Component::TextBox}!RemoveChar@{RemoveChar}}
+\index{RemoveChar@{RemoveChar}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{RemoveChar()}{RemoveChar()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+Box\+::\+Remove\+Char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove a char from the current value. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_a23dbf3d19730a2e41c12babf8a88900a}\label{classComponent_1_1TextBox_a23dbf3d19730a2e41c12babf8a88900a}} 
+\index{Component::TextBox@{Component::TextBox}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}}
+{\footnotesize\ttfamily void Component\+::\+Text\+Box\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+
+
+Set the Value object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1TextBox_a2c4c1f4b9c51b3c2d08ee05e0b358ea4}\label{classComponent_1_1TextBox_a2c4c1f4b9c51b3c2d08ee05e0b358ea4}} 
+\index{Component::TextBox@{Component::TextBox}!\_color@{\_color}}
+\index{\_color@{\_color}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_color}{\_color}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Color}{Ray\+Lib\+::\+Color}} Component\+::\+Text\+Box\+::\+\_\+color\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Color used to display the value. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_a1902e98e00d01da486432add9f20c578}\label{classComponent_1_1TextBox_a1902e98e00d01da486432add9f20c578}} 
+\index{Component::TextBox@{Component::TextBox}!\_font@{\_font}}
+\index{\_font@{\_font}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_font}{\_font}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Font}{Ray\+Lib\+::\+Font}}$>$ Component\+::\+Text\+Box\+::\+\_\+font\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Font used to display the value. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_a4369fbd0b2f58fd3e9dfa36039ebbdfe}\label{classComponent_1_1TextBox_a4369fbd0b2f58fd3e9dfa36039ebbdfe}} 
+\index{Component::TextBox@{Component::TextBox}!\_isAlpha@{\_isAlpha}}
+\index{\_isAlpha@{\_isAlpha}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_isAlpha}{\_isAlpha}}
+{\footnotesize\ttfamily bool Component\+::\+Text\+Box\+::\+\_\+is\+Alpha\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Is the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} accepting Alpha chars. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_a1858b7b3c1d950a4020f77e6d86f279b}\label{classComponent_1_1TextBox_a1858b7b3c1d950a4020f77e6d86f279b}} 
+\index{Component::TextBox@{Component::TextBox}!\_isNum@{\_isNum}}
+\index{\_isNum@{\_isNum}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_isNum}{\_isNum}}
+{\footnotesize\ttfamily bool Component\+::\+Text\+Box\+::\+\_\+is\+Num\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Is the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}} acceptins Numerical chars. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_a50342645cb8bff2fc01d2cd2e76b766a}\label{classComponent_1_1TextBox_a50342645cb8bff2fc01d2cd2e76b766a}} 
+\index{Component::TextBox@{Component::TextBox}!\_max@{\_max}}
+\index{\_max@{\_max}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_max}{\_max}}
+{\footnotesize\ttfamily int Component\+::\+Text\+Box\+::\+\_\+max\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Length maximum of the value. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_ad60f2cb2f7b49430c6b8ccf532ccf097}\label{classComponent_1_1TextBox_ad60f2cb2f7b49430c6b8ccf532ccf097}} 
+\index{Component::TextBox@{Component::TextBox}!\_rect@{\_rect}}
+\index{\_rect@{\_rect}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_rect}{\_rect}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Rectangle}{Ray\+Lib\+::\+Rectangle}} Component\+::\+Text\+Box\+::\+\_\+rect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Rectangle used to delimit the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_afa90ad26edfcffd8ad19e653a3bd2730}\label{classComponent_1_1TextBox_afa90ad26edfcffd8ad19e653a3bd2730}} 
+\index{Component::TextBox@{Component::TextBox}!\_size@{\_size}}
+\index{\_size@{\_size}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_size}{\_size}}
+{\footnotesize\ttfamily float Component\+::\+Text\+Box\+::\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Size of the font. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_a895135e4aecd484a10da4297660b51ee}\label{classComponent_1_1TextBox_a895135e4aecd484a10da4297660b51ee}} 
+\index{Component::TextBox@{Component::TextBox}!\_spacing@{\_spacing}}
+\index{\_spacing@{\_spacing}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_spacing}{\_spacing}}
+{\footnotesize\ttfamily float Component\+::\+Text\+Box\+::\+\_\+spacing\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Spacing of the chars. 
+
+\mbox{\Hypertarget{classComponent_1_1TextBox_afea3204fd900bef4e44d9e2502e9e455}\label{classComponent_1_1TextBox_afea3204fd900bef4e44d9e2502e9e455}} 
+\index{Component::TextBox@{Component::TextBox}!\_value@{\_value}}
+\index{\_value@{\_value}!Component::TextBox@{Component::TextBox}}
+\doxysubsubsection{\texorpdfstring{\_value}{\_value}}
+{\footnotesize\ttfamily std\+::string Component\+::\+Text\+Box\+::\+\_\+value\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current value of the \mbox{\hyperlink{classComponent_1_1TextBox}{Text\+Box}}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Text\+Box/\mbox{\hyperlink{TextBox_8hpp}{Text\+Box.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Text\+Box/\mbox{\hyperlink{TextBox_8cpp}{Text\+Box.\+cpp}}\end{DoxyCompactItemize}

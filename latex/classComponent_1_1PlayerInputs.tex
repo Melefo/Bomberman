@@ -1,0 +1,251 @@
+\hypertarget{classComponent_1_1PlayerInputs}{}\doxysection{Component\+::Player\+Inputs Class Reference}
+\label{classComponent_1_1PlayerInputs}\index{Component::PlayerInputs@{Component::PlayerInputs}}
+
+
+{\ttfamily \#include $<$Player\+Inputs.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::Player\+Inputs\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1PlayerInputs__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::Player\+Inputs\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1PlayerInputs__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1PlayerInputs_ae031542a48abdb3d0bd9819315ca2e81}{Player\+Inputs}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&attatched\+Entity, \mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}} input=\mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}}(), int drop\+Bomb\+Key=K\+E\+Y\+\_\+X, float speed=0.\+5f, float drop\+Delay=2.\+5f)
+\begin{DoxyCompactList}\small\item\em Construct a new Player Inputs object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1PlayerInputs_a203baaf8164914752e1fdc95c9f2dac6}{$\sim$\+Player\+Inputs}} () override=default
+\begin{DoxyCompactList}\small\item\em Destroy the Player Inputs object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1PlayerInputs_a8656b77cfab27fdf36268b3f9747af6d}{Player\+Inputs}} (const \mbox{\hyperlink{classComponent_1_1PlayerInputs}{Player\+Inputs}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new Player Inputs object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1PlayerInputs}{Player\+Inputs}} \& \mbox{\hyperlink{classComponent_1_1PlayerInputs_a10a3160020b4b448f686c8ee1b67ea44}{operator=}} (const \mbox{\hyperlink{classComponent_1_1PlayerInputs}{Player\+Inputs}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Assignement operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1PlayerInputs_addfc71cd51ec4a0310a341235ecc6af9}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity) override
+\begin{DoxyCompactList}\small\item\em Used to sample the input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1PlayerInputs_a50407f6b4c5dd0bf08ef58e7c917c39e}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&) override
+\begin{DoxyCompactList}\small\item\em Used to modify the velocity regularly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComponent_1_1PlayerInputs_a2ecf2075143bc834a52c926facabf43f}{Late\+Update}} (double, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&) override
+\item 
+std\+::ostream \& \mbox{\hyperlink{classComponent_1_1PlayerInputs_aa470a6b1356f36818517497e6ee2a750}{operator$<$$<$}} (std\+::ostream \&os) override
+\item 
+boost\+::property\+\_\+tree\+::ptree \& \mbox{\hyperlink{classComponent_1_1PlayerInputs_addcce507321609702ef1ff0a6ae5a62d}{operator$<$$<$}} (boost\+::property\+\_\+tree\+::ptree \&ptree) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}} \mbox{\hyperlink{classComponent_1_1PlayerInputs_a5f56725f0d79154a2b860c389843c6e8}{\+\_\+input}}
+\begin{DoxyCompactList}\small\item\em Input class to check the keypress. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}} $>$ \& \mbox{\hyperlink{classComponent_1_1PlayerInputs_a6eeba8a576dfa9229e1572018a0bd6f7}{\+\_\+window}}
+\item 
+int \mbox{\hyperlink{classComponent_1_1PlayerInputs_ab08f4dd24b8028409dea2a030fcb041b}{\+\_\+bomb\+Key}}
+\begin{DoxyCompactList}\small\item\em Bomb drop input key. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \& \mbox{\hyperlink{classComponent_1_1PlayerInputs_ab0a0311bc14389ad2c9ce4be2ebe0dc3}{\+\_\+entity}}
+\begin{DoxyCompactList}\small\item\em Attatched entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_ae031542a48abdb3d0bd9819315ca2e81}\label{classComponent_1_1PlayerInputs_ae031542a48abdb3d0bd9819315ca2e81}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!PlayerInputs@{PlayerInputs}}
+\index{PlayerInputs@{PlayerInputs}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{PlayerInputs()}{PlayerInputs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+Player\+Inputs\+::\+Player\+Inputs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{attatched\+Entity,  }\item[{\mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}}}]{input = {\ttfamily \mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}}()},  }\item[{int}]{drop\+Bomb\+Key = {\ttfamily KEY\+\_\+X},  }\item[{float}]{speed = {\ttfamily 0.5f},  }\item[{float}]{drop\+Delay = {\ttfamily 2.5f} }\end{DoxyParamCaption})}
+
+
+
+Construct a new Player Inputs object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & \\
+\hline
+{\em input} & \\
+\hline
+{\em drop\+Bomb\+Key} & \\
+\hline
+{\em speed} & \\
+\hline
+{\em drop\+Delay} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_a203baaf8164914752e1fdc95c9f2dac6}\label{classComponent_1_1PlayerInputs_a203baaf8164914752e1fdc95c9f2dac6}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!````~PlayerInputs@{$\sim$PlayerInputs}}
+\index{````~PlayerInputs@{$\sim$PlayerInputs}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{$\sim$PlayerInputs()}{~PlayerInputs()}}
+{\footnotesize\ttfamily Component\+::\+Player\+Inputs\+::$\sim$\+Player\+Inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Destroy the Player Inputs object. 
+
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_a8656b77cfab27fdf36268b3f9747af6d}\label{classComponent_1_1PlayerInputs_a8656b77cfab27fdf36268b3f9747af6d}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!PlayerInputs@{PlayerInputs}}
+\index{PlayerInputs@{PlayerInputs}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{PlayerInputs()}{PlayerInputs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+Player\+Inputs\+::\+Player\+Inputs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1PlayerInputs}{Player\+Inputs}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new Player Inputs object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_a50407f6b4c5dd0bf08ef58e7c917c39e}\label{classComponent_1_1PlayerInputs_a50407f6b4c5dd0bf08ef58e7c917c39e}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Player\+Inputs\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to modify the velocity regularly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1AController_a122421aac4fa4b0f18a48f7d51f2035c}{Component\+::\+A\+Controller}}.
+
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_a2ecf2075143bc834a52c926facabf43f}\label{classComponent_1_1PlayerInputs_a2ecf2075143bc834a52c926facabf43f}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily void Component\+::\+Player\+Inputs\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1AController_adbc9caa500563bf2de00dc74ef91f6bf}{Component\+::\+A\+Controller}}.
+
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_addcce507321609702ef1ff0a6ae5a62d}\label{classComponent_1_1PlayerInputs_addcce507321609702ef1ff0a6ae5a62d}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily boost\+::property\+\_\+tree\+::ptree\& Component\+::\+Player\+Inputs\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{boost\+::property\+\_\+tree\+::ptree \&}]{ptree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a5e955f03a7175c06f543e58e6faf45eb}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_aa470a6b1356f36818517497e6ee2a750}\label{classComponent_1_1PlayerInputs_aa470a6b1356f36818517497e6ee2a750}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream\& Component\+::\+Player\+Inputs\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIXMLSerializable_a13819e03a51c8f9918e60ffebbe1d55a}{I\+X\+M\+L\+Serializable}}.
+
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_a10a3160020b4b448f686c8ee1b67ea44}\label{classComponent_1_1PlayerInputs_a10a3160020b4b448f686c8ee1b67ea44}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1PlayerInputs}{Player\+Inputs}}\& Component\+::\+Player\+Inputs\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1PlayerInputs}{Player\+Inputs}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Assignement operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1PlayerInputs}{Player\+Inputs}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_addfc71cd51ec4a0310a341235ecc6af9}\label{classComponent_1_1PlayerInputs_addfc71cd51ec4a0310a341235ecc6af9}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!Update@{Update}}
+\index{Update@{Update}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Component\+::\+Player\+Inputs\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to sample the input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1AController_ae68422ab18b849558f42f6f3c2b1e735}{Component\+::\+A\+Controller}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_ab08f4dd24b8028409dea2a030fcb041b}\label{classComponent_1_1PlayerInputs_ab08f4dd24b8028409dea2a030fcb041b}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!\_bombKey@{\_bombKey}}
+\index{\_bombKey@{\_bombKey}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{\_bombKey}{\_bombKey}}
+{\footnotesize\ttfamily int Component\+::\+Player\+Inputs\+::\+\_\+bomb\+Key\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bomb drop input key. 
+
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_ab0a0311bc14389ad2c9ce4be2ebe0dc3}\label{classComponent_1_1PlayerInputs_ab0a0311bc14389ad2c9ce4be2ebe0dc3}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!\_entity@{\_entity}}
+\index{\_entity@{\_entity}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{\_entity}{\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}}\& Component\+::\+Player\+Inputs\+::\+\_\+entity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attatched entity. 
+
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_a5f56725f0d79154a2b860c389843c6e8}\label{classComponent_1_1PlayerInputs_a5f56725f0d79154a2b860c389843c6e8}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!\_input@{\_input}}
+\index{\_input@{\_input}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{\_input}{\_input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Input}{Ray\+Lib\+::\+Input}} Component\+::\+Player\+Inputs\+::\+\_\+input\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Input class to check the keypress. 
+
+\mbox{\Hypertarget{classComponent_1_1PlayerInputs_a6eeba8a576dfa9229e1572018a0bd6f7}\label{classComponent_1_1PlayerInputs_a6eeba8a576dfa9229e1572018a0bd6f7}} 
+\index{Component::PlayerInputs@{Component::PlayerInputs}!\_window@{\_window}}
+\index{\_window@{\_window}!Component::PlayerInputs@{Component::PlayerInputs}}
+\doxysubsubsection{\texorpdfstring{\_window}{\_window}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classRayLib_1_1Window}{Ray\+Lib\+::\+Window}}$>$\& Component\+::\+Player\+Inputs\+::\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+Player\+Inputs/\mbox{\hyperlink{PlayerInputs_8hpp}{Player\+Inputs.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+Player\+Inputs/\mbox{\hyperlink{PlayerInputs_8cpp}{Player\+Inputs.\+cpp}}\end{DoxyCompactItemize}

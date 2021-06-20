@@ -1,0 +1,7 @@
+<map id="Component::Drawable3D" name="Component::Drawable3D">
+<area shape="rect" id="node1" title=" " alt="" coords="69,463,255,716"/>
+<area shape="rect" id="node2" href="$classECS_1_1IComponent.html" title="Base Interface class to create a new component." alt="" coords="20,242,157,363"/>
+<area shape="rect" id="node3" href="$classIXMLSerializable.html" title=" " alt="" coords="5,5,172,156"/>
+<area shape="rect" id="node4" href="$classRayLib_1_1Color.html" title="RayLib Color encapsulation." alt="" coords="181,205,295,400"/>
+<area shape="rect" id="node5" title=" " alt="" coords="210,42,266,119"/>
+</map>

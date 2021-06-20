@@ -1,0 +1,277 @@
+\hypertarget{classComponent_1_1HUD}{}\doxysection{Component\+::H\+UD Class Reference}
+\label{classComponent_1_1HUD}\index{Component::HUD@{Component::HUD}}
+
+
+\mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} base component class.  
+
+
+
+
+{\ttfamily \#include $<$H\+U\+D.\+hpp$>$}
+
+
+
+Inheritance diagram for Component\+::H\+UD\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1HUD__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Component\+::H\+UD\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classComponent_1_1HUD__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1HUD_a39dc172853a6980e6ed913d51766133c}{H\+UD}} (\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&attatched\+Controller, int player\+Nbr)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1HUD_a423170c156e03e622428501d4006618d}{$\sim$\+H\+UD}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1HUD_a0d042120f04de328db75e50bc36d6445}{H\+UD}} (const \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} \&other)=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} \& \mbox{\hyperlink{classComponent_1_1HUD_a4526f6f9003138fb36f9527c80f01029}{operator=}} (const \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} \&other)=default
+\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \& \mbox{\hyperlink{classComponent_1_1HUD_a7931c5972185d801366e4225d974f267}{get\+Offset}} ()
+\begin{DoxyCompactList}\small\item\em Get the offset of the hud part. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \& \mbox{\hyperlink{classComponent_1_1HUD_a2f7e38302e7a4c631dd6274b00c41d31}{get\+A\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} of the hud part. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1HUD_aaa7932c6e1b30fd8513eb04d9f62fe68}{Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Called every frame To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1HUD_a6d19b6c89332d9594c8f03d5e205d6ee}{Fixed\+Update}} (\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Called every $\sim$0.02 seconds To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_1_1HUD_a6753584b442a085f3d95a669c2ec26e0}{Late\+Update}} (double dt, \mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&entity)=0
+\begin{DoxyCompactList}\small\item\em Called after update To be overridden by a playercontroller or AI controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1HUD_ab663f3920cb24316c3a68ed3064f2c68}{Get\+Offset\+From\+Player\+Nbr}} (int player\+Nbr)
+\begin{DoxyCompactList}\small\item\em Get the offset needed for the Nth player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \& \mbox{\hyperlink{classComponent_1_1HUD_a92a7d654d989a71ee51fd56f13d714db}{\+\_\+my\+A\+Controller}}
+\begin{DoxyCompactList}\small\item\em Reference to attatched \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \mbox{\hyperlink{classComponent_1_1HUD_af8dc9189bb99bba83a50aa059c83f418}{\+\_\+offset}}
+\begin{DoxyCompactList}\small\item\em Offset to know where to draw things. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} base component class. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComponent_1_1HUD_a39dc172853a6980e6ed913d51766133c}\label{classComponent_1_1HUD_a39dc172853a6980e6ed913d51766133c}} 
+\index{Component::HUD@{Component::HUD}!HUD@{HUD}}
+\index{HUD@{HUD}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{HUD()}{HUD()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Component\+::\+H\+U\+D\+::\+H\+UD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&}]{attatched\+Controller,  }\item[{int}]{player\+Nbr }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attatched\+Entity} & \\
+\hline
+{\em player\+Nbr} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComponent_1_1HUD_a423170c156e03e622428501d4006618d}\label{classComponent_1_1HUD_a423170c156e03e622428501d4006618d}} 
+\index{Component::HUD@{Component::HUD}!````~HUD@{$\sim$HUD}}
+\index{````~HUD@{$\sim$HUD}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{$\sim$HUD()}{~HUD()}}
+{\footnotesize\ttfamily Component\+::\+H\+U\+D\+::$\sim$\+H\+UD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} object. 
+
+\mbox{\Hypertarget{classComponent_1_1HUD_a0d042120f04de328db75e50bc36d6445}\label{classComponent_1_1HUD_a0d042120f04de328db75e50bc36d6445}} 
+\index{Component::HUD@{Component::HUD}!HUD@{HUD}}
+\index{HUD@{HUD}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{HUD()}{HUD()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Component\+::\+H\+U\+D\+::\+H\+UD (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComponent_1_1HUD_a6d19b6c89332d9594c8f03d5e205d6ee}\label{classComponent_1_1HUD_a6d19b6c89332d9594c8f03d5e205d6ee}} 
+\index{Component::HUD@{Component::HUD}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily virtual void Component\+::\+H\+U\+D\+::\+Fixed\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called every $\sim$0.02 seconds To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_ab1065bd20b5b7eb91993bf84123fdb46}{Component\+::\+I\+Behaviour}}.
+
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1HUDBonusBar_a64301c297ef8cb3602c0c95a88c9a749}{Component\+::\+H\+U\+D\+Bonus\+Bar}}, \mbox{\hyperlink{classComponent_1_1HUDBonusIcon_acb8e6a0df902dd66507ed9c21521d7e0}{Component\+::\+H\+U\+D\+Bonus\+Icon}}, and \mbox{\hyperlink{classComponent_1_1HUDText_a2c4fd5b1e82d402cbe9d01dd8720c32c}{Component\+::\+H\+U\+D\+Text}}.
+
+\mbox{\Hypertarget{classComponent_1_1HUD_a2f7e38302e7a4c631dd6274b00c41d31}\label{classComponent_1_1HUD_a2f7e38302e7a4c631dd6274b00c41d31}} 
+\index{Component::HUD@{Component::HUD}!getAController@{getAController}}
+\index{getAController@{getAController}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{getAController()}{getAController()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \& Component\+::\+H\+U\+D\+::get\+A\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}} of the hud part. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}} \&\+\_\+my\+A\+Controller 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1HUD_a7931c5972185d801366e4225d974f267}\label{classComponent_1_1HUD_a7931c5972185d801366e4225d974f267}} 
+\index{Component::HUD@{Component::HUD}!getOffset@{getOffset}}
+\index{getOffset@{getOffset}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{getOffset()}{getOffset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} \& Component\+::\+H\+U\+D\+::get\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the offset of the hud part. 
+
+\begin{DoxyReturn}{Returns}
+Raylib\+::\+Vector3 offset 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1HUD_ab663f3920cb24316c3a68ed3064f2c68}\label{classComponent_1_1HUD_ab663f3920cb24316c3a68ed3064f2c68}} 
+\index{Component::HUD@{Component::HUD}!GetOffsetFromPlayerNbr@{GetOffsetFromPlayerNbr}}
+\index{GetOffsetFromPlayerNbr@{GetOffsetFromPlayerNbr}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{GetOffsetFromPlayerNbr()}{GetOffsetFromPlayerNbr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+H\+U\+D\+::\+Get\+Offset\+From\+Player\+Nbr (\begin{DoxyParamCaption}\item[{int}]{player\+Nbr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get the offset needed for the Nth player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & player\+Nbr \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1HUD_a6753584b442a085f3d95a669c2ec26e0}\label{classComponent_1_1HUD_a6753584b442a085f3d95a669c2ec26e0}} 
+\index{Component::HUD@{Component::HUD}!LateUpdate@{LateUpdate}}
+\index{LateUpdate@{LateUpdate}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{LateUpdate()}{LateUpdate()}}
+{\footnotesize\ttfamily virtual void Component\+::\+H\+U\+D\+::\+Late\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called after update To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a75b2bc1fdb0dbb9b38105cfcc0db8f3a}{Component\+::\+I\+Behaviour}}.
+
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1HUDBonusBar_a9f7792de0afa9b6d5457f56a49a5df4e}{Component\+::\+H\+U\+D\+Bonus\+Bar}}, \mbox{\hyperlink{classComponent_1_1HUDBonusIcon_a759fc0ede8a234c87ac72d1a5db584ff}{Component\+::\+H\+U\+D\+Bonus\+Icon}}, and \mbox{\hyperlink{classComponent_1_1HUDText_a5d3f469e783c0bc0049630527717df35}{Component\+::\+H\+U\+D\+Text}}.
+
+\mbox{\Hypertarget{classComponent_1_1HUD_a4526f6f9003138fb36f9527c80f01029}\label{classComponent_1_1HUD_a4526f6f9003138fb36f9527c80f01029}} 
+\index{Component::HUD@{Component::HUD}!operator=@{operator=}}
+\index{operator=@{operator=}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}}\& Component\+::\+H\+U\+D\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComponent_1_1HUD}{H\+UD}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComponent_1_1HUD_aaa7932c6e1b30fd8513eb04d9f62fe68}\label{classComponent_1_1HUD_aaa7932c6e1b30fd8513eb04d9f62fe68}} 
+\index{Component::HUD@{Component::HUD}!Update@{Update}}
+\index{Update@{Update}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Component\+::\+H\+U\+D\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{\mbox{\hyperlink{classECS_1_1Entity}{E\+C\+S\+::\+Entity}} \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Called every frame To be overridden by a playercontroller or AI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComponent_1_1IBehaviour_a012f374b692fb09c6fee89cf4d34c0ab}{Component\+::\+I\+Behaviour}}.
+
+
+
+Implemented in \mbox{\hyperlink{classComponent_1_1HUDBonusBar_a28aaa0d6c42158650e20def40f3e9f98}{Component\+::\+H\+U\+D\+Bonus\+Bar}}, \mbox{\hyperlink{classComponent_1_1HUDBonusIcon_a0b9cffdba530418043ac37b954382839}{Component\+::\+H\+U\+D\+Bonus\+Icon}}, and \mbox{\hyperlink{classComponent_1_1HUDText_a5319aed4567423dc9ef1c9a7e0e780c0}{Component\+::\+H\+U\+D\+Text}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComponent_1_1HUD_a92a7d654d989a71ee51fd56f13d714db}\label{classComponent_1_1HUD_a92a7d654d989a71ee51fd56f13d714db}} 
+\index{Component::HUD@{Component::HUD}!\_myAController@{\_myAController}}
+\index{\_myAController@{\_myAController}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{\_myAController}{\_myAController}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComponent_1_1AController}{Component\+::\+A\+Controller}}\& Component\+::\+H\+U\+D\+::\+\_\+my\+A\+Controller\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reference to attatched \mbox{\hyperlink{classComponent_1_1AController}{A\+Controller}}. 
+
+\mbox{\Hypertarget{classComponent_1_1HUD_af8dc9189bb99bba83a50aa059c83f418}\label{classComponent_1_1HUD_af8dc9189bb99bba83a50aa059c83f418}} 
+\index{Component::HUD@{Component::HUD}!\_offset@{\_offset}}
+\index{\_offset@{\_offset}!Component::HUD@{Component::HUD}}
+\doxysubsubsection{\texorpdfstring{\_offset}{\_offset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRayLib_1_1Vector3}{Ray\+Lib\+::\+Vector3}} Component\+::\+H\+U\+D\+::\+\_\+offset\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Offset to know where to draw things. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Libs/\+Engine/sources/\+Components/\+H\+U\+D/\mbox{\hyperlink{HUD_8hpp}{H\+U\+D.\+hpp}}\item 
+Libs/\+Engine/sources/\+Components/\+H\+U\+D/\mbox{\hyperlink{HUD_8cpp}{H\+U\+D.\+cpp}}\end{DoxyCompactItemize}

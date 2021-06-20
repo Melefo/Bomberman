@@ -1,0 +1,106 @@
+\hypertarget{AIMapsGenerator_8hpp}{}\doxysection{Libs/\+Engine/sources/\+Systems/\+A\+I\+Maps\+Generator/\+A\+I\+Maps\+Generator.hpp File Reference}
+\label{AIMapsGenerator_8hpp}\index{Libs/Engine/sources/Systems/AIMapsGenerator/AIMapsGenerator.hpp@{Libs/Engine/sources/Systems/AIMapsGenerator/AIMapsGenerator.hpp}}
+{\ttfamily \#include \char`\"{}I\+Component.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$cinttypes$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Vector3.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I\+Behaviour.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Window.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collision\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Transform.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Destructible.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Exceptions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Explosion.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Physics\+Body.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collider.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Drop\+Bomb.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game\+Configurator.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Camera.\+hpp\char`\"{}}\newline
+Include dependency graph for A\+I\+Maps\+Generator.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AIMapsGenerator_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{AIMapsGenerator_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classAIMapsGenerator}{A\+I\+Maps\+Generator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305}{Box\+Map\+Values}} \{ \mbox{\hyperlink{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305ad374ad6c1b14ed673eed2ed81aa81e63}{O\+F\+F\+W\+A\+LL}} = -\/21, 
+\mbox{\hyperlink{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305aad7073a55a6785aa119cbc986cdbc8d6}{I\+N\+W\+A\+LL}} = -\/20, 
+\mbox{\hyperlink{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305a311c29de5b0fd16d11c0cf1f98a73370}{B\+OX}} = -\/1, 
+\mbox{\hyperlink{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305a2f0d18fc0d0fa4a6cd92dc328501874d}{E\+M\+P\+TY}} = -\/3
+ \}
+\item 
+enum \mbox{\hyperlink{AIMapsGenerator_8hpp_a9376241f8dfc2d2ec34523fdc3369302}{Bomb\+Map\+Values}} \{ \mbox{\hyperlink{AIMapsGenerator_8hpp_a9376241f8dfc2d2ec34523fdc3369302a095285ba8fb2e1f9cfb29c80546f06e4}{B\+O\+MB}} = 0
+ \}
+\item 
+enum \mbox{\hyperlink{AIMapsGenerator_8hpp_a83f5d54db7e01cbc1bd2fd2b9b295d1a}{Player\+Map\+Values}} \{ \mbox{\hyperlink{AIMapsGenerator_8hpp_a83f5d54db7e01cbc1bd2fd2b9b295d1aade5dc3e0dbd007d995ed3e37bde5ce7e}{P\+L\+A\+Y\+ER}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{AIMapsGenerator_8hpp_a9376241f8dfc2d2ec34523fdc3369302}\label{AIMapsGenerator_8hpp_a9376241f8dfc2d2ec34523fdc3369302}} 
+\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!BombMapValues@{BombMapValues}}
+\index{BombMapValues@{BombMapValues}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}
+\doxysubsubsection{\texorpdfstring{BombMapValues}{BombMapValues}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{AIMapsGenerator_8hpp_a9376241f8dfc2d2ec34523fdc3369302}{Bomb\+Map\+Values}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOMB@{BOMB}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!BOMB@{BOMB}}}\mbox{\Hypertarget{AIMapsGenerator_8hpp_a9376241f8dfc2d2ec34523fdc3369302a095285ba8fb2e1f9cfb29c80546f06e4}\label{AIMapsGenerator_8hpp_a9376241f8dfc2d2ec34523fdc3369302a095285ba8fb2e1f9cfb29c80546f06e4}} 
+B\+O\+MB&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305}\label{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305}} 
+\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!BoxMapValues@{BoxMapValues}}
+\index{BoxMapValues@{BoxMapValues}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}
+\doxysubsubsection{\texorpdfstring{BoxMapValues}{BoxMapValues}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305}{Box\+Map\+Values}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OFFWALL@{OFFWALL}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!OFFWALL@{OFFWALL}}}\mbox{\Hypertarget{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305ad374ad6c1b14ed673eed2ed81aa81e63}\label{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305ad374ad6c1b14ed673eed2ed81aa81e63}} 
+O\+F\+F\+W\+A\+LL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INWALL@{INWALL}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!INWALL@{INWALL}}}\mbox{\Hypertarget{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305aad7073a55a6785aa119cbc986cdbc8d6}\label{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305aad7073a55a6785aa119cbc986cdbc8d6}} 
+I\+N\+W\+A\+LL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOX@{BOX}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!BOX@{BOX}}}\mbox{\Hypertarget{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305a311c29de5b0fd16d11c0cf1f98a73370}\label{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305a311c29de5b0fd16d11c0cf1f98a73370}} 
+B\+OX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305a2f0d18fc0d0fa4a6cd92dc328501874d}\label{AIMapsGenerator_8hpp_a5358ca8e94d610c2e399ff42305bf305a2f0d18fc0d0fa4a6cd92dc328501874d}} 
+E\+M\+P\+TY&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{AIMapsGenerator_8hpp_a83f5d54db7e01cbc1bd2fd2b9b295d1a}\label{AIMapsGenerator_8hpp_a83f5d54db7e01cbc1bd2fd2b9b295d1a}} 
+\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!PlayerMapValues@{PlayerMapValues}}
+\index{PlayerMapValues@{PlayerMapValues}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}
+\doxysubsubsection{\texorpdfstring{PlayerMapValues}{PlayerMapValues}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{AIMapsGenerator_8hpp_a83f5d54db7e01cbc1bd2fd2b9b295d1a}{Player\+Map\+Values}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAYER@{PLAYER}!AIMapsGenerator.hpp@{AIMapsGenerator.hpp}}\index{AIMapsGenerator.hpp@{AIMapsGenerator.hpp}!PLAYER@{PLAYER}}}\mbox{\Hypertarget{AIMapsGenerator_8hpp_a83f5d54db7e01cbc1bd2fd2b9b295d1aade5dc3e0dbd007d995ed3e37bde5ce7e}\label{AIMapsGenerator_8hpp_a83f5d54db7e01cbc1bd2fd2b9b295d1aade5dc3e0dbd007d995ed3e37bde5ce7e}} 
+P\+L\+A\+Y\+ER&\\
+\hline
+
+\end{DoxyEnumFields}
