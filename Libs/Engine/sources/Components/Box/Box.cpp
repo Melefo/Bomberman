@@ -6,6 +6,7 @@
 */
 
 #include "Box.hpp"
+#include "EntityFactory.hpp"
 
 namespace Component
 {
@@ -28,15 +29,31 @@ namespace Component
 
     void Box::SpawnLoot(void)
     {
-        /*std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-        // get camera
-        Component::Camera& camera = Component::Camera::GetMainCamera();
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
 
         // create a factory
-        EntityFactory factory(*coordinator.get(), camera.camera);
+        EntityFactory factory(*coordinator.get());
         // spawn a bonus
-        factory.createPickUp();*/
+        ECS::Entity& pickup = factory.createPickUp();
+        Transform& myTransform = _myEntity.GetComponent<Transform>();
+        pickup.GetComponent<Transform>().position = myTransform.position;
+    }
 
-        std::cout << "Spawn a pickup" << std::endl;
+    std::ostream &Box::operator<<(std::ostream &os)
+    {
+        os << "<Box>";
+        os << "<_resistance>" << _resistance << "</_resistance>";
+        os << "<_lootChance>" << _lootChance << "</_lootChance>";
+        os << "</Box>";
+        return (os);
+    }
+
+    boost::property_tree::ptree& Box::operator<<(boost::property_tree::ptree &ptree)
+    {
+        boost::property_tree::ptree node = ptree.get_child("Box");
+
+        _resistance = node.get<int>("_resistance");
+        _lootChance = node.get<float>("_lootChance");
+        return (ptree);
     }
 }

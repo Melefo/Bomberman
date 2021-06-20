@@ -6,14 +6,14 @@
 */
 
 #include "EntityLoader.hpp"
+#include "EngineExceptions.hpp"
 
 namespace Serialization
 {
     std::map<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>> EntityLoader::_loadAbleComponents = {
         std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Transform", &EntityLoader::LoadTransform),
-        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Renderer", &EntityLoader::LoadRenderer),
-        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("BoxCollider", &EntityLoader::LoadBoxCollider),
-        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Destructible", &EntityLoader::LoadDestructible)
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Destructible", &EntityLoader::LoadDestructible),
+        std::pair<std::string, std::function<void(ECS::Entity&, boost::property_tree::ptree&)>>("Box", &EntityLoader::LoadBox)
     };
 
     ECS::Entity& EntityLoader::LoadEntity(std::istream& iss)
@@ -31,11 +31,15 @@ namespace Serialization
         ECS::Entity& entity = coordinator->CreateEntity();
         //boost::property_tree::ptree entityNode = ptree.get_child("Entity");
 
+        entity.SetTag(ptree.get<std::string>("tag"));
+
         for (auto it = _loadAbleComponents.begin(); it != _loadAbleComponents.end(); it++) {
             if (ptree.find(it->first) != ptree.not_found()) {
                 it->second(entity, ptree);
             }
         }
+        //std::cout << "Created entity with tag: " << entity.GetTag() << std::endl;
+
         return (entity);
     }
 
@@ -49,7 +53,13 @@ namespace Serialization
 
     void EntityLoader::LoadEntities(boost::property_tree::ptree &ptree)
     {
+        if (ptree.find("Entities") == ptree.not_found())
+            throw Engine::Exception::EngineException("Entity node not found in XML");
+
         boost::property_tree::ptree entitiesNode = ptree.get_child("Entities");
+
+        if (entitiesNode.find("Entity") == entitiesNode.not_found())
+            throw Engine::Exception::EngineException("Entity node not found in XML");
 
         for (auto& it : entitiesNode) {
             boost::property_tree::ptree entityNode = it.second;
@@ -63,28 +73,15 @@ namespace Serialization
         entity.GetComponent<Component::Transform>() << ptree;
     }
 
-    void EntityLoader::LoadRenderer(ECS::Entity& entity, boost::property_tree::ptree &ptree)
-    {
-        entity.AddComponent<Component::Renderer>();
-        entity.GetComponent<Component::Renderer>() << ptree;
-    }
-
-    void EntityLoader::LoadBoxCollider(ECS::Entity& entity, boost::property_tree::ptree& ptree)
-    {
-        //! ne fonctionne uniquement si Transform précede BoxCollider
-        //! à cause du unordered map, c'est aléatoire, donc le box collider ne trouve pas son transform, et crash
-        entity.AddComponent<Component::Collider, Component::BoxCollider>(entity, 1.0f);
-        std::vector<std::reference_wrapper<Component::Collider>> cols = entity.OfType<Component::Collider>();
-
-        for (auto col = cols.begin(); col != cols.end(); col++) {
-            col->get() << ptree;
-        }
-    }
-
     void EntityLoader::LoadDestructible(ECS::Entity& entity, boost::property_tree::ptree &ptree)
     {
         entity.AddComponent<Component::Destructible>(entity);
         entity.GetComponent<Component::Destructible>() << ptree;
     }
 
+    void EntityLoader::LoadBox(ECS::Entity& entity, boost::property_tree::ptree &ptree)
+    {
+        entity.AddComponent<Component::Box>(entity);
+        entity.GetComponent<Component::Box>() << ptree;
+    }
 }

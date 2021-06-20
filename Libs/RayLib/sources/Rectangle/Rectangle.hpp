@@ -9,6 +9,7 @@
 #define RECTANGLE_HPP_
 
 #include <raylib.h>
+#include "Color.hpp"
 
 namespace RayLib
 {
@@ -16,7 +17,7 @@ namespace RayLib
      * @brief Rectangle encapsulation
      * 
      */
-    class Rectangle {
+    class Rectangle : public ::Rectangle {
         public:
             /**
              * @brief Construct a new Rectangle
@@ -74,10 +75,17 @@ namespace RayLib
              */
             ~Rectangle() = default;
 
-            float x;
-            float y;
-            float width;
-            float height;
+            /**
+             * @brief Draw the rectangle in the window with a color
+             *
+             */
+            void DrawRectangle(RayLib::Color color = LIGHTGRAY);
+            /**
+             * @brief Destroy the borders of the rectangle int the window with a color
+             *
+             */
+            void DrawRectangleLines(RayLib::Color color = DARKGRAY);
+
         protected:
         private:
     };

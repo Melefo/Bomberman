@@ -11,7 +11,6 @@ namespace RayLib
 {
     ModelAnimation::ModelAnimation(const std::string& fileName) : _animsCount(0), _frame(0)
     {
-
         ::ModelAnimation *anims = ::LoadModelAnimations(fileName.c_str(), &_animsCount);
 
         if (anims == NULL) {

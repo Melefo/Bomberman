@@ -66,7 +66,7 @@ namespace ECS
                 std::string name(typeid(T).name());
 
                 if (this->HasSystem<T>())
-                    throw Exception::SystemManagerException("Cannot add more than once a system.");
+                    throw Exception::SystemManagerException("Cannot add more than once system " + name);
 
                 this->_systems[name] = std::make_unique<T>(std::forward<TArgs>(args)...);
                 return dynamic_cast<T &>(*this->_systems[name]);
@@ -99,6 +99,22 @@ namespace ECS
 
                 const auto &it = this->_systems.find(name);
                 return it != this->_systems.end();
+            }
+
+            /**
+             * @brief Get a System from Manager
+             *
+             * @return T& The System
+             */
+            template<typename T>
+            T& GetSystem()
+            {
+                std::string name(typeid(T).name());
+
+                const auto& it = this->_systems.find(name);
+                if (it == this->_systems.end())
+                    throw Exception::EntityException("System " + name + " is not added");
+                return dynamic_cast<T&>(*it->second);
             }
             /**
              * @brief Get the Systems object

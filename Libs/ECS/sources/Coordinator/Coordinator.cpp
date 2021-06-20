@@ -6,6 +6,7 @@
 */
 
 #include "Coordinator.hpp"
+#include "Exceptions.hpp"
 
 namespace ECS
 {
@@ -13,7 +14,7 @@ namespace ECS
 
 
     Coordinator::Coordinator(std::string defaultScene, double fixedDeltaTime) :
-    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true), CloseWindow(false)
+    _systemManager(), _scenes(), _currentScene(defaultScene), _fixedDeltaTime(fixedDeltaTime), _duration(0), _firstRun(true), _gameIsRunning(false), CloseWindow(false)
     {
 
     }
@@ -33,10 +34,12 @@ namespace ECS
 
     void Coordinator::Update(double dt)
     {
+
         for (auto &pair : this->_systemManager.GetSystems())
         {
             if (!pair.second->GetStatus())
                 continue;
+            std::string scene = this->_currentScene;
             auto dependencies = pair.second->GetDependencies();
 
             auto& entities = this->_scenes[this->_currentScene].GetEntities();
@@ -47,6 +50,8 @@ namespace ECS
                 if (entity->HasComponents(dependencies)) {
                     pair.second->Update(dt, *entity);
                 }
+                if (entities.size() == 0 || scene != this->_currentScene)
+                    break;
             }
         }
     }
@@ -57,6 +62,7 @@ namespace ECS
         {
             if (!pair.second->GetStatus())
                 continue;
+            std::string scene = this->_currentScene;
             auto dependencies = pair.second->GetDependencies();
 
             auto& entities = this->_scenes[this->_currentScene].GetEntities();
@@ -67,6 +73,8 @@ namespace ECS
                 if (entity->HasComponents(dependencies)) {
                     pair.second->FixedUpdate(*entity);
                 }
+                if (entities.size() == 0 || scene != this->_currentScene)
+                    break;
             }
         }
     }
@@ -78,6 +86,7 @@ namespace ECS
             if (!pair.second->GetStatus())
                 continue;
             auto dependencies = pair.second->GetDependencies();
+            std::string scene = this->_currentScene;
 
             auto& entities = this->_scenes[this->_currentScene].GetEntities();
             for (auto it = entities.begin(); it != entities.end();) {
@@ -87,6 +96,8 @@ namespace ECS
                 if (entity->HasComponents(dependencies)) {
                     pair.second->LateUpdate(dt, *entity);
                 }
+                if (entities.size() == 0 || scene != this->_currentScene)
+                    break;
             }
         }
     }
@@ -112,6 +123,19 @@ namespace ECS
         this->_lastRun = now;
     }
 
+    void Coordinator::RemoveEntities(const std::string &name)
+    {
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = this->GetEntities();
+
+        for (auto it = entities.begin(); it != entities.end();) {
+            auto toDel = it->get();
+            it++;
+            if (toDel->GetTag().find(name) != std::string::npos) {
+                toDel->Dispose();
+            }
+        }
+    }
+
     double Coordinator::getFixedDeltaTime() const
     {
         return this->_fixedDeltaTime;
@@ -127,17 +151,32 @@ namespace ECS
         return (_currentScene);
     }
 
-    void Coordinator::setCurrentScene(std::string &sceneName)
+    void Coordinator::setCurrentScene(const std::string& sceneName)
     {
         this->_currentScene = sceneName;
     }
 
-    const ECS::EntityManager &Coordinator::getScene(std::string &sceneName) const
+    void Coordinator::DeleteScene(const std::string& sceneName)
+    {
+        this->_scenes.erase(sceneName);
+    }
+
+    const ECS::EntityManager &Coordinator::getScene(const std::string& sceneName) const
     {
         for (auto &it : this->_scenes) {
             if (it.first == sceneName)
                 return it.second;
         }
-        throw("");
+        throw(Exception::CoordinatorException("Scene \"" + sceneName + "\" not found"));
+    }
+
+    bool Coordinator::IsGameRunning(void)
+    {
+        return _gameIsRunning;
+    }
+
+    void Coordinator::SetGameIsRunning(bool isRunning)
+    {
+        _gameIsRunning = isRunning;
     }
 }

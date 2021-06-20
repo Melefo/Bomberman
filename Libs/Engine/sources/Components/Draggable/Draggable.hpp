@@ -16,7 +16,6 @@
 #include "Camera3D.hpp"
 #include "Mouse.hpp"
 #include "Transform.hpp"
-#include "Physics3D.hpp"
 #include <cmath>
 
 namespace Component
@@ -75,7 +74,6 @@ namespace Component
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
 

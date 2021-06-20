@@ -54,7 +54,7 @@ namespace Component
              * @param radius 
              * @return std::vector<std::reference_wrapper<ECS::Entity>> 
              */
-            static std::vector<std::reference_wrapper<ECS::Entity>> OverlapSphere(ECS::Coordinator& coordinator, RayLib::Vector3 center, float radius);
+            static std::vector<std::reference_wrapper<ECS::Entity>> OverlapCircle(ECS::Coordinator& coordinator, RayLib::Circle circle);
             /**
              * @brief Returns all entities in the given box
              * 
@@ -62,7 +62,7 @@ namespace Component
              * @param box 
              * @return std::vector<std::reference_wrapper<ECS::Entity>> 
              */
-            static std::vector<std::reference_wrapper<ECS::Entity>> OverlapBox(ECS::Coordinator& coordinator, RayLib::BoundingBox box);
+            static std::vector<std::reference_wrapper<ECS::Entity>> OverlapBox(ECS::Coordinator& coordinator, RayLib::Rectangle rectangle);
             //static std::vector<std::reference_wrapper<ECS::Entity>> RayCast(ECS::Coordinator& coordinator, RayLib::Vector3 center, float distance, RayLib::Vector3 direction);
 
         protected:

@@ -10,6 +10,7 @@
 #include <raylib.h>
 #include "Image.hpp"
 #include "Vector3.hpp"
+#include "IAsset.hpp"
 
 namespace RayLib
 {
@@ -17,14 +18,34 @@ namespace RayLib
      * @brief Mesh encapsulation
      * 
      */
-    class Mesh {
+    class Mesh : public IAsset {
         public:
+
+            Mesh(const std::string& path);
+
             /**
              * @brief Construct a new Mesh object
              * Generates a cube with given scale
              * @param scale 
              */
             Mesh(Vector3 scale=Vector3(1.0f, 1.0f, 1.0f));
+            /**
+             * @brief Construct a new Mesh object
+             * Generates a sphere with given scale
+             * @param radius 
+             * @param rings 
+             * @param slices 
+             */
+            Mesh(float radius, int rings, int slices);
+            /**
+             * @brief Construct a new Mesh object
+             * Generates a plane with given scale
+             * @param width 
+             * @param length 
+             * @param resX 
+             * @param resZ 
+             */
+            Mesh(float width, float length, int resX, int resZ);
 
             /**
              * @brief Construct a new Mesh object
@@ -39,7 +60,7 @@ namespace RayLib
              * @brief Destroy the Mesh object
              * 
              */
-            ~Mesh();
+            ~Mesh() override;
 
             /**
              * @brief Get the Mesh object as a raylib structure

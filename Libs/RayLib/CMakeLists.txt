@@ -5,13 +5,13 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/")
 
 FIND_PACKAGE(raylib REQUIRED)
 
-file(GLOB_RECURSE SRC sources/**/*.cpp)
+file(GLOB_RECURSE SRC sources/**/*.cpp sources/Shader/**/*.cpp)
 file(GLOB_RECURSE TEST tests/**/*.cpp tests/*.cpp)
 
 if(MSVC)
   add_compile_options(/W4 /WX)
 else()
-  add_compile_options(-Wall -Wextra -Wshadow)
+  add_compile_options(-Wall -Wextra -Wshadow -Wno-missing-field-initializers)
 endif()
 
 add_library(encapsu

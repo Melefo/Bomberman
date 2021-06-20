@@ -19,7 +19,7 @@ namespace RayLib
      * @brief Vector3 encapsulation
      * 
      */
-    struct Vector3 : public ::Vector3, public IXMLSerializable
+    class Vector3 : public ::Vector3, public IXMLSerializable
     {
         public:
             /**
@@ -162,8 +162,6 @@ namespace RayLib
             Vector3 operator/(const float factor);
 
             std::ostream& operator<<(std::ostream& os) override;
-            std::istream& operator>>(std::istream& is) override;
-
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
 

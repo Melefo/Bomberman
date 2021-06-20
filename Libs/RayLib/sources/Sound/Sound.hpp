@@ -10,10 +10,11 @@
 
 #include <string>
 #include <raylib.h>
+#include "IAsset.hpp"
 
 namespace RayLib
 {
-    class Sound {
+    class Sound : public IAsset {
         public:
             /**
              * @brief Construct a new Sound object
@@ -65,6 +66,8 @@ namespace RayLib
              * @return ::Sound 
              */
             ::Sound GetSound();
+
+            bool ISSoundPlaying();
 
         protected:
         private:

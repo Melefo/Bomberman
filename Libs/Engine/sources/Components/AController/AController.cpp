@@ -9,7 +9,7 @@
 
 namespace Component
 {
-    AController::AController(ECS::Entity& attatchedEntity, float speed, float delay) : _movement(attatchedEntity, speed), _dropBomb(delay)
+    AController::AController(ECS::Entity& attatchedEntity, float speed, float delay) : _movement(attatchedEntity, speed), _dropBomb(attatchedEntity, delay)
     {
     }
 
@@ -21,5 +21,10 @@ namespace Component
     Component::DropBomb& AController::GetDropBomb()
     {
         return (_dropBomb);
+    }
+
+    Component::AController& AController::GetAController()
+    {
+        return (*this);
     }
 }

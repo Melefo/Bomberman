@@ -15,7 +15,9 @@
 #include "Collider.hpp"
 #include "Transform.hpp"
 #include <algorithm>
+#include "Animator.hpp"
 #include "Window.hpp"
+#include "Physics2D.hpp"
 
 namespace Component
 {
@@ -31,7 +33,7 @@ namespace Component
              * @param attatchedEntity 
              * @param moveSpeed 
              */
-            Movement(ECS::Entity& attatchedEntity, float moveSpeed = 0.5f);
+            Movement(ECS::Entity& attatchedEntity, float moveSpeed = 0.5f, float maxSpeed=1.0f);
 
             /**
              * @brief Destroy the Player Movement object
@@ -73,6 +75,14 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
+            /**
+             * @brief Get the time 
+             * 
+             * @return float&
+             * 
+             */
+            float &GetBonusTime();
+
             void SlipperyCollisions();
 
             bool CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders,
@@ -82,7 +92,6 @@ namespace Component
             void BoostSpeed(float bonusSpeed=3.0f, float time=20.0f);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
             /**
@@ -118,6 +127,8 @@ namespace Component
              * 
              */
             float _bonusTime;
+
+            float _maxSpeed;
 
             std::vector<std::string> _collisionMask;
 

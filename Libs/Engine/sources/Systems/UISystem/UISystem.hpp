@@ -13,7 +13,8 @@
 #include "Camera3D.hpp"
 #include "IUIObject.hpp"
 #include "Renderer.hpp"
-#include "AssetManager.hpp"
+#include "Window.hpp"
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
@@ -28,7 +29,7 @@ namespace Component
              * 
              * @param camera 
              */
-            UISystem(RayLib::Camera3D& camera);
+            UISystem();
             /**
              * @brief Destroy the UISystem object
              * 
@@ -58,11 +59,7 @@ namespace Component
 
         protected:
         private:
-            /**
-             * @brief Required to temporarily shift from 3D to 2D mode
-             * 
-             */
-            RayLib::Camera3D& _camera;
+            std::unique_ptr<RayLib::Window>& _window;
 
     };
 }

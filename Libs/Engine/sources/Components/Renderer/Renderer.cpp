@@ -22,20 +22,11 @@ namespace Component
         return (os);
     }
 
-    std::istream& Renderer::operator>>(std::istream& is)
-    {
-        boost::property_tree::ptree tree;
-        boost::property_tree::xml_parser::read_xml(is, tree);
-
-        this->operator<<(tree);
-        return (is);
-    }
-
     boost::property_tree::ptree& Renderer::operator<<(boost::property_tree::ptree &ptree)
     {
         boost::property_tree::ptree rendererTree = ptree.get_child("Renderer");
 
-        _name = rendererTree.get_child("AssetName").get_value<std::string>("AssetName");
+        _name = rendererTree.get<std::string>("AssetName");
         return (ptree);
     }
 

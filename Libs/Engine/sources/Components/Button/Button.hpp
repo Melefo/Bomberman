@@ -16,7 +16,6 @@
 #include "Rectangle.hpp"
 #include "Mouse.hpp"
 #include "BoundingBox.hpp"
-#include "Asset.hpp"
 
 namespace Component
 {
@@ -30,7 +29,7 @@ namespace Component
              * @brief Construct a new Button object
              * 
              */
-            Button();
+            Button(const std::string& path, bool lerp = true);
             /**
              * @brief Destroy the Button object
              * 
@@ -57,7 +56,6 @@ namespace Component
              * @param scale 
              */
             void Draw(RayLib::Vector2<float> position,
-                      Asset& asset,
                       RayLib::Vector2<float> scale=RayLib::Vector2<float>(1.0f, 1.0f)) override;
 
             /**
@@ -83,8 +81,9 @@ namespace Component
             void OnClick(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
+
+            ::Texture2D GetTexture() const;
 
             // todo getrect
 
@@ -102,6 +101,9 @@ namespace Component
             std::vector<std::function<void()>> _callbacks;
 
             RayLib::Color _tint;
+
+            std::shared_ptr<RayLib::Texture> _texture;
+            bool _lerp;
     };
 }
 

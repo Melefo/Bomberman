@@ -6,6 +6,10 @@
 */
 
 #include "GameConfigurator.hpp"
+#include "BehaviourSystem.hpp"
+#include "PhysicsSystem.hpp"
+#include "Animator.hpp"
+#include "Scenes.hpp"
 
 namespace Component
 {
@@ -21,36 +25,102 @@ namespace Component
         int count = 0;
         // dans le constructeur
 
-        if (_coordinator->getCurrentScene() == "Editor") {
+        if (_coordinator->getCurrentScene() == "EditorMenu") {
             // if drag n drop
             if (_window->IsFileDropped())
             {
                 std::vector<std::string> droppedFiles = _window->GetDroppedFiles(&count);
                 // open file
-                std::ifstream myfile(droppedFiles[0]);
 
-                std::stringstream buffer;
-                buffer << myfile.rdbuf();
-
-                std::istringstream iss;
-                iss.str(buffer.str());
-                myfile.close();
-
-                //std::cout << iss.str() << std::endl;
-                std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
-
-                // ! comment trier entity/script ?
-                    // ! ouvrir, find node script/Entity
-                //Serialization::EntityLoader::LoadEntity(iss);
-                Serialization::EntityLoader::LoadEntities(iss);
-
+                if (droppedFiles[0].find(".xml") != std::string::npos) {
+                    ParseXMLEntities(droppedFiles[0]);
+                }
+                if (droppedFiles[0].find(".txt") != std::string::npos) {
+                    ParseTerrain(droppedFiles[0]);
+                }
                 _window->ClearDroppedFiles();
             }
         }
 
         if (_coordinator->getCurrentScene() == "Game") {
-            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver())
+            if (Engine::GameConfiguration::GetGameOver() == false && CheckGameOver()) {
                 Engine::GameConfiguration::SetGameOver(true);
+                _coordinator->SetGameIsRunning(false);
+                _coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(false);
+                ResetPlayersAnimations();
+                Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), _nbrPlayersAlive == 0? "TIE": "YOU WON, CONGRATS!");
+                //_coordinator->GetSystem<Component::BehaviourSystem>().ToggleStatus();
+            }
+        }
+    }
+
+    void GameConfigurator::ParseXMLEntities(const std::string& path)
+    {
+        std::ifstream myfile(path);
+
+        std::stringstream buffer;
+        buffer << myfile.rdbuf();
+
+        std::istringstream iss;
+        iss.str(buffer.str());
+        myfile.close();
+
+                //std::cout << iss.str() << std::endl;
+                //std::cout << "Dropped file: " << droppedFiles[0] << std::endl;
+
+        // clear all existing entities
+
+        _coordinator->RemoveEntities("Wall");
+        _coordinator->RemoveEntities("Box");
+        _coordinator->RemoveEntities("AI");
+        _coordinator->RemoveEntities("PlayerEntity");
+        _coordinator->RemoveEntities("PickUp");
+        _coordinator->RemoveEntities("Bomb");
+
+        Serialization::EntityLoader::LoadEntities(iss);
+
+        Engine::GameConfiguration::SetDroppedMap(true);
+
+    }
+
+    //! gestion d'erreur
+    void GameConfigurator::ParseTerrain(const std::string& path)
+    {
+        std::vector<std::string> lines;
+        // loop getline
+        std::ifstream infile(path);
+
+        //gameconfiguration get terrain
+        Component::Camera &cameraRef = Component::Camera::GetMainCamera();
+        TerrainGenerator &terrainGeneratorRef = Engine::GameConfiguration::GetTerrainGenerator();
+
+        std::string line;
+        while (std::getline(infile, line)) {
+            lines.push_back(line);
+        }
+
+        _coordinator->RemoveEntities("Wall");
+        _coordinator->RemoveEntities("Box");
+        _coordinator->RemoveEntities("AI");
+        _coordinator->RemoveEntities("PlayerEntity");
+        _coordinator->RemoveEntities("PickUp");
+        _coordinator->RemoveEntities("Bomb");
+        _coordinator->RemoveEntities("HUD");
+
+        // terrain.clear
+        terrainGeneratorRef.clearMap();
+        // terrain.setmap (lines)
+        terrainGeneratorRef.SetMap(lines);
+        Scenes::InitMap(*_coordinator, cameraRef.camera, false);
+        cameraRef.getEntity().GetComponent<Component::Transform>().position.z = -200;
+        infile.close();
+    }
+
+    void GameConfigurator::ResetPlayersAnimations()
+    {
+        for (auto &entity : _coordinator->GetEntities()) {
+            if (entity->GetTag().find("PlayerEntity") != std::string::npos)
+                entity->GetComponent<Component::Animator>().SetState("Idle");
         }
     }
 
@@ -60,22 +130,19 @@ namespace Component
         int remainingPlayers = 0;
         std::string tag = "";
 
-        for (auto it = entities.begin(); it != entities.end(); it++) {
-            tag = it->get()->GetTag();
-            //! faire pareil pour l'IA
-            if (tag.find("Player") != std::string::npos) {
+        for (auto &entity : entities) {
+            if (entity->GetTag().find("PlayerEntity") != std::string::npos)
                 remainingPlayers++;
-            }
+            if (entity->GetTag().find("AI") != std::string::npos)
+                remainingPlayers++;
         }
-        if (remainingPlayers <= 1) {
-            //std::string sceneName = "MainMenu";
-            //_coordinator->setCurrentScene(sceneName);
-            std::cout << "Only one player remaining, congratulations!" << std::endl;
+        _nbrPlayersAlive = remainingPlayers;
+        if (_nbrPlayersAlive <= 1) {
+            //std::cout << "Game is over! GG!" << std::endl;
             return (true);
         }
         return (false);
     }
-
 
     void GameConfigurator::FixedUpdate(ECS::Entity&)
     {
@@ -85,33 +152,5 @@ namespace Component
     void GameConfigurator::LateUpdate(double, ECS::Entity&)
     {
 
-    }
-
-    void GameConfigurator::SaveMap(void)
-    {
-        // open a file called map.xml
-        std::ofstream file("./map.xml", std::ofstream::trunc | std::ofstream::out);
-
-        // get coordinator
-        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
-        // get entities
-        const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator->GetEntities();
-        std::ostringstream oss;
-
-        for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get()->GetTag() != "Wall" && it->get()->GetTag() != "Box")
-                continue;
-            std::vector<std::reference_wrapper<std::unique_ptr<IComponent>>> components = it->get()->GetComponents();
-            oss << "<Entity>";
-            for (auto cmp = components.begin(); cmp != components.end(); cmp++) {
-                IXMLSerializable& obj = *cmp->get();
-                oss << obj;
-            }
-            oss << "</Entity>";
-        }
-        file << "<Entities>";
-        file << oss.str();
-        file << "</Entities>";
-        file.close();
     }
 }

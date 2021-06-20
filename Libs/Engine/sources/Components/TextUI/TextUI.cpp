@@ -5,18 +5,19 @@
 ** TextUI
 */
 
+#include "AssetCache.hpp"
 #include "TextUI.hpp"
 
 namespace Component
 {
     TextUI::TextUI(std::string startStr, const std::string& fontPath, float startSize, float spacing, RayLib::Color startColor) :
-    _string(startStr), _font(fontPath), _color(startColor), _size(startSize), _spacing(spacing)
+    _string(startStr), _font(AssetCache::GetAsset<RayLib::Font>(fontPath)), _color(startColor), _size(startSize), _spacing(spacing)
     {
     }
 
-    void TextUI::Draw(RayLib::Vector2<float> position, Asset&, RayLib::Vector2<float>)
+    void TextUI::Draw(RayLib::Vector2<float> position, RayLib::Vector2<float>scale)
     {
-        _font.DrawText(_string, position, _size, _spacing, _color);
+        _font->DrawText(_string, position, _size * scale.x, _spacing, _color);
     }
 
     std::string& TextUI::GetContent(void)
@@ -51,6 +52,6 @@ namespace Component
 
     RayLib::Vector2<float> TextUI::MeasureText()
     {
-        return (_font.MeasureText(_string, _size, _spacing));
+        return (_font->MeasureText(_string, _size, _spacing));
     }
 }

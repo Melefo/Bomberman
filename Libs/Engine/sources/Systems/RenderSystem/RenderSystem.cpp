@@ -7,53 +7,54 @@
 
 #include "RenderSystem.hpp"
 #include "Transform.hpp"
-#include "AssetManager.hpp"
 #include <iostream>
 #include <cmath>
 #include "IUIObject.hpp"
+#include "Drawable3D.hpp"
+#include "ModelShader.hpp"
 
 namespace Component
 {
     RenderSystem::RenderSystem()
     {
         AddDependency<Transform>();
-        AddDependency<Renderer>();
+        //AddDependency<Renderer>();
+        AddDependency<Drawable3D>();
+
         // !get asset manager here ?
     }
 
-    void RenderSystem::Update(double, ECS::Entity& entity)
+    void RenderSystem::Update(double, ECS::Entity&entity)
     {
-        std::unique_ptr<AssetManager> &assetManagerRef = AssetManager::GetInstance();
+        if (entity.OfType<IUIObject>().size() > 0)
+            return;
+        if (entity.HasComponent<Animator>())
+            return;
+
         Transform& transform = entity.GetComponent<Transform>();
-        Renderer& renderer = entity.GetComponent<Renderer>();
+        entity.GetComponent<Drawable3D>().Draw(transform.position, transform.scale, WHITE);
+
+    }
+
+    void RenderSystem::FixedUpdate(ECS::Entity &entity)
+    {
+        Transform& transform = entity.GetComponent<Transform>();
+        Drawable3D& drawable = entity.GetComponent<Drawable3D>();
 
         //! on ne render pas ici les UI, pour le moment...
         if (entity.OfType<IUIObject>().size() > 0)
             return;
 
-        RayLib::Model& model = assetManagerRef->getAssetFromName(renderer.getName()).getModel();
-
-        float rotation = 0.0f;
-        RayLib::Vector3 worldUp = RayLib::Vector3();
-
-        if (abs(transform.rotation.x) > abs(transform.rotation.y) && abs(transform.rotation.x) > abs(transform.rotation.z)) {
-            worldUp.x = 1.0f;
-            rotation = transform.rotation.x;
-        }
-        if (abs(transform.rotation.y) > abs(transform.rotation.x) && abs(transform.rotation.y) > abs(transform.rotation.z)) {
-            worldUp.y = 1.0f;
-            rotation = transform.rotation.y;
-        }
-        if (abs(transform.rotation.z) > abs(transform.rotation.x) && abs(transform.rotation.z) > abs(transform.rotation.y)) {
-            worldUp.z = 1.0f;
-            rotation = transform.rotation.z;
-        }
-
-        model.DrawEx(transform.position, worldUp, rotation, transform.scale, WHITE);
+        drawable.RotateModel(transform.rotation);
 
         if (entity.HasComponent<Animator>()) {
             Animator& animator = entity.GetComponent<Animator>();
-            animator.PlayCurrentState(model);
+            animator.PlayCurrentState(drawable.GetModel());
         }
+        if (entity.HasComponent<ModelShader>()) {
+            ModelShader& modelShader = entity.GetComponent<ModelShader>();
+            modelShader.Update();
+        }
+        drawable.Draw(transform.position, transform.scale, WHITE);
     }
 }

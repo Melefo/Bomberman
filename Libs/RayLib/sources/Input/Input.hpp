@@ -71,9 +71,40 @@ namespace RayLib
              * @return true 
              * @return false 
              */
-            bool IsKeyDown(int key);
             int GetKeyPressed(void);
+            /**
+             * @brief
+             * returns if the key is down
+             * @param key
+             * @return true
+             * @return false
+             */
+            bool IsKeyDown(int key);
+            /**
+             * @brief
+             * returns the last char pressed
+             * @param char
+             * @return true
+             * @return false
+             */
+            int GetCharPressed(void);
+            /**
+             * @brief
+             * returns if the key is currently pressed
+             * @param key
+             * @return true
+             * @return false
+             */
+            bool IsKeyPressed(int key);
 
+            /**
+             * @brief
+             * returns if the key is currently released
+             * @param key
+             * @return true
+             * @return false
+             */
+            bool IsKeyReleased(int key);
             /**
              * @brief Get the Horizontal Keys
              * 

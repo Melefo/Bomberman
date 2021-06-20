@@ -9,16 +9,29 @@
 #include <iostream>
 #include "Window.hpp"
 #include "Exceptions.hpp"
+#include "AssetCache.hpp"
+#include "GameConfiguration.hpp"
 
 namespace Component
 {
     Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, float lerpTime)
-    : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y)
+    : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y),
+    _music(nullptr)
     {
+    }
+
+    Camera::Camera(ECS::Entity& entity, RayLib::Camera3D& startCamera, const std::string& musicPath, float lerpTime)
+    : camera(startCamera), _entity(entity), _transform(entity.GetComponent<Transform>()), _lerpTime(lerpTime), _minHeight(_transform.position.y),
+    _music(AssetCache::GetAsset<RayLib::Sound>(musicPath))
+    {
+        _music->SetVolume(Engine::GameConfiguration::GetVolume());
+        _music->Play();
     }
 
     void Camera::Update(double, ECS::Entity&)
     {
+        if (_music && !_music->ISSoundPlaying())
+            _music->Play();
         //std::cout << "Camera position: " << _transform.position << std::endl;
     }
 
@@ -60,7 +73,8 @@ namespace Component
         RayLib::Vector3 result;
 
         //! mettre à jour la liste des players si yen a qui perd
-        RayLib::Vector2<int> margin = RayLib::Vector2<int>(10, 10);
+        RayLib::Vector2<int> margin = RayLib::Vector2<int>(2, 2);
+
         RayLib::Vector2<int> windowSize = RayLib::Window::GetInstance(0, "")->GetSize();
         bool offscreen = false;
         std::size_t extraSpace = 0;
@@ -69,14 +83,15 @@ namespace Component
         std::size_t size = 0;
 
         for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get()->GetTag() != "Player")
+            if (it->get()->GetTag().find("PlayerEntity") == std::string::npos && it->get()->GetTag().find("AI") == std::string::npos)
                 continue;
             if (!it->get()->HasComponent<Transform>())
                 continue;
             Transform& transform = it->get()->GetComponent<Transform>();
 
-            if (IsPositionOffScreen(transform.position, margin, windowSize))
+            if (IsPositionOffScreen(transform.position, margin, windowSize)) {
                 offscreen = true;
+            }
 
             if (IsPositionOffScreen(transform.position, margin * 2, windowSize))
                 extraSpace += 1;
@@ -123,5 +138,8 @@ namespace Component
         throw ECS::Exception::ComponentException("There is no camera in the scene");
     }
 
-
+    ECS::Entity &Camera::getEntity()
+    {
+        return _entity;
+    }
 }

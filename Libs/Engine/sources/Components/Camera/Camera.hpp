@@ -15,6 +15,7 @@
 #include "Transform.hpp"
 #include "IBehaviour.hpp"
 #include "Coordinator.hpp"
+#include "Sound.hpp"
 
 namespace Component
 {
@@ -30,6 +31,17 @@ namespace Component
              * @param camera 
              */
             Camera(ECS::Entity& attatched, RayLib::Camera3D& camera, float lerpTime = 0.1f);
+
+            /**
+             * @brief Construct a new Camera object
+             * 
+             * @param attatched 
+             * @param camera 
+             * @param musicPath 
+             * @param lerpTime 
+             */
+            Camera(ECS::Entity& attatched, RayLib::Camera3D& camera, const std::string& musicPath, float lerpTime = 0.1f);
+
             /**
              * @brief Destroy the Camera object
              * 
@@ -69,7 +81,6 @@ namespace Component
             RayLib::Camera3D& camera;
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
             /**
@@ -92,12 +103,32 @@ namespace Component
 
             static Camera& GetMainCamera();
 
+            ECS::Entity &getEntity();
+
         protected:
         private:
+            /**
+             * @brief Attatched entity
+             * 
+             */
             ECS::Entity& _entity;
+            /**
+             * @brief Camera's transform
+             * 
+             */
             Transform& _transform;
+            /**
+             * @brief time variable for interpolation
+             * 
+             */
             float _lerpTime;
+            /**
+             * @brief Minimum height for zoom/dezoom
+             * 
+             */
             float _minHeight;
+
+            std::shared_ptr<RayLib::Sound> _music;
 
     };
 }

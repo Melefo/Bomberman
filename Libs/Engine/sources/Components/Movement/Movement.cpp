@@ -11,14 +11,15 @@
 
 namespace Component
 {
-    Movement::Movement(ECS::Entity& attatchedEntity, float moveSpeed) :
-    _entity(attatchedEntity), _colliding(false), _speed(moveSpeed), _startSpeed(moveSpeed), _bonusTime(0.0f)
+    Movement::Movement(ECS::Entity& attatchedEntity, float moveSpeed, float maxSpeed) :
+    _entity(attatchedEntity), _colliding(false), _speed(moveSpeed), _startSpeed(moveSpeed), _bonusTime(0.0f), _maxSpeed(maxSpeed)
     {
         _collisionMask.push_back("Wall");
         _collisionMask.push_back("Box");
+        _collisionMask.push_back("Bomb");
     }
 
-    void Movement::Update(double, ECS::Entity&)
+    void Movement::Update(double, ECS::Entity& entity)
     {
         float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
 
@@ -30,15 +31,42 @@ namespace Component
             }
         }
 
+        // !rotate based on direction
+        Transform& transform = _entity.GetComponent<Transform>();
+        RayLib::Vector3 targetRot = RayLib::Vector3(transform.rotation.x, transform.rotation.y, 0.0f);
+
+        if (abs(direction.x) > 0.0f)
+            targetRot.y = direction.x * -90.0f;
+        if (direction.z > 0.0f)
+            targetRot.y = 0.0f;
+        else if (direction.z < 0.0f)
+            targetRot.y = 180.0f;
+
+
+        transform.rotation.Lerp(targetRot, 0.5f);
+
+
+        if (entity.HasComponent<Component::Animator>()) {
+            Animator& animator = entity.GetComponent<Component::Animator>();
+            const std::string& animState = animator.GetState();
+
+            if (direction != RayLib::Vector3() && animState == "Idle") {
+                animator.SetState("Run");
+            } else if (direction == RayLib::Vector3() && animState == "Run") {
+                animator.SetState("Idle");
+            }
+        }
     }
 
-    // todo move this to update to fix stuttering, but then fix the speed
     void Movement::FixedUpdate(ECS::Entity&)
     {
         SlipperyCollisions();
 
         if  (_entity.HasComponent<PhysicsBody>()) {
             PhysicsBody& physicsBody = _entity.GetComponent<PhysicsBody>();
+
+            if (_speed > _maxSpeed)
+                _speed = _maxSpeed;
 
             if (!_colliding) {
                 // ! cache ?
@@ -104,13 +132,16 @@ namespace Component
         _speed += bonusSpeed;
     }
 
-    bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position, std::vector<std::string> collisionMask)
+    bool Movement::CheckCollidersPos(std::vector<std::reference_wrapper<Collider>> colliders, RayLib::Vector3 position, std::vector<std::string>)
     {
+        RayLib::Vector2<float> pos2D = RayLib::Vector2<float>(position.x, position.z);
+
         for (auto it = colliders.begin(); it != colliders.end(); it++) {
-            if (it->get().IsCollidingAtPosition(position, collisionMask)) {
-                ECS::Entity& other = it->get().GetCollisionPosition(position, collisionMask);
-                if (std::find(collisionMask.begin(), collisionMask.end(), other.GetTag()) != collisionMask.end())
-                    return (true);
+            try {
+                it->get().GetCollisionPosition(pos2D);
+                return (true);
+            } catch (const Engine::Exception::EngineException&) {
+
             }
         }
         return (false);
@@ -122,4 +153,8 @@ namespace Component
 
     }
 
+    float &Movement::GetBonusTime()
+    {
+        return _bonusTime;
+    }
 }

@@ -12,6 +12,7 @@
 #include <string>
 #include "Vector2.hpp"
 #include "Color.hpp"
+#include "IAsset.hpp"
 
 namespace RayLib
 {
@@ -19,7 +20,7 @@ namespace RayLib
      * @brief Font encapsulation
      * 
      */
-    class Font {
+    class Font : public IAsset {
         public:
             /**
              * @brief Construct a new Font object
@@ -67,7 +68,15 @@ namespace RayLib
              */
             void DrawText(const std::string &text, Vector2<float> position, float fontSize, float spacing=0, Color tint=WHITE);
 
-            Vector2<float> MeasureText(std::string& text, float fontSize, float spacing);
+            /**
+             * @brief Return the size of a text with the current font
+             * 
+             * @param text 
+             * @param fontSize 
+             * @param spacing 
+             * @return Vector2<float> 
+             */
+            Vector2<float> MeasureText(std::string text, float fontSize, float spacing);
 
             /**
              * @brief Destroy the Font object

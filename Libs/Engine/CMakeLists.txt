@@ -9,7 +9,7 @@ file(GLOB_RECURSE TEST tests/**/*.cpp tests/*.cpp)
 if(MSVC)
   add_compile_options(/W4 /WX)
 else()
-  add_compile_options(-Wall -Wextra -Wshadow)
+  add_compile_options(-Wall -Wextra -Wshadow -Wshadow -Wno-missing-field-initializers)
 endif()
 
 add_library(engine
@@ -38,6 +38,6 @@ HEADER_DIRECTORIES(INC)
 target_include_directories(engine PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
 target_include_directories(engine_unit_tests PUBLIC ${raylib_SOURCE_DIR}/src ${INC})
 
-TARGET_LINK_LIBRARIES(engine encapsu ecs xmlGen)
-TARGET_LINK_LIBRARIES(engine_unit_tests encapsu ecs criterion -lgcov)
+TARGET_LINK_LIBRARIES(engine encapsu ecs xmlGen luaBind terrainGen)
+TARGET_LINK_LIBRARIES(engine_unit_tests encapsu ecs luaBind terrainGen criterion -lgcov)
 TARGET_COMPILE_OPTIONS(engine_unit_tests PUBLIC -fprofile-arcs -ftest-coverage)

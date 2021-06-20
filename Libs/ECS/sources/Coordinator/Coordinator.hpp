@@ -68,6 +68,12 @@ namespace ECS
             bool _firstRun;
 
             /**
+             * @brief If the game is running
+             * 
+             */
+            bool _gameIsRunning;
+
+            /**
              * @brief Update all entities from the current scene with the actived systems
              * 
              * @param dt The inverval in seconds from the last update
@@ -138,6 +144,17 @@ namespace ECS
             {
                 this->_systemManager.RemoveSystem<T>();
             }
+            template<typename T>
+            T& GetSystem()
+            {
+                return this->_systemManager.GetSystem<T>();
+            }
+
+            template<typename T>
+            bool HasSystem()
+            {
+                return this->_systemManager.HasSystem<T>();
+            }
             /**
              * @brief Execute FixedUpdate, Update & LateUpdate
              * 
@@ -166,18 +183,45 @@ namespace ECS
             const std::list<std::unique_ptr<Entity>>& GetEntities();
 
             /**
+             * @brief Remove components of renderer's name given
+             * 
+             * @param const std::string&
+             */
+            void RemoveEntities(const std::string &name);
+
+            /**
+             * @brief Checks if the game is running
+             * 
+             * @return bool
+             * 
+             */
+            bool IsGameRunning(void);
+
+            /**
+             * @brief set the _gameIsRunnning variable
+             * 
+             */
+            void SetGameIsRunning(bool isRunning);
+
+            /**
              * @brief Get the Current Scene object
              * 
              * @return const std::string& 
              */
-            const std::string &getCurrentScene(void);
+            const std::string& getCurrentScene(void);
 
             /**
              * @brief Set the Current Scene object
              * 
              * @param sceneName 
              */
-            void setCurrentScene(std::string &sceneName);
+            void setCurrentScene(const std::string& sceneName);
+            /**
+             * @brief Delete the scene given
+             * 
+             * @param const std::string& sceneName 
+             */
+            void DeleteScene(const std::string& sceneName);
 
             /**
              * @brief Get a Scene object from a name
@@ -185,7 +229,7 @@ namespace ECS
              * @param sceneName 
              * @return ECS::EntityManager& 
              */
-            const ECS::EntityManager &getScene(std::string &sceneName) const;
+            const ECS::EntityManager &getScene(const std::string& sceneName) const;
 
             /**
              * @brief Close Window

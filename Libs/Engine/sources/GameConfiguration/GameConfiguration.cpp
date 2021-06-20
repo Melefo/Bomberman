@@ -7,15 +7,23 @@
 
 #include "GameConfiguration.hpp"
 #include <iostream>
+#include "Coordinator.hpp"
+#include "IComponent.hpp"
 
 namespace Engine
 {
-    int GameConfiguration::_players = 0;
-    int GameConfiguration::_enemies = 0;
+    RayLib::Vector2<int> GameConfiguration::_mapSize = {15, 15};
+    int GameConfiguration::_players = 2;
+    int GameConfiguration::_IA = 0;
     bool GameConfiguration::_debugMode = false;
+    bool GameConfiguration::_isMapBasic = true;
     unsigned int GameConfiguration::_seed = 0;
     bool GameConfiguration::_gameOver = false;
     std::map<int, playerkeys> GameConfiguration::_playerKeys = {};
+    TerrainGenerator GameConfiguration::_terrainGenerator = TerrainGenerator(Engine::GameConfiguration::GetPlayers() + Engine::GameConfiguration::GetIA(),
+                                                                             Engine::GameConfiguration::GetMapSize().x, Engine::GameConfiguration::GetMapSize().y);
+    bool GameConfiguration::_droppedMap = false;
+    float GameConfiguration::_volume = 0.4f;
 
     playerkeys::playerkeys(RayLib::Input input, int key) :
     movementInput(input), actionKey(key)
@@ -55,14 +63,14 @@ namespace Engine
         _playerKeys[player] = playerkeys(RayLib::Input(input), actionKey);
     }
 
-    int GameConfiguration::GetEnemies(void)
+    int GameConfiguration::GetIA(void)
     {
-        return (_enemies);
+        return (_IA);
     }
 
-    void GameConfiguration::SetEnemies(int total)
+    void GameConfiguration::SetIA(int total)
     {
-        _enemies = total;
+        _IA = total;
     }
 
     bool GameConfiguration::GetDebugMode(void)
@@ -95,4 +103,95 @@ namespace Engine
         _gameOver = gameOver;
     }
 
+    RayLib::Vector2<int> GameConfiguration::GetMapSize(void)
+    {
+        return _mapSize;
+    }
+
+    void GameConfiguration::SetMapSize(int x, int y)
+    {
+        _mapSize.x = x;
+        _mapSize.y = y;
+    }
+
+    TerrainGenerator &GameConfiguration::GetTerrainGenerator(void)
+    {
+        return (_terrainGenerator);
+    }
+
+    bool GameConfiguration::GetIsMapBasic(void)
+    {
+        return (_isMapBasic);
+    }
+
+    void GameConfiguration::SetIsMapBasic(bool value)
+    {
+        _isMapBasic = value;
+    }
+
+    void GameConfiguration::SetDroppedMap(bool isDropped)
+    {
+        _droppedMap = isDropped;
+    }
+
+    bool GameConfiguration::GetDroppedMap(void)
+    {
+        return (_droppedMap);
+    }
+
+    void GameConfiguration::SaveMap(void)
+    {
+        // open a file called map.xml
+        std::ofstream file("./map.xml", std::ofstream::trunc | std::ofstream::out);
+
+        // get coordinator
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+        // get entities
+        const std::list<std::unique_ptr<ECS::Entity>>& entities = coordinator->GetEntities();
+        std::ostringstream oss;
+
+        for (auto it = entities.begin(); it != entities.end(); it++) {
+            if (it->get()->GetTag() != "Wall" && it->get()->GetTag() != "Box")
+                continue;
+            std::vector<std::reference_wrapper<std::unique_ptr<ECS::IComponent>>> components = it->get()->GetComponents();
+            oss << "<Entity>";
+
+            oss << "<tag>" << it->get()->GetTag() << "</tag>";
+            for (auto cmp = components.begin(); cmp != components.end(); cmp++) {
+                IXMLSerializable& obj = *cmp->get();
+                oss << obj;
+            }
+            oss << "</Entity>";
+        }
+        file << "<Entities>";
+        file << oss.str();
+        file << "</Entities>";
+        file.close();
+    }
+
+    void GameConfiguration::SaveMap(const std::string& terrainPath)
+    {
+        if (!_terrainGenerator.isGenerated())
+            return;
+        std::ofstream file(terrainPath + ".txt", std::ofstream::trunc | std::ofstream::out);
+        std::ostringstream oss;
+
+        const std::vector<std::string> terrain = _terrainGenerator.getMap();
+
+        for (auto line : terrain) {
+            oss << line << std::endl;
+        }
+        file << oss.str();
+        file.close();
+    }
+
+    float GameConfiguration::GetVolume(void)
+    {
+        return (_volume);
+    }
+
+    void GameConfiguration::SetVolume(float volume)
+    {
+        _volume = volume;
+    }
 }

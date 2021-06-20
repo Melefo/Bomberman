@@ -14,7 +14,7 @@
 #include "Entity.hpp"
 #include "Collider.hpp"
 #include "Explosion.hpp"
-#include "BoxCollider.hpp"
+#include "SquareCollider.hpp"
 #include "Transform.hpp"
 #include "Renderer.hpp"
 #include "Window.hpp"
@@ -36,7 +36,7 @@ namespace Component
              * @param dropBombKey Key to press
              * @param dropDelay Cooldown for bomb-dropping
              */
-            DropBomb(float dropDelay=2.5f);
+            DropBomb(ECS::Entity& self, float dropDelay=2.5f, float minDelay = 1.0f, float maxBombs = 5.0f);
             /**
              * @brief Destroy the Drop Bomb object
              * 
@@ -81,6 +81,22 @@ namespace Component
             int GetBombNumber();
 
             /**
+             * @brief Get the time of the range bonus
+             * 
+             * @return float&
+             * 
+             */
+            float &GetBonusTimeRange();
+
+            /**
+             * @brief Get the time of the cooldown bonus
+             * 
+             * @return float&
+             * 
+             */
+            float &GetBonusTimeCoolDown();
+
+            /**
              * @brief Add bonusBombs to be dropped, for duration seconds
              * 
              * @param bonusBombs 
@@ -98,7 +114,6 @@ namespace Component
             float GetDropDelay(void);
 
             std::ostream &operator<<(std::ostream &os) override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
             /**
@@ -107,6 +122,7 @@ namespace Component
              */
             void Update();
 
+            int RoundToNearest10(float num);
 
             /**
              * @brief Cooldown timer
@@ -131,13 +147,19 @@ namespace Component
             int _bombNumber;
             int _defaultBombNumber;
             // ! appliqué aux deux bonus possibles...
-            float _bonusTime;
+            float _bonusTimeRange;
+            float _bonusTimeCoolDown;
             float _defaultDropDelay;
             /**
              * @brief Bomb cooldown
              * 
              */
             float _dropDelay;
+
+            float _minDelay;
+            float _maxBombs;
+
+            ECS::Entity& _self;
     };
 }
 

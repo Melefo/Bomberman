@@ -6,6 +6,8 @@
 */
 
 #include "RangeBoost.hpp"
+#include "AIAlgo.hpp"
+#include "EntityFactory.hpp"
 
 namespace Component
 {
@@ -15,14 +17,22 @@ namespace Component
 
     void RangeBoost::OnPickup(ECS::Entity& collision)
     {
-        // get AController from collision
-        //AController& acontroller = collision.GetComponent<PlayerInputs>();
-        if (collision.GetTag() == "Player") {
-            AController& playerInputs = collision.GetComponent<PlayerInputs>();
-            IncrementRange(playerInputs);
-        }
-        // else if tag AI Controller ...
+        if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
+            AController& controller = collision.GetComponent<PlayerInputs>();
+            if (controller.GetDropBomb().GetBonusTimeRange() > 0.0) {
+                IncrementRange(controller);
+                return;
+            }
+            IncrementRange(controller);
 
+            EntityFactory entityFactory(*ECS::Coordinator::GetInstance());
+            entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/RangePickUp_texture.png", controller.GetDropBomb().GetBonusTimeRange());
+            entityFactory.createHUDBonusBar(controller, getPlayerNbr(collision.GetTag()), "RangeUp", controller.GetDropBomb().GetBonusTimeRange());
+
+        } else if (collision.GetTag().find("AI") != std::string::npos) {
+            AController& aiController = collision.GetComponent<AIAlgo>();
+            IncrementRange(aiController);
+        }
     }
 
     void RangeBoost::IncrementRange(AController& acontroller)
@@ -30,7 +40,7 @@ namespace Component
         // get movement
         DropBomb& dropBomb = acontroller.GetDropBomb();
 
-        std::cout << "Applying Range boost" << std::endl;
+        //std::cout << "Applying Range boost" << std::endl;
 
         //! soit nombre fixe, soit get number + 1
         dropBomb.BoostBombNumber(3, 10.0f);

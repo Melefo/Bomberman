@@ -7,15 +7,16 @@
 
 #include "DropBomb.hpp"
 #include <iostream>
+#include "Drawable3D.hpp"
 #include "CollisionSystem.hpp"
 #include "Camera.hpp"
 
 namespace Component
 {
-    DropBomb::DropBomb(float delay)
+    DropBomb::DropBomb(ECS::Entity& self, float delay, float minDelay, float maxBombs)
     : timeToDrop(0.0f), _coordinator(ECS::Coordinator::GetInstance()),
      _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _bombNumber(2), _defaultBombNumber(2),
-     _bonusTime(0.0f), _defaultDropDelay(delay), _dropDelay(delay)
+     _bonusTimeRange(0.0f), _bonusTimeCoolDown(0.0f), _defaultDropDelay(delay), _dropDelay(delay), _minDelay(minDelay), _maxBombs(maxBombs), _self(self)
     {
     }
 
@@ -24,18 +25,20 @@ namespace Component
         ECS::Entity& entity = coordinator.CreateEntity();
         entity.SetTag("Bomb");
 
-        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(-90, 0, 0), RayLib::Vector3(2, 2, 2));
-        entity.AddComponent<Renderer>("Bomb");
-        //! si on spawn une bombe sur le joueur, on est bloqués
-        //entity.AddComponent<Collider, BoxCollider>(entity, _coordinator);
-        entity.AddComponent<IBehaviour, Explosion>(entity, radius, type);
+        entity.AddComponent<Transform>(RayLib::Vector3(), RayLib::Vector3(90, 0, 0), RayLib::Vector3(2, 2, 2));
+        entity.AddComponent<IBehaviour, Explosion>(entity, _self, radius, type);
         return (entity);
     }
 
     void DropBomb::InstantiateBomb(RayLib::Vector3 position, Explosion::ExplosionType explosionType)
     {
         float explosionRadius = 2.50f;
-        float boxSize = 7.50f;
+        float boxSize = 10.0f;
+
+        if (_bombNumber > _maxBombs)
+            _bombNumber = static_cast<int>(_maxBombs);
+
+        position = RayLib::Vector3(static_cast<float>(RoundToNearest10(position.x)), 0.0f, static_cast<float>(RoundToNearest10(position.z)));
 
         // spawn a bunch of small bombs in a cross pattern of size radius
         // create a bunch of directions vectors
@@ -50,7 +53,10 @@ namespace Component
 
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
+        // ! for chainbomb feature
+        // Explosion& firstExplo = firstBomb.GetComponent<Explosion>();
         firstBomb.GetComponent<Transform>().position = position;
+        firstBomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
         bool reachedWall = false;
 
@@ -58,12 +64,15 @@ namespace Component
             reachedWall = false;
             for (float i = 0; i < _bombNumber; i++) {
                 // if you encounter a wall, stop that direction
-                std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapSphere(*coordinator.get(), position + 
-                (*dir) * i * boxSize, explosionRadius);
+
+                RayLib::Vector3 wallCheckPos = position + (*dir) * i * boxSize;
+                std::vector<std::reference_wrapper<ECS::Entity>> entitiesAtPosition = CollisionSystem::OverlapCircle(*coordinator.get(),
+                                                                                                                     RayLib::Circle(RayLib::Vector2<float>(wallCheckPos.x, wallCheckPos.z),
+                                                                                                                                    explosionRadius));
 
                 for (auto entity = entitiesAtPosition.begin(); entity != entitiesAtPosition.end(); entity++) {
                     if (entity->get().GetTag() == "Wall") {
-                        std::cout << "Stopped cross" << std::endl;
+                        //std::cout << "Stopped cross" << std::endl;
                         reachedWall = true;
                     }
                 }
@@ -73,26 +82,47 @@ namespace Component
 
                 // create small bombs of radius boxsize
                 ECS::Entity& bomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
-
                 // spacing = boxsize so radius * boxsize
                 bomb.GetComponent<Transform>().position = position + (*dir) * i * boxSize;
+
+                // ! for chain bombs feature
+                //firstExplo.AddChildExplosion(bomb.GetComponent<Explosion>());
             }
         }
+    }
+
+    int DropBomb::RoundToNearest10(float num)
+    {
+        float dec = num - std::floor(num);
+        int rounded = static_cast<int>(std::floor(num));
+
+        if (rounded % 10 < 5) {
+            rounded = (rounded / 10) * 10;
+        } else if(rounded % 10 ==5) {
+            if(dec > 0)
+                rounded = (((rounded + 10) / 10) * 10);
+            else
+                rounded = (rounded / 10) * 10;
+        } else {
+            rounded = (((rounded + 10) / 10) * 10);
+        }
+        return (rounded);
     }
 
     void DropBomb::Update()
     {
         float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
 
-        if (_bonusTime > 0.0f) {
-            _bonusTime -= frameTime;
-        } else {
-            if (_bombNumber != _defaultBombNumber) {
-                _bombNumber = _defaultBombNumber;
-            }
-            if (_dropDelay != _defaultDropDelay) {
-                _dropDelay = _defaultDropDelay;
-            }
+        if (_dropDelay < _minDelay)
+            _dropDelay = _minDelay;
+
+        if (_bonusTimeRange > 0.0f) {
+            _bonusTimeRange -= frameTime;
+            _bombNumber = _defaultBombNumber;
+        }
+        if (_bonusTimeCoolDown > 0.0f) {
+            _bonusTimeCoolDown -= frameTime;
+            _dropDelay = _defaultDropDelay;
         }
     }
 
@@ -109,12 +139,22 @@ namespace Component
     void DropBomb::BoostBombNumber(int bonusBombs, float duration)
     {
         _bombNumber = bonusBombs;
-        _bonusTime = duration;
+        _bonusTimeRange = duration;
     }
 
     void DropBomb::BoostBombCooldown(float bonusDelay, float duration)
     {
         _dropDelay = bonusDelay;
-        _bonusTime = duration;
+        _bonusTimeCoolDown = duration;
+    }
+
+    float &DropBomb::GetBonusTimeRange()
+    {
+        return _bonusTimeRange;
+    }
+
+    float &DropBomb::GetBonusTimeCoolDown()
+    {
+        return _bonusTimeCoolDown;
     }
 }

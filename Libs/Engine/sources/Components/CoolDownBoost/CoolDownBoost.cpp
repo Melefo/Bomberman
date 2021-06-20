@@ -6,6 +6,8 @@
 */
 
 #include "CoolDownBoost.hpp"
+#include "AIAlgo.hpp"
+#include "EntityFactory.hpp"
 
 namespace Component
 {
@@ -15,14 +17,22 @@ namespace Component
 
     void CoolDownBoost::OnPickup(ECS::Entity& collision)
     {
-        // get AController from collision
-        //AController& acontroller = collision.GetComponent<PlayerInputs>();
-        if (collision.GetTag() == "Player") {
-            AController& playerInputs = collision.GetComponent<PlayerInputs>();
-            DecrementCooldown(playerInputs);
-        }
-        // else if tag AI Controller ...
+        if (collision.GetTag().find("PlayerEntity") != std::string::npos) {
+            AController& controller = collision.GetComponent<PlayerInputs>();
+            if (controller.GetDropBomb().GetBonusTimeCoolDown() > 0.0) {
+                DecrementCooldown(controller);
+                return;
+            }
+            DecrementCooldown(controller);
 
+            EntityFactory entityFactory(*ECS::Coordinator::GetInstance());
+            entityFactory.createHUDBonusIcon(controller, getPlayerNbr(collision.GetTag()), "../assets/PickUps/CoolDownPickUp_texture.png", controller.GetDropBomb().GetBonusTimeCoolDown());
+            entityFactory.createHUDBonusBar(controller, getPlayerNbr(collision.GetTag()), "CoolDown", controller.GetDropBomb().GetBonusTimeCoolDown());
+
+        } else if (collision.GetTag().find("AI") != std::string::npos) {
+            AController& aiController = collision.GetComponent<AIAlgo>();
+            DecrementCooldown(aiController);
+        }
     }
 
     void CoolDownBoost::DecrementCooldown(AController& acontroller)
@@ -30,7 +40,7 @@ namespace Component
         // get movement
         DropBomb& dropBomb = acontroller.GetDropBomb();
 
-        std::cout << "Applying cooldown boost" << std::endl;
+        //std::cout << "Applying cooldown boost" << std::endl;
 
         //! soit nombre fixe, soit get delay - 1
         dropBomb.BoostBombCooldown(1.5f, 5.0f);

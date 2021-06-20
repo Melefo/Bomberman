@@ -41,12 +41,34 @@ namespace Component
              */
             void LateUpdate(double dt, ECS::Entity& entity) override;
 
-            void SaveMap(void);
+            /**
+             * @brief Remove old entities, and parse the file into entities
+             * 
+             * @param path 
+             */
+            void ParseXMLEntities(const std::string& path);
+            /**
+             * @brief Remove old entities, use the map given to create entities
+             * 
+             * @param path 
+             */
+            void ParseTerrain(const std::string& path);
 
+            /**
+             * @brief Checks if the game is over
+             * 
+             * @return true 
+             * @return false 
+             */
             bool CheckGameOver(void);
 
+            /**
+             * @brief Reset all PlayerEntyties animation to "Idle"
+             * 
+             */
+            void ResetPlayersAnimations();
+
             std::ostream &operator<<(std::ostream &os) override {return os;};
-            std::istream &operator>>(std::istream &is) override {return is;};
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override {return ptree;};
 
 
@@ -54,6 +76,8 @@ namespace Component
         private:
             std::unique_ptr<RayLib::Window>& _window;
             std::unique_ptr<ECS::Coordinator>& _coordinator;
+
+            int _nbrPlayersAlive;
     };
 }
 
