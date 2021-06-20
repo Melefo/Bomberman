@@ -117,6 +117,13 @@ namespace Component
              * 
              */
             unsigned int power;
+
+            /**
+             * @brief Spawn bomb particles
+             * 
+             */
+            void SpawnParticles(void);
+
         protected:
         private:
             /**
