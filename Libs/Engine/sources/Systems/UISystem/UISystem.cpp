@@ -19,7 +19,7 @@ namespace Component
         AddDependency<Transform>();
     }
 
-    void UISystem::Update(double, ECS::Entity& entity)
+    void UISystem::LateUpdate(double, ECS::Entity& entity)
     {
         Transform& transform = entity.GetComponent<Transform>();
 
