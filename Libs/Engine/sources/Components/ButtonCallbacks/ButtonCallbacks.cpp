@@ -96,7 +96,7 @@ namespace Component
 
         terrainGeneratorRef.clearMap();
         terrainGeneratorRef.setMapSize(Engine::GameConfiguration::GetMapSize());         //TOFIX : Resizable Map
-        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers());
+        terrainGeneratorRef.setPlayersNumber(Engine::GameConfiguration::GetPlayers()+Engine::GameConfiguration::GetIA());
         if (seed != -1) {
             Engine::GameConfiguration::SetSeed(seed);
         } else
