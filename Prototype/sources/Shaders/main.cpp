@@ -23,6 +23,7 @@
 #include "TerrainShader.hpp"
 #include "AssetCache.hpp"
 #include "Drawable3D.hpp"
+#include <rlgl.h>
 #include <iostream>
 
 int applyShaderToCube(void)
@@ -262,7 +263,7 @@ int basic_lighting_remastered(void)
     return 0;
 }
 
-int floorShader()
+int mapFloorShader()
 {
     std::string protoShadersPath = "../assets/shaders/";
 
@@ -355,11 +356,80 @@ int glowShader()
     return (0);
 }
 
+int skyboxShader()
+{
+    std::string protoShadersPath = "../assets/shaders/";
+
+    const int screenWidth = 1920;
+    const int screenHeight = 1080;
+    
+    const int boxSize = 10;
+
+    RayLib::Vector2<float> mapSize(10000, 10000);
+
+    std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+
+    RayLib::Camera3D camera = RayLib::Camera3D(RayLib::Vector3(0.0f, 20.0f, -50.0f), RayLib::Vector3(0.0f, 10.0f, 0.0f));
+    std::unique_ptr<RayLib::Window>& window = RayLib::Window::GetInstance(RayLib::Vector2<int>(screenWidth, screenHeight), "Prototype");
+
+    coordinator->AddSystem<Component::RenderSystem>();
+    
+    RayLib::Mesh cubeMesh(RayLib::Vector3(1.0f, 1.0f, 1.0f));
+
+    std::shared_ptr<RayLib::Shader> sbShader = AssetCache::GetAsset<RayLib::Shader>("../assets/shaders/skybox");
+    
+    ECS::Entity& cubeMap = coordinator->CreateEntity();
+    cubeMap.AddComponent<Component::Transform>();
+    cubeMap.AddComponent<Component::Drawable3D>(cubeMesh);
+    cubeMap.GetComponent<Component::Drawable3D>().SetMaterialShader(0, *sbShader);
+
+    RayLib::Mesh cuboidMesh(RayLib::Vector3(10.0f, 10.0f, 10.0f));
+    ECS::Entity& cube = coordinator->CreateEntity();
+    cube.AddComponent<Component::Transform>();
+    cube.AddComponent<Component::Drawable3D>(cuboidMesh);
+
+    sbShader->SetValue(sbShader->GetLocation("environmentMap"), MATERIAL_MAP_CUBEMAP, SHADER_UNIFORM_INT);
+    sbShader->SetValue(sbShader->GetLocation("doGamma"), 0, SHADER_UNIFORM_INT);
+    sbShader->SetValue(sbShader->GetLocation("vflipped"), 1, SHADER_UNIFORM_INT);
+
+    std::shared_ptr<RayLib::Shader> cmShader = AssetCache::GetAsset<RayLib::Shader>("../assets/shaders/cubemap");
+
+    cmShader->SetValue(cmShader->GetLocation("equirectangularMap"), 0, SHADER_UNIFORM_INT);
+
+    RayLib::Texture panorama("../assets/SkyBox/8f0155212ad2f2ae.png");
+    RayLib::Texture texture(*cmShader, panorama, 1024, PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
+
+    cubeMap.GetComponent<Component::Drawable3D>().SetMaterialTexture(0, MATERIAL_MAP_CUBEMAP, texture);
+
+    window->SetTargetFPS(60);
+    camera.SetCameraMode(CAMERA_FIRST_PERSON);
+
+    while (!window->WindowShouldClose())
+    {
+        camera.Update();
+
+        window->BeginDrawing();
+
+            window->ClearBackground(RAYWHITE);
+            camera.BeginMode();
+            rlDisableBackfaceCulling();
+            rlDisableDepthMask();
+            coordinator->Run();
+            rlEnableBackfaceCulling();
+            rlEnableDepthMask();
+            camera.EndMode();
+
+        window->EndDrawing();
+    }
+    return (0);
+}
+
 int main(void)
 {
     // applyShaderToCube();
-    allBlue();
+    //allBlue();
     // basic_lighting_remastered();
-    // floorShader();
+    // mapFloorShader();
     // glowShader();
+    skyboxShader();
 }
