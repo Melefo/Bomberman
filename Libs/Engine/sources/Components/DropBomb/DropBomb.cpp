@@ -54,7 +54,7 @@ namespace Component
         // create a bomb at position
         ECS::Entity& firstBomb = CreateBomb(*coordinator.get(), explosionRadius, explosionType);
         // ! for chainbomb feature
-        // Explosion& firstExplo = firstBomb.GetComponent<Explosion>();
+        Explosion& firstExplo = firstBomb.GetComponent<Explosion>();
         firstBomb.GetComponent<Transform>().position = position;
         firstBomb.AddComponent<Component::Drawable3D>("../assets/bomb/Bomb_model.iqm", "../assets/bomb/Bomb_texture.png");
 
@@ -86,7 +86,7 @@ namespace Component
                 bomb.GetComponent<Transform>().position = position + (*dir) * i * boxSize;
 
                 // ! for chain bombs feature
-                //firstExplo.AddChildExplosion(bomb.GetComponent<Explosion>());
+                firstExplo.AddChildExplosion(bomb.GetComponent<Explosion>());
             }
         }
     }
@@ -113,15 +113,23 @@ namespace Component
     {
         float frameTime = RayLib::Window::GetInstance(0, "")->GetFrameTime();
 
+
         if (_dropDelay < _minDelay)
             _dropDelay = _minDelay;
 
         if (_bonusTimeRange > 0.0f) {
             _bonusTimeRange -= frameTime;
+        }
+
+        if (_bonusTimeRange <= 0.0f) {
             _bombNumber = _defaultBombNumber;
         }
+
         if (_bonusTimeCoolDown > 0.0f) {
             _bonusTimeCoolDown -= frameTime;
+        }
+
+        if (_bonusTimeCoolDown <= 0.0f) {
             _dropDelay = _defaultDropDelay;
         }
     }

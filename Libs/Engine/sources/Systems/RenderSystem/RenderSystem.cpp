@@ -28,22 +28,8 @@ namespace Component
     {
         if (entity.OfType<IUIObject>().size() > 0)
             return;
-        if (entity.HasComponent<Animator>())
-            return;
-
-        Transform& transform = entity.GetComponent<Transform>();
-        entity.GetComponent<Drawable3D>().Draw(transform.position, transform.scale, WHITE);
-
-    }
-
-    void RenderSystem::FixedUpdate(ECS::Entity &entity)
-    {
         Transform& transform = entity.GetComponent<Transform>();
         Drawable3D& drawable = entity.GetComponent<Drawable3D>();
-
-        //! on ne render pas ici les UI, pour le moment...
-        if (entity.OfType<IUIObject>().size() > 0)
-            return;
 
         drawable.RotateModel(transform.rotation);
 
@@ -55,6 +41,11 @@ namespace Component
             ModelShader& modelShader = entity.GetComponent<ModelShader>();
             modelShader.Update();
         }
+
         drawable.Draw(transform.position, transform.scale, WHITE);
+    }
+
+    void RenderSystem::FixedUpdate(ECS::Entity &)
+    {
     }
 }

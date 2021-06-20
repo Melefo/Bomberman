@@ -117,6 +117,13 @@ namespace Component
              * 
              */
             unsigned int power;
+
+            /**
+             * @brief Spawn bomb particles
+             * 
+             */
+            void SpawnParticles(void);
+
         protected:
         private:
             /**
@@ -162,6 +169,8 @@ namespace Component
             std::shared_ptr<RayLib::Sound> _explosionSound;
 
             std::vector<std::reference_wrapper<Explosion>> _childExplosions;
+
+            bool _exploding;
 
     };
 }

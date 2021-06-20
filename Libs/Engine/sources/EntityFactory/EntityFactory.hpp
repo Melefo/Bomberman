@@ -92,11 +92,20 @@ class EntityFactory {
         ECS::Entity& createHUDText(Component::AController &controller, int nbrOfThePlayer);
 
         /**
+         * @brief Create a HUD part for the background
+         * 
+         * @param Component::AController & the controller the HUD is linked to
+         * @param int The n th player. So the function knows where to put the hud
+         * @return ECS::Entity::& The entity created
+         */
+        ECS::Entity& createHUDBackground(int nbrOfThePlayer);
+
+        /**
          * @brief Create a AI object
          * 
          * @return ECS::Entity& 
          */
-        ECS::Entity& createAI();
+        ECS::Entity& createAI(int nbrAI);
 
         /**
          * @brief Create a HUD part with a bonus icon
@@ -160,6 +169,10 @@ class EntityFactory {
 
         ECS::Entity& createCamera(RayLib::Camera3D &camera, const std::string& musicPath = "");
 
+        ECS::Entity& createParticle(const std::string& texturePath, RayLib::Vector2<float> minMaxSize,
+                                    RayLib::Vector2<int> minMaxSides, float startSpeed=2.0f,
+                                    float lifeTime=1.5f);
+  
         ECS::Entity& createFloor(RayLib::Vector2<float> mapSize);
 
     protected:

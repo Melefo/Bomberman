@@ -48,7 +48,7 @@ namespace Component
                 _coordinator->SetGameIsRunning(false);
                 _coordinator->GetSystem<Component::PhysicsSystem>().SetStatus(false);
                 ResetPlayersAnimations();
-                Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), _nbrPlayersAlive == 0? "TIE": "YOU WON, CONGRATS!");
+                Scenes::InitGameOver(*_coordinator, Camera::GetMainCamera(), _nbrPlayersAlive == 0? "TIE": "YOU WON, CONGRATS");
                 //_coordinator->GetSystem<Component::BehaviourSystem>().ToggleStatus();
             }
         }

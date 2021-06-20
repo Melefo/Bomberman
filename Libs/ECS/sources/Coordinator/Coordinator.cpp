@@ -34,7 +34,6 @@ namespace ECS
 
     void Coordinator::Update(double dt)
     {
-
         for (auto &pair : this->_systemManager.GetSystems())
         {
             if (!pair.second->GetStatus())

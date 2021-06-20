@@ -78,6 +78,9 @@ namespace Component
             // set rotation
             void RotateModel(RayLib::Vector3 rotation);
 
+            void SetColor(RayLib::Color color);
+            RayLib::Color& GetColor(void);
+
             std::ostream &operator<<(std::ostream &os) override;
             boost::property_tree::ptree& operator<<(boost::property_tree::ptree &ptree) override;
 
@@ -86,6 +89,7 @@ namespace Component
             std::shared_ptr<RayLib::Model> _model;
             std::shared_ptr<RayLib::Texture> _texture;
             std::shared_ptr<RayLib::Shader> _shader;
+            RayLib::Color _color;
 
     };
 }

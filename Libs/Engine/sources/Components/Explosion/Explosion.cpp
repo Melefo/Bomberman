@@ -8,13 +8,15 @@
 #include "Explosion.hpp"
 #include "Drawable3D.hpp"
 #include <iostream>
+#include "EntityFactory.hpp"
 #include "GameConfiguration.hpp"
 
 namespace Component
 {
     Explosion::Explosion(ECS::Entity& entity, ECS::Entity& parent, float radius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity), _transform(_myEntity.GetComponent<Transform>()),
-    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent), _explosionSound(AssetCache::GetAsset<RayLib::Sound>("../assets/bomb/Bomb_sound_explosion.wav"))
+    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent), _explosionSound(AssetCache::GetAsset<RayLib::Sound>("../assets/bomb/Bomb_sound_explosion.wav")),
+    _exploding(false)
     {
         _radius = radius;
         type = startType;
@@ -40,12 +42,18 @@ namespace Component
 
     void Explosion::Explode(void)
     {
+        //! évite les boucles inf de bombes qui s'entre-explosent
+        if (_exploding)
+            return;
+
+        _exploding = true;
+
         // ! chain bombs feature
-        /*if (_explosionTimer > 0.05f) {
+        if (_explosionTimer > 0.05f) {
             for (auto childExplo : _childExplosions) {
                 childExplo.get().Explode();
             }
-        }*/
+        }
 
         _explosionSound->Play();
 
@@ -53,19 +61,46 @@ namespace Component
         std::vector<std::reference_wrapper<ECS::Entity>> entities = CollisionSystem::OverlapCircle(*_coordinator.get(), areaOfEffect);
 
         // ! j'ai pas trouvé mieux pour que la box soit récupérée
-        for (auto it = entities.begin(); it != entities.end(); it++) {
-            if (it->get().HasComponent<Destructible>()) {
-                Destructible& destructible = it->get().GetComponent<Destructible>();
+        for (auto it = entities.begin(); it != entities.end();) {
+
+            auto& entity = it->get();
+            it++;
+
+            if (entity.HasComponent<Destructible>()) {
+                Destructible& destructible = entity.GetComponent<Destructible>();
                 destructible.TakeDamage(power);
-            } else if (it->get().HasComponent<Box>()) {
-                Box& destructible = it->get().GetComponent<Box>();
+                continue;
+            } else if (entity.HasComponent<Box>()) {
+                Box& destructible = entity.GetComponent<Box>();
                 destructible.TakeDamage(power);
+                continue;
             }
 
-            // ? chain bombs feature
-
+            if (entity.HasComponent<Explosion>() && entity.GetId() != _myEntity.GetId()) {
+                entity.GetComponent<Explosion>().Explode();
+                continue;
+            }
         }
+
+        SpawnParticles();
+
         _myEntity.Dispose();
+    }
+
+    void Explosion::SpawnParticles(void)
+    {
+        std::unique_ptr<ECS::Coordinator>& coordinator = ECS::Coordinator::GetInstance();
+
+        // create a factory
+        EntityFactory factory(*coordinator.get());
+
+        for (int i = 0; i < 10; i++) {
+            ECS::Entity& particle = factory.createParticle("../assets/bomb/Bomb_texture.png",
+                                                           RayLib::Vector2<float>(1.0f, 1.5f),
+                                                           RayLib::Vector2<int>(4, 5), 4.0f, 0.5f);
+            Transform& myTransform = _myEntity.GetComponent<Transform>();
+            particle.GetComponent<Transform>().position = myTransform.position;
+        }
     }
 
     void Explosion::AddChildExplosion(Explosion& childExplo)
