@@ -163,6 +163,8 @@ namespace Component
 
             std::vector<std::reference_wrapper<Explosion>> _childExplosions;
 
+            bool _exploding;
+
     };
 }
 

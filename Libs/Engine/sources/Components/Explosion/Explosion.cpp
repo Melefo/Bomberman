@@ -14,7 +14,8 @@ namespace Component
 {
     Explosion::Explosion(ECS::Entity& entity, ECS::Entity& parent, float radius, Explosion::ExplosionType startType, unsigned int startPower, float timer) :
     _window(RayLib::Window::GetInstance(RayLib::Vector2<int>(800, 450), "Prototype")), _myEntity(entity), _transform(_myEntity.GetComponent<Transform>()),
-    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent), _explosionSound(AssetCache::GetAsset<RayLib::Sound>("../assets/bomb/Bomb_sound_explosion.wav"))
+    _coordinator(ECS::Coordinator::GetInstance()), _parent(parent), _explosionSound(AssetCache::GetAsset<RayLib::Sound>("../assets/bomb/Bomb_sound_explosion.wav")),
+    _exploding(false)
     {
         _radius = radius;
         type = startType;
@@ -40,12 +41,18 @@ namespace Component
 
     void Explosion::Explode(void)
     {
+        //! évite les boucles inf de bombes qui s'entre-explosent
+        if (_exploding)
+            return;
+
+        _exploding = true;
+
         // ! chain bombs feature
-        /*if (_explosionTimer > 0.05f) {
+        if (_explosionTimer > 0.05f) {
             for (auto childExplo : _childExplosions) {
                 childExplo.get().Explode();
             }
-        }*/
+        }
 
         _explosionSound->Play();
 
@@ -62,8 +69,9 @@ namespace Component
                 destructible.TakeDamage(power);
             }
 
-            // ? chain bombs feature
-
+            if (it->get().HasComponent<Explosion>() && it->get().GetId() != _myEntity.GetId()) {
+                it->get().GetComponent<Explosion>().Explode();
+            }
         }
         _myEntity.Dispose();
     }
