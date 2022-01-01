@@ -1,10 +1,5 @@
 <p align="center"><img src="./assets/Logo.png"></p>
 
-<p align="center">
-<a href="https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/build.yml"><img src="https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/build.yml/badge.svg" alt="Compilation on Linux"></a>
-<a href="https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/buildwin.yml"><img src="https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/buildwin.yml/badge.svg" alt="Compilation on Windows"></a>
-<a href="https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/test.yml"><img src="https://github.com/EpitechIT2020/B-YEP-400-NAN-4-1-indiestudio-victor.trencic/actions/workflows/test.yml/badge.svg" alt="Run unit tests"></a>
-</p>
 
 Bomberman is a project where we try to do an Bomberman-like game with a homemade ECS and a Raylib encapsulation
 
